@@ -87,7 +87,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/certificateAuthority";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudRedisQuery_ProjectsLocationsClustersGetCertificateAuthority *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

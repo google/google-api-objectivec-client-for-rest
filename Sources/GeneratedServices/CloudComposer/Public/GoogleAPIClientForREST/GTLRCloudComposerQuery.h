@@ -519,6 +519,63 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists workloads in a Cloud Composer environment. Workload is a unit that
+ *  runs a single Composer component. This method is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.workloads.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsWorkloadsList : GTLRCloudComposerQuery
+
+/**
+ *  Optional. The list filter. Currently only supports equality on the type
+ *  field. The value of a field specified in the filter expression must be one
+ *  ComposerWorkloadType enum option. It's possible to get multiple types using
+ *  "OR" operator, e.g.: "type=SCHEDULER OR type=CELERY_WORKER". If not
+ *  specified, all items are returned.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The maximum number of environments to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The environment name to get workloads for, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_ListWorkloadsResponse.
+ *
+ *  Lists workloads in a Cloud Composer environment. Workload is a unit that
+ *  runs a single Composer component. This method is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param parent Required. The environment name to get workloads for, in the
+ *    form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsWorkloadsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  List ImageVersions for provided location.
  *
  *  Method: composer.projects.locations.imageVersions.list

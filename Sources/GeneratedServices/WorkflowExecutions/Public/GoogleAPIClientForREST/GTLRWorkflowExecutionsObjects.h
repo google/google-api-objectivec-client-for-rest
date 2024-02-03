@@ -423,6 +423,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
  */
 @property(nonatomic, copy, nullable) NSString *callLogLevel;
 
+/** Output only. Marks the creation of the execution. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. If set to true, the execution will not be backlogged when the
+ *  concurrency quota is exhausted. The backlog execution starts when the
+ *  concurrency quota becomes available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableConcurrencyQuotaOverflowBuffering;
+
 /** Output only. Measures the duration of the execution. */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -721,9 +733,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  Optional. ID of this message, assigned by the server when the message is
- *  published. Guaranteed to be unique within the topic. This value may be read
- *  by a subscriber that receives a `PubsubMessage` via a `Pull` call or a push
+ *  ID of this message, assigned by the server when the message is published.
+ *  Guaranteed to be unique within the topic. This value may be read by a
+ *  subscriber that receives a `PubsubMessage` via a `Pull` call or a push
  *  delivery. It must not be populated by the publisher in a `Publish` call.
  */
 @property(nonatomic, copy, nullable) NSString *messageId;
@@ -741,9 +753,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
 @property(nonatomic, copy, nullable) NSString *orderingKey;
 
 /**
- *  Optional. The time at which the message was published, populated by the
- *  server when it receives the `Publish` call. It must not be populated by the
- *  publisher in a `Publish` call.
+ *  The time at which the message was published, populated by the server when it
+ *  receives the `Publish` call. It must not be populated by the publisher in a
+ *  `Publish` call.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
 

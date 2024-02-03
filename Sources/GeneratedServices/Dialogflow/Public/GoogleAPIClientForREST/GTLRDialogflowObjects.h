@@ -5421,6 +5421,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  If `true`, the request will opt out for STT conformer model migration. This
  *  field will be deprecated once force migration takes place in June 2024.
+ *  Please refer to [Dialogflow CX Speech model
+ *  migration](https://cloud.google.com/dialogflow/cx/docs/concept/speech-model-migration).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9621,6 +9623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  If `true`, the request will opt out for STT conformer model migration. This
  *  field will be deprecated once force migration takes place in June 2024.
+ *  Please refer to [Dialogflow CX Speech model
+ *  migration](https://cloud.google.com/dialogflow/cx/docs/concept/speech-model-migration).
  *
  *  Uses NSNumber of boolValue.
  */

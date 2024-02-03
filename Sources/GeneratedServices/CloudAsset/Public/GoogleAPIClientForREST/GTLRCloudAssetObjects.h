@@ -1557,7 +1557,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2147,6 +2151,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedIamPolicy : GTLRObject
 
 /**
+ *  The asset type of the
+ *  AnalyzeOrgPolicyGovernedAssetsResponse.GovernedIamPolicy.attached_resource.
+ *  Example: `cloudresourcemanager.googleapis.com/Project` See [Cloud Asset
+ *  Inventory Supported Asset
+ *  Types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for all supported asset types.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/**
  *  The full resource name of the resource on which this IAM policy is set.
  *  Example:
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
@@ -2188,6 +2202,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  AnalyzeOrgPolicyGovernedAssetsRequest.constraint.
  */
 @interface GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedResource : GTLRObject
+
+/**
+ *  The asset type of the
+ *  AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource.full_resource_name
+ *  Example: `cloudresourcemanager.googleapis.com/Project` See [Cloud Asset
+ *  Inventory Supported Asset
+ *  Types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for all supported asset types.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/** The effective tags on this resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_EffectiveTagDetails *> *effectiveTags;
 
 /**
  *  The folder(s) that this resource belongs to, in the format of
@@ -2450,12 +2477,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicy *consolidatedPolicy;
 
+/** The effective tags on this resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_EffectiveTagDetails *> *effectiveTags;
+
+/**
+ *  The folder(s) that this resource belongs to, in the format of
+ *  folders/{FOLDER_NUMBER}. This field is available when the resource belongs
+ *  (directly or cascadingly) to one or more folders.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
+
 /**
  *  The [full resource name]
  *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) of an
  *  organization/folder/project resource.
  */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  The organization that this resource belongs to, in the format of
+ *  organizations/{ORGANIZATION_NUMBER}. This field is available when the
+ *  resource belongs (directly or cascadingly) to an organization.
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
 
 /**
  *  The [full resource name]
@@ -2472,6 +2516,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  default policy, it will also appear in the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
+
+/**
+ *  The project that this resource belongs to, in the format of
+ *  projects/{PROJECT_NUMBER}. This field is available when the resource belongs
+ *  to a project.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
 
 @end
 
@@ -2860,6 +2911,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /** The evaluating condition for this rule. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Expr *condition;
+
+/**
+ *  The condition evaluation result for this rule. Only populated if it meets
+ *  all the following criteria: * there is a condition defined for this rule *
+ *  this rule is within a consolidated_policy * the consolidated_policy is
+ *  within AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer or
+ *  AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ConditionEvaluation *conditionEvaluation;
 
 /**
  *  Setting this to true means that all values are denied. This field can be set
@@ -3417,9 +3477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this [EgressPolicy].
- *  Should be in the format of email address. The email address should represent
- *  individual user or service account only.
+ *  A list of identities that are allowed access through this [EgressPolicy], in
+ *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -3576,9 +3635,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this ingress policy.
- *  Should be in the format of email address. The email address should represent
- *  individual user or service account only.
+ *  A list of identities that are allowed access through this ingress policy, in
+ *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -4714,12 +4772,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicy *consolidatedPolicy;
 
 /**
+ *  The folder(s) that this consolidated policy belongs to, in the format of
+ *  folders/{FOLDER_NUMBER}. This field is available when the consolidated
+ *  policy belongs (directly or cascadingly) to one or more folders.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
+
+/**
+ *  The organization that this consolidated policy belongs to, in the format of
+ *  organizations/{ORGANIZATION_NUMBER}. This field is available when the
+ *  consolidated policy belongs (directly or cascadingly) to an organization.
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/**
  *  The ordered list of all organization policies from the
  *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource.
  *  to the scope specified in the request. If the constraint is defined with
  *  default policy, it will also appear in the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
+
+/**
+ *  The project that this consolidated policy belongs to, in the format of
+ *  projects/{PROJECT_NUMBER}. This field is available when the consolidated
+ *  policy belongs to a project.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
 
 @end
 

@@ -470,6 +470,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Datapipelines"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_DataPortability",
+            targets: ["GoogleAPIClientForREST_DataPortability"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Dataproc",
             targets: ["GoogleAPIClientForREST_Dataproc"]
         ),
@@ -1096,6 +1100,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_WorkloadManager",
             targets: ["GoogleAPIClientForREST_WorkloadManager"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_WorkspaceEvents",
+            targets: ["GoogleAPIClientForREST_WorkspaceEvents"]
         ),
         .library(
             name: "GoogleAPIClientForREST_YouTube",
@@ -1819,6 +1827,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Datapipelines",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Datapipelines",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DataPortability",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DataPortability",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2761,6 +2775,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_WorkloadManager",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/WorkloadManager",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_WorkspaceEvents",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/WorkspaceEvents",
             publicHeadersPath: "Public"
         ),
         .target(

@@ -621,6 +621,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Datapipelines/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Datapipelines/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'DataPortability' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/DataPortability/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/DataPortability/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Dataproc' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Dataproc/**/*.{h,m}'
@@ -1405,6 +1410,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/WorkloadManager/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/WorkloadManager/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'WorkspaceEvents' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/WorkspaceEvents/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/WorkspaceEvents/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'YouTube' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

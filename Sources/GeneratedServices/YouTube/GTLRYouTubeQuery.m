@@ -513,8 +513,9 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @implementation GTLRYouTubeQuery_ChannelsList
 
-@dynamic categoryId, forUsername, hl, identifier, managedByMe, maxResults, mine,
-         mySubscribers, onBehalfOfContentOwner, pageToken, part;
+@dynamic categoryId, forHandle, forUsername, hl, identifier, managedByMe,
+         maxResults, mine, mySubscribers, onBehalfOfContentOwner, pageToken,
+         part;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };

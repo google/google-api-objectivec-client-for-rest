@@ -4063,6 +4063,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamRawPredict
+ *
+ *  Method: aiplatform.projects.locations.endpoints.streamRawPredict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamRawPredict : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamRawPredict
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
  *  freeing all resources it's using.
  *
@@ -4908,7 +4941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Required. The resource name of the Location to create FeatureOnlineStores.
- *  Format: `projects/{project}/locations/{location}'`
+ *  Format: `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4921,7 +4954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *    GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore to include in the
  *    query.
  *  @param parent Required. The resource name of the Location to create
- *    FeatureOnlineStores. Format: `projects/{project}/locations/{location}'`
+ *    FeatureOnlineStores. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresCreate
  */
@@ -14584,6 +14617,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, copy, nullable) NSString *pipelineJobId;
 
 /**
+ *  Optional. Whether to do component level validations before job creation.
+ *  Currently we only support Google First Party Component/Pipelines.
+ */
+@property(nonatomic, assign) BOOL preflightValidations;
+
+/**
  *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob.
  *
  *  Creates a PipelineJob. A PipelineJob will run immediately when created.
@@ -15155,6 +15194,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
                           model:(NSString *)model;
+
+@end
+
+/**
+ *  GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamRawPredict
+ *
+ *  Method: aiplatform.projects.locations.publishers.models.streamRawPredict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamRawPredict : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamRawPredict
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest *)object
+                       endpoint:(NSString *)endpoint;
 
 @end
 

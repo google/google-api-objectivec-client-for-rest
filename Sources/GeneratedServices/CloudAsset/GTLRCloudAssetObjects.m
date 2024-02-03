@@ -714,7 +714,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedIamPolicy
-@dynamic attachedResource, folders, organization, policy, project;
+@dynamic assetType, attachedResource, folders, organization, policy, project;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -732,10 +732,12 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleCloudAssetV1AnalyzeOrgPolicyGovernedAssetsResponseGovernedResource
-@dynamic folders, fullResourceName, organization, parent, project;
+@dynamic assetType, effectiveTags, folders, fullResourceName, organization,
+         parent, project;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"effectiveTags" : [GTLRCloudAsset_EffectiveTagDetails class],
     @"folders" : [NSString class]
   };
   return map;
@@ -829,10 +831,13 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleCloudAssetV1GovernedContainer
-@dynamic consolidatedPolicy, fullResourceName, parent, policyBundle;
+@dynamic consolidatedPolicy, effectiveTags, folders, fullResourceName,
+         organization, parent, policyBundle, project;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"effectiveTags" : [GTLRCloudAsset_EffectiveTagDetails class],
+    @"folders" : [NSString class],
     @"policyBundle" : [GTLRCloudAsset_AnalyzerOrgPolicy class]
   };
   return map;
@@ -997,7 +1002,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleCloudAssetV1Rule
-@dynamic allowAll, condition, denyAll, enforce, values;
+@dynamic allowAll, condition, conditionEvaluation, denyAll, enforce, values;
 @end
 
 
@@ -1719,10 +1724,11 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_OrgPolicyResult
-@dynamic consolidatedPolicy, policyBundle;
+@dynamic consolidatedPolicy, folders, organization, policyBundle, project;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"folders" : [NSString class],
     @"policyBundle" : [GTLRCloudAsset_AnalyzerOrgPolicy class]
   };
   return map;

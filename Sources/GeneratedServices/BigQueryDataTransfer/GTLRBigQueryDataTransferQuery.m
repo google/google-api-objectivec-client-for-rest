@@ -529,6 +529,33 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 
 @end
 
+@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsUnenrollDataSources
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_UnenrollDataSourcesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:unenrollDataSources";
+  GTLRBigQueryDataTransferQuery_ProjectsLocationsUnenrollDataSources *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_Empty class];
+  query.loggingName = @"bigquerydatatransfer.projects.locations.unenrollDataSources";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate
 
 @dynamic authorizationCode, parent, serviceAccountName, versionInfo;

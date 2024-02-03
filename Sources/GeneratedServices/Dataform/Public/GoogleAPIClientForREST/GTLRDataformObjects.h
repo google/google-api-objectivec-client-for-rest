@@ -415,7 +415,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -672,10 +676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. The name of the release config to compile. The release config's
- *  'current_compilation_result' field will be updated to this compilation
- *  result. Must be in the format `projects/ * /locations/ * /repositories/ *
- *  /releaseConfigs/ *`.
+ *  Immutable. The name of the release config to compile. Must be in the format
+ *  `projects/ * /locations/ * /repositories/ * /releaseConfigs/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *releaseConfig;
 
@@ -1999,11 +2001,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /**
  *  Optional. The name of the currently released compilation result for this
- *  release config. This value is updated when a compilation result is created
- *  from this release config, or when this resource is updated by API call
- *  (perhaps to roll back to an earlier release). The compilation result must
- *  have been created using this release config. Must be in the format
- *  `projects/ * /locations/ * /repositories/ * /compilationResults/ *`.
+ *  release config. This value is updated when a compilation result is
+ *  automatically created from this release config (using cron_schedule), or
+ *  when this resource is updated by API call (perhaps to roll back to an
+ *  earlier release). The compilation result must have been created using this
+ *  release config. Must be in the format `projects/ * /locations/ *
+ *  /repositories/ * /compilationResults/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *releaseCompilationResult;
 

@@ -154,6 +154,7 @@ NSString * const kGTLRSpanner_Type_Code_Bool                = @"BOOL";
 NSString * const kGTLRSpanner_Type_Code_Bytes               = @"BYTES";
 NSString * const kGTLRSpanner_Type_Code_Date                = @"DATE";
 NSString * const kGTLRSpanner_Type_Code_Enum                = @"ENUM";
+NSString * const kGTLRSpanner_Type_Code_Float32             = @"FLOAT32";
 NSString * const kGTLRSpanner_Type_Code_Float64             = @"FLOAT64";
 NSString * const kGTLRSpanner_Type_Code_Int64               = @"INT64";
 NSString * const kGTLRSpanner_Type_Code_Json                = @"JSON";
@@ -343,8 +344,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CommitRequest
-@dynamic mutations, requestOptions, returnCommitStats, singleUseTransaction,
-         transactionId;
+@dynamic maxCommitDelay, mutations, requestOptions, returnCommitStats,
+         singleUseTransaction, transactionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -915,7 +916,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 @implementation GTLRSpanner_InstanceConfig
 @dynamic baseConfig, configType, displayName, ETag, freeInstanceAvailability,
          labels, leaderOptions, name, optionalReplicas, reconciling, replicas,
-         state;
+         state, storageLimitPerProcessingUnit;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

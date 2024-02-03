@@ -862,7 +862,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Updates an existing snapshot. Snapshots are used in
+ *  Updates an existing snapshot by updating the fields specified in the update
+ *  mask. Snapshots are used in
  *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
  *  which allow you to manage message acknowledgments in bulk. That is, you can
  *  set the acknowledgment state of messages in an existing subscription to the
@@ -882,7 +883,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Updates an existing snapshot. Snapshots are used in
+ *  Updates an existing snapshot by updating the fields specified in the update
+ *  mask. Snapshots are used in
  *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
  *  which allow you to manage message acknowledgments in bulk. That is, you can
  *  set the acknowledgment state of messages in an existing subscription to the
@@ -1369,8 +1371,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Updates an existing subscription. Note that certain properties of a
- *  subscription, such as its topic, are not modifiable.
+ *  Updates an existing subscription by updating the fields specified in the
+ *  update mask. Note that certain properties of a subscription, such as its
+ *  topic, are not modifiable.
  *
  *  Method: pubsub.projects.subscriptions.patch
  *
@@ -1393,8 +1396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_Subscription.
  *
- *  Updates an existing subscription. Note that certain properties of a
- *  subscription, such as its topic, are not modifiable.
+ *  Updates an existing subscription by updating the fields specified in the
+ *  update mask. Note that certain properties of a subscription, such as its
+ *  topic, are not modifiable.
  *
  *  @param object The @c GTLRPubsub_UpdateSubscriptionRequest to include in the
  *    query.
@@ -1780,8 +1784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Updates an existing topic. Note that certain properties of a topic are not
- *  modifiable.
+ *  Updates an existing topic by updating the fields specified in the update
+ *  mask. Note that certain properties of a topic are not modifiable.
  *
  *  Method: pubsub.projects.topics.patch
  *
@@ -1804,8 +1808,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_Topic.
  *
- *  Updates an existing topic. Note that certain properties of a topic are not
- *  modifiable.
+ *  Updates an existing topic by updating the fields specified in the update
+ *  mask. Note that certain properties of a topic are not modifiable.
  *
  *  @param object The @c GTLRPubsub_UpdateTopicRequest to include in the query.
  *  @param name Required. The name of the topic. It must have the format

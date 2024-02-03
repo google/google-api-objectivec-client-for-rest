@@ -1803,7 +1803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  AwsVmDetails describes a VM in AWS.
+ *  AzureVmDetails describes a VM in Azure.
  */
 @interface GTLRVMMigrationService_AzureVmDetails : GTLRObject
 

@@ -39,7 +39,12 @@
 @class GTLRTranscoder_Fairplay;
 @class GTLRTranscoder_Fmp4Config;
 @class GTLRTranscoder_H264CodecSettings;
+@class GTLRTranscoder_H264ColorFormatHLG;
+@class GTLRTranscoder_H264ColorFormatSDR;
 @class GTLRTranscoder_H265CodecSettings;
+@class GTLRTranscoder_H265ColorFormatHDR10;
+@class GTLRTranscoder_H265ColorFormatHLG;
+@class GTLRTranscoder_H265ColorFormatSDR;
 @class GTLRTranscoder_Image;
 @class GTLRTranscoder_Input;
 @class GTLRTranscoder_Job;
@@ -67,6 +72,8 @@
 @class GTLRTranscoder_TextStream;
 @class GTLRTranscoder_VideoStream;
 @class GTLRTranscoder_Vp9CodecSettings;
+@class GTLRTranscoder_Vp9ColorFormatHLG;
+@class GTLRTranscoder_Vp9ColorFormatSDR;
 @class GTLRTranscoder_Widevine;
 @class GTLRTranscoder_YadifConfig;
 
@@ -937,6 +944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *heightPixels;
 
+/** Optional. HLG color format setting for H264. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_H264ColorFormatHLG *hlg;
+
 /**
  *  Pixel format to use. The default is `yuv420p`. Supported pixel formats: -
  *  `yuv420p` pixel format - `yuv422p` pixel format - `yuv444p` pixel format -
@@ -969,6 +979,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  `vbr` - variable bitrate - `crf` - constant rate factor
  */
 @property(nonatomic, copy, nullable) NSString *rateControlMode;
+
+/** Optional. SDR color format setting for H264. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_H264ColorFormatSDR *sdr;
 
 /**
  *  Enforces the specified codec tune. The available options are
@@ -1008,6 +1021,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
+@end
+
+
+/**
+ *  Convert the input video to a Hybrid Log Gamma (HLG) video.
+ */
+@interface GTLRTranscoder_H264ColorFormatHLG : GTLRObject
+@end
+
+
+/**
+ *  Convert the input video to a Standard Dynamic Range (SDR) video.
+ */
+@interface GTLRTranscoder_H264ColorFormatSDR : GTLRObject
 @end
 
 
@@ -1103,6 +1130,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *gopFrameCount;
 
+/** Optional. HDR10 color format setting for H265. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_H265ColorFormatHDR10 *hdr10;
+
 /**
  *  The height of the video in pixels. Must be an even integer. When not
  *  specified, the height is adjusted to match the specified width and input
@@ -1115,6 +1145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *heightPixels;
+
+/** Optional. HLG color format setting for H265. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_H265ColorFormatHLG *hlg;
 
 /**
  *  Pixel format to use. The default is `yuv420p`. Supported pixel formats: -
@@ -1152,6 +1185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  `vbr` - variable bitrate - `crf` - constant rate factor
  */
 @property(nonatomic, copy, nullable) NSString *rateControlMode;
+
+/** Optional. SDR color format setting for H265. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_H265ColorFormatSDR *sdr;
 
 /**
  *  Enforces the specified codec tune. The available options are
@@ -1191,6 +1227,27 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
+@end
+
+
+/**
+ *  Convert the input video to a High Dynamic Range 10 (HDR10) video.
+ */
+@interface GTLRTranscoder_H265ColorFormatHDR10 : GTLRObject
+@end
+
+
+/**
+ *  Convert the input video to a Hybrid Log Gamma (HLG) video.
+ */
+@interface GTLRTranscoder_H265ColorFormatHLG : GTLRObject
+@end
+
+
+/**
+ *  Convert the input video to a Standard Dynamic Range (SDR) video.
+ */
+@interface GTLRTranscoder_H265ColorFormatSDR : GTLRObject
 @end
 
 
@@ -2106,6 +2163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *heightPixels;
 
+/** Optional. HLG color format setting for VP9. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Vp9ColorFormatHLG *hlg;
+
 /**
  *  Pixel format to use. The default is `yuv420p`. Supported pixel formats: -
  *  `yuv420p` pixel format - `yuv422p` pixel format - `yuv444p` pixel format -
@@ -2130,6 +2190,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, copy, nullable) NSString *rateControlMode;
 
+/** Optional. SDR color format setting for VP9. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Vp9ColorFormatSDR *sdr;
+
 /**
  *  The width of the video in pixels. Must be an even integer. When not
  *  specified, the width is adjusted to match the specified height and input
@@ -2143,6 +2206,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
+@end
+
+
+/**
+ *  Convert the input video to a Hybrid Log Gamma (HLG) video.
+ */
+@interface GTLRTranscoder_Vp9ColorFormatHLG : GTLRObject
+@end
+
+
+/**
+ *  Convert the input video to a Standard Dynamic Range (SDR) video.
+ */
+@interface GTLRTranscoder_Vp9ColorFormatSDR : GTLRObject
 @end
 
 

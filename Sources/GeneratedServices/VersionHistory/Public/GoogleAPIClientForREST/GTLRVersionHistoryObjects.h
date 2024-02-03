@@ -47,6 +47,18 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Chann
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Dev;
 /** Value: "EXTENDED" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Extended;
+/**
+ *  The Long-term support candidate channel for ChromeOS.
+ *
+ *  Value: "LTC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Ltc;
+/**
+ *  The Long-term support channel for ChromeOS.
+ *
+ *  Value: "LTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Lts;
 /** Value: "STABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Stable;
 
@@ -104,6 +116,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
  *        Value "CHANNEL_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Dev Value "DEV"
  *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Extended Value "EXTENDED"
+ *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Ltc The Long-term support
+ *        candidate channel for ChromeOS. (Value: "LTC")
+ *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Lts The Long-term support
+ *        channel for ChromeOS. (Value: "LTS")
  *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Stable Value "STABLE"
  */
 @property(nonatomic, copy, nullable) NSString *channelType;

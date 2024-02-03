@@ -9137,7 +9137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Optional. A list of Bot Reasons. Current options: Flooder, Brute Guessor,
  *  Static Content Scraper, OAuth Abuser, Robot Abuser, TorListRule, Advanced
  *  Anomaly Detection, Advanced API Scraper, Search Engine Crawlers, Public
- *  Cloud, Public Cloud AWS, Public Cloud Azure, and Public Cloud GCP.
+ *  Clouds, Public Cloud AWS, Public Cloud Azure, and Public Cloud Google.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *botReasons;
 
@@ -10718,7 +10718,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 

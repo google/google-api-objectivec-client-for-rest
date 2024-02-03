@@ -540,6 +540,36 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload.partnerPlanType
+
+/**
+ *  This item is bundled with another partner offering, the item is provisioned
+ *  at purchase time.
+ *
+ *  Value: "PARTNER_PLAN_TYPE_HARD_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload_PartnerPlanType_PartnerPlanTypeHardBundle;
+/**
+ *  This item is bundled with another partner offering, the item is provisioned
+ *  after puchase, when the user opts in this Google service.
+ *
+ *  Value: "PARTNER_PLAN_TYPE_SOFT_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload_PartnerPlanType_PartnerPlanTypeSoftBundle;
+/**
+ *  This item is offered as a standalone product to the user.
+ *
+ *  Value: "PARTNER_PLAN_TYPE_STANDALONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload_PartnerPlanType_PartnerPlanTypeStandalone;
+/**
+ *  Unspecified. Should not use, reserved as an invalid value.
+ *
+ *  Value: "PARTNER_PLAN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload_PartnerPlanType_PartnerPlanTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_ProductBundleDetails.entitlementMode
 
 /**
@@ -1237,7 +1267,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  A Subscription resource managed by 3P Partners.
+ *  A subscription serves as a central billing entity between an external
+ *  partner and Google. The underlying Google services rely on the subscription
+ *  state to grant or revoke the user's service entitlement. It's important to
+ *  note that the subscription state may not always perfectly align with the
+ *  user's service entitlement. For example, some Google services may continue
+ *  providing access to the user until the current billing cycle ends, even if
+ *  the subscription has been immediately canceled. However, other services may
+ *  not do the same. To fully understand the specific details, please consult
+ *  the relevant contract or product policy.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription : GTLRObject
 
@@ -1694,6 +1732,26 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 /** The list of eligibility_ids which are applicable for the line item. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *partnerEligibilityIds;
+
+/**
+ *  Optional. Specifies the plan type offered to the end user by the partner.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload_PartnerPlanType_PartnerPlanTypeHardBundle
+ *        This item is bundled with another partner offering, the item is
+ *        provisioned at purchase time. (Value: "PARTNER_PLAN_TYPE_HARD_BUNDLE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload_PartnerPlanType_PartnerPlanTypeSoftBundle
+ *        This item is bundled with another partner offering, the item is
+ *        provisioned after puchase, when the user opts in this Google service.
+ *        (Value: "PARTNER_PLAN_TYPE_SOFT_BUNDLE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload_PartnerPlanType_PartnerPlanTypeStandalone
+ *        This item is offered as a standalone product to the user. (Value:
+ *        "PARTNER_PLAN_TYPE_STANDALONE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload_PartnerPlanType_PartnerPlanTypeUnspecified
+ *        Unspecified. Should not use, reserved as an invalid value. (Value:
+ *        "PARTNER_PLAN_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *partnerPlanType;
 
 @end
 

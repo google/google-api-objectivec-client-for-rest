@@ -654,7 +654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  Output only. Name of the backup from which this backup was copied. If a
  *  backup is not created by copying a backup, this field will be empty. Values
- *  are of the form: projects//instances//backups/.
+ *  are of the form: projects//instances//clusters//backups/
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
@@ -706,7 +706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  Output only. Name of the backup from which this backup was copied. If a
  *  backup is not created by copying a backup, this field will be empty. Values
- *  are of the form: projects//instances//backups/.
+ *  are of the form: projects//instances//clusters//backups/
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
@@ -797,7 +797,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2055,6 +2059,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  google.bigtable.admin.v2.BigtableTableAdmin.ModifyColumnFamilies
  */
 @interface GTLRBigtableAdmin_ModifyColumnFamiliesRequest : GTLRObject
+
+/**
+ *  Optional. If true, ignore safety checks when modifying the column families.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreWarnings;
 
 /**
  *  Required. Modifications to be atomically applied to the specified table's

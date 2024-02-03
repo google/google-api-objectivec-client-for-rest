@@ -29,6 +29,7 @@
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceCitation;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceCitationMetadata;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceContent;
+@class GTLRAiplatform_CloudAiNlLlmProtoServiceFact;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionCall;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionCall_Args;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionResponse;
@@ -39,6 +40,7 @@
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartBlob;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartFileData;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadata;
+@class GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadataModelLevelMetadata;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal;
@@ -325,7 +327,9 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_InputArtifacts;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_Parameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_ParameterValues;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetail;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetail_Inputs;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetail_Outputs;
@@ -344,6 +348,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Probe;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ProbeExecAction;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenFineTuningPipelines;
@@ -558,12 +563,15 @@
 @class GTLRAiplatform_LearningGenaiRootDataProviderOutput;
 @class GTLRAiplatform_LearningGenaiRootFilterMetadata;
 @class GTLRAiplatform_LearningGenaiRootFilterMetadataFilterDebugInfo;
+@class GTLRAiplatform_LearningGenaiRootGroundingMetadata;
+@class GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation;
 @class GTLRAiplatform_LearningGenaiRootHarm;
 @class GTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType;
 @class GTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType;
 @class GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories;
 @class GTLRAiplatform_LearningGenaiRootHarmSpiiFilter;
 @class GTLRAiplatform_LearningGenaiRootInternalMetadata;
+@class GTLRAiplatform_LearningGenaiRootLanguageFilterResult;
 @class GTLRAiplatform_LearningGenaiRootMetricOutput;
 @class GTLRAiplatform_LearningGenaiRootRAIOutput;
 @class GTLRAiplatform_LearningGenaiRootRegexTakedownResult;
@@ -588,7 +596,6 @@
 @class GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepTopCandidates;
 @class GTLRAiplatform_LearningGenaiRootToxicityResult;
 @class GTLRAiplatform_LearningGenaiRootToxicitySignal;
-@class GTLRAiplatform_LearningServingLlmLanguageFilterResult;
 @class GTLRAiplatform_LearningServingLlmMessageMetadata;
 @class GTLRAiplatform_NlpSaftLangIdLocalesResult;
 @class GTLRAiplatform_NlpSaftLangIdLocalesResultLocale;
@@ -2634,6 +2641,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTri
 // GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError.errorType
 
 /**
+ *  There are multiple restricts with the same `namespace` value.
+ *
+ *  Value: "DUPLICATE_NAMESPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateNamespace;
+/**
  *  The size of the embedding vectors does not match with the specified
  *  dimension.
  *
@@ -2677,11 +2690,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Neares
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidJsonSyntax;
 /**
+ *  Numeric restrict has invalid numeric value specified.
+ *
+ *  Value: "INVALID_NUMERIC_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidNumericValue;
+/**
+ *  Numeric restrict has multiple values specified.
+ *
+ *  Value: "MULTIPLE_VALUES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_MultipleValues;
+/**
  *  The `namespace` field is missing.
  *
  *  Value: "NAMESPACE_MISSING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_NamespaceMissing;
+/**
+ *  Numeric restrict has operator specified in datapoint.
+ *
+ *  Value: "OP_IN_DATAPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_OpInDatapoint;
+/**
+ *  Generic catch-all error. Only used for validation failure where the root
+ *  cause cannot be easily retrieved programmatically.
+ *
+ *  Value: "PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_ParsingError;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1NotebookReservationAffinity.consumeReservationType
@@ -9159,6 +9197,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @property(nonatomic, copy, nullable) NSString *finishReason;
 
 /**
+ *  Grounding metadata. Combine with the facts list from response to generate
+ *  grounding citations for this choice.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootGroundingMetadata *groundingMetadata;
+
+/**
  *  Index of the candidate.
  *
  *  Uses NSNumber of intValue.
@@ -9231,6 +9275,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 
 /**
+ *  A condense version of WorldFact
+ *  (assistant/boq/lamda/factuality/proto/factuality.proto) to propagate the
+ *  essential information about the fact used in factuality to the upstream
+ *  caller.
+ */
+@interface GTLRAiplatform_CloudAiNlLlmProtoServiceFact : GTLRObject
+
+/** Query that is used to retrieve this fact. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/** If present, the summary/snippet of the fact. */
+@property(nonatomic, copy, nullable) NSString *summary;
+
+/** If present, it refers to the title of this fact. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** If present, this URL links to the webpage of the fact. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
  *  Function call details.
  */
 @interface GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionCall : GTLRObject
@@ -9295,6 +9362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  this field, and this is only populated for Flow Runner path.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServiceMessageMetadata *debugMetadata;
+
+/** External facts retrieved for factuality/grounding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiNlLlmProtoServiceFact *> *facts;
 
 /**
  *  Content filter results for a prompt sent in the request. Note: Sent only in
@@ -9404,8 +9474,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 /** The end offset of the video. */
 @property(nonatomic, strong, nullable) GTLRDuration *endOffset;
 
+/** Internal only model level metadata. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadataModelLevelMetadata *modelLevelMetaData;
+
 /** The start offset of the video. */
 @property(nonatomic, strong, nullable) GTLRDuration *startOffset;
+
+@end
+
+
+/**
+ *  Internal only fields
+ */
+@interface GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadataModelLevelMetadata : GTLRObject
+
+/**
+ *  Frame rate to decode from this video.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fps;
+
+/**
+ *  Number of frames to decode from this video.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFrames;
 
 @end
 
@@ -9470,7 +9565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @property(nonatomic, strong, nullable) NSNumber *filtered;
 
 /** Language filter result from SAFT LangId. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_LearningServingLlmLanguageFilterResult *languageFilterResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootLanguageFilterResult *languageFilterResult;
 
 /** The RAI signals for the text. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal *> *raiSignals;
@@ -11975,6 +12070,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  */
 @property(nonatomic, copy, nullable) NSString *pipelineJobId;
 
+/**
+ *  Optional. Whether to do component level validations before job creation.
+ *  Currently we only support Google First Party Component/Pipelines.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preflightValidations;
+
 @end
 
 
@@ -14416,8 +14519,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  For Models that predict multiple outputs, such as multiclass Models that
  *  predict multiple classes, each element explains one specific item.
  *  Attribution.output_index can be used to identify which output this
- *  attribution is explaining. If users set ExplanationParameters.top_k, the
- *  attributions are sorted by instance_output_value in descending order. If
+ *  attribution is explaining. By default, we provide Shapley values for the
+ *  predicted class. However, you can configure the explanation request to
+ *  generate Shapley values for any other classes too. For example, if a model
+ *  predicts a probability of `0.4` for approving a loan application, the
+ *  model's decision is to reject the application since `p(reject) = 0.6 >
+ *  p(approve) = 0.4`, and the default Shapley values would be computed for
+ *  rejection decision and not approval, even though the latter might be the
+ *  positive class. If users set ExplanationParameters.top_k, the attributions
+ *  are sorted by instance_output_value in descending order. If
  *  ExplanationParameters.output_indices is specified, the attributions are
  *  stored by Attribution.output_index in the same order as they appear in the
  *  output_indices.
@@ -18054,6 +18164,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @property(nonatomic, copy, nullable) NSString *matchGrpcAddress;
 
 /**
+ *  Output only. PscAutomatedEndpoints is populated if private service connect
+ *  is enabled if PscAutomatedConfig is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints *> *pscAutomatedEndpoints;
+
+/**
  *  Output only. The name of the service attachment resource. Populated if
  *  private service connect is enabled.
  */
@@ -20161,7 +20277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 /**
  *  Output only. Source of a model. It can either be automl training pipeline,
- *  custom training pipeline, BigQuery ML, or existing Vertex AI Model.
+ *  custom training pipeline, BigQuery ML, or saved and tuned from Genie or
+ *  Model Garden.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ModelSourceInfo *modelSourceInfo;
 
@@ -22130,6 +22247,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  The error type of this record.
  *
  *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateNamespace
+ *        There are multiple restricts with the same `namespace` value. (Value:
+ *        "DUPLICATE_NAMESPACE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmbeddingSizeMismatch
  *        The size of the embedding vectors does not match with the specified
  *        dimension. (Value: "EMBEDDING_SIZE_MISMATCH")
@@ -22145,8 +22265,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        The embedding id is not valid. (Value: "INVALID_EMBEDDING_ID")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidJsonSyntax
  *        Invalid json format. (Value: "INVALID_JSON_SYNTAX")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidNumericValue
+ *        Numeric restrict has invalid numeric value specified. (Value:
+ *        "INVALID_NUMERIC_VALUE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_MultipleValues
+ *        Numeric restrict has multiple values specified. (Value:
+ *        "MULTIPLE_VALUES")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_NamespaceMissing
  *        The `namespace` field is missing. (Value: "NAMESPACE_MISSING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_OpInDatapoint
+ *        Numeric restrict has operator specified in datapoint. (Value:
+ *        "OP_IN_DATAPOINT")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_ParsingError
+ *        Generic catch-all error. Only used for validation failure where the
+ *        root cause cannot be easily retrieved programmatically. (Value:
+ *        "PARSING_ERROR")
  */
 @property(nonatomic, copy, nullable) NSString *errorType;
 
@@ -22920,6 +23053,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig : GTLRObject
 
 /**
+ *  Optional. The default runtime for the PipelineJob. If not provided, Vertex
+ *  Custom Job is used as the runtime. For Vertex Custom Job, please refer to
+ *  https://cloud.google.com/vertex-ai/docs/training/overview
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime *defaultRuntime;
+
+/**
  *  Represents the failure policy of a pipeline. Currently, the default of a
  *  pipeline is that the pipeline will continue to run until no more tasks can
  *  be executed, also known as PIPELINE_FAILURE_POLICY_FAIL_SLOW. However, if a
@@ -23030,6 +23170,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The default runtime for the PipelineJob.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime : GTLRObject
+
+/** Persistent resource based runtime detail. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail *persistentResourceRuntimeDetail;
+
+@end
+
+
+/**
  *  The type of an input artifact.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact : GTLRObject
@@ -23042,6 +23193,21 @@ GTLR_DEPRECATED
  *  metadatastore as the pipeline.
  */
 @property(nonatomic, copy, nullable) NSString *artifactId;
+
+@end
+
+
+/**
+ *  Persistent resource based runtime detail. For more information, refer to
+ *  https://cloud.google.com/vertex-ai/docs/training/persistent-resource-overview
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail : GTLRObject
+
+/**
+ *  Persistent resource name. Format:
+ *  `projects/{project}/locations/{location}/persistentResources/{persistent_resource}`
+ */
+@property(nonatomic, copy, nullable) NSString *persistentResourceName;
 
 @end
 
@@ -23632,6 +23798,24 @@ GTLR_DEPRECATED
  *  non-zero is unhealthy.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *command;
+
+@end
+
+
+/**
+ *  PscAutomatedEndpoints defines the output of the forwarding rule
+ *  automatically created by each PscAutomationConfig.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints : GTLRObject
+
+/** Ip Address created by the automated forwarding rule. */
+@property(nonatomic, copy, nullable) NSString *matchAddress;
+
+/** Corresponding network in pscAutomationConfigs. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Corresponding project_id in pscAutomationConfigs */
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
 
@@ -30558,6 +30742,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for PredictionService.StreamRawPredict.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest : GTLRObject
+
+/** The prediction input. Supports HTTP headers and arbitrary data payload. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleApiHttpBody *httpBody;
+
+@end
+
+
+/**
  *  A list of string values.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1StringArray : GTLRObject
@@ -33228,7 +33423,11 @@ GTLR_DEPRECATED
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -33816,7 +34015,7 @@ GTLR_DEPRECATED
  *  fields are most applicable for that document's datasource. For example, a
  *  Wikipedia article's attribution is in the form of its article title, a
  *  website is in the form of a URL, and a Github repo is in the form of a repo
- *  name. Next id:28
+ *  name. Next id: 30
  */
 @interface GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution : GTLRObject
 
@@ -33824,6 +34023,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *arxivId;
 @property(nonatomic, copy, nullable) NSString *author;
 @property(nonatomic, copy, nullable) NSString *bibkey;
+
+/**
+ *  ID of the paper in bioarxiv like ddoi.org/{biorxiv_id} eg:
+ *  https://doi.org/10.1101/343517
+ */
+@property(nonatomic, copy, nullable) NSString *biorxivId;
+
 @property(nonatomic, copy, nullable) NSString *bookTitle;
 
 /**
@@ -34625,6 +34831,9 @@ GTLR_DEPRECATED
  *  information in the original dataset.
  */
 @property(nonatomic, copy, nullable) NSString *wikipediaArticleTitle;
+
+/** The unique video id from Youtube. Example: AkoGsW52Ir0 */
+@property(nonatomic, copy, nullable) NSString *youtubeVideoId;
 
 @end
 
@@ -35477,7 +35686,7 @@ GTLR_DEPRECATED
  *  fields are most applicable for that document's datasource. For example, a
  *  Wikipedia article's attribution is in the form of its article title, a
  *  website is in the form of a URL, and a Github repo is in the form of a repo
- *  name. Next id: 28
+ *  name. Next id: 30
  */
 @interface GTLRAiplatform_LearningGenaiRecitationDocAttribution : GTLRObject
 
@@ -35485,6 +35694,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *arxivId;
 @property(nonatomic, copy, nullable) NSString *author;
 @property(nonatomic, copy, nullable) NSString *bibkey;
+
+/**
+ *  ID of the paper in bioarxiv like ddoi.org/{biorxiv_id} eg:
+ *  https://doi.org/10.1101/343517
+ */
+@property(nonatomic, copy, nullable) NSString *biorxivId;
+
 @property(nonatomic, copy, nullable) NSString *bookTitle;
 
 /**
@@ -36268,6 +36484,8 @@ GTLR_DEPRECATED
  *  information in the original dataset.
  */
 @property(nonatomic, copy, nullable) NSString *wikipediaArticleTitle;
+
+@property(nonatomic, copy, nullable) NSString *youtubeVideoId;
 
 @end
 
@@ -37304,7 +37522,7 @@ GTLR_DEPRECATED
 
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootClassifierOutput *classifierOutput;
 @property(nonatomic, copy, nullable) NSString *defaultMetadata;
-@property(nonatomic, strong, nullable) GTLRAiplatform_LearningServingLlmLanguageFilterResult *languageFilterResult;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootLanguageFilterResult *languageFilterResult;
 
 /** Safety filter output information for LLM Root RAI harm check. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootRAIOutput *raiOutput;
@@ -37314,6 +37532,65 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult *streamRecitationResult GTLR_DEPRECATED;
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootTakedownResult *takedownResult;
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootToxicityResult *toxicityResult;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootGroundingMetadata
+ */
+@interface GTLRAiplatform_LearningGenaiRootGroundingMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation *> *citations;
+
+/**
+ *  True if grounding is cancelled, for example, no facts being retrieved.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *groundingCancelled;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *searchQueries;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation
+ */
+@interface GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation : GTLRObject
+
+/**
+ *  Index in the prediction output where the citation ends (exclusive). Must be
+ *  > start_index and < len(output).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  Index of the fact supporting this claim. Should be within the range of the
+ *  `world_facts` in the GenerateResponse.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *factIndex;
+
+/**
+ *  Confidence score of this entailment. Value is [0,1] with 1 is the most
+ *  confidence.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  Index in the prediction output where the citation starts (inclusive). Must
+ *  be >= 0 and < end_index.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -37488,6 +37765,32 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_LearningGenaiRootInternalMetadata : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootScoredToken *> *scoredTokens;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootLanguageFilterResult
+ */
+@interface GTLRAiplatform_LearningGenaiRootLanguageFilterResult : GTLRObject
+
+/**
+ *  False when query or response should be filtered out due to unsupported
+ *  language.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+/** Language of the query or response. */
+@property(nonatomic, copy, nullable) NSString *detectedLanguage;
+
+/**
+ *  Probability of the language predicted as returned by LangID.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedLanguageProbability;
 
 @end
 
@@ -38034,32 +38337,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  GTLRAiplatform_LearningServingLlmLanguageFilterResult
- */
-@interface GTLRAiplatform_LearningServingLlmLanguageFilterResult : GTLRObject
-
-/**
- *  False when query or response should be filtered out due to unsupported
- *  language.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowed;
-
-/** Language of the query or response. */
-@property(nonatomic, copy, nullable) NSString *detectedLanguage;
-
-/**
- *  Probability of the language predicted as returned by LangID.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *detectedLanguageProbability;
-
-@end
-
-
-/**
  *  LINT.IfChange This metadata contains additional information required for
  *  debugging.
  */
@@ -38113,6 +38390,8 @@ GTLR_DEPRECATED
  *        Value "UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *finishReason;
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootGroundingMetadata *groundingMetadata;
 
 /**
  *  Applies to Response message only. Indicates whether the message is a

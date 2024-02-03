@@ -397,6 +397,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Chat;
 /**
+ *  The add-on or appfinder widget launches from Chat-in-Gmail
+ *
+ *  Value: "CHAT_IN_GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_ChatInGmail;
+/**
  *  Not used.
  *
  *  Value: "DEMO"
@@ -2015,6 +2021,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        launches from Google Calendar. (Value: "CALENDAR")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Chat A Google Chat
  *        app. Not used for Google Workspace Add-ons. (Value: "CHAT")
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_ChatInGmail The add-on
+ *        or appfinder widget launches from Chat-in-Gmail (Value:
+ *        "CHAT_IN_GMAIL")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Demo Not used. (Value:
  *        "DEMO")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Docs The add-on

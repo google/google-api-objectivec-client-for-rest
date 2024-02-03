@@ -201,6 +201,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -469,6 +473,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -934,6 +942,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -2072,6 +2084,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -2995,6 +3011,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -4053,6 +4073,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -5711,6 +5735,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -7367,6 +7395,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -8152,6 +8184,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -9899,6 +9935,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -11495,6 +11535,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -12265,6 +12309,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -15147,6 +15195,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -15606,6 +15658,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -17547,6 +17603,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -17814,6 +17874,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -18358,6 +18422,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -18677,6 +18745,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -20826,6 +20898,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -21698,6 +21774,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -22181,6 +22261,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -22447,6 +22531,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -23966,6 +24054,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -25549,6 +25641,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -34324,6 +34420,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -34961,6 +35061,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -35503,6 +35607,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -36489,6 +36597,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -37151,6 +37263,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -38161,6 +38277,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -38502,6 +38622,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -39004,6 +39128,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -40045,6 +40173,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -40484,6 +40616,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -41138,6 +41274,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -41682,6 +41822,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -42796,6 +42940,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -43237,6 +43385,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -43652,6 +43804,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -44177,6 +44333,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**
@@ -44670,6 +44830,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
 @property(nonatomic, assign) long long serviceProjectNumber;
 
 /**

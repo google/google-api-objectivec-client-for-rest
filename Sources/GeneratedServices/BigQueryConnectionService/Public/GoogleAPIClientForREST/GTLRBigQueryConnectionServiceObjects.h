@@ -6,7 +6,7 @@
 // Description:
 //   Allows users to manage BigQuery connections to external data sources.
 // Documentation:
-//   https://cloud.google.com/bigquery/
+//   https://cloud.google.com/bigquery/docs/connections-api-intro
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -25,6 +25,11 @@
 @class GTLRBigQueryConnectionService_CloudSqlCredential;
 @class GTLRBigQueryConnectionService_CloudSqlProperties;
 @class GTLRBigQueryConnectionService_Connection;
+@class GTLRBigQueryConnectionService_ConnectorConfiguration;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationSecret;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword;
 @class GTLRBigQueryConnectionService_Expr;
 @class GTLRBigQueryConnectionService_GetPolicyOptions;
 @class GTLRBigQueryConnectionService_MetastoreServiceConfig;
@@ -92,6 +97,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
  *  Value: "POSTGRES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres;
+
+// ----------------------------------------------------------------------------
+// GTLRBigQueryConnectionService_ConnectorConfigurationSecret.secretType
+
+/** Value: "PLAINTEXT" */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_Plaintext;
+/** Value: "SECRET_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_SecretTypeUnspecified;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -308,7 +321,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -466,6 +483,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 /** Cloud SQL properties. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_CloudSqlProperties *cloudSql;
 
+/** Optional. Connector configuration. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfiguration *configuration;
+
 /**
  *  Output only. The creation timestamp of the connection.
  *
@@ -518,6 +538,91 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 
 /** Spark properties. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_SparkProperties *spark;
+
+@end
+
+
+/**
+ *  Represents concrete parameter values for Connector Configuration.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfiguration : GTLRObject
+
+/** Client authentication. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication *authentication;
+
+/**
+ *  Required. Immutable. The ID of the Connector these parameters are configured
+ *  for.
+ */
+@property(nonatomic, copy, nullable) NSString *connectorId;
+
+/**
+ *  Specifies how to reach the remote system this connection is pointing to.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint *endpoint;
+
+@end
+
+
+/**
+ *  Client authentication.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication : GTLRObject
+
+/** Username/password authentication. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword *usernamePassword;
+
+@end
+
+
+/**
+ *  Remote endpoint specification.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint : GTLRObject
+
+/**
+ *  Host and port in a format of `hostname:port` as defined in
+ *  https://www.ietf.org/rfc/rfc3986.html#section-3.2.2 and
+ *  https://www.ietf.org/rfc/rfc3986.html#section-3.2.3.
+ */
+@property(nonatomic, copy, nullable) NSString *hostPort;
+
+@end
+
+
+/**
+ *  Secret value parameter.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationSecret : GTLRObject
+
+/** Input only. Secret as plaintext. */
+@property(nonatomic, copy, nullable) NSString *plaintext;
+
+/**
+ *  Output only. Indicates type of secret. Can be used to check type of stored
+ *  secret value even if it's `INPUT_ONLY`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_Plaintext
+ *        Value "PLAINTEXT"
+ *    @arg @c kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_SecretTypeUnspecified
+ *        Value "SECRET_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *secretType;
+
+@end
+
+
+/**
+ *  Username and Password authentication.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword : GTLRObject
+
+/** Required. Password. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationSecret *password;
+
+/** Required. Username. */
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 

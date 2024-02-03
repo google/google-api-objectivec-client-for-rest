@@ -64,6 +64,27 @@ NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunStatus
 NSString * const kGTLRCloudBuild_PropertySpec_Type_String      = @"STRING";
 NSString * const kGTLRCloudBuild_PropertySpec_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudBuild_Provenance.enabled
+NSString * const kGTLRCloudBuild_Provenance_Enabled_Disabled   = @"DISABLED";
+NSString * const kGTLRCloudBuild_Provenance_Enabled_EnabledUnspecified = @"ENABLED_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_Provenance_Enabled_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRCloudBuild_Provenance_Enabled_Required   = @"REQUIRED";
+
+// GTLRCloudBuild_Provenance.region
+NSString * const kGTLRCloudBuild_Provenance_Region_Global      = @"GLOBAL";
+NSString * const kGTLRCloudBuild_Provenance_Region_RegionUnspecified = @"REGION_UNSPECIFIED";
+
+// GTLRCloudBuild_Provenance.storage
+NSString * const kGTLRCloudBuild_Provenance_Storage_ArtifactProjectOnly = @"ARTIFACT_PROJECT_ONLY";
+NSString * const kGTLRCloudBuild_Provenance_Storage_BuildProjectOnly = @"BUILD_PROJECT_ONLY";
+NSString * const kGTLRCloudBuild_Provenance_Storage_PreferArtifactProject = @"PREFER_ARTIFACT_PROJECT";
+NSString * const kGTLRCloudBuild_Provenance_Storage_StorageUnspecified = @"STORAGE_UNSPECIFIED";
+
+// GTLRCloudBuild_Security.privilegeMode
+NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Privileged = @"PRIVILEGED";
+NSString * const kGTLRCloudBuild_Security_PrivilegeMode_PrivilegeModeUnspecified = @"PRIVILEGE_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged = @"UNPRIVILEGED";
+
 // GTLRCloudBuild_TaskRef.resolver
 NSString * const kGTLRCloudBuild_TaskRef_Resolver_Bundles      = @"BUNDLES";
 NSString * const kGTLRCloudBuild_TaskRef_Resolver_GcbRepo      = @"GCB_REPO";
@@ -766,9 +787,10 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 @implementation GTLRCloudBuild_PipelineRun
 @dynamic annotations, childReferences, completionTime, conditions, createTime,
-         ETag, finallyStartTime, name, params, pipelineRef, pipelineRunStatus,
-         pipelineSpec, resolvedPipelineSpec, serviceAccount, skippedTasks,
-         startTime, timeouts, uid, updateTime, workerPool, workflow, workspaces;
+         ETag, finallyStartTime, gcbParams, name, params, pipelineRef,
+         pipelineRunStatus, pipelineSpec, provenance, resolvedPipelineSpec,
+         security, serviceAccount, skippedTasks, startTime, timeouts, uid,
+         updateTime, worker, workerPool, workflow, workspaces;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -794,6 +816,20 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_PipelineRun_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_PipelineRun_GcbParams
+//
+
+@implementation GTLRCloudBuild_PipelineRun_GcbParams
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -905,6 +941,16 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_Provenance
+//
+
+@implementation GTLRCloudBuild_Provenance
+@dynamic enabled, region, storage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Repository
 //
 
@@ -950,6 +996,16 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 @implementation GTLRCloudBuild_SecretVolumeSource
 @dynamic secretName, secretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Security
+//
+
+@implementation GTLRCloudBuild_Security
+@dynamic privilegeMode, serviceAccount;
 @end
 
 
@@ -1264,6 +1320,16 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Worker
+//
+
+@implementation GTLRCloudBuild_Worker
+@dynamic machineType;
 @end
 
 

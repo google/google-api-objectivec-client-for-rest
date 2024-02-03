@@ -3020,6 +3020,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customAudiences;
 
+/**
+ *  Optional. Disables public resolution of the default URI of this service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultUriDisabled;
+
 /** Output only. The deletion time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
@@ -4012,7 +4019,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 

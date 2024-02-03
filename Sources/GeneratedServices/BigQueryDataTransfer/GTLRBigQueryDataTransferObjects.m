@@ -502,6 +502,24 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_UnenrollDataSourcesRequest
+//
+
+@implementation GTLRBigQueryDataTransfer_UnenrollDataSourcesRequest
+@dynamic dataSourceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataSourceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_UserInfo
 //
 

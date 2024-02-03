@@ -6,7 +6,7 @@
 // Description:
 //   Allows users to manage BigQuery connections to external data sources.
 // Documentation:
-//   https://cloud.google.com/bigquery/
+//   https://cloud.google.com/bigquery/docs/connections-api-intro
 
 #import <GoogleAPIClientForREST/GTLRBigQueryConnectionServiceObjects.h>
 
@@ -23,6 +23,10 @@ NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_LogTypeUn
 NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Mysql = @"MYSQL";
 NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres = @"POSTGRES";
+
+// GTLRBigQueryConnectionService_ConnectorConfigurationSecret.secretType
+NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_Plaintext = @"PLAINTEXT";
+NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_SecretTypeUnspecified = @"SECRET_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -156,14 +160,64 @@ NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres
 //
 
 @implementation GTLRBigQueryConnectionService_Connection
-@dynamic aws, azure, cloudResource, cloudSpanner, cloudSql, creationTime,
-         descriptionProperty, friendlyName, hasCredential, kmsKeyName,
-         lastModifiedTime, name, salesforceDataCloud, spark;
+@dynamic aws, azure, cloudResource, cloudSpanner, cloudSql, configuration,
+         creationTime, descriptionProperty, friendlyName, hasCredential,
+         kmsKeyName, lastModifiedTime, name, salesforceDataCloud, spark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfiguration
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfiguration
+@dynamic authentication, connectorId, endpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication
+@dynamic usernamePassword;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint
+@dynamic hostPort;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationSecret
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationSecret
+@dynamic plaintext, secretType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword
+@dynamic password, username;
 @end
 
 

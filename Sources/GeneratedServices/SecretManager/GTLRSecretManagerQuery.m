@@ -55,6 +55,363 @@
 
 @end
 
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsAddVersion
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_AddSecretVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:addVersion";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsAddVersion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.addVersion";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsCreate
+
+@dynamic parent, secretId;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_Secret *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/secrets";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecretManager_Secret class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_Empty class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_Secret class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRSecretManager_Policy class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/secrets";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecretManager_ListSecretsResponse class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_Secret *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_Secret class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRSecretManager_Policy class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRSecretManager_TestIamPermissionsResponse class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsAccess
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:access";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_AccessSecretVersionResponse class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.versions.access";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsDestroy
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_DestroySecretVersionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:destroy";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsDestroy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.versions.destroy";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsDisable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_DisableSecretVersionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:disable";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.versions.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsEnable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_EnableSecretVersionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enable";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsEnable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.versions.enable";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.versions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecretManager_ListSecretVersionsResponse class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.versions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecretManagerQuery_ProjectsSecretsAddVersion
 
 @dynamic parent;

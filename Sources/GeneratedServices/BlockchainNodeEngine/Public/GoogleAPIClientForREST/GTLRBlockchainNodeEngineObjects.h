@@ -295,6 +295,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. When true, the node is only accessible via Private Service
+ *  Connect; no public endpoints are exposed. Otherwise, the node is only
+ *  accessible via public endpoints. Warning: Private Service Connect enabled
+ *  nodes may require a manual migration effort to remain compatible with future
+ *  versions of the product. If this feature is enabled, you will be notified of
+ *  these changes along with any required action to avoid disruption. See
+ *  https://cloud.google.com/vpc/docs/private-service-connect.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *privateServiceConnectEnabled;
+
+/**
  *  Output only. A status representing the state of the node.
  *
  *  Likely values:
@@ -867,6 +880,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *  any GCP-managed validator client.
  */
 @interface GTLRBlockchainNodeEngine_ValidatorConfig : GTLRObject
+
+/**
+ *  Immutable. When true, deploys a GCP-managed validator client alongside the
+ *  beacon client.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *managedValidatorClient;
 
 /**
  *  URLs for MEV-relay services to use for block building. When set, a

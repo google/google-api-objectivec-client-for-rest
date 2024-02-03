@@ -920,7 +920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
- *  Resource that represents a bare metal admin cluster. LINT.IfChange
+ *  Resource that represents a bare metal admin cluster.
  */
 @interface GTLRGKEOnPrem_BareMetalAdminCluster : GTLRObject
 
@@ -1523,7 +1523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
- *  Resource that represents a bare metal user cluster. LINT.IfChange
+ *  Resource that represents a bare metal user cluster.
  */
 @interface GTLRGKEOnPrem_BareMetalCluster : GTLRObject
 
@@ -2583,9 +2583,25 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  `group:{emailid}`: An email address that represents a Google group. For
  *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
  *  (primary) that represents all the users of that domain. For example,
- *  `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An
- *  email address (plus unique identifier) representing a user that has been
- *  recently deleted. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2599,13 +2615,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  recently deleted. For example,
  *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
  *  this value reverts to `group:{emailid}` and the recovered group retains the
- *  role in the binding.
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -3404,7 +3427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
- *  Information about operation progress. LINT.IfChange
+ *  Information about operation progress.
  */
 @interface GTLRGKEOnPrem_OperationProgress : GTLRObject
 
@@ -4482,6 +4505,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** Configuration for auto repairing. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAutoRepairConfig *autoRepairConfig;
 
+/** Binary Authorization related configurations. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_BinaryAuthorization *binaryAuthorization;
+
 /**
  *  VMware user cluster control plane nodes must have either 1 or 3 replicas.
  */
@@ -4745,6 +4771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, strong, nullable) NSNumber *dataplaneV2Enabled;
 
+/** Configure ForwardMode for Dataplane v2. */
+@property(nonatomic, copy, nullable) NSString *forwardMode;
+
 /**
  *  Enable Dataplane V2 for clusters with Windows nodes.
  *
@@ -4957,8 +4986,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareStaticIpConfig *staticIpConfig;
 
 /**
- *  Output only. vcenter_network specifies vCenter network name. Inherited from
- *  the admin cluster.
+ *  vcenter_network specifies vCenter network name. Inherited from the admin
+ *  cluster.
  */
 @property(nonatomic, copy, nullable) NSString *vcenterNetwork;
 

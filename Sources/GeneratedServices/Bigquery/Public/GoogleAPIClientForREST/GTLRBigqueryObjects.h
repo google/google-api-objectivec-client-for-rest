@@ -22,6 +22,7 @@
 @class GTLRBigquery_ArimaForecastingMetrics;
 @class GTLRBigquery_ArimaModelInfo;
 @class GTLRBigquery_ArimaOrder;
+@class GTLRBigquery_ArimaResult;
 @class GTLRBigquery_ArimaSingleModelForecastingMetrics;
 @class GTLRBigquery_AuditConfig;
 @class GTLRBigquery_AuditLogConfig;
@@ -42,11 +43,13 @@
 @class GTLRBigquery_CategoryCount;
 @class GTLRBigquery_CloneDefinition;
 @class GTLRBigquery_Cluster;
+@class GTLRBigquery_ClusterInfo;
 @class GTLRBigquery_Clustering;
 @class GTLRBigquery_ClusteringMetrics;
 @class GTLRBigquery_ConfusionMatrix;
 @class GTLRBigquery_ConnectionProperty;
 @class GTLRBigquery_CsvOptions;
+@class GTLRBigquery_DataFormatOptions;
 @class GTLRBigquery_DataMaskingStatistics;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
@@ -70,17 +73,21 @@
 @class GTLRBigquery_ExplainQueryStage;
 @class GTLRBigquery_ExplainQueryStep;
 @class GTLRBigquery_Explanation;
+@class GTLRBigquery_ExportDataStatistics;
 @class GTLRBigquery_Expr;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_ExternalDatasetReference;
+@class GTLRBigquery_ExternalServiceCost;
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_GetPolicyOptions;
 @class GTLRBigquery_GlobalExplanation;
 @class GTLRBigquery_GoogleSheetsOptions;
+@class GTLRBigquery_HighCardinalityJoin;
 @class GTLRBigquery_HivePartitioningOptions;
 @class GTLRBigquery_HparamSearchSpaces;
 @class GTLRBigquery_HparamTuningTrial;
 @class GTLRBigquery_IndexUnusedReason;
+@class GTLRBigquery_InputDataChange;
 @class GTLRBigquery_IntArray;
 @class GTLRBigquery_IntArrayHparamSearchSpace;
 @class GTLRBigquery_IntCandidates;
@@ -95,6 +102,7 @@
 @class GTLRBigquery_JobConfigurationQuery;
 @class GTLRBigquery_JobConfigurationQuery_TableDefinitions;
 @class GTLRBigquery_JobConfigurationTableCopy;
+@class GTLRBigquery_JobCreationReason;
 @class GTLRBigquery_JobList_Jobs_Item;
 @class GTLRBigquery_JobReference;
 @class GTLRBigquery_JobStatistics;
@@ -107,29 +115,41 @@
 @class GTLRBigquery_JobStatus;
 @class GTLRBigquery_JsonObject;
 @class GTLRBigquery_JsonOptions;
+@class GTLRBigquery_LinkedDatasetSource;
+@class GTLRBigquery_LoadQueryStatistics;
+@class GTLRBigquery_MaterializedView;
 @class GTLRBigquery_MaterializedViewDefinition;
+@class GTLRBigquery_MaterializedViewStatistics;
+@class GTLRBigquery_MaterializedViewStatus;
+@class GTLRBigquery_MetadataCacheStatistics;
 @class GTLRBigquery_MlStatistics;
 @class GTLRBigquery_Model;
 @class GTLRBigquery_Model_Labels;
 @class GTLRBigquery_ModelDefinition;
 @class GTLRBigquery_ModelDefinition_ModelOptions;
+@class GTLRBigquery_ModelExtractOptions;
 @class GTLRBigquery_ModelReference;
 @class GTLRBigquery_ModelTraining;
 @class GTLRBigquery_MultiClassClassificationMetrics;
 @class GTLRBigquery_ParquetOptions;
+@class GTLRBigquery_PerformanceInsights;
 @class GTLRBigquery_Policy;
+@class GTLRBigquery_PrincipalComponentInfo;
+@class GTLRBigquery_PrivacyPolicy;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
+@class GTLRBigquery_QueryInfo;
+@class GTLRBigquery_QueryInfo_OptimizationDetails;
 @class GTLRBigquery_QueryParameter;
 @class GTLRBigquery_QueryParameterType;
 @class GTLRBigquery_QueryParameterType_StructTypes_Item;
 @class GTLRBigquery_QueryParameterValue;
-@class GTLRBigquery_QueryParameterValue_RangeValue;
 @class GTLRBigquery_QueryParameterValue_StructValues;
 @class GTLRBigquery_QueryRequest_Labels;
 @class GTLRBigquery_QueryTimelineSample;
 @class GTLRBigquery_RangePartitioning;
 @class GTLRBigquery_RangePartitioning_Range;
+@class GTLRBigquery_RangeValue;
 @class GTLRBigquery_RankingMetrics;
 @class GTLRBigquery_RegressionMetrics;
 @class GTLRBigquery_RemoteFunctionOptions;
@@ -141,6 +161,7 @@
 @class GTLRBigquery_RowAccessPolicy;
 @class GTLRBigquery_RowAccessPolicyReference;
 @class GTLRBigquery_RowLevelSecurityStatistics;
+@class GTLRBigquery_ScriptOptions;
 @class GTLRBigquery_ScriptStackFrame;
 @class GTLRBigquery_ScriptStatistics;
 @class GTLRBigquery_SearchStatistics;
@@ -151,12 +172,17 @@
 @class GTLRBigquery_SparkOptions_Properties;
 @class GTLRBigquery_SparkStatistics;
 @class GTLRBigquery_SparkStatistics_Endpoints;
+@class GTLRBigquery_StagePerformanceChangeInsight;
+@class GTLRBigquery_StagePerformanceStandaloneInsight;
 @class GTLRBigquery_StandardSqlDataType;
 @class GTLRBigquery_StandardSqlField;
 @class GTLRBigquery_StandardSqlStructType;
 @class GTLRBigquery_StandardSqlTableType;
 @class GTLRBigquery_Streamingbuffer;
 @class GTLRBigquery_StringHparamSearchSpace;
+@class GTLRBigquery_SystemVariables;
+@class GTLRBigquery_SystemVariables_Types;
+@class GTLRBigquery_SystemVariables_Values;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_Table_ResourceTags;
 @class GTLRBigquery_TableCell;
@@ -174,7 +200,9 @@
 @class GTLRBigquery_TableList_Tables_Item;
 @class GTLRBigquery_TableList_Tables_Item_Labels;
 @class GTLRBigquery_TableList_Tables_Item_View;
+@class GTLRBigquery_TableMetadataCacheUsage;
 @class GTLRBigquery_TableReference;
+@class GTLRBigquery_TableReplicationInfo;
 @class GTLRBigquery_TableRow;
 @class GTLRBigquery_TableSchema;
 @class GTLRBigquery_TimePartitioning;
@@ -184,6 +212,7 @@
 @class GTLRBigquery_TransactionInfo;
 @class GTLRBigquery_TransformColumn;
 @class GTLRBigquery_UserDefinedFunctionResource;
+@class GTLRBigquery_VectorSearchStatistics;
 @class GTLRBigquery_ViewDefinition;
 
 // Generated comments include content from the discovery document; avoid them
@@ -461,6 +490,198 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataWrit
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_BiEngineReason.code
+
+/**
+ *  BiEngineReason not specified.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineReason_Code_CodeUnspecified;
+/**
+ *  Input too large for acceleration by BI Engine.
+ *
+ *  Value: "INPUT_TOO_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineReason_Code_InputTooLarge;
+/**
+ *  Not enough memory available for BI Engine acceleration.
+ *
+ *  Value: "INSUFFICIENT_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineReason_Code_InsufficientReservation;
+/**
+ *  No reservation available for BI Engine acceleration.
+ *
+ *  Value: "NO_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineReason_Code_NoReservation;
+/**
+ *  Catch-all code for all other cases for partial or disabled acceleration.
+ *
+ *  Value: "OTHER_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineReason_Code_OtherReason;
+/**
+ *  One or more tables were not eligible for BI Engine acceleration.
+ *
+ *  Value: "TABLE_EXCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineReason_Code_TableExcluded;
+/**
+ *  This particular SQL text is not supported for acceleration by BI Engine.
+ *
+ *  Value: "UNSUPPORTED_SQL_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineReason_Code_UnsupportedSqlText;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_BiEngineStatistics.accelerationMode
+
+/**
+ *  BiEngineMode type not specified.
+ *
+ *  Value: "BI_ENGINE_ACCELERATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_BiEngineAccelerationModeUnspecified;
+/**
+ *  BI Engine acceleration was attempted but disabled. bi_engine_reasons
+ *  specifies a more detailed reason.
+ *
+ *  Value: "BI_ENGINE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_BiEngineDisabled;
+/**
+ *  All of the query inputs were accelerated using BI Engine.
+ *
+ *  Value: "FULL_INPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_FullInput;
+/**
+ *  All of the query was accelerated using BI Engine.
+ *
+ *  Value: "FULL_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_FullQuery;
+/**
+ *  Some inputs were accelerated using BI Engine. See bi_engine_reasons for why
+ *  parts of the query were not accelerated.
+ *
+ *  Value: "PARTIAL_INPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_PartialInput;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_BiEngineStatistics.biEngineMode
+
+/**
+ *  BiEngineMode type not specified.
+ *
+ *  Value: "ACCELERATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_BiEngineMode_AccelerationModeUnspecified;
+/**
+ *  BI Engine disabled the acceleration. bi_engine_reasons specifies a more
+ *  detailed reason.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_BiEngineMode_Disabled;
+/**
+ *  All of the query was accelerated using BI Engine.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_BiEngineMode_Full;
+/**
+ *  Part of the query was accelerated using BI Engine. See bi_engine_reasons for
+ *  why parts of the query were not accelerated.
+ *
+ *  Value: "PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BiEngineStatistics_BiEngineMode_Partial;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_BigLakeConfiguration.fileFormat
+
+/**
+ *  Default Value.
+ *
+ *  Value: "FILE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BigLakeConfiguration_FileFormat_FileFormatUnspecified;
+/**
+ *  Apache Parquet format.
+ *
+ *  Value: "PARQUET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BigLakeConfiguration_FileFormat_Parquet;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_BigLakeConfiguration.tableFormat
+
+/**
+ *  Apache Iceberg format.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BigLakeConfiguration_TableFormat_Iceberg;
+/**
+ *  Default Value.
+ *
+ *  Value: "TABLE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_BigLakeConfiguration_TableFormat_TableFormatUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_Dataset.defaultRoundingMode
+
+/**
+ *  ROUND_HALF_AWAY_FROM_ZERO rounds half values away from zero when applying
+ *  precision and scale upon writing of NUMERIC and BIGNUMERIC values. For
+ *  Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5, 1.6, 1.7, 1.8, 1.9 => 2
+ *
+ *  Value: "ROUND_HALF_AWAY_FROM_ZERO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Dataset_DefaultRoundingMode_RoundHalfAwayFromZero;
+/**
+ *  ROUND_HALF_EVEN rounds half values to the nearest even value when applying
+ *  precision and scale upon writing of NUMERIC and BIGNUMERIC values. For
+ *  Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5 => 2 1.6, 1.7, 1.8, 1.9 => 2 2.5 => 2
+ *
+ *  Value: "ROUND_HALF_EVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Dataset_DefaultRoundingMode_RoundHalfEven;
+/**
+ *  Unspecified will default to using ROUND_HALF_AWAY_FROM_ZERO.
+ *
+ *  Value: "ROUNDING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Dataset_DefaultRoundingMode_RoundingModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_Dataset.storageBillingModel
+
+/**
+ *  Billing for logical bytes.
+ *
+ *  Value: "LOGICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Dataset_StorageBillingModel_Logical;
+/**
+ *  Billing for physical bytes.
+ *
+ *  Value: "PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Dataset_StorageBillingModel_Physical;
+/**
+ *  Value not set.
+ *
+ *  Value: "STORAGE_BILLING_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Dataset_StorageBillingModel_StorageBillingModelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_DatasetAccessEntry.targetTypes
 
 /**
@@ -481,6 +702,139 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_
  *  Value: "VIEWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Views;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ExplainQueryStage.computeMode
+
+/**
+ *  This stage was processed using BI Engine compute.
+ *
+ *  Value: "BI_ENGINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExplainQueryStage_ComputeMode_BiEngine;
+/**
+ *  This stage was processed using BigQuery slots.
+ *
+ *  Value: "BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExplainQueryStage_ComputeMode_Bigquery;
+/**
+ *  ComputeMode type not specified.
+ *
+ *  Value: "COMPUTE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExplainQueryStage_ComputeMode_ComputeModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ExternalDataConfiguration.decimalTargetTypes
+
+/**
+ *  Decimal values could be converted to BIGNUMERIC type.
+ *
+ *  Value: "BIGNUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_DecimalTargetTypes_Bignumeric;
+/**
+ *  Invalid type.
+ *
+ *  Value: "DECIMAL_TARGET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_DecimalTargetTypes_DecimalTargetTypeUnspecified;
+/**
+ *  Decimal values could be converted to NUMERIC type.
+ *
+ *  Value: "NUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_DecimalTargetTypes_Numeric;
+/**
+ *  Decimal values could be converted to STRING type.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_DecimalTargetTypes_String;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ExternalDataConfiguration.fileSetSpecType
+
+/**
+ *  This option expands source URIs by listing files from the object store. It
+ *  is the default behavior if FileSetSpecType is not set.
+ *
+ *  Value: "FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_FileSetSpecType_FileSetSpecTypeFileSystemMatch;
+/**
+ *  This option indicates that the provided URIs are newline-delimited manifest
+ *  files, with one URI per line. Wildcard URIs are not supported.
+ *
+ *  Value: "FILE_SET_SPEC_TYPE_NEW_LINE_DELIMITED_MANIFEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_FileSetSpecType_FileSetSpecTypeNewLineDelimitedManifest;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ExternalDataConfiguration.jsonExtension
+
+/**
+ *  Use GeoJSON variant of JSON. See https://tools.ietf.org/html/rfc7946.
+ *
+ *  Value: "GEOJSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_JsonExtension_Geojson;
+/**
+ *  The default if provided value is not one included in the enum, or the value
+ *  is not specified. The source formate is parsed without any modification.
+ *
+ *  Value: "JSON_EXTENSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_JsonExtension_JsonExtensionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ExternalDataConfiguration.metadataCacheMode
+
+/**
+ *  Set this mode to trigger automatic background refresh of metadata cache from
+ *  the external source. Queries will use the latest available cache version
+ *  within the table's maxStaleness interval.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_Automatic;
+/**
+ *  Set this mode to enable triggering manual refresh of the metadata cache from
+ *  external source. Queries will use the latest manually triggered cache
+ *  version within the table's maxStaleness interval.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_Manual;
+/**
+ *  Unspecified metadata cache mode.
+ *
+ *  Value: "METADATA_CACHE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_MetadataCacheModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ExternalDataConfiguration.objectMetadata
+
+/**
+ *  A synonym for `SIMPLE`.
+ *
+ *  Value: "DIRECTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_Directory;
+/**
+ *  Unspecified by default.
+ *
+ *  Value: "OBJECT_METADATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_ObjectMetadataUnspecified;
+/**
+ *  Directory listing of objects.
+ *
+ *  Value: "SIMPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_Simple;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_HparamTuningTrial.status
@@ -529,6 +883,245 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_Succee
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_IndexUnusedReason.code
+
+/**
+ *  Indicates that the total size of indexed base tables in your organization
+ *  exceeds your region's limit and the index is not used in the query. To index
+ *  larger base tables, you can use your own reservation for index-management
+ *  jobs.
+ *
+ *  Value: "BASE_TABLE_TOO_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooLarge;
+/**
+ *  Indicates the base table is too small (below a certain threshold). The index
+ *  does not provide noticeable search performance gains when the base table is
+ *  too small.
+ *
+ *  Value: "BASE_TABLE_TOO_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooSmall;
+/**
+ *  Indicates the base table has been truncated (rows have been removed from
+ *  table with TRUNCATE TABLE statement) since the last time the search index
+ *  was refreshed.
+ *
+ *  Value: "BASE_TABLE_TRUNCATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTruncated;
+/**
+ *  Code not specified.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_CodeUnspecified;
+/**
+ *  Indicates that the esitmated performance gain from using the search index is
+ *  too low for the given search query.
+ *
+ *  Value: "ESTIMATED_PERFORMANCE_GAIN_TOO_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_EstimatedPerformanceGainTooLow;
+/**
+ *  Indicates the search index configuration has been changed since the last
+ *  time the search index was refreshed.
+ *
+ *  Value: "INDEX_CONFIG_MODIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_IndexConfigModified;
+/**
+ *  Indicates the search index configuration has not been created.
+ *
+ *  Value: "INDEX_CONFIG_NOT_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_IndexConfigNotAvailable;
+/**
+ *  Indicates that an option in the search function that cannot make use of the
+ *  index has been selected.
+ *
+ *  Value: "INDEX_SUPPRESSED_BY_FUNCTION_OPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_IndexSuppressedByFunctionOption;
+/**
+ *  Indicates an internal error that causes the search index to be unused.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_InternalError;
+/**
+ *  Indicates that the search index and the search function call do not have the
+ *  same text analyzer.
+ *
+ *  Value: "MISMATCHED_TEXT_ANALYZER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_MismatchedTextAnalyzer;
+/**
+ *  Indicates the usage of search index will not contribute to any pruning
+ *  improvement for the search function, e.g. when the search predicate is in a
+ *  disjunction with other non-search predicates.
+ *
+ *  Value: "NO_PRUNING_POWER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_NoPruningPower;
+/**
+ *  Indicates that search indexes can not be used for search query with STANDARD
+ *  edition.
+ *
+ *  Value: "NOT_SUPPORTED_IN_STANDARD_EDITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_NotSupportedInStandardEdition;
+/**
+ *  Indicates the query has been optimized by using a materialized view.
+ *
+ *  Value: "OPTIMIZED_WITH_MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_OptimizedWithMaterializedView;
+/**
+ *  Indicates that the reason search indexes cannot be used in the query is not
+ *  covered by any of the other IndexUnusedReason options.
+ *
+ *  Value: "OTHER_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_OtherReason;
+/**
+ *  Indicates the search index creation has not been completed.
+ *
+ *  Value: "PENDING_INDEX_CREATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_PendingIndexCreation;
+/**
+ *  Indicates that the query was cached, and thus the search index was not used.
+ *
+ *  Value: "QUERY_CACHE_HIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_QueryCacheHit;
+/**
+ *  Indicates the query has been secured by data masking, and thus search
+ *  indexes are not applicable.
+ *
+ *  Value: "SECURED_BY_DATA_MASKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_SecuredByDataMasking;
+/**
+ *  Indicates the search query accesses data at a timestamp before the last time
+ *  the search index was refreshed.
+ *
+ *  Value: "TIME_TRAVEL_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_TimeTravelQuery;
+/**
+ *  Indicates the search index does not cover all fields in the search function.
+ *
+ *  Value: "UNINDEXED_SEARCH_FIELDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_UnindexedSearchFields;
+/**
+ *  Indicates the search index does not support the given search query pattern.
+ *
+ *  Value: "UNSUPPORTED_SEARCH_PATTERN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_UnsupportedSearchPattern;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_JobConfigurationLoad.decimalTargetTypes
+
+/**
+ *  Decimal values could be converted to BIGNUMERIC type.
+ *
+ *  Value: "BIGNUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_Bignumeric;
+/**
+ *  Invalid type.
+ *
+ *  Value: "DECIMAL_TARGET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_DecimalTargetTypeUnspecified;
+/**
+ *  Decimal values could be converted to NUMERIC type.
+ *
+ *  Value: "NUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_Numeric;
+/**
+ *  Decimal values could be converted to STRING type.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_String;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_JobConfigurationLoad.fileSetSpecType
+
+/**
+ *  This option expands source URIs by listing files from the object store. It
+ *  is the default behavior if FileSetSpecType is not set.
+ *
+ *  Value: "FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_FileSetSpecType_FileSetSpecTypeFileSystemMatch;
+/**
+ *  This option indicates that the provided URIs are newline-delimited manifest
+ *  files, with one URI per line. Wildcard URIs are not supported.
+ *
+ *  Value: "FILE_SET_SPEC_TYPE_NEW_LINE_DELIMITED_MANIFEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_FileSetSpecType_FileSetSpecTypeNewLineDelimitedManifest;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_JobConfigurationLoad.jsonExtension
+
+/**
+ *  Use GeoJSON variant of JSON. See https://tools.ietf.org/html/rfc7946.
+ *
+ *  Value: "GEOJSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_JsonExtension_Geojson;
+/**
+ *  The default if provided value is not one included in the enum, or the value
+ *  is not specified. The source formate is parsed without any modification.
+ *
+ *  Value: "JSON_EXTENSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationLoad_JsonExtension_JsonExtensionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_JobConfigurationTableCopy.operationType
+
+/**
+ *  The source and destination table have the same table type, but only bill for
+ *  unique data.
+ *
+ *  Value: "CLONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Clone;
+/**
+ *  The source and destination table have the same table type.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Copy;
+/**
+ *  Unspecified operation type.
+ *
+ *  Value: "OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_OperationTypeUnspecified;
+/**
+ *  The source table type is SNAPSHOT and the destination table type is TABLE.
+ *
+ *  Value: "RESTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Restore;
+/**
+ *  The source table type is TABLE and the destination table type is SNAPSHOT.
+ *
+ *  Value: "SNAPSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Snapshot;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_JobCreationReason.code
 
 /**
@@ -565,6 +1158,262 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_Other;
  *  Value: "REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_Requested;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_MaterializedView.rejectedReason
+
+/**
+ *  View is invalidated because of a data change in one or more base tables. It
+ *  could be any recent change if the
+ *  [`max_staleness`](https://cloud.google.com/bigquery/docs/materialized-views-create#max_staleness)
+ *  option is not set for the view, or otherwise any change outside of the
+ *  staleness window.
+ *
+ *  Value: "BASE_TABLE_DATA_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableDataChange;
+/**
+ *  View is invalidated because a base table's partition has expired.
+ *
+ *  Value: "BASE_TABLE_EXPIRED_PARTITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableExpiredPartition;
+/**
+ *  View is inaccessible to the user because of a fine-grained security policy
+ *  on one of its base tables.
+ *
+ *  Value: "BASE_TABLE_FINE_GRAINED_SECURITY_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableFineGrainedSecurityPolicy;
+/**
+ *  View is invalidated because a base table has an incompatible metadata
+ *  change.
+ *
+ *  Value: "BASE_TABLE_INCOMPATIBLE_METADATA_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableIncompatibleMetadataChange;
+/**
+ *  View is invalidated because a base table's partition expiration has changed.
+ *
+ *  Value: "BASE_TABLE_PARTITION_EXPIRATION_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTablePartitionExpirationChange;
+/**
+ *  One of the view's base tables is too stale. For example, the cached metadata
+ *  of a biglake table needs to be updated.
+ *
+ *  Value: "BASE_TABLE_TOO_STALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableTooStale;
+/**
+ *  View has no cached data because a base table is truncated.
+ *
+ *  Value: "BASE_TABLE_TRUNCATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableTruncated;
+/**
+ *  The estimated cost of the view is more expensive than another view or the
+ *  base table. Note: The estimate cost might not match the billed cost.
+ *
+ *  Value: "COST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_Cost;
+/**
+ *  View has no cached data because it has not refreshed yet.
+ *
+ *  Value: "NO_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_NoData;
+/**
+ *  View is outside the time travel window.
+ *
+ *  Value: "OUT_OF_TIME_TRAVEL_WINDOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_OutOfTimeTravelWindow;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "REJECTED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_RejectedReasonUnspecified;
+/**
+ *  View is invalidated because it was refreshed with a time zone other than
+ *  that of the current job.
+ *
+ *  Value: "TIME_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_TimeZone;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_MlStatistics.modelType
+
+/**
+ *  ARIMA model.
+ *
+ *  Value: "ARIMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Arima;
+/**
+ *  New name for the ARIMA model.
+ *
+ *  Value: "ARIMA_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_ArimaPlus;
+/**
+ *  ARIMA with external regressors.
+ *
+ *  Value: "ARIMA_PLUS_XREG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_ArimaPlusXreg;
+/**
+ *  Autoencoder model.
+ *
+ *  Value: "AUTOENCODER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Autoencoder;
+/**
+ *  AutoML Tables classification model.
+ *
+ *  Value: "AUTOML_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_AutomlClassifier;
+/**
+ *  AutoML Tables regression model.
+ *
+ *  Value: "AUTOML_REGRESSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_AutomlRegressor;
+/**
+ *  Boosted tree classifier model.
+ *
+ *  Value: "BOOSTED_TREE_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_BoostedTreeClassifier;
+/**
+ *  Boosted tree regressor model.
+ *
+ *  Value: "BOOSTED_TREE_REGRESSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_BoostedTreeRegressor;
+/**
+ *  DNN classifier model.
+ *
+ *  Value: "DNN_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnClassifier;
+/**
+ *  Wide-and-deep classifier model.
+ *
+ *  Value: "DNN_LINEAR_COMBINED_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedClassifier;
+/**
+ *  Wide-and-deep regressor model.
+ *
+ *  Value: "DNN_LINEAR_COMBINED_REGRESSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedRegressor;
+/**
+ *  DNN regressor model.
+ *
+ *  Value: "DNN_REGRESSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnRegressor;
+/**
+ *  K-means clustering model.
+ *
+ *  Value: "KMEANS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Kmeans;
+/**
+ *  Linear regression model.
+ *
+ *  Value: "LINEAR_REGRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_LinearRegression;
+/**
+ *  Logistic regression based classification model.
+ *
+ *  Value: "LOGISTIC_REGRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_LogisticRegression;
+/**
+ *  Matrix factorization model.
+ *
+ *  Value: "MATRIX_FACTORIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_MatrixFactorization;
+/**
+ *  Default value.
+ *
+ *  Value: "MODEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_ModelTypeUnspecified;
+/**
+ *  An imported ONNX model.
+ *
+ *  Value: "ONNX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Onnx;
+/**
+ *  Prinpical Component Analysis model.
+ *
+ *  Value: "PCA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Pca;
+/**
+ *  Random forest classifier model.
+ *
+ *  Value: "RANDOM_FOREST_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_RandomForestClassifier;
+/**
+ *  Random forest regressor model.
+ *
+ *  Value: "RANDOM_FOREST_REGRESSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_RandomForestRegressor;
+/**
+ *  An imported TensorFlow model.
+ *
+ *  Value: "TENSORFLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Tensorflow;
+/**
+ *  An imported TensorFlow Lite model.
+ *
+ *  Value: "TENSORFLOW_LITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_TensorflowLite;
+/**
+ *  An imported XGBoost model.
+ *
+ *  Value: "XGBOOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Xgboost;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_MlStatistics.trainingType
+
+/**
+ *  [Hyperparameter tuning
+ *  training](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
+ *
+ *  Value: "HPARAM_TUNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_TrainingType_HparamTuning;
+/**
+ *  Single training with fixed parameter space.
+ *
+ *  Value: "SINGLE_TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_TrainingType_SingleTraining;
+/**
+ *  Unspecified training type.
+ *
+ *  Value: "TRAINING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_TrainingType_TrainingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Model.modelType
@@ -713,6 +1562,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_TensorflowLite;
  *  Value: "XGBOOST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Xgboost;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_QueryRequest.jobCreationMode
+
+/**
+ *  If unspecified JOB_CREATION_REQUIRED is the default.
+ *
+ *  Value: "JOB_CREATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationModeUnspecified;
+/**
+ *  Job creation is optional. Returning immediate results is prioritized.
+ *  BigQuery will automatically determine if a Job needs to be created. The
+ *  conditions under which BigQuery can decide to not create a Job are subject
+ *  to change. If Job creation is required, JOB_CREATION_REQUIRED mode should be
+ *  used, which is the default.
+ *
+ *  Value: "JOB_CREATION_OPTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationOptional;
+/**
+ *  Default. Job creation is always required.
+ *
+ *  Value: "JOB_CREATION_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationRequired;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_RemoteModelInfo.remoteServiceType
@@ -890,6 +1765,82 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_SecurityMode_Invoker;
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_SecurityMode_SecurityModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_ScriptOptions.keyResultStatement
+
+/**
+ *  The first SELECT statement determines the key result.
+ *
+ *  Value: "FIRST_SELECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ScriptOptions_KeyResultStatement_FirstSelect;
+/**
+ *  Default value.
+ *
+ *  Value: "KEY_RESULT_STATEMENT_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ScriptOptions_KeyResultStatement_KeyResultStatementKindUnspecified;
+/**
+ *  The last result determines the key result.
+ *
+ *  Value: "LAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ScriptOptions_KeyResultStatement_Last;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ScriptStatistics.evaluationKind
+
+/**
+ *  Default value.
+ *
+ *  Value: "EVALUATION_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ScriptStatistics_EvaluationKind_EvaluationKindUnspecified;
+/**
+ *  The statement evaluates an expression that appears in the script.
+ *
+ *  Value: "EXPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ScriptStatistics_EvaluationKind_Expression;
+/**
+ *  The statement appears directly in the script.
+ *
+ *  Value: "STATEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ScriptStatistics_EvaluationKind_Statement;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_SearchStatistics.indexUsageMode
+
+/**
+ *  The entire search query used search indexes.
+ *
+ *  Value: "FULLY_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_SearchStatistics_IndexUsageMode_FullyUsed;
+/**
+ *  Index usage mode not specified.
+ *
+ *  Value: "INDEX_USAGE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_SearchStatistics_IndexUsageMode_IndexUsageModeUnspecified;
+/**
+ *  Part of the search query used search indexes. See [`indexUnusedReasons`]
+ *  (/bigquery/docs/reference/rest/v2/Job#IndexUnusedReason) for why other parts
+ *  of the query did not use search indexes.
+ *
+ *  Value: "PARTIALLY_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_SearchStatistics_IndexUsageMode_PartiallyUsed;
+/**
+ *  No search indexes were used in the search query. See [`indexUnusedReasons`]
+ *  (/bigquery/docs/reference/rest/v2/Job#IndexUnusedReason) for detailed
+ *  reasons.
+ *
+ *  Value: "UNUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_SearchStatistics_IndexUsageMode_Unused;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_StandardSqlDataType.typeKind
 
 /**
@@ -1003,6 +1954,122 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Ti
  *  Value: "TYPE_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_Table.defaultRoundingMode
+
+/**
+ *  ROUND_HALF_AWAY_FROM_ZERO rounds half values away from zero when applying
+ *  precision and scale upon writing of NUMERIC and BIGNUMERIC values. For
+ *  Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5, 1.6, 1.7, 1.8, 1.9 => 2
+ *
+ *  Value: "ROUND_HALF_AWAY_FROM_ZERO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfAwayFromZero;
+/**
+ *  ROUND_HALF_EVEN rounds half values to the nearest even value when applying
+ *  precision and scale upon writing of NUMERIC and BIGNUMERIC values. For
+ *  Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5 => 2 1.6, 1.7, 1.8, 1.9 => 2 2.5 => 2
+ *
+ *  Value: "ROUND_HALF_EVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfEven;
+/**
+ *  Unspecified will default to using ROUND_HALF_AWAY_FROM_ZERO.
+ *
+ *  Value: "ROUNDING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundingModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TableFieldSchema.roundingMode
+
+/**
+ *  ROUND_HALF_AWAY_FROM_ZERO rounds half values away from zero when applying
+ *  precision and scale upon writing of NUMERIC and BIGNUMERIC values. For
+ *  Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5, 1.6, 1.7, 1.8, 1.9 => 2
+ *
+ *  Value: "ROUND_HALF_AWAY_FROM_ZERO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableFieldSchema_RoundingMode_RoundHalfAwayFromZero;
+/**
+ *  ROUND_HALF_EVEN rounds half values to the nearest even value when applying
+ *  precision and scale upon writing of NUMERIC and BIGNUMERIC values. For
+ *  Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5 => 2 1.6, 1.7, 1.8, 1.9 => 2 2.5 => 2
+ *
+ *  Value: "ROUND_HALF_EVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableFieldSchema_RoundingMode_RoundHalfEven;
+/**
+ *  Unspecified will default to using ROUND_HALF_AWAY_FROM_ZERO.
+ *
+ *  Value: "ROUNDING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableFieldSchema_RoundingMode_RoundingModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TableMetadataCacheUsage.unusedReason
+
+/**
+ *  Metadata cache was outside the table's maxStaleness.
+ *
+ *  Value: "EXCEEDED_MAX_STALENESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_ExceededMaxStaleness;
+/**
+ *  Metadata caching feature is not enabled. [Update BigLake tables]
+ *  (/bigquery/docs/create-cloud-storage-table-biglake#update-biglake-tables) to
+ *  enable the metadata caching.
+ *
+ *  Value: "METADATA_CACHING_NOT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_MetadataCachingNotEnabled;
+/**
+ *  Other unknown reason.
+ *
+ *  Value: "OTHER_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_OtherReason;
+/**
+ *  Unused reasons not specified.
+ *
+ *  Value: "UNUSED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_UnusedReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TableReplicationInfo.replicationStatus
+
+/**
+ *  Replication is Active with no errors.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_Active;
+/**
+ *  Source revoked replication permissions.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_PermissionDenied;
+/**
+ *  Default value.
+ *
+ *  Value: "REPLICATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_ReplicationStatusUnspecified;
+/**
+ *  Source object is deleted.
+ *
+ *  Value: "SOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_SourceDeleted;
+/**
+ *  Source configuration doesn’t allow replication.
+ *
+ *  Value: "UNSUPPORTED_CONFIGURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_UnsupportedConfiguration;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.boosterType
@@ -2915,12 +3982,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_AvroOptions
+ *  Options for external data sources.
  */
 @interface GTLRBigquery_AvroOptions : GTLRObject
 
 /**
- *  [Optional] If sourceFormat is set to "AVRO", indicates whether to interpret
+ *  Optional. If sourceFormat is set to "AVRO", indicates whether to interpret
  *  logical types as the corresponding BigQuery data type (for example,
  *  TIMESTAMP), instead of using the raw type (for example, INTEGER).
  *
@@ -2932,18 +3999,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_BiEngineReason
+ *  Reason why BI Engine didn't accelerate the query (or sub-query).
  */
 @interface GTLRBigquery_BiEngineReason : GTLRObject
 
 /**
- *  [Output-only] High-level BI Engine reason for partial or disabled
- *  acceleration.
+ *  Output only. High-level BI Engine reason for partial or disabled
+ *  acceleration
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_BiEngineReason_Code_CodeUnspecified BiEngineReason
+ *        not specified. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_BiEngineReason_Code_InputTooLarge Input too large
+ *        for acceleration by BI Engine. (Value: "INPUT_TOO_LARGE")
+ *    @arg @c kGTLRBigquery_BiEngineReason_Code_InsufficientReservation Not
+ *        enough memory available for BI Engine acceleration. (Value:
+ *        "INSUFFICIENT_RESERVATION")
+ *    @arg @c kGTLRBigquery_BiEngineReason_Code_NoReservation No reservation
+ *        available for BI Engine acceleration. (Value: "NO_RESERVATION")
+ *    @arg @c kGTLRBigquery_BiEngineReason_Code_OtherReason Catch-all code for
+ *        all other cases for partial or disabled acceleration. (Value:
+ *        "OTHER_REASON")
+ *    @arg @c kGTLRBigquery_BiEngineReason_Code_TableExcluded One or more tables
+ *        were not eligible for BI Engine acceleration. (Value:
+ *        "TABLE_EXCLUDED")
+ *    @arg @c kGTLRBigquery_BiEngineReason_Code_UnsupportedSqlText This
+ *        particular SQL text is not supported for acceleration by BI Engine.
+ *        (Value: "UNSUPPORTED_SQL_TEXT")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
- *  [Output-only] Free form human-readable reason for partial or disabled
+ *  Output only. Free form human-readable reason for partial or disabled
  *  acceleration.
  */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -2952,19 +4039,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_BiEngineStatistics
+ *  Statistics for a BI Engine specific query. Populated as part of
+ *  JobStatistics2
  */
 @interface GTLRBigquery_BiEngineStatistics : GTLRObject
 
 /**
- *  [Output-only] Specifies which mode of BI Engine acceleration was performed
+ *  Output only. Specifies which mode of BI Engine acceleration was performed
  *  (if any).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_AccelerationMode_BiEngineAccelerationModeUnspecified
+ *        BiEngineMode type not specified. (Value:
+ *        "BI_ENGINE_ACCELERATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_AccelerationMode_BiEngineDisabled
+ *        BI Engine acceleration was attempted but disabled. bi_engine_reasons
+ *        specifies a more detailed reason. (Value: "BI_ENGINE_DISABLED")
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_AccelerationMode_FullInput All of
+ *        the query inputs were accelerated using BI Engine. (Value:
+ *        "FULL_INPUT")
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_AccelerationMode_FullQuery All of
+ *        the query was accelerated using BI Engine. (Value: "FULL_QUERY")
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_AccelerationMode_PartialInput
+ *        Some inputs were accelerated using BI Engine. See bi_engine_reasons
+ *        for why parts of the query were not accelerated. (Value:
+ *        "PARTIAL_INPUT")
  */
 @property(nonatomic, copy, nullable) NSString *accelerationMode;
 
 /**
- *  [Output-only] Specifies which mode of BI Engine acceleration was performed
+ *  Output only. Specifies which mode of BI Engine acceleration was performed
  *  (if any).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_BiEngineMode_AccelerationModeUnspecified
+ *        BiEngineMode type not specified. (Value:
+ *        "ACCELERATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_BiEngineMode_Disabled BI Engine
+ *        disabled the acceleration. bi_engine_reasons specifies a more detailed
+ *        reason. (Value: "DISABLED")
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_BiEngineMode_Full All of the
+ *        query was accelerated using BI Engine. (Value: "FULL")
+ *    @arg @c kGTLRBigquery_BiEngineStatistics_BiEngineMode_Partial Part of the
+ *        query was accelerated using BI Engine. See bi_engine_reasons for why
+ *        parts of the query were not accelerated. (Value: "PARTIAL")
  */
 @property(nonatomic, copy, nullable) NSString *biEngineMode;
 
@@ -2979,33 +4097,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_BigLakeConfiguration
+ *  Configuration for BigLake managed tables.
  */
 @interface GTLRBigquery_BigLakeConfiguration : GTLRObject
 
 /**
- *  [Required] Required and immutable. Credential reference for accessing
- *  external storage system. Normalized as project_id.location_id.connection_id.
+ *  Required. The connection specifying the credentials to be used to read and
+ *  write to external storage, such as Cloud Storage. The connection_id can have
+ *  the form "<project\\_id>.<location\\_id>.<connection\\_id>" or
+ *  "projects/<project\\_id>/locations/<location\\_id>/connections/<connection\\_id>".
  */
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
 /**
- *  [Required] Required and immutable. Open source file format that the table
- *  data is stored in. Currently only PARQUET is supported.
+ *  Required. The file format the table data is stored in.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_BigLakeConfiguration_FileFormat_FileFormatUnspecified
+ *        Default Value. (Value: "FILE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_BigLakeConfiguration_FileFormat_Parquet Apache
+ *        Parquet format. (Value: "PARQUET")
  */
 @property(nonatomic, copy, nullable) NSString *fileFormat;
 
 /**
- *  [Required] Required and immutable. Fully qualified location prefix of the
- *  external folder where data is stored. Normalized to standard format:
- *  "gs:////". Starts with "gs://" rather than "/bigstore/". Ends with "/". Does
- *  not contain "*". See also BigLakeStorageMetadata on how it is used.
+ *  Required. The fully qualified location prefix of the external folder where
+ *  table data is stored. The '*' wildcard character is not allowed. The URI
+ *  should be in the format "gs://bucket/path_to_table/"
  */
 @property(nonatomic, copy, nullable) NSString *storageUri;
 
 /**
- *  [Required] Required and immutable. Open source file format that the table
- *  data is stored in. Currently only PARQUET is supported.
+ *  Required. The table format the metadata only snapshots are stored in.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_BigLakeConfiguration_TableFormat_Iceberg Apache
+ *        Iceberg format. (Value: "ICEBERG")
+ *    @arg @c kGTLRBigquery_BigLakeConfiguration_TableFormat_TableFormatUnspecified
+ *        Default Value. (Value: "TABLE_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *tableFormat;
 
@@ -3013,29 +4142,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_BigtableColumn
+ *  Information related to a Bigtable column.
  */
 @interface GTLRBigquery_BigtableColumn : GTLRObject
 
 /**
- *  [Optional] The encoding of the values when the type is not STRING.
- *  Acceptable encoding values are: TEXT - indicates values are alphanumeric
- *  text strings. BINARY - indicates values are encoded using HBase
- *  Bytes.toBytes family of functions. 'encoding' can also be set at the column
- *  family level. However, the setting at this level takes precedence if
- *  'encoding' is set at both levels.
+ *  Optional. The encoding of the values when the type is not STRING. Acceptable
+ *  encoding values are: TEXT - indicates values are alphanumeric text strings.
+ *  BINARY - indicates values are encoded using HBase Bytes.toBytes family of
+ *  functions. 'encoding' can also be set at the column family level. However,
+ *  the setting at this level takes precedence if 'encoding' is set at both
+ *  levels.
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
 /**
- *  [Optional] If the qualifier is not a valid BigQuery field identifier i.e.
- *  does not match [a-zA-Z][a-zA-Z0-9_]*, a valid identifier must be provided as
- *  the column field name and is used as field name in queries.
+ *  Optional. If the qualifier is not a valid BigQuery field identifier i.e.
+ *  does not match a-zA-Z*, a valid identifier must be provided as the column
+ *  field name and is used as field name in queries.
  */
 @property(nonatomic, copy, nullable) NSString *fieldName;
 
 /**
- *  [Optional] If this is set, only the latest version of value in this column
+ *  Optional. If this is set, only the latest version of value in this column
  *  are exposed. 'onlyReadLatest' can also be set at the column family level.
  *  However, the setting at this level takes precedence if 'onlyReadLatest' is
  *  set at both levels.
@@ -3050,23 +4179,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  UTF-8 string, it can be specified in the qualifier_string field. Otherwise,
  *  a base-64 encoded value must be set to qualifier_encoded. The column field
  *  name is the same as the column qualifier. However, if the qualifier is not a
- *  valid BigQuery field identifier i.e. does not match [a-zA-Z][a-zA-Z0-9_]*, a
- *  valid identifier must be provided as field_name.
+ *  valid BigQuery field identifier i.e. does not match a-zA-Z*, a valid
+ *  identifier must be provided as field_name.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *qualifierEncoded;
 
+/** Qualifier string. */
 @property(nonatomic, copy, nullable) NSString *qualifierString;
 
 /**
- *  [Optional] The type to convert the value in cells of this column. The values
+ *  Optional. The type to convert the value in cells of this column. The values
  *  are expected to be encoded using HBase Bytes.toBytes function when using the
- *  BINARY encoding value. Following BigQuery types are allowed (case-sensitive)
- *  - BYTES STRING INTEGER FLOAT BOOLEAN Default type is BYTES. 'type' can also
- *  be set at the column family level. However, the setting at this level takes
- *  precedence if 'type' is set at both levels.
+ *  BINARY encoding value. Following BigQuery types are allowed
+ *  (case-sensitive): * BYTES * STRING * INTEGER * FLOAT * BOOLEAN * JSON
+ *  Default type is BYTES. 'type' can also be set at the column family level.
+ *  However, the setting at this level takes precedence if 'type' is set at both
+ *  levels.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3074,12 +4205,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_BigtableColumnFamily
+ *  Information related to a Bigtable column family.
  */
 @interface GTLRBigquery_BigtableColumnFamily : GTLRObject
 
 /**
- *  [Optional] Lists of columns that should be exposed as individual fields as
+ *  Optional. Lists of columns that should be exposed as individual fields as
  *  opposed to a list of (column name, value) pairs. All columns whose qualifier
  *  matches a qualifier in this list can be accessed as .. Other columns can be
  *  accessed as a list through .Column field.
@@ -3087,12 +4218,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BigtableColumn *> *columns;
 
 /**
- *  [Optional] The encoding of the values when the type is not STRING.
- *  Acceptable encoding values are: TEXT - indicates values are alphanumeric
- *  text strings. BINARY - indicates values are encoded using HBase
- *  Bytes.toBytes family of functions. This can be overridden for a specific
- *  column by listing that column in 'columns' and specifying an encoding for
- *  it.
+ *  Optional. The encoding of the values when the type is not STRING. Acceptable
+ *  encoding values are: TEXT - indicates values are alphanumeric text strings.
+ *  BINARY - indicates values are encoded using HBase Bytes.toBytes family of
+ *  functions. This can be overridden for a specific column by listing that
+ *  column in 'columns' and specifying an encoding for it.
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
@@ -3100,7 +4230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *familyId;
 
 /**
- *  [Optional] If this is set only the latest version of value are exposed for
+ *  Optional. If this is set only the latest version of value are exposed for
  *  all columns in this column family. This can be overridden for a specific
  *  column by listing that column in 'columns' and specifying a different
  *  setting for that column.
@@ -3110,12 +4240,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *onlyReadLatest;
 
 /**
- *  [Optional] The type to convert the value in cells of this column family. The
+ *  Optional. The type to convert the value in cells of this column family. The
  *  values are expected to be encoded using HBase Bytes.toBytes function when
  *  using the BINARY encoding value. Following BigQuery types are allowed
- *  (case-sensitive) - BYTES STRING INTEGER FLOAT BOOLEAN Default type is BYTES.
- *  This can be overridden for a specific column by listing that column in
- *  'columns' and specifying a type for it.
+ *  (case-sensitive): * BYTES * STRING * INTEGER * FLOAT * BOOLEAN * JSON
+ *  Default type is BYTES. This can be overridden for a specific column by
+ *  listing that column in 'columns' and specifying a type for it.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3123,12 +4253,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_BigtableOptions
+ *  Options specific to Google Cloud Bigtable data sources.
  */
 @interface GTLRBigquery_BigtableOptions : GTLRObject
 
 /**
- *  [Optional] List of column families to expose in the table schema along with
+ *  Optional. List of column families to expose in the table schema along with
  *  their types. This list restricts the column families that can be referenced
  *  in queries and specifies their value types. You can use this list to do type
  *  conversions - see the 'type' field for more details. If you leave this list
@@ -3139,7 +4269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BigtableColumnFamily *> *columnFamilies;
 
 /**
- *  [Optional] If field is true, then the column families that are not specified
+ *  Optional. If field is true, then the column families that are not specified
  *  in columnFamilies list are not exposed in the table schema. Otherwise, they
  *  are read with BYTES type values. The default value is false.
  *
@@ -3148,8 +4278,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *ignoreUnspecifiedColumnFamilies;
 
 /**
- *  [Optional] If field is true, then the rowkey column families will be read
- *  and converted to string. Otherwise they are read with BYTES type values and
+ *  Optional. If field is true, then each column family will be read as a single
+ *  JSON column. Otherwise they are read as a repeated cell structure containing
+ *  timestamp/value tuples. The default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputColumnFamiliesAsJson;
+
+/**
+ *  Optional. If field is true, then the rowkey column families will be read and
+ *  converted to string. Otherwise they are read with BYTES type values and
  *  users need to manually cast them with CAST if necessary. The default value
  *  is false.
  *
@@ -3327,7 +4466,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -3340,42 +4483,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_BqmlIterationResult : GTLRObject
 
 /**
- *  [Output-only, Beta] Time taken to run the training iteration in
- *  milliseconds.
+ *  Deprecated.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *durationMs;
 
 /**
- *  [Output-only, Beta] Eval loss computed on the eval data at the end of the
- *  iteration. The eval loss is used for early stopping to avoid overfitting. No
- *  eval loss if eval_split_method option is specified as no_split or auto_split
- *  with input data size less than 500 rows.
+ *  Deprecated.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *evalLoss;
 
 /**
- *  [Output-only, Beta] Index of the ML training iteration, starting from zero
- *  for each training run.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
- *  [Output-only, Beta] Learning rate used for this iteration, it varies for
- *  different training iterations if learn_rate_strategy option is not constant.
+ *  Deprecated.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *learnRate;
 
 /**
- *  [Output-only, Beta] Training loss computed on the training data at the end
- *  of the iteration. The training loss function is defined by model type.
+ *  Deprecated.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -3389,40 +4525,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_BqmlTrainingRun : GTLRObject
 
-/** [Output-only, Beta] List of each iteration results. */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BqmlIterationResult *> *iterationResults;
 
-/**
- *  [Output-only, Beta] Training run start time in milliseconds since the epoch.
- */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
-/**
- *  [Output-only, Beta] Different state applicable for a training run. IN
- *  PROGRESS: Training run is in progress. FAILED: Training run ended due to a
- *  non-retryable failure. SUCCEEDED: Training run successfully completed.
- *  CANCELLED: Training run cancelled by the user.
- */
+/** Deprecated. */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/**
- *  [Output-only, Beta] Training options used by this training run. These
- *  options are mutable for subsequent training runs. Default values are
- *  explicitly stored for options not specified in the input query of the first
- *  training run. For subsequent training runs, any option not explicitly
- *  specified in the input query will be copied from the previous training run.
- */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) GTLRBigquery_BqmlTrainingRun_TrainingOptions *trainingOptions;
 
 @end
 
 
 /**
- *  [Output-only, Beta] Training options used by this training run. These
- *  options are mutable for subsequent training runs. Default values are
- *  explicitly stored for options not specified in the input query of the first
- *  training run. For subsequent training runs, any option not explicitly
- *  specified in the input query will be copied from the previous training run.
+ *  Deprecated.
  */
 @interface GTLRBigquery_BqmlTrainingRun_TrainingOptions : GTLRObject
 
@@ -3522,15 +4641,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_CloneDefinition
+ *  Information about base table and clone time of a table clone.
  */
 @interface GTLRBigquery_CloneDefinition : GTLRObject
 
-/** [Required] Reference describing the ID of the table that was cloned. */
+/** Required. Reference describing the ID of the table that was cloned. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTableReference;
 
 /**
- *  [Required] The time at which the base table was cloned. This value is
+ *  Required. The time at which the base table was cloned. This value is
  *  reported in the JSON response using RFC3339 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *cloneTime;
@@ -3594,16 +4713,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_Clustering
+ *  Configures table clustering.
  */
 @interface GTLRBigquery_Clustering : GTLRObject
 
 /**
- *  [Repeated] One or more fields on which data should be clustered. Only
- *  top-level, non-repeated, simple-type fields are supported. When you cluster
- *  a table using multiple columns, the order of columns you specify is
- *  important. The order of the specified columns determines the sort order of
- *  the data.
+ *  One or more fields on which data should be clustered. Only top-level,
+ *  non-repeated, simple-type fields are supported. The ordering of the
+ *  clustering fields should be prioritized from most to least important for
+ *  filtering purposes. Additional information on limitations can be found here:
+ *  https://cloud.google.com/bigquery/docs/creating-clustered-tables#limitations
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fields;
 
@@ -3655,37 +4774,53 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ConnectionProperty
+ *  A connection-level property to customize query behavior. Under JDBC, these
+ *  correspond directly to connection properties passed to the DriverManager.
+ *  Under ODBC, these correspond to properties in the connection string.
+ *  Currently supported connection properties: * **dataset_project_id**:
+ *  represents the default project for datasets that are used in the query.
+ *  Setting the system variable `\@\@dataset_project_id` achieves the same
+ *  behavior. For more information about system variables, see:
+ *  https://cloud.google.com/bigquery/docs/reference/system-variables *
+ *  **time_zone**: represents the default timezone used to run the query. *
+ *  **session_id**: associates the query with a given session. *
+ *  **query_label**: associates the query with a given job label. If set, all
+ *  subsequent queries in a script or session will have this label. For the
+ *  format in which a you can specify a query label, see labels in the
+ *  JobConfiguration resource type:
+ *  https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#jobconfiguration
+ *  Additional properties are allowed, but ignored. Specifying multiple
+ *  connection properties with the same key returns an error.
  */
 @interface GTLRBigquery_ConnectionProperty : GTLRObject
 
-/** [Required] Name of the connection property to set. */
+/** The key of the property to set. */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/** [Required] Value of the connection property. */
+/** The value of the property to set. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
 
 /**
- *  GTLRBigquery_CsvOptions
+ *  Information related to a CSV data source.
  */
 @interface GTLRBigquery_CsvOptions : GTLRObject
 
 /**
- *  [Optional] Indicates if BigQuery should accept rows that are missing
- *  trailing optional columns. If true, BigQuery treats missing trailing columns
- *  as null values. If false, records with missing trailing columns are treated
- *  as bad records, and if there are too many bad records, an invalid error is
- *  returned in the job result. The default value is false.
+ *  Optional. Indicates if BigQuery should accept rows that are missing trailing
+ *  optional columns. If true, BigQuery treats missing trailing columns as null
+ *  values. If false, records with missing trailing columns are treated as bad
+ *  records, and if there are too many bad records, an invalid error is returned
+ *  in the job result. The default value is false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowJaggedRows;
 
 /**
- *  [Optional] Indicates if BigQuery should allow quoted data sections that
+ *  Optional. Indicates if BigQuery should allow quoted data sections that
  *  contain newline characters in a CSV file. The default value is false.
  *
  *  Uses NSNumber of boolValue.
@@ -3693,50 +4828,55 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *allowQuotedNewlines;
 
 /**
- *  [Optional] The character encoding of the data. The supported values are
- *  UTF-8 or ISO-8859-1. The default value is UTF-8. BigQuery decodes the data
- *  after the raw, binary data has been split using the values of the quote and
- *  fieldDelimiter properties.
+ *  Optional. The character encoding of the data. The supported values are
+ *  UTF-8, ISO-8859-1, UTF-16BE, UTF-16LE, UTF-32BE, and UTF-32LE. The default
+ *  value is UTF-8. BigQuery decodes the data after the raw, binary data has
+ *  been split using the values of the quote and fieldDelimiter properties.
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
 /**
- *  [Optional] The separator for fields in a CSV file. BigQuery converts the
- *  string to ISO-8859-1 encoding, and then uses the first byte of the encoded
- *  string to split the data in its raw, binary state. BigQuery also supports
- *  the escape sequence "\\t" to specify a tab separator. The default value is a
- *  comma (',').
+ *  Optional. The separator character for fields in a CSV file. The separator is
+ *  interpreted as a single byte. For files encoded in ISO-8859-1, any single
+ *  character can be used as a separator. For files encoded in UTF-8, characters
+ *  represented in decimal range 1-127 (U+0001-U+007F) can be used without any
+ *  modification. UTF-8 characters encoded with multiple bytes (i.e. U+0080 and
+ *  above) will have only the first byte used for separating fields. The
+ *  remaining bytes will be treated as a part of the field. BigQuery also
+ *  supports the escape sequence "\\t" (U+0009) to specify a tab separator. The
+ *  default value is comma (",", U+002C).
  */
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
 /**
- *  [Optional] An custom string that will represent a NULL value in CSV import
+ *  [Optional] A custom string that will represent a NULL value in CSV import
  *  data.
  */
 @property(nonatomic, copy, nullable) NSString *nullMarker;
 
 /**
- *  [Optional] Preserves the embedded ASCII control characters (the first 32
- *  characters in the ASCII-table, from '\\x00' to '\\x1F') when loading from
- *  CSV. Only applicable to CSV, ignored for other formats.
+ *  Optional. Indicates if the embedded ASCII control characters (the first 32
+ *  characters in the ASCII-table, from '\\x00' to '\\x1F') are preserved.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preserveAsciiControlCharacters;
 
 /**
- *  [Optional] The value that is used to quote data sections in a CSV file.
+ *  Optional. The value that is used to quote data sections in a CSV file.
  *  BigQuery converts the string to ISO-8859-1 encoding, and then uses the first
  *  byte of the encoded string to split the data in its raw, binary state. The
- *  default value is a double-quote ('"'). If your data does not contain quoted
+ *  default value is a double-quote ("). If your data does not contain quoted
  *  sections, set the property value to an empty string. If your data contains
  *  quoted newline characters, you must also set the allowQuotedNewlines
- *  property to true.
+ *  property to true. To include the specific quote character within a quoted
+ *  value, precede it with an additional matching quote character. For example,
+ *  if you want to escape the default character ' " ', use ' "" '.
  */
 @property(nonatomic, copy, nullable) NSString *quote;
 
 /**
- *  [Optional] The number of rows at the top of a CSV file that BigQuery will
+ *  Optional. The number of rows at the top of a CSV file that BigQuery will
  *  skip when reading the data. The default value is 0. This property is useful
  *  if you have header rows in the file that should be skipped. When autodetect
  *  is on, the behavior is the following: * skipLeadingRows unspecified -
@@ -3756,16 +4896,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_DataMaskingStatistics
+ *  Options for data format adjustments.
+ */
+@interface GTLRBigquery_DataFormatOptions : GTLRObject
+
+/**
+ *  Optional. Output timestamp as usec int64. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useInt64Timestamp;
+
+@end
+
+
+/**
+ *  Statistics for data-masking.
  */
 @interface GTLRBigquery_DataMaskingStatistics : GTLRObject
 
 /**
- *  [Output-only] [Preview] Whether any accessed data was protected by data
- *  masking. The actual evaluation is done by accessStats.masked_field_count >
- *  0. Since this is only used for the discovery_doc generation purpose, as long
- *  as the type (boolean) matches, client library can leverage this. The actual
- *  evaluation of the variable is done else-where.
+ *  Whether any accessed data was protected by the data masking.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3780,7 +4931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_Dataset : GTLRObject
 
 /**
- *  [Optional] An array of objects that define dataset access for one or more
+ *  Optional. An array of objects that define dataset access for one or more
  *  entities. You can set this property when inserting or updating a dataset in
  *  order to control who is allowed to access the data. If unspecified at
  *  dataset creation time, BigQuery adds default dataset access for the
@@ -3792,45 +4943,81 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Dataset_Access_Item *> *access;
 
 /**
- *  [Output-only] The time when this dataset was created, in milliseconds since
+ *  Output only. The time when this dataset was created, in milliseconds since
  *  the epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
 
-/** [Required] A reference that identifies the dataset. */
+/** Required. A reference that identifies the dataset. */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *datasetReference;
 
-/** [Output-only] The default collation of the dataset. */
+/**
+ *  Optional. Defines the default collation specification of future tables
+ *  created in the dataset. If a table is created in this dataset without
+ *  table-level default collation, then the table inherits the dataset default
+ *  collation, which is applied to the string fields that do not have explicit
+ *  collation specified. A change to this field affects only tables created
+ *  afterwards, and does not alter the existing tables. The following values are
+ *  supported: * 'und:ci': undetermined locale, case insensitive. * '': empty
+ *  string. Default to case-sensitive behavior.
+ */
 @property(nonatomic, copy, nullable) NSString *defaultCollation;
 
+/**
+ *  The default encryption key for all tables in the dataset. Once this property
+ *  is set, all newly-created partitioned tables in the dataset will have
+ *  encryption key set to this value, unless table creation request (or query)
+ *  overrides the key.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *defaultEncryptionConfiguration;
 
 /**
- *  [Optional] The default partition expiration for all partitioned tables in
- *  the dataset, in milliseconds. Once this property is set, all newly-created
- *  partitioned tables in the dataset will have an expirationMs property in the
- *  timePartitioning settings set to this value, and changing the value will
- *  only affect new tables, not existing ones. The storage in a partition will
- *  have an expiration time of its partition time plus this value. Setting this
- *  property overrides the use of defaultTableExpirationMs for partitioned
- *  tables: only one of defaultTableExpirationMs and
- *  defaultPartitionExpirationMs will be used for any new partitioned table. If
- *  you provide an explicit timePartitioning.expirationMs when creating or
- *  updating a partitioned table, that value takes precedence over the default
- *  partition expiration time indicated by this property.
+ *  This default partition expiration, expressed in milliseconds. When new
+ *  time-partitioned tables are created in a dataset where this property is set,
+ *  the table will inherit this value, propagated as the
+ *  `TimePartitioning.expirationMs` property on the new table. If you set
+ *  `TimePartitioning.expirationMs` explicitly when creating a table, the
+ *  `defaultPartitionExpirationMs` of the containing dataset is ignored. When
+ *  creating a partitioned table, if `defaultPartitionExpirationMs` is set, the
+ *  `defaultTableExpirationMs` value is ignored and the table will not be
+ *  inherit a table expiration deadline.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *defaultPartitionExpirationMs;
 
-/** [Output-only] The default rounding mode of the dataset. */
+/**
+ *  Optional. Defines the default rounding mode specification of new tables
+ *  created within this dataset. During table creation, if this field is
+ *  specified, the table within this dataset will inherit the default rounding
+ *  mode of the dataset. Setting the default rounding mode on a table overrides
+ *  this option. Existing tables in the dataset are unaffected. If columns are
+ *  defined during that table creation, they will immediately inherit the
+ *  table's default rounding mode, unless otherwise specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_Dataset_DefaultRoundingMode_RoundHalfAwayFromZero
+ *        ROUND_HALF_AWAY_FROM_ZERO rounds half values away from zero when
+ *        applying precision and scale upon writing of NUMERIC and BIGNUMERIC
+ *        values. For Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5, 1.6, 1.7, 1.8, 1.9
+ *        => 2 (Value: "ROUND_HALF_AWAY_FROM_ZERO")
+ *    @arg @c kGTLRBigquery_Dataset_DefaultRoundingMode_RoundHalfEven
+ *        ROUND_HALF_EVEN rounds half values to the nearest even value when
+ *        applying precision and scale upon writing of NUMERIC and BIGNUMERIC
+ *        values. For Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5 => 2 1.6, 1.7, 1.8,
+ *        1.9 => 2 2.5 => 2 (Value: "ROUND_HALF_EVEN")
+ *    @arg @c kGTLRBigquery_Dataset_DefaultRoundingMode_RoundingModeUnspecified
+ *        Unspecified will default to using ROUND_HALF_AWAY_FROM_ZERO. (Value:
+ *        "ROUNDING_MODE_UNSPECIFIED")
+ */
 @property(nonatomic, copy, nullable) NSString *defaultRoundingMode;
 
 /**
- *  [Optional] The default lifetime of all tables in the dataset, in
- *  milliseconds. The minimum value is 3600000 milliseconds (one hour). Once
+ *  Optional. The default lifetime of all tables in the dataset, in
+ *  milliseconds. The minimum lifetime value is 3600000 milliseconds (one hour).
+ *  To clear an existing default expiration with a PATCH request, set to 0. Once
  *  this property is set, all newly-created tables in the dataset will have an
  *  expirationTime property set to the creation time plus the value in this
  *  property, and changing the value will only affect new tables, not existing
@@ -3845,26 +5032,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *defaultTableExpirationMs;
 
 /**
- *  [Optional] A user-friendly description of the dataset.
+ *  Optional. A user-friendly description of the dataset.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** [Output-only] A hash of the resource. */
+/** Output only. A hash of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  [Optional] Information about the external metadata storage where the dataset
+ *  Optional. Information about the external metadata storage where the dataset
  *  is defined. Filled out when the dataset type is EXTERNAL.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_ExternalDatasetReference *externalDatasetReference;
 
-/** [Optional] A descriptive name for the dataset. */
+/** Optional. A descriptive name for the dataset. */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
 
 /**
- *  [Output-only] The fully-qualified unique name of the dataset in the format
+ *  Output only. The fully-qualified unique name of the dataset in the format
  *  projectId:datasetId. The dataset name without the project name is given in
  *  the datasetId field. When creating a new dataset, leave this field blank,
  *  and instead specify the datasetId field.
@@ -3874,13 +5061,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Optional] Indicates if table names are case insensitive in the dataset.
+ *  Optional. TRUE if the dataset and its table names are case-insensitive,
+ *  otherwise FALSE. By default, this is FALSE, which means the dataset and its
+ *  table names are case-sensitive. This field does not affect routine
+ *  references.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isCaseInsensitive;
 
-/** [Output-only] The resource type. */
+/** Output only. The resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -3891,57 +5081,79 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_Dataset_Labels *labels;
 
 /**
- *  [Output-only] The date when this dataset or any of its tables was last
- *  modified, in milliseconds since the epoch.
+ *  Output only. The date when this dataset was last modified, in milliseconds
+ *  since the epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
 /**
- *  The geographic location where the dataset should reside. The default value
- *  is US. See details at https://cloud.google.com/bigquery/docs/locations.
+ *  Optional. The source dataset reference when the dataset is of type LINKED.
+ *  For all other dataset types it is not set. This field cannot be updated once
+ *  it is set. Any attempt to update this field using Update and Patch API
+ *  Operations will be ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_LinkedDatasetSource *linkedDatasetSource;
+
+/**
+ *  The geographic location where the dataset should reside. See
+ *  https://cloud.google.com/bigquery/docs/locations for supported locations.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  [Optional] Number of hours for the max time travel for all tables in the
- *  dataset.
+ *  Optional. Defines the time travel window in hours. The value can be from 48
+ *  to 168 hours (2 to 7 days). The default value is 168 hours if this is not
+ *  set.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxTimeTravelHours;
 
 /**
- *  [Output-only] Reserved for future use.
+ *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
- *  [Output-only] A URL that can be used to access the resource again. You can
+ *  Output only. A URL that can be used to access the resource again. You can
  *  use this URL in Get or Update requests to the resource.
  */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Optional] Storage billing model to be used for all tables in the dataset.
- *  Can be set to PHYSICAL. Default is LOGICAL.
+ *  Optional. Updates storage_billing_model for the dataset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_Dataset_StorageBillingModel_Logical Billing for
+ *        logical bytes. (Value: "LOGICAL")
+ *    @arg @c kGTLRBigquery_Dataset_StorageBillingModel_Physical Billing for
+ *        physical bytes. (Value: "PHYSICAL")
+ *    @arg @c kGTLRBigquery_Dataset_StorageBillingModel_StorageBillingModelUnspecified
+ *        Value not set. (Value: "STORAGE_BILLING_MODEL_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *storageBillingModel;
 
-/**
- *  [Optional]The tags associated with this dataset. Tag keys are globally
- *  unique.
- */
+/** Output only. Tags for the Dataset. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Dataset_Tags_Item *> *tags;
+
+/**
+ *  Output only. Same as `type` in `ListFormatDataset`. The type of the dataset,
+ *  one of: * DEFAULT - only accessible by owner and authorized accounts, *
+ *  PUBLIC - accessible by everyone, * LINKED - linked dataset, * EXTERNAL -
+ *  dataset with definition in external metadata catalog. -- *BIGLAKE_METASTORE
+ *  - dataset that references a database created in BigLakeMetastore service. --
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
 
 /**
- *  GTLRBigquery_Dataset_Access_Item
+ *  An object that defines dataset access for an entity.
  */
 @interface GTLRBigquery_Dataset_Access_Item : GTLRObject
 
@@ -3974,13 +5186,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *iamMember;
 
 /**
- *  [Required] An IAM role ID that should be granted to the user, group, or
- *  domain specified in this access entry. The following legacy mappings will be
- *  applied: OWNER roles/bigquery.dataOwner WRITER roles/bigquery.dataEditor
- *  READER roles/bigquery.dataViewer This field will accept any of the above
- *  formats, but will return only the legacy format. For example, if you set
- *  this field to "roles/bigquery.dataOwner", it will be returned back as
- *  "OWNER".
+ *  An IAM role ID that should be granted to the user, group, or domain
+ *  specified in this access entry. The following legacy mappings will be
+ *  applied: OWNER <=> roles/bigquery.dataOwner WRITER <=>
+ *  roles/bigquery.dataEditor READER <=> roles/bigquery.dataViewer This field
+ *  will accept any of the above formats, but will return only the legacy
+ *  format. For example, if you set this field to "roles/bigquery.dataOwner", it
+ *  will be returned back as "OWNER".
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -4011,10 +5223,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  [Pick one] A view from a different dataset to grant access to. Queries
- *  executed against that view will have read access to tables in this dataset.
- *  The role field is not required when this field is set. If that view is
- *  updated by any user, access to the view needs to be granted again via an
- *  update operation.
+ *  executed against that view will have read access to views/tables/routines in
+ *  this dataset. The role field is not required when this field is set. If that
+ *  view is updated by any user, access to the view needs to be granted again
+ *  via an update operation.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *view;
 
@@ -4036,37 +5248,46 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_Dataset_Tags_Item
+ *  A global tag managed by Resource Manager.
+ *  https://cloud.google.com/iam/docs/tags-access-control#definitions
  */
 @interface GTLRBigquery_Dataset_Tags_Item : GTLRObject
 
 /**
- *  [Required] The namespaced friendly name of the tag key, e.g.
+ *  Required. The namespaced friendly name of the tag key, e.g.
  *  "12345/environment" where 12345 is org id.
  */
 @property(nonatomic, copy, nullable) NSString *tagKey;
 
-/** [Required] Friendly short name of the tag value, e.g. "production". */
+/** Required. The friendly short name of the tag value, e.g. "production". */
 @property(nonatomic, copy, nullable) NSString *tagValue;
 
 @end
 
 
 /**
- *  GTLRBigquery_DatasetAccessEntry
+ *  Grants all resources of particular types in a particular dataset read access
+ *  to the current dataset. Similar to how individually authorized views work,
+ *  updates to any resource granted through its dataset (including creation of
+ *  new resources) requires read permission to referenced resources, plus write
+ *  permission to the authorizing dataset.
  */
 @interface GTLRBigquery_DatasetAccessEntry : GTLRObject
 
-/** [Required] The dataset this entry applies to. */
+/** The dataset this entry applies to */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *dataset;
 
+/**
+ *  Which resources in the dataset this entry applies to. Currently, only views
+ *  are supported, but additional target types may be added in the future.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetTypes;
 
 @end
 
 
 /**
- *  GTLRBigquery_DatasetList
+ *  Response format for a page of results when listing datasets.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "datasets" property. If returned as the result of a query, it
@@ -4087,14 +5308,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_DatasetList_Datasets_Item *> *datasets;
 
 /**
- *  A hash value of the results page. You can use this property to determine if
- *  the page has changed since the last request.
+ *  Output only. A hash value of the results page. You can use this property to
+ *  determine if the page has changed since the last request.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The list type. This property always returns the value
- *  "bigquery#datasetList".
+ *  Output only. The resource type. This property always returns the value
+ *  "bigquery#datasetList"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -4104,11 +5325,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  A list of skipped locations that were unreachable. For more information
+ *  about BigQuery locations, see:
+ *  https://cloud.google.com/bigquery/docs/locations. Example: "europe-west5"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
 /**
- *  GTLRBigquery_DatasetList_Datasets_Item
+ *  A dataset resource with only a subset of fields, to be returned in a list of
+ *  datasets.
  */
 @interface GTLRBigquery_DatasetList_Datasets_Item : GTLRObject
 
@@ -4118,7 +5347,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *datasetReference;
 
-/** A descriptive name for the dataset, if one exists. */
+/**
+ *  An alternate name for the dataset. The friendly name is purely decorative in
+ *  nature.
+ */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
 
 /**
@@ -4129,8 +5361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The resource type. This property always returns the value
- *  "bigquery#dataset".
+ *  The resource type. This property always returns the value "bigquery#dataset"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -4140,7 +5371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetList_Datasets_Item_Labels *labels;
 
-/** The geographic location where the data resides. */
+/** The geographic location where the dataset resides. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 @end
@@ -4165,13 +5396,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_DatasetReference : GTLRObject
 
 /**
- *  [Required] A unique ID for this dataset, without the project name. The ID
+ *  Required. A unique ID for this dataset, without the project name. The ID
  *  must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The
  *  maximum length is 1,024 characters.
  */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** [Optional] The ID of the project containing this dataset. */
+/** Optional. The ID of the project containing this dataset. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
@@ -4196,12 +5427,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_DestinationTableProperties
+ *  Properties for the destination table.
  */
 @interface GTLRBigquery_DestinationTableProperties : GTLRObject
 
 /**
- *  [Optional] The description for the destination table. This will only be used
+ *  Optional. The description for the destination table. This will only be used
  *  if the destination table is newly created. If the table already exists and a
  *  value different than the current description is provided, the job will fail.
  *
@@ -4209,19 +5440,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** [Internal] This field is for Google internal use only. */
+/** Internal use only. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /**
- *  [Optional] The friendly name for the destination table. This will only be
- *  used if the destination table is newly created. If the table already exists
- *  and a value different than the current friendly name is provided, the job
- *  will fail.
+ *  Optional. Friendly name for the destination table. If the table already
+ *  exists, it should be same as the existing friendly name.
  */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
 
 /**
- *  [Optional] The labels associated with this table. You can use these to
+ *  Optional. The labels associated with this table. You can use these to
  *  organize and group your tables. This will only be used if the destination
  *  table is newly created. If the table already exists and labels are different
  *  than the current labels are provided, the job will fail.
@@ -4232,7 +5461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  [Optional] The labels associated with this table. You can use these to
+ *  Optional. The labels associated with this table. You can use these to
  *  organize and group your tables. This will only be used if the destination
  *  table is newly created. If the table already exists and labels are different
  *  than the current labels are provided, the job will fail.
@@ -4262,27 +5491,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_DmlStatistics
+ *  Detailed statistics for DML statements
  */
 @interface GTLRBigquery_DmlStatistics : GTLRObject
 
 /**
- *  Number of deleted Rows. populated by DML DELETE, MERGE and TRUNCATE
- *  statements.
+ *  Output only. Number of deleted Rows. populated by DML DELETE, MERGE and
+ *  TRUNCATE statements.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deletedRowCount;
 
 /**
- *  Number of inserted Rows. Populated by DML INSERT and MERGE statements.
+ *  Output only. Number of inserted Rows. Populated by DML INSERT and MERGE
+ *  statements
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *insertedRowCount;
 
 /**
- *  Number of updated Rows. Populated by DML UPDATE and MERGE statements.
+ *  Output only. Number of updated Rows. Populated by DML UPDATE and MERGE
+ *  statements.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4379,7 +5610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ErrorProto
+ *  Error details.
  */
 @interface GTLRBigquery_ErrorProto : GTLRObject
 
@@ -4439,7 +5670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ExplainQueryStage
+ *  A single stage of query execution.
  */
 @interface GTLRBigquery_ExplainQueryStage : GTLRObject
 
@@ -4449,6 +5680,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *completedParallelInputs;
+
+/**
+ *  Output only. Compute mode for this stage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ExplainQueryStage_ComputeMode_BiEngine This stage
+ *        was processed using BI Engine compute. (Value: "BI_ENGINE")
+ *    @arg @c kGTLRBigquery_ExplainQueryStage_ComputeMode_Bigquery This stage
+ *        was processed using BigQuery slots. (Value: "BIGQUERY")
+ *    @arg @c kGTLRBigquery_ExplainQueryStage_ComputeMode_ComputeModeUnspecified
+ *        ComputeMode type not specified. (Value: "COMPUTE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *computeMode;
 
 /**
  *  Milliseconds the average shard spent on CPU-bound tasks.
@@ -4479,14 +5723,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *computeRatioMax;
 
 /**
- *  Stage end time represented as milliseconds since epoch.
+ *  Stage end time represented as milliseconds since the epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *endMs;
 
 /**
- *  Unique ID for stage within plan.
+ *  Unique ID for the stage within the plan.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -4501,11 +5745,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *inputStages;
 
-/** Human-readable name for stage. */
+/** Human-readable name for the stage. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Number of parallel input segments to be processed.
+ *  Number of parallel input segments to be processed
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4575,13 +5819,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *slotMs;
 
 /**
- *  Stage start time represented as milliseconds since epoch.
+ *  Stage start time represented as milliseconds since the epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startMs;
 
-/** Current status for the stage. */
+/** Current status for this stage. */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
@@ -4650,14 +5894,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ExplainQueryStep
+ *  An operation within a stage.
  */
 @interface GTLRBigquery_ExplainQueryStep : GTLRObject
 
 /** Machine-readable operation type. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Human-readable stage descriptions. */
+/** Human-readable description of the step(s). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *substeps;
 
 @end
@@ -4681,6 +5925,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *featureName;
+
+@end
+
+
+/**
+ *  Statistics for the EXPORT DATA statement as part of Query Job. EXTRACT JOB
+ *  statistics are populated in JobStatistics4.
+ */
+@interface GTLRBigquery_ExportDataStatistics : GTLRObject
+
+/**
+ *  Number of destination files generated in case of EXPORT DATA statement only.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fileCount;
+
+/**
+ *  [Alpha] Number of destination rows generated in case of EXPORT DATA
+ *  statement only.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
 
 @end
 
@@ -4747,63 +6015,84 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *autodetect;
 
-/** Additional properties to set if sourceFormat is set to Avro. */
+/** Optional. Additional properties to set if sourceFormat is set to AVRO. */
 @property(nonatomic, strong, nullable) GTLRBigquery_AvroOptions *avroOptions;
 
-/** [Optional] Additional options if sourceFormat is set to BIGTABLE. */
+/** Optional. Additional options if sourceFormat is set to BIGTABLE. */
 @property(nonatomic, strong, nullable) GTLRBigquery_BigtableOptions *bigtableOptions;
 
 /**
- *  [Optional] The compression type of the data source. Possible values include
+ *  Optional. The compression type of the data source. Possible values include
  *  GZIP and NONE. The default value is NONE. This setting is ignored for Google
- *  Cloud Bigtable, Google Cloud Datastore backups and Avro formats.
+ *  Cloud Bigtable, Google Cloud Datastore backups, Avro, ORC and Parquet
+ *  formats. An empty string is an invalid value.
  */
 @property(nonatomic, copy, nullable) NSString *compression;
 
-/** [Optional, Trusted Tester] Connection for external data source. */
+/**
+ *  Optional. The connection specifying the credentials to be used to read
+ *  external storage, such as Azure Blob, Cloud Storage, or S3. The
+ *  connection_id can have the form
+ *  "<project\\_id>.<location\\_id>.<connection\\_id>" or
+ *  "projects/<project\\_id>/locations/<location\\_id>/connections/<connection\\_id>".
+ */
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
-/** Additional properties to set if sourceFormat is set to CSV. */
+/** Optional. Additional properties to set if sourceFormat is set to CSV. */
 @property(nonatomic, strong, nullable) GTLRBigquery_CsvOptions *csvOptions;
 
 /**
- *  [Optional] Defines the list of possible SQL data types to which the source
- *  decimal values are converted. This list and the precision and the scale
- *  parameters of the decimal field determine the target type. In the order of
- *  NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the specified
- *  list and if it supports the precision and the scale. STRING supports all
- *  precision and scale values. If none of the listed types supports the
- *  precision and the scale, the type supporting the widest range in the
- *  specified list is picked, and if a value exceeds the supported range when
- *  reading the data, an error will be thrown. Example: Suppose the value of
- *  this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: (38,9) ->
- *  NUMERIC; (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits);
- *  (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional digits); (76,38) ->
- *  BIGNUMERIC; (77,38) -> BIGNUMERIC (error if value exeeds supported range).
- *  This field cannot contain duplicate types. The order of the types in this
- *  field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as
- *  ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over
- *  BIGNUMERIC. Defaults to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for
- *  the other file formats.
+ *  Defines the list of possible SQL data types to which the source decimal
+ *  values are converted. This list and the precision and the scale parameters
+ *  of the decimal field determine the target type. In the order of NUMERIC,
+ *  BIGNUMERIC, and STRING, a type is picked if it is in the specified list and
+ *  if it supports the precision and the scale. STRING supports all precision
+ *  and scale values. If none of the listed types supports the precision and the
+ *  scale, the type supporting the widest range in the specified list is picked,
+ *  and if a value exceeds the supported range when reading the data, an error
+ *  will be thrown. Example: Suppose the value of this field is ["NUMERIC",
+ *  "BIGNUMERIC"]. If (precision,scale) is: * (38,9) -> NUMERIC; * (39,9) ->
+ *  BIGNUMERIC (NUMERIC cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC
+ *  (NUMERIC cannot hold 10 fractional digits); * (76,38) -> BIGNUMERIC; *
+ *  (77,38) -> BIGNUMERIC (error if value exeeds supported range). This field
+ *  cannot contain duplicate types. The order of the types in this field is
+ *  ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC",
+ *  "BIGNUMERIC"] and NUMERIC always takes precedence over BIGNUMERIC. Defaults
+ *  to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for the other file formats.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
 
 /**
- *  [Optional] Specifies how source URIs are interpreted for constructing the
+ *  Optional. Specifies how source URIs are interpreted for constructing the
  *  file set to load. By default source URIs are expanded against the underlying
  *  storage. Other options include specifying manifest files. Only applicable to
  *  object storage systems.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_FileSetSpecType_FileSetSpecTypeFileSystemMatch
+ *        This option expands source URIs by listing files from the object
+ *        store. It is the default behavior if FileSetSpecType is not set.
+ *        (Value: "FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH")
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_FileSetSpecType_FileSetSpecTypeNewLineDelimitedManifest
+ *        This option indicates that the provided URIs are newline-delimited
+ *        manifest files, with one URI per line. Wildcard URIs are not
+ *        supported. (Value: "FILE_SET_SPEC_TYPE_NEW_LINE_DELIMITED_MANIFEST")
  */
 @property(nonatomic, copy, nullable) NSString *fileSetSpecType;
 
-/** [Optional] Additional options if sourceFormat is set to GOOGLE_SHEETS. */
+/** Optional. Additional options if sourceFormat is set to GOOGLE_SHEETS. */
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
 
-/** [Optional] Options to configure hive partitioning support. */
+/**
+ *  Optional. When set, configures hive partitioning support. Not all storage
+ *  formats support hive partitioning -- requesting hive partitioning on an
+ *  unsupported format will lead to an error, as will providing an invalid
+ *  specification.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
 
 /**
- *  [Optional] Indicates if BigQuery should allow extra values that are not
+ *  Optional. Indicates if BigQuery should allow extra values that are not
  *  represented in the table schema. If true, the extra values are ignored. If
  *  false, records with extra columns are treated as bad records, and if there
  *  are too many bad records, an invalid error is returned in the job result.
@@ -4811,57 +6100,97 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  BigQuery treats as an extra value: CSV: Trailing columns JSON: Named values
  *  that don't match any column names Google Cloud Bigtable: This setting is
  *  ignored. Google Cloud Datastore backups: This setting is ignored. Avro: This
- *  setting is ignored.
+ *  setting is ignored. ORC: This setting is ignored. Parquet: This setting is
+ *  ignored.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreUnknownValues;
 
 /**
- *  Additional properties to set if `sourceFormat` is set to
- *  `NEWLINE_DELIMITED_JSON`.
+ *  Optional. Load option to be used together with source_format
+ *  newline-delimited JSON to indicate that a variant of JSON is being loaded.
+ *  To load newline-delimited GeoJSON, specify GEOJSON (and source_format must
+ *  be set to NEWLINE_DELIMITED_JSON).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_JsonExtension_Geojson Use
+ *        GeoJSON variant of JSON. See https://tools.ietf.org/html/rfc7946.
+ *        (Value: "GEOJSON")
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_JsonExtension_JsonExtensionUnspecified
+ *        The default if provided value is not one included in the enum, or the
+ *        value is not specified. The source formate is parsed without any
+ *        modification. (Value: "JSON_EXTENSION_UNSPECIFIED")
  */
+@property(nonatomic, copy, nullable) NSString *jsonExtension;
+
+/** Optional. Additional properties to set if sourceFormat is set to JSON. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JsonOptions *jsonOptions;
 
 /**
- *  [Optional] The maximum number of bad records that BigQuery can ignore when
+ *  Optional. The maximum number of bad records that BigQuery can ignore when
  *  reading data. If the number of bad records exceeds this value, an invalid
- *  error is returned in the job result. This is only valid for CSV, JSON, and
- *  Google Sheets. The default value is 0, which requires that all records are
- *  valid. This setting is ignored for Google Cloud Bigtable, Google Cloud
- *  Datastore backups and Avro formats.
+ *  error is returned in the job result. The default value is 0, which requires
+ *  that all records are valid. This setting is ignored for Google Cloud
+ *  Bigtable, Google Cloud Datastore backups, Avro, ORC and Parquet formats.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxBadRecords;
 
 /**
- *  [Optional] Metadata Cache Mode for the table. Set this to enable caching of
+ *  Optional. Metadata Cache Mode for the table. Set this to enable caching of
  *  metadata from external data source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_Automatic
+ *        Set this mode to trigger automatic background refresh of metadata
+ *        cache from the external source. Queries will use the latest available
+ *        cache version within the table's maxStaleness interval. (Value:
+ *        "AUTOMATIC")
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_Manual
+ *        Set this mode to enable triggering manual refresh of the metadata
+ *        cache from external source. Queries will use the latest manually
+ *        triggered cache version within the table's maxStaleness interval.
+ *        (Value: "MANUAL")
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_MetadataCacheModeUnspecified
+ *        Unspecified metadata cache mode. (Value:
+ *        "METADATA_CACHE_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *metadataCacheMode;
 
 /**
- *  ObjectMetadata is used to create Object Tables. Object Tables contain a
- *  listing of objects (with their metadata) found at the source_uris. If
- *  ObjectMetadata is set, source_format should be omitted. Currently SIMPLE is
- *  the only supported Object Metadata type.
+ *  Optional. ObjectMetadata is used to create Object Tables. Object Tables
+ *  contain a listing of objects (with their metadata) found at the source_uris.
+ *  If ObjectMetadata is set, source_format should be omitted. Currently SIMPLE
+ *  is the only supported Object Metadata type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_Directory A
+ *        synonym for `SIMPLE`. (Value: "DIRECTORY")
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_ObjectMetadataUnspecified
+ *        Unspecified by default. (Value: "OBJECT_METADATA_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_Simple
+ *        Directory listing of objects. (Value: "SIMPLE")
  */
 @property(nonatomic, copy, nullable) NSString *objectMetadata;
 
-/** Additional properties to set if sourceFormat is set to Parquet. */
+/**
+ *  Optional. Additional properties to set if sourceFormat is set to PARQUET.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
 
 /**
- *  [Optional] Provide a referencing file with the expected table schema.
- *  Enabled for the format: AVRO, PARQUET, ORC.
+ *  Optional. When creating an external table, the user can provide a reference
+ *  file with the table schema. This is enabled for the following formats: AVRO,
+ *  PARQUET, ORC.
  */
 @property(nonatomic, copy, nullable) NSString *referenceFileSchemaUri;
 
 /**
- *  [Optional] The schema for the data. Schema is required for CSV and JSON
- *  formats. Schema is disallowed for Google Cloud Bigtable, Cloud Datastore
- *  backups, and Avro formats.
+ *  Optional. The schema for the data. Schema is required for CSV and JSON
+ *  formats if autodetect is not on. Schema is disallowed for Google Cloud
+ *  Bigtable, Cloud Datastore backups, Avro, ORC and Parquet formats.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
@@ -4869,8 +6198,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  [Required] The data format. For CSV files, specify "CSV". For Google sheets,
  *  specify "GOOGLE_SHEETS". For newline-delimited JSON, specify
  *  "NEWLINE_DELIMITED_JSON". For Avro files, specify "AVRO". For Google Cloud
- *  Datastore backups, specify "DATASTORE_BACKUP". [Beta] For Google Cloud
- *  Bigtable, specify "BIGTABLE".
+ *  Datastore backups, specify "DATASTORE_BACKUP". For Apache Iceberg tables,
+ *  specify "ICEBERG". For ORC files, specify "ORC". For Parquet files, specify
+ *  "PARQUET". [Beta] For Google Cloud Bigtable, specify "BIGTABLE".
  */
 @property(nonatomic, copy, nullable) NSString *sourceFormat;
 
@@ -4890,19 +6220,69 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ExternalDatasetReference
+ *  Configures the access a dataset defined in an external metadata storage.
  */
 @interface GTLRBigquery_ExternalDatasetReference : GTLRObject
 
 /**
- *  [Required] The connection id that is used to access the external_source.
+ *  Required. The connection id that is used to access the external_source.
  *  Format:
  *  projects/{project_id}/locations/{location_id}/connections/{connection_id}
  */
 @property(nonatomic, copy, nullable) NSString *connection;
 
-/** [Required] External source that backs this dataset. */
+/** Required. External source that backs this dataset. */
 @property(nonatomic, copy, nullable) NSString *externalSource;
+
+@end
+
+
+/**
+ *  The external service cost is a portion of the total cost, these costs are
+ *  not additive with total_bytes_billed. Moreover, this field only track
+ *  external service costs that will show up as BigQuery costs (e.g. training
+ *  BigQuery ML job with google cloud CAIP or Automl Tables services), not other
+ *  costs which may be accrued by running the query (e.g. reading from Bigtable
+ *  or Cloud Storage). The external service costs with different billing sku
+ *  (e.g. CAIP job is charged based on VM usage) are converted to BigQuery
+ *  billed_bytes and slot_ms with equivalent amount of US dollars. Services may
+ *  not directly correlate to these metrics, but these are the equivalents for
+ *  billing purposes. Output only.
+ */
+@interface GTLRBigquery_ExternalServiceCost : GTLRObject
+
+/**
+ *  External service cost in terms of bigquery bytes billed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesBilled;
+
+/**
+ *  External service cost in terms of bigquery bytes processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesProcessed;
+
+/** External service name. */
+@property(nonatomic, copy, nullable) NSString *externalService;
+
+/**
+ *  Non-preemptable reserved slots used for external job. For example, reserved
+ *  slots for Cloua AI Platform job are the VM usages converted to BigQuery slot
+ *  with equivalent mount of price.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reservedSlotCount;
+
+/**
+ *  External service cost in terms of bigquery slot milliseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slotMs;
 
 @end
 
@@ -4967,7 +6347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_GetQueryResultsResponse
+ *  Response object of GetQueryResults.
  */
 @interface GTLRBigquery_GetQueryResultsResponse : GTLRObject
 
@@ -4979,10 +6359,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
- *  [Output-only] The first errors or warnings encountered during the running of
+ *  Output only. The first errors or warnings encountered during the running of
  *  the job. The final message includes the number of errors that caused the
  *  process to stop. Errors here do not necessarily mean that the job has
- *  completed or was unsuccessful.
+ *  completed or was unsuccessful. For more information about error messages,
+ *  see [Error messages](https://cloud.google.com/bigquery/docs/error-messages).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ErrorProto *> *errors;
 
@@ -5010,21 +6391,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  [Output-only] The number of rows affected by a DML statement. Present only
+ *  Output only. The number of rows affected by a DML statement. Present only
  *  for DML statements INSERT, UPDATE or DELETE.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numDmlAffectedRows;
 
-/** A token used for paging results. */
+/**
+ *  A token used for paging results. When this token is non-empty, it indicates
+ *  additional results are available.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  An object with as many results as can be contained within the maximum
  *  permitted reply size. To get any additional rows, you can call
  *  GetQueryResults and specify the jobReference returned above. Present only
- *  when the query completes successfully.
+ *  when the query completes successfully. The REST-based representation of this
+ *  data leverages a series of JSON f,v objects for indicating fields and
+ *  values.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableRow *> *rows;
 
@@ -5054,7 +6440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_GetServiceAccountResponse
+ *  Response object of GetServiceAccount
  */
 @interface GTLRBigquery_GetServiceAccountResponse : GTLRObject
 
@@ -5090,29 +6476,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_GoogleSheetsOptions
+ *  Options specific to Google Sheets data sources.
  */
 @interface GTLRBigquery_GoogleSheetsOptions : GTLRObject
 
 /**
- *  [Optional] Range of a sheet to query from. Only used when non-empty. Typical
+ *  Optional. Range of a sheet to query from. Only used when non-empty. Typical
  *  format: sheet_name!top_left_cell_id:bottom_right_cell_id For example:
  *  sheet1!A1:B20
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
 /**
- *  [Optional] The number of rows at the top of a sheet that BigQuery will skip
+ *  Optional. The number of rows at the top of a sheet that BigQuery will skip
  *  when reading the data. The default value is 0. This property is useful if
- *  you have header rows that should be skipped. When autodetect is on, behavior
- *  is the following: * skipLeadingRows unspecified - Autodetect tries to detect
- *  headers in the first row. If they are not detected, the row is read as data.
- *  Otherwise data is read starting from the second row. * skipLeadingRows is 0
- *  - Instructs autodetect that there are no headers and data should be read
- *  starting from the first row. * skipLeadingRows = N > 0 - Autodetect skips
- *  N-1 rows and tries to detect headers in row N. If headers are not detected,
- *  row N is just skipped. Otherwise row N is used to extract column names for
- *  the detected schema.
+ *  you have header rows that should be skipped. When autodetect is on, the
+ *  behavior is the following: * skipLeadingRows unspecified - Autodetect tries
+ *  to detect headers in the first row. If they are not detected, the row is
+ *  read as data. Otherwise data is read starting from the second row. *
+ *  skipLeadingRows is 0 - Instructs autodetect that there are no headers and
+ *  data should be read starting from the first row. * skipLeadingRows = N > 0 -
+ *  Autodetect skips N-1 rows and tries to detect headers in row N. If headers
+ *  are not detected, row N is just skipped. Otherwise row N is used to extract
+ *  column names for the detected schema.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5122,13 +6508,49 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_HivePartitioningOptions
+ *  High cardinality join detailed information.
+ */
+@interface GTLRBigquery_HighCardinalityJoin : GTLRObject
+
+/**
+ *  Output only. Count of left input rows.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leftRows;
+
+/**
+ *  Output only. Count of the output rows.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputRows;
+
+/**
+ *  Output only. Count of right input rows.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rightRows;
+
+/**
+ *  Output only. The index of the join operator in the ExplainQueryStep lists.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stepIndex;
+
+@end
+
+
+/**
+ *  Options for configuring hive partitioning detect.
  */
 @interface GTLRBigquery_HivePartitioningOptions : GTLRObject
 
 /**
- *  [Output-only] For permanent external tables, this field is populated with
- *  the hive partition keys in the order they were inferred. The types of the
+ *  Output only. For permanent external tables, this field is populated with the
+ *  hive partition keys in the order they were inferred. The types of the
  *  partition keys can be deduced by checking the table schema (which will
  *  include the partition keys). Not every API will populate this field in the
  *  output. For example, Tables.Get will populate it, but Tables.List will not
@@ -5137,38 +6559,42 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fields;
 
 /**
- *  [Optional] When set, what mode of hive partitioning to use when reading
- *  data. The following modes are supported. (1) AUTO: automatically infer
- *  partition key name(s) and type(s). (2) STRINGS: automatically infer
- *  partition key name(s). All types are interpreted as strings. (3) CUSTOM:
- *  partition key schema is encoded in the source URI prefix. Not all storage
- *  formats support hive partitioning. Requesting hive partitioning on an
- *  unsupported format will lead to an error. Currently supported types include:
- *  AVRO, CSV, JSON, ORC and Parquet.
+ *  Optional. When set, what mode of hive partitioning to use when reading data.
+ *  The following modes are supported: * AUTO: automatically infer partition key
+ *  name(s) and type(s). * STRINGS: automatically infer partition key name(s).
+ *  All types are strings. * CUSTOM: partition key schema is encoded in the
+ *  source URI prefix. Not all storage formats support hive partitioning.
+ *  Requesting hive partitioning on an unsupported format will lead to an error.
+ *  Currently supported formats are: JSON, CSV, ORC, Avro and Parquet.
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
- *  [Optional] If set to true, queries over this table require a partition
- *  filter that can be used for partition elimination to be specified. Note that
- *  this field should only be true when creating a permanent external table or
+ *  Optional. If set to true, queries over this table require a partition filter
+ *  that can be used for partition elimination to be specified. Note that this
+ *  field should only be true when creating a permanent external table or
  *  querying a temporary external table. Hive-partitioned loads with
- *  requirePartitionFilter explicitly set to true will fail.
+ *  require_partition_filter explicitly set to true will fail.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter;
 
 /**
- *  [Optional] When hive partition detection is requested, a common prefix for
- *  all source uris should be supplied. The prefix must end immediately before
- *  the partition key encoding begins. For example, consider files following
- *  this data layout.
- *  gs://bucket/path_to_table/dt=2019-01-01/country=BR/id=7/file.avro
- *  gs://bucket/path_to_table/dt=2018-12-31/country=CA/id=3/file.avro When hive
+ *  Optional. When hive partition detection is requested, a common prefix for
+ *  all source uris must be required. The prefix must end immediately before the
+ *  partition key encoding begins. For example, consider files following this
+ *  data layout:
+ *  gs://bucket/path_to_table/dt=2019-06-01/country=USA/id=7/file.avro
+ *  gs://bucket/path_to_table/dt=2019-05-31/country=CA/id=3/file.avro When hive
  *  partitioning is requested with either AUTO or STRINGS detection, the common
  *  prefix can be either of gs://bucket/path_to_table or
- *  gs://bucket/path_to_table/ (trailing slash does not matter).
+ *  gs://bucket/path_to_table/. CUSTOM detection requires encoding the
+ *  partitioning schema immediately after the common prefix. For CUSTOM, any of
+ *  * gs://bucket/path_to_table/{dt:DATE}/{country:STRING}/{id:INTEGER} *
+ *  gs://bucket/path_to_table/{dt:STRING}/{country:STRING}/{id:INTEGER} *
+ *  gs://bucket/path_to_table/{dt:DATE}/{country:STRING}/{id:STRING} would all
+ *  be valid source URI prefixes.
  */
 @property(nonatomic, copy, nullable) NSString *sourceUriPrefix;
 
@@ -5351,32 +6777,115 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_IndexUnusedReason
+ *  Reason about why no search index was used in the search query (or
+ *  sub-query).
  */
 @interface GTLRBigquery_IndexUnusedReason : GTLRObject
 
 /**
- *  [Output-only] Specifies the base table involved in the reason that no search
- *  index was used.
+ *  Specifies the base table involved in the reason that no search index was
+ *  used.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTable;
 
 /**
- *  [Output-only] Specifies the high-level reason for the scenario when no
- *  search index was used.
+ *  Specifies the high-level reason for the scenario when no search index was
+ *  used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooLarge Indicates
+ *        that the total size of indexed base tables in your organization
+ *        exceeds your region's limit and the index is not used in the query. To
+ *        index larger base tables, you can use your own reservation for
+ *        index-management jobs. (Value: "BASE_TABLE_TOO_LARGE")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooSmall Indicates
+ *        the base table is too small (below a certain threshold). The index
+ *        does not provide noticeable search performance gains when the base
+ *        table is too small. (Value: "BASE_TABLE_TOO_SMALL")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_BaseTableTruncated Indicates
+ *        the base table has been truncated (rows have been removed from table
+ *        with TRUNCATE TABLE statement) since the last time the search index
+ *        was refreshed. (Value: "BASE_TABLE_TRUNCATED")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_CodeUnspecified Code not
+ *        specified. (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_EstimatedPerformanceGainTooLow
+ *        Indicates that the esitmated performance gain from using the search
+ *        index is too low for the given search query. (Value:
+ *        "ESTIMATED_PERFORMANCE_GAIN_TOO_LOW")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_IndexConfigModified Indicates
+ *        the search index configuration has been changed since the last time
+ *        the search index was refreshed. (Value: "INDEX_CONFIG_MODIFIED")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_IndexConfigNotAvailable
+ *        Indicates the search index configuration has not been created. (Value:
+ *        "INDEX_CONFIG_NOT_AVAILABLE")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_IndexSuppressedByFunctionOption
+ *        Indicates that an option in the search function that cannot make use
+ *        of the index has been selected. (Value:
+ *        "INDEX_SUPPRESSED_BY_FUNCTION_OPTION")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_InternalError Indicates an
+ *        internal error that causes the search index to be unused. (Value:
+ *        "INTERNAL_ERROR")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_MismatchedTextAnalyzer
+ *        Indicates that the search index and the search function call do not
+ *        have the same text analyzer. (Value: "MISMATCHED_TEXT_ANALYZER")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_NoPruningPower Indicates the
+ *        usage of search index will not contribute to any pruning improvement
+ *        for the search function, e.g. when the search predicate is in a
+ *        disjunction with other non-search predicates. (Value:
+ *        "NO_PRUNING_POWER")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_NotSupportedInStandardEdition
+ *        Indicates that search indexes can not be used for search query with
+ *        STANDARD edition. (Value: "NOT_SUPPORTED_IN_STANDARD_EDITION")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_OptimizedWithMaterializedView
+ *        Indicates the query has been optimized by using a materialized view.
+ *        (Value: "OPTIMIZED_WITH_MATERIALIZED_VIEW")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_OtherReason Indicates that
+ *        the reason search indexes cannot be used in the query is not covered
+ *        by any of the other IndexUnusedReason options. (Value: "OTHER_REASON")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_PendingIndexCreation
+ *        Indicates the search index creation has not been completed. (Value:
+ *        "PENDING_INDEX_CREATION")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_QueryCacheHit Indicates that
+ *        the query was cached, and thus the search index was not used. (Value:
+ *        "QUERY_CACHE_HIT")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_SecuredByDataMasking
+ *        Indicates the query has been secured by data masking, and thus search
+ *        indexes are not applicable. (Value: "SECURED_BY_DATA_MASKING")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_TimeTravelQuery Indicates the
+ *        search query accesses data at a timestamp before the last time the
+ *        search index was refreshed. (Value: "TIME_TRAVEL_QUERY")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_UnindexedSearchFields
+ *        Indicates the search index does not cover all fields in the search
+ *        function. (Value: "UNINDEXED_SEARCH_FIELDS")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_UnsupportedSearchPattern
+ *        Indicates the search index does not support the given search query
+ *        pattern. (Value: "UNSUPPORTED_SEARCH_PATTERN")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
-/**
- *  [Output-only] Specifies the name of the unused search index, if available.
- */
+/** Specifies the name of the unused search index, if available. */
 @property(nonatomic, copy, nullable) NSString *indexName;
 
 /**
- *  [Output-only] Free form human-readable reason for the scenario when no
- *  search index was used.
+ *  Free form human-readable reason for the scenario when no search index was
+ *  used.
  */
 @property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Details about the input data change insight.
+ */
+@interface GTLRBigquery_InputDataChange : GTLRObject
+
+/**
+ *  Output only. Records read difference percentage compared to a previous run.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsReadDiffPercentage;
 
 @end
 
@@ -5459,9 +6968,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_IterationResult
+ *  Information about a single iteration of the training run.
  */
 @interface GTLRBigquery_IterationResult : GTLRObject
+
+/** Arima result. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ArimaResult *arimaResult;
+
+/** Information about top clusters for clustering models. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ClusterInfo *> *clusterInfos;
 
 /**
  *  Time taken to run the iteration in milliseconds.
@@ -5491,6 +7006,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *learnRate;
 
+/** The information of the principal components. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_PrincipalComponentInfo *> *principalComponentInfos;
+
 /**
  *  Loss computed on the training data at the end of iteration.
  *
@@ -5506,57 +7024,62 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_Job : GTLRObject
 
-/** [Required] Describes the job configuration. */
+/** Required. Describes the job configuration. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfiguration *configuration;
 
-/** [Output-only] A hash of this resource. */
+/** Output only. A hash of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  [Output-only] Opaque ID field of the job
+ *  Output only. Opaque ID field of the job.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  [Output-only] If set, it provides the reason why a Job was created. If not
+ *  Output only. If set, it provides the reason why a Job was created. If not
  *  set, it should be treated as the default: REQUESTED. This feature is not yet
  *  available. Jobs will always be created.
- *
- *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) id jobCreationReason;
+@property(nonatomic, strong, nullable) GTLRBigquery_JobCreationReason *jobCreationReason;
 
-/** [Optional] Reference describing the unique-per-user name of the job. */
+/** Optional. Reference describing the unique-per-user name of the job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobReference *jobReference;
 
-/** [Output-only] The type of the resource. */
+/** Output only. The type of the resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** [Output-only] A URL that can be used to access this resource again. */
+/**
+ *  Output only. [Full-projection-only] String representation of identity of
+ *  requesting party. Populated for both first- and third-party identities. Only
+ *  present for APIs that support third-party identities.
+ */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
+
+/** Output only. A URL that can be used to access the resource again. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output-only] Information about the job, including starting time and ending
+ *  Output only. Information about the job, including starting time and ending
  *  time of the job.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics *statistics;
 
 /**
- *  [Output-only] The status of this job. Examine this value when polling an
+ *  Output only. The status of this job. Examine this value when polling an
  *  asynchronous job to see if the job is complete.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatus *status;
 
-/** [Output-only] Email address of the user who ran the job. */
+/** Output only. Email address of the user who ran the job. */
 @property(nonatomic, copy, nullable) NSString *userEmail;
 
 @end
 
 
 /**
- *  GTLRBigquery_JobCancelResponse
+ *  Describes format of a jobs cancellation response.
  */
 @interface GTLRBigquery_JobCancelResponse : GTLRObject
 
@@ -5582,7 +7105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationTableCopy *copyProperty NS_RETURNS_NOT_RETAINED;
 
 /**
- *  [Optional] If set, don't actually run this job. A valid query will return a
+ *  Optional. If set, don't actually run this job. A valid query will return a
  *  mostly empty response with some processing statistics, while an invalid
  *  query will return the same error it would if it wasn't a dry run. Behavior
  *  of non-query jobs is undefined.
@@ -5595,15 +7118,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationExtract *extract;
 
 /**
- *  [Optional] Job timeout in milliseconds. If this time limit is exceeded,
- *  BigQuery may attempt to terminate the job.
+ *  Optional. Job timeout in milliseconds. If this time limit is exceeded,
+ *  BigQuery might attempt to stop the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *jobTimeoutMs;
 
 /**
- *  [Output-only] The type of the job. Can be QUERY, LOAD, EXTRACT, COPY or
+ *  Output only. The type of the job. Can be QUERY, LOAD, EXTRACT, COPY or
  *  UNKNOWN.
  */
 @property(nonatomic, copy, nullable) NSString *jobType;
@@ -5645,21 +7168,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobConfigurationExtract
+ *  JobConfigurationExtract configures a job that exports data from a BigQuery
+ *  table into Google Cloud Storage.
  */
 @interface GTLRBigquery_JobConfigurationExtract : GTLRObject
 
 /**
- *  [Optional] The compression type to use for exported files. Possible values
- *  include GZIP, DEFLATE, SNAPPY, and NONE. The default value is NONE. DEFLATE
- *  and SNAPPY are only supported for Avro. Not applicable when extracting
- *  models.
+ *  Optional. The compression type to use for exported files. Possible values
+ *  include DEFLATE, GZIP, NONE, SNAPPY, and ZSTD. The default value is NONE.
+ *  Not all compression formats are support for all file formats. DEFLATE is
+ *  only supported for Avro. ZSTD is only supported for Parquet. Not applicable
+ *  when extracting models.
  */
 @property(nonatomic, copy, nullable) NSString *compression;
 
 /**
- *  [Optional] The exported file format. Possible values include CSV,
- *  NEWLINE_DELIMITED_JSON, PARQUET or AVRO for tables and ML_TF_SAVED_MODEL or
+ *  Optional. The exported file format. Possible values include CSV,
+ *  NEWLINE_DELIMITED_JSON, PARQUET, or AVRO for tables and ML_TF_SAVED_MODEL or
  *  ML_XGBOOST_BOOSTER for models. The default value for tables is CSV. Tables
  *  with nested or repeated fields cannot be exported as CSV. The default value
  *  for models is ML_TF_SAVED_MODEL.
@@ -5680,14 +7205,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destinationUris;
 
 /**
- *  [Optional] Delimiter to use between fields in the exported data. Default is
- *  ','. Not applicable when extracting models.
+ *  Optional. When extracting data in CSV format, this defines the delimiter to
+ *  use between fields in the exported data. Default is ','. Not applicable when
+ *  extracting models.
  */
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
+/** Optional. Model extract options only applicable when extracting models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ModelExtractOptions *modelExtractOptions;
+
 /**
- *  [Optional] Whether to print out a header row in the results. Default is
- *  true. Not applicable when extracting models.
+ *  Optional. Whether to print out a header row in the results. Default is true.
+ *  Not applicable when extracting models.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5700,10 +7229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *sourceTable;
 
 /**
- *  [Optional] If destinationFormat is set to "AVRO", this flag indicates
- *  whether to enable extracting applicable column types (such as TIMESTAMP) to
- *  their corresponding AVRO logical types (timestamp-micros), instead of only
- *  using their raw types (avro-long). Not applicable when extracting models.
+ *  Whether to use logical types when extracting to AVRO format. Not applicable
+ *  when extracting models.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5713,12 +7240,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobConfigurationLoad
+ *  JobConfigurationLoad contains the configuration properties for loading data
+ *  into a destination table.
  */
 @interface GTLRBigquery_JobConfigurationLoad : GTLRObject
 
 /**
- *  [Optional] Accept rows that are missing trailing optional columns. The
+ *  Optional. Accept rows that are missing trailing optional columns. The
  *  missing values are treated as nulls. If false, records with missing trailing
  *  columns are treated as bad records, and if there are too many bad records,
  *  an invalid error is returned in the job result. The default value is false.
@@ -5737,27 +7265,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *allowQuotedNewlines;
 
 /**
- *  [Optional] Indicates if we should automatically infer the options and schema
+ *  Optional. Indicates if we should automatically infer the options and schema
  *  for CSV and JSON sources.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autodetect;
 
-/**
- *  [Beta] Clustering specification for the destination table. Must be specified
- *  with time-based partitioning, data in the table will be first partitioned
- *  and subsequently clustered.
- */
+/** Clustering specification for the destination table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
-/** Connection properties. */
+/**
+ *  Optional. Connection properties which can modify the load job behavior.
+ *  Currently, only the 'session_id' connection property is supported, and is
+ *  used to resolve _SESSION appearing as the dataset id.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
- *  [Optional] Specifies whether the job is allowed to create new tables. The
- *  following values are supported: CREATE_IF_NEEDED: If the table does not
- *  exist, BigQuery creates the table. CREATE_NEVER: The table must already
+ *  Optional. Specifies whether the job is allowed to create new tables. The
+ *  following values are supported: * CREATE_IF_NEEDED: If the table does not
+ *  exist, BigQuery creates the table. * CREATE_NEVER: The table must already
  *  exist. If it does not, a 'notFound' error is returned in the job result. The
  *  default value is CREATE_IF_NEEDED. Creation, truncation and append actions
  *  occur as one atomic update upon job completion.
@@ -5765,112 +7293,151 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *createDisposition;
 
 /**
- *  If true, creates a new session, where session id will be a server generated
- *  random id. If false, runs query with an existing session_id passed in
- *  ConnectionProperty, otherwise runs the load job in non-session mode.
+ *  Optional. If this property is true, the job creates a new session using a
+ *  randomly generated session_id. To continue using a created session with
+ *  subsequent queries, pass the existing session identifier as a
+ *  `ConnectionProperty` value. The session identifier is returned as part of
+ *  the `SessionInfo` message within the query statistics. The new session's
+ *  location will be set to `Job.JobReference.location` if it is present,
+ *  otherwise it's set to the default location based on existing routing logic.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createSession;
 
 /**
- *  [Optional] Defines the list of possible SQL data types to which the source
- *  decimal values are converted. This list and the precision and the scale
- *  parameters of the decimal field determine the target type. In the order of
- *  NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the specified
- *  list and if it supports the precision and the scale. STRING supports all
- *  precision and scale values. If none of the listed types supports the
- *  precision and the scale, the type supporting the widest range in the
- *  specified list is picked, and if a value exceeds the supported range when
- *  reading the data, an error will be thrown. Example: Suppose the value of
- *  this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: (38,9) ->
- *  NUMERIC; (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits);
- *  (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional digits); (76,38) ->
- *  BIGNUMERIC; (77,38) -> BIGNUMERIC (error if value exeeds supported range).
- *  This field cannot contain duplicate types. The order of the types in this
- *  field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as
- *  ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over
- *  BIGNUMERIC. Defaults to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for
- *  the other file formats.
+ *  Defines the list of possible SQL data types to which the source decimal
+ *  values are converted. This list and the precision and the scale parameters
+ *  of the decimal field determine the target type. In the order of NUMERIC,
+ *  BIGNUMERIC, and STRING, a type is picked if it is in the specified list and
+ *  if it supports the precision and the scale. STRING supports all precision
+ *  and scale values. If none of the listed types supports the precision and the
+ *  scale, the type supporting the widest range in the specified list is picked,
+ *  and if a value exceeds the supported range when reading the data, an error
+ *  will be thrown. Example: Suppose the value of this field is ["NUMERIC",
+ *  "BIGNUMERIC"]. If (precision,scale) is: * (38,9) -> NUMERIC; * (39,9) ->
+ *  BIGNUMERIC (NUMERIC cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC
+ *  (NUMERIC cannot hold 10 fractional digits); * (76,38) -> BIGNUMERIC; *
+ *  (77,38) -> BIGNUMERIC (error if value exeeds supported range). This field
+ *  cannot contain duplicate types. The order of the types in this field is
+ *  ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC",
+ *  "BIGNUMERIC"] and NUMERIC always takes precedence over BIGNUMERIC. Defaults
+ *  to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for the other file formats.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
 
-/** Custom encryption configuration (e.g., Cloud KMS keys). */
+/** Custom encryption configuration (e.g., Cloud KMS keys) */
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *destinationEncryptionConfiguration;
 
 /** [Required] The destination table to load the data into. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *destinationTable;
 
 /**
- *  [Beta] [Optional] Properties with which to create the destination table if
- *  it is new.
+ *  Optional. [Experimental] Properties with which to create the destination
+ *  table if it is new.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DestinationTableProperties *destinationTableProperties;
 
 /**
- *  [Optional] The character encoding of the data. The supported values are
- *  UTF-8 or ISO-8859-1. The default value is UTF-8. BigQuery decodes the data
- *  after the raw, binary data has been split using the values of the quote and
- *  fieldDelimiter properties.
+ *  Optional. The character encoding of the data. The supported values are
+ *  UTF-8, ISO-8859-1, UTF-16BE, UTF-16LE, UTF-32BE, and UTF-32LE. The default
+ *  value is UTF-8. BigQuery decodes the data after the raw, binary data has
+ *  been split using the values of the `quote` and `fieldDelimiter` properties.
+ *  If you don't specify an encoding, or if you specify a UTF-8 encoding when
+ *  the CSV file is not UTF-8 encoded, BigQuery attempts to convert the data to
+ *  UTF-8. Generally, your data loads successfully, but it may not match
+ *  byte-for-byte what you expect. To avoid this, specify the correct encoding
+ *  by using the `--encoding` flag. If BigQuery can't convert a character other
+ *  than the ASCII `0` character, BigQuery converts the character to the
+ *  standard Unicode replacement character: �.
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
 /**
- *  [Optional] The separator for fields in a CSV file. The separator can be any
- *  ISO-8859-1 single-byte character. To use a character in the range 128-255,
- *  you must encode the character as UTF8. BigQuery converts the string to
- *  ISO-8859-1 encoding, and then uses the first byte of the encoded string to
- *  split the data in its raw, binary state. BigQuery also supports the escape
- *  sequence "\\t" to specify a tab separator. The default value is a comma
- *  (',').
+ *  Optional. The separator character for fields in a CSV file. The separator is
+ *  interpreted as a single byte. For files encoded in ISO-8859-1, any single
+ *  character can be used as a separator. For files encoded in UTF-8, characters
+ *  represented in decimal range 1-127 (U+0001-U+007F) can be used without any
+ *  modification. UTF-8 characters encoded with multiple bytes (i.e. U+0080 and
+ *  above) will have only the first byte used for separating fields. The
+ *  remaining bytes will be treated as a part of the field. BigQuery also
+ *  supports the escape sequence "\\t" (U+0009) to specify a tab separator. The
+ *  default value is comma (",", U+002C).
  */
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
 /**
- *  [Optional] Specifies how source URIs are interpreted for constructing the
- *  file set to load. By default source URIs are expanded against the underlying
- *  storage. Other options include specifying manifest files. Only applicable to
- *  object storage systems.
+ *  Optional. Specifies how source URIs are interpreted for constructing the
+ *  file set to load. By default, source URIs are expanded against the
+ *  underlying storage. You can also specify manifest files to control how the
+ *  file set is constructed. This option is only applicable to object storage
+ *  systems.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_JobConfigurationLoad_FileSetSpecType_FileSetSpecTypeFileSystemMatch
+ *        This option expands source URIs by listing files from the object
+ *        store. It is the default behavior if FileSetSpecType is not set.
+ *        (Value: "FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH")
+ *    @arg @c kGTLRBigquery_JobConfigurationLoad_FileSetSpecType_FileSetSpecTypeNewLineDelimitedManifest
+ *        This option indicates that the provided URIs are newline-delimited
+ *        manifest files, with one URI per line. Wildcard URIs are not
+ *        supported. (Value: "FILE_SET_SPEC_TYPE_NEW_LINE_DELIMITED_MANIFEST")
  */
 @property(nonatomic, copy, nullable) NSString *fileSetSpecType;
 
-/** [Optional] Options to configure hive partitioning support. */
+/**
+ *  Optional. When set, configures hive partitioning support. Not all storage
+ *  formats support hive partitioning -- requesting hive partitioning on an
+ *  unsupported format will lead to an error, as will providing an invalid
+ *  specification.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
 
 /**
- *  [Optional] Indicates if BigQuery should allow extra values that are not
+ *  Optional. Indicates if BigQuery should allow extra values that are not
  *  represented in the table schema. If true, the extra values are ignored. If
  *  false, records with extra columns are treated as bad records, and if there
  *  are too many bad records, an invalid error is returned in the job result.
  *  The default value is false. The sourceFormat property determines what
  *  BigQuery treats as an extra value: CSV: Trailing columns JSON: Named values
- *  that don't match any column names
+ *  that don't match any column names in the table schema Avro, Parquet, ORC:
+ *  Fields in the file schema that don't exist in the table schema.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreUnknownValues;
 
 /**
- *  [Optional] If sourceFormat is set to newline-delimited JSON, indicates
- *  whether it should be processed as a JSON variant such as GeoJSON. For a
- *  sourceFormat other than JSON, omit this field. If the sourceFormat is
- *  newline-delimited JSON: - for newline-delimited GeoJSON: set to GEOJSON.
+ *  Optional. Load option to be used together with source_format
+ *  newline-delimited JSON to indicate that a variant of JSON is being loaded.
+ *  To load newline-delimited GeoJSON, specify GEOJSON (and source_format must
+ *  be set to NEWLINE_DELIMITED_JSON).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_JobConfigurationLoad_JsonExtension_Geojson Use
+ *        GeoJSON variant of JSON. See https://tools.ietf.org/html/rfc7946.
+ *        (Value: "GEOJSON")
+ *    @arg @c kGTLRBigquery_JobConfigurationLoad_JsonExtension_JsonExtensionUnspecified
+ *        The default if provided value is not one included in the enum, or the
+ *        value is not specified. The source formate is parsed without any
+ *        modification. (Value: "JSON_EXTENSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *jsonExtension;
 
 /**
- *  [Optional] The maximum number of bad records that BigQuery can ignore when
+ *  Optional. The maximum number of bad records that BigQuery can ignore when
  *  running the job. If the number of bad records exceeds this value, an invalid
- *  error is returned in the job result. This is only valid for CSV and JSON.
- *  The default value is 0, which requires that all records are valid.
+ *  error is returned in the job result. The default value is 0, which requires
+ *  that all records are valid. This is only supported for CSV and
+ *  NEWLINE_DELIMITED_JSON file formats.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxBadRecords;
 
 /**
- *  [Optional] Specifies a string that represents a null value in a CSV file.
- *  For example, if you specify "\\N", BigQuery interprets "\\N" as a null value
+ *  Optional. Specifies a string that represents a null value in a CSV file. For
+ *  example, if you specify "\\N", BigQuery interprets "\\N" as a null value
  *  when loading a CSV file. The default value is the empty string. If you set
  *  this property to a custom value, BigQuery throws an error if an empty string
  *  is present for all data types except for STRING and BYTE. For STRING and
@@ -5878,13 +7445,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *nullMarker;
 
-/** [Optional] Options to configure parquet support. */
+/**
+ *  Optional. Additional properties to set if sourceFormat is set to PARQUET.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
 
 /**
- *  [Optional] Preserves the embedded ASCII control characters (the first 32
- *  characters in the ASCII-table, from '\\x00' to '\\x1F') when loading from
- *  CSV. Only applicable to CSV, ignored for other formats.
+ *  Optional. When sourceFormat is set to "CSV", this indicates whether the
+ *  embedded ASCII control characters (the first 32 characters in the
+ *  ASCII-table, from '\\x00' to '\\x1F') are preserved.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5901,32 +7470,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectionFields;
 
 /**
- *  [Optional] The value that is used to quote data sections in a CSV file.
+ *  Optional. The value that is used to quote data sections in a CSV file.
  *  BigQuery converts the string to ISO-8859-1 encoding, and then uses the first
  *  byte of the encoded string to split the data in its raw, binary state. The
  *  default value is a double-quote ('"'). If your data does not contain quoted
  *  sections, set the property value to an empty string. If your data contains
  *  quoted newline characters, you must also set the allowQuotedNewlines
- *  property to true.
+ *  property to true. To include the specific quote character within a quoted
+ *  value, precede it with an additional matching quote character. For example,
+ *  if you want to escape the default character ' " ', use ' "" '. \@default "
  */
 @property(nonatomic, copy, nullable) NSString *quote;
 
 /**
- *  [TrustedTester] Range partitioning specification for this table. Only one of
+ *  Range partitioning specification for the destination table. Only one of
  *  timePartitioning and rangePartitioning should be specified.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
 
 /**
- *  User provided referencing file with the expected reader schema, Available
- *  for the format: AVRO, PARQUET, ORC.
+ *  Optional. The user can provide a reference file with the reader schema. This
+ *  file is only loaded if it is part of source URIs, but is not loaded
+ *  otherwise. It is enabled for the following formats: AVRO, PARQUET, ORC.
  */
 @property(nonatomic, copy, nullable) NSString *referenceFileSchemaUri;
 
 /**
- *  [Optional] The schema for the destination table. The schema can be omitted
- *  if the destination table already exists, or if you're loading data from
- *  Google Cloud Datastore.
+ *  Optional. The schema for the destination table. The schema can be omitted if
+ *  the destination table already exists, or if you're loading data from Google
+ *  Cloud Datastore.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
@@ -5947,24 +7519,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE
  *  and the destination table is a partition of a table, specified by partition
  *  decorators. For normal tables, WRITE_TRUNCATE will always overwrite the
- *  schema. One or more of the following values are specified:
- *  ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema.
+ *  schema. One or more of the following values are specified: *
+ *  ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. *
  *  ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original
  *  schema to nullable.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *schemaUpdateOptions;
 
 /**
- *  [Optional] The number of rows at the top of a CSV file that BigQuery will
+ *  Optional. The number of rows at the top of a CSV file that BigQuery will
  *  skip when loading the data. The default value is 0. This property is useful
- *  if you have header rows in the file that should be skipped.
+ *  if you have header rows in the file that should be skipped. When autodetect
+ *  is on, the behavior is the following: * skipLeadingRows unspecified -
+ *  Autodetect tries to detect headers in the first row. If they are not
+ *  detected, the row is read as data. Otherwise data is read starting from the
+ *  second row. * skipLeadingRows is 0 - Instructs autodetect that there are no
+ *  headers and data should be read starting from the first row. *
+ *  skipLeadingRows = N > 0 - Autodetect skips N-1 rows and tries to detect
+ *  headers in row N. If headers are not detected, row N is just skipped.
+ *  Otherwise row N is used to extract column names for the detected schema.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipLeadingRows;
 
 /**
- *  [Optional] The format of the data files. For CSV files, specify "CSV". For
+ *  Optional. The format of the data files. For CSV files, specify "CSV". For
  *  datastore backups, specify "DATASTORE_BACKUP". For newline-delimited JSON,
  *  specify "NEWLINE_DELIMITED_JSON". For Avro, specify "AVRO". For parquet,
  *  specify "PARQUET". For orc, specify "ORC". The default value is CSV.
@@ -5990,7 +7570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
- *  [Optional] If sourceFormat is set to "AVRO", indicates whether to interpret
+ *  Optional. If sourceFormat is set to "AVRO", indicates whether to interpret
  *  logical types as the corresponding BigQuery data type (for example,
  *  TIMESTAMP), instead of using the raw type (for example, INTEGER).
  *
@@ -5999,15 +7579,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *useAvroLogicalTypes;
 
 /**
- *  [Optional] Specifies the action that occurs if the destination table already
- *  exists. The following values are supported: WRITE_TRUNCATE: If the table
- *  already exists, BigQuery overwrites the table data. WRITE_APPEND: If the
- *  table already exists, BigQuery appends the data to the table. WRITE_EMPTY:
- *  If the table already exists and contains data, a 'duplicate' error is
- *  returned in the job result. The default value is WRITE_APPEND. Each action
- *  is atomic and only occurs if BigQuery is able to complete the job
- *  successfully. Creation, truncation and append actions occur as one atomic
- *  update upon job completion.
+ *  Optional. Specifies the action that occurs if the destination table already
+ *  exists. The following values are supported: * WRITE_TRUNCATE: If the table
+ *  already exists, BigQuery overwrites the data, removes the constraints and
+ *  uses the schema from the load job. * WRITE_APPEND: If the table already
+ *  exists, BigQuery appends the data to the table. * WRITE_EMPTY: If the table
+ *  already exists and contains data, a 'duplicate' error is returned in the job
+ *  result. The default value is WRITE_APPEND. Each action is atomic and only
+ *  occurs if BigQuery is able to complete the job successfully. Creation,
+ *  truncation and append actions occur as one atomic update upon job
+ *  completion.
  */
 @property(nonatomic, copy, nullable) NSString *writeDisposition;
 
@@ -6015,14 +7596,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobConfigurationQuery
+ *  JobConfigurationQuery configures a BigQuery query job.
  */
 @interface GTLRBigquery_JobConfigurationQuery : GTLRObject
 
 /**
- *  [Optional] If true and query uses legacy SQL dialect, allows the query to
+ *  Optional. If true and query uses legacy SQL dialect, allows the query to
  *  produce arbitrarily large result tables at a slight cost in performance.
- *  Requires destinationTable to be set. For standard SQL queries, this flag is
+ *  Requires destinationTable to be set. For GoogleSQL queries, this flag is
  *  ignored and large results are always allowed. However, you must still set
  *  destinationTable when result size exceeds the allowed maximum response size.
  *
@@ -6030,14 +7611,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *allowLargeResults;
 
-/**
- *  [Beta] Clustering specification for the destination table. Must be specified
- *  with time-based partitioning, data in the table will be first partitioned
- *  and subsequently clustered.
- */
+/** Clustering specification for the destination table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
-/** Connection properties. */
+/** Connection properties which can modify the query behavior. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
@@ -6049,9 +7626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *continuous;
 
 /**
- *  [Optional] Specifies whether the job is allowed to create new tables. The
- *  following values are supported: CREATE_IF_NEEDED: If the table does not
- *  exist, BigQuery creates the table. CREATE_NEVER: The table must already
+ *  Optional. Specifies whether the job is allowed to create new tables. The
+ *  following values are supported: * CREATE_IF_NEEDED: If the table does not
+ *  exist, BigQuery creates the table. * CREATE_NEVER: The table must already
  *  exist. If it does not, a 'notFound' error is returned in the job result. The
  *  default value is CREATE_IF_NEEDED. Creation, truncation and append actions
  *  occur as one atomic update upon job completion.
@@ -6059,62 +7636,76 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *createDisposition;
 
 /**
- *  If true, creates a new session, where session id will be a server generated
- *  random id. If false, runs query with an existing session_id passed in
- *  ConnectionProperty, otherwise runs query in non-session mode.
+ *  If this property is true, the job creates a new session using a randomly
+ *  generated session_id. To continue using a created session with subsequent
+ *  queries, pass the existing session identifier as a `ConnectionProperty`
+ *  value. The session identifier is returned as part of the `SessionInfo`
+ *  message within the query statistics. The new session's location will be set
+ *  to `Job.JobReference.location` if it is present, otherwise it's set to the
+ *  default location based on existing routing logic.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createSession;
 
 /**
- *  [Optional] Specifies the default dataset to use for unqualified table names
- *  in the query. Note that this does not alter behavior of unqualified dataset
- *  names.
+ *  Optional. Specifies the default dataset to use for unqualified table names
+ *  in the query. This setting does not alter behavior of unqualified dataset
+ *  names. Setting the system variable `\@\@dataset_id` achieves the same
+ *  behavior. See
+ *  https://cloud.google.com/bigquery/docs/reference/system-variables for more
+ *  information on system variables.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *defaultDataset;
 
-/** Custom encryption configuration (e.g., Cloud KMS keys). */
+/** Custom encryption configuration (e.g., Cloud KMS keys) */
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *destinationEncryptionConfiguration;
 
 /**
- *  [Optional] Describes the table where the query results should be stored. If
- *  not present, a new table will be created to store the results. This property
- *  must be set for large results that exceed the maximum response size.
+ *  Optional. Describes the table where the query results should be stored. This
+ *  property must be set for large results that exceed the maximum response
+ *  size. For queries that produce anonymous (cached) results, this field will
+ *  be populated by BigQuery.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *destinationTable;
 
 /**
- *  [Optional] If true and query uses legacy SQL dialect, flattens all nested
- *  and repeated fields in the query results. allowLargeResults must be true if
- *  this is set to false. For standard SQL queries, this flag is ignored and
- *  results are never flattened.
+ *  Optional. If true and query uses legacy SQL dialect, flattens all nested and
+ *  repeated fields in the query results. allowLargeResults must be true if this
+ *  is set to false. For GoogleSQL queries, this flag is ignored and results are
+ *  never flattened.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *flattenResults;
 
 /**
- *  [Optional] Limits the billing tier for this job. Queries that have resource
- *  usage beyond this tier will fail (without incurring a charge). If
- *  unspecified, this will be set to your project default.
+ *  Optional. [Deprecated] Maximum billing tier allowed for this query. The
+ *  billing tier controls the amount of compute resources allotted to the query,
+ *  and multiplies the on-demand cost of the query accordingly. A query that
+ *  runs within its allotted resources will succeed and indicate its billing
+ *  tier in statistics.query.billingTier, but if the query exceeds its allotted
+ *  resources, it will fail with billingTierLimitExceeded. WARNING: The billed
+ *  byte amount can be multiplied by an amount up to this number! Most users
+ *  should not need to alter this setting, and we recommend that you avoid
+ *  introducing new uses of it.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maximumBillingTier;
 
 /**
- *  [Optional] Limits the bytes billed for this job. Queries that will have
- *  bytes billed beyond this limit will fail (without incurring a charge). If
- *  unspecified, this will be set to your project default.
+ *  Limits the bytes billed for this job. Queries that will have bytes billed
+ *  beyond this limit will fail (without incurring a charge). If unspecified,
+ *  this will be set to your project default.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maximumBytesBilled;
 
 /**
- *  Standard SQL only. Set to POSITIONAL to use positional (?) query parameters
- *  or to NAMED to use named (\@myparam) query parameters in this query.
+ *  GoogleSQL only. Set to POSITIONAL to use positional (?) query parameters or
+ *  to NAMED to use named (\@myparam) query parameters in this query.
  */
 @property(nonatomic, copy, nullable) NSString *parameterMode;
 
@@ -6126,22 +7717,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *preserveNulls;
 
 /**
- *  [Optional] Specifies a priority for the query. Possible values include
+ *  Optional. Specifies a priority for the query. Possible values include
  *  INTERACTIVE and BATCH. The default value is INTERACTIVE.
  */
 @property(nonatomic, copy, nullable) NSString *priority;
 
 /**
  *  [Required] SQL query text to execute. The useLegacySql field can be used to
- *  indicate whether the query uses legacy SQL or standard SQL.
+ *  indicate whether the query uses legacy SQL or GoogleSQL.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
-/** Query parameters for standard SQL queries. */
+/** Query parameters for GoogleSQL queries. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *queryParameters;
 
 /**
- *  [TrustedTester] Range partitioning specification for this table. Only one of
+ *  Range partitioning specification for the destination table. Only one of
  *  timePartitioning and rangePartitioning should be specified.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
@@ -6152,18 +7743,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE
  *  and the destination table is a partition of a table, specified by partition
  *  decorators. For normal tables, WRITE_TRUNCATE will always overwrite the
- *  schema. One or more of the following values are specified:
- *  ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema.
+ *  schema. One or more of the following values are specified: *
+ *  ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. *
  *  ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original
  *  schema to nullable.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *schemaUpdateOptions;
 
+/** Options controlling the execution of scripts. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ScriptOptions *scriptOptions;
+
 /**
- *  [Optional] If querying an external data source outside of BigQuery,
- *  describes the data format, location and other properties of the data source.
- *  By defining these properties, the data source can then be queried as if it
- *  were a standard BigQuery table.
+ *  Output only. System variables for GoogleSQL queries. A system variable is
+ *  output if the variable is settable and its value differs from the system
+ *  default. "\@\@" prefix is not included in the name of the System variables.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_SystemVariables *systemVariables;
+
+/**
+ *  Optional. You can specify external table definitions, which operate as
+ *  ephemeral tables that can be queried. These definitions are configured using
+ *  a JSON map, where the string key represents the table identifier, and the
+ *  value is the corresponding external data configuration object.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQuery_TableDefinitions *tableDefinitions;
 
@@ -6174,9 +7775,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
- *  Specifies whether to use BigQuery's legacy SQL dialect for this query. The
- *  default value is true. If set to false, the query will use BigQuery's
- *  standard SQL: https://cloud.google.com/bigquery/sql-reference/ When
+ *  Optional. Specifies whether to use BigQuery's legacy SQL dialect for this
+ *  query. The default value is true. If set to false, the query will use
+ *  BigQuery's GoogleSQL: https://cloud.google.com/bigquery/sql-reference/ When
  *  useLegacySql is set to false, the value of flattenResults is ignored; query
  *  will be run as if flattenResults is false.
  *
@@ -6185,10 +7786,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *useLegacySql;
 
 /**
- *  [Optional] Whether to look for the result in the query cache. The query
- *  cache is a best-effort cache that will be flushed whenever tables in the
- *  query are modified. Moreover, the query cache is only available when a query
- *  does not have a destination table specified. The default value is true.
+ *  Optional. Whether to look for the result in the query cache. The query cache
+ *  is a best-effort cache that will be flushed whenever tables in the query are
+ *  modified. Moreover, the query cache is only available when a query does not
+ *  have a destination table specified. The default value is true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6198,15 +7799,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_UserDefinedFunctionResource *> *userDefinedFunctionResources;
 
 /**
- *  [Optional] Specifies the action that occurs if the destination table already
- *  exists. The following values are supported: WRITE_TRUNCATE: If the table
- *  already exists, BigQuery overwrites the table data and uses the schema from
- *  the query result. WRITE_APPEND: If the table already exists, BigQuery
- *  appends the data to the table. WRITE_EMPTY: If the table already exists and
- *  contains data, a 'duplicate' error is returned in the job result. The
- *  default value is WRITE_EMPTY. Each action is atomic and only occurs if
- *  BigQuery is able to complete the job successfully. Creation, truncation and
- *  append actions occur as one atomic update upon job completion.
+ *  Optional. Specifies the action that occurs if the destination table already
+ *  exists. The following values are supported: * WRITE_TRUNCATE: If the table
+ *  already exists, BigQuery overwrites the data, removes the constraints, and
+ *  uses the schema from the query result. * WRITE_APPEND: If the table already
+ *  exists, BigQuery appends the data to the table. * WRITE_EMPTY: If the table
+ *  already exists and contains data, a 'duplicate' error is returned in the job
+ *  result. The default value is WRITE_EMPTY. Each action is atomic and only
+ *  occurs if BigQuery is able to complete the job successfully. Creation,
+ *  truncation and append actions occur as one atomic update upon job
+ *  completion.
  */
 @property(nonatomic, copy, nullable) NSString *writeDisposition;
 
@@ -6214,10 +7816,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  [Optional] If querying an external data source outside of BigQuery,
- *  describes the data format, location and other properties of the data source.
- *  By defining these properties, the data source can then be queried as if it
- *  were a standard BigQuery table.
+ *  Optional. You can specify external table definitions, which operate as
+ *  ephemeral tables that can be queried. These definitions are configured using
+ *  a JSON map, where the string key represents the table identifier, and the
+ *  value is the corresponding external data configuration object.
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigquery_ExternalDataConfiguration. Use @c -additionalJSONKeys and
@@ -6229,14 +7831,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobConfigurationTableCopy
+ *  JobConfigurationTableCopy configures a job that copies data from one table
+ *  to another. For more information on copying tables, see [Copy a
+ *  table](https://cloud.google.com/bigquery/docs/managing-tables#copy-table).
  */
 @interface GTLRBigquery_JobConfigurationTableCopy : GTLRObject
 
 /**
- *  [Optional] Specifies whether the job is allowed to create new tables. The
- *  following values are supported: CREATE_IF_NEEDED: If the table does not
- *  exist, BigQuery creates the table. CREATE_NEVER: The table must already
+ *  Optional. Specifies whether the job is allowed to create new tables. The
+ *  following values are supported: * CREATE_IF_NEEDED: If the table does not
+ *  exist, BigQuery creates the table. * CREATE_NEVER: The table must already
  *  exist. If it does not, a 'notFound' error is returned in the job result. The
  *  default value is CREATE_IF_NEEDED. Creation, truncation and append actions
  *  occur as one atomic update upon job completion.
@@ -6247,17 +7851,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *destinationEncryptionConfiguration;
 
 /**
- *  [Optional] The time when the destination table expires. Expired tables will
+ *  Optional. The time when the destination table expires. Expired tables will
  *  be deleted and their storage reclaimed.
- *
- *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) id destinationExpirationTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *destinationExpirationTime;
 
-/** [Required] The destination table */
+/** [Required] The destination table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *destinationTable;
 
-/** [Optional] Supported operation types in table copy job. */
+/**
+ *  Optional. Supported operation types in table copy job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_JobConfigurationTableCopy_OperationType_Clone The
+ *        source and destination table have the same table type, but only bill
+ *        for unique data. (Value: "CLONE")
+ *    @arg @c kGTLRBigquery_JobConfigurationTableCopy_OperationType_Copy The
+ *        source and destination table have the same table type. (Value: "COPY")
+ *    @arg @c kGTLRBigquery_JobConfigurationTableCopy_OperationType_OperationTypeUnspecified
+ *        Unspecified operation type. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_JobConfigurationTableCopy_OperationType_Restore The
+ *        source table type is SNAPSHOT and the destination table type is TABLE.
+ *        (Value: "RESTORE")
+ *    @arg @c kGTLRBigquery_JobConfigurationTableCopy_OperationType_Snapshot The
+ *        source table type is TABLE and the destination table type is SNAPSHOT.
+ *        (Value: "SNAPSHOT")
+ */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
 /** [Pick one] Source table to copy. */
@@ -6267,13 +7886,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableReference *> *sourceTables;
 
 /**
- *  [Optional] Specifies the action that occurs if the destination table already
- *  exists. The following values are supported: WRITE_TRUNCATE: If the table
- *  already exists, BigQuery overwrites the table data. WRITE_APPEND: If the
- *  table already exists, BigQuery appends the data to the table. WRITE_EMPTY:
- *  If the table already exists and contains data, a 'duplicate' error is
- *  returned in the job result. The default value is WRITE_EMPTY. Each action is
- *  atomic and only occurs if BigQuery is able to complete the job successfully.
+ *  Optional. Specifies the action that occurs if the destination table already
+ *  exists. The following values are supported: * WRITE_TRUNCATE: If the table
+ *  already exists, BigQuery overwrites the table data and uses the schema and
+ *  table constraints from the source table. * WRITE_APPEND: If the table
+ *  already exists, BigQuery appends the data to the table. * WRITE_EMPTY: If
+ *  the table already exists and contains data, a 'duplicate' error is returned
+ *  in the job result. The default value is WRITE_EMPTY. Each action is atomic
+ *  and only occurs if BigQuery is able to complete the job successfully.
  *  Creation, truncation and append actions occur as one atomic update upon job
  *  completion.
  */
@@ -6317,7 +7937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobList
+ *  JobList is the response format for a jobs.list call.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "jobs" property. If returned as the result of a query, it should
@@ -6343,15 +7963,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** A token to request the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  A list of skipped locations that were unreachable. For more information
+ *  about BigQuery locations, see:
+ *  https://cloud.google.com/bigquery/docs/locations. Example: "europe-west5"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
 /**
- *  GTLRBigquery_JobList_Jobs_Item
+ *  ListFormatJob is a partial projection of job information returned as part of
+ *  a jobs.list response.
  */
 @interface GTLRBigquery_JobList_Jobs_Item : GTLRObject
 
-/** [Full-projection-only] Specifies the job configuration. */
+/** Required. Describes the job configuration. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfiguration *configuration;
 
 /** A result object that will be present only if the job has failed. */
@@ -6364,11 +7992,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Job reference uniquely identifying the job. */
+/** Unique opaque ID of the job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobReference *jobReference;
 
 /** The resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Full-projection-only] String representation of identity of requesting
+ *  party. Populated for both first- and third-party identities. Only present
+ *  for APIs that support third-party identities.
+ */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
 
 /**
  *  Running state of the job. When the state is DONE, errorResult can be checked
@@ -6377,12 +8012,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  [Output-only] Information about the job, including starting time and ending
+ *  Output only. Information about the job, including starting time and ending
  *  time of the job.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics *statistics;
 
-/** [Full-projection-only] Describes the state of the job. */
+/** [Full-projection-only] Describes the status of this job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatus *status;
 
 /** [Full-projection-only] Email address of the user who ran the job. */
@@ -6392,36 +8027,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobReference
+ *  A job reference is a fully qualified identifier for referring to a job.
  */
 @interface GTLRBigquery_JobReference : GTLRObject
 
 /**
- *  [Required] The ID of the job. The ID must contain only letters (a-z, A-Z),
+ *  Required. The ID of the job. The ID must contain only letters (a-z, A-Z),
  *  numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location of the job. See details at
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  Optional. The geographic location of the job. The default value is US. For
+ *  more information about BigQuery locations, see:
+ *  https://cloud.google.com/bigquery/docs/locations
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** [Required] The ID of the project containing this job. */
+/** Required. The ID of the project containing this job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
 
 
 /**
- *  GTLRBigquery_JobStatistics
+ *  Statistics for a single job execution.
  */
 @interface GTLRBigquery_JobStatistics : GTLRObject
 
 /**
- *  [TrustedTester] [Output-only] Job progress (0.0 -> 1.0) for LOAD and EXTRACT
+ *  Output only. [TrustedTester] Job progress (0.0 -> 1.0) for LOAD and EXTRACT
  *  jobs.
  *
  *  Uses NSNumber of doubleValue.
@@ -6429,14 +8065,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *completionRatio;
 
 /**
- *  [Output-only] Statistics for a copy job.
+ *  Output only. Statistics for a copy job.
  *
  *  Remapped to 'copyProperty' to avoid NSObject's 'copy'.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics5 *copyProperty NS_RETURNS_NOT_RETAINED;
 
 /**
- *  [Output-only] Creation time of this job, in milliseconds since the epoch.
+ *  Output only. Creation time of this job, in milliseconds since the epoch.
  *  This field will be present on all jobs.
  *
  *  Uses NSNumber of longLongValue.
@@ -6444,68 +8080,82 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /**
- *  [Output-only] Statistics for data masking. Present only for query and
- *  extract jobs.
+ *  Output only. Statistics for data-masking. Present only for query and extract
+ *  jobs.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DataMaskingStatistics *dataMaskingStatistics;
 
 /**
- *  [Output-only] End time of this job, in milliseconds since the epoch. This
+ *  Output only. End time of this job, in milliseconds since the epoch. This
  *  field will be present whenever a job is in the DONE state.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *endTime;
 
-/** [Output-only] Statistics for an extract job. */
+/** Output only. Statistics for an extract job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics4 *extract;
 
-/** [Output-only] Statistics for a load job. */
+/**
+ *  Output only. The duration in milliseconds of the execution of the final
+ *  attempt of this job, as BigQuery may internally re-attempt to execute the
+ *  job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *finalExecutionDurationMs;
+
+/** Output only. Statistics for a load job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics3 *load;
 
 /**
- *  [Output-only] Number of child jobs executed.
+ *  Output only. Number of child jobs executed.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numChildJobs;
 
-/** [Output-only] If this is a child job, the id of the parent. */
+/**
+ *  Output only. If this is a child job, specifies the job ID of the parent.
+ */
 @property(nonatomic, copy, nullable) NSString *parentJobId;
 
-/** [Output-only] Statistics for a query job. */
+/** Output only. Statistics for a query job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics2 *query;
 
-/** [Output-only] Quotas which delayed this job's start time. */
+/** Output only. Quotas which delayed this job's start time. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *quotaDeferments;
 
 /**
- *  [Output-only] Name of the primary reservation assigned to this job. Note
- *  that this could be different than reservations reported in the reservation
- *  usage field if parent reservations were used to execute this job.
+ *  Output only. Name of the primary reservation assigned to this job. Note that
+ *  this could be different than reservations reported in the reservation usage
+ *  field if parent reservations were used to execute this job.
  */
 @property(nonatomic, copy, nullable) NSString *reservationId;
 
-/** [Output-only] Job resource usage breakdown by reservation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics_ReservationUsage_Item *> *reservationUsage;
+/**
+ *  Output only. Job resource usage breakdown by reservation. This field
+ *  reported misleading information and will no longer be populated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics_ReservationUsage_Item *> *reservationUsage GTLR_DEPRECATED;
 
 /**
- *  [Output-only] [Preview] Statistics for row-level security. Present only for
- *  query and extract jobs.
+ *  Output only. Statistics for row-level security. Present only for query and
+ *  extract jobs.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RowLevelSecurityStatistics *rowLevelSecurityStatistics;
 
-/** [Output-only] Statistics for a child job of a script. */
+/**
+ *  Output only. If this a child job of a script, specifies information about
+ *  the context of this job within the script.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_ScriptStatistics *scriptStatistics;
 
-/**
- *  [Output-only] [Preview] Information of the session if this job is part of
- *  one.
- */
+/** Output only. Information of the session if this job is part of one. */
 @property(nonatomic, strong, nullable) GTLRBigquery_SessionInfo *sessionInfo;
 
 /**
- *  [Output-only] Start time of this job, in milliseconds since the epoch. This
+ *  Output only. Start time of this job, in milliseconds since the epoch. This
  *  field will be present when the job transitions from the PENDING state to
  *  either RUNNING or DONE.
  *
@@ -6514,23 +8164,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *startTime;
 
 /**
- *  [Output-only] [Deprecated] Use the bytes processed in the query statistics
- *  instead.
+ *  Output only. Total bytes processed for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesProcessed;
 
 /**
- *  [Output-only] Slot-milliseconds for the job.
+ *  Output only. Slot-milliseconds for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
 
 /**
- *  [Output-only] [Alpha] Information of the multi-statement transaction if this
- *  job is part of one.
+ *  Output only. [Alpha] Information of the multi-statement transaction if this
+ *  job is part of one. This property is only expected on a child job or a job
+ *  that is in a session. A script parent job is not part of the transaction
+ *  started in the script.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TransactionInfo *transactionInfo;
 
@@ -6538,18 +8189,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobStatistics_ReservationUsage_Item
+ *  Job resource usage breakdown by reservation.
  */
 @interface GTLRBigquery_JobStatistics_ReservationUsage_Item : GTLRObject
 
-/**
- *  [Output-only] Reservation name or "unreserved" for on-demand resources
- *  usage.
- */
+/** Reservation name or "unreserved" for on-demand resources usage. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Output-only] Slot-milliseconds the job spent in the given reservation.
+ *  Total slot milliseconds used by the reservation for a particular job.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6559,192 +8207,295 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobStatistics2
+ *  Statistics for a query job.
  */
 @interface GTLRBigquery_JobStatistics2 : GTLRObject
 
-/**
- *  BI Engine specific Statistics. [Output only] BI Engine specific Statistics.
- */
+/** Output only. BI Engine specific Statistics. */
 @property(nonatomic, strong, nullable) GTLRBigquery_BiEngineStatistics *biEngineStatistics;
 
 /**
- *  [Output only] Billing tier for the job.
+ *  Output only. Billing tier for the job. This is a BigQuery-specific concept
+ *  which is not related to the Google Cloud notion of "free tier". The value
+ *  here is a measure of the query's resource consumption relative to the amount
+ *  of data scanned. For on-demand queries, the limit is 100, and all queries
+ *  within this limit are billed at the standard on-demand rates. On-demand
+ *  queries that exceed this limit will fail with a billingTierLimitExceeded
+ *  error.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *billingTier;
 
 /**
- *  [Output only] Whether the query result was fetched from the query cache.
+ *  Output only. Whether the query result was fetched from the query cache.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
+/** Output only. Referenced dataset for DCL statement. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *dclTargetDataset;
+
+/** Output only. Referenced table for DCL statement. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *dclTargetTable;
+
+/** Output only. Referenced view for DCL statement. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *dclTargetView;
+
 /**
- *  [Output only] [Preview] The number of row access policies affected by a DDL
- *  statement. Present only for DROP ALL ROW ACCESS POLICIES queries.
+ *  Output only. The number of row access policies affected by a DDL statement.
+ *  Present only for DROP ALL ROW ACCESS POLICIES queries.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ddlAffectedRowAccessPolicyCount;
 
 /**
- *  [Output only] The DDL destination table. Present only for ALTER TABLE RENAME
- *  TO queries. Note that ddl_target_table is used just for its type
- *  information.
+ *  Output only. The table after rename. Present only for ALTER TABLE RENAME TO
+ *  query.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlDestinationTable;
 
 /**
- *  The DDL operation performed, possibly dependent on the pre-existence of the
- *  DDL target. Possible values (new values might be added in the future):
- *  "CREATE": The query created the DDL target. "SKIP": No-op. Example cases:
- *  the query is CREATE TABLE IF NOT EXISTS while the table already exists, or
- *  the query is DROP TABLE IF EXISTS while the table does not exist. "REPLACE":
- *  The query replaced the DDL target. Example case: the query is CREATE OR
- *  REPLACE TABLE, and the table already exists. "DROP": The query deleted the
- *  DDL target.
+ *  Output only. The DDL operation performed, possibly dependent on the
+ *  pre-existence of the DDL target.
  */
 @property(nonatomic, copy, nullable) NSString *ddlOperationPerformed;
 
 /**
- *  [Output only] The DDL target dataset. Present only for
- *  CREATE/ALTER/DROP/UNDROP SCHEMA queries.
+ *  Output only. The DDL target dataset. Present only for CREATE/ALTER/DROP
+ *  SCHEMA(dataset) queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *ddlTargetDataset;
 
 /**
- *  The DDL target routine. Present only for CREATE/DROP FUNCTION/PROCEDURE
- *  queries.
+ *  Output only. [Beta] The DDL target routine. Present only for CREATE/DROP
+ *  FUNCTION/PROCEDURE queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RoutineReference *ddlTargetRoutine;
 
 /**
- *  [Output only] [Preview] The DDL target row access policy. Present only for
- *  CREATE/DROP ROW ACCESS POLICY queries.
+ *  Output only. The DDL target row access policy. Present only for CREATE/DROP
+ *  ROW ACCESS POLICY queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RowAccessPolicyReference *ddlTargetRowAccessPolicy;
 
 /**
- *  [Output only] The DDL target table. Present only for CREATE/DROP TABLE/VIEW
+ *  Output only. The DDL target table. Present only for CREATE/DROP TABLE/VIEW
  *  and DROP ALL ROW ACCESS POLICIES queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlTargetTable;
 
 /**
- *  [Output only] Detailed statistics for DML statements Present only for DML
- *  statements INSERT, UPDATE, DELETE or TRUNCATE.
+ *  Output only. Detailed statistics for DML statements INSERT, UPDATE, DELETE,
+ *  MERGE or TRUNCATE.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DmlStatistics *dmlStats;
 
 /**
- *  [Output only] The original estimate of bytes processed for the job.
+ *  Output only. The original estimate of bytes processed for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedBytesProcessed;
 
-/** [Output only] Statistics of a BigQuery ML training job. */
+/** Output only. Stats for EXPORT DATA statement. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ExportDataStatistics *exportDataStatistics;
+
+/**
+ *  Output only. Job cost breakdown as bigquery internal cost and external
+ *  service costs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExternalServiceCost *> *externalServiceCosts;
+
+/** Output only. Statistics for a LOAD query. */
+@property(nonatomic, strong, nullable) GTLRBigquery_LoadQueryStatistics *loadQueryStatistics;
+
+/** Output only. Statistics of materialized views of a query job. */
+@property(nonatomic, strong, nullable) GTLRBigquery_MaterializedViewStatistics *materializedViewStatistics;
+
+/**
+ *  Output only. Statistics of metadata cache usage in a query for BigLake
+ *  tables.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_MetadataCacheStatistics *metadataCacheStatistics;
+
+/** Output only. Statistics of a BigQuery ML training job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MlStatistics *mlStatistics;
 
-/** [Output only, Beta] Information about create model query job progress. */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelTraining *modelTraining;
 
 /**
- *  [Output only, Beta] Deprecated; do not use.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *modelTrainingCurrentIteration;
 
 /**
- *  [Output only, Beta] Deprecated; do not use.
+ *  Deprecated.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *modelTrainingExpectedTotalIteration;
 
 /**
- *  [Output only] The number of rows affected by a DML statement. Present only
+ *  Output only. The number of rows affected by a DML statement. Present only
  *  for DML statements INSERT, UPDATE or DELETE.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numDmlAffectedRows;
 
-/** [Output only] Describes execution plan for the query. */
+/** Output only. Performance insights. */
+@property(nonatomic, strong, nullable) GTLRBigquery_PerformanceInsights *performanceInsights;
+
+/** Output only. Query optimization information for a QUERY job. */
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryInfo *queryInfo;
+
+/** Output only. Describes execution plan for the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExplainQueryStage *> *queryPlan;
 
-/**
- *  [Output only] Referenced routines (persistent user-defined functions and
- *  stored procedures) for the job.
- */
+/** Output only. Referenced routines for the job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_RoutineReference *> *referencedRoutines;
 
 /**
- *  [Output only] Referenced tables for the job. Queries that reference more
- *  than 50 tables will not have a complete list.
+ *  Output only. Referenced tables for the job. Queries that reference more than
+ *  50 tables will not have a complete list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableReference *> *referencedTables;
 
-/** [Output only] Job resource usage breakdown by reservation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics2_ReservationUsage_Item *> *reservationUsage;
+/**
+ *  Output only. Job resource usage breakdown by reservation. This field
+ *  reported misleading information and will no longer be populated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics2_ReservationUsage_Item *> *reservationUsage GTLR_DEPRECATED;
 
 /**
- *  [Output only] The schema of the results. Present only for successful dry run
+ *  Output only. The schema of the results. Present only for successful dry run
  *  of non-legacy SQL queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
-/** [Output only] Search query specific statistics. */
+/** Output only. Search query specific statistics. */
 @property(nonatomic, strong, nullable) GTLRBigquery_SearchStatistics *searchStatistics;
 
-/** [Output only] Statistics of a Spark procedure job. */
+/** Output only. Statistics of a Spark procedure job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_SparkStatistics *sparkStatistics;
 
 /**
- *  The type of query statement, if valid. Possible values (new values might be
- *  added in the future): "SELECT": SELECT query. "INSERT": INSERT query; see
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
- *  "UPDATE": UPDATE query; see
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
- *  "DELETE": DELETE query; see
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
- *  "MERGE": MERGE query; see
- *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
- *  "ALTER_TABLE": ALTER TABLE query. "ALTER_VIEW": ALTER VIEW query. "ASSERT":
- *  ASSERT condition AS 'description'. "CREATE_FUNCTION": CREATE FUNCTION query.
- *  "CREATE_MODEL": CREATE [OR REPLACE] MODEL ... AS SELECT ... .
- *  "CREATE_PROCEDURE": CREATE PROCEDURE query. "CREATE_TABLE": CREATE [OR
- *  REPLACE] TABLE without AS SELECT. "CREATE_TABLE_AS_SELECT": CREATE [OR
- *  REPLACE] TABLE ... AS SELECT ... . "CREATE_VIEW": CREATE [OR REPLACE] VIEW
- *  ... AS SELECT ... . "DROP_FUNCTION" : DROP FUNCTION query. "DROP_PROCEDURE":
- *  DROP PROCEDURE query. "DROP_TABLE": DROP TABLE query. "DROP_VIEW": DROP VIEW
- *  query.
+ *  Output only. The type of query statement, if valid. Possible values: *
+ *  `SELECT`:
+ *  [`SELECT`](/bigquery/docs/reference/standard-sql/query-syntax#select_list)
+ *  statement. * `ASSERT`:
+ *  [`ASSERT`](/bigquery/docs/reference/standard-sql/debugging-statements#assert)
+ *  statement. * `INSERT`:
+ *  [`INSERT`](/bigquery/docs/reference/standard-sql/dml-syntax#insert_statement)
+ *  statement. * `UPDATE`:
+ *  [`UPDATE`](/bigquery/docs/reference/standard-sql/query-syntax#update_statement)
+ *  statement. * `DELETE`:
+ *  [`DELETE`](/bigquery/docs/reference/standard-sql/data-manipulation-language)
+ *  statement. * `MERGE`:
+ *  [`MERGE`](/bigquery/docs/reference/standard-sql/data-manipulation-language)
+ *  statement. * `CREATE_TABLE`: [`CREATE
+ *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)
+ *  statement, without `AS SELECT`. * `CREATE_TABLE_AS_SELECT`: [`CREATE TABLE
+ *  AS
+ *  SELECT`](/bigquery/docs/reference/standard-sql/data-definition-language#query_statement)
+ *  statement. * `CREATE_VIEW`: [`CREATE
+ *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#create_view_statement)
+ *  statement. * `CREATE_MODEL`: [`CREATE
+ *  MODEL`](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create#create_model_statement)
+ *  statement. * `CREATE_MATERIALIZED_VIEW`: [`CREATE MATERIALIZED
+ *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#create_materialized_view_statement)
+ *  statement. * `CREATE_FUNCTION`: [`CREATE
+ *  FUNCTION`](/bigquery/docs/reference/standard-sql/data-definition-language#create_function_statement)
+ *  statement. * `CREATE_TABLE_FUNCTION`: [`CREATE TABLE
+ *  FUNCTION`](/bigquery/docs/reference/standard-sql/data-definition-language#create_table_function_statement)
+ *  statement. * `CREATE_PROCEDURE`: [`CREATE
+ *  PROCEDURE`](/bigquery/docs/reference/standard-sql/data-definition-language#create_procedure)
+ *  statement. * `CREATE_ROW_ACCESS_POLICY`: [`CREATE ROW ACCESS
+ *  POLICY`](/bigquery/docs/reference/standard-sql/data-definition-language#create_row_access_policy_statement)
+ *  statement. * `CREATE_SCHEMA`: [`CREATE
+ *  SCHEMA`](/bigquery/docs/reference/standard-sql/data-definition-language#create_schema_statement)
+ *  statement. * `CREATE_SNAPSHOT_TABLE`: [`CREATE SNAPSHOT
+ *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#create_snapshot_table_statement)
+ *  statement. * `CREATE_SEARCH_INDEX`: [`CREATE SEARCH
+ *  INDEX`](/bigquery/docs/reference/standard-sql/data-definition-language#create_search_index_statement)
+ *  statement. * `DROP_TABLE`: [`DROP
+ *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_statement)
+ *  statement. * `DROP_EXTERNAL_TABLE`: [`DROP EXTERNAL
+ *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_external_table_statement)
+ *  statement. * `DROP_VIEW`: [`DROP
+ *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_view_statement)
+ *  statement. * `DROP_MODEL`: [`DROP
+ *  MODEL`](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-drop-model)
+ *  statement. * `DROP_MATERIALIZED_VIEW`: [`DROP MATERIALIZED
+ *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_materialized_view_statement)
+ *  statement. * `DROP_FUNCTION` : [`DROP
+ *  FUNCTION`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_function_statement)
+ *  statement. * `DROP_TABLE_FUNCTION` : [`DROP TABLE
+ *  FUNCTION`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_function)
+ *  statement. * `DROP_PROCEDURE`: [`DROP
+ *  PROCEDURE`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_procedure_statement)
+ *  statement. * `DROP_SEARCH_INDEX`: [`DROP SEARCH
+ *  INDEX`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_search_index)
+ *  statement. * `DROP_SCHEMA`: [`DROP
+ *  SCHEMA`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_schema_statement)
+ *  statement. * `DROP_SNAPSHOT_TABLE`: [`DROP SNAPSHOT
+ *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_snapshot_table_statement)
+ *  statement. * `DROP_ROW_ACCESS_POLICY`: [`DROP [ALL] ROW ACCESS
+ *  POLICY|POLICIES`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_row_access_policy_statement)
+ *  statement. * `ALTER_TABLE`: [`ALTER
+ *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#alter_table_set_options_statement)
+ *  statement. * `ALTER_VIEW`: [`ALTER
+ *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#alter_view_set_options_statement)
+ *  statement. * `ALTER_MATERIALIZED_VIEW`: [`ALTER MATERIALIZED
+ *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#alter_materialized_view_set_options_statement)
+ *  statement. * `ALTER_SCHEMA`: [`ALTER
+ *  SCHEMA`](/bigquery/docs/reference/standard-sql/data-definition-language#aalter_schema_set_options_statement)
+ *  statement. * `SCRIPT`:
+ *  [`SCRIPT`](/bigquery/docs/reference/standard-sql/procedural-language). *
+ *  `TRUNCATE_TABLE`: [`TRUNCATE
+ *  TABLE`](/bigquery/docs/reference/standard-sql/dml-syntax#truncate_table_statement)
+ *  statement. * `CREATE_EXTERNAL_TABLE`: [`CREATE EXTERNAL
+ *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#create_external_table_statement)
+ *  statement. * `EXPORT_DATA`: [`EXPORT
+ *  DATA`](/bigquery/docs/reference/standard-sql/other-statements#export_data_statement)
+ *  statement. * `EXPORT_MODEL`: [`EXPORT
+ *  MODEL`](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-export-model)
+ *  statement. * `LOAD_DATA`: [`LOAD
+ *  DATA`](/bigquery/docs/reference/standard-sql/other-statements#load_data_statement)
+ *  statement. * `CALL`:
+ *  [`CALL`](/bigquery/docs/reference/standard-sql/procedural-language#call)
+ *  statement.
  */
 @property(nonatomic, copy, nullable) NSString *statementType;
 
-/** [Output only] [Beta] Describes a timeline of job execution. */
+/** Output only. Describes a timeline of job execution. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryTimelineSample *> *timeline;
 
 /**
- *  [Output only] Total bytes billed for the job.
+ *  Output only. If the project is configured to use on-demand pricing, then
+ *  this field contains the total bytes billed for the job. If the project is
+ *  configured to use flat-rate pricing, then you are not billed for bytes and
+ *  this field is informational only.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesBilled;
 
 /**
- *  [Output only] Total bytes processed for the job.
+ *  Output only. Total bytes processed for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesProcessed;
 
 /**
- *  [Output only] For dry-run jobs, totalBytesProcessed is an estimate and this
+ *  Output only. For dry-run jobs, totalBytesProcessed is an estimate and this
  *  field specifies the accuracy of the estimate. Possible values can be:
  *  UNKNOWN: accuracy of the estimate is unknown. PRECISE: estimate is precise.
  *  LOWER_BOUND: estimate is lower bound of what the query would cost.
@@ -6753,7 +8504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *totalBytesProcessedAccuracy;
 
 /**
- *  [Output only] Total number of partitions processed from all partitioned
+ *  Output only. Total number of partitions processed from all partitioned
  *  tables referenced in the job.
  *
  *  Uses NSNumber of longLongValue.
@@ -6761,14 +8512,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *totalPartitionsProcessed;
 
 /**
- *  [Output only] Slot-milliseconds for the job.
+ *  Output only. Slot-milliseconds for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
 
 /**
- *  [Output-only] Total bytes transferred for cross-cloud queries such as Cross
+ *  Output only. Total bytes transferred for cross-cloud queries such as Cross
  *  Cloud Transfer and CREATE TABLE AS SELECT (CTAS).
  *
  *  Uses NSNumber of longLongValue.
@@ -6776,27 +8527,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *transferredBytes;
 
 /**
- *  Standard SQL only: list of undeclared query parameters detected during a dry
- *  run validation.
+ *  Output only. GoogleSQL only: list of undeclared query parameters detected
+ *  during a dry run validation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *undeclaredQueryParameters;
+
+/** Output only. Search query specific statistics. */
+@property(nonatomic, strong, nullable) GTLRBigquery_VectorSearchStatistics *vectorSearchStatistics;
 
 @end
 
 
 /**
- *  GTLRBigquery_JobStatistics2_ReservationUsage_Item
+ *  Job resource usage breakdown by reservation.
  */
 @interface GTLRBigquery_JobStatistics2_ReservationUsage_Item : GTLRObject
 
-/**
- *  [Output only] Reservation name or "unreserved" for on-demand resources
- *  usage.
- */
+/** Reservation name or "unreserved" for on-demand resources usage. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Output only] Slot-milliseconds the job spent in the given reservation.
+ *  Total slot milliseconds used by the reservation for a particular job.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6806,14 +8557,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JobStatistics3
+ *  Statistics for a load job.
  */
 @interface GTLRBigquery_JobStatistics3 : GTLRObject
 
 /**
- *  [Output-only] The number of bad records encountered. Note that if the job
- *  has failed because of more bad records encountered than the maximum allowed
- *  in the load job configuration, then this number can be less than the total
+ *  Output only. The number of bad records encountered. Note that if the job has
+ *  failed because of more bad records encountered than the maximum allowed in
+ *  the load job configuration, then this number can be less than the total
  *  number of bad records present in the input data.
  *
  *  Uses NSNumber of longLongValue.
@@ -6821,46 +8572,49 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *badRecords;
 
 /**
- *  [Output-only] Number of bytes of source data in a load job.
+ *  Output only. Number of bytes of source data in a load job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inputFileBytes;
 
 /**
- *  [Output-only] Number of source files in a load job.
+ *  Output only. Number of source files in a load job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inputFiles;
 
 /**
- *  [Output-only] Size of the loaded data in bytes. Note that while a load job
- *  is in the running state, this value may change.
+ *  Output only. Size of the loaded data in bytes. Note that while a load job is
+ *  in the running state, this value may change.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *outputBytes;
 
 /**
- *  [Output-only] Number of rows imported in a load job. Note that while an
+ *  Output only. Number of rows imported in a load job. Note that while an
  *  import job is in the running state, this value may change.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *outputRows;
 
+/** Output only. Describes a timeline of job execution. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryTimelineSample *> *timeline;
+
 @end
 
 
 /**
- *  GTLRBigquery_JobStatistics4
+ *  Statistics for an extract job.
  */
 @interface GTLRBigquery_JobStatistics4 : GTLRObject
 
 /**
- *  [Output-only] Number of files per destination URI or URI pattern specified
- *  in the extract configuration. These values will be in the same order as the
+ *  Output only. Number of files per destination URI or URI pattern specified in
+ *  the extract configuration. These values will be in the same order as the
  *  URIs specified in the 'destinationUris' field.
  *
  *  Uses NSNumber of longLongValue.
@@ -6868,30 +8622,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *destinationUriFileCounts;
 
 /**
- *  [Output-only] Number of user bytes extracted into the result. This is the
- *  byte count as computed by BigQuery for billing purposes.
+ *  Output only. Number of user bytes extracted into the result. This is the
+ *  byte count as computed by BigQuery for billing purposes and doesn't have any
+ *  relationship with the number of actual result bytes extracted in the desired
+ *  format.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inputBytes;
 
+/** Output only. Describes a timeline of job execution. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryTimelineSample *> *timeline;
+
 @end
 
 
 /**
- *  GTLRBigquery_JobStatistics5
+ *  Statistics for a copy job.
  */
 @interface GTLRBigquery_JobStatistics5 : GTLRObject
 
 /**
- *  [Output-only] Number of logical bytes copied to the destination table.
+ *  Output only. Number of logical bytes copied to the destination table.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *copiedLogicalBytes;
 
 /**
- *  [Output-only] Number of rows copied to the destination table.
+ *  Output only. Number of rows copied to the destination table.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6906,20 +8665,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_JobStatus : GTLRObject
 
 /**
- *  [Output-only] Final error result of the job. If present, indicates that the
+ *  Output only. Final error result of the job. If present, indicates that the
  *  job has completed and was unsuccessful.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_ErrorProto *errorResult;
 
 /**
- *  [Output-only] The first errors encountered during the running of the job.
- *  The final message includes the number of errors that caused the process to
- *  stop. Errors here do not necessarily mean that the job has completed or was
+ *  Output only. The first errors encountered during the running of the job. The
+ *  final message includes the number of errors that caused the process to stop.
+ *  Errors here do not necessarily mean that the job has not completed or was
  *  unsuccessful.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ErrorProto *> *errors;
 
-/** [Output-only] Running state of the job. */
+/**
+ *  Output only. Running state of the job. Valid states include 'PENDING',
+ *  'RUNNING', and 'DONE'.
+ */
 @property(nonatomic, copy, nullable) NSString *state;
 
 @end
@@ -6938,16 +8700,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_JsonOptions
+ *  Json Options for load and make external tables.
  */
 @interface GTLRBigquery_JsonOptions : GTLRObject
 
 /**
- *  [Optional] The character encoding of the data. The supported values are
+ *  Optional. The character encoding of the data. The supported values are
  *  UTF-8, UTF-16BE, UTF-16LE, UTF-32BE, and UTF-32LE. The default value is
  *  UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
+
+@end
+
+
+/**
+ *  A dataset source type which refers to another BigQuery dataset.
+ */
+@interface GTLRBigquery_LinkedDatasetSource : GTLRObject
+
+/**
+ *  The source dataset reference contains project numbers and not project ids.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *sourceDataset;
 
 @end
 
@@ -7029,6 +8804,65 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Statistics for a LOAD query.
+ */
+@interface GTLRBigquery_LoadQueryStatistics : GTLRObject
+
+/**
+ *  Output only. The number of bad records encountered while processing a LOAD
+ *  query. Note that if the job has failed because of more bad records
+ *  encountered than the maximum allowed in the load job configuration, then
+ *  this number can be less than the total number of bad records present in the
+ *  input data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *badRecords;
+
+/**
+ *  Output only. This field is deprecated. The number of bytes of source data
+ *  copied over the network for a `LOAD` query. `transferred_bytes` has the
+ *  canonical value for physical transferred bytes, which is used for BigQuery
+ *  Omni billing.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesTransferred GTLR_DEPRECATED;
+
+/**
+ *  Output only. Number of bytes of source data in a LOAD query.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputFileBytes;
+
+/**
+ *  Output only. Number of source files in a LOAD query.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputFiles;
+
+/**
+ *  Output only. Size of the loaded data in bytes. Note that while a LOAD query
+ *  is in the running state, this value may change.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputBytes;
+
+/**
+ *  Output only. Number of rows imported in a LOAD query. Note that while a LOAD
+ *  query is in the running state, this value may change.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputRows;
+
+@end
+
+
+/**
  *  BigQuery-specific metadata about a location. This will be set on
  *  google.cloud.location.Location.metadata in Cloud Location API responses.
  */
@@ -7044,29 +8878,106 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_MaterializedViewDefinition
+ *  A materialized view considered for a query job.
+ */
+@interface GTLRBigquery_MaterializedView : GTLRObject
+
+/**
+ *  Whether the materialized view is chosen for the query. A materialized view
+ *  can be chosen to rewrite multiple parts of the same query. If a materialized
+ *  view is chosen to rewrite any part of the query, then this field is true,
+ *  even if the materialized view was not chosen to rewrite others parts.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *chosen;
+
+/**
+ *  If present, specifies a best-effort estimation of the bytes saved by using
+ *  the materialized view rather than its base tables.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedBytesSaved;
+
+/**
+ *  If present, specifies the reason why the materialized view was not chosen
+ *  for the query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableDataChange
+ *        View is invalidated because of a data change in one or more base
+ *        tables. It could be any recent change if the
+ *        [`max_staleness`](https://cloud.google.com/bigquery/docs/materialized-views-create#max_staleness)
+ *        option is not set for the view, or otherwise any change outside of the
+ *        staleness window. (Value: "BASE_TABLE_DATA_CHANGE")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableExpiredPartition
+ *        View is invalidated because a base table's partition has expired.
+ *        (Value: "BASE_TABLE_EXPIRED_PARTITION")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableFineGrainedSecurityPolicy
+ *        View is inaccessible to the user because of a fine-grained security
+ *        policy on one of its base tables. (Value:
+ *        "BASE_TABLE_FINE_GRAINED_SECURITY_POLICY")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableIncompatibleMetadataChange
+ *        View is invalidated because a base table has an incompatible metadata
+ *        change. (Value: "BASE_TABLE_INCOMPATIBLE_METADATA_CHANGE")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTablePartitionExpirationChange
+ *        View is invalidated because a base table's partition expiration has
+ *        changed. (Value: "BASE_TABLE_PARTITION_EXPIRATION_CHANGE")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableTooStale
+ *        One of the view's base tables is too stale. For example, the cached
+ *        metadata of a biglake table needs to be updated. (Value:
+ *        "BASE_TABLE_TOO_STALE")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableTruncated
+ *        View has no cached data because a base table is truncated. (Value:
+ *        "BASE_TABLE_TRUNCATED")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_Cost The estimated
+ *        cost of the view is more expensive than another view or the base
+ *        table. Note: The estimate cost might not match the billed cost.
+ *        (Value: "COST")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_NoData View has no
+ *        cached data because it has not refreshed yet. (Value: "NO_DATA")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_OutOfTimeTravelWindow
+ *        View is outside the time travel window. (Value:
+ *        "OUT_OF_TIME_TRAVEL_WINDOW")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_RejectedReasonUnspecified
+ *        Default unspecified value. (Value: "REJECTED_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_TimeZone View is
+ *        invalidated because it was refreshed with a time zone other than that
+ *        of the current job. (Value: "TIME_ZONE")
+ */
+@property(nonatomic, copy, nullable) NSString *rejectedReason;
+
+/** The candidate materialized view. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
+
+@end
+
+
+/**
+ *  Definition and configuration of a materialized view.
  */
 @interface GTLRBigquery_MaterializedViewDefinition : GTLRObject
 
 /**
- *  [Optional] Allow non incremental materialized view definition. The default
- *  value is "false".
+ *  Optional. This option declares authors intention to construct a materialized
+ *  view that will not be refreshed incrementally.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowNonIncrementalDefinition;
 
 /**
- *  [Optional] [TrustedTester] Enable automatic refresh of the materialized view
- *  when the base table is updated. The default value is "true".
+ *  Optional. Enable automatic refresh of the materialized view when the base
+ *  table is updated. The default value is "true".
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableRefresh;
 
 /**
- *  [Output-only] [TrustedTester] The time when this materialized view was last
- *  modified, in milliseconds since the epoch.
+ *  Output only. The time when this materialized view was last refreshed, in
+ *  milliseconds since the epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7081,12 +8992,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *maxStaleness;
 
-/** [Required] A query whose result is persisted. */
+/** Required. A query whose results are persisted. */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  [Optional] [TrustedTester] The maximum frequency at which this materialized
- *  view will be refreshed. The default value is "1800000" (30 minutes).
+ *  Optional. The maximum frequency at which this materialized view will be
+ *  refreshed. The default value is "1800000" (30 minutes).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7096,21 +9007,150 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_MlStatistics
+ *  Statistics of materialized views considered in a query job.
+ */
+@interface GTLRBigquery_MaterializedViewStatistics : GTLRObject
+
+/**
+ *  Materialized views considered for the query job. Only certain materialized
+ *  views are used. For a detailed list, see the child message. If many
+ *  materialized views are considered, then the list might be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_MaterializedView *> *materializedView;
+
+@end
+
+
+/**
+ *  Status of a materialized view. The last refresh timestamp status is omitted
+ *  here, but is present in the MaterializedViewDefinition message.
+ */
+@interface GTLRBigquery_MaterializedViewStatus : GTLRObject
+
+/**
+ *  Output only. Error result of the last automatic refresh. If present,
+ *  indicates that the last automatic refresh was unsuccessful.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ErrorProto *lastRefreshStatus;
+
+/**
+ *  Output only. Refresh watermark of materialized view. The base tables' data
+ *  were collected into the materialized view cache until this time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *refreshWatermark;
+
+@end
+
+
+/**
+ *  Statistics for metadata caching in BigLake tables.
+ */
+@interface GTLRBigquery_MetadataCacheStatistics : GTLRObject
+
+/** Set for the Metadata caching eligible tables referenced in the query. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableMetadataCacheUsage *> *tableMetadataCacheUsage;
+
+@end
+
+
+/**
+ *  Job statistics specific to a BigQuery ML training job.
  */
 @interface GTLRBigquery_MlStatistics : GTLRObject
 
-/** Results for all completed iterations. */
+/**
+ *  Output only. Trials of a [hyperparameter tuning
+ *  job](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  sorted by trial_id.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_HparamTuningTrial *> *hparamTrials;
+
+/**
+ *  Results for all completed iterations. Empty for [hyperparameter tuning
+ *  jobs](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *iterationResults;
 
 /**
- *  Maximum number of iterations specified as max_iterations in the 'CREATE
- *  MODEL' query. The actual number of iterations may be less than this number
- *  due to early stop.
+ *  Output only. Maximum number of iterations specified as max_iterations in the
+ *  'CREATE MODEL' query. The actual number of iterations may be less than this
+ *  number due to early stop.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxIterations;
+
+/**
+ *  Output only. The type of the model that is being trained.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Arima ARIMA model. (Value:
+ *        "ARIMA")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_ArimaPlus New name for the
+ *        ARIMA model. (Value: "ARIMA_PLUS")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_ArimaPlusXreg ARIMA with
+ *        external regressors. (Value: "ARIMA_PLUS_XREG")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Autoencoder Autoencoder
+ *        model. (Value: "AUTOENCODER")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_AutomlClassifier AutoML
+ *        Tables classification model. (Value: "AUTOML_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_AutomlRegressor AutoML Tables
+ *        regression model. (Value: "AUTOML_REGRESSOR")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_BoostedTreeClassifier Boosted
+ *        tree classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_BoostedTreeRegressor Boosted
+ *        tree regressor model. (Value: "BOOSTED_TREE_REGRESSOR")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_DnnClassifier DNN classifier
+ *        model. (Value: "DNN_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedClassifier
+ *        Wide-and-deep classifier model. (Value:
+ *        "DNN_LINEAR_COMBINED_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedRegressor
+ *        Wide-and-deep regressor model. (Value:
+ *        "DNN_LINEAR_COMBINED_REGRESSOR")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_DnnRegressor DNN regressor
+ *        model. (Value: "DNN_REGRESSOR")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Kmeans K-means clustering
+ *        model. (Value: "KMEANS")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_LinearRegression Linear
+ *        regression model. (Value: "LINEAR_REGRESSION")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_LogisticRegression Logistic
+ *        regression based classification model. (Value: "LOGISTIC_REGRESSION")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_MatrixFactorization Matrix
+ *        factorization model. (Value: "MATRIX_FACTORIZATION")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_ModelTypeUnspecified Default
+ *        value. (Value: "MODEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Onnx An imported ONNX model.
+ *        (Value: "ONNX")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Pca Prinpical Component
+ *        Analysis model. (Value: "PCA")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_RandomForestClassifier Random
+ *        forest classifier model. (Value: "RANDOM_FOREST_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_RandomForestRegressor Random
+ *        forest regressor model. (Value: "RANDOM_FOREST_REGRESSOR")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Tensorflow An imported
+ *        TensorFlow model. (Value: "TENSORFLOW")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_TensorflowLite An imported
+ *        TensorFlow Lite model. (Value: "TENSORFLOW_LITE")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Xgboost An imported XGBoost
+ *        model. (Value: "XGBOOST")
+ */
+@property(nonatomic, copy, nullable) NSString *modelType;
+
+/**
+ *  Output only. Training type of the job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_MlStatistics_TrainingType_HparamTuning
+ *        [Hyperparameter tuning
+ *        training](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
+ *        (Value: "HPARAM_TUNING")
+ *    @arg @c kGTLRBigquery_MlStatistics_TrainingType_SingleTraining Single
+ *        training with fixed parameter space. (Value: "SINGLE_TRAINING")
+ *    @arg @c kGTLRBigquery_MlStatistics_TrainingType_TrainingTypeUnspecified
+ *        Unspecified training type. (Value: "TRAINING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trainingType;
 
 @end
 
@@ -7334,28 +9374,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_ModelDefinition : GTLRObject
 
-/**
- *  [Output-only, Beta] Model options used for the first training run. These
- *  options are immutable for subsequent training runs. Default values are used
- *  for any options not specified in the input query.
- */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelDefinition_ModelOptions *modelOptions;
 
-/**
- *  [Output-only, Beta] Information about ml training runs, each training run
- *  comprises of multiple iterations and there may be multiple training runs for
- *  the model if warm start is used or if a user decides to continue a
- *  previously cancelled query.
- */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BqmlTrainingRun *> *trainingRuns;
 
 @end
 
 
 /**
- *  [Output-only, Beta] Model options used for the first training run. These
- *  options are immutable for subsequent training runs. Default values are used
- *  for any options not specified in the input query.
+ *  Deprecated.
  */
 @interface GTLRBigquery_ModelDefinition_ModelOptions : GTLRObject
 
@@ -7367,7 +9396,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ModelReference
+ *  Options related to model extraction.
+ */
+@interface GTLRBigquery_ModelExtractOptions : GTLRObject
+
+/**
+ *  The 1-based ID of the trial to be exported from a hyperparameter tuning
+ *  model. If not specified, the trial with id =
+ *  [Model](/bigquery/docs/reference/rest/v2/models#resource:-model).defaultTrialId
+ *  is exported. This field is ignored for models not trained with
+ *  hyperparameter tuning.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trialId;
+
+@end
+
+
+/**
+ *  Id path of a model.
  */
 @interface GTLRBigquery_ModelReference : GTLRObject
 
@@ -7392,17 +9440,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_ModelTraining : GTLRObject
 
 /**
- *  [Output-only, Beta] Index of current ML training iteration. Updated during
- *  create model query job to show job progress.
+ *  Deprecated.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *currentIteration;
 
 /**
- *  [Output-only, Beta] Expected number of iterations for the create model query
- *  job specified as num_iterations in the input query. The actual total number
- *  of iterations may be less than this number due to early stop.
+ *  Deprecated.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7426,25 +9471,54 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ParquetOptions
+ *  Parquet Options for load and make external tables.
  */
 @interface GTLRBigquery_ParquetOptions : GTLRObject
 
 /**
- *  [Optional] Indicates whether to use schema inference specifically for
- *  Parquet LIST logical type.
+ *  Optional. Indicates whether to use schema inference specifically for Parquet
+ *  LIST logical type.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableListInference;
 
 /**
- *  [Optional] Indicates whether to infer Parquet ENUM logical type as STRING
+ *  Optional. Indicates whether to infer Parquet ENUM logical type as STRING
  *  instead of BYTES by default.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enumAsString;
+
+@end
+
+
+/**
+ *  Performance insights for the job.
+ */
+@interface GTLRBigquery_PerformanceInsights : GTLRObject
+
+/**
+ *  Output only. Average execution ms of previous runs. Indicates the job ran
+ *  slow compared to previous executions. To find previous executions, use
+ *  INFORMATION_SCHEMA tables and filter jobs with same query hash.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avgPreviousExecutionMs;
+
+/**
+ *  Output only. Query stage performance insights compared to previous runs, for
+ *  diagnosing performance regression.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StagePerformanceChangeInsight *> *stagePerformanceChangeInsights;
+
+/**
+ *  Output only. Standalone query stage performance insights, for exploring
+ *  potential improvements.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StagePerformanceStandaloneInsight *> *stagePerformanceStandaloneInsights;
 
 @end
 
@@ -7592,7 +9666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ProjectList
+ *  Response object of ListProjects
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "projects" property. If returned as the result of a query, it
@@ -7601,17 +9675,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_ProjectList : GTLRCollectionObject
 
-/** A hash of the page of results */
+/** A hash of the page of results. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** The type of list. */
+/** The resource type of the response. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** A token to request the next page of results. */
+/** Use this token to request the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Projects to which you have at least READ access.
+ *  Projects to which the user has at least READ access.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -7619,7 +9693,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ProjectList_Projects_Item *> *projects;
 
 /**
- *  The total number of projects in the list.
+ *  The total number of projects in the page. A wrapper is used here because the
+ *  field should still be in the response when the value is 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7629,11 +9704,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ProjectList_Projects_Item
+ *  Information about a single project.
  */
 @interface GTLRBigquery_ProjectList_Projects_Item : GTLRObject
 
-/** A descriptive name for this project. */
+/**
+ *  A descriptive name for this project. A wrapper is used here because
+ *  friendlyName can be set to the empty string.
+ */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
 
 /**
@@ -7660,13 +9738,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ProjectReference
+ *  A unique reference to a project.
  */
 @interface GTLRBigquery_ProjectReference : GTLRObject
 
 /**
- *  [Required] ID of the project. Can be either the numeric ID or the assigned
- *  ID of the project.
+ *  Required. ID of the project. Can be either the numeric ID or the assigned ID
+ *  of the project.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -7674,106 +9752,114 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_QueryParameter
+ *  Query optimization information for a QUERY job.
+ */
+@interface GTLRBigquery_QueryInfo : GTLRObject
+
+/** Output only. Information about query optimizations. */
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryInfo_OptimizationDetails *optimizationDetails;
+
+@end
+
+
+/**
+ *  Output only. Information about query optimizations.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigquery_QueryInfo_OptimizationDetails : GTLRObject
+@end
+
+
+/**
+ *  A parameter given to a query.
  */
 @interface GTLRBigquery_QueryParameter : GTLRObject
 
 /**
- *  [Optional] If unset, this is a positional parameter. Otherwise, should be
+ *  Optional. If unset, this is a positional parameter. Otherwise, should be
  *  unique within a query.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** [Required] The type of this parameter. */
+/** Required. The type of this parameter. */
 @property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterType *parameterType;
 
-/** [Required] The value of this parameter. */
+/** Required. The value of this parameter. */
 @property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue *parameterValue;
 
 @end
 
 
 /**
- *  GTLRBigquery_QueryParameterType
+ *  The type of a query parameter.
  */
 @interface GTLRBigquery_QueryParameterType : GTLRObject
 
-/** [Optional] The type of the array's elements, if this is an array. */
+/** Optional. The type of the array's elements, if this is an array. */
 @property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterType *arrayType;
 
-/** [Optional] The element type of the range, if this is a range. */
+/** Optional. The element type of the range, if this is a range. */
 @property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterType *rangeElementType;
 
 /**
- *  [Optional] The types of the fields of this struct, in order, if this is a
+ *  Optional. The types of the fields of this struct, in order, if this is a
  *  struct.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameterType_StructTypes_Item *> *structTypes;
 
-/** [Required] The top level type of this field. */
+/** Required. The top level type of this field. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
 
 /**
- *  GTLRBigquery_QueryParameterType_StructTypes_Item
+ *  The type of a struct parameter.
  */
 @interface GTLRBigquery_QueryParameterType_StructTypes_Item : GTLRObject
 
 /**
- *  [Optional] Human-oriented description of the field.
+ *  Optional. Human-oriented description of the field.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** [Optional] The name of this field. */
+/** Optional. The name of this field. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** [Required] The type of this field. */
+/** Required. The type of this field. */
 @property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterType *type;
 
 @end
 
 
 /**
- *  GTLRBigquery_QueryParameterValue
+ *  The value of a query parameter.
  */
 @interface GTLRBigquery_QueryParameterValue : GTLRObject
 
-/** [Optional] The array values, if this is an array type. */
+/** Optional. The array values, if this is an array type. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameterValue *> *arrayValues;
 
-/** [Optional] The range value, if this is a range type. */
-@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue_RangeValue *rangeValue;
+/** Optional. The range value, if this is a range type. */
+@property(nonatomic, strong, nullable) GTLRBigquery_RangeValue *rangeValue;
 
-/**
- *  [Optional] The struct field values, in order of the struct type's
- *  declaration.
- */
+/** The struct field values. */
 @property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue_StructValues *structValues;
 
-/** [Optional] The value of this value, if a simple scalar type. */
+/** Optional. The value of this value, if a simple scalar type. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
 
 /**
- *  [Optional] The range value, if this is a range type.
- */
-@interface GTLRBigquery_QueryParameterValue_RangeValue : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue *end;
-@property(nonatomic, strong, nullable) GTLRBigquery_QueryParameterValue *start;
-
-@end
-
-
-/**
- *  [Optional] The struct field values, in order of the struct type's
- *  declaration.
+ *  The struct field values.
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigquery_QueryParameterValue. Use @c -additionalJSONKeys and @c
@@ -7785,11 +9871,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_QueryRequest
+ *  Describes the format of the jobs.query request.
  */
 @interface GTLRBigquery_QueryRequest : GTLRObject
 
-/** Connection properties. */
+/** Optional. Connection properties which can modify the query behavior. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
@@ -7801,23 +9887,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *continuous;
 
 /**
- *  If true, creates a new session, where session id will be a server generated
- *  random id. If false, runs query with an existing session_id passed in
- *  ConnectionProperty, otherwise runs query in non-session mode.
+ *  Optional. If true, creates a new session using a randomly generated
+ *  session_id. If false, runs query with an existing session_id passed in
+ *  ConnectionProperty, otherwise runs query in non-session mode. The session
+ *  location will be set to QueryRequest.location if it is present, otherwise
+ *  it's set to the default location based on existing routing logic.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createSession;
 
 /**
- *  [Optional] Specifies the default datasetId and projectId to assume for any
+ *  Optional. Specifies the default datasetId and projectId to assume for any
  *  unqualified table names in the query. If not set, all table names in the
  *  query string must be qualified in the format 'datasetId.tableId'.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *defaultDataset;
 
 /**
- *  [Optional] If set to true, BigQuery doesn't run the job. Instead, if the
+ *  Optional. If set to true, BigQuery doesn't run the job. Instead, if the
  *  query is valid, BigQuery returns statistics about the job such as how many
  *  bytes would be processed. If the query is invalid, an error returns. The
  *  default value is false.
@@ -7826,10 +9914,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *dryRun;
 
+/** Optional. Output format adjustments. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DataFormatOptions *formatOptions;
+
 /**
  *  Optional. If not set, jobs are always required. If set, the query request
  *  will follow the behavior described JobCreationMode. This feature is not yet
  *  available. Jobs will always be created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationModeUnspecified
+ *        If unspecified JOB_CREATION_REQUIRED is the default. (Value:
+ *        "JOB_CREATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationOptional Job
+ *        creation is optional. Returning immediate results is prioritized.
+ *        BigQuery will automatically determine if a Job needs to be created.
+ *        The conditions under which BigQuery can decide to not create a Job are
+ *        subject to change. If Job creation is required, JOB_CREATION_REQUIRED
+ *        mode should be used, which is the default. (Value:
+ *        "JOB_CREATION_OPTIONAL")
+ *    @arg @c kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationRequired
+ *        Default. Job creation is always required. (Value:
+ *        "JOB_CREATION_REQUIRED")
  */
 @property(nonatomic, copy, nullable) NSString *jobCreationMode;
 
@@ -7837,10 +9943,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The labels associated with this job. You can use these to organize and group
- *  your jobs. Label keys and values can be no longer than 63 characters, can
- *  only contain lowercase letters, numeric characters, underscores and dashes.
- *  International characters are allowed. Label values are optional. Label keys
+ *  Optional. The labels associated with this query. Labels can be used to
+ *  organize and group query jobs. Label keys and values can be no longer than
+ *  63 characters, can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International characters are allowed. Label keys
  *  must start with a letter and each label in the list must have a different
  *  key.
  */
@@ -7853,16 +9959,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  [Optional] Limits the bytes billed for this job. Queries that will have
- *  bytes billed beyond this limit will fail (without incurring a charge). If
- *  unspecified, this will be set to your project default.
+ *  Optional. Limits the bytes billed for this query. Queries with bytes billed
+ *  above this limit will fail (without incurring a charge). If unspecified, the
+ *  project default is used.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maximumBytesBilled;
 
 /**
- *  [Optional] The maximum number of rows of data to return per page of results.
+ *  Optional. The maximum number of rows of data to return per page of results.
  *  Setting this flag to a small value such as 1000 and then paging through
  *  results might improve reliability when the query result set is large. In
  *  addition to this limit, responses are also limited to 10 MB. By default,
@@ -7873,59 +9979,62 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /**
- *  Standard SQL only. Set to POSITIONAL to use positional (?) query parameters
- *  or to NAMED to use named (\@myparam) query parameters in this query.
+ *  GoogleSQL only. Set to POSITIONAL to use positional (?) query parameters or
+ *  to NAMED to use named (\@myparam) query parameters in this query.
  */
 @property(nonatomic, copy, nullable) NSString *parameterMode;
 
 /**
- *  [Deprecated] This property is deprecated.
+ *  This property is deprecated.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *preserveNulls;
+@property(nonatomic, strong, nullable) NSNumber *preserveNulls GTLR_DEPRECATED;
 
 /**
- *  [Required] A query string, following the BigQuery query syntax, of the query
- *  to execute. Example: "SELECT count(f1) FROM
- *  [myProjectId:myDatasetId.myTableId]".
+ *  Required. A query string to execute, using Google Standard SQL or legacy SQL
+ *  syntax. Example: "SELECT COUNT(f1) FROM myProjectId.myDatasetId.myTableId".
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
-/** Query parameters for Standard SQL queries. */
+/** Query parameters for GoogleSQL queries. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *queryParameters;
 
 /**
- *  A unique user provided identifier to ensure idempotent behavior for queries.
- *  Note that this is different from the job_id. It has the following
- *  properties: 1. It is case-sensitive, limited to up to 36 ASCII characters. A
- *  UUID is recommended. 2. Read only queries can ignore this token since they
- *  are nullipotent by definition. 3. For the purposes of idempotency ensured by
- *  the request_id, a request is considered duplicate of another only if they
- *  have the same request_id and are actually duplicates. When determining
- *  whether a request is a duplicate of the previous request, all parameters in
- *  the request that may affect the behavior are considered. For example, query,
- *  connection_properties, query_parameters, use_legacy_sql are parameters that
- *  affect the result and are considered when determining whether a request is a
- *  duplicate, but properties like timeout_ms don't affect the result and are
- *  thus not considered. Dry run query requests are never considered duplicate
- *  of another request. 4. When a duplicate mutating query request is detected,
- *  it returns: a. the results of the mutation if it completes successfully
- *  within the timeout. b. the running operation if it is still in progress at
- *  the end of the timeout. 5. Its lifetime is limited to 15 minutes. In other
- *  words, if two requests are sent with the same request_id, but more than 15
- *  minutes apart, idempotency is not guaranteed.
+ *  Optional. A unique user provided identifier to ensure idempotent behavior
+ *  for queries. Note that this is different from the job_id. It has the
+ *  following properties: 1. It is case-sensitive, limited to up to 36 ASCII
+ *  characters. A UUID is recommended. 2. Read only queries can ignore this
+ *  token since they are nullipotent by definition. 3. For the purposes of
+ *  idempotency ensured by the request_id, a request is considered duplicate of
+ *  another only if they have the same request_id and are actually duplicates.
+ *  When determining whether a request is a duplicate of another request, all
+ *  parameters in the request that may affect the result are considered. For
+ *  example, query, connection_properties, query_parameters, use_legacy_sql are
+ *  parameters that affect the result and are considered when determining
+ *  whether a request is a duplicate, but properties like timeout_ms don't
+ *  affect the result and are thus not considered. Dry run query requests are
+ *  never considered duplicate of another request. 4. When a duplicate mutating
+ *  query request is detected, it returns: a. the results of the mutation if it
+ *  completes successfully within the timeout. b. the running operation if it is
+ *  still in progress at the end of the timeout. 5. Its lifetime is limited to
+ *  15 minutes. In other words, if two requests are sent with the same
+ *  request_id, but more than 15 minutes apart, idempotency is not guaranteed.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  [Optional] How long to wait for the query to complete, in milliseconds,
- *  before the request times out and returns. Note that this is only a timeout
- *  for the request, not the query. If the query takes longer to run than the
- *  timeout value, the call returns without any results and with the
- *  'jobComplete' flag set to false. You can call GetQueryResults() to wait for
- *  the query to complete and read the results. The default value is 10000
- *  milliseconds (10 seconds).
+ *  Optional. Optional: Specifies the maximum amount of time, in milliseconds,
+ *  that the client is willing to wait for the query to complete. By default,
+ *  this limit is 10 seconds (10,000 milliseconds). If the query is complete,
+ *  the jobComplete field in the response is true. If the query has not yet
+ *  completed, jobComplete is false. You can request a longer timeout period in
+ *  the timeoutMs field. However, the call is not guaranteed to wait for the
+ *  specified timeout; it typically returns after around 200 seconds (200,000
+ *  milliseconds), even if the query is not complete. If jobComplete is false,
+ *  you can continue to wait for the query to complete by calling the
+ *  getQueryResults method until the jobComplete field in the getQueryResults
+ *  response is true.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -7934,7 +10043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Specifies whether to use BigQuery's legacy SQL dialect for this query. The
  *  default value is true. If set to false, the query will use BigQuery's
- *  standard SQL: https://cloud.google.com/bigquery/sql-reference/ When
+ *  GoogleSQL: https://cloud.google.com/bigquery/sql-reference/ When
  *  useLegacySql is set to false, the value of flattenResults is ignored; query
  *  will be run as if flattenResults is false.
  *
@@ -7943,9 +10052,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *useLegacySql;
 
 /**
- *  [Optional] Whether to look for the result in the query cache. The query
- *  cache is a best-effort cache that will be flushed whenever tables in the
- *  query are modified. The default value is true.
+ *  Optional. Whether to look for the result in the query cache. The query cache
+ *  is a best-effort cache that will be flushed whenever tables in the query are
+ *  modified. The default value is true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7955,10 +10064,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  The labels associated with this job. You can use these to organize and group
- *  your jobs. Label keys and values can be no longer than 63 characters, can
- *  only contain lowercase letters, numeric characters, underscores and dashes.
- *  International characters are allowed. Label values are optional. Label keys
+ *  Optional. The labels associated with this query. Labels can be used to
+ *  organize and group query jobs. Label keys and values can be no longer than
+ *  63 characters, can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International characters are allowed. Label keys
  *  must start with a letter and each label in the list must have a different
  *  key.
  *
@@ -7984,16 +10093,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
- *  [Output-only] Detailed statistics for DML statements Present only for DML
- *  statements INSERT, UPDATE, DELETE or TRUNCATE.
+ *  Output only. Detailed statistics for DML statements INSERT, UPDATE, DELETE,
+ *  MERGE or TRUNCATE.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DmlStatistics *dmlStats;
 
 /**
- *  [Output-only] The first errors or warnings encountered during the running of
+ *  Output only. The first errors or warnings encountered during the running of
  *  the job. The final message includes the number of errors that caused the
  *  process to stop. Errors here do not necessarily mean that the job has
- *  completed or was unsuccessful.
+ *  completed or was unsuccessful. For more information about error messages,
+ *  see [Error messages](https://cloud.google.com/bigquery/docs/error-messages).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ErrorProto *> *errors;
 
@@ -8012,10 +10122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  provide the reason of why a Job was created. If not set, it should be
  *  treated as the default: REQUESTED. This feature is not yet available. Jobs
  *  will always be created.
- *
- *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) id jobCreationReason;
+@property(nonatomic, strong, nullable) GTLRBigquery_JobCreationReason *jobCreationReason;
 
 /**
  *  Reference to the Job that was created to run the query. This field will be
@@ -8030,14 +10138,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  [Output-only] The number of rows affected by a DML statement. Present only
+ *  Output only. The number of rows affected by a DML statement. Present only
  *  for DML statements INSERT, UPDATE or DELETE.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numDmlAffectedRows;
 
-/** A token used for paging results. */
+/**
+ *  A token used for paging results. A non-empty token indicates that additional
+ *  results are available. To see additional results, query the
+ *  [`jobs.getQueryResults`](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/getQueryResults)
+ *  method. For more information, see [Paging through table
+ *  data](https://cloud.google.com/bigquery/docs/paging-results).
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -8059,10 +10173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
-/**
- *  [Output-only] [Preview] Information of the session if this job is part of
- *  one.
- */
+/** Output only. Information of the session if this job is part of one. */
 @property(nonatomic, strong, nullable) GTLRBigquery_SessionInfo *sessionInfo;
 
 /**
@@ -8086,14 +10197,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_QueryTimelineSample
+ *  Summary of the state of query execution at a given time.
  */
 @interface GTLRBigquery_QueryTimelineSample : GTLRObject
 
 /**
- *  Total number of units currently being processed by workers. This does not
- *  correspond directly to slot usage. This is the largest value observed since
- *  the last sample.
+ *  Total number of active workers. This does not correspond directly to slot
+ *  usage. This is the largest value observed since the last sample.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8115,8 +10225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Units of work that can be scheduled immediately. Providing additional slots
- *  for these units of work will speed up the query, provided no other query in
- *  the reservation needs additional slots.
+ *  for these units of work will accelerate the query, if no other query in the
+ *  reservation needs additional slots.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8146,39 +10256,39 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_RangePartitioning : GTLRObject
 
 /**
- *  [TrustedTester] [Required] The table is partitioned by this field. The field
+ *  Required. [Experimental] The table is partitioned by this field. The field
  *  must be a top-level NULLABLE/REQUIRED field. The only supported type is
  *  INTEGER/INT64.
  */
 @property(nonatomic, copy, nullable) NSString *field;
 
-/** [TrustedTester] [Required] Defines the ranges for range partitioning. */
+/** [Experimental] Defines the ranges for range partitioning. */
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning_Range *range;
 
 @end
 
 
 /**
- *  [TrustedTester] [Required] Defines the ranges for range partitioning.
+ *  [Experimental] Defines the ranges for range partitioning.
  */
 @interface GTLRBigquery_RangePartitioning_Range : GTLRObject
 
 /**
- *  [TrustedTester] [Required] The end of range partitioning, exclusive.
+ *  [Experimental] The end of range partitioning, exclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *end;
 
 /**
- *  [TrustedTester] [Required] The width of each interval.
+ *  [Experimental] The width of each interval.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *interval;
 
 /**
- *  [TrustedTester] [Required] The start of range partitioning, inclusive.
+ *  [Experimental] The start of range partitioning, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8606,7 +10716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_RoutineReference
+ *  Id path of a routine.
  */
 @interface GTLRBigquery_RoutineReference : GTLRObject
 
@@ -8679,7 +10789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_RowAccessPolicyReference
+ *  Id path of a row access policy.
  */
 @interface GTLRBigquery_RowAccessPolicyReference : GTLRObject
 
@@ -8703,13 +10813,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_RowLevelSecurityStatistics
+ *  Statistics for row-level security.
  */
 @interface GTLRBigquery_RowLevelSecurityStatistics : GTLRObject
 
 /**
- *  [Output-only] [Preview] Whether any accessed data was protected by row
- *  access policies.
+ *  Whether any accessed data was protected by row access policies.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8719,55 +10828,116 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ScriptStackFrame
+ *  Options related to script execution.
+ */
+@interface GTLRBigquery_ScriptOptions : GTLRObject
+
+/**
+ *  Determines which statement in the script represents the "key result", used
+ *  to populate the schema and query results of the script job. Default is LAST.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ScriptOptions_KeyResultStatement_FirstSelect The
+ *        first SELECT statement determines the key result. (Value:
+ *        "FIRST_SELECT")
+ *    @arg @c kGTLRBigquery_ScriptOptions_KeyResultStatement_KeyResultStatementKindUnspecified
+ *        Default value. (Value: "KEY_RESULT_STATEMENT_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_ScriptOptions_KeyResultStatement_Last The last
+ *        result determines the key result. (Value: "LAST")
+ */
+@property(nonatomic, copy, nullable) NSString *keyResultStatement;
+
+/**
+ *  Limit on the number of bytes billed per statement. Exceeding this budget
+ *  results in an error.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *statementByteBudget;
+
+/**
+ *  Timeout period for each statement in a script.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *statementTimeoutMs;
+
+@end
+
+
+/**
+ *  Represents the location of the statement/expression being evaluated. Line
+ *  and column numbers are defined as follows: - Line and column numbers start
+ *  with one. That is, line 1 column 1 denotes the start of the script. - When
+ *  inside a stored procedure, all line/column numbers are relative to the
+ *  procedure body, not the script in which the procedure was defined. -
+ *  Start/end positions exclude leading/trailing comments and whitespace. The
+ *  end position always ends with a ";", when present. - Multi-byte Unicode
+ *  characters are treated as just one column. - If the original script (or
+ *  procedure definition) contains TAB characters, a tab "snaps" the indentation
+ *  forward to the nearest multiple of 8 characters, plus 1. For example, a TAB
+ *  on column 1, 2, 3, 4, 5, 6 , or 8 will advance the next character to column
+ *  9. A TAB on column 9, 10, 11, 12, 13, 14, 15, or 16 will advance the next
+ *  character to column 17.
  */
 @interface GTLRBigquery_ScriptStackFrame : GTLRObject
 
 /**
- *  [Output-only] One-based end column.
+ *  Output only. One-based end column.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *endColumn;
 
 /**
- *  [Output-only] One-based end line.
+ *  Output only. One-based end line.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *endLine;
 
 /**
- *  [Output-only] Name of the active procedure, empty if in a top-level script.
+ *  Output only. Name of the active procedure, empty if in a top-level script.
  */
 @property(nonatomic, copy, nullable) NSString *procedureId;
 
 /**
- *  [Output-only] One-based start column.
+ *  Output only. One-based start column.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startColumn;
 
 /**
- *  [Output-only] One-based start line.
+ *  Output only. One-based start line.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startLine;
 
-/** [Output-only] Text of the current statement/expression. */
+/** Output only. Text of the current statement/expression. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
 
 /**
- *  GTLRBigquery_ScriptStatistics
+ *  Job statistics specific to the child job of a script.
  */
 @interface GTLRBigquery_ScriptStatistics : GTLRObject
 
-/** [Output-only] Whether this child job was a statement or expression. */
+/**
+ *  Whether this child job was a statement or expression.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ScriptStatistics_EvaluationKind_EvaluationKindUnspecified
+ *        Default value. (Value: "EVALUATION_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_ScriptStatistics_EvaluationKind_Expression The
+ *        statement evaluates an expression that appears in the script. (Value:
+ *        "EXPRESSION")
+ *    @arg @c kGTLRBigquery_ScriptStatistics_EvaluationKind_Statement The
+ *        statement appears directly in the script. (Value: "STATEMENT")
+ */
 @property(nonatomic, copy, nullable) NSString *evaluationKind;
 
 /**
@@ -8781,29 +10951,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_SearchStatistics
+ *  Statistics for a search query. Populated as part of JobStatistics2.
  */
 @interface GTLRBigquery_SearchStatistics : GTLRObject
 
 /**
- *  When index_usage_mode is UNUSED or PARTIALLY_USED, this field explains why
- *  index was not used in all or part of the search query. If index_usage_mode
- *  is FULLLY_USED, this field is not populated.
+ *  When `indexUsageMode` is `UNUSED` or `PARTIALLY_USED`, this field explains
+ *  why indexes were not used in all or part of the search query. If
+ *  `indexUsageMode` is `FULLY_USED`, this field is not populated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IndexUnusedReason *> *indexUnusedReasons;
 
-/** Specifies index usage mode for the query. */
+/**
+ *  Specifies the index usage mode for the query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_SearchStatistics_IndexUsageMode_FullyUsed The entire
+ *        search query used search indexes. (Value: "FULLY_USED")
+ *    @arg @c kGTLRBigquery_SearchStatistics_IndexUsageMode_IndexUsageModeUnspecified
+ *        Index usage mode not specified. (Value:
+ *        "INDEX_USAGE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_SearchStatistics_IndexUsageMode_PartiallyUsed Part
+ *        of the search query used search indexes. See [`indexUnusedReasons`]
+ *        (/bigquery/docs/reference/rest/v2/Job#IndexUnusedReason) for why other
+ *        parts of the query did not use search indexes. (Value:
+ *        "PARTIALLY_USED")
+ *    @arg @c kGTLRBigquery_SearchStatistics_IndexUsageMode_Unused No search
+ *        indexes were used in the search query. See [`indexUnusedReasons`]
+ *        (/bigquery/docs/reference/rest/v2/Job#IndexUnusedReason) for detailed
+ *        reasons. (Value: "UNUSED")
+ */
 @property(nonatomic, copy, nullable) NSString *indexUsageMode;
 
 @end
 
 
 /**
- *  GTLRBigquery_SessionInfo
+ *  [Preview] Information related to sessions.
  */
 @interface GTLRBigquery_SessionInfo : GTLRObject
 
-/** [Output-only] // [Preview] Id of the session. */
+/** Output only. The id of the session. */
 @property(nonatomic, copy, nullable) NSString *sessionId;
 
 @end
@@ -8834,15 +11022,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_SnapshotDefinition
+ *  Information about base table and snapshot time of the snapshot.
  */
 @interface GTLRBigquery_SnapshotDefinition : GTLRObject
 
-/** [Required] Reference describing the ID of the table that was snapshot. */
+/** Required. Reference describing the ID of the table that was snapshot. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTableReference;
 
 /**
- *  [Required] The time at which the base table was snapshot. This value is
+ *  Required. The time at which the base table was snapshot. This value is
  *  reported in the JSON response using RFC3339 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
@@ -8851,14 +11039,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_SparkLoggingInfo
+ *  Spark job logs can be filtered by these fields in Cloud Logging.
  */
 @interface GTLRBigquery_SparkLoggingInfo : GTLRObject
 
-/** [Output-only] Project ID used for logging */
+/** Output only. Project ID where the Spark logs were written. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** [Output-only] Resource type used for logging */
+/** Output only. Resource type used for logging. */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
@@ -8954,27 +11142,59 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_SparkStatistics
+ *  Statistics for a BigSpark query. Populated as part of JobStatistics2
  */
 @interface GTLRBigquery_SparkStatistics : GTLRObject
 
-/** [Output-only] Endpoints generated for the Spark job. */
+/**
+ *  Output only. Endpoints returned from Dataproc. Key list: -
+ *  history_server_endpoint: A link to Spark job UI.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_SparkStatistics_Endpoints *endpoints;
 
-/** [Output-only] Logging info is used to generate a link to Cloud Logging. */
+/**
+ *  Output only. The Google Cloud Storage bucket that is used as the default
+ *  filesystem by the Spark application. This fields is only filled when the
+ *  Spark procedure uses the INVOKER security mode. It is inferred from the
+ *  system variable \@\@spark_proc_properties.staging_bucket if it is provided.
+ *  Otherwise, BigQuery creates a default staging bucket for the job and returns
+ *  the bucket name in this field. Example: * `gs://[bucket_name]`
+ */
+@property(nonatomic, copy, nullable) NSString *gcsStagingBucket;
+
+/**
+ *  Output only. The Cloud KMS encryption key that is used to protect the
+ *  resources created by the Spark job. If the Spark procedure uses DEFINER
+ *  security mode, the Cloud KMS key is inferred from the Spark connection
+ *  associated with the procedure if it is provided. Otherwise the key is
+ *  inferred from the default key of the Spark connection's project if the CMEK
+ *  organization policy is enforced. If the Spark procedure uses INVOKER
+ *  security mode, the Cloud KMS encryption key is inferred from the system
+ *  variable \@\@spark_proc_properties.kms_key_name if it is provided.
+ *  Otherwise, the key is inferred fromt he default key of the BigQuery job's
+ *  project if the CMEK organization policy is enforced. Example: *
+ *  `projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/** Output only. Logging info is used to generate a link to Cloud Logging. */
 @property(nonatomic, strong, nullable) GTLRBigquery_SparkLoggingInfo *loggingInfo;
 
-/** [Output-only] Spark job id if a Spark job is created successfully. */
+/** Output only. Spark job ID if a Spark job is created successfully. */
 @property(nonatomic, copy, nullable) NSString *sparkJobId;
 
-/** [Output-only] Location where the Spark job is executed. */
+/**
+ *  Output only. Location where the Spark job is executed. A location is
+ *  selected by BigQueury for jobs configured to run in a multi-region.
+ */
 @property(nonatomic, copy, nullable) NSString *sparkJobLocation;
 
 @end
 
 
 /**
- *  [Output-only] Endpoints generated for the Spark job.
+ *  Output only. Endpoints returned from Dataproc. Key list: -
+ *  history_server_endpoint: A link to Spark job UI.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -8982,6 +11202,63 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        fetch them all at once.
  */
 @interface GTLRBigquery_SparkStatistics_Endpoints : GTLRObject
+@end
+
+
+/**
+ *  Performance insights compared to the previous executions for a specific
+ *  stage.
+ */
+@interface GTLRBigquery_StagePerformanceChangeInsight : GTLRObject
+
+/** Output only. Input data change insight of the query stage. */
+@property(nonatomic, strong, nullable) GTLRBigquery_InputDataChange *inputDataChange;
+
+/**
+ *  Output only. The stage id that the insight mapped to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageId;
+
+@end
+
+
+/**
+ *  Standalone performance insights for a specific stage.
+ */
+@interface GTLRBigquery_StagePerformanceStandaloneInsight : GTLRObject
+
+/**
+ *  Output only. If present, the stage had the following reasons for being
+ *  disqualified from BI Engine execution.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BiEngineReason *> *biEngineReasons;
+
+/** Output only. High cardinality joins in the stage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_HighCardinalityJoin *> *highCardinalityJoins;
+
+/**
+ *  Output only. True if the stage has insufficient shuffle quota.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *insufficientShuffleQuota;
+
+/**
+ *  Output only. True if the stage has a slot contention issue.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slotContention;
+
+/**
+ *  Output only. The stage id that the insight mapped to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageId;
+
 @end
 
 
@@ -9101,7 +11378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_Streamingbuffer : GTLRObject
 
 /**
- *  [Output-only] A lower-bound estimate of the number of bytes currently in the
+ *  Output only. A lower-bound estimate of the number of bytes currently in the
  *  streaming buffer.
  *
  *  Uses NSNumber of unsignedLongLongValue.
@@ -9109,7 +11386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *estimatedBytes;
 
 /**
- *  [Output-only] A lower-bound estimate of the number of rows currently in the
+ *  Output only. A lower-bound estimate of the number of rows currently in the
  *  streaming buffer.
  *
  *  Uses NSNumber of unsignedLongLongValue.
@@ -9117,7 +11394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *estimatedRows;
 
 /**
- *  [Output-only] Contains the timestamp of the oldest entry in the streaming
+ *  Output only. Contains the timestamp of the oldest entry in the streaming
  *  buffer, in milliseconds since the epoch, if the streaming buffer is
  *  available.
  *
@@ -9140,39 +11417,109 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  System variables given to a query.
+ */
+@interface GTLRBigquery_SystemVariables : GTLRObject
+
+/** Output only. Data type for each system variable. */
+@property(nonatomic, strong, nullable) GTLRBigquery_SystemVariables_Types *types;
+
+/** Output only. Value for each system variable. */
+@property(nonatomic, strong, nullable) GTLRBigquery_SystemVariables_Values *values;
+
+@end
+
+
+/**
+ *  Output only. Data type for each system variable.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBigquery_StandardSqlDataType. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigquery_SystemVariables_Types : GTLRObject
+@end
+
+
+/**
+ *  Output only. Value for each system variable.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigquery_SystemVariables_Values : GTLRObject
+@end
+
+
+/**
  *  GTLRBigquery_Table
  */
 @interface GTLRBigquery_Table : GTLRObject
 
-/** [Optional] Specifies the configuration of a BigLake managed table. */
+/** Optional. Specifies the configuration of a BigLake managed table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_BigLakeConfiguration *biglakeConfiguration;
 
-/** [Output-only] Clone definition. */
+/**
+ *  Output only. Contains information about the clone. This value is set via the
+ *  clone operation.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_CloneDefinition *cloneDefinition;
 
 /**
- *  [Beta] Clustering specification for the table. Must be specified with
+ *  Clustering specification for the table. Must be specified with time-based
  *  partitioning, data in the table will be first partitioned and subsequently
  *  clustered.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
 /**
- *  [Output-only] The time when this table was created, in milliseconds since
- *  the epoch.
+ *  Output only. The time when this table was created, in milliseconds since the
+ *  epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
 
-/** [Output-only] The default collation of the table. */
+/**
+ *  Optional. Defines the default collation specification of new STRING fields
+ *  in the table. During table creation or update, if a STRING field is added to
+ *  this table without explicit collation specified, then the table inherits the
+ *  table default collation. A change to this field affects only fields added
+ *  afterwards, and does not alter the existing fields. The following values are
+ *  supported: * 'und:ci': undetermined locale, case insensitive. * '': empty
+ *  string. Default to case-sensitive behavior.
+ */
 @property(nonatomic, copy, nullable) NSString *defaultCollation;
 
-/** [Output-only] The default rounding mode of the table. */
+/**
+ *  Optional. Defines the default rounding mode specification of new decimal
+ *  fields (NUMERIC OR BIGNUMERIC) in the table. During table creation or
+ *  update, if a decimal field is added to this table without an explicit
+ *  rounding mode specified, then the field inherits the table default rounding
+ *  mode. Changing this field doesn't affect existing fields.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfAwayFromZero
+ *        ROUND_HALF_AWAY_FROM_ZERO rounds half values away from zero when
+ *        applying precision and scale upon writing of NUMERIC and BIGNUMERIC
+ *        values. For Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5, 1.6, 1.7, 1.8, 1.9
+ *        => 2 (Value: "ROUND_HALF_AWAY_FROM_ZERO")
+ *    @arg @c kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfEven
+ *        ROUND_HALF_EVEN rounds half values to the nearest even value when
+ *        applying precision and scale upon writing of NUMERIC and BIGNUMERIC
+ *        values. For Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5 => 2 1.6, 1.7, 1.8,
+ *        1.9 => 2 2.5 => 2 (Value: "ROUND_HALF_EVEN")
+ *    @arg @c kGTLRBigquery_Table_DefaultRoundingMode_RoundingModeUnspecified
+ *        Unspecified will default to using ROUND_HALF_AWAY_FROM_ZERO. (Value:
+ *        "ROUNDING_MODE_UNSPECIFIED")
+ */
 @property(nonatomic, copy, nullable) NSString *defaultRoundingMode;
 
 /**
- *  [Optional] A user-friendly description of this table.
+ *  Optional. A user-friendly description of this table.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -9181,43 +11528,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** Custom encryption configuration (e.g., Cloud KMS keys). */
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *encryptionConfiguration;
 
-/**
- *  [Output-only] A hash of the table metadata. Used to ensure there were no
- *  concurrent modifications to the resource when attempting an update. Not
- *  guaranteed to change when the table contents or the fields numRows,
- *  numBytes, numLongTermBytes or lastModifiedTime change.
- */
+/** Output only. A hash of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  [Optional] The time when this table expires, in milliseconds since the
- *  epoch. If not present, the table will persist indefinitely. Expired tables
- *  will be deleted and their storage reclaimed. The defaultTableExpirationMs
- *  property of the encapsulating dataset can be used to set a default
- *  expirationTime on newly created tables.
+ *  Optional. The time when this table expires, in milliseconds since the epoch.
+ *  If not present, the table will persist indefinitely. Expired tables will be
+ *  deleted and their storage reclaimed. The defaultTableExpirationMs property
+ *  of the encapsulating dataset can be used to set a default expirationTime on
+ *  newly created tables.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *expirationTime;
 
 /**
- *  [Optional] Describes the data format, location, and other properties of a
+ *  Optional. Describes the data format, location, and other properties of a
  *  table stored outside of BigQuery. By defining these properties, the data
  *  source can then be queried as if it were a standard BigQuery table.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_ExternalDataConfiguration *externalDataConfiguration;
 
-/** [Optional] A descriptive name for this table. */
+/** Optional. A descriptive name for this table. */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
 
 /**
- *  [Output-only] An opaque ID uniquely identifying the table.
+ *  Output only. An opaque ID uniquely identifying the table.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** [Output-only] The type of the resource. */
+/** The type of resource ID. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -9231,7 +11573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_Table_Labels *labels;
 
 /**
- *  [Output-only] The time when this table was last modified, in milliseconds
+ *  Output only. The time when this table was last modified, in milliseconds
  *  since the epoch.
  *
  *  Uses NSNumber of unsignedLongLongValue.
@@ -9239,39 +11581,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
 /**
- *  [Output-only] The geographic location where the table resides. This value is
+ *  Output only. The geographic location where the table resides. This value is
  *  inherited from the dataset.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** [Optional] Materialized view definition. */
+/** Optional. The materialized view definition. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MaterializedViewDefinition *materializedView;
 
+/** Output only. The materialized view status. */
+@property(nonatomic, strong, nullable) GTLRBigquery_MaterializedViewStatus *materializedViewStatus;
+
 /**
- *  [Optional] Max staleness of data that could be returned when table or
- *  materialized view is queried (formatted as Google SQL Interval type).
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
+ *  Optional. The maximum staleness of data that could be returned when the
+ *  table (or stale MV) is queried. Staleness encoded as a string encoding of
+ *  sql IntervalValue type.
  */
 @property(nonatomic, copy, nullable) NSString *maxStaleness;
 
-/**
- *  [Output-only, Beta] Present iff this table represents a ML model. Describes
- *  the training information for the model, and it is required to run 'PREDICT'
- *  queries.
- */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelDefinition *model;
 
 /**
- *  [Output-only] Number of logical bytes that are less than 90 days old.
+ *  Output only. Number of logical bytes that are less than 90 days old.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numActiveLogicalBytes;
 
 /**
- *  [Output-only] Number of physical bytes less than 90 days old. This data is
+ *  Output only. Number of physical bytes less than 90 days old. This data is
  *  not kept in real time, and might be delayed by a few seconds to a few
  *  minutes.
  *
@@ -9280,15 +11619,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *numActivePhysicalBytes;
 
 /**
- *  [Output-only] The size of this table in bytes, excluding any data in the
- *  streaming buffer.
+ *  Output only. The size of this table in logical bytes, excluding any data in
+ *  the streaming buffer.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numBytes;
 
 /**
- *  [Output-only] The number of bytes in the table that are considered
+ *  Output only. The number of logical bytes in the table that are considered
  *  "long-term storage".
  *
  *  Uses NSNumber of longLongValue.
@@ -9296,14 +11635,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *numLongTermBytes;
 
 /**
- *  [Output-only] Number of logical bytes that are more than 90 days old.
+ *  Output only. Number of logical bytes that are more than 90 days old.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numLongTermLogicalBytes;
 
 /**
- *  [Output-only] Number of physical bytes more than 90 days old. This data is
+ *  Output only. Number of physical bytes more than 90 days old. This data is
  *  not kept in real time, and might be delayed by a few seconds to a few
  *  minutes.
  *
@@ -9312,7 +11651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *numLongTermPhysicalBytes;
 
 /**
- *  [Output-only] The number of partitions present in the table or materialized
+ *  Output only. The number of partitions present in the table or materialized
  *  view. This data is not kept in real time, and might be delayed by a few
  *  seconds to a few minutes.
  *
@@ -9321,24 +11660,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *numPartitions;
 
 /**
- *  [Output-only] [TrustedTester] The physical size of this table in bytes,
- *  excluding any data in the streaming buffer. This includes compression and
- *  storage used for time travel.
+ *  Output only. The physical size of this table in bytes. This includes storage
+ *  used for time travel.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numPhysicalBytes;
 
 /**
- *  [Output-only] The number of rows of data in this table, excluding any data
- *  in the streaming buffer.
+ *  Output only. The number of rows of data in this table, excluding any data in
+ *  the streaming buffer.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numRows;
 
 /**
- *  [Output-only] Number of physical bytes used by time travel storage (deleted
+ *  Output only. Number of physical bytes used by time travel storage (deleted
  *  or changed data). This data is not kept in real time, and might be delayed
  *  by a few seconds to a few minutes.
  *
@@ -9347,7 +11685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *numTimeTravelPhysicalBytes;
 
 /**
- *  [Output-only] Total number of logical bytes in the table or materialized
+ *  Output only. Total number of logical bytes in the table or materialized
  *  view.
  *
  *  Uses NSNumber of longLongValue.
@@ -9355,7 +11693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *numTotalLogicalBytes;
 
 /**
- *  [Output-only] The physical size of this table in bytes. This also includes
+ *  Output only. The physical size of this table in bytes. This also includes
  *  storage used for time travel. This data is not kept in real time, and might
  *  be delayed by a few seconds to a few minutes.
  *
@@ -9363,15 +11701,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *numTotalPhysicalBytes;
 
-/**
- *  [TrustedTester] Range partitioning specification for this table. Only one of
- *  timePartitioning and rangePartitioning should be specified.
- */
+/** If specified, configures range partitioning for this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
 
 /**
- *  [Optional] If set to true, queries over this table require a partition
- *  filter that can be used for partition elimination to be specified.
+ *  Optional. Output only. Table references of all replicas currently active on
+ *  the table.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableReference *> *replicas;
+
+/**
+ *  Optional. If set to true, queries over this table require a partition filter
+ *  that can be used for partition elimination to be specified.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9388,45 +11729,54 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Table_ResourceTags *resourceTags;
 
-/** [Optional] Describes the schema of this table. */
+/** Optional. Describes the schema of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
-/** [Output-only] A URL that can be used to access this resource again. */
+/** Output only. A URL that can be used to access this resource again. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** [Output-only] Snapshot definition. */
+/**
+ *  Output only. Contains information about the snapshot. This value is set via
+ *  snapshot creation.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_SnapshotDefinition *snapshotDefinition;
 
 /**
- *  [Output-only] Contains information regarding this table's streaming buffer,
+ *  Output only. Contains information regarding this table's streaming buffer,
  *  if one is present. This field will be absent if the table is not being
  *  streamed to or if there is no data in the streaming buffer.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Streamingbuffer *streamingBuffer;
 
-/** [Optional] The table constraints on the table. */
+/** Optional. Tables Primary Key and Foreign Key information */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableConstraints *tableConstraints;
 
-/** [Required] Reference describing the ID of this table. */
+/** Required. Reference describing the ID of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
 /**
- *  Time-based partitioning specification for this table. Only one of
- *  timePartitioning and rangePartitioning should be specified.
+ *  Optional. Table replication info for table created `AS REPLICA` DDL like:
+ *  `CREATE MATERIALIZED VIEW mv1 AS REPLICA OF src_mv`
  */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReplicationInfo *tableReplicationInfo;
+
+/** If specified, configures time-based partitioning for this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
- *  [Output-only] Describes the table type. The following values are supported:
- *  TABLE: A normal BigQuery table. VIEW: A virtual table defined by a SQL
- *  query. SNAPSHOT: An immutable, read-only table that is a copy of another
- *  table. [TrustedTester] MATERIALIZED_VIEW: SQL query whose result is
- *  persisted. EXTERNAL: A table that references data stored in an external
- *  storage system, such as Google Cloud Storage. The default value is TABLE.
+ *  Output only. Describes the table type. The following values are supported: *
+ *  `TABLE`: A normal BigQuery table. * `VIEW`: A virtual table defined by a SQL
+ *  query. * `EXTERNAL`: A table that references data stored in an external
+ *  storage system, such as Google Cloud Storage. * `MATERIALIZED_VIEW`: A
+ *  precomputed view defined by a SQL query. * `SNAPSHOT`: An immutable BigQuery
+ *  table that preserves the contents of a base table at a particular time. See
+ *  additional information on [table
+ *  snapshots](/bigquery/docs/table-snapshots-intro). The default value is
+ *  `TABLE`.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** [Optional] The view definition. */
+/** Optional. The view definition. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ViewDefinition *view;
 
 @end
@@ -9483,47 +11833,61 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_TableConstraints
+ *  The TableConstraints defines the primary key and foreign key.
  */
 @interface GTLRBigquery_TableConstraints : GTLRObject
 
-/** [Optional] The foreign keys of the tables. */
+/**
+ *  Optional. Present only if the table has a foreign key. The foreign key is
+ *  not enforced.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableConstraints_ForeignKeys_Item *> *foreignKeys;
 
-/** [Optional] The primary key of the table. */
+/** Represents the primary key constraint on a table's columns. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableConstraints_PrimaryKey *primaryKey;
 
 @end
 
 
 /**
- *  GTLRBigquery_TableConstraints_ForeignKeys_Item
+ *  Represents a foreign key constraint on a table's columns.
  */
 @interface GTLRBigquery_TableConstraints_ForeignKeys_Item : GTLRObject
 
+/** Required. The columns that compose the foreign key. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item *> *columnReferences;
+
+/** Optional. Set only if the foreign key constraint is named. */
 @property(nonatomic, copy, nullable) NSString *name;
+
 @property(nonatomic, strong, nullable) GTLRBigquery_TableConstraints_ForeignKeys_Item_ReferencedTable *referencedTable;
 
 @end
 
 
 /**
- *  [Optional] The primary key of the table.
+ *  Represents the primary key constraint on a table's columns.
  */
 @interface GTLRBigquery_TableConstraints_PrimaryKey : GTLRObject
 
+/** Required. The columns that are composed of the primary key constraint. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *columns;
 
 @end
 
 
 /**
- *  GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item
+ *  The pair of the foreign key column and primary key column.
  */
 @interface GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item : GTLRObject
 
+/**
+ *  Required. The column in the primary key that are referenced by the
+ *  referencing_column.
+ */
 @property(nonatomic, copy, nullable) NSString *referencedColumn;
+
+/** Required. The column that composes the foreign key. */
 @property(nonatomic, copy, nullable) NSString *referencingColumn;
 
 @end
@@ -9542,12 +11906,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_TableDataInsertAllRequest
+ *  Request for sending a single streaming insert.
  */
 @interface GTLRBigquery_TableDataInsertAllRequest : GTLRObject
 
 /**
- *  [Optional] Accept rows that contain values that do not match the schema. The
+ *  Optional. Accept rows that contain values that do not match the schema. The
  *  unknown values are ignored. Default is false, which treats unknown values as
  *  errors.
  *
@@ -9555,14 +11919,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreUnknownValues;
 
-/** The resource type of the response. */
+/**
+ *  Optional. The resource type of the response. The value is not checked at the
+ *  backend. Historically, it has been set to
+ *  "bigquery#tableDataInsertAllRequest" but you are not required to set it.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The rows to insert. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableDataInsertAllRequest_Rows_Item *> *rows;
 
 /**
- *  [Optional] Insert all valid rows of a request, even if invalid rows exist.
+ *  Optional. Insert all valid rows of a request, even if invalid rows exist.
  *  The default value is false, which causes the entire request to fail if any
  *  invalid rows exist.
  *
@@ -9571,54 +11938,58 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *skipInvalidRows;
 
 /**
- *  If specified, treats the destination table as a base template, and inserts
- *  the rows into an instance table named "{destination}{templateSuffix}".
- *  BigQuery will manage creation of the instance table, using the schema of the
- *  base template table. See
+ *  Optional. If specified, treats the destination table as a base template, and
+ *  inserts the rows into an instance table named
+ *  "{destination}{templateSuffix}". BigQuery will manage creation of the
+ *  instance table, using the schema of the base template table. See
  *  https://cloud.google.com/bigquery/streaming-data-into-bigquery#template-tables
  *  for considerations when working with templates tables.
  */
 @property(nonatomic, copy, nullable) NSString *templateSuffix;
 
+/**
+ *  Optional. Unique request trace id. Used for debugging purposes only. It is
+ *  case-sensitive, limited to up to 36 ASCII characters. A UUID is recommended.
+ */
+@property(nonatomic, copy, nullable) NSString *traceId;
+
 @end
 
 
 /**
- *  GTLRBigquery_TableDataInsertAllRequest_Rows_Item
+ *  Data for a single insertion row.
  */
 @interface GTLRBigquery_TableDataInsertAllRequest_Rows_Item : GTLRObject
 
 /**
- *  [Optional] A unique ID for each row. BigQuery uses this property to detect
- *  duplicate insertion requests on a best-effort basis.
+ *  Insertion ID for best-effort deduplication. This feature is not recommended,
+ *  and users seeking stronger insertion semantics are encouraged to use other
+ *  mechanisms such as the BigQuery Write API.
  */
 @property(nonatomic, copy, nullable) NSString *insertId;
 
-/**
- *  [Required] A JSON object that contains a row of data. The object's
- *  properties and values must match the destination table's schema.
- */
+/** Data for a single row. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JsonObject *json;
 
 @end
 
 
 /**
- *  GTLRBigquery_TableDataInsertAllResponse
+ *  Describes the format of a streaming insert response.
  */
 @interface GTLRBigquery_TableDataInsertAllResponse : GTLRObject
 
-/** An array of errors for rows that were not inserted. */
+/** Describes specific errors encountered while processing the request. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item *> *insertErrors;
 
-/** The resource type of the response. */
+/** Returns "bigquery#tableDataInsertAllResponse". */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item
+ *  Error details about a single row's insertion.
  */
 @interface GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item : GTLRObject
 
@@ -9657,7 +12028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableRow *> *rows;
 
 /**
- *  The total number of rows in the complete table.
+ *  Total rows of the entire table. In order to show default value 0 we have to
+ *  present it as string.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9667,49 +12039,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_TableFieldSchema
+ *  A field in TableSchema
  */
 @interface GTLRBigquery_TableFieldSchema : GTLRObject
 
-/**
- *  [Optional] The categories attached to this field, used for field-level
- *  access control.
- */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_Categories *categories;
 
 /**
- *  Optional. Collation specification of the field. It only can be set on string
- *  type field.
+ *  Optional. Field collation can be set only when the type of field is STRING.
+ *  The following values are supported: * 'und:ci': undetermined locale, case
+ *  insensitive. * '': empty string. Default to case-sensitive behavior.
  */
 @property(nonatomic, copy, nullable) NSString *collation;
 
 /**
- *  Optional. A SQL expression to specify the default value for this field. It
- *  can only be set for top level fields (columns). You can use struct or array
- *  expression to specify default value for the entire struct or array. The
- *  valid SQL expressions are: - Literals for all data types, including STRUCT
- *  and ARRAY. - Following functions: - CURRENT_TIMESTAMP - CURRENT_TIME -
- *  CURRENT_DATE - CURRENT_DATETIME - GENERATE_UUID - RAND - SESSION_USER -
- *  ST_GEOGPOINT - Struct or array composed with the above allowed functions,
- *  for example, [CURRENT_DATE(), DATE '2020-01-01']
+ *  Optional. A SQL expression to specify the [default value]
+ *  (https://cloud.google.com/bigquery/docs/default-values) for this field.
  */
 @property(nonatomic, copy, nullable) NSString *defaultValueExpression;
 
 /**
- *  [Optional] The field description. The maximum length is 1,024 characters.
+ *  Optional. The field description. The maximum length is 1,024 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  [Optional] Describes the nested schema fields if the type property is set to
+ *  Optional. Describes the nested schema fields if the type property is set to
  *  RECORD.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableFieldSchema *> *fields;
 
 /**
- *  [Optional] Maximum length of values of this field for STRINGS or BYTES. If
+ *  Optional. Maximum length of values of this field for STRINGS or BYTES. If
  *  max_length is not specified, no maximum length constraint is imposed on this
  *  field. If type = "STRING", then max_length represents the maximum UTF-8
  *  length of strings in this field. If type = "BYTES", then max_length
@@ -9721,68 +12085,83 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *maxLength;
 
 /**
- *  [Optional] The field mode. Possible values include NULLABLE, REQUIRED and
+ *  Optional. The field mode. Possible values include NULLABLE, REQUIRED and
  *  REPEATED. The default value is NULLABLE.
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
- *  [Required] The field name. The name must contain only letters (a-z, A-Z),
+ *  Required. The field name. The name must contain only letters (a-z, A-Z),
  *  numbers (0-9), or underscores (_), and must start with a letter or
  *  underscore. The maximum length is 300 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. The policy tags attached to this field, used for field-level
+ *  access control. If not set, defaults to empty policy_tags.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_PolicyTags *policyTags;
 
 /**
- *  [Optional] Precision (maximum number of total digits in base 10) and scale
+ *  Optional. Precision (maximum number of total digits in base 10) and scale
  *  (maximum number of digits in the fractional part in base 10) constraints for
  *  values of this field for NUMERIC or BIGNUMERIC. It is invalid to set
  *  precision or scale if type ≠ "NUMERIC" and ≠ "BIGNUMERIC". If precision and
  *  scale are not specified, no value range constraint is imposed on this field
  *  insofar as values are permitted by the type. Values of this NUMERIC or
- *  BIGNUMERIC field must be in this range when: - Precision (P) and scale (S)
- *  are specified: [-10P-S + 10-S, 10P-S - 10-S] - Precision (P) is specified
+ *  BIGNUMERIC field must be in this range when: * Precision (P) and scale (S)
+ *  are specified: [-10P-S + 10-S, 10P-S - 10-S] * Precision (P) is specified
  *  but not scale (and thus scale is interpreted to be equal to zero): [-10P +
  *  1, 10P - 1]. Acceptable values for precision and scale if both are
- *  specified: - If type = "NUMERIC": 1 ≤ precision - scale ≤ 29 and 0 ≤ scale ≤
- *  9. - If type = "BIGNUMERIC": 1 ≤ precision - scale ≤ 38 and 0 ≤ scale ≤ 38.
+ *  specified: * If type = "NUMERIC": 1 ≤ precision - scale ≤ 29 and 0 ≤ scale ≤
+ *  9. * If type = "BIGNUMERIC": 1 ≤ precision - scale ≤ 38 and 0 ≤ scale ≤ 38.
  *  Acceptable values for precision if only precision is specified but not scale
- *  (and thus scale is interpreted to be equal to zero): - If type = "NUMERIC":
- *  1 ≤ precision ≤ 29. - If type = "BIGNUMERIC": 1 ≤ precision ≤ 38. If scale
+ *  (and thus scale is interpreted to be equal to zero): * If type = "NUMERIC":
+ *  1 ≤ precision ≤ 29. * If type = "BIGNUMERIC": 1 ≤ precision ≤ 38. If scale
  *  is specified but not precision, then it is invalid.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *precision;
 
-/**
- *  Optional. The subtype of the RANGE, if the type of this field is RANGE. If
- *  the type is RANGE, this field is required. Possible values for the field
- *  element type of a RANGE include: - DATE - DATETIME - TIMESTAMP
- */
+/** Represents the type of a field element. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_RangeElementType *rangeElementType;
 
 /**
- *  Optional. Rounding Mode specification of the field. It only can be set on
- *  NUMERIC or BIGNUMERIC type fields.
+ *  Optional. Specifies the rounding mode to be used when storing values of
+ *  NUMERIC and BIGNUMERIC type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TableFieldSchema_RoundingMode_RoundHalfAwayFromZero
+ *        ROUND_HALF_AWAY_FROM_ZERO rounds half values away from zero when
+ *        applying precision and scale upon writing of NUMERIC and BIGNUMERIC
+ *        values. For Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5, 1.6, 1.7, 1.8, 1.9
+ *        => 2 (Value: "ROUND_HALF_AWAY_FROM_ZERO")
+ *    @arg @c kGTLRBigquery_TableFieldSchema_RoundingMode_RoundHalfEven
+ *        ROUND_HALF_EVEN rounds half values to the nearest even value when
+ *        applying precision and scale upon writing of NUMERIC and BIGNUMERIC
+ *        values. For Scale: 0 1.1, 1.2, 1.3, 1.4 => 1 1.5 => 2 1.6, 1.7, 1.8,
+ *        1.9 => 2 2.5 => 2 (Value: "ROUND_HALF_EVEN")
+ *    @arg @c kGTLRBigquery_TableFieldSchema_RoundingMode_RoundingModeUnspecified
+ *        Unspecified will default to using ROUND_HALF_AWAY_FROM_ZERO. (Value:
+ *        "ROUNDING_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *roundingMode;
 
 /**
- *  [Optional] See documentation for precision.
+ *  Optional. See documentation for precision.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scale;
 
 /**
- *  [Required] The field data type. Possible values include STRING, BYTES,
- *  INTEGER, INT64 (same as INTEGER), FLOAT, FLOAT64 (same as FLOAT), NUMERIC,
- *  BIGNUMERIC, BOOLEAN, BOOL (same as BOOLEAN), TIMESTAMP, DATE, TIME,
- *  DATETIME, INTERVAL, RECORD (where RECORD indicates that the field contains a
- *  nested schema) or STRUCT (same as RECORD).
+ *  Required. The field data type. Possible values include: * STRING * BYTES *
+ *  INTEGER (or INT64) * FLOAT (or FLOAT64) * BOOLEAN (or BOOL) * TIMESTAMP *
+ *  DATE * TIME * DATETIME * GEOGRAPHY * NUMERIC * BIGNUMERIC * JSON * RECORD
+ *  (or STRUCT) Use of RECORD/STRUCT indicates that the field contains a nested
+ *  schema.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -9790,29 +12169,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  [Optional] The categories attached to this field, used for field-level
- *  access control.
+ *  Deprecated.
  */
 @interface GTLRBigquery_TableFieldSchema_Categories : GTLRObject
 
-/**
- *  A list of category resource names. For example,
- *  "projects/1/taxonomies/2/categories/3". At most 5 categories are allowed.
- */
+/** Deprecated. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
 @end
 
 
 /**
- *  GTLRBigquery_TableFieldSchema_PolicyTags
+ *  Optional. The policy tags attached to this field, used for field-level
+ *  access control. If not set, defaults to empty policy_tags.
  */
 @interface GTLRBigquery_TableFieldSchema_PolicyTags : GTLRObject
 
 /**
- *  A list of category resource names. For example,
- *  "projects/1/location/eu/taxonomies/2/policyTags/3". At most 1 policy tag is
- *  allowed.
+ *  A list of policy tag resource names. For example,
+ *  "projects/1/locations/eu/taxonomies/2/policyTags/3". At most 1 policy tag is
+ *  currently allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -9820,20 +12196,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  Optional. The subtype of the RANGE, if the type of this field is RANGE. If
- *  the type is RANGE, this field is required. Possible values for the field
- *  element type of a RANGE include: - DATE - DATETIME - TIMESTAMP
+ *  Represents the type of a field element.
  */
 @interface GTLRBigquery_TableFieldSchema_RangeElementType : GTLRObject
 
-/** The field element type of a RANGE */
+/** Required. The type of a field element. See TableFieldSchema.type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
 
 /**
- *  GTLRBigquery_TableList
+ *  Partial projection of the metadata for a given table in a list response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "tables" property. If returned as the result of a query, it should
@@ -9874,20 +12248,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_TableList_Tables_Item : GTLRObject
 
-/** [Beta] Clustering specification for this table, if configured. */
+/** Clustering specification for this table, if configured. */
 @property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
 /**
- *  The time when this table was created, in milliseconds since the epoch.
+ *  Output only. The time when this table was created, in milliseconds since the
+ *  epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /**
- *  [Optional] The time when this table expires, in milliseconds since the
- *  epoch. If not present, the table will persist indefinitely. Expired tables
- *  will be deleted and their storage reclaimed.
+ *  The time when this table expires, in milliseconds since the epoch. If not
+ *  present, the table will persist indefinitely. Expired tables will be deleted
+ *  and their storage reclaimed.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9897,7 +12272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *friendlyName;
 
 /**
- *  An opaque ID of the table
+ *  An opaque ID of the table.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9912,21 +12287,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableList_Tables_Item_Labels *labels;
 
-/** The range partitioning specification for this table, if configured. */
+/** The range partitioning for this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
 
-/** A reference uniquely identifying the table. */
+/**
+ *  Optional. If set to true, queries including this table must specify a
+ *  partition filter. This filter is used for partition elimination.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter;
+
+/** A reference uniquely identifying table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
-/**
- *  The time-based partitioning specification for this table, if configured.
- */
+/** The time-based partitioning for this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
-/** The type of table. Possible values are: TABLE, VIEW. */
+/** The type of table. */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** Additional details for a view. */
+/** Information about a logical view. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableList_Tables_Item_View *view;
 
 @end
@@ -9946,12 +12327,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  Additional details for a view.
+ *  Information about a logical view.
  */
 @interface GTLRBigquery_TableList_Tables_Item_View : GTLRObject
 
+/** Specifices the privacy policy for the view. */
+@property(nonatomic, strong, nullable) GTLRBigquery_PrivacyPolicy *privacyPolicy;
+
 /**
- *  True if view is defined in legacy SQL dialect, false if in standard SQL.
+ *  True if view is defined in legacy SQL dialect, false if in GoogleSQL.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9961,21 +12345,118 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Table level detail on the usage of metadata caching. Only set for Metadata
+ *  caching eligible tables referenced in the query.
+ */
+@interface GTLRBigquery_TableMetadataCacheUsage : GTLRObject
+
+/**
+ *  Free form human-readable reason metadata caching was unused for the job.
+ */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/** Metadata caching eligible table referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
+
+/**
+ *  [Table type](/bigquery/docs/reference/rest/v2/tables#Table.FIELDS.type).
+ */
+@property(nonatomic, copy, nullable) NSString *tableType;
+
+/**
+ *  Reason for not using metadata caching for the table.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_ExceededMaxStaleness
+ *        Metadata cache was outside the table's maxStaleness. (Value:
+ *        "EXCEEDED_MAX_STALENESS")
+ *    @arg @c kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_MetadataCachingNotEnabled
+ *        Metadata caching feature is not enabled. [Update BigLake tables]
+ *        (/bigquery/docs/create-cloud-storage-table-biglake#update-biglake-tables)
+ *        to enable the metadata caching. (Value:
+ *        "METADATA_CACHING_NOT_ENABLED")
+ *    @arg @c kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_OtherReason
+ *        Other unknown reason. (Value: "OTHER_REASON")
+ *    @arg @c kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_UnusedReasonUnspecified
+ *        Unused reasons not specified. (Value: "UNUSED_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *unusedReason;
+
+@end
+
+
+/**
  *  GTLRBigquery_TableReference
  */
 @interface GTLRBigquery_TableReference : GTLRObject
 
-/** [Required] The ID of the dataset containing this table. */
+/** Required. The ID of the dataset containing this table. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** [Required] The ID of the project containing this table. */
+/** Required. The ID of the project containing this table. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  [Required] The ID of the table. The ID must contain only letters (a-z, A-Z),
- *  numbers (0-9), or underscores (_). The maximum length is 1,024 characters.
+ *  Required. The ID of the table. The ID can contain Unicode characters in
+ *  category L (letter), M (mark), N (number), Pc (connector, including
+ *  underscore), Pd (dash), and Zs (space). For more information, see [General
+ *  Category](https://wikipedia.org/wiki/Unicode_character_property#General_Category).
+ *  The maximum length is 1,024 characters. Certain operations allow suffixing
+ *  of the table ID with a partition decorator, such as `sample_table$20190123`.
  */
 @property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
+ *  Replication info of a table created using `AS REPLICA` DDL like: `CREATE
+ *  MATERIALIZED VIEW mv1 AS REPLICA OF src_mv`
+ */
+@interface GTLRBigquery_TableReplicationInfo : GTLRObject
+
+/**
+ *  Optional. Output only. If source is a materialized view, this field
+ *  signifies the last refresh time of the source.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicatedSourceLastRefreshTime;
+
+/**
+ *  Optional. Output only. Replication error that will permanently stopped table
+ *  replication.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ErrorProto *replicationError;
+
+/**
+ *  Required. Specifies the interval at which the source table is polled for
+ *  updates.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicationIntervalMs;
+
+/**
+ *  Optional. Output only. Replication status of configured replication.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TableReplicationInfo_ReplicationStatus_Active
+ *        Replication is Active with no errors. (Value: "ACTIVE")
+ *    @arg @c kGTLRBigquery_TableReplicationInfo_ReplicationStatus_PermissionDenied
+ *        Source revoked replication permissions. (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRBigquery_TableReplicationInfo_ReplicationStatus_ReplicationStatusUnspecified
+ *        Default value. (Value: "REPLICATION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TableReplicationInfo_ReplicationStatus_SourceDeleted
+ *        Source object is deleted. (Value: "SOURCE_DELETED")
+ *    @arg @c kGTLRBigquery_TableReplicationInfo_ReplicationStatus_UnsupportedConfiguration
+ *        Source configuration doesn’t allow replication. (Value:
+ *        "UNSUPPORTED_CONFIGURATION")
+ */
+@property(nonatomic, copy, nullable) NSString *replicationStatus;
+
+/** Required. Source table reference that is replicated. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *sourceTable;
 
 @end
 
@@ -9994,7 +12475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_TableSchema
+ *  Schema of a table
  */
 @interface GTLRBigquery_TableSchema : GTLRObject
 
@@ -10038,34 +12519,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_TimePartitioning : GTLRObject
 
 /**
- *  [Optional] Number of milliseconds for which to keep the storage for
- *  partitions in the table. The storage in a partition will have an expiration
- *  time of its partition time plus this value.
+ *  Optional. Number of milliseconds for which to keep the storage for a
+ *  partition. A wrapper is used here because 0 is an invalid value.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *expirationMs;
 
 /**
- *  [Beta] [Optional] If not set, the table is partitioned by pseudo column,
- *  referenced via either '_PARTITIONTIME' as TIMESTAMP type, or
- *  '_PARTITIONDATE' as DATE type. If field is specified, the table is instead
- *  partitioned by this field. The field must be a top-level TIMESTAMP or DATE
- *  field. Its mode must be NULLABLE or REQUIRED.
+ *  Optional. If not set, the table is partitioned by pseudo column
+ *  '_PARTITIONTIME'; if set, the table is partitioned by this field. The field
+ *  must be a top-level TIMESTAMP or DATE field. Its mode must be NULLABLE or
+ *  REQUIRED. A wrapper is used here because an empty string is an invalid
+ *  value.
  */
 @property(nonatomic, copy, nullable) NSString *field;
 
 /**
- *  requirePartitionFilter
+ *  If set to true, queries over this table require a partition filter that can
+ *  be used for partition elimination to be specified. This field is deprecated;
+ *  please set the field with the same name on the table itself instead. This
+ *  field needs a wrapper because we want to output the default value, false, if
+ *  the user explicitly set it.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter;
+@property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter GTLR_DEPRECATED;
 
 /**
- *  [Required] The supported types are DAY, HOUR, MONTH, and YEAR, which will
- *  generate one partition per day, hour, month, and year, respectively. When
- *  the type is not specified, the default behavior is DAY.
+ *  Required. The supported types are DAY, HOUR, MONTH, and YEAR, which will
+ *  generate one partition per day, hour, month, and year, respectively.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -11008,11 +13491,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_TransactionInfo
+ *  [Alpha] Information of a multi-statement transaction.
  */
 @interface GTLRBigquery_TransactionInfo : GTLRObject
 
-/** [Output-only] // [Alpha] Id of the transaction. */
+/** Output only. [Alpha] Id of the transaction. */
 @property(nonatomic, copy, nullable) NSString *transactionId;
 
 @end
@@ -11036,10 +13519,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Request format for undeleting a dataset.
+ */
+@interface GTLRBigquery_UndeleteDatasetRequest : GTLRObject
+
+/**
+ *  Optional. The exact time when the dataset was deleted. If not specified, it
+ *  will undelete the most recently deleted version.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
+
+@end
+
+
+/**
  *  This is used for defining User Defined Function (UDF) resources only when
- *  using legacy SQL. Users of Standard SQL should leverage either DDL (e.g.
- *  CREATE [TEMPORARY] FUNCTION ... ) or the Routines API to define UDF
- *  resources. For additional information on migrating, see:
+ *  using legacy SQL. Users of GoogleSQL should leverage either DDL (e.g. CREATE
+ *  [TEMPORARY] FUNCTION ... ) or the Routines API to define UDF resources. For
+ *  additional information on migrating, see:
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql#differences_in_user-defined_javascript_functions
  */
 @interface GTLRBigquery_UserDefinedFunctionResource : GTLRObject
@@ -11099,17 +13596,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_ViewDefinition
+ *  Describes the definition of a logical view.
  */
 @interface GTLRBigquery_ViewDefinition : GTLRObject
 
-/** [Required] A query that BigQuery executes when the view is referenced. */
+/** Optional. Specifices the privacy policy for the view. */
+@property(nonatomic, strong, nullable) GTLRBigquery_PrivacyPolicy *privacyPolicy;
+
+/** Required. A query that BigQuery executes when the view is referenced. */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  True if the column names are explicitly specified. For example by using the
- *  'CREATE VIEW v(c1, c2) AS ...' syntax. Can only be set using BigQuery's
- *  standard SQL: https://cloud.google.com/bigquery/sql-reference/
+ *  'CREATE VIEW v(c1, c2) AS ...' syntax. Can only be set for GoogleSQL views.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -11117,9 +13616,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Specifies whether to use BigQuery's legacy SQL for this view. The default
- *  value is true. If set to false, the view will use BigQuery's standard SQL:
+ *  value is true. If set to false, the view will use BigQuery's GoogleSQL:
  *  https://cloud.google.com/bigquery/sql-reference/ Queries and views that
- *  reference this view must use the same flag value.
+ *  reference this view must use the same flag value. A wrapper is used here
+ *  because the default value is True.
  *
  *  Uses NSNumber of boolValue.
  */

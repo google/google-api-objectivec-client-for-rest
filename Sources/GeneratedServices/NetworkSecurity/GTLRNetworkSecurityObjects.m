@@ -466,7 +466,7 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_ListAddressGroupReferencesResponseAddressGroupReference
-@dynamic firewallPolicy, rulePriority;
+@dynamic firewallPolicy, rulePriority, securityPolicy;
 @end
 
 

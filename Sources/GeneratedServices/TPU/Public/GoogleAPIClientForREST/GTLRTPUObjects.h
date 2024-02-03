@@ -1124,6 +1124,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @property(nonatomic, strong, nullable) NSNumber *reserved;
 
+/**
+ *  Optional. Defines whether the node is Spot VM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spot;
+
 @end
 
 

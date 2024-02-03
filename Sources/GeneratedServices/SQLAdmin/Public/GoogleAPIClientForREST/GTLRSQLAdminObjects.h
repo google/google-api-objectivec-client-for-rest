@@ -821,13 +821,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_S
 // GTLRSQLAdmin_DatabaseInstance.sqlNetworkArchitecture
 
 /**
- *  Instance is a Tenancy Unit (TU) instance.
+ *  The instance uses the new network architecture.
  *
  *  Value: "NEW_NETWORK_ARCHITECTURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_NewNetworkArchitecture;
 /**
- *  Instance is an Umbrella instance.
+ *  The instance uses the old network architecture.
  *
  *  Value: "OLD_NETWORK_ARCHITECTURE"
  */
@@ -2053,6 +2053,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "SQLSERVER_SERVERNAME_MISMATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch;
+/**
+ *  If a time out occurs while the subscription counts are calculated, then this
+ *  value is set to 1. Otherwise, this value is set to 2.
+ *
+ *  Value: "SUBSCRIPTION_CALCULATION_STATUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SubscriptionCalculationStatus;
 /**
  *  This code instructs customers to turn on point-in-time recovery manually for
  *  the instance after promoting the Cloud SQL for PostgreSQL instance.
@@ -3292,10 +3299,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_NewNetworkArchitecture
- *        Instance is a Tenancy Unit (TU) instance. (Value:
+ *        The instance uses the new network architecture. (Value:
  *        "NEW_NETWORK_ARCHITECTURE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_OldNetworkArchitecture
- *        Instance is an Umbrella instance. (Value: "OLD_NETWORK_ARCHITECTURE")
+ *        The instance uses the old network architecture. (Value:
+ *        "OLD_NETWORK_ARCHITECTURE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_SqlNetworkArchitecture_SqlNetworkArchitectureUnspecified
  *        Value "SQL_NETWORK_ARCHITECTURE_UNSPECIFIED"
  */
@@ -3740,6 +3748,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions *mysqlExportOptions;
 
 /**
+ *  Optional. Whether or not the export should be parallel.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parallel;
+
+/**
  *  Export only schemas.
  *
  *  Uses NSNumber of boolValue.
@@ -3752,6 +3767,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  you can specify only one table.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tables;
+
+/**
+ *  Optional. The number of threads to use for parallel export.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threads;
 
 @end
 
@@ -5618,6 +5640,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch
  *        SQL Server \@\@SERVERNAME does not match actual host name. (Value:
  *        "SQLSERVER_SERVERNAME_MISMATCH")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SubscriptionCalculationStatus
+ *        If a time out occurs while the subscription counts are calculated,
+ *        then this value is set to 1. Otherwise, this value is set to 2.
+ *        (Value: "SUBSCRIPTION_CALCULATION_STATUS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_TurnOnPitrAfterPromote
  *        This code instructs customers to turn on point-in-time recovery
  *        manually for the instance after promoting the Cloud SQL for PostgreSQL

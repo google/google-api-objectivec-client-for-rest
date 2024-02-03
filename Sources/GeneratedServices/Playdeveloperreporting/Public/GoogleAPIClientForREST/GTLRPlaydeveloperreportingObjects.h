@@ -810,10 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/**
- *  Identifier. The resource name of the issue. Format:
- *  apps/{app}/errorIssues/{issue}
- */
+/** Identifier. The resource name of the issue. Format: apps/{app}/{issue} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -866,9 +863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 @property(nonatomic, copy, nullable) NSString *issue;
 
-/**
- *  The resource name of the report. Format: apps/{app}/errorReports/{report}
- */
+/** The resource name of the report. Format: apps/{app}/{report} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The OS version on which an event in this error report occurred on. */

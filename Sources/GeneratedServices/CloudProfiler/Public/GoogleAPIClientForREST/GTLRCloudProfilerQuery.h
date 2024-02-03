@@ -34,16 +34,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateProfile creates a new profile resource in the online mode. The server
- *  ensures that the new profiles are created at a constant rate per deployment,
- *  so the creation request may hang for some time until the next profile
- *  session is available. The request may fail with ABORTED error if the
- *  creation is not available within ~1m, the response will indicate the
- *  duration of the backoff the client should take before attempting creating a
- *  profile again. The backoff duration is returned in google.rpc.RetryInfo
- *  extension on the response status. To a gRPC client, the extension will be
- *  return as a binary-serialized proto in the trailing metadata item named
- *  "google.rpc.retryinfo-bin".
+ *  CreateProfile creates a new profile resource in the online mode. _Direct use
+ *  of this API is discouraged, please use a [supported profiler
+ *  agent](https://cloud.google.com/profiler/docs/about-profiler#profiling_agent)
+ *  instead for profile collection._ The server ensures that the new profiles
+ *  are created at a constant rate per deployment, so the creation request may
+ *  hang for some time until the next profile session is available. The request
+ *  may fail with ABORTED error if the creation is not available within ~1m, the
+ *  response will indicate the duration of the backoff the client should take
+ *  before attempting creating a profile again. The backoff duration is returned
+ *  in google.rpc.RetryInfo extension on the response status. To a gRPC client,
+ *  the extension will be return as a binary-serialized proto in the trailing
+ *  metadata item named "google.rpc.retryinfo-bin".
  *
  *  Method: cloudprofiler.projects.profiles.create
  *
@@ -60,16 +62,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudProfiler_Profile.
  *
- *  CreateProfile creates a new profile resource in the online mode. The server
- *  ensures that the new profiles are created at a constant rate per deployment,
- *  so the creation request may hang for some time until the next profile
- *  session is available. The request may fail with ABORTED error if the
- *  creation is not available within ~1m, the response will indicate the
- *  duration of the backoff the client should take before attempting creating a
- *  profile again. The backoff duration is returned in google.rpc.RetryInfo
- *  extension on the response status. To a gRPC client, the extension will be
- *  return as a binary-serialized proto in the trailing metadata item named
- *  "google.rpc.retryinfo-bin".
+ *  CreateProfile creates a new profile resource in the online mode. _Direct use
+ *  of this API is discouraged, please use a [supported profiler
+ *  agent](https://cloud.google.com/profiler/docs/about-profiler#profiling_agent)
+ *  instead for profile collection._ The server ensures that the new profiles
+ *  are created at a constant rate per deployment, so the creation request may
+ *  hang for some time until the next profile session is available. The request
+ *  may fail with ABORTED error if the creation is not available within ~1m, the
+ *  response will indicate the duration of the backoff the client should take
+ *  before attempting creating a profile again. The backoff duration is returned
+ *  in google.rpc.RetryInfo extension on the response status. To a gRPC client,
+ *  the extension will be return as a binary-serialized proto in the trailing
+ *  metadata item named "google.rpc.retryinfo-bin".
  *
  *  @param object The @c GTLRCloudProfiler_CreateProfileRequest to include in
  *    the query.
@@ -85,7 +89,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  CreateOfflineProfile creates a new profile resource in the offline mode. The
  *  client provides the profile to create along with the profile bytes, the
- *  server records it.
+ *  server records it. _Direct use of this API is discouraged, please use a
+ *  [supported profiler
+ *  agent](https://cloud.google.com/profiler/docs/about-profiler#profiling_agent)
+ *  instead for profile collection._
  *
  *  Method: cloudprofiler.projects.profiles.createOffline
  *
@@ -104,7 +111,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  CreateOfflineProfile creates a new profile resource in the offline mode. The
  *  client provides the profile to create along with the profile bytes, the
- *  server records it.
+ *  server records it. _Direct use of this API is discouraged, please use a
+ *  [supported profiler
+ *  agent](https://cloud.google.com/profiler/docs/about-profiler#profiling_agent)
+ *  instead for profile collection._
  *
  *  @param object The @c GTLRCloudProfiler_Profile to include in the query.
  *  @param parent Parent project to create the profile in.
@@ -171,7 +181,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  UpdateProfile updates the profile bytes and labels on the profile resource
  *  created in the online mode. Updating the bytes for profiles created in the
  *  offline mode is currently not supported: the profile content must be
- *  provided at the time of the profile creation.
+ *  provided at the time of the profile creation. _Direct use of this API is
+ *  discouraged, please use a [supported profiler
+ *  agent](https://cloud.google.com/profiler/docs/about-profiler#profiling_agent)
+ *  instead for profile collection._
  *
  *  Method: cloudprofiler.projects.profiles.patch
  *
@@ -201,7 +214,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  UpdateProfile updates the profile bytes and labels on the profile resource
  *  created in the online mode. Updating the bytes for profiles created in the
  *  offline mode is currently not supported: the profile content must be
- *  provided at the time of the profile creation.
+ *  provided at the time of the profile creation. _Direct use of this API is
+ *  discouraged, please use a [supported profiler
+ *  agent](https://cloud.google.com/profiler/docs/about-profiler#profiling_agent)
+ *  instead for profile collection._
  *
  *  @param object The @c GTLRCloudProfiler_Profile to include in the query.
  *  @param name Output only. Opaque, server-assigned, unique ID for this

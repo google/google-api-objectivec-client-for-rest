@@ -144,6 +144,7 @@
 @class GTLRContainer_ShieldedNodes;
 @class GTLRContainer_SoleTenantConfig;
 @class GTLRContainer_StandardRolloutPolicy;
+@class GTLRContainer_StatefulHAConfig;
 @class GTLRContainer_Status;
 @class GTLRContainer_Status_Details_Item;
 @class GTLRContainer_StatusCondition;
@@ -440,6 +441,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathP
  *  Value: "LEGACY_DATAPATH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpdate.desiredInTransitEncryptionConfig
+
+/**
+ *  Unspecified, will be inferred as default -
+ *  IN_TRANSIT_ENCRYPTION_UNSPECIFIED.
+ *
+ *  Value: "IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredInTransitEncryptionConfig_InTransitEncryptionConfigUnspecified;
+/**
+ *  In-transit encryption is disabled.
+ *
+ *  Value: "IN_TRANSIT_ENCRYPTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredInTransitEncryptionConfig_InTransitEncryptionDisabled;
+/**
+ *  Data in-transit is encrypted using inter-node transparent encryption.
+ *
+ *  Value: "IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredInTransitEncryptionConfig_InTransitEncryptionInterNodeTransparent;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_ClusterUpdate.desiredPrivateIpv6GoogleAccess
@@ -937,6 +961,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider
  *  Value: "LEGACY_DATAPATH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NetworkConfig.inTransitEncryptionConfig
+
+/**
+ *  Unspecified, will be inferred as default -
+ *  IN_TRANSIT_ENCRYPTION_UNSPECIFIED.
+ *
+ *  Value: "IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_InTransitEncryptionConfig_InTransitEncryptionConfigUnspecified;
+/**
+ *  In-transit encryption is disabled.
+ *
+ *  Value: "IN_TRANSIT_ENCRYPTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_InTransitEncryptionConfig_InTransitEncryptionDisabled;
+/**
+ *  Data in-transit is encrypted using inter-node transparent encryption.
+ *
+ *  Value: "IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_InTransitEncryptionConfig_InTransitEncryptionInterNodeTransparent;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NetworkConfig.privateIpv6GoogleAccess
@@ -2081,6 +2128,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicyConfig *networkPolicyConfig;
 
+/** Optional. Configuration for the StatefulHA add-on. */
+@property(nonatomic, strong, nullable) GTLRContainer_StatefulHAConfig *statefulHaConfig;
+
 @end
 
 
@@ -3180,6 +3230,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired config of Intra-node visibility. */
 @property(nonatomic, strong, nullable) GTLRContainer_IntraNodeVisibilityConfig *desiredIntraNodeVisibilityConfig;
+
+/**
+ *  Specify the details of in-transit encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredInTransitEncryptionConfig_InTransitEncryptionConfigUnspecified
+ *        Unspecified, will be inferred as default -
+ *        IN_TRANSIT_ENCRYPTION_UNSPECIFIED. (Value:
+ *        "IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredInTransitEncryptionConfig_InTransitEncryptionDisabled
+ *        In-transit encryption is disabled. (Value:
+ *        "IN_TRANSIT_ENCRYPTION_DISABLED")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredInTransitEncryptionConfig_InTransitEncryptionInterNodeTransparent
+ *        Data in-transit is encrypted using inter-node transparent encryption.
+ *        (Value: "IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredInTransitEncryptionConfig;
 
 /** Desired Beta APIs to be enabled for cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_K8sBetaAPIConfig *desiredK8sBetaApis;
@@ -4931,6 +4998,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  GatewayAPIConfig contains the desired config of Gateway API on this cluster.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_GatewayAPIConfig *gatewayApiConfig;
+
+/**
+ *  Specify the details of in-transit encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NetworkConfig_InTransitEncryptionConfig_InTransitEncryptionConfigUnspecified
+ *        Unspecified, will be inferred as default -
+ *        IN_TRANSIT_ENCRYPTION_UNSPECIFIED. (Value:
+ *        "IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NetworkConfig_InTransitEncryptionConfig_InTransitEncryptionDisabled
+ *        In-transit encryption is disabled. (Value:
+ *        "IN_TRANSIT_ENCRYPTION_DISABLED")
+ *    @arg @c kGTLRContainer_NetworkConfig_InTransitEncryptionConfig_InTransitEncryptionInterNodeTransparent
+ *        Data in-transit is encrypted using inter-node transparent encryption.
+ *        (Value: "IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT")
+ */
+@property(nonatomic, copy, nullable) NSString *inTransitEncryptionConfig;
 
 /**
  *  Output only. The relative name of the Google Compute Engine
@@ -7520,6 +7604,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  Configuration for the Stateful HA add-on.
+ */
+@interface GTLRContainer_StatefulHAConfig : GTLRObject
+
+/**
+ *  Whether the Stateful HA add-on is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 

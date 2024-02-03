@@ -15,6 +15,7 @@
 
 NSString * const kGTLRAuthScopeDrive                 = @"https://www.googleapis.com/auth/drive";
 NSString * const kGTLRAuthScopeDriveAppdata          = @"https://www.googleapis.com/auth/drive.appdata";
+NSString * const kGTLRAuthScopeDriveAppsReadonly     = @"https://www.googleapis.com/auth/drive.apps.readonly";
 NSString * const kGTLRAuthScopeDriveFile             = @"https://www.googleapis.com/auth/drive.file";
 NSString * const kGTLRAuthScopeDriveMetadata         = @"https://www.googleapis.com/auth/drive.metadata";
 NSString * const kGTLRAuthScopeDriveMetadataReadonly = @"https://www.googleapis.com/auth/drive.metadata.readonly";
@@ -46,6 +47,8 @@ NSString * const kGTLRAuthScopeDriveScripts          = @"https://www.googleapis.
   return @{
     @"api#channel" : [GTLRDrive_Channel class],
     @"drive#about" : [GTLRDrive_About class],
+    @"drive#app" : [GTLRDrive_App class],
+    @"drive#appList" : [GTLRDrive_AppList class],
     @"drive#change" : [GTLRDrive_Change class],
     @"drive#changeList" : [GTLRDrive_ChangeList class],
     @"drive#comment" : [GTLRDrive_Comment class],

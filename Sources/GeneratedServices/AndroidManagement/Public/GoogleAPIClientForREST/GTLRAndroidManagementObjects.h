@@ -53,6 +53,7 @@
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
 @class GTLRAndroidManagement_DnsEvent;
+@class GTLRAndroidManagement_DpcMigrationInfo;
 @class GTLRAndroidManagement_EnrollmentCompleteEvent;
 @class GTLRAndroidManagement_EnrollmentToken;
 @class GTLRAndroidManagement_Enterprise;
@@ -87,6 +88,7 @@
 @class GTLRAndroidManagement_MediaUnmountEvent;
 @class GTLRAndroidManagement_MemoryEvent;
 @class GTLRAndroidManagement_MemoryInfo;
+@class GTLRAndroidManagement_MigrationToken;
 @class GTLRAndroidManagement_NetworkInfo;
 @class GTLRAndroidManagement_NonComplianceDetail;
 @class GTLRAndroidManagement_NonComplianceDetailCondition;
@@ -1129,6 +1131,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Di
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Lost;
 /**
+ *  The device is preparing for migrating to Android Management API. No further
+ *  action is needed for the migration to continue.
+ *
+ *  Value: "PREPARING_FOR_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_PreparingForMigration;
+/**
  *  The device is being provisioned. Newly enrolled devices are in this state
  *  until they have a policy applied.
  *
@@ -1219,6 +1228,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Disabled;
  *  Value: "LOST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Lost;
+/**
+ *  The device is preparing for migrating to Android Management API. No further
+ *  action is needed for the migration to continue.
+ *
+ *  Value: "PREPARING_FOR_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_PreparingForMigration;
 /**
  *  The device is being provisioned. Newly enrolled devices are in this state
  *  until they have a policy applied.
@@ -1905,6 +1921,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_RamMeasured;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_MigrationToken.managementMode
+
+/**
+ *  A fully-managed device. Supported only on devices running Android 9 and
+ *  above.
+ *
+ *  Value: "FULLY_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MigrationToken_ManagementMode_FullyManaged;
+/**
+ *  This value must not be used.
+ *
+ *  Value: "MANAGEMENT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MigrationToken_ManagementMode_ManagementModeUnspecified;
+/**
+ *  A work profile on a company-owned device. Supported only on devices running
+ *  Android 11 and above.
+ *
+ *  Value: "WORK_PROFILE_COMPANY_OWNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MigrationToken_ManagementMode_WorkProfileCompanyOwned;
+/**
+ *  A work profile on a personally owned device. Supported only on devices
+ *  running Android 9 and above.
+ *
+ *  Value: "WORK_PROFILE_PERSONALLY_OWNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MigrationToken_ManagementMode_WorkProfilePersonallyOwned;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_NonComplianceDetail.installationFailureReason
 
 /**
@@ -2106,6 +2153,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Sp
  *  Value: "ONC_WIFI_INVALID_VALUE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidValue;
+/**
+ *  User needs to remove the configured Wi-Fi network manually. This is
+ *  applicable only on work profiles on personally-owned devices.
+ *  nonComplianceReason is set to USER_ACTION.
+ *
+ *  Value: "ONC_WIFI_USER_SHOULD_REMOVE_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiUserShouldRemoveNetwork;
 /**
  *  The device or profile password has expired. passwordPoliciesContext is set.
  *  nonComplianceReason is set to USER_ACTION.
@@ -3023,16 +3078,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedMo
 // GTLRAndroidManagement_PostureDetail.securityRisk
 
 /**
- *  SafetyNet detects that the device is running a compromised OS
+ *  Play Integrity API detects that the device is running a compromised OS
  *  (basicIntegrity check fails).
  *
  *  Value: "COMPROMISED_OS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs;
 /**
- *  SafetyNet detects that the device does not have a strong guarantee of system
- *  integrity, such as a hardware-backed keystore
- *  (https://developer.android.com/training/articles/security-key-attestation).
+ *  Play Integrity API detects that the device does not have a strong guarantee
+ *  of system integrity, if the MEETS_STRONG_INTEGRITY label doesn't show in the
+ *  device integrity field
+ *  (https://developer.android.com/google/play/integrity/verdicts#device-integrity-field).
  *
  *  Value: "HARDWARE_BACKED_EVALUATION_FAILED"
  */
@@ -3044,8 +3100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_Security
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified;
 /**
- *  SafetyNet detects that the device is running an unknown OS (basicIntegrity
- *  check succeeds but ctsProfileMatch fails).
+ *  Play Integrity API detects that the device is running an unknown OS
+ *  (basicIntegrity check succeeds but ctsProfileMatch fails).
  *
  *  Value: "UNKNOWN_OS"
  */
@@ -5319,6 +5375,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Lost The device is
  *        lost. This state is only possible on organization-owned devices.
  *        (Value: "LOST")
+ *    @arg @c kGTLRAndroidManagement_Device_AppliedState_PreparingForMigration
+ *        The device is preparing for migrating to Android Management API. No
+ *        further action is needed for the migration to continue. (Value:
+ *        "PREPARING_FOR_MIGRATION")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Provisioning The device
  *        is being provisioned. Newly enrolled devices are in this state until
  *        they have a policy applied. (Value: "PROVISIONING")
@@ -5352,6 +5412,12 @@ GTLR_DEPRECATED
  *  available if displayInfoEnabled is true in the device's policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Display *> *displays;
+
+/**
+ *  Output only. Information related to whether this device was migrated from
+ *  being managed by another Device Policy Controller (DPC).
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DpcMigrationInfo *dpcMigrationInfo;
 
 /** The time of device enrollment. */
 @property(nonatomic, strong, nullable) GTLRDateTime *enrollmentTime;
@@ -5504,6 +5570,10 @@ GTLR_DEPRECATED
  *        disabled. (Value: "DISABLED")
  *    @arg @c kGTLRAndroidManagement_Device_State_Lost The device is lost. This
  *        state is only possible on organization-owned devices. (Value: "LOST")
+ *    @arg @c kGTLRAndroidManagement_Device_State_PreparingForMigration The
+ *        device is preparing for migrating to Android Management API. No
+ *        further action is needed for the migration to continue. (Value:
+ *        "PREPARING_FOR_MIGRATION")
  *    @arg @c kGTLRAndroidManagement_Device_State_Provisioning The device is
  *        being provisioned. Newly enrolled devices are in this state until they
  *        have a policy applied. (Value: "PROVISIONING")
@@ -5939,6 +6009,27 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalIpAddressesReturned;
+
+@end
+
+
+/**
+ *  Information related to whether this device was migrated from being managed
+ *  by another Device Policy Controller (DPC).
+ */
+@interface GTLRAndroidManagement_DpcMigrationInfo : GTLRObject
+
+/**
+ *  Output only. If this device was migrated from another DPC, the
+ *  additionalData field of the migration token is populated here.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalData;
+
+/**
+ *  Output only. If this device was migrated from another DPC, this is its
+ *  package name. Not populated otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *previousDpc;
 
 @end
 
@@ -6787,6 +6878,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response to a request to list migration tokens for a given enterprise.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "migrationTokens" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAndroidManagement_ListMigrationTokensResponse : GTLRCollectionObject
+
+/**
+ *  The migration tokens from the specified enterprise.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_MigrationToken *> *migrationTokens;
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7147,6 +7265,99 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A token to initiate the migration of a device from being managed by a
+ *  third-party DPC to being managed by Android Management API. A migration
+ *  token is valid only for a single device.
+ */
+@interface GTLRAndroidManagement_MigrationToken : GTLRObject
+
+/**
+ *  Immutable. Optional EMM-specified additional data. Once the device is
+ *  migrated this will be populated in the migrationAdditionalData field of the
+ *  Device resource. This must be at most 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalData;
+
+/** Output only. Time when this migration token was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Once this migration token is used to migrate a device, the name
+ *  of the resulting Device resource will be populated here, in the form
+ *  enterprises/{enterprise}/devices/{device}.
+ */
+@property(nonatomic, copy, nullable) NSString *device;
+
+/**
+ *  Required. Immutable. The id of the device, as in the Play EMM API. This
+ *  corresponds to the deviceId parameter in Play EMM API's Devices.get
+ *  (https://developers.google.com/android/work/play/emm-api/v1/devices/get#parameters)
+ *  call.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  Immutable. The time when this migration token expires. This can be at most
+ *  seven days from the time of creation. The migration token is deleted seven
+ *  days after it expires.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Required. Immutable. The management mode of the device or profile being
+ *  migrated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_MigrationToken_ManagementMode_FullyManaged
+ *        A fully-managed device. Supported only on devices running Android 9
+ *        and above. (Value: "FULLY_MANAGED")
+ *    @arg @c kGTLRAndroidManagement_MigrationToken_ManagementMode_ManagementModeUnspecified
+ *        This value must not be used. (Value: "MANAGEMENT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_MigrationToken_ManagementMode_WorkProfileCompanyOwned
+ *        A work profile on a company-owned device. Supported only on devices
+ *        running Android 11 and above. (Value: "WORK_PROFILE_COMPANY_OWNED")
+ *    @arg @c kGTLRAndroidManagement_MigrationToken_ManagementMode_WorkProfilePersonallyOwned
+ *        A work profile on a personally owned device. Supported only on devices
+ *        running Android 9 and above. (Value: "WORK_PROFILE_PERSONALLY_OWNED")
+ */
+@property(nonatomic, copy, nullable) NSString *managementMode;
+
+/**
+ *  Output only. The name of the migration token, which is generated by the
+ *  server during creation, in the form
+ *  enterprises/{enterprise}/migrationTokens/{migration_token}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The name of the policy initially applied to the
+ *  enrolled device, in the form enterprises/{enterprise}/policies/{policy}.
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  Input only. The time that this migration token is valid for. This is
+ *  input-only, and for returning a migration token the server will populate the
+ *  expireTime field. This can be at most seven days. The default is seven days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/**
+ *  Required. Immutable. The user id of the Managed Google Play account on the
+ *  device, as in the Play EMM API. This corresponds to the userId parameter in
+ *  Play EMM API's Devices.get
+ *  (https://developers.google.com/android/work/play/emm-api/v1/devices/get#parameters)
+ *  call.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/** Output only. The value of the migration token. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Device network info.
  */
 @interface GTLRAndroidManagement_NetworkInfo : GTLRObject
@@ -7327,6 +7538,11 @@ GTLR_DEPRECATED
  *        specifies which field value is incorrect. oncWifiContext is set.
  *        nonComplianceReason is set to INVALID_VALUE. (Value:
  *        "ONC_WIFI_INVALID_VALUE")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiUserShouldRemoveNetwork
+ *        User needs to remove the configured Wi-Fi network manually. This is
+ *        applicable only on work profiles on personally-owned devices.
+ *        nonComplianceReason is set to USER_ACTION. (Value:
+ *        "ONC_WIFI_USER_SHOULD_REMOVE_NETWORK")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordExpired
  *        The device or profile password has expired. passwordPoliciesContext is
  *        set. nonComplianceReason is set to USER_ACTION. (Value:
@@ -8871,17 +9087,18 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs
- *        SafetyNet detects that the device is running a compromised OS
+ *        Play Integrity API detects that the device is running a compromised OS
  *        (basicIntegrity check fails). (Value: "COMPROMISED_OS")
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_HardwareBackedEvaluationFailed
- *        SafetyNet detects that the device does not have a strong guarantee of
- *        system integrity, such as a hardware-backed keystore
- *        (https://developer.android.com/training/articles/security-key-attestation).
+ *        Play Integrity API detects that the device does not have a strong
+ *        guarantee of system integrity, if the MEETS_STRONG_INTEGRITY label
+ *        doesn't show in the device integrity field
+ *        (https://developer.android.com/google/play/integrity/verdicts#device-integrity-field).
  *        (Value: "HARDWARE_BACKED_EVALUATION_FAILED")
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified
  *        Unspecified. (Value: "SECURITY_RISK_UNSPECIFIED")
- *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs
- *        SafetyNet detects that the device is running an unknown OS
+ *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs Play
+ *        Integrity API detects that the device is running an unknown OS
  *        (basicIntegrity check succeeds but ctsProfileMatch fails). (Value:
  *        "UNKNOWN_OS")
  */

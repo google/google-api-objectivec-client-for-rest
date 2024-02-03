@@ -455,7 +455,7 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_
 @implementation GTLRRecommender_GoogleCloudRecommenderV1Recommendation
 @dynamic additionalImpact, associatedInsights, content, descriptionProperty,
          ETag, lastRefreshTime, name, primaryImpact, priority,
-         recommenderSubtype, stateInfo, xorGroupId;
+         recommenderSubtype, stateInfo, targetResources, xorGroupId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -468,7 +468,8 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalImpact" : [GTLRRecommender_GoogleCloudRecommenderV1Impact class],
-    @"associatedInsights" : [GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference class]
+    @"associatedInsights" : [GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference class],
+    @"targetResources" : [NSString class]
   };
   return map;
 }

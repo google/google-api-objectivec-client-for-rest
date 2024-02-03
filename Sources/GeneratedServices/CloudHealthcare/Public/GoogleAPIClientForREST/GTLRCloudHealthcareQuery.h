@@ -255,7 +255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsPatch : GTLRCloudHealthcareQuery
 
 /**
- *  Resource name of the Attribute definition, of the form
+ *  Identifier. Resource name of the Attribute definition, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/attributeDefinitions/{attribute_definition_id}`.
  *  Cannot be changed after creation.
  */
@@ -280,7 +280,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_AttributeDefinition to include in
  *    the query.
- *  @param name Resource name of the Attribute definition, of the form
+ *  @param name Identifier. Resource name of the Attribute definition, of the
+ *    form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/attributeDefinitions/{attribute_definition_id}`.
  *    Cannot be changed after creation.
  *
@@ -1732,7 +1733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDeidentify : GTLRCloudHealthcareQuery
 
 /**
- *  Source dataset resource name. For example,
+ *  Required. Source dataset resource name. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceDataset;
@@ -1752,7 +1753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_DeidentifyDatasetRequest to include
  *    in the query.
- *  @param sourceDataset Source dataset resource name. For example,
+ *  @param sourceDataset Required. Source dataset resource name. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDeidentify
@@ -1809,12 +1810,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresCreate : GTLRCloudHealthcareQuery
 
 /**
- *  The ID of the DICOM store that is being created. Any string value up to 256
- *  characters in length.
+ *  Required. The ID of the DICOM store that is being created. Any string value
+ *  up to 256 characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *dicomStoreId;
 
-/** The name of the dataset this DICOM store belongs to. */
+/** Required. The name of the dataset this DICOM store belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1823,7 +1824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Creates a new DICOM store within the parent dataset.
  *
  *  @param object The @c GTLRCloudHealthcare_DicomStore to include in the query.
- *  @param parent The name of the dataset this DICOM store belongs to.
+ *  @param parent Required. The name of the dataset this DICOM store belongs to.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresCreate
  */
@@ -1852,7 +1853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify : GTLRCloudHealthcareQuery
 
 /**
- *  Source DICOM store resource name. For example,
+ *  Required. Source DICOM store resource name. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceStore;
@@ -1872,7 +1873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_DeidentifyDicomStoreRequest to
  *    include in the query.
- *  @param sourceStore Source DICOM store resource name. For example,
+ *  @param sourceStore Required. Source DICOM store resource name. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify
@@ -1894,7 +1895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDelete : GTLRCloudHealthcareQuery
 
-/** The resource name of the DICOM store to delete. */
+/** Required. The resource name of the DICOM store to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1903,7 +1904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Deletes the specified DICOM store and removes all images that are contained
  *  within it.
  *
- *  @param name The resource name of the DICOM store to delete.
+ *  @param name Required. The resource name of the DICOM store to delete.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDelete
  */
@@ -1923,7 +1924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesGetStudyMetrics : GTLRCloudHealthcareQuery
 
 /**
- *  The study resource path. For example,
+ *  Required. The study resource path. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}`.
  */
 @property(nonatomic, copy, nullable) NSString *study;
@@ -1933,7 +1934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  GetStudyMetrics returns metrics for a study.
  *
- *  @param study The study resource path. For example,
+ *  @param study Required. The study resource path. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesGetStudyMetrics
@@ -1954,7 +1955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesGetSeriesMetrics : GTLRCloudHealthcareQuery
 
 /**
- *  The series resource path. For example,
+ *  Required. The series resource path. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}/series/{series_uid}`.
  */
 @property(nonatomic, copy, nullable) NSString *series;
@@ -1964,7 +1965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  GetSeriesMetrics returns metrics for a series.
  *
- *  @param series The series resource path. For example,
+ *  @param series Required. The series resource path. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}/dicomWeb/studies/{study_uid}/series/{series_uid}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesGetSeriesMetrics
@@ -1989,7 +1990,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresExport : GTLRCloudHealthcareQuery
 
 /**
- *  The DICOM store resource name from which to export the data. For example,
+ *  Required. The DICOM store resource name from which to export the data. For
+ *  example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2005,8 +2007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_ExportDicomDataRequest to include
  *    in the query.
- *  @param name The DICOM store resource name from which to export the data. For
- *    example,
+ *  @param name Required. The DICOM store resource name from which to export the
+ *    data. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresExport
@@ -2027,7 +2029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGet : GTLRCloudHealthcareQuery
 
-/** The resource name of the DICOM store to get. */
+/** Required. The resource name of the DICOM store to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2035,7 +2037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets the specified DICOM store.
  *
- *  @param name The resource name of the DICOM store to get.
+ *  @param name Required. The resource name of the DICOM store to get.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGet
  */
@@ -2054,7 +2056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetDICOMStoreMetrics : GTLRCloudHealthcareQuery
 
-/** The resource name of the DICOM store to get metrics for. */
+/** Required. The resource name of the DICOM store to get metrics for. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2062,7 +2064,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets metrics associated with the DICOM store.
  *
- *  @param name The resource name of the DICOM store to get metrics for.
+ *  @param name Required. The resource name of the DICOM store to get metrics
+ *    for.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetDICOMStoreMetrics
  */
@@ -2136,8 +2139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresImport : GTLRCloudHealthcareQuery
 
 /**
- *  The name of the DICOM store resource into which the data is imported. For
- *  example,
+ *  Required. The name of the DICOM store resource into which the data is
+ *  imported. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2153,8 +2156,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_ImportDicomDataRequest to include
  *    in the query.
- *  @param name The name of the DICOM store resource into which the data is
- *    imported. For example,
+ *  @param name Required. The name of the DICOM store resource into which the
+ *    data is imported. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresImport
@@ -2212,7 +2215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Name of the dataset. */
+/** Required. Name of the dataset. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2220,7 +2223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Lists the DICOM stores in the given dataset.
  *
- *  @param parent Name of the dataset.
+ *  @param parent Required. Name of the dataset.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresList
  *
@@ -2244,13 +2247,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresPatch : GTLRCloudHealthcareQuery
 
 /**
- *  Resource name of the DICOM store, of the form
+ *  Identifier. Resource name of the DICOM store, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
@@ -2263,7 +2267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Updates the specified DICOM store.
  *
  *  @param object The @c GTLRCloudHealthcare_DicomStore to include in the query.
- *  @param name Resource name of the DICOM store, of the form
+ *  @param name Identifier. Resource name of the DICOM store, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresPatch
@@ -2292,14 +2296,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForInstances : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the SearchForInstancesRequest DICOMweb request. For example,
- *  `instances`, `series/{series_uid}/instances`, or
+ *  Required. The path of the SearchForInstancesRequest DICOMweb request. For
+ *  example, `instances`, `series/{series_uid}/instances`, or
  *  `studies/{study_uid}/instances`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2316,12 +2320,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call SearchForInstances, see [Search for DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the SearchForInstancesRequest DICOMweb
- *    request. For example, `instances`, `series/{series_uid}/instances`, or
- *    `studies/{study_uid}/instances`.
+ *  @param dicomWebPath Required. The path of the SearchForInstancesRequest
+ *    DICOMweb request. For example, `instances`,
+ *    `series/{series_uid}/instances`, or `studies/{study_uid}/instances`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForInstances
  */
@@ -2348,13 +2352,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForSeries : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the SearchForSeries DICOMweb request. For example, `series` or
- *  `studies/{study_uid}/series`.
+ *  Required. The path of the SearchForSeries DICOMweb request. For example,
+ *  `series` or `studies/{study_uid}/series`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2370,11 +2374,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call SearchForSeries, see [Search for DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the SearchForSeries DICOMweb request. For
- *    example, `series` or `studies/{study_uid}/series`.
+ *  @param dicomWebPath Required. The path of the SearchForSeries DICOMweb
+ *    request. For example, `series` or `studies/{study_uid}/series`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForSeries
  */
@@ -2402,12 +2406,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForStudies : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the SearchForStudies DICOMweb request. For example, `studies`.
+ *  Required. The path of the SearchForStudies DICOMweb request. For example,
+ *  `studies`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2424,11 +2429,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call SearchForStudies, see [Search for DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the SearchForStudies DICOMweb request. For
- *    example, `studies`.
+ *  @param dicomWebPath Required. The path of the SearchForStudies DICOMweb
+ *    request. For example, `studies`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForStudies
  */
@@ -2497,13 +2502,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStoreInstances : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the StoreInstances DICOMweb request. For example,
+ *  Required. The path of the StoreInstances DICOMweb request. For example,
  *  `studies/[{study_uid}]`. Note that the `study_uid` is optional.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2521,11 +2526,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#store-dicom).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the StoreInstances DICOMweb request. For
- *    example, `studies/[{study_uid}]`. Note that the `study_uid` is optional.
+ *  @param dicomWebPath Required. The path of the StoreInstances DICOMweb
+ *    request. For example, `studies/[{study_uid}]`. Note that the `study_uid`
+ *    is optional.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStoreInstances
  */
@@ -2553,7 +2559,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesDelete : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the DeleteStudy request. For example, `studies/{study_uid}`.
+ *  Required. The path of the DeleteStudy request. For example,
+ *  `studies/{study_uid}`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -2571,8 +2578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
  *  @param parent NSString
- *  @param dicomWebPath The path of the DeleteStudy request. For example,
- *    `studies/{study_uid}`.
+ *  @param dicomWebPath Required. The path of the DeleteStudy request. For
+ *    example, `studies/{study_uid}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesDelete
  */
@@ -2600,13 +2607,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveMetadata : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveStudyMetadata DICOMweb request. For example,
- *  `studies/{study_uid}/metadata`.
+ *  Required. The path of the RetrieveStudyMetadata DICOMweb request. For
+ *  example, `studies/{study_uid}/metadata`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2623,11 +2630,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call RetrieveStudyMetadata, see [Retrieve
  *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveStudyMetadata DICOMweb request.
- *    For example, `studies/{study_uid}/metadata`.
+ *  @param dicomWebPath Required. The path of the RetrieveStudyMetadata DICOMweb
+ *    request. For example, `studies/{study_uid}/metadata`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveMetadata
  */
@@ -2655,13 +2662,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveStudy : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveStudy DICOMweb request. For example,
+ *  Required. The path of the RetrieveStudy DICOMweb request. For example,
  *  `studies/{study_uid}`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2678,11 +2685,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call RetrieveStudy, see [Retrieve DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveStudy DICOMweb request. For
- *    example, `studies/{study_uid}`.
+ *  @param dicomWebPath Required. The path of the RetrieveStudy DICOMweb
+ *    request. For example, `studies/{study_uid}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveStudy
  */
@@ -2710,14 +2717,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForInstances : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the SearchForInstancesRequest DICOMweb request. For example,
- *  `instances`, `series/{series_uid}/instances`, or
+ *  Required. The path of the SearchForInstancesRequest DICOMweb request. For
+ *  example, `instances`, `series/{series_uid}/instances`, or
  *  `studies/{study_uid}/instances`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2734,12 +2741,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call SearchForInstances, see [Search for DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the SearchForInstancesRequest DICOMweb
- *    request. For example, `instances`, `series/{series_uid}/instances`, or
- *    `studies/{study_uid}/instances`.
+ *  @param dicomWebPath Required. The path of the SearchForInstancesRequest
+ *    DICOMweb request. For example, `instances`,
+ *    `series/{series_uid}/instances`, or `studies/{study_uid}/instances`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForInstances
  */
@@ -2766,13 +2773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForSeries : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the SearchForSeries DICOMweb request. For example, `series` or
- *  `studies/{study_uid}/series`.
+ *  Required. The path of the SearchForSeries DICOMweb request. For example,
+ *  `series` or `studies/{study_uid}/series`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2788,11 +2795,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call SearchForSeries, see [Search for DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the SearchForSeries DICOMweb request. For
- *    example, `series` or `studies/{study_uid}/series`.
+ *  @param dicomWebPath Required. The path of the SearchForSeries DICOMweb
+ *    request. For example, `series` or `studies/{study_uid}/series`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForSeries
  */
@@ -2820,13 +2827,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesDelete : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the DeleteSeries request. For example,
+ *  Required. The path of the DeleteSeries request. For example,
  *  `studies/{study_uid}/series/{series_uid}`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2843,11 +2850,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  or
  *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the DeleteSeries request. For example,
- *    `studies/{study_uid}/series/{series_uid}`.
+ *  @param dicomWebPath Required. The path of the DeleteSeries request. For
+ *    example, `studies/{study_uid}/series/{series_uid}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesDelete
  */
@@ -2874,13 +2881,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesDelete : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the DeleteInstance request. For example,
+ *  Required. The path of the DeleteInstance request. For example,
  *  `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2896,10 +2903,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  [Delete a study, series, or
  *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#delete-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the DeleteInstance request. For example,
+ *  @param dicomWebPath Required. The path of the DeleteInstance request. For
+ *    example,
  *    `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesDelete
@@ -2928,13 +2936,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveFrames : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveFrames DICOMweb request. For example,
+ *  Required. The path of the RetrieveFrames DICOMweb request. For example,
  *  `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/frames/{frame_list}`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2951,11 +2959,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  call RetrieveFrames, see [Retrieve DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveFrames DICOMweb request. For
- *    example,
+ *  @param dicomWebPath Required. The path of the RetrieveFrames DICOMweb
+ *    request. For example,
  *    `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/frames/{frame_list}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveFrames
@@ -2985,13 +2993,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveRendered : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveRenderedFrames DICOMweb request. For example,
+ *  Required. The path of the RetrieveRenderedFrames DICOMweb request. For
+ *  example,
  *  `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/frames/{frame_list}/rendered`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3009,11 +3018,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call RetrieveRenderedFrames, see [Retrieve consumer image
  *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-consumer).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
- *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveRenderedFrames DICOMweb request.
+ *  @param parent Required. The name of the DICOM store that is being accessed.
  *    For example,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ *  @param dicomWebPath Required. The path of the RetrieveRenderedFrames
+ *    DICOMweb request. For example,
  *    `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/frames/{frame_list}/rendered`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveRendered
@@ -3044,13 +3053,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveInstance : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveInstance DICOMweb request. For example,
+ *  Required. The path of the RetrieveInstance DICOMweb request. For example,
  *  `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3069,11 +3078,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call RetrieveInstance, see [Retrieve an
  *  instance](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-instance).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveInstance DICOMweb request. For
- *    example,
+ *  @param dicomWebPath Required. The path of the RetrieveInstance DICOMweb
+ *    request. For example,
  *    `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveInstance
@@ -3103,13 +3112,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveMetadata : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveInstanceMetadata DICOMweb request. For example,
+ *  Required. The path of the RetrieveInstanceMetadata DICOMweb request. For
+ *  example,
  *  `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/metadata`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3127,11 +3137,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call RetrieveInstanceMetadata, see [Retrieve
  *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveInstanceMetadata DICOMweb
- *    request. For example,
+ *  @param dicomWebPath Required. The path of the RetrieveInstanceMetadata
+ *    DICOMweb request. For example,
  *    `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/metadata`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveMetadata
@@ -3161,13 +3171,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveRendered : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveRenderedInstance DICOMweb request. For example,
+ *  Required. The path of the RetrieveRenderedInstance DICOMweb request. For
+ *  example,
  *  `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/rendered`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3185,11 +3196,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call RetrieveRenderedInstance, see [Retrieve consumer image
  *  formats](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-consumer).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveRenderedInstance DICOMweb
- *    request. For example,
+ *  @param dicomWebPath Required. The path of the RetrieveRenderedInstance
+ *    DICOMweb request. For example,
  *    `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/rendered`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveRendered
@@ -3219,13 +3230,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveMetadata : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveSeriesMetadata DICOMweb request. For example,
- *  `studies/{study_uid}/series/{series_uid}/metadata`.
+ *  Required. The path of the RetrieveSeriesMetadata DICOMweb request. For
+ *  example, `studies/{study_uid}/series/{series_uid}/metadata`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3243,11 +3254,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call RetrieveSeriesMetadata, see [Retrieve
  *  metadata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-metadata).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveSeriesMetadata DICOMweb request.
- *    For example, `studies/{study_uid}/series/{series_uid}/metadata`.
+ *  @param dicomWebPath Required. The path of the RetrieveSeriesMetadata
+ *    DICOMweb request. For example,
+ *    `studies/{study_uid}/series/{series_uid}/metadata`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveMetadata
  */
@@ -3275,13 +3287,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveSeries : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the RetrieveSeries DICOMweb request. For example,
+ *  Required. The path of the RetrieveSeries DICOMweb request. For example,
  *  `studies/{study_uid}/series/{series_uid}`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3298,11 +3310,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call RetrieveSeries, see [Retrieve DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the RetrieveSeries DICOMweb request. For
- *    example, `studies/{study_uid}/series/{series_uid}`.
+ *  @param dicomWebPath Required. The path of the RetrieveSeries DICOMweb
+ *    request. For example, `studies/{study_uid}/series/{series_uid}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveSeries
  */
@@ -3330,14 +3342,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesSearchForInstances : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the SearchForInstancesRequest DICOMweb request. For example,
- *  `instances`, `series/{series_uid}/instances`, or
+ *  Required. The path of the SearchForInstancesRequest DICOMweb request. For
+ *  example, `instances`, `series/{series_uid}/instances`, or
  *  `studies/{study_uid}/instances`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3354,12 +3366,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  to call SearchForInstances, see [Search for DICOM
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#search-dicom).
  *
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the SearchForInstancesRequest DICOMweb
- *    request. For example, `instances`, `series/{series_uid}/instances`, or
- *    `studies/{study_uid}/instances`.
+ *  @param dicomWebPath Required. The path of the SearchForInstancesRequest
+ *    DICOMweb request. For example, `instances`,
+ *    `series/{series_uid}/instances`, or `studies/{study_uid}/instances`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesSearchForInstances
  */
@@ -3387,13 +3399,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesStoreInstances : GTLRCloudHealthcareQuery
 
 /**
- *  The path of the StoreInstances DICOMweb request. For example,
+ *  Required. The path of the StoreInstances DICOMweb request. For example,
  *  `studies/[{study_uid}]`. Note that the `study_uid` is optional.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
- *  The name of the DICOM store that is being accessed. For example,
+ *  Required. The name of the DICOM store that is being accessed. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3411,11 +3423,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#store-dicom).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent The name of the DICOM store that is being accessed. For
- *    example,
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  @param dicomWebPath The path of the StoreInstances DICOMweb request. For
- *    example, `studies/[{study_uid}]`. Note that the `study_uid` is optional.
+ *  @param dicomWebPath Required. The path of the StoreInstances DICOMweb
+ *    request. For example, `studies/[{study_uid}]`. Note that the `study_uid`
+ *    is optional.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesStoreInstances
  */
@@ -3482,12 +3495,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresCreate : GTLRCloudHealthcareQuery
 
 /**
- *  The ID of the FHIR store that is being created. The string must match the
- *  following regex: `[\\p{L}\\p{N}_\\-\\.]{1,256}`.
+ *  Required. The ID of the FHIR store that is being created. The string must
+ *  match the following regex: `[\\p{L}\\p{N}_\\-\\.]{1,256}`.
  */
 @property(nonatomic, copy, nullable) NSString *fhirStoreId;
 
-/** The name of the dataset this FHIR store belongs to. */
+/** Required. The name of the dataset this FHIR store belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3496,7 +3509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Creates a new FHIR store within the parent dataset.
  *
  *  @param object The @c GTLRCloudHealthcare_FhirStore to include in the query.
- *  @param parent The name of the dataset this FHIR store belongs to.
+ *  @param parent Required. The name of the dataset this FHIR store belongs to.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresCreate
  */
@@ -3522,7 +3535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify : GTLRCloudHealthcareQuery
 
 /**
- *  Source FHIR store resource name. For example,
+ *  Required. Source FHIR store resource name. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceStore;
@@ -3539,7 +3552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_DeidentifyFhirStoreRequest to
  *    include in the query.
- *  @param sourceStore Source FHIR store resource name. For example,
+ *  @param sourceStore Required. Source FHIR store resource name. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify
@@ -3560,7 +3573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDelete : GTLRCloudHealthcareQuery
 
-/** The resource name of the FHIR store to delete. */
+/** Required. The resource name of the FHIR store to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3568,7 +3581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Deletes the specified FHIR store and removes all resources within it.
  *
- *  @param name The resource name of the FHIR store to delete.
+ *  @param name Required. The resource name of the FHIR store to delete.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDelete
  */
@@ -3595,7 +3608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExport : GTLRCloudHealthcareQuery
 
 /**
- *  The name of the FHIR store to export resource from, in the format of
+ *  Required. The name of the FHIR store to export resource from, in the format
+ *  of
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3614,8 +3628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_ExportResourcesRequest to include
  *    in the query.
- *  @param name The name of the FHIR store to export resource from, in the
- *    format of
+ *  @param name Required. The name of the FHIR store to export resource from, in
+ *    the format of
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExport
@@ -3649,7 +3663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCapabilities : GTLRCloudHealthcareQuery
 
-/** Name of the FHIR store to retrieve the capabilities for. */
+/** Required. Name of the FHIR store to retrieve the capabilities for. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3670,7 +3684,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  in the DSTU2 case. On success, the response body contains a JSON-encoded
  *  representation of a `CapabilityStatement` resource.
  *
- *  @param name Name of the FHIR store to retrieve the capabilities for.
+ *  @param name Required. Name of the FHIR store to retrieve the capabilities
+ *    for.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCapabilities
  */
@@ -3700,12 +3715,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete : GTLRCloudHealthcareQuery
 
-/** The name of the FHIR store this resource belongs to. */
+/** Required. The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The FHIR resource type to delete, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
+ *  Required. The FHIR resource type to delete, such as Patient or Observation.
+ *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
  *  [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
@@ -3728,8 +3743,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  `conditionalDelete`, see [Conditionally deleting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_deleting_a_fhir_resource).
  *
- *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The FHIR resource type to delete, such as Patient or
+ *  @param parent Required. The name of the FHIR store this resource belongs to.
+ *  @param type Required. The FHIR resource type to delete, such as Patient or
  *    Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *    [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -3771,12 +3786,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch : GTLRCloudHealthcareQuery
 
-/** The name of the FHIR store this resource belongs to. */
+/** Required. The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The FHIR resource type to update, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
+ *  Required. The FHIR resource type to update, such as Patient or Observation.
+ *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
  *  [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
@@ -3807,8 +3822,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_patching_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The FHIR resource type to update, such as Patient or
+ *  @param parent Required. The name of the FHIR store this resource belongs to.
+ *  @param type Required. The FHIR resource type to update, such as Patient or
  *    Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *    [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -3858,12 +3873,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate : GTLRCloudHealthcareQuery
 
-/** The name of the FHIR store this resource belongs to. */
+/** Required. The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The FHIR resource type to update, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
+ *  Required. The FHIR resource type to update, such as Patient or Observation.
+ *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *  [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
  *  [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
@@ -3902,8 +3917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_updating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The FHIR resource type to update, such as Patient or
+ *  @param parent Required. The name of the FHIR store this resource belongs to.
+ *  @param type Required. The FHIR resource type to update, such as Patient or
  *    Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *    [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -3953,12 +3968,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate : GTLRCloudHealthcareQuery
 
-/** The name of the FHIR store this resource belongs to. */
+/** Required. The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The FHIR resource type to create, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
+ *  Required. The FHIR resource type to create, such as Patient or Observation.
+ *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
@@ -3996,8 +4011,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The FHIR resource type to create, such as Patient or
+ *  @param parent Required. The name of the FHIR store this resource belongs to.
+ *  @param type Required. The FHIR resource type to create, such as Patient or
  *    Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -4032,7 +4047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirDelete : GTLRCloudHealthcareQuery
 
-/** The name of the resource to delete. */
+/** Required. The name of the resource to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4049,7 +4064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  samples that show how to call `delete`, see [Deleting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
  *
- *  @param name The name of the resource to delete.
+ *  @param name Required. The name of the resource to delete.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirDelete
  */
@@ -4103,7 +4118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirExecuteBundle : GTLRCloudHealthcareQuery
 
-/** Name of the FHIR store in which this bundle will be executed. */
+/** Required. Name of the FHIR store in which this bundle will be executed. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -4147,7 +4162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  bundles](https://cloud.google.com/healthcare/docs/how-tos/fhir-bundles).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent Name of the FHIR store in which this bundle will be executed.
+ *  @param parent Required. Name of the FHIR store in which this bundle will be
+ *    executed.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirExecuteBundle
  */
@@ -4214,7 +4230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @property(nonatomic, copy, nullable) NSString *xSince;
 
-/** The name of the resource to retrieve. */
+/** Required. The name of the resource to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4235,7 +4251,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  how to call `history`, see [Listing FHIR resource
  *  versions](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
  *
- *  @param name The name of the resource to retrieve.
+ *  @param name Required. The name of the resource to retrieve.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory
  */
@@ -4268,7 +4284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch : GTLRCloudHealthcareQuery
 
-/** The name of the resource to update. */
+/** Required. The name of the resource to update. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4291,7 +4307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param name The name of the resource to update.
+ *  @param name Required. The name of the resource to update.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch
  */
@@ -4333,8 +4349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything : GTLRCloudHealthcareQuery
 
 /**
- *  Maximum number of resources in a page. If not specified, 100 is used. May
- *  not be larger than 1000.
+ *  Optional. Maximum number of resources in a page. If not specified, 100 is
+ *  used. May not be larger than 1000.
  */
 @property(nonatomic, assign) NSInteger xCount;
 
@@ -4348,36 +4364,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @property(nonatomic, copy, nullable) NSString *xPageToken;
 
 /**
- *  If provided, only resources updated after this time are returned. The time
- *  uses the format YYYY-MM-DDThh:mm:ss.sss+zz:zz. For example,
+ *  Optional. If provided, only resources updated after this time are returned.
+ *  The time uses the format YYYY-MM-DDThh:mm:ss.sss+zz:zz. For example,
  *  `2015-02-07T13:28:17.239+02:00` or `2017-01-01T00:00:00Z`. The time must be
  *  specified to the second and include a time zone.
  */
 @property(nonatomic, copy, nullable) NSString *xSince;
 
 /**
- *  String of comma-delimited FHIR resource types. If provided, only resources
- *  of the specified resource type(s) are returned. Specifying multiple `_type`
- *  parameters isn't supported. For example, the result of
+ *  Optional. String of comma-delimited FHIR resource types. If provided, only
+ *  resources of the specified resource type(s) are returned. Specifying
+ *  multiple `_type` parameters isn't supported. For example, the result of
  *  `_type=Observation&_type=Encounter` is undefined. Use
  *  `_type=Observation,Encounter` instead.
  */
 @property(nonatomic, copy, nullable) NSString *xType;
 
 /**
- *  The response includes records prior to the end date. The date uses the
- *  format YYYY-MM-DD. If no end date is provided, all records subsequent to the
- *  start date are in scope.
+ *  Optional. The response includes records prior to the end date. The date uses
+ *  the format YYYY-MM-DD. If no end date is provided, all records subsequent to
+ *  the start date are in scope.
  */
 @property(nonatomic, copy, nullable) NSString *end;
 
-/** Name of the `Patient` resource for which the information is required. */
+/**
+ *  Required. Name of the `Patient` resource for which the information is
+ *  required.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The response includes records subsequent to the start date. The date uses
- *  the format YYYY-MM-DD. If no start date is provided, all records prior to
- *  the end date are in scope.
+ *  Optional. The response includes records subsequent to the start date. The
+ *  date uses the format YYYY-MM-DD. If no start date is provided, all records
+ *  prior to the end date are in scope.
  */
 @property(nonatomic, copy, nullable) NSString *start;
 
@@ -4407,8 +4426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  compartment
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#getting_all_patient_compartment_resources).
  *
- *  @param name Name of the `Patient` resource for which the information is
- *    required.
+ *  @param name Required. Name of the `Patient` resource for which the
+ *    information is required.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything
  */
@@ -4443,7 +4462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirRead : GTLRCloudHealthcareQuery
 
-/** The name of the resource to retrieve. */
+/** Required. The name of the resource to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4467,7 +4486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  samples that show how to call `read`, see [Getting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
- *  @param name The name of the resource to retrieve.
+ *  @param name Required. The name of the resource to retrieve.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirRead
  */
@@ -4491,7 +4510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourcePurge : GTLRCloudHealthcareQuery
 
-/** The name of the resource to purge. */
+/** Required. The name of the resource to purge. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4504,7 +4523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  [Deleting historical versions of a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_historical_versions_of_a_fhir_resource).
  *
- *  @param name The name of the resource to purge.
+ *  @param name Required. The name of the resource to purge.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourcePurge
  */
@@ -4539,23 +4558,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourceValidate : GTLRCloudHealthcareQuery
 
 /**
- *  The name of the FHIR store that holds the profiles being used for
+ *  Required. The name of the FHIR store that holds the profiles being used for
  *  validation.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The canonical URL of a profile that this resource should be validated
- *  against. For example, to validate a Patient resource against the US Core
- *  Patient profile this parameter would be
+ *  Required. The canonical URL of a profile that this resource should be
+ *  validated against. For example, to validate a Patient resource against the
+ *  US Core Patient profile this parameter would be
  *  `http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient`. A
  *  StructureDefinition with this canonical URL must exist in the FHIR store.
  */
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  The FHIR resource type of the resource being validated. For a complete list,
- *  see the FHIR Resource Index
+ *  Required. The FHIR resource type of the resource being validated. For a
+ *  complete list, see the FHIR Resource Index
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html), or
  *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
@@ -4584,10 +4603,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  GCP error might be returned instead.
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent The name of the FHIR store that holds the profiles being used
- *    for validation.
- *  @param type The FHIR resource type of the resource being validated. For a
- *    complete list, see the FHIR Resource Index
+ *  @param parent Required. The name of the FHIR store that holds the profiles
+ *    being used for validation.
+ *  @param type Required. The FHIR resource type of the resource being
+ *    validated. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html), or
  *    [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
@@ -4678,7 +4697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch : GTLRCloudHealthcareQuery
 
-/** Name of the FHIR store to retrieve resources from. */
+/** Required. Name of the FHIR store to retrieve resources from. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -4754,7 +4773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.
- *  @param parent Name of the FHIR store to retrieve resources from.
+ *  @param parent Required. Name of the FHIR store to retrieve resources from.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch
  */
@@ -4840,12 +4859,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchType : GTLRCloudHealthcareQuery
 
-/** Name of the FHIR store to retrieve resources from. */
+/** Required. Name of the FHIR store to retrieve resources from. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The FHIR resource type to search, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
+ *  Required. The FHIR resource type to search, such as Patient or Observation.
+ *  For a complete list, see the FHIR Resource Index
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
@@ -4925,9 +4944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.
- *  @param parent Name of the FHIR store to retrieve resources from.
- *  @param resourceType The FHIR resource type to search, such as Patient or
- *    Observation. For a complete list, see the FHIR Resource Index
+ *  @param parent Required. Name of the FHIR store to retrieve resources from.
+ *  @param resourceType Required. The FHIR resource type to search, such as
+ *    Patient or Observation. For a complete list, see the FHIR Resource Index
  *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
  *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
  *    [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
@@ -4972,7 +4991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate : GTLRCloudHealthcareQuery
 
-/** The name of the resource to update. */
+/** Required. The name of the resource to update. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -5002,7 +5021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param name The name of the resource to update.
+ *  @param name Required. The name of the resource to update.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate
  */
@@ -5033,7 +5052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirVread : GTLRCloudHealthcareQuery
 
-/** The name of the resource version to retrieve. */
+/** Required. The name of the resource version to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -5052,7 +5071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  `vread`, see [Retrieving a FHIR resource
  *  version](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
  *
- *  @param name The name of the resource version to retrieve.
+ *  @param name Required. The name of the resource version to retrieve.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirVread
  */
@@ -5071,7 +5090,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGet : GTLRCloudHealthcareQuery
 
-/** The resource name of the FHIR store to get. */
+/** Required. The resource name of the FHIR store to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -5079,7 +5098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets the configuration of the specified FHIR store.
  *
- *  @param name The resource name of the FHIR store to get.
+ *  @param name Required. The resource name of the FHIR store to get.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGet
  */
@@ -5098,7 +5117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetFHIRStoreMetrics : GTLRCloudHealthcareQuery
 
-/** The resource name of the FHIR store to get metrics for. */
+/** Required. The resource name of the FHIR store to get metrics for. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -5106,7 +5125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets metrics associated with the FHIR store.
  *
- *  @param name The resource name of the FHIR store to get metrics for.
+ *  @param name Required. The resource name of the FHIR store to get metrics
+ *    for.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetFHIRStoreMetrics
  */
@@ -5230,7 +5250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresImport : GTLRCloudHealthcareQuery
 
 /**
- *  The name of the FHIR store to import FHIR resources to, in the format of
+ *  Required. The name of the FHIR store to import FHIR resources to, in the
+ *  format of
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5296,8 +5317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_ImportResourcesRequest to include
  *    in the query.
- *  @param name The name of the FHIR store to import FHIR resources to, in the
- *    format of
+ *  @param name Required. The name of the FHIR store to import FHIR resources
+ *    to, in the format of
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresImport
@@ -5355,7 +5376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Name of the dataset. */
+/** Required. Name of the dataset. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -5363,7 +5384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Lists the FHIR stores in the given dataset.
  *
- *  @param parent Name of the dataset.
+ *  @param parent Required. Name of the dataset.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresList
  *
@@ -5387,13 +5408,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresPatch : GTLRCloudHealthcareQuery
 
 /**
- *  Output only. Resource name of the FHIR store, of the form
+ *  Output only. Identifier. Resource name of the FHIR store, of the form
  *  `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
@@ -5406,12 +5428,63 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Updates the configuration of the specified FHIR store.
  *
  *  @param object The @c GTLRCloudHealthcare_FhirStore to include in the query.
- *  @param name Output only. Resource name of the FHIR store, of the form
+ *  @param name Output only. Identifier. Resource name of the FHIR store, of the
+ *    form
  *    `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_FhirStore *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rolls back resources from the FHIR store to the specified time. This method
+ *  returns an Operation that can be used to track the status of the rollback by
+ *  calling GetOperation. Immediate fatal errors appear in the error field,
+ *  errors are also logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  RollbackFhirResourcesResponse is returned in the response field. The
+ *  metadata field type for this operation is OperationMetadata.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.rollback
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresRollback : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the FHIR store to rollback, in the format of
+ *  "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}
+ *  /fhirStores/{fhir_store_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Rolls back resources from the FHIR store to the specified time. This method
+ *  returns an Operation that can be used to track the status of the rollback by
+ *  calling GetOperation. Immediate fatal errors appear in the error field,
+ *  errors are also logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  RollbackFhirResourcesResponse is returned in the response field. The
+ *  metadata field type for this operation is OperationMetadata.
+ *
+ *  @param object The @c GTLRCloudHealthcare_RollbackFhirResourcesRequest to
+ *    include in the query.
+ *  @param name Required. The name of the FHIR store to rollback, in the format
+ *    of "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}
+ *    /fhirStores/{fhir_store_id}".
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresRollback
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_RollbackFhirResourcesRequest *)object
                            name:(NSString *)name;
 
 @end

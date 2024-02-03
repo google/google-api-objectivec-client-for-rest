@@ -819,7 +819,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_ModifyColumnFamiliesRequest
-@dynamic modifications;
+@dynamic ignoreWarnings, modifications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

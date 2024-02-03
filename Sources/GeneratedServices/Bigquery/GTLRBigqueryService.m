@@ -43,24 +43,17 @@ NSString * const kGTLRAuthScopeBigqueryInsertdata            = @"https://www.goo
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
-    // Skipping "bigquery#dataset", was used on multiple classes:
-    //     GTLRBigquery_Dataset
-    //     GTLRBigquery_DatasetList_Datasets_Item
+    @"bigquery#dataset" : [GTLRBigquery_Dataset class],
     @"bigquery#datasetList" : [GTLRBigquery_DatasetList class],
     @"bigquery#getQueryResultsResponse" : [GTLRBigquery_GetQueryResultsResponse class],
     @"bigquery#getServiceAccountResponse" : [GTLRBigquery_GetServiceAccountResponse class],
-    // Skipping "bigquery#job", was used on multiple classes:
-    //     GTLRBigquery_Job
-    //     GTLRBigquery_JobList_Jobs_Item
+    @"bigquery#job" : [GTLRBigquery_Job class],
     @"bigquery#jobCancelResponse" : [GTLRBigquery_JobCancelResponse class],
     @"bigquery#jobList" : [GTLRBigquery_JobList class],
-    @"bigquery#project" : [GTLRBigquery_ProjectList_Projects_Item class],
     @"bigquery#projectList" : [GTLRBigquery_ProjectList class],
     @"bigquery#queryRequest" : [GTLRBigquery_QueryRequest class],
     @"bigquery#queryResponse" : [GTLRBigquery_QueryResponse class],
-    // Skipping "bigquery#table", was used on multiple classes:
-    //     GTLRBigquery_Table
-    //     GTLRBigquery_TableList_Tables_Item
+    @"bigquery#table" : [GTLRBigquery_Table class],
     @"bigquery#tableDataInsertAllRequest" : [GTLRBigquery_TableDataInsertAllRequest class],
     @"bigquery#tableDataInsertAllResponse" : [GTLRBigquery_TableDataInsertAllResponse class],
     @"bigquery#tableDataList" : [GTLRBigquery_TableDataList class],

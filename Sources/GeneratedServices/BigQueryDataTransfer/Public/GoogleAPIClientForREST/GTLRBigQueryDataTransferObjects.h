@@ -1297,6 +1297,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
+ *  A request to unenroll a set of data sources so they are no longer visible in
+ *  the BigQuery UI's `Transfer` tab.
+ */
+@interface GTLRBigQueryDataTransfer_UnenrollDataSourcesRequest : GTLRObject
+
+/**
+ *  Data sources that are unenrolled. It is required to provide at least one
+ *  data source id.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataSourceIds;
+
+@end
+
+
+/**
  *  Information about a user.
  */
 @interface GTLRBigQueryDataTransfer_UserInfo : GTLRObject

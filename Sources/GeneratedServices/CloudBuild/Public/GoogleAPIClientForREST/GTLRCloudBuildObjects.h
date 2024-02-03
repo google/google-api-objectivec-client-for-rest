@@ -46,15 +46,18 @@
 @class GTLRCloudBuild_ParamValue;
 @class GTLRCloudBuild_PipelineRef;
 @class GTLRCloudBuild_PipelineRun_Annotations;
+@class GTLRCloudBuild_PipelineRun_GcbParams;
 @class GTLRCloudBuild_PipelineSpec;
 @class GTLRCloudBuild_PipelineTask;
 @class GTLRCloudBuild_PipelineWorkspaceDeclaration;
 @class GTLRCloudBuild_Policy;
 @class GTLRCloudBuild_Probe;
 @class GTLRCloudBuild_PropertySpec;
+@class GTLRCloudBuild_Provenance;
 @class GTLRCloudBuild_Repository;
 @class GTLRCloudBuild_Repository_Annotations;
 @class GTLRCloudBuild_SecretVolumeSource;
+@class GTLRCloudBuild_Security;
 @class GTLRCloudBuild_SecurityContext;
 @class GTLRCloudBuild_Sidecar;
 @class GTLRCloudBuild_SkippedTask;
@@ -72,6 +75,7 @@
 @class GTLRCloudBuild_VolumeMount;
 @class GTLRCloudBuild_VolumeSource;
 @class GTLRCloudBuild_WhenExpression;
+@class GTLRCloudBuild_Worker;
 @class GTLRCloudBuild_WorkspaceBinding;
 @class GTLRCloudBuild_WorkspaceDeclaration;
 @class GTLRCloudBuild_WorkspacePipelineTaskBinding;
@@ -312,6 +316,104 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PropertySpec_Type_String;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PropertySpec_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_Provenance.enabled
+
+/**
+ *  Disable the provenance push entirely.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Enabled_Disabled;
+/**
+ *  Default to disabled (before AA regionalization), optimistic after
+ *
+ *  Value: "ENABLED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Enabled_EnabledUnspecified;
+/**
+ *  GCB will attempt to push to artifact analaysis and build state would not be
+ *  impacted by the push failures.
+ *
+ *  Value: "OPTIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Enabled_Optimistic;
+/**
+ *  Provenance failures would fail the run
+ *
+ *  Value: "REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Enabled_Required;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_Provenance.region
+
+/**
+ *  Push provenance to Artifact Analysis in global region.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Region_Global;
+/**
+ *  The PipelineRun/TaskRun/Workflow will be rejected. Update this comment to
+ *  push to the same region as the run in Artifact Analysis when it's
+ *  regionalized.
+ *
+ *  Value: "REGION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Region_RegionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_Provenance.storage
+
+/**
+ *  Only push to artifact project.
+ *
+ *  Value: "ARTIFACT_PROJECT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Storage_ArtifactProjectOnly;
+/**
+ *  Only push to build project.
+ *
+ *  Value: "BUILD_PROJECT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Storage_BuildProjectOnly;
+/**
+ *  GCB will attempt to push provenance to the artifact project. If it is not
+ *  available, fallback to build project.
+ *
+ *  Value: "PREFER_ARTIFACT_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Storage_PreferArtifactProject;
+/**
+ *  Default PREFER_ARTIFACT_PROJECT.
+ *
+ *  Value: "STORAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Storage_StorageUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_Security.privilegeMode
+
+/**
+ *  Privileged mode.
+ *
+ *  Value: "PRIVILEGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Privileged;
+/**
+ *  Default to PRIVILEGED.
+ *
+ *  Value: "PRIVILEGE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_PrivilegeModeUnspecified;
+/**
+ *  Unprivileged mode.
+ *
+ *  Value: "UNPRIVILEGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_TaskRef.resolver
@@ -570,7 +672,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1687,6 +1793,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *finallyStartTime;
 
+/** Output only. GCB default params. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineRun_GcbParams *gcbParams;
+
 /**
  *  Output only. The `PipelineRun` name with format
  *  `projects/{project}/locations/{location}/pipelineRuns/{pipeline_run}`
@@ -1714,8 +1823,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** PipelineSpec defines the desired state of Pipeline. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *pipelineSpec;
 
+/** Optional. Provenance configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Provenance *provenance;
+
 /** Output only. The exact PipelineSpec used to instantiate the run. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *resolvedPipelineSpec;
+
+/** Optional. Security configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Security *security;
 
 /** Service account used in the Pipeline. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
@@ -1745,6 +1860,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** Optional. Worker configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Worker *worker;
+
 /** Output only. The WorkerPool used to run this PipelineRun. */
 @property(nonatomic, copy, nullable) NSString *workerPool;
 
@@ -1766,6 +1884,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *        fetch them all at once.
  */
 @interface GTLRCloudBuild_PipelineRun_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Output only. GCB default params.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_PipelineRun_GcbParams : GTLRObject
 @end
 
 
@@ -2009,6 +2139,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  Provenance configuration.
+ */
+@interface GTLRCloudBuild_Provenance : GTLRObject
+
+/**
+ *  Optional. Provenance push mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_Provenance_Enabled_Disabled Disable the provenance
+ *        push entirely. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudBuild_Provenance_Enabled_EnabledUnspecified Default to
+ *        disabled (before AA regionalization), optimistic after (Value:
+ *        "ENABLED_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_Provenance_Enabled_Optimistic GCB will attempt to
+ *        push to artifact analaysis and build state would not be impacted by
+ *        the push failures. (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRCloudBuild_Provenance_Enabled_Required Provenance failures
+ *        would fail the run (Value: "REQUIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *enabled;
+
+/**
+ *  Optional. Provenance region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_Provenance_Region_Global Push provenance to
+ *        Artifact Analysis in global region. (Value: "GLOBAL")
+ *    @arg @c kGTLRCloudBuild_Provenance_Region_RegionUnspecified The
+ *        PipelineRun/TaskRun/Workflow will be rejected. Update this comment to
+ *        push to the same region as the run in Artifact Analysis when it's
+ *        regionalized. (Value: "REGION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Optional. Where provenance is stored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_Provenance_Storage_ArtifactProjectOnly Only push
+ *        to artifact project. (Value: "ARTIFACT_PROJECT_ONLY")
+ *    @arg @c kGTLRCloudBuild_Provenance_Storage_BuildProjectOnly Only push to
+ *        build project. (Value: "BUILD_PROJECT_ONLY")
+ *    @arg @c kGTLRCloudBuild_Provenance_Storage_PreferArtifactProject GCB will
+ *        attempt to push provenance to the artifact project. If it is not
+ *        available, fallback to build project. (Value:
+ *        "PREFER_ARTIFACT_PROJECT")
+ *    @arg @c kGTLRCloudBuild_Provenance_Storage_StorageUnspecified Default
+ *        PREFER_ARTIFACT_PROJECT. (Value: "STORAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storage;
+
+@end
+
+
+/**
  *  A repository associated to a parent connection.
  */
 @interface GTLRCloudBuild_Repository : GTLRObject
@@ -2111,6 +2296,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  /secrets/ * /versions/ *
  */
 @property(nonatomic, copy, nullable) NSString *secretVersion;
+
+@end
+
+
+/**
+ *  Security configuration.
+ */
+@interface GTLRCloudBuild_Security : GTLRObject
+
+/**
+ *  Optional. Privilege mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_Security_PrivilegeMode_Privileged Privileged mode.
+ *        (Value: "PRIVILEGED")
+ *    @arg @c kGTLRCloudBuild_Security_PrivilegeMode_PrivilegeModeUnspecified
+ *        Default to PRIVILEGED. (Value: "PRIVILEGE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged Unprivileged
+ *        mode. (Value: "UNPRIVILEGED")
+ */
+@property(nonatomic, copy, nullable) NSString *privilegeMode;
+
+/** IAM service account whose credentials will be used at runtime. */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 @end
 
@@ -2671,6 +2880,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  guard checking.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Configuration for the worker.
+ */
+@interface GTLRCloudBuild_Worker : GTLRObject
+
+/** Optional. Machine type of a worker, default is "e2-standard-2". */
+@property(nonatomic, copy, nullable) NSString *machineType;
 
 @end
 

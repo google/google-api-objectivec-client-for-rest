@@ -280,19 +280,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 /**
  *  Optional. Filters applied to the `[Executions.ListExecutions]` results. The
  *  following fields are supported for filtering: `executionId`, `state`,
- *  `startTime`, `endTime`, `duration`, `workflowRevisionId`, `stepName`, and
- *  `label`. For details, see AIP-160. For example, if you are using the Google
- *  APIs Explorer: `state="SUCCEEDED"` or `startTime>"2023-08-01" AND
- *  state="FAILED"`
+ *  `createTime`, `startTime`, `endTime`, `duration`, `workflowRevisionId`,
+ *  `stepName`, and `label`. For details, see AIP-160. For example, if you are
+ *  using the Google APIs Explorer: `state="SUCCEEDED"` or
+ *  `startTime>"2023-08-01" AND state="FAILED"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. Comma-separated list of fields that specify the ordering applied
  *  to the `[Executions.ListExecutions]` results. By default the ordering is
- *  based on descending `startTime`. The following fields are supported for
- *  ordering: `executionId`, `state`, `startTime`, `endTime`, `duration`, and
- *  `workflowRevisionId`. For details, see AIP-132.
+ *  based on descending `createTime`. The following fields are supported for
+ *  ordering: `executionId`, `state`, `createTime`, `startTime`, `endTime`,
+ *  `duration`, and `workflowRevisionId`. For details, see AIP-132.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

@@ -61,6 +61,7 @@
 @class GTLRNetworkManagement_Status;
 @class GTLRNetworkManagement_Status_Details_Item;
 @class GTLRNetworkManagement_Step;
+@class GTLRNetworkManagement_StorageBucketInfo;
 @class GTLRNetworkManagement_Trace;
 @class GTLRNetworkManagement_VpcConnectorInfo;
 @class GTLRNetworkManagement_VpnGatewayInfo;
@@ -270,6 +271,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType
 // GTLRNetworkManagement_DeliverInfo.target
 
 /**
+ *  Target is a App Engine service version. Used only for return traces.
+ *
+ *  Value: "APP_ENGINE_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_AppEngineVersion;
+/**
+ *  Target is a Cloud Function. Used only for return traces.
+ *
+ *  Value: "CLOUD_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudFunction;
+/**
+ *  Target is a Cloud Run revision. Used only for return traces.
+ *
+ *  Value: "CLOUD_RUN_REVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudRunRevision;
+/**
  *  Target is a Cloud SQL instance.
  *
  *  Value: "CLOUD_SQL_INSTANCE"
@@ -299,6 +318,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Ins
  *  Value: "INTERNET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet;
+/**
+ *  Target is a private network. Used only for return traces.
+ *
+ *  Value: "PRIVATE_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PrivateNetwork;
 /**
  *  Target is all Google APIs that use [Private Service
  *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
@@ -592,6 +617,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscEndp
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerEndpointNoGlobalAccess;
 /**
+ *  The packet is sent to the Private Service Connect backend (network endpoint
+ *  group), but the producer PSC forwarding rule has multiple ports specified.
+ *
+ *  Value: "PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerForwardingRuleMultiplePorts;
+/**
  *  Packet sent from a Cloud SQL instance with only a public IP address to a
  *  private IP address.
  *
@@ -611,6 +643,32 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicG
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole;
 /**
+ *  Route's next hop forwarding rule doesn't match next hop IP address.
+ *
+ *  Value: "ROUTE_NEXT_HOP_FORWARDING_RULE_IP_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleIpMismatch;
+/**
+ *  Route's next hop forwarding rule type is invalid (it's not a forwarding rule
+ *  of the internal passthrough load balancer).
+ *
+ *  Value: "ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleTypeInvalid;
+/**
+ *  Route's next hop IP address is not a primary IP address of the next hop
+ *  instance.
+ *
+ *  Value: "ROUTE_NEXT_HOP_INSTANCE_NON_PRIMARY_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopInstanceNonPrimaryIp;
+/**
+ *  Route's next hop instance doesn't hace a NIC in the route's network.
+ *
+ *  Value: "ROUTE_NEXT_HOP_INSTANCE_WRONG_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopInstanceWrongNetwork;
+/**
  *  Route's next hop IP address cannot be resolved to a GCP resource.
  *
  *  Value: "ROUTE_NEXT_HOP_IP_ADDRESS_NOT_RESOLVED"
@@ -622,6 +680,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNe
  *  Value: "ROUTE_NEXT_HOP_RESOURCE_NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopResourceNotFound;
+/**
+ *  Route's next hop VPN tunnel is down (does not have valid IKE SAs).
+ *
+ *  Value: "ROUTE_NEXT_HOP_VPN_TUNNEL_NOT_ESTABLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopVpnTunnelNotEstablished;
 /**
  *  Packet is sent to a wrong (unintended) network. Example: you trace a packet
  *  from VM1:Network1 to VM2:Network2, however, the route configured in Network1
@@ -896,13 +960,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Ano
  *
  *  Value: "CLOUD_SQL_INSTANCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_CloudSqlInstance;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_CloudSqlInstance GTLR_DEPRECATED;
 /**
  *  Forwarded to a Google Kubernetes Engine Container cluster master.
  *
  *  Value: "GKE_MASTER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_GkeMaster;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_GkeMaster GTLR_DEPRECATED;
 /**
  *  Forwarded to the next hop of a custom route imported from a peering VPC.
  *
@@ -1481,7 +1545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyRoute;
  *
  *  Value: "ARRIVE_AT_EXTERNAL_LOAD_BALANCER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer GTLR_DEPRECATED;
 /**
  *  Forwarding state: arriving at a Compute Engine instance.
  *
@@ -1493,7 +1557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtIns
  *
  *  Value: "ARRIVE_AT_INTERNAL_LOAD_BALANCER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer GTLR_DEPRECATED;
 /**
  *  Forwarding state: arriving at a VPC connector.
  *
@@ -1615,6 +1679,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromIn
  *  Value: "START_FROM_PRIVATE_NETWORK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork;
+/**
+ *  Initial state: packet originating from a published service that uses Private
+ *  Service Connect. Used only for return traces.
+ *
+ *  Value: "START_FROM_PSC_PUBLISHED_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPscPublishedService;
+/**
+ *  Initial state: packet originating from a Storage Bucket. Used only for
+ *  return traces. The storage_bucket information is populated.
+ *
+ *  Value: "START_FROM_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromStorageBucket;
 /**
  *  Unspecified state.
  *
@@ -1933,7 +2011,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2162,6 +2244,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Target type where the packet is delivered to.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_AppEngineVersion Target
+ *        is a App Engine service version. Used only for return traces. (Value:
+ *        "APP_ENGINE_VERSION")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_CloudFunction Target is
+ *        a Cloud Function. Used only for return traces. (Value:
+ *        "CLOUD_FUNCTION")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_CloudRunRevision Target
+ *        is a Cloud Run revision. Used only for return traces. (Value:
+ *        "CLOUD_RUN_REVISION")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_CloudSqlInstance Target
  *        is a Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster Target is a
@@ -2172,6 +2263,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Compute Engine instance. (Value: "INSTANCE")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_Internet Target is the
  *        internet. (Value: "INTERNET")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PrivateNetwork Target is
+ *        a private network. Used only for return traces. (Value:
+ *        "PRIVATE_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi Target is
  *        all Google APIs that use [Private Service
  *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
@@ -2336,6 +2430,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        endpoint group), but the producer PSC forwarding rule does not have
  *        global access enabled. (Value:
  *        "PSC_NEG_PRODUCER_ENDPOINT_NO_GLOBAL_ACCESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerForwardingRuleMultiplePorts
+ *        The packet is sent to the Private Service Connect backend (network
+ *        endpoint group), but the producer PSC forwarding rule has multiple
+ *        ports specified. (Value:
+ *        "PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PublicCloudSqlInstanceToPrivateDestination
  *        Packet sent from a Cloud SQL instance with only a public IP address to
  *        a private IP address. (Value:
@@ -2346,12 +2445,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole Dropped due
  *        to invalid route. Route's next hop is a blackhole. (Value:
  *        "ROUTE_BLACKHOLE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleIpMismatch
+ *        Route's next hop forwarding rule doesn't match next hop IP address.
+ *        (Value: "ROUTE_NEXT_HOP_FORWARDING_RULE_IP_MISMATCH")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleTypeInvalid
+ *        Route's next hop forwarding rule type is invalid (it's not a
+ *        forwarding rule of the internal passthrough load balancer). (Value:
+ *        "ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopInstanceNonPrimaryIp
+ *        Route's next hop IP address is not a primary IP address of the next
+ *        hop instance. (Value: "ROUTE_NEXT_HOP_INSTANCE_NON_PRIMARY_IP")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopInstanceWrongNetwork
+ *        Route's next hop instance doesn't hace a NIC in the route's network.
+ *        (Value: "ROUTE_NEXT_HOP_INSTANCE_WRONG_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopIpAddressNotResolved
  *        Route's next hop IP address cannot be resolved to a GCP resource.
  *        (Value: "ROUTE_NEXT_HOP_IP_ADDRESS_NOT_RESOLVED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopResourceNotFound
  *        Route's next hop resource is not found. (Value:
  *        "ROUTE_NEXT_HOP_RESOURCE_NOT_FOUND")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopVpnTunnelNotEstablished
+ *        Route's next hop VPN tunnel is down (does not have valid IKE SAs).
+ *        (Value: "ROUTE_NEXT_HOP_VPN_TUNNEL_NOT_ESTABLISHED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork Packet is
  *        sent to a wrong (unintended) network. Example: you trace a packet from
  *        VM1:Network1 to VM2:Network2, however, the route configured in
@@ -3102,6 +3217,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_LoadBalancerBackendInfo : GTLRObject
 
+/** URI of the backend bucket this backend targets (if applicable). */
+@property(nonatomic, copy, nullable) NSString *backendBucketUri;
+
 /** URI of the backend service this backend belongs to (if applicable). */
 @property(nonatomic, copy, nullable) NSString *backendServiceUri;
 
@@ -3163,6 +3281,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  URI of the network endpoint group this backend belongs to (if applicable).
  */
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroupUri;
+
+/** PSC Google API target this PSC NEG backend targets (if applicable). */
+@property(nonatomic, copy, nullable) NSString *pscGoogleApiTarget;
+
+/**
+ *  URI of the PSC service attachment this PSC NEG backend targets (if
+ *  applicable).
+ */
+@property(nonatomic, copy, nullable) NSString *pscServiceAttachmentUri;
 
 @end
 
@@ -4066,8 +4193,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a Compute Engine instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_InstanceInfo *instance;
 
-/** Display information of the load balancers. */
-@property(nonatomic, strong, nullable) GTLRNetworkManagement_LoadBalancerInfo *loadBalancer;
+/**
+ *  Display information of the load balancers. Deprecated in favor of the
+ *  `load_balancer_backend_info` field, not used in new tests.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_LoadBalancerInfo *loadBalancer GTLR_DEPRECATED;
 
 /** Display information of a specific load balancer backend. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_LoadBalancerBackendInfo *loadBalancerBackendInfo;
@@ -4173,6 +4303,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        internal source IP. If the source is a VPC network visible to the
  *        user, a NetworkInfo is populated with details of the network. (Value:
  *        "START_FROM_PRIVATE_NETWORK")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromPscPublishedService
+ *        Initial state: packet originating from a published service that uses
+ *        Private Service Connect. Used only for return traces. (Value:
+ *        "START_FROM_PSC_PUBLISHED_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromStorageBucket Initial
+ *        state: packet originating from a Storage Bucket. Used only for return
+ *        traces. The storage_bucket information is populated. (Value:
+ *        "START_FROM_STORAGE_BUCKET")
  *    @arg @c kGTLRNetworkManagement_Step_State_StateUnspecified Unspecified
  *        state. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_Step_State_ViewerPermissionMissing Special
@@ -4180,6 +4318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        configuration in this step. (Value: "VIEWER_PERMISSION_MISSING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Display information of a Storage Bucket. Used only for return traces. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_StorageBucketInfo *storageBucket;
 
 /** Display information of a VPC connector. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_VpcConnectorInfo *vpcConnector;
@@ -4189,6 +4330,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** Display information of a Compute Engine VPN tunnel. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_VpnTunnelInfo *vpnTunnel;
+
+@end
+
+
+/**
+ *  For display only. Metadata associated with Storage Bucket.
+ */
+@interface GTLRNetworkManagement_StorageBucketInfo : GTLRObject
+
+/** Cloud Storage Bucket name. */
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 @end
 

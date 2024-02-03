@@ -490,7 +490,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -542,8 +546,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
  *  config from P1 will be selected. If a client with label connects, the config
  *  from P2 will be selected. If a client with label connects, the config from
  *  P3 will be selected. If there is more than one best match, (for example, if
- *  a config P4 with selector exists and if a client with label connects), an
- *  error will be thrown.
+ *  a config P4 with selector exists and if a client with label connects), pick
+ *  up the one with older creation time.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAll
@@ -742,7 +746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
  *  Gateway represents the configuration for a proxy, typically a load balancer.
  *  It captures the ip:port over which the services are exposed by the proxy,
  *  along with any policy configurations. Routes have reference to to Gateways
- *  to dictate how requests should be routed by this Gateway. Next id: 29
+ *  to dictate how requests should be routed by this Gateway. Next id: 30
  */
 @interface GTLRNetworkServices_Gateway : GTLRObject
 

@@ -66,10 +66,79 @@ NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRBigquery_BiEngineReason.code
+NSString * const kGTLRBigquery_BiEngineReason_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_BiEngineReason_Code_InputTooLarge = @"INPUT_TOO_LARGE";
+NSString * const kGTLRBigquery_BiEngineReason_Code_InsufficientReservation = @"INSUFFICIENT_RESERVATION";
+NSString * const kGTLRBigquery_BiEngineReason_Code_NoReservation = @"NO_RESERVATION";
+NSString * const kGTLRBigquery_BiEngineReason_Code_OtherReason = @"OTHER_REASON";
+NSString * const kGTLRBigquery_BiEngineReason_Code_TableExcluded = @"TABLE_EXCLUDED";
+NSString * const kGTLRBigquery_BiEngineReason_Code_UnsupportedSqlText = @"UNSUPPORTED_SQL_TEXT";
+
+// GTLRBigquery_BiEngineStatistics.accelerationMode
+NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_BiEngineAccelerationModeUnspecified = @"BI_ENGINE_ACCELERATION_MODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_BiEngineDisabled = @"BI_ENGINE_DISABLED";
+NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_FullInput = @"FULL_INPUT";
+NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_FullQuery = @"FULL_QUERY";
+NSString * const kGTLRBigquery_BiEngineStatistics_AccelerationMode_PartialInput = @"PARTIAL_INPUT";
+
+// GTLRBigquery_BiEngineStatistics.biEngineMode
+NSString * const kGTLRBigquery_BiEngineStatistics_BiEngineMode_AccelerationModeUnspecified = @"ACCELERATION_MODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_BiEngineStatistics_BiEngineMode_Disabled = @"DISABLED";
+NSString * const kGTLRBigquery_BiEngineStatistics_BiEngineMode_Full = @"FULL";
+NSString * const kGTLRBigquery_BiEngineStatistics_BiEngineMode_Partial = @"PARTIAL";
+
+// GTLRBigquery_BigLakeConfiguration.fileFormat
+NSString * const kGTLRBigquery_BigLakeConfiguration_FileFormat_FileFormatUnspecified = @"FILE_FORMAT_UNSPECIFIED";
+NSString * const kGTLRBigquery_BigLakeConfiguration_FileFormat_Parquet = @"PARQUET";
+
+// GTLRBigquery_BigLakeConfiguration.tableFormat
+NSString * const kGTLRBigquery_BigLakeConfiguration_TableFormat_Iceberg = @"ICEBERG";
+NSString * const kGTLRBigquery_BigLakeConfiguration_TableFormat_TableFormatUnspecified = @"TABLE_FORMAT_UNSPECIFIED";
+
+// GTLRBigquery_Dataset.defaultRoundingMode
+NSString * const kGTLRBigquery_Dataset_DefaultRoundingMode_RoundHalfAwayFromZero = @"ROUND_HALF_AWAY_FROM_ZERO";
+NSString * const kGTLRBigquery_Dataset_DefaultRoundingMode_RoundHalfEven = @"ROUND_HALF_EVEN";
+NSString * const kGTLRBigquery_Dataset_DefaultRoundingMode_RoundingModeUnspecified = @"ROUNDING_MODE_UNSPECIFIED";
+
+// GTLRBigquery_Dataset.storageBillingModel
+NSString * const kGTLRBigquery_Dataset_StorageBillingModel_Logical = @"LOGICAL";
+NSString * const kGTLRBigquery_Dataset_StorageBillingModel_Physical = @"PHYSICAL";
+NSString * const kGTLRBigquery_Dataset_StorageBillingModel_StorageBillingModelUnspecified = @"STORAGE_BILLING_MODEL_UNSPECIFIED";
+
 // GTLRBigquery_DatasetAccessEntry.targetTypes
 NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Routines = @"ROUTINES";
 NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_TargetTypeUnspecified = @"TARGET_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Views = @"VIEWS";
+
+// GTLRBigquery_ExplainQueryStage.computeMode
+NSString * const kGTLRBigquery_ExplainQueryStage_ComputeMode_BiEngine = @"BI_ENGINE";
+NSString * const kGTLRBigquery_ExplainQueryStage_ComputeMode_Bigquery = @"BIGQUERY";
+NSString * const kGTLRBigquery_ExplainQueryStage_ComputeMode_ComputeModeUnspecified = @"COMPUTE_MODE_UNSPECIFIED";
+
+// GTLRBigquery_ExternalDataConfiguration.decimalTargetTypes
+NSString * const kGTLRBigquery_ExternalDataConfiguration_DecimalTargetTypes_Bignumeric = @"BIGNUMERIC";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_DecimalTargetTypes_DecimalTargetTypeUnspecified = @"DECIMAL_TARGET_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_DecimalTargetTypes_Numeric = @"NUMERIC";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_DecimalTargetTypes_String = @"STRING";
+
+// GTLRBigquery_ExternalDataConfiguration.fileSetSpecType
+NSString * const kGTLRBigquery_ExternalDataConfiguration_FileSetSpecType_FileSetSpecTypeFileSystemMatch = @"FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_FileSetSpecType_FileSetSpecTypeNewLineDelimitedManifest = @"FILE_SET_SPEC_TYPE_NEW_LINE_DELIMITED_MANIFEST";
+
+// GTLRBigquery_ExternalDataConfiguration.jsonExtension
+NSString * const kGTLRBigquery_ExternalDataConfiguration_JsonExtension_Geojson = @"GEOJSON";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_JsonExtension_JsonExtensionUnspecified = @"JSON_EXTENSION_UNSPECIFIED";
+
+// GTLRBigquery_ExternalDataConfiguration.metadataCacheMode
+NSString * const kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_Automatic = @"AUTOMATIC";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_Manual = @"MANUAL";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_MetadataCacheMode_MetadataCacheModeUnspecified = @"METADATA_CACHE_MODE_UNSPECIFIED";
+
+// GTLRBigquery_ExternalDataConfiguration.objectMetadata
+NSString * const kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_Directory = @"DIRECTORY";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_ObjectMetadataUnspecified = @"OBJECT_METADATA_UNSPECIFIED";
+NSString * const kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_Simple = @"SIMPLE";
 
 // GTLRBigquery_HparamTuningTrial.status
 NSString * const kGTLRBigquery_HparamTuningTrial_Status_Failed = @"FAILED";
@@ -80,12 +149,100 @@ NSString * const kGTLRBigquery_HparamTuningTrial_Status_StoppedEarly = @"STOPPED
 NSString * const kGTLRBigquery_HparamTuningTrial_Status_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified = @"TRIAL_STATUS_UNSPECIFIED";
 
+// GTLRBigquery_IndexUnusedReason.code
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooLarge = @"BASE_TABLE_TOO_LARGE";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooSmall = @"BASE_TABLE_TOO_SMALL";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTruncated = @"BASE_TABLE_TRUNCATED";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_EstimatedPerformanceGainTooLow = @"ESTIMATED_PERFORMANCE_GAIN_TOO_LOW";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_IndexConfigModified = @"INDEX_CONFIG_MODIFIED";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_IndexConfigNotAvailable = @"INDEX_CONFIG_NOT_AVAILABLE";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_IndexSuppressedByFunctionOption = @"INDEX_SUPPRESSED_BY_FUNCTION_OPTION";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_MismatchedTextAnalyzer = @"MISMATCHED_TEXT_ANALYZER";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_NoPruningPower = @"NO_PRUNING_POWER";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_NotSupportedInStandardEdition = @"NOT_SUPPORTED_IN_STANDARD_EDITION";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_OptimizedWithMaterializedView = @"OPTIMIZED_WITH_MATERIALIZED_VIEW";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_OtherReason = @"OTHER_REASON";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_PendingIndexCreation = @"PENDING_INDEX_CREATION";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_QueryCacheHit = @"QUERY_CACHE_HIT";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_SecuredByDataMasking = @"SECURED_BY_DATA_MASKING";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_TimeTravelQuery = @"TIME_TRAVEL_QUERY";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_UnindexedSearchFields = @"UNINDEXED_SEARCH_FIELDS";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_UnsupportedSearchPattern = @"UNSUPPORTED_SEARCH_PATTERN";
+
+// GTLRBigquery_JobConfigurationLoad.decimalTargetTypes
+NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_Bignumeric = @"BIGNUMERIC";
+NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_DecimalTargetTypeUnspecified = @"DECIMAL_TARGET_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_Numeric = @"NUMERIC";
+NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_String = @"STRING";
+
+// GTLRBigquery_JobConfigurationLoad.fileSetSpecType
+NSString * const kGTLRBigquery_JobConfigurationLoad_FileSetSpecType_FileSetSpecTypeFileSystemMatch = @"FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH";
+NSString * const kGTLRBigquery_JobConfigurationLoad_FileSetSpecType_FileSetSpecTypeNewLineDelimitedManifest = @"FILE_SET_SPEC_TYPE_NEW_LINE_DELIMITED_MANIFEST";
+
+// GTLRBigquery_JobConfigurationLoad.jsonExtension
+NSString * const kGTLRBigquery_JobConfigurationLoad_JsonExtension_Geojson = @"GEOJSON";
+NSString * const kGTLRBigquery_JobConfigurationLoad_JsonExtension_JsonExtensionUnspecified = @"JSON_EXTENSION_UNSPECIFIED";
+
+// GTLRBigquery_JobConfigurationTableCopy.operationType
+NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Clone = @"CLONE";
+NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Copy = @"COPY";
+NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Restore = @"RESTORE";
+NSString * const kGTLRBigquery_JobConfigurationTableCopy_OperationType_Snapshot = @"SNAPSHOT";
+
 // GTLRBigquery_JobCreationReason.code
 NSString * const kGTLRBigquery_JobCreationReason_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRBigquery_JobCreationReason_Code_LargeResults = @"LARGE_RESULTS";
 NSString * const kGTLRBigquery_JobCreationReason_Code_LongRunning = @"LONG_RUNNING";
 NSString * const kGTLRBigquery_JobCreationReason_Code_Other    = @"OTHER";
 NSString * const kGTLRBigquery_JobCreationReason_Code_Requested = @"REQUESTED";
+
+// GTLRBigquery_MaterializedView.rejectedReason
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableDataChange = @"BASE_TABLE_DATA_CHANGE";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableExpiredPartition = @"BASE_TABLE_EXPIRED_PARTITION";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableFineGrainedSecurityPolicy = @"BASE_TABLE_FINE_GRAINED_SECURITY_POLICY";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableIncompatibleMetadataChange = @"BASE_TABLE_INCOMPATIBLE_METADATA_CHANGE";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTablePartitionExpirationChange = @"BASE_TABLE_PARTITION_EXPIRATION_CHANGE";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableTooStale = @"BASE_TABLE_TOO_STALE";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableTruncated = @"BASE_TABLE_TRUNCATED";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_Cost = @"COST";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_NoData = @"NO_DATA";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_OutOfTimeTravelWindow = @"OUT_OF_TIME_TRAVEL_WINDOW";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_RejectedReasonUnspecified = @"REJECTED_REASON_UNSPECIFIED";
+NSString * const kGTLRBigquery_MaterializedView_RejectedReason_TimeZone = @"TIME_ZONE";
+
+// GTLRBigquery_MlStatistics.modelType
+NSString * const kGTLRBigquery_MlStatistics_ModelType_Arima    = @"ARIMA";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_ArimaPlus = @"ARIMA_PLUS";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_ArimaPlusXreg = @"ARIMA_PLUS_XREG";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_Autoencoder = @"AUTOENCODER";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_AutomlClassifier = @"AUTOML_CLASSIFIER";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_AutomlRegressor = @"AUTOML_REGRESSOR";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_BoostedTreeClassifier = @"BOOSTED_TREE_CLASSIFIER";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_BoostedTreeRegressor = @"BOOSTED_TREE_REGRESSOR";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnClassifier = @"DNN_CLASSIFIER";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedClassifier = @"DNN_LINEAR_COMBINED_CLASSIFIER";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedRegressor = @"DNN_LINEAR_COMBINED_REGRESSOR";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_DnnRegressor = @"DNN_REGRESSOR";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_Kmeans   = @"KMEANS";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_LinearRegression = @"LINEAR_REGRESSION";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_LogisticRegression = @"LOGISTIC_REGRESSION";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_MatrixFactorization = @"MATRIX_FACTORIZATION";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_Onnx     = @"ONNX";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_Pca      = @"PCA";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_RandomForestClassifier = @"RANDOM_FOREST_CLASSIFIER";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_RandomForestRegressor = @"RANDOM_FOREST_REGRESSOR";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_Tensorflow = @"TENSORFLOW";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_TensorflowLite = @"TENSORFLOW_LITE";
+NSString * const kGTLRBigquery_MlStatistics_ModelType_Xgboost  = @"XGBOOST";
+
+// GTLRBigquery_MlStatistics.trainingType
+NSString * const kGTLRBigquery_MlStatistics_TrainingType_HparamTuning = @"HPARAM_TUNING";
+NSString * const kGTLRBigquery_MlStatistics_TrainingType_SingleTraining = @"SINGLE_TRAINING";
+NSString * const kGTLRBigquery_MlStatistics_TrainingType_TrainingTypeUnspecified = @"TRAINING_TYPE_UNSPECIFIED";
 
 // GTLRBigquery_Model.modelType
 NSString * const kGTLRBigquery_Model_ModelType_Arima           = @"ARIMA";
@@ -112,6 +269,11 @@ NSString * const kGTLRBigquery_Model_ModelType_RandomForestRegressor = @"RANDOM_
 NSString * const kGTLRBigquery_Model_ModelType_Tensorflow      = @"TENSORFLOW";
 NSString * const kGTLRBigquery_Model_ModelType_TensorflowLite  = @"TENSORFLOW_LITE";
 NSString * const kGTLRBigquery_Model_ModelType_Xgboost         = @"XGBOOST";
+
+// GTLRBigquery_QueryRequest.jobCreationMode
+NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationModeUnspecified = @"JOB_CREATION_MODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationOptional = @"JOB_CREATION_OPTIONAL";
+NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationRequired = @"JOB_CREATION_REQUIRED";
 
 // GTLRBigquery_RemoteModelInfo.remoteServiceType
 NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiNaturalLanguageV1 = @"CLOUD_AI_NATURAL_LANGUAGE_V1";
@@ -149,6 +311,22 @@ NSString * const kGTLRBigquery_Routine_SecurityMode_Definer    = @"DEFINER";
 NSString * const kGTLRBigquery_Routine_SecurityMode_Invoker    = @"INVOKER";
 NSString * const kGTLRBigquery_Routine_SecurityMode_SecurityModeUnspecified = @"SECURITY_MODE_UNSPECIFIED";
 
+// GTLRBigquery_ScriptOptions.keyResultStatement
+NSString * const kGTLRBigquery_ScriptOptions_KeyResultStatement_FirstSelect = @"FIRST_SELECT";
+NSString * const kGTLRBigquery_ScriptOptions_KeyResultStatement_KeyResultStatementKindUnspecified = @"KEY_RESULT_STATEMENT_KIND_UNSPECIFIED";
+NSString * const kGTLRBigquery_ScriptOptions_KeyResultStatement_Last = @"LAST";
+
+// GTLRBigquery_ScriptStatistics.evaluationKind
+NSString * const kGTLRBigquery_ScriptStatistics_EvaluationKind_EvaluationKindUnspecified = @"EVALUATION_KIND_UNSPECIFIED";
+NSString * const kGTLRBigquery_ScriptStatistics_EvaluationKind_Expression = @"EXPRESSION";
+NSString * const kGTLRBigquery_ScriptStatistics_EvaluationKind_Statement = @"STATEMENT";
+
+// GTLRBigquery_SearchStatistics.indexUsageMode
+NSString * const kGTLRBigquery_SearchStatistics_IndexUsageMode_FullyUsed = @"FULLY_USED";
+NSString * const kGTLRBigquery_SearchStatistics_IndexUsageMode_IndexUsageModeUnspecified = @"INDEX_USAGE_MODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_SearchStatistics_IndexUsageMode_PartiallyUsed = @"PARTIALLY_USED";
+NSString * const kGTLRBigquery_SearchStatistics_IndexUsageMode_Unused = @"UNUSED";
+
 // GTLRBigquery_StandardSqlDataType.typeKind
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Array = @"ARRAY";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bignumeric = @"BIGNUMERIC";
@@ -168,6 +346,29 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Struct = @"STRUCT";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Time = @"TIME";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Timestamp = @"TIMESTAMP";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified = @"TYPE_KIND_UNSPECIFIED";
+
+// GTLRBigquery_Table.defaultRoundingMode
+NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfAwayFromZero = @"ROUND_HALF_AWAY_FROM_ZERO";
+NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundHalfEven = @"ROUND_HALF_EVEN";
+NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundingModeUnspecified = @"ROUNDING_MODE_UNSPECIFIED";
+
+// GTLRBigquery_TableFieldSchema.roundingMode
+NSString * const kGTLRBigquery_TableFieldSchema_RoundingMode_RoundHalfAwayFromZero = @"ROUND_HALF_AWAY_FROM_ZERO";
+NSString * const kGTLRBigquery_TableFieldSchema_RoundingMode_RoundHalfEven = @"ROUND_HALF_EVEN";
+NSString * const kGTLRBigquery_TableFieldSchema_RoundingMode_RoundingModeUnspecified = @"ROUNDING_MODE_UNSPECIFIED";
+
+// GTLRBigquery_TableMetadataCacheUsage.unusedReason
+NSString * const kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_ExceededMaxStaleness = @"EXCEEDED_MAX_STALENESS";
+NSString * const kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_MetadataCachingNotEnabled = @"METADATA_CACHING_NOT_ENABLED";
+NSString * const kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_OtherReason = @"OTHER_REASON";
+NSString * const kGTLRBigquery_TableMetadataCacheUsage_UnusedReason_UnusedReasonUnspecified = @"UNUSED_REASON_UNSPECIFIED";
+
+// GTLRBigquery_TableReplicationInfo.replicationStatus
+NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_Active = @"ACTIVE";
+NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_ReplicationStatusUnspecified = @"REPLICATION_STATUS_UNSPECIFIED";
+NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_SourceDeleted = @"SOURCE_DELETED";
+NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_UnsupportedConfiguration = @"UNSUPPORTED_CONFIGURATION";
 
 // GTLRBigquery_TrainingOptions.boosterType
 NSString * const kGTLRBigquery_TrainingOptions_BoosterType_BoosterTypeUnspecified = @"BOOSTER_TYPE_UNSPECIFIED";
@@ -709,7 +910,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_BigtableOptions
-@dynamic columnFamilies, ignoreUnspecifiedColumnFamilies, readRowkeyAsString;
+@dynamic columnFamilies, ignoreUnspecifiedColumnFamilies,
+         outputColumnFamiliesAsJson, readRowkeyAsString;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -952,6 +1154,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_DataFormatOptions
+//
+
+@implementation GTLRBigquery_DataFormatOptions
+@dynamic useInt64Timestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_DataMaskingStatistics
 //
 
@@ -970,8 +1182,9 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          defaultEncryptionConfiguration, defaultPartitionExpirationMs,
          defaultRoundingMode, defaultTableExpirationMs, descriptionProperty,
          ETag, externalDatasetReference, friendlyName, identifier,
-         isCaseInsensitive, kind, labels, lastModifiedTime, location,
-         maxTimeTravelHours, satisfiesPzs, selfLink, storageBillingModel, tags;
+         isCaseInsensitive, kind, labels, lastModifiedTime, linkedDatasetSource,
+         location, maxTimeTravelHours, satisfiesPzs, selfLink,
+         storageBillingModel, tags, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1052,7 +1265,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_DatasetList
-@dynamic datasets, ETag, kind, nextPageToken;
+@dynamic datasets, ETag, kind, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1060,7 +1273,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"datasets" : [GTLRBigquery_DatasetList_Datasets_Item class]
+    @"datasets" : [GTLRBigquery_DatasetList_Datasets_Item class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1082,6 +1296,12 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1256,12 +1476,13 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_ExplainQueryStage
-@dynamic completedParallelInputs, computeMsAvg, computeMsMax, computeRatioAvg,
-         computeRatioMax, endMs, identifier, inputStages, name, parallelInputs,
-         readMsAvg, readMsMax, readRatioAvg, readRatioMax, recordsRead,
-         recordsWritten, shuffleOutputBytes, shuffleOutputBytesSpilled, slotMs,
-         startMs, status, steps, waitMsAvg, waitMsMax, waitRatioAvg,
-         waitRatioMax, writeMsAvg, writeMsMax, writeRatioAvg, writeRatioMax;
+@dynamic completedParallelInputs, computeMode, computeMsAvg, computeMsMax,
+         computeRatioAvg, computeRatioMax, endMs, identifier, inputStages, name,
+         parallelInputs, readMsAvg, readMsMax, readRatioAvg, readRatioMax,
+         recordsRead, recordsWritten, shuffleOutputBytes,
+         shuffleOutputBytesSpilled, slotMs, startMs, status, steps, waitMsAvg,
+         waitMsMax, waitRatioAvg, waitRatioMax, writeMsAvg, writeMsMax,
+         writeRatioAvg, writeRatioMax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1314,6 +1535,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ExportDataStatistics
+//
+
+@implementation GTLRBigquery_ExportDataStatistics
+@dynamic fileCount, rowCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Expr
 //
 
@@ -1335,9 +1566,10 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 @implementation GTLRBigquery_ExternalDataConfiguration
 @dynamic autodetect, avroOptions, bigtableOptions, compression, connectionId,
          csvOptions, decimalTargetTypes, fileSetSpecType, googleSheetsOptions,
-         hivePartitioningOptions, ignoreUnknownValues, jsonOptions,
-         maxBadRecords, metadataCacheMode, objectMetadata, parquetOptions,
-         referenceFileSchemaUri, schema, sourceFormat, sourceUris;
+         hivePartitioningOptions, ignoreUnknownValues, jsonExtension,
+         jsonOptions, maxBadRecords, metadataCacheMode, objectMetadata,
+         parquetOptions, referenceFileSchemaUri, schema, sourceFormat,
+         sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1357,6 +1589,17 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_ExternalDatasetReference
 @dynamic connection, externalSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ExternalServiceCost
+//
+
+@implementation GTLRBigquery_ExternalServiceCost
+@dynamic bytesBilled, bytesProcessed, externalService, reservedSlotCount,
+         slotMs;
 @end
 
 
@@ -1455,6 +1698,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_HighCardinalityJoin
+//
+
+@implementation GTLRBigquery_HighCardinalityJoin
+@dynamic leftRows, outputRows, rightRows, stepIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_HivePartitioningOptions
 //
 
@@ -1504,6 +1757,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_IndexUnusedReason
 @dynamic baseTable, code, indexName, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_InputDataChange
+//
+
+@implementation GTLRBigquery_InputDataChange
+@dynamic recordsReadDiffPercentage;
 @end
 
 
@@ -1587,7 +1850,17 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_IterationResult
-@dynamic durationMs, evalLoss, index, learnRate, trainingLoss;
+@dynamic arimaResult, clusterInfos, durationMs, evalLoss, index, learnRate,
+         principalComponentInfos, trainingLoss;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clusterInfos" : [GTLRBigquery_ClusterInfo class],
+    @"principalComponentInfos" : [GTLRBigquery_PrincipalComponentInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1598,12 +1871,13 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_Job
 @dynamic configuration, ETag, identifier, jobCreationReason, jobReference, kind,
-         selfLink, statistics, status, userEmail;
+         principalSubject, selfLink, statistics, status, userEmail;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"ETag" : @"etag",
     @"identifier" : @"id",
+    @"principalSubject" : @"principal_subject",
     @"userEmail" : @"user_email"
   };
   return map;
@@ -1659,8 +1933,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobConfigurationExtract
 @dynamic compression, destinationFormat, destinationUri, destinationUris,
-         fieldDelimiter, printHeader, sourceModel, sourceTable,
-         useAvroLogicalTypes;
+         fieldDelimiter, modelExtractOptions, printHeader, sourceModel,
+         sourceTable, useAvroLogicalTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1714,8 +1988,9 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          destinationEncryptionConfiguration, destinationTable, flattenResults,
          maximumBillingTier, maximumBytesBilled, parameterMode, preserveNulls,
          priority, query, queryParameters, rangePartitioning,
-         schemaUpdateOptions, tableDefinitions, timePartitioning, useLegacySql,
-         useQueryCache, userDefinedFunctionResources, writeDisposition;
+         schemaUpdateOptions, scriptOptions, systemVariables, tableDefinitions,
+         timePartitioning, useLegacySql, useQueryCache,
+         userDefinedFunctionResources, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1780,7 +2055,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_JobList
-@dynamic ETag, jobs, kind, nextPageToken;
+@dynamic ETag, jobs, kind, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1788,7 +2063,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"jobs" : [GTLRBigquery_JobList_Jobs_Item class]
+    @"jobs" : [GTLRBigquery_JobList_Jobs_Item class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1806,15 +2082,22 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_JobList_Jobs_Item
-@dynamic configuration, errorResult, identifier, jobReference, kind, state,
-         statistics, status, userEmail;
+@dynamic configuration, errorResult, identifier, jobReference, kind,
+         principalSubject, state, statistics, status, userEmail;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"identifier" : @"id",
+    @"principalSubject" : @"principal_subject",
     @"userEmail" : @"user_email"
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1837,8 +2120,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, copyProperty, creationTime, dataMaskingStatistics,
-         endTime, extract, load, numChildJobs, parentJobId, query,
-         quotaDeferments, reservationId, reservationUsage,
+         endTime, extract, finalExecutionDurationMs, load, numChildJobs,
+         parentJobId, query, quotaDeferments, reservationId, reservationUsage,
          rowLevelSecurityStatistics, scriptStatistics, sessionInfo, startTime,
          totalBytesProcessed, totalSlotMs, transactionInfo;
 
@@ -1877,20 +2160,24 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_JobStatistics2
-@dynamic biEngineStatistics, billingTier, cacheHit,
-         ddlAffectedRowAccessPolicyCount, ddlDestinationTable,
-         ddlOperationPerformed, ddlTargetDataset, ddlTargetRoutine,
-         ddlTargetRowAccessPolicy, ddlTargetTable, dmlStats,
-         estimatedBytesProcessed, mlStatistics, modelTraining,
+@dynamic biEngineStatistics, billingTier, cacheHit, dclTargetDataset,
+         dclTargetTable, dclTargetView, ddlAffectedRowAccessPolicyCount,
+         ddlDestinationTable, ddlOperationPerformed, ddlTargetDataset,
+         ddlTargetRoutine, ddlTargetRowAccessPolicy, ddlTargetTable, dmlStats,
+         estimatedBytesProcessed, exportDataStatistics, externalServiceCosts,
+         loadQueryStatistics, materializedViewStatistics,
+         metadataCacheStatistics, mlStatistics, modelTraining,
          modelTrainingCurrentIteration, modelTrainingExpectedTotalIteration,
-         numDmlAffectedRows, queryPlan, referencedRoutines, referencedTables,
-         reservationUsage, schema, searchStatistics, sparkStatistics,
-         statementType, timeline, totalBytesBilled, totalBytesProcessed,
-         totalBytesProcessedAccuracy, totalPartitionsProcessed, totalSlotMs,
-         transferredBytes, undeclaredQueryParameters;
+         numDmlAffectedRows, performanceInsights, queryInfo, queryPlan,
+         referencedRoutines, referencedTables, reservationUsage, schema,
+         searchStatistics, sparkStatistics, statementType, timeline,
+         totalBytesBilled, totalBytesProcessed, totalBytesProcessedAccuracy,
+         totalPartitionsProcessed, totalSlotMs, transferredBytes,
+         undeclaredQueryParameters, vectorSearchStatistics;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"externalServiceCosts" : [GTLRBigquery_ExternalServiceCost class],
     @"queryPlan" : [GTLRBigquery_ExplainQueryStage class],
     @"referencedRoutines" : [GTLRBigquery_RoutineReference class],
     @"referencedTables" : [GTLRBigquery_TableReference class],
@@ -1920,7 +2207,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_JobStatistics3
-@dynamic badRecords, inputFileBytes, inputFiles, outputBytes, outputRows;
+@dynamic badRecords, inputFileBytes, inputFiles, outputBytes, outputRows,
+         timeline;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeline" : [GTLRBigquery_QueryTimelineSample class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1930,11 +2226,12 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_JobStatistics4
-@dynamic destinationUriFileCounts, inputBytes;
+@dynamic destinationUriFileCounts, inputBytes, timeline;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"destinationUriFileCounts" : [NSNumber class]
+    @"destinationUriFileCounts" : [NSNumber class],
+    @"timeline" : [GTLRBigquery_QueryTimelineSample class]
   };
   return map;
 }
@@ -1991,6 +2288,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JsonOptions
 @dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_LinkedDatasetSource
+//
+
+@implementation GTLRBigquery_LinkedDatasetSource
+@dynamic sourceDataset;
 @end
 
 
@@ -2062,11 +2369,32 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_LoadQueryStatistics
+//
+
+@implementation GTLRBigquery_LoadQueryStatistics
+@dynamic badRecords, bytesTransferred, inputFileBytes, inputFiles, outputBytes,
+         outputRows;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_LocationMetadata
 //
 
 @implementation GTLRBigquery_LocationMetadata
 @dynamic legacyLocationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_MaterializedView
+//
+
+@implementation GTLRBigquery_MaterializedView
+@dynamic chosen, estimatedBytesSaved, rejectedReason, tableReference;
 @end
 
 
@@ -2083,14 +2411,61 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_MaterializedViewStatistics
+//
+
+@implementation GTLRBigquery_MaterializedViewStatistics
+@dynamic materializedView;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materializedView" : [GTLRBigquery_MaterializedView class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_MaterializedViewStatus
+//
+
+@implementation GTLRBigquery_MaterializedViewStatus
+@dynamic lastRefreshStatus, refreshWatermark;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_MetadataCacheStatistics
+//
+
+@implementation GTLRBigquery_MetadataCacheStatistics
+@dynamic tableMetadataCacheUsage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tableMetadataCacheUsage" : [GTLRBigquery_TableMetadataCacheUsage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_MlStatistics
 //
 
 @implementation GTLRBigquery_MlStatistics
-@dynamic iterationResults, maxIterations;
+@dynamic hparamTrials, iterationResults, maxIterations, modelType, trainingType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"hparamTrials" : [GTLRBigquery_HparamTuningTrial class],
     @"iterationResults" : [GTLRBigquery_IterationResult class]
   };
   return map;
@@ -2186,6 +2561,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ModelExtractOptions
+//
+
+@implementation GTLRBigquery_ModelExtractOptions
+@dynamic trialId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ModelReference
 //
 
@@ -2229,6 +2614,26 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_ParquetOptions
 @dynamic enableListInference, enumAsString;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_PerformanceInsights
+//
+
+@implementation GTLRBigquery_PerformanceInsights
+@dynamic avgPreviousExecutionMs, stagePerformanceChangeInsights,
+         stagePerformanceStandaloneInsights;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stagePerformanceChangeInsights" : [GTLRBigquery_StagePerformanceChangeInsight class],
+    @"stagePerformanceStandaloneInsights" : [GTLRBigquery_StagePerformanceStandaloneInsight class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2314,6 +2719,12 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
   return @{ @"identifier" : @"id" };
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2324,6 +2735,30 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_ProjectReference
 @dynamic projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryInfo
+//
+
+@implementation GTLRBigquery_QueryInfo
+@dynamic optimizationDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryInfo_OptimizationDetails
+//
+
+@implementation GTLRBigquery_QueryInfo_OptimizationDetails
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -2390,16 +2825,6 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_QueryParameterValue_RangeValue
-//
-
-@implementation GTLRBigquery_QueryParameterValue_RangeValue
-@dynamic end, start;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBigquery_QueryParameterValue_StructValues
 //
 
@@ -2419,9 +2844,9 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_QueryRequest
 @dynamic connectionProperties, continuous, createSession, defaultDataset,
-         dryRun, jobCreationMode, kind, labels, location, maximumBytesBilled,
-         maxResults, parameterMode, preserveNulls, query, queryParameters,
-         requestId, timeoutMs, useLegacySql, useQueryCache;
+         dryRun, formatOptions, jobCreationMode, kind, labels, location,
+         maximumBytesBilled, maxResults, parameterMode, preserveNulls, query,
+         queryParameters, requestId, timeoutMs, useLegacySql, useQueryCache;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2664,6 +3089,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ScriptOptions
+//
+
+@implementation GTLRBigquery_ScriptOptions
+@dynamic keyResultStatement, statementByteBudget, statementTimeoutMs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ScriptStackFrame
 //
 
@@ -2790,7 +3225,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_SparkStatistics
-@dynamic endpoints, loggingInfo, sparkJobId, sparkJobLocation;
+@dynamic endpoints, gcsStagingBucket, kmsKeyName, loggingInfo, sparkJobId,
+         sparkJobLocation;
 @end
 
 
@@ -2803,6 +3239,36 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_StagePerformanceChangeInsight
+//
+
+@implementation GTLRBigquery_StagePerformanceChangeInsight
+@dynamic inputDataChange, stageId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_StagePerformanceStandaloneInsight
+//
+
+@implementation GTLRBigquery_StagePerformanceStandaloneInsight
+@dynamic biEngineReasons, highCardinalityJoins, insufficientShuffleQuota,
+         slotContention, stageId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"biEngineReasons" : [GTLRBigquery_BiEngineReason class],
+    @"highCardinalityJoins" : [GTLRBigquery_HighCardinalityJoin class]
+  };
+  return map;
 }
 
 @end
@@ -2894,6 +3360,44 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_SystemVariables
+//
+
+@implementation GTLRBigquery_SystemVariables
+@dynamic types, values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SystemVariables_Types
+//
+
+@implementation GTLRBigquery_SystemVariables_Types
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBigquery_StandardSqlDataType class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SystemVariables_Values
+//
+
+@implementation GTLRBigquery_SystemVariables_Values
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Table
 //
 
@@ -2902,20 +3406,28 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          defaultCollation, defaultRoundingMode, descriptionProperty,
          encryptionConfiguration, ETag, expirationTime,
          externalDataConfiguration, friendlyName, identifier, kind, labels,
-         lastModifiedTime, location, materializedView, maxStaleness, model,
-         numActiveLogicalBytes, numActivePhysicalBytes, numBytes,
-         numLongTermBytes, numLongTermLogicalBytes, numLongTermPhysicalBytes,
-         numPartitions, numPhysicalBytes, numRows, numTimeTravelPhysicalBytes,
-         numTotalLogicalBytes, numTotalPhysicalBytes, rangePartitioning,
+         lastModifiedTime, location, materializedView, materializedViewStatus,
+         maxStaleness, model, numActiveLogicalBytes, numActivePhysicalBytes,
+         numBytes, numLongTermBytes, numLongTermLogicalBytes,
+         numLongTermPhysicalBytes, numPartitions, numPhysicalBytes, numRows,
+         numTimeTravelPhysicalBytes, numTotalLogicalBytes,
+         numTotalPhysicalBytes, rangePartitioning, replicas,
          requirePartitionFilter, resourceTags, schema, selfLink,
          snapshotDefinition, streamingBuffer, tableConstraints, tableReference,
-         timePartitioning, type, view;
+         tableReplicationInfo, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"ETag" : @"etag",
     @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicas" : [GTLRBigquery_TableReference class]
   };
   return map;
 }
@@ -3041,7 +3553,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_TableDataInsertAllRequest
-@dynamic ignoreUnknownValues, kind, rows, skipInvalidRows, templateSuffix;
+@dynamic ignoreUnknownValues, kind, rows, skipInvalidRows, templateSuffix,
+         traceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3224,11 +3737,17 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_TableList_Tables_Item
 @dynamic clustering, creationTime, expirationTime, friendlyName, identifier,
-         kind, labels, rangePartitioning, tableReference, timePartitioning,
-         type, view;
+         kind, labels, rangePartitioning, requirePartitionFilter,
+         tableReference, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -3254,7 +3773,17 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_TableList_Tables_Item_View
-@dynamic useLegacySql;
+@dynamic privacyPolicy, useLegacySql;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableMetadataCacheUsage
+//
+
+@implementation GTLRBigquery_TableMetadataCacheUsage
+@dynamic explanation, tableReference, tableType, unusedReason;
 @end
 
 
@@ -3265,6 +3794,17 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_TableReference
 @dynamic datasetId, projectId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableReplicationInfo
+//
+
+@implementation GTLRBigquery_TableReplicationInfo
+@dynamic replicatedSourceLastRefreshTime, replicationError,
+         replicationIntervalMs, replicationStatus, sourceTable;
 @end
 
 
@@ -3453,6 +3993,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_UndeleteDatasetRequest
+//
+
+@implementation GTLRBigquery_UndeleteDatasetRequest
+@dynamic deletionTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_UserDefinedFunctionResource
 //
 
@@ -3485,7 +4035,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_ViewDefinition
-@dynamic query, useExplicitColumnNames, useLegacySql,
+@dynamic privacyPolicy, query, useExplicitColumnNames, useLegacySql,
          userDefinedFunctionResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

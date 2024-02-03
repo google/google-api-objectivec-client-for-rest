@@ -18,6 +18,9 @@
 @class GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies;
 @class GTLRCloudComposer_CidrBlock;
 @class GTLRCloudComposer_CloudDataLineageIntegration;
+@class GTLRCloudComposer_ComposerWorkload;
+@class GTLRCloudComposer_ComposerWorkloadStatus;
+@class GTLRCloudComposer_DagProcessorResource;
 @class GTLRCloudComposer_DatabaseConfig;
 @class GTLRCloudComposer_DataRetentionConfig;
 @class GTLRCloudComposer_Date;
@@ -87,6 +90,110 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_CheckUpgradeResponse_Conta
  *  Value: "NO_CONFLICT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_NoConflict;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudComposer_ComposerWorkload.type
+
+/**
+ *  Celery worker.
+ *
+ *  Value: "CELERY_WORKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_CeleryWorker;
+/**
+ *  Not able to determine the type of the workload.
+ *
+ *  Value: "COMPOSER_WORKLOAD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_ComposerWorkloadTypeUnspecified;
+/**
+ *  Airflow Dag processor.
+ *
+ *  Value: "DAG_PROCESSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_DagProcessor;
+/**
+ *  Workload created by Kubernetes Pod Operator.
+ *
+ *  Value: "KUBERNETES_OPERATOR_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_KubernetesOperatorPod;
+/**
+ *  Kubernetes worker.
+ *
+ *  Value: "KUBERNETES_WORKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_KubernetesWorker;
+/**
+ *  Redis.
+ *
+ *  Value: "REDIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_Redis;
+/**
+ *  Airflow scheduler.
+ *
+ *  Value: "SCHEDULER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_Scheduler;
+/**
+ *  Airflow triggerer.
+ *
+ *  Value: "TRIGGERER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_Triggerer;
+/**
+ *  Airflow web server UI.
+ *
+ *  Value: "WEB_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkload_Type_WebServer;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudComposer_ComposerWorkloadStatus.state
+
+/**
+ *  Not able to determine the status of the workload.
+ *
+ *  Value: "COMPOSER_WORKLOAD_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_ComposerWorkloadStateUnspecified;
+/**
+ *  Workload is not running due to an error.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Error;
+/**
+ *  Workload has finished execution with failure.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Failed;
+/**
+ *  Workload is running fine.
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Ok;
+/**
+ *  Workload is in pending state and has not yet started.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Pending;
+/**
+ *  Workload has finished execution with success.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Succeeded;
+/**
+ *  Workload is running but there are some non-critical problems.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudComposer_Environment.state
@@ -288,6 +395,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudComposer_SoftwareConfig.webServerPluginsMode
+
+/**
+ *  Web server plugins are not supported.
+ *
+ *  Value: "PLUGINS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsDisabled;
+/**
+ *  Web server plugins are supported.
+ *
+ *  Value: "PLUGINS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsEnabled;
+/**
+ *  Default mode.
+ *
+ *  Value: "WEB_SERVER_PLUGINS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_WebServerPluginsModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudComposer_TaskLogsRetentionConfig.storageMode
 
 /**
@@ -414,6 +543,123 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Information about a single workload.
+ */
+@interface GTLRCloudComposer_ComposerWorkload : GTLRObject
+
+/** Name of a workload. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Status of a workload. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_ComposerWorkloadStatus *status;
+
+/**
+ *  Type of a workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_CeleryWorker Celery
+ *        worker. (Value: "CELERY_WORKER")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_ComposerWorkloadTypeUnspecified
+ *        Not able to determine the type of the workload. (Value:
+ *        "COMPOSER_WORKLOAD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_DagProcessor Airflow Dag
+ *        processor. (Value: "DAG_PROCESSOR")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_KubernetesOperatorPod
+ *        Workload created by Kubernetes Pod Operator. (Value:
+ *        "KUBERNETES_OPERATOR_POD")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_KubernetesWorker
+ *        Kubernetes worker. (Value: "KUBERNETES_WORKER")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_Redis Redis. (Value:
+ *        "REDIS")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_Scheduler Airflow
+ *        scheduler. (Value: "SCHEDULER")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_Triggerer Airflow
+ *        triggerer. (Value: "TRIGGERER")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkload_Type_WebServer Airflow web
+ *        server UI. (Value: "WEB_SERVER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Workload status.
+ */
+@interface GTLRCloudComposer_ComposerWorkloadStatus : GTLRObject
+
+/** Output only. Detailed message of the status. */
+@property(nonatomic, copy, nullable) NSString *detailedStatusMessage;
+
+/**
+ *  Output only. Workload state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_ComposerWorkloadStatus_State_ComposerWorkloadStateUnspecified
+ *        Not able to determine the status of the workload. (Value:
+ *        "COMPOSER_WORKLOAD_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkloadStatus_State_Error Workload is
+ *        not running due to an error. (Value: "ERROR")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkloadStatus_State_Failed Workload
+ *        has finished execution with failure. (Value: "FAILED")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkloadStatus_State_Ok Workload is
+ *        running fine. (Value: "OK")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkloadStatus_State_Pending Workload
+ *        is in pending state and has not yet started. (Value: "PENDING")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkloadStatus_State_Succeeded Workload
+ *        has finished execution with success. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRCloudComposer_ComposerWorkloadStatus_State_Warning Workload
+ *        is running but there are some non-critical problems. (Value:
+ *        "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Text to provide more descriptive status. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+@end
+
+
+/**
+ *  Configuration for resources used by Airflow DAG processors.
+ */
+@interface GTLRCloudComposer_DagProcessorResource : GTLRObject
+
+/**
+ *  Optional. The number of DAG processors. If not provided or set to 0, a
+ *  single DAG processor instance will be created.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Optional. CPU request and limit for a single Airflow DAG processor replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpu;
+
+/**
+ *  Optional. Memory (GB) request and limit for a single Airflow DAG processor
+ *  replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryGb;
+
+/**
+ *  Optional. Storage (GB) request and limit for a single Airflow DAG processor
+ *  replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageGb;
 
 @end
 
@@ -1067,6 +1313,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 
 
 /**
+ *  Response to ListWorkloadsRequest.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "workloads" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudComposer_ListWorkloadsResponse : GTLRCollectionObject
+
+/** The page token used to query for the next page if one exists. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of environment workloads.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_ComposerWorkload *> *workloads;
+
+@end
+
+
+/**
  *  Request to load a snapshot into a Cloud Composer environment.
  */
 @interface GTLRCloudComposer_LoadSnapshotRequest : GTLRObject
@@ -1206,6 +1476,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  Apache Airflow software.
  */
 @interface GTLRCloudComposer_NodeConfig : GTLRObject
+
+/**
+ *  Optional. The IP range in CIDR notation to use internally by Cloud Composer.
+ *  IP addresses are not reserved - and the same range can be used by multiple
+ *  Cloud Composer environments. In case of overlap, IPs from this range will
+ *  not be accessible in the user's VPC network. Cannot be updated. If not
+ *  specified, the default value of '100.64.128.0/20' is used. This field is
+ *  supported for Cloud Composer environments in versions
+ *  composer-3.*.*-airflow-*.*.* and newer.
+ */
+@property(nonatomic, copy, nullable) NSString *composerInternalIpv4CidrBlock;
+
+/**
+ *  Optional. Network Attachment that Cloud Composer environment is connected
+ *  to, which provides connectivity with a user's VPC network. Takes precedence
+ *  over network and subnetwork settings. If not provided, but network and
+ *  subnetwork are defined during environment, it will be provisioned. If not
+ *  provided and network and subnetwork are also empty, then connectivity to
+ *  user's VPC network is disabled. Network attachment must be provided in
+ *  format
+ *  projects/{project}/regions/{region}/networkAttachments/{networkAttachment}.
+ *  This field is supported for Cloud Composer environments in versions
+ *  composer-3.*.*-airflow-*.*.* and newer.
+ */
+@property(nonatomic, copy, nullable) NSString *composerNetworkAttachment;
 
 /**
  *  Optional. The disk size in GB used for node VMs. Minimum size is 30GB. If
@@ -1587,6 +1882,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 @property(nonatomic, copy, nullable) NSString *cloudSqlIpv4CidrBlock;
 
 /**
+ *  Optional. If `true`, builds performed during operations that install Python
+ *  packages have only private connectivity to Google services (including
+ *  Artifact Registry) and VPC network (if either `NodeConfig.network` and
+ *  `NodeConfig.subnetwork` fields or `NodeConfig.composer_network_attachment`
+ *  field are specified). If `false`, the builds also have access to the
+ *  internet. This field is supported for Cloud Composer environments in
+ *  versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateBuildsOnly;
+
+/**
  *  Optional. If `true`, a Private IP Cloud Composer environment is created. If
  *  this field is set to true, `IPAllocationPolicy.use_ip_aliases` must be set
  *  to true for Cloud Composer environments in versions
@@ -1834,6 +2142,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *schedulerCount;
+
+/**
+ *  Optional. Whether or not the web server uses custom plugins. If unspecified,
+ *  the field defaults to `PLUGINS_ENABLED`. This field is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsDisabled
+ *        Web server plugins are not supported. (Value: "PLUGINS_DISABLED")
+ *    @arg @c kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsEnabled
+ *        Web server plugins are supported. (Value: "PLUGINS_ENABLED")
+ *    @arg @c kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_WebServerPluginsModeUnspecified
+ *        Default mode. (Value: "WEB_SERVER_PLUGINS_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *webServerPluginsMode;
 
 @end
 
@@ -2162,6 +2485,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  versions composer-2.*.*-airflow-*.*.* and newer.
  */
 @interface GTLRCloudComposer_WorkloadsConfig : GTLRObject
+
+/**
+ *  Optional. Resources used by Airflow DAG processors. This field is supported
+ *  for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and
+ *  newer.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_DagProcessorResource *dagProcessor;
 
 /** Optional. Resources used by Airflow schedulers. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SchedulerResource *scheduler;

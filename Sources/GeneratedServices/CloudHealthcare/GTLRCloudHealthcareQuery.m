@@ -2411,6 +2411,33 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresRollback
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_RollbackFhirResourcesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:rollback";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresRollback *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.rollback";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSetIamPolicy
 
 @dynamic resource;

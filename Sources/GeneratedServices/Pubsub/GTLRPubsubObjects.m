@@ -14,6 +14,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRPubsub_AwsKinesis.state
+NSString * const kGTLRPubsub_AwsKinesis_State_Active           = @"ACTIVE";
+NSString * const kGTLRPubsub_AwsKinesis_State_ConsumerNotFound = @"CONSUMER_NOT_FOUND";
+NSString * const kGTLRPubsub_AwsKinesis_State_KinesisPermissionDenied = @"KINESIS_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_AwsKinesis_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_AwsKinesis_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_AwsKinesis_State_StreamNotFound   = @"STREAM_NOT_FOUND";
+
 // GTLRPubsub_BigQueryConfig.state
 NSString * const kGTLRPubsub_BigQueryConfig_State_Active       = @"ACTIVE";
 NSString * const kGTLRPubsub_BigQueryConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
@@ -43,6 +51,11 @@ NSString * const kGTLRPubsub_SchemaSettings_Encoding_Json      = @"JSON";
 NSString * const kGTLRPubsub_Subscription_State_Active         = @"ACTIVE";
 NSString * const kGTLRPubsub_Subscription_State_ResourceError  = @"RESOURCE_ERROR";
 NSString * const kGTLRPubsub_Subscription_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRPubsub_Topic.state
+NSString * const kGTLRPubsub_Topic_State_Active                = @"ACTIVE";
+NSString * const kGTLRPubsub_Topic_State_IngestionResourceError = @"INGESTION_RESOURCE_ERROR";
+NSString * const kGTLRPubsub_Topic_State_StateUnspecified      = @"STATE_UNSPECIFIED";
 
 // GTLRPubsub_ValidateMessageRequest.encoding
 NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Binary = @"BINARY";
@@ -74,6 +87,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_AvroConfig
 @dynamic writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_AwsKinesis
+//
+
+@implementation GTLRPubsub_AwsKinesis
+@dynamic awsRoleArn, consumerArn, gcpServiceAccount, state, streamArn;
 @end
 
 
@@ -201,6 +224,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_IngestionDataSourceSettings
+//
+
+@implementation GTLRPubsub_IngestionDataSourceSettings
+@dynamic awsKinesis;
 @end
 
 
@@ -732,8 +765,9 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Topic
-@dynamic kmsKeyName, labels, messageRetentionDuration, messageStoragePolicy,
-         name, satisfiesPzs, schemaSettings;
+@dynamic ingestionDataSourceSettings, kmsKeyName, labels,
+         messageRetentionDuration, messageStoragePolicy, name, satisfiesPzs,
+         schemaSettings, state;
 @end
 
 

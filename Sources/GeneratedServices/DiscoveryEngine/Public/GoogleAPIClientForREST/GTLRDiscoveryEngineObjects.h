@@ -22,6 +22,9 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDigitalParsingConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig_ParsingConfigOverrides;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineConfigAgentCreationConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineChatEngineMetadata;
@@ -33,7 +36,9 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSimilarDocumentsEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLayoutParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrParsingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSchema_StructSchema;
@@ -1841,6 +1846,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  The digital parsing configurations for documents.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDigitalParsingConfig : GTLRObject
+@end
+
+
+/**
  *  Metadata related to the progress of the
  *  SiteSearchEngineService.DisableAdvancedSiteSearch operation. This will be
  *  returned by the google.longrunning.Operation.metadata field.
@@ -1876,14 +1888,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig : GTLRObject
 
 /**
- *  Output only. The full resource name of the Document Processing Config.
- *  Format: `projects/ * /locations/ * /collections/ * /dataStores/ *
- *  /documentProcessingConfig`.
+ *  Configurations for default Document parser. If not specified, we will
+ *  configure it as default DigitalParsingConfig, and the default parsing config
+ *  will be applied to all file types for Document parsing.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfig *defaultParsingConfig;
+
+/**
+ *  The full resource name of the Document Processing Config. Format: `projects/
+ *  * /locations/ * /collections/ * /dataStores/ * /documentProcessingConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The OCR config. Currently it only applies to PDFs. */
-@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig *ocrConfig;
+/**
+ *  [DEPRECATED] This field is deprecated. To specify OCR parsing config, please
+ *  specify `ocr_parsing_config` in `default_parsing_config` field The OCR
+ *  config. Currently it only applies to PDFs.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig *ocrConfig GTLR_DEPRECATED;
+
+/**
+ *  Map from file type to override the default parsing configuration based on
+ *  the file type. Supported keys: * `pdf`: Override parsing config for PDF
+ *  files, either digital parsing, ocr parsing or layout parsing is supported. *
+ *  `html`: Override parsing config for HTML files, only digital parsing and or
+ *  layout parsing are supported.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig_ParsingConfigOverrides *parsingConfigOverrides;
+
+@end
+
+
+/**
+ *  Map from file type to override the default parsing configuration based on
+ *  the file type. Supported keys: * `pdf`: Override parsing config for PDF
+ *  files, either digital parsing, ocr parsing or layout parsing is supported. *
+ *  `html`: Override parsing config for HTML files, only digital parsing and or
+ *  layout parsing are supported.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfig.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig_ParsingConfigOverrides : GTLRObject
+@end
+
+
+/**
+ *  Related configurations applied to a specific type of document parser.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfig : GTLRObject
+
+/** Configurations applied to digital parser. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDigitalParsingConfig *digitalParsingConfig;
+
+/** Configurations applied to layout parser. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLayoutParsingConfig *layoutParsingConfig;
+
+/**
+ *  Configurations applied to OCR parser. Currently it only applies to PDFs.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrParsingConfig *ocrParsingConfig;
 
 @end
 
@@ -2685,8 +2752,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  The layout parsing configurations for documents.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLayoutParsingConfig : GTLRObject
+@end
+
+
+/**
  *  The OCR options for parsing documents.
  */
+GTLR_DEPRECATED
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig : GTLRObject
 
 /**
@@ -2697,6 +2772,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Apply additional enhanced OCR processing to a list of document elements.
+ *  Supported values: * `table`: advanced table parsing model.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enhancedDocumentElements;
+
+/**
+ *  If true, will use native text instead of OCR text on pages containing native
+ *  text.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useNativeText;
+
+@end
+
+
+/**
+ *  The OCR parsing configurations for documents.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrParsingConfig : GTLRObject
 
 /**
  *  Apply additional enhanced OCR processing to a list of document elements.
@@ -5571,7 +5668,7 @@ GTLR_DEPRECATED
  *  embedding that is provided in
  *  SearchRequest.EmbeddingSpec.EmbeddingVector.field_path. If
  *  SearchRequest.EmbeddingSpec.EmbeddingVector.field_path is not provided, it
- *  will use ServingConfig.EmbeddingConfig.field_paths.
+ *  will use ServingConfig.EmbeddingConfig.field_path.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpec *embeddingSpec;
 

@@ -1581,7 +1581,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfig
-@dynamic facetIntervals, ignoredFacetValues, mergedFacetValues, rerankConfig;
+@dynamic facetIntervals, ignoredFacetValues, mergedFacet, mergedFacetValues,
+         rerankConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1606,6 +1607,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacet
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacet
+@dynamic mergedFacetKey, mergedFacetValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mergedFacetValues" : [GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue class]
   };
   return map;
 }

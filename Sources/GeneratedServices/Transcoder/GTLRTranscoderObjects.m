@@ -314,8 +314,26 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 @implementation GTLRTranscoder_H264CodecSettings
 @dynamic allowOpenGop, aqStrength, bFrameCount, bitrateBps, bPyramid, crfLevel,
          enableTwoPass, entropyCoder, frameRate, gopDuration, gopFrameCount,
-         heightPixels, pixelFormat, preset, profile, rateControlMode, tune,
-         vbvFullnessBits, vbvSizeBits, widthPixels;
+         heightPixels, hlg, pixelFormat, preset, profile, rateControlMode, sdr,
+         tune, vbvFullnessBits, vbvSizeBits, widthPixels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_H264ColorFormatHLG
+//
+
+@implementation GTLRTranscoder_H264ColorFormatHLG
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_H264ColorFormatSDR
+//
+
+@implementation GTLRTranscoder_H264ColorFormatSDR
 @end
 
 
@@ -326,9 +344,36 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_H265CodecSettings
 @dynamic allowOpenGop, aqStrength, bFrameCount, bitrateBps, bPyramid, crfLevel,
-         enableTwoPass, frameRate, gopDuration, gopFrameCount, heightPixels,
-         pixelFormat, preset, profile, rateControlMode, tune, vbvFullnessBits,
-         vbvSizeBits, widthPixels;
+         enableTwoPass, frameRate, gopDuration, gopFrameCount, hdr10,
+         heightPixels, hlg, pixelFormat, preset, profile, rateControlMode, sdr,
+         tune, vbvFullnessBits, vbvSizeBits, widthPixels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_H265ColorFormatHDR10
+//
+
+@implementation GTLRTranscoder_H265ColorFormatHDR10
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_H265ColorFormatHLG
+//
+
+@implementation GTLRTranscoder_H265ColorFormatHLG
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_H265ColorFormatSDR
+//
+
+@implementation GTLRTranscoder_H265ColorFormatSDR
 @end
 
 
@@ -717,7 +762,26 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_Vp9CodecSettings
 @dynamic bitrateBps, crfLevel, frameRate, gopDuration, gopFrameCount,
-         heightPixels, pixelFormat, profile, rateControlMode, widthPixels;
+         heightPixels, hlg, pixelFormat, profile, rateControlMode, sdr,
+         widthPixels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Vp9ColorFormatHLG
+//
+
+@implementation GTLRTranscoder_Vp9ColorFormatHLG
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Vp9ColorFormatSDR
+//
+
+@implementation GTLRTranscoder_Vp9ColorFormatSDR
 @end
 
 

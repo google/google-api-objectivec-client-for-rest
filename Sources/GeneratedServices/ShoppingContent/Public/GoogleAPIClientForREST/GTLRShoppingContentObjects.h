@@ -64,7 +64,6 @@
 @class GTLRShoppingContent_BuiltInSimpleAction;
 @class GTLRShoppingContent_BuiltInSimpleActionAdditionalContent;
 @class GTLRShoppingContent_BusinessDayConfig;
-@class GTLRShoppingContent_BusinessMessagesLink;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
 @class GTLRShoppingContent_CloudExportAdditionalProperties;
@@ -843,6 +842,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_Effecti
  *  Value: "INACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Inactive;
+/**
+ *  Merchant has previously enrolled but opted out of the feature.
+ *
+ *  Value: "OPT_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_OptOut;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_CheckoutSettings.effectiveReviewState
@@ -895,6 +900,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_Enrollm
  *  Value: "INACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Inactive;
+/**
+ *  Merchant has previously enrolled but opted out of the feature.
+ *
+ *  Value: "OPT_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CheckoutSettings_EnrollmentState_OptOut;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_CheckoutSettings.reviewState
@@ -4360,32 +4371,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  A Link from a [Business Messages](https://businessmessages.google) Agent Id
- *  to the Merchant Center account. You can create multiple
- *  `BusinessMessagesLink` to Merchant Center Account. Only available to
- *  selected merchants. See [Create agents to manage
- *  brands](https://developers.google.com/business-communications/business-messages/guides/how-to/agents)
- *  for more information.
- */
-@interface GTLRShoppingContent_BusinessMessagesLink : GTLRObject
-
-/**
- *  Required. Agent ID from Business Messages to link to the Merchant Center
- *  account. The Agent ID can be found in the [Business Communications Developer
- *  Console](https://developers.google.com/business-communications/business-messages/guides/concepts/developer-console#agent_selection).
- */
-@property(nonatomic, copy, nullable) NSString *agentId;
-
-/**
- *  Output only. Immutable. The ID uniquely identifying each
- *  `BusinessMessagesLink`.
- */
-@property(nonatomic, copy, nullable) NSString *businessMessagesLinkId;
-
-@end
-
-
-/**
  *  Response message for the GetProgramStatus method.
  */
 @interface GTLRShoppingContent_BuyOnGoogleProgramStatus : GTLRObject
@@ -4612,6 +4597,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        level URL or checkout URLs as part of their feed. (Value: "ENROLLED")
  *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_Inactive
  *        Merchant has not enrolled into the feature. (Value: "INACTIVE")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_OptOut
+ *        Merchant has previously enrolled but opted out of the feature. (Value:
+ *        "OPT_OUT")
  */
 @property(nonatomic, copy, nullable) NSString *effectiveEnrollmentState;
 
@@ -4656,6 +4644,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        level URL or checkout URLs as part of their feed. (Value: "ENROLLED")
  *    @arg @c kGTLRShoppingContent_CheckoutSettings_EnrollmentState_Inactive
  *        Merchant has not enrolled into the feature. (Value: "INACTIVE")
+ *    @arg @c kGTLRShoppingContent_CheckoutSettings_EnrollmentState_OptOut
+ *        Merchant has previously enrolled but opted out of the feature. (Value:
+ *        "OPT_OUT")
  */
 @property(nonatomic, copy, nullable) NSString *enrollmentState;
 
@@ -7262,33 +7253,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** List of all available account return carriers for the merchant. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountReturnCarrier *> *accountReturnCarriers;
-
-@end
-
-
-/**
- *  Response message for the `ListBusinessMessagesLinks` method.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "businessMessagesLinks" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRShoppingContent_ListBusinessMessagesLinksResponse : GTLRCollectionObject
-
-/**
- *  The `BusinessMessagesLink` resources for the given Merchant Center account.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_BusinessMessagesLink *> *businessMessagesLinks;
-
-/**
- *  A token, which can be sent as `pageToken` to retrieve the next page. If this
- *  field is omitted, there are no subsequent pages.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -11624,11 +11588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`store-match-unverified`": The provided POS store couldn't be matched to
  *  any of the connected Google Business Profile stores, as the matched Google
  *  Business Profile store is unverified. Go through the Google Business Profile
- *  verification process to match correctly. - "`store-match-unavailable`": The
- *  provided POS store couldn't be matched to any of the connected Google
- *  Business Profile stores, as the matched Google Business Profile store is in
- *  an invalid state. Fix any issues on your Google Business Profile store to
- *  match correctly.
+ *  verification process to match correctly.
  */
 @property(nonatomic, copy, nullable) NSString *matchingStatusHint;
 

@@ -196,6 +196,7 @@ NSString * const kGTLRAndroidManagement_Device_AppliedState_Deleted = @"DELETED"
 NSString * const kGTLRAndroidManagement_Device_AppliedState_DeviceStateUnspecified = @"DEVICE_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Disabled = @"DISABLED";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Lost = @"LOST";
+NSString * const kGTLRAndroidManagement_Device_AppliedState_PreparingForMigration = @"PREPARING_FOR_MIGRATION";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Provisioning = @"PROVISIONING";
 
 // GTLRAndroidManagement_Device.managementMode
@@ -214,6 +215,7 @@ NSString * const kGTLRAndroidManagement_Device_State_Deleted   = @"DELETED";
 NSString * const kGTLRAndroidManagement_Device_State_DeviceStateUnspecified = @"DEVICE_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Device_State_Disabled  = @"DISABLED";
 NSString * const kGTLRAndroidManagement_Device_State_Lost      = @"LOST";
+NSString * const kGTLRAndroidManagement_Device_State_PreparingForMigration = @"PREPARING_FOR_MIGRATION";
 NSString * const kGTLRAndroidManagement_Device_State_Provisioning = @"PROVISIONING";
 
 // GTLRAndroidManagement_DeviceConnectivityManagement.configureWifi
@@ -346,6 +348,12 @@ NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_InternalStorageMea
 NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_MemoryEventTypeUnspecified = @"MEMORY_EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_RamMeasured = @"RAM_MEASURED";
 
+// GTLRAndroidManagement_MigrationToken.managementMode
+NSString * const kGTLRAndroidManagement_MigrationToken_ManagementMode_FullyManaged = @"FULLY_MANAGED";
+NSString * const kGTLRAndroidManagement_MigrationToken_ManagementMode_ManagementModeUnspecified = @"MANAGEMENT_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_MigrationToken_ManagementMode_WorkProfileCompanyOwned = @"WORK_PROFILE_COMPANY_OWNED";
+NSString * const kGTLRAndroidManagement_MigrationToken_ManagementMode_WorkProfilePersonallyOwned = @"WORK_PROFILE_PERSONALLY_OWNED";
+
 // GTLRAndroidManagement_NonComplianceDetail.installationFailureReason
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InProgress = @"IN_PROGRESS";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InstallationFailureReasonUnknown = @"INSTALLATION_FAILURE_REASON_UNKNOWN";
@@ -379,6 +387,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel = @"ONC_WIFI_API_LEVEL";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidEnterpriseConfig = @"ONC_WIFI_INVALID_ENTERPRISE_CONFIG";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidValue = @"ONC_WIFI_INVALID_VALUE";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiUserShouldRemoveNetwork = @"ONC_WIFI_USER_SHOULD_REMOVE_NETWORK";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordExpired = @"PASSWORD_POLICIES_PASSWORD_EXPIRED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordNotSufficient = @"PASSWORD_POLICIES_PASSWORD_NOT_SUFFICIENT";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesUserCredentialsConfirmationRequired = @"PASSWORD_POLICIES_USER_CREDENTIALS_CONFIRMATION_REQUIRED";
@@ -1172,13 +1181,13 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @dynamic apiLevel, applicationReports, appliedPasswordPolicies,
          appliedPolicyName, appliedPolicyVersion, appliedState,
          commonCriteriaModeInfo, deviceSettings, disabledReason, displays,
-         enrollmentTime, enrollmentTokenData, enrollmentTokenName, hardwareInfo,
-         hardwareStatusSamples, lastPolicyComplianceReportTime,
-         lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
-         memoryInfo, name, networkInfo, nonComplianceDetails, ownership,
-         policyCompliant, policyName, powerManagementEvents,
-         previousDeviceNames, securityPosture, softwareInfo, state,
-         systemProperties, user, userName;
+         dpcMigrationInfo, enrollmentTime, enrollmentTokenData,
+         enrollmentTokenName, hardwareInfo, hardwareStatusSamples,
+         lastPolicyComplianceReportTime, lastPolicySyncTime,
+         lastStatusReportTime, managementMode, memoryEvents, memoryInfo, name,
+         networkInfo, nonComplianceDetails, ownership, policyCompliant,
+         policyName, powerManagementEvents, previousDeviceNames,
+         securityPosture, softwareInfo, state, systemProperties, user, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1268,6 +1277,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DpcMigrationInfo
+//
+
+@implementation GTLRAndroidManagement_DpcMigrationInfo
+@dynamic additionalData, previousDpc;
 @end
 
 
@@ -1609,6 +1628,28 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_ListMigrationTokensResponse
+//
+
+@implementation GTLRAndroidManagement_ListMigrationTokensResponse
+@dynamic migrationTokens, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"migrationTokens" : [GTLRAndroidManagement_MigrationToken class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"migrationTokens";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_ListOperationsResponse
 //
 
@@ -1824,6 +1865,17 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_MemoryInfo
 @dynamic totalInternalStorage, totalRam;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_MigrationToken
+//
+
+@implementation GTLRAndroidManagement_MigrationToken
+@dynamic additionalData, createTime, device, deviceId, expireTime,
+         managementMode, name, policy, ttl, userId, value;
 @end
 
 

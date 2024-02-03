@@ -174,6 +174,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameToken;
  *  Value: "user_accounts"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameUserAccounts;
+/**
+ *  The Vault activity reports return information about various types of Vault
+ *  activity events.
+ *
+ *  Value: "vault"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameVault;
 
 // ----------------------------------------------------------------------------
 // entityType
@@ -294,6 +301,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return information about various Google Keep activity events.
  *        The Keep activity report is only available for Google Workspace
  *        Business and Enterprise customers. (Value: "keep")
+ *    @arg @c kGTLRReportsApplicationNameVault The Vault activity reports return
+ *        information about various types of Vault activity events. (Value:
+ *        "vault")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -502,6 +512,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return information about various Google Keep activity events.
  *        The Keep activity report is only available for Google Workspace
  *        Business and Enterprise customers. (Value: "keep")
+ *    @arg @c kGTLRReportsApplicationNameVault The Vault activity reports return
+ *        information about various types of Vault activity events. (Value:
+ *        "vault")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *

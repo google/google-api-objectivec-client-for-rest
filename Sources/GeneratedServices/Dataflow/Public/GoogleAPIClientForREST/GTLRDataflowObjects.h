@@ -5443,6 +5443,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *helpText;
 
 /**
+ *  Optional. Whether the parameter should be hidden in the UI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hiddenUi;
+
+/**
  *  Optional. Whether the parameter is optional. Defaults to false.
  *
  *  Uses NSNumber of boolValue.
@@ -7913,6 +7920,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** The parameters for the template. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ParameterMetadata *> *parameters;
+
+/**
+ *  Optional. Indicates if the template is streaming or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *streaming;
+
+/**
+ *  Optional. Indicates if the streaming template supports at least once mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsAtLeastOnce;
+
+/**
+ *  Optional. Indicates if the streaming template supports exactly once mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsExactlyOnce;
 
 @end
 
