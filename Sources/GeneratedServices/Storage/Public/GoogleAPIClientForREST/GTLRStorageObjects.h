@@ -44,7 +44,6 @@
 @class GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions;
 @class GTLRStorage_Expr;
 @class GTLRStorage_Folder;
-@class GTLRStorage_Folder_Metadata;
 @class GTLRStorage_Folder_PendingRenameInfo;
 @class GTLRStorage_GoogleLongrunningOperation;
 @class GTLRStorage_GoogleLongrunningOperation_Metadata;
@@ -1223,9 +1222,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** The kind of item this is. For folders, this is always storage#folder. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** User-provided metadata, in key/value pairs. */
-@property(nonatomic, strong, nullable) GTLRStorage_Folder_Metadata *metadata;
-
 /**
  *  The version of the metadata for this folder. Used for preconditions and for
  *  detecting changes in metadata.
@@ -1252,18 +1248,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** The modification time of the folder metadata in RFC 3339 format. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
-@end
-
-
-/**
- *  User-provided metadata, in key/value pairs.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRStorage_Folder_Metadata : GTLRObject
 @end
 
 

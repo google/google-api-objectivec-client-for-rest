@@ -43,6 +43,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
+ *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
+ *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsReviews
+ *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
@@ -94,6 +102,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
+ *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
+ *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsReviews
+ *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
@@ -150,6 +166,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
+ *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
+ *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsReviews
+ *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
@@ -195,6 +219,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
+ *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
+ *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
+ *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsReviews
+ *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
  *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube

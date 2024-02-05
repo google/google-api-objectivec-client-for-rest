@@ -297,6 +297,21 @@ NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Noti
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport = @"STATUS_REPORT";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs = @"USAGE_LOGS";
 
+// GTLRAndroidManagement_InstallConstraint.chargingConstraint
+NSString * const kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_ChargingConstraintUnspecified = @"CHARGING_CONSTRAINT_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_ChargingNotRequired = @"CHARGING_NOT_REQUIRED";
+NSString * const kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_InstallOnlyWhenCharging = @"INSTALL_ONLY_WHEN_CHARGING";
+
+// GTLRAndroidManagement_InstallConstraint.deviceIdleConstraint
+NSString * const kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_DeviceIdleConstraintUnspecified = @"DEVICE_IDLE_CONSTRAINT_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_DeviceIdleNotRequired = @"DEVICE_IDLE_NOT_REQUIRED";
+NSString * const kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_InstallOnlyWhenDeviceIdle = @"INSTALL_ONLY_WHEN_DEVICE_IDLE";
+
+// GTLRAndroidManagement_InstallConstraint.networkTypeConstraint
+NSString * const kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_InstallOnAnyNetwork = @"INSTALL_ON_ANY_NETWORK";
+NSString * const kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_InstallOnlyOnUnmeteredNetwork = @"INSTALL_ONLY_ON_UNMETERED_NETWORK";
+NSString * const kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified = @"NETWORK_TYPE_CONSTRAINT_UNSPECIFIED";
+
 // GTLRAndroidManagement_KeyedAppState.severity
 NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Error = @"ERROR";
 NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Info = @"INFO";
@@ -813,14 +828,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @implementation GTLRAndroidManagement_ApplicationPolicy
 @dynamic accessibleTrackIds, alwaysOnVpnLockdownExemption, autoUpdateMode,
          connectedWorkAndPersonalApp, defaultPermissionPolicy, delegatedScopes,
-         disabled, extensionConfig, installType, lockTaskAllowed,
-         managedConfiguration, managedConfigurationTemplate, minimumVersionCode,
-         packageName, permissionGrants, workProfileWidgets;
+         disabled, extensionConfig, installConstraint, installPriority,
+         installType, lockTaskAllowed, managedConfiguration,
+         managedConfigurationTemplate, minimumVersionCode, packageName,
+         permissionGrants, workProfileWidgets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessibleTrackIds" : [NSString class],
     @"delegatedScopes" : [NSString class],
+    @"installConstraint" : [GTLRAndroidManagement_InstallConstraint class],
     @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class]
   };
   return map;
@@ -1449,6 +1466,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_InstallConstraint
+//
+
+@implementation GTLRAndroidManagement_InstallConstraint
+@dynamic chargingConstraint, deviceIdleConstraint, networkTypeConstraint;
 @end
 
 

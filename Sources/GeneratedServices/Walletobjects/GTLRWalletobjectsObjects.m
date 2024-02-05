@@ -2454,24 +2454,6 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWalletobjects_SetPassUpdateNoticeRequest
-//
-
-@implementation GTLRWalletobjects_SetPassUpdateNoticeRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWalletobjects_SetPassUpdateNoticeResponse
-//
-
-@implementation GTLRWalletobjects_SetPassUpdateNoticeResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWalletobjects_SignUpInfo
 //
 

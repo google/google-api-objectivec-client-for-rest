@@ -205,25 +205,6 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @end
 
-@implementation GTLRAndroidManagementQuery_EnterprisesDevicesOperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRAndroidManagementQuery_EnterprisesDevicesOperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRAndroidManagement_Empty class];
-  query.loggingName = @"androidmanagement.enterprises.devices.operations.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidManagementQuery_EnterprisesDevicesOperationsGet
 
 @dynamic name;

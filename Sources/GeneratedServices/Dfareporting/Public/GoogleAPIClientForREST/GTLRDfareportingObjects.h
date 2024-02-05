@@ -133,7 +133,9 @@
 @class GTLRDfareporting_PathToConversionReportCompatibleFields;
 @class GTLRDfareporting_Placement;
 @class GTLRDfareporting_PlacementAssignment;
+@class GTLRDfareporting_PlacementConversionDomainOverride;
 @class GTLRDfareporting_PlacementGroup;
+@class GTLRDfareporting_PlacementSingleConversionDomain;
 @class GTLRDfareporting_PlacementStrategy;
 @class GTLRDfareporting_PlacementTag;
 @class GTLRDfareporting_PlatformType;
@@ -522,6 +524,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_C
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Ea;
 /** Value: "P2C" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_Conversion.adUserDataConsent
+
+/**
+ *  Denied.
+ *
+ *  Value: "DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Conversion_AdUserDataConsent_Denied;
+/**
+ *  Granted.
+ *
+ *  Value: "GRANTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Conversion_AdUserDataConsent_Granted;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ConversionError.code
@@ -3613,6 +3631,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_Third
 
 /** Value: "AD_ID_OFFICIAL" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOfficial;
+/** Value: "ARPP" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Arpp;
 /** Value: "CLEARCAST" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Clearcast;
 /** Value: "DCM" */
@@ -6475,6 +6495,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  after seeing an ad.
  */
 @interface GTLRDfareporting_Conversion : GTLRObject
+
+/**
+ *  This represents consent for ad user data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_Conversion_AdUserDataConsent_Denied Denied.
+ *        (Value: "DENIED")
+ *    @arg @c kGTLRDfareporting_Conversion_AdUserDataConsent_Granted Granted.
+ *        (Value: "GRANTED")
+ */
+@property(nonatomic, copy, nullable) NSString *adUserDataConsent;
 
 /**
  *  Whether this particular request may come from a user under the age of 13,
@@ -12673,6 +12704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *contentCategoryId;
 
+/** Optional. Conversion domain overrides for a placement. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_PlacementConversionDomainOverride *conversionDomainOverride;
+
 /**
  *  Information about the creation of this placement. This is a read-only field.
  */
@@ -12959,6 +12993,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  GTLRDfareporting_PlacementConversionDomainOverride
+ */
+@interface GTLRDfareporting_PlacementConversionDomainOverride : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_PlacementSingleConversionDomain *> *conversionDomains;
+
+@end
+
+
+/**
  *  Contains properties of a package or roadblock.
  */
 @interface GTLRDfareporting_PlacementGroup : GTLRObject
@@ -13211,6 +13255,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** Set of generated tags for the specified placements. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_PlacementTag *> *placementTags;
+
+@end
+
+
+/**
+ *  GTLRDfareporting_PlacementSingleConversionDomain
+ */
+@interface GTLRDfareporting_PlacementSingleConversionDomain : GTLRObject
+
+/**
+ *  conversionDomainId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionDomainId;
+
+@property(nonatomic, copy, nullable) NSString *conversionDomainValue;
 
 @end
 
@@ -15665,8 +15726,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *additionalKeyValues;
 
 /**
- *  Whether static landing page URLs should be included in the tags. This
- *  setting applies only to placements.
+ *  Whether static landing page URLs should be included in the tags. New
+ *  placements will default to the value set on their site.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -16199,6 +16260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Likely values:
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_AdIdOfficial Value
  *        "AD_ID_OFFICIAL"
+ *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Arpp Value "ARPP"
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Clearcast Value
  *        "CLEARCAST"
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Dcm Value "DCM"

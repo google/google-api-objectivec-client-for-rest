@@ -2219,28 +2219,6 @@
 
 @end
 
-@implementation GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentSetPassUpdateNotice
-
-+ (instancetype)queryWithObject:(GTLRWalletobjects_SetPassUpdateNoticeRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"walletobjects/v1/privateContent/setPassUpdateNotice";
-  GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentSetPassUpdateNotice *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRWalletobjects_SetPassUpdateNoticeResponse class];
-  query.loggingName = @"walletobjects.walletobjects.v1.privateContent.setPassUpdateNotice";
-  return query;
-}
-
-@end
-
 @implementation GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentUploadPrivateData
 
 + (instancetype)queryWithObject:(GTLRWalletobjects_UploadPrivateDataRequest *)object {

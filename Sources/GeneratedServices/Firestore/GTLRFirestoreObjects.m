@@ -174,16 +174,6 @@ NSString * const kGTLRFirestore_Order_Direction_Ascending      = @"ASCENDING";
 NSString * const kGTLRFirestore_Order_Direction_Descending     = @"DESCENDING";
 NSString * const kGTLRFirestore_Order_Direction_DirectionUnspecified = @"DIRECTION_UNSPECIFIED";
 
-// GTLRFirestore_RunAggregationQueryRequest.mode
-NSString * const kGTLRFirestore_RunAggregationQueryRequest_Mode_Normal = @"NORMAL";
-NSString * const kGTLRFirestore_RunAggregationQueryRequest_Mode_Plan = @"PLAN";
-NSString * const kGTLRFirestore_RunAggregationQueryRequest_Mode_Profile = @"PROFILE";
-
-// GTLRFirestore_RunQueryRequest.mode
-NSString * const kGTLRFirestore_RunQueryRequest_Mode_Normal  = @"NORMAL";
-NSString * const kGTLRFirestore_RunQueryRequest_Mode_Plan    = @"PLAN";
-NSString * const kGTLRFirestore_RunQueryRequest_Mode_Profile = @"PROFILE";
-
 // GTLRFirestore_TargetChange.targetChangeType
 NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Add = @"ADD";
 NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Current = @"CURRENT";
@@ -1453,30 +1443,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_QueryPlan
-//
-
-@implementation GTLRFirestore_QueryPlan
-@dynamic planInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_QueryPlan_PlanInfo
-//
-
-@implementation GTLRFirestore_QueryPlan_PlanInfo
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirestore_QueryTarget
 //
 
@@ -1507,30 +1473,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_ResultSetStats
-//
-
-@implementation GTLRFirestore_ResultSetStats
-@dynamic queryPlan, queryStats;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_ResultSetStats_QueryStats
-//
-
-@implementation GTLRFirestore_ResultSetStats_QueryStats
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirestore_RollbackRequest
 //
 
@@ -1545,8 +1487,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunAggregationQueryRequest
-@dynamic mode, newTransaction, readTime, structuredAggregationQuery,
-         transaction;
+@dynamic newTransaction, readTime, structuredAggregationQuery, transaction;
 @end
 
 
@@ -1556,7 +1497,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunAggregationQueryResponse
-@dynamic readTime, result, stats, transaction;
+@dynamic readTime, result, transaction;
 @end
 
 
@@ -1566,7 +1507,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunQueryRequest
-@dynamic mode, newTransaction, readTime, structuredQuery, transaction;
+@dynamic newTransaction, readTime, structuredQuery, transaction;
 @end
 
 
@@ -1576,7 +1517,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunQueryResponse
-@dynamic document, done, readTime, skippedResults, stats, transaction;
+@dynamic document, done, readTime, skippedResults, transaction;
 @end
 
 

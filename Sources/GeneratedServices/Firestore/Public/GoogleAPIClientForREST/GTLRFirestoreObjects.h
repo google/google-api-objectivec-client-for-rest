@@ -70,13 +70,9 @@
 @class GTLRFirestore_Order;
 @class GTLRFirestore_Precondition;
 @class GTLRFirestore_Projection;
-@class GTLRFirestore_QueryPlan;
-@class GTLRFirestore_QueryPlan_PlanInfo;
 @class GTLRFirestore_QueryTarget;
 @class GTLRFirestore_ReadOnly;
 @class GTLRFirestore_ReadWrite;
-@class GTLRFirestore_ResultSetStats;
-@class GTLRFirestore_ResultSetStats_QueryStats;
 @class GTLRFirestore_Status;
 @class GTLRFirestore_Status_Details_Item;
 @class GTLRFirestore_StructuredAggregationQuery;
@@ -925,54 +921,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Order_Direction_Descending;
  *  Value: "DIRECTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_Order_Direction_DirectionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRFirestore_RunAggregationQueryRequest.mode
-
-/**
- *  The default mode. Only the query results are returned.
- *
- *  Value: "NORMAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRFirestore_RunAggregationQueryRequest_Mode_Normal;
-/**
- *  This mode returns only the query plan, without any results or execution
- *  statistics information.
- *
- *  Value: "PLAN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRFirestore_RunAggregationQueryRequest_Mode_Plan;
-/**
- *  This mode returns both the query plan and the execution statistics along
- *  with the results.
- *
- *  Value: "PROFILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRFirestore_RunAggregationQueryRequest_Mode_Profile;
-
-// ----------------------------------------------------------------------------
-// GTLRFirestore_RunQueryRequest.mode
-
-/**
- *  The default mode. Only the query results are returned.
- *
- *  Value: "NORMAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRFirestore_RunQueryRequest_Mode_Normal;
-/**
- *  This mode returns only the query plan, without any results or execution
- *  statistics information.
- *
- *  Value: "PLAN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRFirestore_RunQueryRequest_Mode_Plan;
-/**
- *  This mode returns both the query plan and the execution statistics along
- *  with the results.
- *
- *  Value: "PROFILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRFirestore_RunQueryRequest_Mode_Profile;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_TargetChange.targetChangeType
@@ -3752,35 +3700,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Plan for the query.
- */
-@interface GTLRFirestore_QueryPlan : GTLRObject
-
-/**
- *  Planning phase information for the query. It will include: { "indexes_used":
- *  [ {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
- *  {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"} ] }
- */
-@property(nonatomic, strong, nullable) GTLRFirestore_QueryPlan_PlanInfo *planInfo;
-
-@end
-
-
-/**
- *  Planning phase information for the query. It will include: { "indexes_used":
- *  [ {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
- *  {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"} ] }
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRFirestore_QueryPlan_PlanInfo : GTLRObject
-@end
-
-
-/**
  *  A target specified by a query.
  */
 @interface GTLRFirestore_QueryTarget : GTLRObject
@@ -3834,42 +3753,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Planning and execution statistics for the query.
- */
-@interface GTLRFirestore_ResultSetStats : GTLRObject
-
-/** Plan for the query. */
-@property(nonatomic, strong, nullable) GTLRFirestore_QueryPlan *queryPlan;
-
-/**
- *  Aggregated statistics from the execution of the query. This will only be
- *  present when the request specifies `PROFILE` mode. For example, a query will
- *  return the statistics including: { "results_returned": "20",
- *  "documents_scanned": "20", "indexes_entries_scanned": "10050",
- *  "total_execution_time": "100.7 msecs" }
- */
-@property(nonatomic, strong, nullable) GTLRFirestore_ResultSetStats_QueryStats *queryStats;
-
-@end
-
-
-/**
- *  Aggregated statistics from the execution of the query. This will only be
- *  present when the request specifies `PROFILE` mode. For example, a query will
- *  return the statistics including: { "results_returned": "20",
- *  "documents_scanned": "20", "indexes_entries_scanned": "10050",
- *  "total_execution_time": "100.7 msecs" }
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRFirestore_ResultSetStats_QueryStats : GTLRObject
-@end
-
-
-/**
  *  The request for Firestore.Rollback.
  */
 @interface GTLRFirestore_RollbackRequest : GTLRObject
@@ -3889,23 +3772,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The request for Firestore.RunAggregationQuery.
  */
 @interface GTLRFirestore_RunAggregationQueryRequest : GTLRObject
-
-/**
- *  Optional. The mode in which the query request is processed. This field is
- *  optional, and when not provided, it defaults to `NORMAL` mode where no
- *  additional statistics will be returned with the query results.
- *
- *  Likely values:
- *    @arg @c kGTLRFirestore_RunAggregationQueryRequest_Mode_Normal The default
- *        mode. Only the query results are returned. (Value: "NORMAL")
- *    @arg @c kGTLRFirestore_RunAggregationQueryRequest_Mode_Plan This mode
- *        returns only the query plan, without any results or execution
- *        statistics information. (Value: "PLAN")
- *    @arg @c kGTLRFirestore_RunAggregationQueryRequest_Mode_Profile This mode
- *        returns both the query plan and the execution statistics along with
- *        the results. (Value: "PROFILE")
- */
-@property(nonatomic, copy, nullable) NSString *mode;
 
 /**
  *  Starts a new transaction as part of the query, defaulting to read-only. The
@@ -3957,14 +3823,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_AggregationResult *result;
 
 /**
- *  Query plan and execution statistics. Note that the returned stats are
- *  subject to change as Firestore evolves. This is only present when the
- *  request specifies a mode other than `NORMAL` and is sent only once with the
- *  last response in the stream.
- */
-@property(nonatomic, strong, nullable) GTLRFirestore_ResultSetStats *stats;
-
-/**
  *  The transaction that was started as part of this request. Only present on
  *  the first response when the request requested to start a new transaction.
  *
@@ -3980,23 +3838,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The request for Firestore.RunQuery.
  */
 @interface GTLRFirestore_RunQueryRequest : GTLRObject
-
-/**
- *  Optional. The mode in which the query request is processed. This field is
- *  optional, and when not provided, it defaults to `NORMAL` mode where no
- *  additional statistics will be returned with the query results.
- *
- *  Likely values:
- *    @arg @c kGTLRFirestore_RunQueryRequest_Mode_Normal The default mode. Only
- *        the query results are returned. (Value: "NORMAL")
- *    @arg @c kGTLRFirestore_RunQueryRequest_Mode_Plan This mode returns only
- *        the query plan, without any results or execution statistics
- *        information. (Value: "PLAN")
- *    @arg @c kGTLRFirestore_RunQueryRequest_Mode_Profile This mode returns both
- *        the query plan and the execution statistics along with the results.
- *        (Value: "PROFILE")
- */
-@property(nonatomic, copy, nullable) NSString *mode;
 
 /**
  *  Starts a new transaction and reads the documents. Defaults to a read-only
@@ -4060,14 +3901,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skippedResults;
-
-/**
- *  Query plan and execution statistics. Note that the returned stats are
- *  subject to change as Firestore evolves. This is only present when the
- *  request specifies a mode other than `NORMAL` and is sent only once with the
- *  last response in the stream.
- */
-@property(nonatomic, strong, nullable) GTLRFirestore_ResultSetStats *stats;
 
 /**
  *  The transaction that was started as part of this request. Can only be set in

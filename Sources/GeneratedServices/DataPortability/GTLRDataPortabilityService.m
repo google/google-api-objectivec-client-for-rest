@@ -17,6 +17,14 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeDataPortabilityBusinessmessagingConversations = @"https://www.googleapis.com/auth/dataportability.businessmessaging.conversations";
+NSString * const kGTLRAuthScopeDataPortabilityMapsCommuteRoutes = @"https://www.googleapis.com/auth/dataportability.maps.commute_routes";
+NSString * const kGTLRAuthScopeDataPortabilityMapsCommuteSettings = @"https://www.googleapis.com/auth/dataportability.maps.commute_settings";
+NSString * const kGTLRAuthScopeDataPortabilityMapsEvProfile    = @"https://www.googleapis.com/auth/dataportability.maps.ev_profile";
+NSString * const kGTLRAuthScopeDataPortabilityMapsOfferingContributions = @"https://www.googleapis.com/auth/dataportability.maps.offering_contributions";
+NSString * const kGTLRAuthScopeDataPortabilityMapsPhotosVideos = @"https://www.googleapis.com/auth/dataportability.maps.photos_videos";
+NSString * const kGTLRAuthScopeDataPortabilityMapsReviews      = @"https://www.googleapis.com/auth/dataportability.maps.reviews";
+NSString * const kGTLRAuthScopeDataPortabilityMapsStarredPlaces = @"https://www.googleapis.com/auth/dataportability.maps.starred_places";
+NSString * const kGTLRAuthScopeDataPortabilityMyactivityMaps   = @"https://www.googleapis.com/auth/dataportability.myactivity.maps";
 NSString * const kGTLRAuthScopeDataPortabilityMyactivitySearch = @"https://www.googleapis.com/auth/dataportability.myactivity.search";
 NSString * const kGTLRAuthScopeDataPortabilityMyactivityShopping = @"https://www.googleapis.com/auth/dataportability.myactivity.shopping";
 NSString * const kGTLRAuthScopeDataPortabilityMyactivityYoutube = @"https://www.googleapis.com/auth/dataportability.myactivity.youtube";

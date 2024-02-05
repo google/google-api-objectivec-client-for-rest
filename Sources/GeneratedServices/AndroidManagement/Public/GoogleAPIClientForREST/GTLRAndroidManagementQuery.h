@@ -409,38 +409,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  google.rpc.Code.UNIMPLEMENTED.
- *
- *  Method: androidmanagement.enterprises.devices.operations.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidManagement
- */
-@interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsDelete : GTLRAndroidManagementQuery
-
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRAndroidManagement_Empty.
- *
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  google.rpc.Code.UNIMPLEMENTED.
- *
- *  @param name The name of the operation resource to be deleted.
- *
- *  @return GTLRAndroidManagementQuery_EnterprisesDevicesOperationsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.

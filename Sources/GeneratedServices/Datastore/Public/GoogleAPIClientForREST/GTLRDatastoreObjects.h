@@ -60,14 +60,10 @@
 @class GTLRDatastore_PropertyOrder;
 @class GTLRDatastore_PropertyReference;
 @class GTLRDatastore_Query;
-@class GTLRDatastore_QueryPlan;
-@class GTLRDatastore_QueryPlan_PlanInfo;
 @class GTLRDatastore_QueryResultBatch;
 @class GTLRDatastore_ReadOnly;
 @class GTLRDatastore_ReadOptions;
 @class GTLRDatastore_ReadWrite;
-@class GTLRDatastore_ResultSetStats;
-@class GTLRDatastore_ResultSetStats_QueryStats;
 @class GTLRDatastore_Status;
 @class GTLRDatastore_Status_Details_Item;
 @class GTLRDatastore_Sum;
@@ -816,54 +812,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Re
  *  Value: "STRONG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Strong;
-
-// ----------------------------------------------------------------------------
-// GTLRDatastore_RunAggregationQueryRequest.mode
-
-/**
- *  The default mode. Only the query results are returned.
- *
- *  Value: "NORMAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDatastore_RunAggregationQueryRequest_Mode_Normal;
-/**
- *  This mode returns only the query plan, without any results or execution
- *  statistics information.
- *
- *  Value: "PLAN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDatastore_RunAggregationQueryRequest_Mode_Plan;
-/**
- *  This mode returns both the query plan and the execution statistics along
- *  with the results.
- *
- *  Value: "PROFILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDatastore_RunAggregationQueryRequest_Mode_Profile;
-
-// ----------------------------------------------------------------------------
-// GTLRDatastore_RunQueryRequest.mode
-
-/**
- *  The default mode. Only the query results are returned.
- *
- *  Value: "NORMAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDatastore_RunQueryRequest_Mode_Normal;
-/**
- *  This mode returns only the query plan, without any results or execution
- *  statistics information.
- *
- *  Value: "PLAN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDatastore_RunQueryRequest_Mode_Plan;
-/**
- *  This mode returns both the query plan and the execution statistics along
- *  with the results.
- *
- *  Value: "PROFILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDatastore_RunQueryRequest_Mode_Profile;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_Value.nullValue
@@ -2771,35 +2719,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  Plan for the query.
- */
-@interface GTLRDatastore_QueryPlan : GTLRObject
-
-/**
- *  Planning phase information for the query. It will include: { "indexes_used":
- *  [ {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
- *  {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"} ] }
- */
-@property(nonatomic, strong, nullable) GTLRDatastore_QueryPlan_PlanInfo *planInfo;
-
-@end
-
-
-/**
- *  Planning phase information for the query. It will include: { "indexes_used":
- *  [ {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
- *  {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"} ] }
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRDatastore_QueryPlan_PlanInfo : GTLRObject
-@end
-
-
-/**
  *  A batch of results produced by a query.
  */
 @interface GTLRDatastore_QueryResultBatch : GTLRObject
@@ -3002,42 +2921,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  Planning and execution statistics for the query.
- */
-@interface GTLRDatastore_ResultSetStats : GTLRObject
-
-/** Plan for the query. */
-@property(nonatomic, strong, nullable) GTLRDatastore_QueryPlan *queryPlan;
-
-/**
- *  Aggregated statistics from the execution of the query. This will only be
- *  present when the request specifies `PROFILE` mode. For example, a query will
- *  return the statistics including: { "results_returned": "20",
- *  "documents_scanned": "20", "indexes_entries_scanned": "10050",
- *  "total_execution_time": "100.7 msecs" }
- */
-@property(nonatomic, strong, nullable) GTLRDatastore_ResultSetStats_QueryStats *queryStats;
-
-@end
-
-
-/**
- *  Aggregated statistics from the execution of the query. This will only be
- *  present when the request specifies `PROFILE` mode. For example, a query will
- *  return the statistics including: { "results_returned": "20",
- *  "documents_scanned": "20", "indexes_entries_scanned": "10050",
- *  "total_execution_time": "100.7 msecs" }
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRDatastore_ResultSetStats_QueryStats : GTLRObject
-@end
-
-
-/**
  *  The request for Datastore.Rollback.
  */
 @interface GTLRDatastore_RollbackRequest : GTLRObject
@@ -3085,23 +2968,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;
 
 /**
- *  Optional. The mode in which the query request is processed. This field is
- *  optional, and when not provided, it defaults to `NORMAL` mode where no
- *  additional statistics will be returned with the query results.
- *
- *  Likely values:
- *    @arg @c kGTLRDatastore_RunAggregationQueryRequest_Mode_Normal The default
- *        mode. Only the query results are returned. (Value: "NORMAL")
- *    @arg @c kGTLRDatastore_RunAggregationQueryRequest_Mode_Plan This mode
- *        returns only the query plan, without any results or execution
- *        statistics information. (Value: "PLAN")
- *    @arg @c kGTLRDatastore_RunAggregationQueryRequest_Mode_Profile This mode
- *        returns both the query plan and the execution statistics along with
- *        the results. (Value: "PROFILE")
- */
-@property(nonatomic, copy, nullable) NSString *mode;
-
-/**
  *  Entities are partitioned into subsets, identified by a partition ID. Queries
  *  are scoped to a single partition. This partition ID is normalized with the
  *  standard default context partition ID.
@@ -3124,13 +2990,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /** The parsed form of the `GqlQuery` from the request, if it was set. */
 @property(nonatomic, strong, nullable) GTLRDatastore_AggregationQuery *query;
-
-/**
- *  Query plan and execution statistics. Note that the returned stats are
- *  subject to change as Firestore evolves. This is only present when the
- *  request specifies a mode other than `NORMAL`.
- */
-@property(nonatomic, strong, nullable) GTLRDatastore_ResultSetStats *stats;
 
 /**
  *  The identifier of the transaction that was started as part of this
@@ -3160,23 +3019,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;
 
 /**
- *  Optional. The mode in which the query request is processed. This field is
- *  optional, and when not provided, it defaults to `NORMAL` mode where no
- *  additional statistics will be returned with the query results.
- *
- *  Likely values:
- *    @arg @c kGTLRDatastore_RunQueryRequest_Mode_Normal The default mode. Only
- *        the query results are returned. (Value: "NORMAL")
- *    @arg @c kGTLRDatastore_RunQueryRequest_Mode_Plan This mode returns only
- *        the query plan, without any results or execution statistics
- *        information. (Value: "PLAN")
- *    @arg @c kGTLRDatastore_RunQueryRequest_Mode_Profile This mode returns both
- *        the query plan and the execution statistics along with the results.
- *        (Value: "PROFILE")
- */
-@property(nonatomic, copy, nullable) NSString *mode;
-
-/**
  *  Entities are partitioned into subsets, identified by a partition ID. Queries
  *  are scoped to a single partition. This partition ID is normalized with the
  *  standard default context partition ID.
@@ -3202,13 +3044,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /** The parsed form of the `GqlQuery` from the request, if it was set. */
 @property(nonatomic, strong, nullable) GTLRDatastore_Query *query;
-
-/**
- *  Query plan and execution statistics. Note that the returned stats are
- *  subject to change as Firestore evolves. This is only present when the
- *  request specifies a mode other than `NORMAL`.
- */
-@property(nonatomic, strong, nullable) GTLRDatastore_ResultSetStats *stats;
 
 /**
  *  The identifier of the transaction that was started as part of this RunQuery
