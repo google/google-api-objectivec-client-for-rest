@@ -138,6 +138,10 @@ NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Cpm = @"CPM";
 NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Ea = @"EA";
 NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c = @"P2C";
 
+// GTLRDfareporting_Conversion.adUserDataConsent
+NSString * const kGTLRDfareporting_Conversion_AdUserDataConsent_Denied = @"DENIED";
+NSString * const kGTLRDfareporting_Conversion_AdUserDataConsent_Granted = @"GRANTED";
+
 // GTLRDfareporting_ConversionError.code
 NSString * const kGTLRDfareporting_ConversionError_Code_Internal = @"INTERNAL";
 NSString * const kGTLRDfareporting_ConversionError_Code_InvalidArgument = @"INVALID_ARGUMENT";
@@ -1281,6 +1285,7 @@ NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Video
 
 // GTLRDfareporting_UniversalAdId.registry
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOfficial = @"AD_ID_OFFICIAL";
+NSString * const kGTLRDfareporting_UniversalAdId_Registry_Arpp = @"ARPP";
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_Clearcast = @"CLEARCAST";
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_Dcm  = @"DCM";
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_Other = @"OTHER";
@@ -2600,8 +2605,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_Conversion
-@dynamic childDirectedTreatment, customVariables, dclid, encryptedUserId,
-         encryptedUserIdCandidates, floodlightActivityId,
+@dynamic adUserDataConsent, childDirectedTreatment, customVariables, dclid,
+         encryptedUserId, encryptedUserIdCandidates, floodlightActivityId,
          floodlightConfigurationId, gclid, impressionId, kind, limitAdTracking,
          matchId, mobileDeviceId, nonPersonalizedAd, ordinal, quantity,
          timestampMicros, treatmentForUnderage, userIdentifiers, value;
@@ -4951,8 +4956,9 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 @dynamic accountId, activeStatus, adBlockingOptOut, additionalSizes,
          advertiserId, advertiserIdDimensionValue, campaignId,
          campaignIdDimensionValue, comment, compatibility, contentCategoryId,
-         createInfo, directorySiteId, directorySiteIdDimensionValue, externalId,
-         identifier, idDimensionValue, keyName, kind, lastModifiedInfo,
+         conversionDomainOverride, createInfo, directorySiteId,
+         directorySiteIdDimensionValue, externalId, identifier,
+         idDimensionValue, keyName, kind, lastModifiedInfo,
          lookbackConfiguration, name, partnerWrappingData, paymentApproved,
          paymentSource, placementGroupId, placementGroupIdDimensionValue,
          placementStrategyId, pricingSchedule, primary, publisherUpdateInfo,
@@ -4988,6 +4994,24 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_PlacementAssignment
 @dynamic active, placementId, placementIdDimensionValue, sslRequired;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_PlacementConversionDomainOverride
+//
+
+@implementation GTLRDfareporting_PlacementConversionDomainOverride
+@dynamic conversionDomains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conversionDomains" : [GTLRDfareporting_PlacementSingleConversionDomain class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -5075,6 +5099,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_PlacementSingleConversionDomain
+//
+
+@implementation GTLRDfareporting_PlacementSingleConversionDomain
+@dynamic conversionDomainId, conversionDomainValue;
 @end
 
 

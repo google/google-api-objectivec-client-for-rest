@@ -8141,22 +8141,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 
 /**
- *  Request to send a private pass update notice information to Google, so that
- *  devices can then fetch the notice prompting the user to update a pass.
- */
-@interface GTLRWalletobjects_SetPassUpdateNoticeRequest : GTLRObject
-@end
-
-
-/**
- *  A response to a request to notify Google of an awaiting update to a private
- *  pass.
- */
-@interface GTLRWalletobjects_SetPassUpdateNoticeResponse : GTLRObject
-@end
-
-
-/**
  *  GTLRWalletobjects_SignUpInfo
  */
 @interface GTLRWalletobjects_SignUpInfo : GTLRObject

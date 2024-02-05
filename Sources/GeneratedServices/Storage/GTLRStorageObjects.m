@@ -510,25 +510,11 @@
 //
 
 @implementation GTLRStorage_Folder
-@dynamic bucket, identifier, kind, metadata, metageneration, name,
-         pendingRenameInfo, selfLink, timeCreated, updated;
+@dynamic bucket, identifier, kind, metageneration, name, pendingRenameInfo,
+         selfLink, timeCreated, updated;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRStorage_Folder_Metadata
-//
-
-@implementation GTLRStorage_Folder_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
 }
 
 @end

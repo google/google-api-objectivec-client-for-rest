@@ -159,16 +159,6 @@ NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Eventual = @"EVENTUA
 NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_ReadConsistencyUnspecified = @"READ_CONSISTENCY_UNSPECIFIED";
 NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Strong = @"STRONG";
 
-// GTLRDatastore_RunAggregationQueryRequest.mode
-NSString * const kGTLRDatastore_RunAggregationQueryRequest_Mode_Normal = @"NORMAL";
-NSString * const kGTLRDatastore_RunAggregationQueryRequest_Mode_Plan = @"PLAN";
-NSString * const kGTLRDatastore_RunAggregationQueryRequest_Mode_Profile = @"PROFILE";
-
-// GTLRDatastore_RunQueryRequest.mode
-NSString * const kGTLRDatastore_RunQueryRequest_Mode_Normal  = @"NORMAL";
-NSString * const kGTLRDatastore_RunQueryRequest_Mode_Plan    = @"PLAN";
-NSString * const kGTLRDatastore_RunQueryRequest_Mode_Profile = @"PROFILE";
-
 // GTLRDatastore_Value.nullValue
 NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
@@ -1071,30 +1061,6 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDatastore_QueryPlan
-//
-
-@implementation GTLRDatastore_QueryPlan
-@dynamic planInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDatastore_QueryPlan_PlanInfo
-//
-
-@implementation GTLRDatastore_QueryPlan_PlanInfo
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDatastore_QueryResultBatch
 //
 
@@ -1171,30 +1137,6 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDatastore_ResultSetStats
-//
-
-@implementation GTLRDatastore_ResultSetStats
-@dynamic queryPlan, queryStats;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDatastore_ResultSetStats_QueryStats
-//
-
-@implementation GTLRDatastore_ResultSetStats_QueryStats
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDatastore_RollbackRequest
 //
 
@@ -1218,7 +1160,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunAggregationQueryRequest
-@dynamic aggregationQuery, databaseId, gqlQuery, mode, partitionId, readOptions;
+@dynamic aggregationQuery, databaseId, gqlQuery, partitionId, readOptions;
 @end
 
 
@@ -1228,7 +1170,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunAggregationQueryResponse
-@dynamic batch, query, stats, transaction;
+@dynamic batch, query, transaction;
 @end
 
 
@@ -1238,7 +1180,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunQueryRequest
-@dynamic databaseId, gqlQuery, mode, partitionId, query, readOptions;
+@dynamic databaseId, gqlQuery, partitionId, query, readOptions;
 @end
 
 
@@ -1248,7 +1190,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunQueryResponse
-@dynamic batch, query, stats, transaction;
+@dynamic batch, query, transaction;
 @end
 
 

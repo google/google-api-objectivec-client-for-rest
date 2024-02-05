@@ -35,6 +35,55 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityBusinessmessagingConversations;
 /**
+ *  Authorization scope: Move a copy of your pinned trips on Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.commute_routes"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsCommuteRoutes;
+/**
+ *  Authorization scope: Move a copy of your commute settings on Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.commute_settings"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsCommuteSettings;
+/**
+ *  Authorization scope: Move a copy of your electric vehicle profile on Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.ev_profile"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsEvProfile;
+/**
+ *  Authorization scope: Move a copy of your updates to places on Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.offering_contributions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsOfferingContributions;
+/**
+ *  Authorization scope: Move a copy of the photos and videos you posted on
+ *  Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.photos_videos"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsPhotosVideos;
+/**
+ *  Authorization scope: Move a copy of your reviews and posts on Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.reviews"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsReviews;
+/**
+ *  Authorization scope: Move a copy of your Starred places list on Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.starred_places"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsStarredPlaces;
+/**
+ *  Authorization scope: Move a copy of your Maps activity.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.myactivity.maps"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityMaps;
+/**
  *  Authorization scope: Move a copy of your search activity.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.myactivity.search"
@@ -66,79 +115,79 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityShoppingAddresse
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityShoppingReviews;
 /**
- *  Authorization scope: Move a copy of information about your channel.
+ *  Authorization scope: Move a copy of information about your YouTube channel.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.channel"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeChannel;
 /**
- *  Authorization scope: Move a copy of your comments.
+ *  Authorization scope: Move a copy of your YouTube comments.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.comments"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeComments;
 /**
- *  Authorization scope: Move a copy of your messages in live chat.
+ *  Authorization scope: Move a copy of your YouTube messages in live chat.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.live_chat"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeLiveChat;
 /**
- *  Authorization scope: Move a copy of your uploaded YouTube Music tracks and
- *  your YouTube Music library.
+ *  Authorization scope: Move a copy of your uploaded YouTube music tracks and
+ *  your YouTube music library.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.music"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeMusic;
 /**
- *  Authorization scope: Move a copy of your private playlists.
+ *  Authorization scope: Move a copy of your YouTube private playlists.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.private_playlists"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubePrivatePlaylists;
 /**
- *  Authorization scope: Move a copy of your private videos and information
- *  about them.
+ *  Authorization scope: Move a copy of your private YouTube videos and
+ *  information about them.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.private_videos"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubePrivateVideos;
 /**
- *  Authorization scope: Move a copy of your public playlists.
+ *  Authorization scope: Move a copy of your public YouTube playlists.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.public_playlists"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubePublicPlaylists;
 /**
- *  Authorization scope: Move a copy of your public videos and information about
- *  them.
+ *  Authorization scope: Move a copy of your public YouTube videos and
+ *  information about them.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.public_videos"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubePublicVideos;
 /**
- *  Authorization scope: Move a copy of YouTube Shopping Wishlists, and wishlist
- *  items.
+ *  Authorization scope: Move a copy of your YouTube shopping wishlists, and
+ *  wishlist items.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.shopping"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeShopping;
 /**
- *  Authorization scope: Move a copy of your channel subscriptions, even if
- *  they're private.
+ *  Authorization scope: Move a copy of your YouTube channel subscriptions, even
+ *  if they're private.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.subscriptions"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeSubscriptions;
 /**
- *  Authorization scope: Move a copy of your unlisted playlists.
+ *  Authorization scope: Move a copy of your unlisted YouTube playlists.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.unlisted_playlists"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeUnlistedPlaylists;
 /**
- *  Authorization scope: Move a copy of your unlisted videos and information
- *  about them.
+ *  Authorization scope: Move a copy of your unlisted YouTube videos and
+ *  information about them.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.unlisted_videos"
  */

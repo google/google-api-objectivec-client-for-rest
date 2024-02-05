@@ -64,6 +64,7 @@
 @class GTLRAndroidManagement_FreezePeriod;
 @class GTLRAndroidManagement_HardwareInfo;
 @class GTLRAndroidManagement_HardwareStatus;
+@class GTLRAndroidManagement_InstallConstraint;
 @class GTLRAndroidManagement_KeyDestructionEvent;
 @class GTLRAndroidManagement_KeyedAppState;
 @class GTLRAndroidManagement_KeyGeneratedEvent;
@@ -516,7 +517,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Conn
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny;
 /**
- *  Automatically grant a permission.
+ *  Automatically grant a permission.On Android 12 and above,
+ *  Manifest.permission.READ_SMS
+ *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
+ *  and following sensor-related permissions can only be granted on fully
+ *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+ *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
+ *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
+ *  Manifest.permission.CAMERA
+ *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
+ *  Manifest.permission.RECORD_AUDIO
+ *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
+ *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
+ *  Manifest.permission.BODY_SENSORS
+ *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
  */
@@ -1668,6 +1686,73 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_InstallConstraint.chargingConstraint
+
+/**
+ *  Unspecified. Default to CHARGING_NOT_REQUIRED.
+ *
+ *  Value: "CHARGING_CONSTRAINT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_ChargingConstraintUnspecified;
+/**
+ *  Device doesn't have to be charging.
+ *
+ *  Value: "CHARGING_NOT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_ChargingNotRequired;
+/**
+ *  Device has to be charging.
+ *
+ *  Value: "INSTALL_ONLY_WHEN_CHARGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_InstallOnlyWhenCharging;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_InstallConstraint.deviceIdleConstraint
+
+/**
+ *  Unspecified. Default to DEVICE_IDLE_NOT_REQUIRED.
+ *
+ *  Value: "DEVICE_IDLE_CONSTRAINT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_DeviceIdleConstraintUnspecified;
+/**
+ *  Device doesn't have to be idle, app can be installed while the user is
+ *  interacting with the device.
+ *
+ *  Value: "DEVICE_IDLE_NOT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_DeviceIdleNotRequired;
+/**
+ *  Device has to be idle.
+ *
+ *  Value: "INSTALL_ONLY_WHEN_DEVICE_IDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_InstallOnlyWhenDeviceIdle;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_InstallConstraint.networkTypeConstraint
+
+/**
+ *  Any active networks (Wi-Fi, cellular, etc.).
+ *
+ *  Value: "INSTALL_ON_ANY_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_InstallOnAnyNetwork;
+/**
+ *  Any unmetered network (e.g. Wi-FI).
+ *
+ *  Value: "INSTALL_ONLY_ON_UNMETERED_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_InstallOnlyOnUnmeteredNetwork;
+/**
+ *  Unspecified. Default to INSTALL_ON_ANY_NETWORK.
+ *
+ *  Value: "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KeyedAppState.severity
 
 /**
@@ -2584,7 +2669,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PerAppResult_ClearingR
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny;
 /**
- *  Automatically grant a permission.
+ *  Automatically grant a permission.On Android 12 and above,
+ *  Manifest.permission.READ_SMS
+ *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
+ *  and following sensor-related permissions can only be granted on fully
+ *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+ *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
+ *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
+ *  Manifest.permission.CAMERA
+ *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
+ *  Manifest.permission.RECORD_AUDIO
+ *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
+ *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
+ *  Manifest.permission.BODY_SENSORS
+ *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
  */
@@ -2786,7 +2888,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_Ca
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny;
 /**
- *  Automatically grant a permission.
+ *  Automatically grant a permission.On Android 12 and above,
+ *  Manifest.permission.READ_SMS
+ *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
+ *  and following sensor-related permissions can only be granted on fully
+ *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+ *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
+ *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
+ *  Manifest.permission.CAMERA
+ *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
+ *  Manifest.permission.RECORD_AUDIO
+ *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
+ *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
+ *  Manifest.permission.BODY_SENSORS
+ *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
  */
@@ -3793,9 +3912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Security policies set to secure values by default. To maintain the security
- *  posture of a device, we don't recommend overriding any of the default
- *  values.
+ *  Advanced security settings. In most cases, setting these is not needed.
  */
 @interface GTLRAndroidManagement_AdvancedSecurityOverrides : GTLRObject
 
@@ -4234,7 +4351,25 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny
  *        Automatically deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Grant
- *        Automatically grant a permission. (Value: "GRANT")
+ *        Automatically grant a permission.On Android 12 and above,
+ *        Manifest.permission.READ_SMS
+ *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
+ *        and following sensor-related permissions can only be granted on fully
+ *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+ *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
+ *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
+ *        Manifest.permission.CAMERA
+ *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
+ *        Manifest.permission.RECORD_AUDIO
+ *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
+ *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
+ *        Manifest.permission.BODY_SENSORS
+ *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
+ *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_PermissionPolicyUnspecified
  *        Policy not specified. If no policy is specified for a permission at
  *        any level, then the PROMPT behavior is used by default. (Value:
@@ -4263,6 +4398,23 @@ GTLR_DEPRECATED
  *  most one app.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ExtensionConfig *extensionConfig;
+
+/**
+ *  Optional. The constraints for installing the app. You can specify a maximum
+ *  of one InstallConstraint. Multiple constraints are rejected.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_InstallConstraint *> *installConstraint;
+
+/**
+ *  Optional. Amongst apps with installTypeset to:FORCE_INSTALLEDPREINSTALLED
+ *  this controls the relative priority of installation. A value of 0 (default)
+ *  means this app has no priority over other apps. For values between 1 and
+ *  10,000, a lower value means a higher priority. Values outside of the range 0
+ *  to 10,000 inclusive are rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *installPriority;
 
 /**
  *  The type of installation to perform.
@@ -5471,7 +5623,8 @@ GTLR_DEPRECATED
 /**
  *  Events related to memory and storage measurements in chronological order.
  *  This information is only available if memoryInfoEnabled is true in the
- *  device's policy.
+ *  device's policy.Events are retained for a certain period of time and old
+ *  events are deleted.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_MemoryEvent *> *memoryEvents;
 
@@ -6492,6 +6645,62 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Amongst apps with InstallTypeset to:FORCE_INSTALLEDPREINSTALLED this defines
+ *  a set of restrictions for the app installation. At least one of the fields
+ *  must be set. When multiple fields are set, then all the constraints need to
+ *  be satisfied for the app to be installed.
+ */
+@interface GTLRAndroidManagement_InstallConstraint : GTLRObject
+
+/**
+ *  Optional. Charging constraint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_ChargingConstraintUnspecified
+ *        Unspecified. Default to CHARGING_NOT_REQUIRED. (Value:
+ *        "CHARGING_CONSTRAINT_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_ChargingNotRequired
+ *        Device doesn't have to be charging. (Value: "CHARGING_NOT_REQUIRED")
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_InstallOnlyWhenCharging
+ *        Device has to be charging. (Value: "INSTALL_ONLY_WHEN_CHARGING")
+ */
+@property(nonatomic, copy, nullable) NSString *chargingConstraint;
+
+/**
+ *  Optional. Device idle constraint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_DeviceIdleConstraintUnspecified
+ *        Unspecified. Default to DEVICE_IDLE_NOT_REQUIRED. (Value:
+ *        "DEVICE_IDLE_CONSTRAINT_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_DeviceIdleNotRequired
+ *        Device doesn't have to be idle, app can be installed while the user is
+ *        interacting with the device. (Value: "DEVICE_IDLE_NOT_REQUIRED")
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_DeviceIdleConstraint_InstallOnlyWhenDeviceIdle
+ *        Device has to be idle. (Value: "INSTALL_ONLY_WHEN_DEVICE_IDLE")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceIdleConstraint;
+
+/**
+ *  Optional. Network type constraint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_InstallOnAnyNetwork
+ *        Any active networks (Wi-Fi, cellular, etc.). (Value:
+ *        "INSTALL_ON_ANY_NETWORK")
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_InstallOnlyOnUnmeteredNetwork
+ *        Any unmetered network (e.g. Wi-FI). (Value:
+ *        "INSTALL_ONLY_ON_UNMETERED_NETWORK")
+ *    @arg @c kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified
+ *        Unspecified. Default to INSTALL_ON_ANY_NETWORK. (Value:
+ *        "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *networkTypeConstraint;
+
+@end
+
+
+/**
  *  Response on issuing a command. This is currently empty as a placeholder.
  */
 @interface GTLRAndroidManagement_IssueCommandResponse : GTLRObject
@@ -7199,7 +7408,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  An event related to memory and storage measurements.
+ *  An event related to memory and storage measurements.To distinguish between
+ *  new and old events, we recommend using the createTime field.
  */
 @interface GTLRAndroidManagement_MemoryEvent : GTLRObject
 
@@ -8089,7 +8299,25 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_Deny Automatically
  *        deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_Grant Automatically
- *        grant a permission. (Value: "GRANT")
+ *        grant a permission.On Android 12 and above,
+ *        Manifest.permission.READ_SMS
+ *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
+ *        and following sensor-related permissions can only be granted on fully
+ *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+ *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
+ *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
+ *        Manifest.permission.CAMERA
+ *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
+ *        Manifest.permission.RECORD_AUDIO
+ *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
+ *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
+ *        Manifest.permission.BODY_SENSORS
+ *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
+ *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_PermissionPolicyUnspecified
  *        Policy not specified. If no policy is specified for a permission at
  *        any level, then the PROMPT behavior is used by default. (Value:
@@ -8252,11 +8480,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *adjustVolumeDisabled;
 
-/**
- *  Security policies set to secure values by default. To maintain the security
- *  posture of a device, we don't recommend overriding any of the default
- *  values.
- */
+/** Advanced security settings. In most cases, setting these is not needed. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_AdvancedSecurityOverrides *advancedSecurityOverrides;
 
 /**
@@ -8265,12 +8489,8 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_AlwaysOnVpnPackage *alwaysOnVpnPackage;
 
-/**
- *  The app tracks for Android Device Policy the device can access. The device
- *  receives the latest version among all accessible tracks. If no tracks are
- *  specified, then the device only uses the production track.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *androidDevicePolicyTracks;
+/** This setting is not supported. Any value is ignored. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *androidDevicePolicyTracks GTLR_DEPRECATED;
 
 /**
  *  Recommended alternative: autoUpdateMode which is set per app, provides
@@ -8459,7 +8679,25 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny
  *        Automatically deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant
- *        Automatically grant a permission. (Value: "GRANT")
+ *        Automatically grant a permission.On Android 12 and above,
+ *        Manifest.permission.READ_SMS
+ *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
+ *        and following sensor-related permissions can only be granted on fully
+ *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
+ *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
+ *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
+ *        Manifest.permission.CAMERA
+ *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
+ *        Manifest.permission.RECORD_AUDIO
+ *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
+ *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
+ *        Manifest.permission.BODY_SENSORS
+ *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
+ *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_PermissionPolicyUnspecified
  *        Policy not specified. If no policy is specified for a permission at
  *        any level, then the PROMPT behavior is used by default. (Value:
