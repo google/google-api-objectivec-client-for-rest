@@ -1284,7 +1284,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 
 - (void)stateWait {
   // Wait for all active network actions to finish.
-  NSDate* giveUpDate = [NSDate dateWithTimeIntervalSinceNow:30.0];
+  NSDate* giveUpDate = [NSDate dateWithTimeIntervalSinceNow:60.0];
   while (self.numberOfActiveNetworkActions > 0 && [giveUpDate timeIntervalSinceNow] > 0) {
     @autoreleasepool {
       NSDate *stopDate = [NSDate dateWithTimeIntervalSinceNow:0.1];
