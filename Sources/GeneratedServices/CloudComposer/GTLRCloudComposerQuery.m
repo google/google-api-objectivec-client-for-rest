@@ -308,6 +308,228 @@
 
 @end
 
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_UserWorkloadsConfigMap *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userWorkloadsConfigMaps";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudComposer_UserWorkloadsConfigMap class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsConfigMaps.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudComposer_Empty class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsConfigMaps.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudComposer_UserWorkloadsConfigMap class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsConfigMaps.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userWorkloadsConfigMaps";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudComposer_ListUserWorkloadsConfigMapsResponse class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsConfigMaps.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_UserWorkloadsConfigMap *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudComposer_UserWorkloadsConfigMap class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsConfigMaps.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_UserWorkloadsSecret *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userWorkloadsSecrets";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudComposer_UserWorkloadsSecret class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsSecrets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudComposer_Empty class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsSecrets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudComposer_UserWorkloadsSecret class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsSecrets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userWorkloadsSecrets";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudComposer_ListUserWorkloadsSecretsResponse class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsSecrets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_UserWorkloadsSecret *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudComposer_UserWorkloadsSecret class];
+  query.loggingName = @"composer.projects.locations.environments.userWorkloadsSecrets.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsWorkloadsList
 
 @dynamic filter, pageSize, pageToken, parent;

@@ -361,7 +361,8 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema
 @dynamic column, defaultValue, descriptionProperty, gcRule, highestIndexingType,
-         lookerColumnSpec, mode, ordinalPosition, subcolumns, type;
+         lookerColumnSpec, mode, ordinalPosition, rangeElementType, subcolumns,
+         type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -374,6 +375,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaFieldElementType
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaFieldElementType
+@dynamic type;
 @end
 
 

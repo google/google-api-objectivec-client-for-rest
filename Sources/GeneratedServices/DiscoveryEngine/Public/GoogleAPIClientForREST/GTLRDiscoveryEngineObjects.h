@@ -62,6 +62,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentContent;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDoubleList;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEmbeddingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineChatEngineConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineChatEngineConfigAgentCreationConfig;
@@ -118,6 +119,9 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryReference;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummaryWithMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigGenericConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigMediaConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSuggestionDenyListEntry;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite;
@@ -1002,6 +1006,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SUMMARY_SKIPPED_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_SummarySkippedReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.solutionType
+
+/**
+ *  Used for use cases related to the Generative AI agent.
+ *
+ *  Value: "SOLUTION_TYPE_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeChat;
+/**
+ *  Used for Recommendations AI.
+ *
+ *  Value: "SOLUTION_TYPE_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeRecommendation;
+/**
+ *  Used for Discovery Search.
+ *
+ *  Value: "SOLUTION_TYPE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeSearch;
+/**
+ *  Default value.
+ *
+ *  Value: "SOLUTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo.siteVerificationState
@@ -3226,7 +3258,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure
+ *  Failed due to insufficient quota.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure : GTLRObject
 
@@ -4199,6 +4231,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Defines embedding config, used for bring your own embeddings feature.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEmbeddingConfig : GTLRObject
+
+/** Full field path in the schema mapped as embedding field. */
+@property(nonatomic, copy, nullable) NSString *fieldPath;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the
  *  SiteSearchEngineService.EnableAdvancedSiteSearch operation. This will be
  *  returned by the google.longrunning.Operation.metadata field.
@@ -5008,6 +5051,30 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema *> *schemas;
+
+@end
+
+
+/**
+ *  Response for ListServingConfigs method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "servingConfigs" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse : GTLRCollectionObject
+
+/** Pagination token, if not returned indicates the last page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All the ServingConfigs for a given dataStore.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig *> *servingConfigs;
 
 @end
 
@@ -6611,6 +6678,7 @@ GTLR_DEPRECATED
 /** The summary content. */
 @property(nonatomic, copy, nullable) NSString *summaryText;
 
+/** Summary with metadata information. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummaryWithMetadata *summaryWithMetadata;
 
 @end
@@ -6725,6 +6793,237 @@ GTLR_DEPRECATED
 
 /** Summary text with no citation information. */
 @property(nonatomic, copy, nullable) NSString *summary;
+
+@end
+
+
+/**
+ *  Configures metadata that is used to generate serving time results (e.g.
+ *  search results or recommendation predictions). The ServingConfig is passed
+ *  in the search and predict request and generates results.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig : GTLRObject
+
+/**
+ *  Boost controls to use in serving path. All triggered boost controls will be
+ *  applied. Boost controls must be in the same data store as the serving
+ *  config. Maximum of 20 boost controls.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *boostControlIds;
+
+/** Output only. ServingConfig created timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The human readable serving config display name. Used in Discovery
+ *  UI. This field must be a UTF-8 encoded string with a length limit of 128
+ *  characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Condition do not associate specifications. If multiple do not associate
+ *  conditions match, all matching do not associate controls in the list will
+ *  execute. Order does not matter. Maximum number of specifications is 100. Can
+ *  only be set if SolutionType is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dissociateControlIds;
+
+/**
+ *  How much diversity to use in recommendation model results e.g.
+ *  `medium-diversity` or `high-diversity`. Currently supported values: *
+ *  `no-diversity` * `low-diversity` * `medium-diversity` * `high-diversity` *
+ *  `auto-diversity` If not specified, we choose default based on recommendation
+ *  model type. Default value: `no-diversity`. Can only be set if SolutionType
+ *  is SOLUTION_TYPE_RECOMMENDATION.
+ */
+@property(nonatomic, copy, nullable) NSString *diversityLevel;
+
+/**
+ *  Bring your own embedding config. The config is used for search semantic
+ *  retrieval. The retrieval is based on the dot product of
+ *  SearchRequest.EmbeddingSpec.EmbeddingVector.vector and the document
+ *  embeddings that are provided by this EmbeddingConfig. If
+ *  SearchRequest.EmbeddingSpec.EmbeddingVector.vector is provided, it overrides
+ *  this ServingConfig.embedding_config.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEmbeddingConfig *embeddingConfig;
+
+/**
+ *  Filter controls to use in serving path. All triggered filter controls will
+ *  be applied. Filter controls must be in the same data store as the serving
+ *  config. Maximum of 20 filter controls.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filterControlIds;
+
+/** The GenericConfig of the serving configuration. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigGenericConfig *genericConfig;
+
+/**
+ *  Condition ignore specifications. If multiple ignore conditions match, all
+ *  matching ignore controls in the list will execute. Order does not matter.
+ *  Maximum number of specifications is 100.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoreControlIds;
+
+/** The MediaConfig of the serving configuration. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigMediaConfig *mediaConfig;
+
+/**
+ *  The id of the model to use at serving time. Currently only
+ *  RecommendationModels are supported. Can be changed but only to a compatible
+ *  model (e.g. others-you-may-like CTR to others-you-may-like CVR). Required
+ *  when SolutionType is SOLUTION_TYPE_RECOMMENDATION.
+ */
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+/**
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Condition oneway synonyms specifications. If multiple oneway synonyms
+ *  conditions match, all matching oneway synonyms controls in the list will
+ *  execute. Maximum number of specifications is 100. Can only be set if
+ *  SolutionType is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *onewaySynonymsControlIds;
+
+/**
+ *  The ranking expression controls the customized ranking on retrieval
+ *  documents. To leverage this, document embedding is required. The ranking
+ *  expression setting in ServingConfig applies to all search requests served by
+ *  the serving config. However, if SearchRequest.ranking_expression is
+ *  specified, it overrides the ServingConfig ranking expression. The ranking
+ *  expression is a single function or multiple functions that are joined by
+ *  "+". * ranking_expression = function, { " + ", function }; Supported
+ *  functions: * double * relevance_score * double *
+ *  dotProduct(embedding_field_path) Function variables: relevance_score:
+ *  pre-defined keywords, used for measure relevance between query and document.
+ *  embedding_field_path: the document embedding field used with query embedding
+ *  vector. dotProduct: embedding function between embedding_field_path and
+ *  query embedding vector. Example ranking expression: If document has an
+ *  embedding field doc_embedding, the ranking expression could be 0.5 *
+ *  relevance_score + 0.3 * dotProduct(doc_embedding).
+ */
+@property(nonatomic, copy, nullable) NSString *rankingExpression;
+
+/**
+ *  IDs of the redirect controls. Only the first triggered redirect action is
+ *  applied, even if multiple apply. Maximum number of specifications is 100.
+ *  Can only be set if SolutionType is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *redirectControlIds;
+
+/**
+ *  Condition replacement specifications. Applied according to the order in the
+ *  list. A previously replaced term can not be re-replaced. Maximum number of
+ *  specifications is 100. Can only be set if SolutionType is
+ *  SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replacementControlIds;
+
+/**
+ *  Required. Immutable. Specifies the solution type that a serving config can
+ *  be associated with.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeChat
+ *        Used for use cases related to the Generative AI agent. (Value:
+ *        "SOLUTION_TYPE_CHAT")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeRecommendation
+ *        Used for Recommendations AI. (Value: "SOLUTION_TYPE_RECOMMENDATION")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeSearch
+ *        Used for Discovery Search. (Value: "SOLUTION_TYPE_SEARCH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeUnspecified
+ *        Default value. (Value: "SOLUTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *solutionType;
+
+/**
+ *  Condition synonyms specifications. If multiple synonyms conditions match,
+ *  all matching synonyms controls in the list will execute. Maximum number of
+ *  specifications is 100. Can only be set if SolutionType is
+ *  SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *synonymsControlIds;
+
+/** Output only. ServingConfig updated timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Specifies the configurations needed for Generic Discovery.Currently we
+ *  support: * `content_search_spec`: configuration for generic content search.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigGenericConfig : GTLRObject
+
+/**
+ *  Specifies the expected behavior of content search. Only valid for
+ *  content-search enabled data store.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpec *contentSearchSpec;
+
+@end
+
+
+/**
+ *  Specifies the configurations needed for Media Discovery. Currently we
+ *  support: * `demote_content_watched`: Threshold for watched content demotion.
+ *  Customers can specify if using watched content demotion or use viewed detail
+ *  page. Using the content watched demotion, customers need to specify the
+ *  watched minutes or percentage exceeds the threshold, the content will be
+ *  demoted in the recommendation result. * `promote_fresh_content`: cutoff days
+ *  for fresh content promotion. Customers can specify if using content
+ *  freshness promotion. If the content was published within the cutoff days,
+ *  the content will be promoted in the recommendation result. Can only be set
+ *  if SolutionType is SOLUTION_TYPE_RECOMMENDATION.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigMediaConfig : GTLRObject
+
+/**
+ *  Specifies the content freshness used for recommendation result. Contents
+ *  will be demoted if contents were published for more than content freshness
+ *  cutoff days.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contentFreshnessCutoffDays;
+
+/**
+ *  Specifies the content watched minutes threshold for demotion.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contentWatchedMinutesThreshold GTLR_DEPRECATED;
+
+/**
+ *  Specifies the content watched percentage threshold for demotion. Threshold
+ *  value must be between [0, 1.0] inclusive.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contentWatchedPercentageThreshold;
+
+/**
+ *  Specifies the content watched minutes threshold for demotion.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contentWatchedSecondsThreshold;
+
+/**
+ *  Specifies the event type used for demoting recommendation result. Currently
+ *  supported values: * `view-item`: Item viewed. * `media-play`: Start/resume
+ *  watching a video, playing a song, etc. * `media-complete`: Finished or
+ *  stopped midway through a video, song, etc. If unset, watch history demotion
+ *  will not be applied. Content freshness demotion will still be applied.
+ */
+@property(nonatomic, copy, nullable) NSString *demotionEventType;
 
 @end
 
@@ -6899,7 +7198,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSiteFailureReasonQuotaFailure
+ *  Failed due to insufficient quota.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSiteFailureReasonQuotaFailure : GTLRObject
 
@@ -8167,7 +8466,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSiteFailureReasonQuotaFailure
+ *  Failed due to insufficient quota.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSiteFailureReasonQuotaFailure : GTLRObject
 

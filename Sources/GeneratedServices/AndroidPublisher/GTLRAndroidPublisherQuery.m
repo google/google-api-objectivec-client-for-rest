@@ -45,6 +45,9 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRAndroidPublisherQuery
 
 @dynamic fields;
@@ -3151,3 +3154,5 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 }
 
 @end
+
+#pragma clang diagnostic pop

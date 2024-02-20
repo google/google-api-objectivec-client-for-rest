@@ -25,6 +25,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionIncludeRecaptchaScriptAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction;
@@ -686,6 +687,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca;
 /**
+ *  Cloudflare
+ *
+ *  Value: "CLOUDFLARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Cloudflare;
+/**
  *  Fastly
  *
  *  Value: "FASTLY"
@@ -1205,6 +1212,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction *block;
 
 /**
+ *  This action will inject reCAPTCHA JavaScript code into the HTML page
+ *  returned by the site backend.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionIncludeRecaptchaScriptAction *includeRecaptchaScript;
+
+/**
  *  This action will redirect the request to a ReCaptcha interstitial to attach
  *  a token.
  */
@@ -1236,6 +1249,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  the backend.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction : GTLRObject
+@end
+
+
+/**
+ *  An include reCAPTCHA script action involves injecting reCAPTCHA JavaScript
+ *  code into the HTML returned by the site backend. This reCAPTCHA script is
+ *  tasked with collecting user signals on the requested web page, issuing
+ *  tokens as a cookie within the site domain, and enabling their utilization in
+ *  subsequent page requests.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionIncludeRecaptchaScriptAction : GTLRObject
 @end
 
 
@@ -2558,6 +2582,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca
  *        Cloud Armor (Value: "CA")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Cloudflare
+ *        Cloudflare (Value: "CLOUDFLARE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Fastly
  *        Fastly (Value: "FASTLY")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_WafServiceUnspecified

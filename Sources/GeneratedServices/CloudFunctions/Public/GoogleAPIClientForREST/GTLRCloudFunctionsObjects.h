@@ -56,6 +56,7 @@
 @class GTLRCloudFunctions_Status;
 @class GTLRCloudFunctions_Status_Details_Item;
 @class GTLRCloudFunctions_StorageSource;
+@class GTLRCloudFunctions_UpgradeInfo;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -948,6 +949,79 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_UpgradeInfo.upgradeState
+
+/**
+ *  AbortFunctionUpgrade API was un-successful.
+ *
+ *  Value: "ABORT_FUNCTION_UPGRADE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError;
+/**
+ *  CommitFunctionUpgrade API was un-successful.
+ *
+ *  Value: "COMMIT_FUNCTION_UPGRADE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError;
+/**
+ *  Functions in this state are eligible for 1st Gen -> 2nd Gen upgrade.
+ *
+ *  Value: "ELIGIBLE_FOR_2ND_GEN_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade;
+/**
+ *  RedirectFunctionUpgradeTraffic API was un-successful.
+ *
+ *  Value: "REDIRECT_FUNCTION_UPGRADE_TRAFFIC_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficError;
+/**
+ *  RedirectFunctionUpgradeTraffic API was successful and traffic is served by
+ *  2nd Gen function stack.
+ *
+ *  Value: "REDIRECT_FUNCTION_UPGRADE_TRAFFIC_SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficSuccessful;
+/**
+ *  RollbackFunctionUpgradeTraffic API was un-successful.
+ *
+ *  Value: "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RollbackFunctionUpgradeTrafficError;
+/**
+ *  SetupFunctionUpgradeConfig API was un-successful.
+ *
+ *  Value: "SETUP_FUNCTION_UPGRADE_CONFIG_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_SetupFunctionUpgradeConfigError;
+/**
+ *  SetupFunctionUpgradeConfig API was successful and a 2nd Gen function has
+ *  been created based on 1st Gen function instance.
+ *
+ *  Value: "SETUP_FUNCTION_UPGRADE_CONFIG_SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_SetupFunctionUpgradeConfigSuccessful;
+/**
+ *  An upgrade related operation is in progress.
+ *
+ *  Value: "UPGRADE_OPERATION_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeOperationInProgress;
+/**
+ *  Unspecified state. Most functions are in this upgrade state.
+ *
+ *  Value: "UPGRADE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspecified;
+
+/**
+ *  Request for the `AbortFunctionUpgrade` method.
+ */
+@interface GTLRCloudFunctions_AbortFunctionUpgradeRequest : GTLRObject
+@end
+
+
 /**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
@@ -1114,7 +1188,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 @interface GTLRCloudFunctions_BuildConfig : GTLRObject
 
-/** See the comment next to this message for more details. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_AutomaticUpdatePolicy *automaticUpdatePolicy;
 
 /**
@@ -1170,7 +1243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 /** User-provided build-time environment variables for the function */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_BuildConfig_EnvironmentVariables *environmentVariables;
 
-/** See the comment next to this message for more details. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_OnDeployUpdatePolicy *onDeployUpdatePolicy;
 
 /**
@@ -1221,6 +1293,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *        fetch them all at once.
  */
 @interface GTLRCloudFunctions_BuildConfig_EnvironmentVariables : GTLRObject
+@end
+
+
+/**
+ *  Request for the `CommitFunctionUpgrade` method.
+ */
+@interface GTLRCloudFunctions_CommitFunctionUpgradeRequest : GTLRObject
 @end
 
 
@@ -1431,6 +1510,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_BuildConfig *buildConfig;
 
 /**
+ *  Output only. The create timestamp of a Cloud Function. This is only
+ *  applicable to 2nd Gen functions.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
  *  User-provided description of a function.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1511,6 +1596,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /** Output only. The last update timestamp of a Cloud Function. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. UpgradeInfo for this Cloud Function */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_UpgradeInfo *upgradeInfo;
 
 /** Output only. The deployed url for the function. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -2576,6 +2664,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 
 /**
+ *  Request for the `RedirectFunctionUpgradeTraffic` method.
+ */
+@interface GTLRCloudFunctions_RedirectFunctionUpgradeTrafficRequest : GTLRObject
+@end
+
+
+/**
  *  Location of the source in a Google Cloud Source Repository.
  */
 @interface GTLRCloudFunctions_RepoSource : GTLRObject
@@ -2614,6 +2709,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 @property(nonatomic, copy, nullable) NSString *tagName;
 
+@end
+
+
+/**
+ *  Request for the `RollbackFunctionUpgradeTraffic` method.
+ */
+@interface GTLRCloudFunctions_RollbackFunctionUpgradeTrafficRequest : GTLRObject
 @end
 
 
@@ -2972,6 +3074,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 
 /**
+ *  Request for the `SetupFunctionUpgradeConfig` method.
+ */
+@interface GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest : GTLRObject
+@end
+
+
+/**
  *  The location of the function source code.
  */
 @interface GTLRCloudFunctions_Source : GTLRObject
@@ -3117,6 +3226,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Information related to: * A function's eligibility for 1st Gen to 2nd Gen
+ *  migration * Current state of migration for function undergoing migration.
+ */
+@interface GTLRCloudFunctions_UpgradeInfo : GTLRObject
+
+/**
+ *  Describes the Build step of the function that builds a container to prepare
+ *  for 2nd gen upgrade.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_BuildConfig *buildConfig;
+
+/**
+ *  Describes the Event trigger which has been setup to prepare for 2nd gen
+ *  upgrade.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_EventTrigger *eventTrigger;
+
+/**
+ *  Describes the Cloud Run service which has been setup to prepare for 2nd gen
+ *  upgrade.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_ServiceConfig *serviceConfig;
+
+/**
+ *  UpgradeState of the function
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError
+ *        AbortFunctionUpgrade API was un-successful. (Value:
+ *        "ABORT_FUNCTION_UPGRADE_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError
+ *        CommitFunctionUpgrade API was un-successful. (Value:
+ *        "COMMIT_FUNCTION_UPGRADE_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade
+ *        Functions in this state are eligible for 1st Gen -> 2nd Gen upgrade.
+ *        (Value: "ELIGIBLE_FOR_2ND_GEN_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficError
+ *        RedirectFunctionUpgradeTraffic API was un-successful. (Value:
+ *        "REDIRECT_FUNCTION_UPGRADE_TRAFFIC_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficSuccessful
+ *        RedirectFunctionUpgradeTraffic API was successful and traffic is
+ *        served by 2nd Gen function stack. (Value:
+ *        "REDIRECT_FUNCTION_UPGRADE_TRAFFIC_SUCCESSFUL")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RollbackFunctionUpgradeTrafficError
+ *        RollbackFunctionUpgradeTraffic API was un-successful. (Value:
+ *        "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_SetupFunctionUpgradeConfigError
+ *        SetupFunctionUpgradeConfig API was un-successful. (Value:
+ *        "SETUP_FUNCTION_UPGRADE_CONFIG_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_SetupFunctionUpgradeConfigSuccessful
+ *        SetupFunctionUpgradeConfig API was successful and a 2nd Gen function
+ *        has been created based on 1st Gen function instance. (Value:
+ *        "SETUP_FUNCTION_UPGRADE_CONFIG_SUCCESSFUL")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeOperationInProgress
+ *        An upgrade related operation is in progress. (Value:
+ *        "UPGRADE_OPERATION_IN_PROGRESS")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspecified
+ *        Unspecified state. Most functions are in this upgrade state. (Value:
+ *        "UPGRADE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *upgradeState;
 
 @end
 

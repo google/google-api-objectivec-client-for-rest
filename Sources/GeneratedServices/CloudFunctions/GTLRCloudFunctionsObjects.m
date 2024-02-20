@@ -194,6 +194,27 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Al
 NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
 NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified = @"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED";
 
+// GTLRCloudFunctions_UpgradeInfo.upgradeState
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError = @"ABORT_FUNCTION_UPGRADE_ERROR";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError = @"COMMIT_FUNCTION_UPGRADE_ERROR";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade = @"ELIGIBLE_FOR_2ND_GEN_UPGRADE";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficError = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC_ERROR";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficSuccessful = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC_SUCCESSFUL";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RollbackFunctionUpgradeTrafficError = @"ROLLBACK_FUNCTION_UPGRADE_TRAFFIC_ERROR";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_SetupFunctionUpgradeConfigError = @"SETUP_FUNCTION_UPGRADE_CONFIG_ERROR";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_SetupFunctionUpgradeConfigSuccessful = @"SETUP_FUNCTION_UPGRADE_CONFIG_SUCCESSFUL";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeOperationInProgress = @"UPGRADE_OPERATION_IN_PROGRESS";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspecified = @"UPGRADE_STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_AbortFunctionUpgradeRequest
+//
+
+@implementation GTLRCloudFunctions_AbortFunctionUpgradeRequest
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudFunctions_AuditConfig
@@ -285,6 +306,15 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_CommitFunctionUpgradeRequest
+//
+
+@implementation GTLRCloudFunctions_CommitFunctionUpgradeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_Date
 //
 
@@ -348,9 +378,9 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_Function
-@dynamic buildConfig, descriptionProperty, environment, eventTrigger,
-         kmsKeyName, labels, name, satisfiesPzs, serviceConfig, state,
-         stateMessages, updateTime, url;
+@dynamic buildConfig, createTime, descriptionProperty, environment,
+         eventTrigger, kmsKeyName, labels, name, satisfiesPzs, serviceConfig,
+         state, stateMessages, updateTime, upgradeInfo, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -877,11 +907,29 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_RedirectFunctionUpgradeTrafficRequest
+//
+
+@implementation GTLRCloudFunctions_RedirectFunctionUpgradeTrafficRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_RepoSource
 //
 
 @implementation GTLRCloudFunctions_RepoSource
 @dynamic branchName, commitSha, dir, projectId, repoName, tagName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_RollbackFunctionUpgradeTrafficRequest
+//
+
+@implementation GTLRCloudFunctions_RollbackFunctionUpgradeTrafficRequest
 @end
 
 
@@ -992,6 +1040,15 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest
+//
+
+@implementation GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_Source
 //
 
@@ -1085,4 +1142,14 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_UpgradeInfo
+//
+
+@implementation GTLRCloudFunctions_UpgradeInfo
+@dynamic buildConfig, eventTrigger, serviceConfig, upgradeState;
 @end

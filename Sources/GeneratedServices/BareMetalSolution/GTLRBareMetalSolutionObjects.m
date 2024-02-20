@@ -133,6 +133,7 @@ NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeUns
 // GTLRBareMetalSolution_Volume.performanceTier
 NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierAssigned = @"VOLUME_PERFORMANCE_TIER_ASSIGNED";
 NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierHt = @"VOLUME_PERFORMANCE_TIER_HT";
+NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierQos2Performance = @"VOLUME_PERFORMANCE_TIER_QOS2_PERFORMANCE";
 NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierShared = @"VOLUME_PERFORMANCE_TIER_SHARED";
 NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierUnspecified = @"VOLUME_PERFORMANCE_TIER_UNSPECIFIED";
 
@@ -168,6 +169,7 @@ NSString * const kGTLRBareMetalSolution_Volume_WorkloadProfile_WorkloadProfileUn
 // GTLRBareMetalSolution_VolumeConfig.performanceTier
 NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierAssigned = @"VOLUME_PERFORMANCE_TIER_ASSIGNED";
 NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierHt = @"VOLUME_PERFORMANCE_TIER_HT";
+NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierQos2Performance = @"VOLUME_PERFORMANCE_TIER_QOS2_PERFORMANCE";
 NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierShared = @"VOLUME_PERFORMANCE_TIER_SHARED";
 NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierUnspecified = @"VOLUME_PERFORMANCE_TIER_UNSPECIFIED";
 

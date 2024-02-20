@@ -75,7 +75,7 @@ NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit = @"https://www
     @"youtube#membershipsLevelListResponse" : [GTLRYouTube_MembershipsLevelListResponse class],
     @"youtube#playlist" : [GTLRYouTube_Playlist class],
     @"youtube#playlistImage" : [GTLRYouTube_PlaylistImage class],
-    @"youtube#PlaylistImageListResponse" : [GTLRYouTube_PlaylistImageListResponse class],
+    @"youtube#playlistImageListResponse" : [GTLRYouTube_PlaylistImageListResponse class],
     @"youtube#playlistItem" : [GTLRYouTube_PlaylistItem class],
     @"youtube#playlistItemListResponse" : [GTLRYouTube_PlaylistItemListResponse class],
     @"youtube#playlistListResponse" : [GTLRYouTube_PlaylistListResponse class],

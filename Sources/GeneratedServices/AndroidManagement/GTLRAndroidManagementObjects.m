@@ -29,6 +29,12 @@ NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProt
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsEnforced = @"VERIFY_APPS_ENFORCED";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsUserChoice = @"VERIFY_APPS_USER_CHOICE";
 
+// GTLRAndroidManagement_AdvancedSecurityOverrides.mtePolicy
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteDisabled = @"MTE_DISABLED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteEnforced = @"MTE_ENFORCED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MtePolicyUnspecified = @"MTE_POLICY_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteUserChoice = @"MTE_USER_CHOICE";
+
 // GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallDeviceWide = @"ALLOW_INSTALL_DEVICE_WIDE";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallInPersonalProfileOnly = @"ALLOW_INSTALL_IN_PERSONAL_PROFILE_ONLY";
@@ -85,6 +91,10 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpd
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppAllowed = @"CONNECTED_WORK_AND_PERSONAL_APP_ALLOWED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppDisallowed = @"CONNECTED_WORK_AND_PERSONAL_APP_DISALLOWED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppUnspecified = @"CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED";
+
+// GTLRAndroidManagement_ApplicationPolicy.credentialProviderPolicy
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderAllowed = @"CREDENTIAL_PROVIDER_ALLOWED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderPolicyUnspecified = @"CREDENTIAL_PROVIDER_POLICY_UNSPECIFIED";
 
 // GTLRAndroidManagement_ApplicationPolicy.defaultPermissionPolicy
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny = @"DENY";
@@ -402,6 +412,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel = @"ONC_WIFI_API_LEVEL";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidEnterpriseConfig = @"ONC_WIFI_INVALID_ENTERPRISE_CONFIG";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidValue = @"ONC_WIFI_INVALID_VALUE";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiKeyPairAliasNotCorrespondingToExistingKey = @"ONC_WIFI_KEY_PAIR_ALIAS_NOT_CORRESPONDING_TO_EXISTING_KEY";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiUserShouldRemoveNetwork = @"ONC_WIFI_USER_SHOULD_REMOVE_NETWORK";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordExpired = @"PASSWORD_POLICIES_PASSWORD_EXPIRED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordNotSufficient = @"PASSWORD_POLICIES_PASSWORD_NOT_SUFFICIENT";
@@ -514,6 +525,11 @@ NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessEnforced
 NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUnspecified = @"CAMERA_ACCESS_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUserChoice = @"CAMERA_ACCESS_USER_CHOICE";
 
+// GTLRAndroidManagement_Policy.credentialProviderPolicyDefault
+NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowed = @"CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED";
+NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowedExceptSystem = @"CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED_EXCEPT_SYSTEM";
+NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderPolicyDefaultUnspecified = @"CREDENTIAL_PROVIDER_POLICY_DEFAULT_UNSPECIFIED";
+
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny = @"DENY";
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant = @"GRANT";
@@ -564,6 +580,11 @@ NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Whitelist = @"WHITE
 NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceDisabled = @"PREFERENTIAL_NETWORK_SERVICE_DISABLED";
 NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceEnabled = @"PREFERENTIAL_NETWORK_SERVICE_ENABLED";
 NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceUnspecified = @"PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED";
+
+// GTLRAndroidManagement_Policy.printingPolicy
+NSString * const kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingAllowed = @"PRINTING_ALLOWED";
+NSString * const kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingDisallowed = @"PRINTING_DISALLOWED";
+NSString * const kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingPolicyUnspecified = @"PRINTING_POLICY_UNSPECIFIED";
 
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Ac = @"AC";
@@ -731,7 +752,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_AdvancedSecurityOverrides
 @dynamic commonCriteriaMode, developerSettings, googlePlayProtectVerifyApps,
-         personalAppsThatCanReadWorkNotifications, untrustedAppsPolicy;
+         mtePolicy, personalAppsThatCanReadWorkNotifications,
+         untrustedAppsPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -827,11 +849,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
 @dynamic accessibleTrackIds, alwaysOnVpnLockdownExemption, autoUpdateMode,
-         connectedWorkAndPersonalApp, defaultPermissionPolicy, delegatedScopes,
-         disabled, extensionConfig, installConstraint, installPriority,
-         installType, lockTaskAllowed, managedConfiguration,
-         managedConfigurationTemplate, minimumVersionCode, packageName,
-         permissionGrants, workProfileWidgets;
+         connectedWorkAndPersonalApp, credentialProviderPolicy,
+         defaultPermissionPolicy, delegatedScopes, disabled, extensionConfig,
+         installConstraint, installPriority, installType, lockTaskAllowed,
+         managedConfiguration, managedConfigurationTemplate, minimumVersionCode,
+         packageName, permissionGrants, workProfileWidgets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2156,8 +2178,9 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          bluetoothConfigDisabled, bluetoothContactSharingDisabled,
          bluetoothDisabled, cameraAccess, cameraDisabled,
          cellBroadcastsConfigDisabled, choosePrivateKeyRules, complianceRules,
-         createWindowsDisabled, credentialsConfigDisabled, crossProfilePolicies,
-         dataRoamingDisabled, debuggingFeaturesAllowed, defaultPermissionPolicy,
+         createWindowsDisabled, credentialProviderPolicyDefault,
+         credentialsConfigDisabled, crossProfilePolicies, dataRoamingDisabled,
+         debuggingFeaturesAllowed, defaultPermissionPolicy,
          deviceConnectivityManagement, deviceOwnerLockScreenInfo,
          deviceRadioState, encryptionPolicy, ensureVerifyAppsEnabled,
          factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
@@ -2172,7 +2195,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          passwordPolicies, passwordRequirements, permissionGrants,
          permittedAccessibilityServices, permittedInputMethods,
          persistentPreferredActivities, personalUsagePolicies, playStoreMode,
-         policyEnforcementRules, preferentialNetworkService,
+         policyEnforcementRules, preferentialNetworkService, printingPolicy,
          privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
          safeBootDisabled, screenCaptureDisabled, setupActions,
          setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,

@@ -2310,12 +2310,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  ...where field is one of status.state, clusterName, or labels.[KEY], and
  *  [KEY] is a label key. value can be * to match all values. status.state can
  *  be one of the following: ACTIVE, INACTIVE, CREATING, RUNNING, ERROR,
- *  DELETING, or UPDATING. ACTIVE contains the CREATING, UPDATING, and RUNNING
- *  states. INACTIVE contains the DELETING and ERROR states. clusterName is the
- *  name of the cluster provided at creation time. Only the logical AND operator
- *  is supported; space-separated items are treated as having an implicit AND
- *  operator.Example filter:status.state = ACTIVE AND clusterName = mycluster
- *  AND labels.env = staging AND labels.starred = *
+ *  DELETING, UPDATING, STOPPING, or STOPPED. ACTIVE contains the CREATING,
+ *  UPDATING, and RUNNING states. INACTIVE contains the DELETING, ERROR,
+ *  STOPPING, and STOPPED states. clusterName is the name of the cluster
+ *  provided at creation time. Only the logical AND operator is supported;
+ *  space-separated items are treated as having an implicit AND operator.Example
+ *  filter:status.state = ACTIVE AND clusterName = mycluster AND labels.env =
+ *  staging AND labels.starred = *
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2388,7 +2389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Optional. A unique ID used to identify the request. If the server receives
  *  two CreateNodeGroupRequest
- *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateNodeGroupRequests)
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateNodeGroupRequest)
  *  with the same ID, the second request is ignored and the first
  *  google.longrunning.Operation created and stored in the backend is
  *  returned.Recommendation: Set this value to a UUID
@@ -2443,6 +2444,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Repair nodes in a node group.
+ *
+ *  Method: dataproc.projects.regions.clusters.nodeGroups.repair
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsRepair : GTLRDataprocQuery
+
+/**
+ *  Required. The name of the node group to resize. Format:
+ *  projects/{project}/regions/{region}/clusters/{cluster}/nodeGroups/{nodeGroup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Repair nodes in a node group.
+ *
+ *  @param object The @c GTLRDataproc_RepairNodeGroupRequest to include in the
+ *    query.
+ *  @param name Required. The name of the node group to resize. Format:
+ *    projects/{project}/regions/{region}/clusters/{cluster}/nodeGroups/{nodeGroup}
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsRepair
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_RepairNodeGroupRequest *)object
+                           name:(NSString *)name;
 
 @end
 

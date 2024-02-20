@@ -34,6 +34,78 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Aborts generation upgrade process for a function with the given name from
+ *  the specified project. Deletes all 2nd Gen copy related configuration and
+ *  resources which were created during the upgrade process.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.abortFunctionUpgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsAbortFunctionUpgrade : GTLRCloudFunctionsQuery
+
+/** Required. The name of the function for which upgrade should be aborted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Operation.
+ *
+ *  Aborts generation upgrade process for a function with the given name from
+ *  the specified project. Deletes all 2nd Gen copy related configuration and
+ *  resources which were created during the upgrade process.
+ *
+ *  @param object The @c GTLRCloudFunctions_AbortFunctionUpgradeRequest to
+ *    include in the query.
+ *  @param name Required. The name of the function for which upgrade should be
+ *    aborted.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsAbortFunctionUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_AbortFunctionUpgradeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Finalizes the upgrade after which function upgrade can not be rolled back.
+ *  This is the last step of the multi step process to upgrade 1st Gen functions
+ *  to 2nd Gen. Deletes all original 1st Gen related configuration and
+ *  resources.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.commitFunctionUpgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCommitFunctionUpgrade : GTLRCloudFunctionsQuery
+
+/**
+ *  Required. The name of the function for which upgrade should be finalized.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Operation.
+ *
+ *  Finalizes the upgrade after which function upgrade can not be rolled back.
+ *  This is the last step of the multi step process to upgrade 1st Gen functions
+ *  to 2nd Gen. Deletes all original 1st Gen related configuration and
+ *  resources.
+ *
+ *  @param object The @c GTLRCloudFunctions_CommitFunctionUpgradeRequest to
+ *    include in the query.
+ *  @param name Required. The name of the function for which upgrade should be
+ *    finalized.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCommitFunctionUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_CommitFunctionUpgradeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new function. If a function with the given name already exists in
  *  the specified project, the long running operation will return
  *  `ALREADY_EXISTS` error.
@@ -392,6 +464,84 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Changes the traffic target of a function from the original 1st Gen function
+ *  to the 2nd Gen copy. This is the second step of the multi step process to
+ *  upgrade 1st Gen functions to 2nd Gen. After this operation, all new traffic
+ *  will be served by 2nd Gen copy.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.redirectFunctionUpgradeTraffic
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsRedirectFunctionUpgradeTraffic : GTLRCloudFunctionsQuery
+
+/**
+ *  Required. The name of the function for which traffic target should be
+ *  changed to 2nd Gen from 1st Gen.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Operation.
+ *
+ *  Changes the traffic target of a function from the original 1st Gen function
+ *  to the 2nd Gen copy. This is the second step of the multi step process to
+ *  upgrade 1st Gen functions to 2nd Gen. After this operation, all new traffic
+ *  will be served by 2nd Gen copy.
+ *
+ *  @param object The @c
+ *    GTLRCloudFunctions_RedirectFunctionUpgradeTrafficRequest to include in the
+ *    query.
+ *  @param name Required. The name of the function for which traffic target
+ *    should be changed to 2nd Gen from 1st Gen.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsRedirectFunctionUpgradeTraffic
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_RedirectFunctionUpgradeTrafficRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Reverts the traffic target of a function from the 2nd Gen copy to the
+ *  original 1st Gen function. After this operation, all new traffic would be
+ *  served by the 1st Gen.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.rollbackFunctionUpgradeTraffic
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsRollbackFunctionUpgradeTraffic : GTLRCloudFunctionsQuery
+
+/**
+ *  Required. The name of the function for which traffic target should be
+ *  changed back to 1st Gen from 2nd Gen.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Operation.
+ *
+ *  Reverts the traffic target of a function from the 2nd Gen copy to the
+ *  original 1st Gen function. After this operation, all new traffic would be
+ *  served by the 1st Gen.
+ *
+ *  @param object The @c
+ *    GTLRCloudFunctions_RollbackFunctionUpgradeTrafficRequest to include in the
+ *    query.
+ *  @param name Required. The name of the function for which traffic target
+ *    should be changed back to 1st Gen from 2nd Gen.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsRollbackFunctionUpgradeTraffic
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_RollbackFunctionUpgradeTrafficRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
@@ -428,6 +578,47 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudFunctions_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a 2nd Gen copy of the function configuration based on the 1st Gen
+ *  function with the given name. This is the first step of the multi step
+ *  process to upgrade 1st Gen functions to 2nd Gen. Only 2nd Gen configuration
+ *  is setup as part of this request and traffic continues to be served by 1st
+ *  Gen.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.setupFunctionUpgradeConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetupFunctionUpgradeConfig : GTLRCloudFunctionsQuery
+
+/**
+ *  Required. The name of the function which should have configuration copied
+ *  for upgrade.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Operation.
+ *
+ *  Creates a 2nd Gen copy of the function configuration based on the 1st Gen
+ *  function with the given name. This is the first step of the multi step
+ *  process to upgrade 1st Gen functions to 2nd Gen. Only 2nd Gen configuration
+ *  is setup as part of this request and traffic continues to be served by 1st
+ *  Gen.
+ *
+ *  @param object The @c GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest to
+ *    include in the query.
+ *  @param name Required. The name of the function which should have
+ *    configuration copied for upgrade.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetupFunctionUpgradeConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -565,29 +756,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsOperationsList : GTLRCloudFunctionsQuery
 
-/**
- *  Required. A filter for matching the requested operations. The supported
- *  formats of *filter* are: To query for a specific function:
- *  project:*,location:*,function:* To query for all of the latest operations
- *  for a project: project:*,latest:true
- */
+/** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Must not be set. */
+/** The name of the operation's parent resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  The maximum number of records that should be returned. Requested page size
- *  cannot exceed 100. If not set, the default page size is 100. Pagination is
- *  only supported when querying for a specific function.
- */
+/** The standard list page size. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  Token identifying which result to start with, which is returned by a
- *  previous list call. Pagination is only supported when querying for a
- *  specific function.
- */
+/** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -596,7 +774,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
- *  @param name Must not be set.
+ *  @param name The name of the operation's parent resource.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsOperationsList
  *

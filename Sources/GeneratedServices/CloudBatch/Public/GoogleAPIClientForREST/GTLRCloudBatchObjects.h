@@ -1658,9 +1658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** Required. TaskGroups in the Job. Only one TaskGroup is supported now. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_TaskGroup *> *taskGroups;
 
-/**
- *  Output only. A system generated unique ID (in UUID4 format) for the Job.
- */
+/** Output only. A system generated unique ID for the Job. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
 /** Output only. The last time the Job was updated. */

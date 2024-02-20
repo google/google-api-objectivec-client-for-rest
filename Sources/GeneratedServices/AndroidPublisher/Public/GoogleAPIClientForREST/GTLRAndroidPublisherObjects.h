@@ -179,6 +179,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -2082,8 +2083,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
- *  Request message for ArchiveSubscription.
+ *  Deprecated: subscription archiving is not supported.
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_ArchiveSubscriptionRequest : GTLRObject
 @end
 
@@ -2138,6 +2140,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  subscription period.
  */
 @interface GTLRAndroidPublisher_AutoRenewingBasePlanType : GTLRObject
+
+/**
+ *  Optional. Account hold period of the subscription, specified in ISO 8601
+ *  format. Acceptable values must be in DAYS and in the range P0D (zero days)
+ *  to P30D (30 days). If not specified, the default value is P30D (30 days).
+ */
+@property(nonatomic, copy, nullable) NSString *accountHoldDuration;
 
 /**
  *  Required. Subscription period, specified in ISO 8601 format. For a list of
@@ -5133,7 +5142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /**
  *  You must tell us if your app contains streaming products to correctly charge
- *  US state and local sales tax. Field only supported in United States.
+ *  US state and local sales tax. Field only supported in the United States.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5420,9 +5429,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 /**
  *  Required. Contents of the CSV file containing Data Safety responses. For the
  *  format of this file, see the Help Center documentation at
- *  https://support.google.com/googleplay/android-developer/answer/10787469?hl=en#zippy=%2Cunderstand-the-csv-format
+ *  https://support.google.com/googleplay/android-developer/answer/10787469?#zippy=%2Cunderstand-the-csv-format
  *  To download an up to date template, follow the steps at
- *  https://support.google.com/googleplay/android-developer/answer/10787469?hl=en#zippy=%2Cexport-to-a-csv-file
+ *  https://support.google.com/googleplay/android-developer/answer/10787469?#zippy=%2Cexport-to-a-csv-file
  */
 @property(nonatomic, copy, nullable) NSString *safetyLabels;
 
@@ -5607,13 +5616,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 @interface GTLRAndroidPublisher_Subscription : GTLRObject
 
 /**
- *  Output only. Whether this subscription is archived. Archived subscriptions
- *  are not available to any subscriber any longer, cannot be updated, and are
- *  not returned in list requests unless the show archived flag is passed in.
+ *  Output only. Deprecated: subscription archiving is not supported.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *archived;
+@property(nonatomic, strong, nullable) NSNumber *archived GTLR_DEPRECATED;
 
 /**
  *  The set of base plans for this subscription. Represents the prices and

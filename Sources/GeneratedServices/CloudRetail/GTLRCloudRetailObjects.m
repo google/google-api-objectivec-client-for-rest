@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Retail API (retail/v2)
+//   Vertex AI Search for Retail API (retail/v2)
 // Description:
-//   Cloud Retail service enables customers to build end-to-end personalized
-//   recommendation systems without requiring a high level of expertise in
-//   machine learning, recommendation system, or Google Cloud.
+//   Vertex AI Search for Retail API is made up of Retail Search, Browse and
+//   Recommendations. These discovery AI solutions help you implement
+//   personalized search, browse and recommendations, based on machine learning
+//   models, across your websites and mobile applications.
 // Documentation:
 //   https://cloud.google.com/recommendations
 
@@ -1545,6 +1546,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2BigQueryOutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2BigQueryOutputResult
+@dynamic datasetId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2BigQuerySource
 //
 
@@ -1885,6 +1896,54 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsRequest
+@dynamic filter, outputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsResponse
+@dynamic errorSamples, errorsConfig, outputResult;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRCloudRetail_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ExportErrorsConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ExportErrorsConfig
+@dynamic gcsPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ExportMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ExportMetadata
+@dynamic createTime, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo
 //
 
@@ -1898,6 +1957,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2GcsOutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2GcsOutputResult
+@dynamic outputUri;
 @end
 
 
@@ -2249,6 +2318,55 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"servingConfigIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2OutputConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2OutputConfig
+@dynamic bigqueryDestination, gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2OutputConfigBigQueryDestination
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2OutputConfigBigQueryDestination
+@dynamic datasetId, tableIdPrefix, tableType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2OutputConfigGcsDestination
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2OutputConfigGcsDestination
+@dynamic outputUriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2OutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2OutputResult
+@dynamic bigqueryResult, gcsResult;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bigqueryResult" : [GTLRCloudRetail_GoogleCloudRetailV2BigQueryOutputResult class],
+    @"gcsResult" : [GTLRCloudRetail_GoogleCloudRetailV2GcsOutputResult class]
   };
   return map;
 }

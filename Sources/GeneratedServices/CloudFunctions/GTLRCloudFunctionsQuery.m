@@ -16,6 +16,60 @@
 
 @end
 
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsAbortFunctionUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_AbortFunctionUpgradeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:abortFunctionUpgrade";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsAbortFunctionUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.abortFunctionUpgrade";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCommitFunctionUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_CommitFunctionUpgradeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:commitFunctionUpgrade";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCommitFunctionUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.commitFunctionUpgrade";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate
 
 @dynamic functionId, parent;
@@ -204,6 +258,60 @@
 
 @end
 
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsRedirectFunctionUpgradeTraffic
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_RedirectFunctionUpgradeTrafficRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:redirectFunctionUpgradeTraffic";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsRedirectFunctionUpgradeTraffic *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.redirectFunctionUpgradeTraffic";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsRollbackFunctionUpgradeTraffic
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_RollbackFunctionUpgradeTrafficRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:rollbackFunctionUpgradeTraffic";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsRollbackFunctionUpgradeTraffic *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.rollbackFunctionUpgradeTraffic";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetIamPolicy
 
 @dynamic resource;
@@ -226,6 +334,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudFunctions_Policy class];
   query.loggingName = @"cloudfunctions.projects.locations.functions.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetupFunctionUpgradeConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:setupFunctionUpgradeConfig";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetupFunctionUpgradeConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.setupFunctionUpgradeConfig";
   return query;
 }
 

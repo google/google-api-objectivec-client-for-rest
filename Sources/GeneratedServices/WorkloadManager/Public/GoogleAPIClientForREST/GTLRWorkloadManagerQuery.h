@@ -86,6 +86,88 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a single Evaluation.
+ *
+ *  Method: workloadmanager.projects.locations.evaluations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsDelete : GTLRWorkloadManagerQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Operation.
+ *
+ *  Deletes a single Evaluation.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a single Execution.
+ *
+ *  Method: workloadmanager.projects.locations.evaluations.executions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsDelete : GTLRWorkloadManagerQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Operation.
+ *
+ *  Deletes a single Execution.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets details of a single Execution.
  *
  *  Method: workloadmanager.projects.locations.evaluations.executions.get
@@ -660,6 +742,77 @@ NS_ASSUME_NONNULL_BEGIN
  *    pre-defined rules are global available to all projects and all regions
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single workload.
+ *
+ *  Method: workloadmanager.projects.locations.workloadProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesGet : GTLRWorkloadManagerQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_WorkloadProfile.
+ *
+ *  Gets details of a single workload.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List workloads
+ *
+ *  Method: workloadmanager.projects.locations.workloadProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+GTLR_DEPRECATED
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesList : GTLRWorkloadManagerQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListWorkloadRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListWorkloadProfilesResponse.
+ *
+ *  List workloads
+ *
+ *  @param parent Required. Parent value for ListWorkloadRequest
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

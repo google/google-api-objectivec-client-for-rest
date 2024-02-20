@@ -11,16 +11,97 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAppHub_Application.state
+NSString * const kGTLRAppHub_Application_State_Active          = @"ACTIVE";
+NSString * const kGTLRAppHub_Application_State_Creating        = @"CREATING";
+NSString * const kGTLRAppHub_Application_State_Deleting        = @"DELETING";
+NSString * const kGTLRAppHub_Application_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRAppHub_AuditLogConfig.logType
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_AdminRead  = @"ADMIN_READ";
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_DataRead   = @"DATA_READ";
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_DataWrite  = @"DATA_WRITE";
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRAppHub_Criticality.type
+NSString * const kGTLRAppHub_Criticality_Type_High            = @"HIGH";
+NSString * const kGTLRAppHub_Criticality_Type_Low             = @"LOW";
+NSString * const kGTLRAppHub_Criticality_Type_Medium          = @"MEDIUM";
+NSString * const kGTLRAppHub_Criticality_Type_MissionCritical = @"MISSION_CRITICAL";
+NSString * const kGTLRAppHub_Criticality_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAppHub_Environment.type
+NSString * const kGTLRAppHub_Environment_Type_Development     = @"DEVELOPMENT";
+NSString * const kGTLRAppHub_Environment_Type_Production      = @"PRODUCTION";
+NSString * const kGTLRAppHub_Environment_Type_Staging         = @"STAGING";
+NSString * const kGTLRAppHub_Environment_Type_Test            = @"TEST";
+NSString * const kGTLRAppHub_Environment_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRAppHub_ReconciliationOperationMetadata.exclusiveAction
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
+
+// GTLRAppHub_Scope.type
+NSString * const kGTLRAppHub_Scope_Type_Regional        = @"REGIONAL";
+NSString * const kGTLRAppHub_Scope_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAppHub_Service.state
+NSString * const kGTLRAppHub_Service_State_Active           = @"ACTIVE";
+NSString * const kGTLRAppHub_Service_State_Creating         = @"CREATING";
+NSString * const kGTLRAppHub_Service_State_Deleting         = @"DELETING";
+NSString * const kGTLRAppHub_Service_State_Detached         = @"DETACHED";
+NSString * const kGTLRAppHub_Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAppHub_ServiceProjectAttachment.state
+NSString * const kGTLRAppHub_ServiceProjectAttachment_State_Active = @"ACTIVE";
+NSString * const kGTLRAppHub_ServiceProjectAttachment_State_Creating = @"CREATING";
+NSString * const kGTLRAppHub_ServiceProjectAttachment_State_Deleting = @"DELETING";
+NSString * const kGTLRAppHub_ServiceProjectAttachment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAppHub_Workload.state
+NSString * const kGTLRAppHub_Workload_State_Active           = @"ACTIVE";
+NSString * const kGTLRAppHub_Workload_State_Creating         = @"CREATING";
+NSString * const kGTLRAppHub_Workload_State_Deleting         = @"DELETING";
+NSString * const kGTLRAppHub_Workload_State_Detached         = @"DETACHED";
+NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_Application
+//
+
+@implementation GTLRAppHub_Application
+@dynamic attributes, createTime, descriptionProperty, displayName, name, scope,
+         state, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_Attributes
+//
+
+@implementation GTLRAppHub_Attributes
+@dynamic businessOwners, criticality, developerOwners, environment,
+         operatorOwners;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"businessOwners" : [GTLRAppHub_ContactInfo class],
+    @"developerOwners" : [GTLRAppHub_ContactInfo class],
+    @"operatorOwners" : [GTLRAppHub_ContactInfo class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -87,10 +168,78 @@ NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Unk
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_ContactInfo
+//
+
+@implementation GTLRAppHub_ContactInfo
+@dynamic displayName, email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_Criticality
+//
+
+@implementation GTLRAppHub_Criticality
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_DetachServiceProjectAttachmentRequest
+//
+
+@implementation GTLRAppHub_DetachServiceProjectAttachmentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_DetachServiceProjectAttachmentResponse
+//
+
+@implementation GTLRAppHub_DetachServiceProjectAttachmentResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_DiscoveredService
+//
+
+@implementation GTLRAppHub_DiscoveredService
+@dynamic name, serviceProperties, serviceReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_DiscoveredWorkload
+//
+
+@implementation GTLRAppHub_DiscoveredWorkload
+@dynamic name, workloadProperties, workloadReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_Empty
 //
 
 @implementation GTLRAppHub_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_Environment
+//
+
+@implementation GTLRAppHub_Environment
+@dynamic type;
 @end
 
 
@@ -104,6 +253,75 @@ NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Unk
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ListApplicationsResponse
+//
+
+@implementation GTLRAppHub_ListApplicationsResponse
+@dynamic applications, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applications" : [GTLRAppHub_Application class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"applications";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ListDiscoveredServicesResponse
+//
+
+@implementation GTLRAppHub_ListDiscoveredServicesResponse
+@dynamic discoveredServices, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discoveredServices" : [GTLRAppHub_DiscoveredService class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"discoveredServices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ListDiscoveredWorkloadsResponse
+//
+
+@implementation GTLRAppHub_ListDiscoveredWorkloadsResponse
+@dynamic discoveredWorkloads, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discoveredWorkloads" : [GTLRAppHub_DiscoveredWorkload class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"discoveredWorkloads";
 }
 
 @end
@@ -155,6 +373,75 @@ NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Unk
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_ListServiceProjectAttachmentsResponse
+//
+
+@implementation GTLRAppHub_ListServiceProjectAttachmentsResponse
+@dynamic nextPageToken, serviceProjectAttachments, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceProjectAttachments" : [GTLRAppHub_ServiceProjectAttachment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"serviceProjectAttachments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ListServicesResponse
+//
+
+@implementation GTLRAppHub_ListServicesResponse
+@dynamic nextPageToken, services, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [GTLRAppHub_Service class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"services";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ListWorkloadsResponse
+//
+
+@implementation GTLRAppHub_ListWorkloadsResponse
+@dynamic nextPageToken, unreachable, workloads;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"workloads" : [GTLRAppHub_Workload class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workloads";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_Location
 //
 
@@ -188,6 +475,16 @@ NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Unk
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_LookupServiceProjectAttachmentResponse
+//
+
+@implementation GTLRAppHub_LookupServiceProjectAttachmentResponse
+@dynamic serviceProjectAttachment;
 @end
 
 
@@ -231,6 +528,17 @@ NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Unk
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_OperationMetadata
+//
+
+@implementation GTLRAppHub_OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_Policy
 //
 
@@ -259,6 +567,68 @@ NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Unk
 
 @implementation GTLRAppHub_ReconciliationOperationMetadata
 @dynamic deleteResource, exclusiveAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_Scope
+//
+
+@implementation GTLRAppHub_Scope
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_Service
+//
+
+@implementation GTLRAppHub_Service
+@dynamic attributes, createTime, descriptionProperty, discoveredService,
+         displayName, name, serviceProperties, serviceReference, state, uid,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ServiceProjectAttachment
+//
+
+@implementation GTLRAppHub_ServiceProjectAttachment
+@dynamic createTime, name, serviceProject, state, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ServiceProperties
+//
+
+@implementation GTLRAppHub_ServiceProperties
+@dynamic gcpProject, location, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ServiceReference
+//
+
+@implementation GTLRAppHub_ServiceReference
+@dynamic uri;
 @end
 
 
@@ -337,4 +707,46 @@ NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Unk
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_Workload
+//
+
+@implementation GTLRAppHub_Workload
+@dynamic attributes, createTime, descriptionProperty, discoveredWorkload,
+         displayName, name, state, uid, updateTime, workloadProperties,
+         workloadReference;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_WorkloadProperties
+//
+
+@implementation GTLRAppHub_WorkloadProperties
+@dynamic gcpProject, location, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_WorkloadReference
+//
+
+@implementation GTLRAppHub_WorkloadReference
+@dynamic uri;
 @end

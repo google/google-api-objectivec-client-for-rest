@@ -794,9 +794,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate
-@dynamic annotations, containers, encryptionKey, executionEnvironment, labels,
-         maxInstanceRequestConcurrency, revision, scaling, serviceAccount,
-         sessionAffinity, timeout, volumes, vpcAccess;
+@dynamic annotations, containers, encryptionKey, executionEnvironment,
+         healthCheckDisabled, labels, maxInstanceRequestConcurrency, revision,
+         scaling, serviceAccount, sessionAffinity, timeout, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

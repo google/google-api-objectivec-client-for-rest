@@ -273,6 +273,7 @@
 @class GTLRCompute_InstanceGroupManagerAggregatedList_Items;
 @class GTLRCompute_InstanceGroupManagerAggregatedList_Warning;
 @class GTLRCompute_InstanceGroupManagerAggregatedList_Warning_Data_Item;
+@class GTLRCompute_InstanceGroupManagerAllInstancesConfig;
 @class GTLRCompute_InstanceGroupManagerAutoHealingPolicy;
 @class GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy;
 @class GTLRCompute_InstanceGroupManagerList_Warning;
@@ -283,6 +284,7 @@
 @class GTLRCompute_InstanceGroupManagersScopedList_Warning;
 @class GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item;
 @class GTLRCompute_InstanceGroupManagerStatus;
+@class GTLRCompute_InstanceGroupManagerStatusAllInstancesConfig;
 @class GTLRCompute_InstanceGroupManagerStatusStateful;
 @class GTLRCompute_InstanceGroupManagerStatusStatefulPerInstanceConfigs;
 @class GTLRCompute_InstanceGroupManagerStatusVersionTarget;
@@ -305,6 +307,9 @@
 @class GTLRCompute_InstanceProperties;
 @class GTLRCompute_InstanceProperties_Labels;
 @class GTLRCompute_InstanceProperties_ResourceManagerTags;
+@class GTLRCompute_InstancePropertiesPatch;
+@class GTLRCompute_InstancePropertiesPatch_Labels;
+@class GTLRCompute_InstancePropertiesPatch_Metadata;
 @class GTLRCompute_InstanceReference;
 @class GTLRCompute_InstancesBulkInsertOperationMetadata;
 @class GTLRCompute_InstancesBulkInsertOperationMetadata_PerLocationStatus;
@@ -54830,6 +54835,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_InstanceGroupManager : GTLRObject
 
 /**
+ *  Specifies configuration that overrides the instance template configuration
+ *  for the group.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerAllInstancesConfig *allInstancesConfig;
+
+/**
  *  The autohealing policy for this managed instance group. You can specify only
  *  one value.
  */
@@ -55311,6 +55322,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceGroupManagerAllInstancesConfig
+ */
+@interface GTLRCompute_InstanceGroupManagerAllInstancesConfig : GTLRObject
+
+/**
+ *  Properties to set on all instances in the group. You can add or modify
+ *  properties using the instanceGroupManagers.patch or
+ *  regionInstanceGroupManagers.patch. After setting allInstancesConfig on the
+ *  group, you must update the group's instances to apply the configuration. To
+ *  apply the configuration, set the group's updatePolicy.type field to use
+ *  proactive updates or use the applyUpdatesToInstances method.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InstancePropertiesPatch *properties;
 
 @end
 
@@ -56149,6 +56178,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_InstanceGroupManagerStatus : GTLRObject
 
+/** [Output only] Status of all-instances configuration on the group. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerStatusAllInstancesConfig *allInstancesConfig;
+
 /**
  *  [Output Only] The URL of the Autoscaler that targets this instance group
  *  manager.
@@ -56175,6 +56207,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  target version specified by version field on Instance Group Manager.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerStatusVersionTarget *versionTarget;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceGroupManagerStatusAllInstancesConfig
+ */
+@interface GTLRCompute_InstanceGroupManagerStatusAllInstancesConfig : GTLRObject
+
+/**
+ *  [Output Only] Current all-instances configuration revision. This value is in
+ *  RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *currentRevision;
+
+/**
+ *  [Output Only] A bit indicating whether this configuration has been applied
+ *  to all managed instances in the group.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effective;
 
 @end
 
@@ -57562,6 +57616,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        fetch them all at once.
  */
 @interface GTLRCompute_InstanceProperties_ResourceManagerTags : GTLRObject
+@end
+
+
+/**
+ *  Represents the change that you want to make to the instance properties.
+ */
+@interface GTLRCompute_InstancePropertiesPatch : GTLRObject
+
+/** The label key-value pairs that you want to patch onto the instance. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstancePropertiesPatch_Labels *labels;
+
+/**
+ *  The metadata key-value pairs that you want to patch onto the instance. For
+ *  more information, see Project and instance metadata.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InstancePropertiesPatch_Metadata *metadata;
+
+@end
+
+
+/**
+ *  The label key-value pairs that you want to patch onto the instance.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_InstancePropertiesPatch_Labels : GTLRObject
+@end
+
+
+/**
+ *  The metadata key-value pairs that you want to patch onto the instance. For
+ *  more information, see Project and instance metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_InstancePropertiesPatch_Metadata : GTLRObject
 @end
 
 
@@ -64973,19 +65069,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroup_Annotations *annotations;
 
 /**
- *  Only valid when networkEndpointType is "SERVERLESS". Only one of cloudRun,
+ *  Only valid when networkEndpointType is SERVERLESS. Only one of cloudRun,
  *  appEngine or cloudFunction may be set.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroupAppEngine *appEngine;
 
 /**
- *  Only valid when networkEndpointType is "SERVERLESS". Only one of cloudRun,
+ *  Only valid when networkEndpointType is SERVERLESS. Only one of cloudRun,
  *  appEngine or cloudFunction may be set.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroupCloudFunction *cloudFunction;
 
 /**
- *  Only valid when networkEndpointType is "SERVERLESS". Only one of cloudRun,
+ *  Only valid when networkEndpointType is SERVERLESS. Only one of cloudRun,
  *  appEngine or cloudFunction may be set.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroupCloudRun *cloudRun;
@@ -64995,7 +65091,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The default port used if the port number is not specified in the network
- *  endpoint.
+ *  endpoint. If the network endpoint type is either GCE_VM_IP, SERVERLESS or
+ *  PRIVATE_SERVICE_CONNECT, this field must not be specified.
  *
  *  Uses NSNumber of intValue.
  */
@@ -65038,7 +65135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The URL of the network to which all network endpoints in the NEG belong.
- *  Uses "default" project network if unspecified.
+ *  Uses default project network if unspecified.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -65078,7 +65175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The target service url used to set up private service connection to a Google
  *  API or a PSC Producer Service Attachment. An example value is:
- *  "asia-northeast3-cloudkms.googleapis.com"
+ *  asia-northeast3-cloudkms.googleapis.com
  */
 @property(nonatomic, copy, nullable) NSString *pscTargetService;
 
@@ -65330,25 +65427,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Optional serving service. The service name is case-sensitive and must be
- *  1-63 characters long. Example value: "default", "my-service".
+ *  1-63 characters long. Example value: default, my-service.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  A template to parse service and version fields from a request URL. URL mask
- *  allows for routing to multiple App Engine services without having to create
- *  multiple Network Endpoint Groups and backend services. For example, the
- *  request URLs "foo1-dot-appname.appspot.com/v1" and
- *  "foo1-dot-appname.appspot.com/v2" can be backed by the same Serverless NEG
- *  with URL mask "<service>-dot-appname.appspot.com/<version>". The URL mask
- *  will parse them to { service = "foo1", version = "v1" } and { service =
- *  "foo1", version = "v2" } respectively.
+ *  An URL mask is one of the main components of the Cloud Function. A template
+ *  to parse service and version fields from a request URL. URL mask allows for
+ *  routing to multiple App Engine services without having to create multiple
+ *  Network Endpoint Groups and backend services. For example, the request URLs
+ *  foo1-dot-appname.appspot.com/v1 and foo1-dot-appname.appspot.com/v2 can be
+ *  backed by the same Serverless NEG with URL mask
+ *  <service>-dot-appname.appspot.com/<version>. The URL mask will parse them to
+ *  { service = "foo1", version = "v1" } and { service = "foo1", version = "v2"
+ *  } respectively.
  */
 @property(nonatomic, copy, nullable) NSString *urlMask;
 
 /**
  *  Optional serving version. The version name is case-sensitive and must be
- *  1-100 characters long. Example value: "v1", "v2".
+ *  1-100 characters long. Example value: v1, v2.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -65365,18 +65463,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  A user-defined name of the Cloud Function. The function name is
- *  case-sensitive and must be 1-63 characters long. Example value: "func1".
+ *  case-sensitive and must be 1-63 characters long. Example value: func1.
  */
 @property(nonatomic, copy, nullable) NSString *function;
 
 /**
- *  A template to parse function field from a request URL. URL mask allows for
- *  routing to multiple Cloud Functions without having to create multiple
- *  Network Endpoint Groups and backend services. For example, request URLs "
- *  mydomain.com/function1" and "mydomain.com/function2" can be backed by the
- *  same Serverless NEG with URL mask "/<function>". The URL mask will parse
- *  them to { function = "function1" } and { function = "function2" }
- *  respectively.
+ *  An URL mask is one of the main components of the Cloud Function. A template
+ *  to parse function field from a request URL. URL mask allows for routing to
+ *  multiple Cloud Functions without having to create multiple Network Endpoint
+ *  Groups and backend services. For example, request URLs
+ *  mydomain.com/function1 and mydomain.com/function2 can be backed by the same
+ *  Serverless NEG with URL mask /<function>. The URL mask will parse them to {
+ *  function = "function1" } and { function = "function2" } respectively.
  */
 @property(nonatomic, copy, nullable) NSString *urlMask;
 
@@ -65405,12 +65503,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *tag;
 
 /**
- *  A template to parse <service> and <tag> fields from a request URL. URL mask
- *  allows for routing to multiple Run services without having to create
- *  multiple network endpoint groups and backend services. For example, request
- *  URLs "foo1.domain.com/bar1" and "foo1.domain.com/bar2" can be backed by the
- *  same Serverless Network Endpoint Group (NEG) with URL mask
- *  "<tag>.domain.com/<service>". The URL mask will parse them to {
+ *  An URL mask is one of the main components of the Cloud Function. A template
+ *  to parse <service> and <tag> fields from a request URL. URL mask allows for
+ *  routing to multiple Run services without having to create multiple network
+ *  endpoint groups and backend services. For example, request URLs
+ *  foo1.domain.com/bar1 and foo1.domain.com/bar2 can be backed by the same
+ *  Serverless Network Endpoint Group (NEG) with URL mask
+ *  <tag>.domain.com/<service>. The URL mask will parse them to {
  *  service="bar1", tag="foo1" } and { service="bar2", tag="foo2" }
  *  respectively.
  */

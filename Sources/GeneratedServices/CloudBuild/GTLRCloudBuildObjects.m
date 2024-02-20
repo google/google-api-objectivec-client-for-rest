@@ -198,6 +198,28 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_BitbucketCloudConfig
+//
+
+@implementation GTLRCloudBuild_BitbucketCloudConfig
+@dynamic authorizerCredential, readAuthorizerCredential,
+         webhookSecretSecretVersion, workspace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BitbucketDataCenterConfig
+//
+
+@implementation GTLRCloudBuild_BitbucketDataCenterConfig
+@dynamic authorizerCredential, hostUri, readAuthorizerCredential, serverVersion,
+         serviceDirectoryConfig, sslCa, webhookSecretSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_CancelOperationRequest
 //
 
@@ -248,9 +270,9 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_Connection
-@dynamic annotations, createTime, disabled, ETag, githubConfig,
-         githubEnterpriseConfig, gitlabConfig, installationState, name,
-         reconciling, updateTime;
+@dynamic annotations, bitbucketCloudConfig, bitbucketDataCenterConfig,
+         createTime, disabled, ETag, githubConfig, githubEnterpriseConfig,
+         gitlabConfig, installationState, name, reconciling, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -788,9 +810,10 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 @implementation GTLRCloudBuild_PipelineRun
 @dynamic annotations, childReferences, completionTime, conditions, createTime,
          ETag, finallyStartTime, gcbParams, name, params, pipelineRef,
-         pipelineRunStatus, pipelineSpec, provenance, resolvedPipelineSpec,
-         security, serviceAccount, skippedTasks, startTime, timeouts, uid,
-         updateTime, worker, workerPool, workflow, workspaces;
+         pipelineRunStatus, pipelineSpec, provenance, record,
+         resolvedPipelineSpec, security, serviceAccount, skippedTasks,
+         startTime, timeouts, uid, updateTime, worker, workerPool, workflow,
+         workspaces;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

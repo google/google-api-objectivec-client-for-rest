@@ -939,6 +939,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds a message to the generic class referenced by the given class ID.
+ *
+ *  Method: walletobjects.genericclass.addmessage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWalletobjectsWalletObjectIssuer
+ */
+@interface GTLRWalletobjectsQuery_GenericclassAddmessage : GTLRWalletobjectsQuery
+
+/**
+ *  The unique identifier for a class. This ID must be unique across all classes
+ *  from an issuer. This value should follow the format issuer ID. identifier
+ *  where the former is issued by Google and latter is chosen by you. Your
+ *  unique identifier should only include alphanumeric characters, '.', '_', or
+ *  '-'.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Fetches a @c GTLRWalletobjects_GenericClassAddMessageResponse.
+ *
+ *  Adds a message to the generic class referenced by the given class ID.
+ *
+ *  @param object The @c GTLRWalletobjects_AddMessageRequest to include in the
+ *    query.
+ *  @param resourceId The unique identifier for a class. This ID must be unique
+ *    across all classes from an issuer. This value should follow the format
+ *    issuer ID. identifier where the former is issued by Google and latter is
+ *    chosen by you. Your unique identifier should only include alphanumeric
+ *    characters, '.', '_', or '-'.
+ *
+ *  @return GTLRWalletobjectsQuery_GenericclassAddmessage
+ */
++ (instancetype)queryWithObject:(GTLRWalletobjects_AddMessageRequest *)object
+                     resourceId:(NSString *)resourceId;
+
+@end
+
+/**
  *  Returns the generic class with the given class ID.
  *
  *  Method: walletobjects.genericclass.get
@@ -1110,6 +1149,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRWalletobjectsQuery_GenericclassUpdate
  */
 + (instancetype)queryWithObject:(GTLRWalletobjects_GenericClass *)object
+                     resourceId:(NSString *)resourceId;
+
+@end
+
+/**
+ *  Adds a message to the generic object referenced by the given object ID.
+ *
+ *  Method: walletobjects.genericobject.addmessage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWalletobjectsWalletObjectIssuer
+ */
+@interface GTLRWalletobjectsQuery_GenericobjectAddmessage : GTLRWalletobjectsQuery
+
+/**
+ *  The unique identifier for an object. This ID must be unique across all
+ *  classes from an issuer. This value should follow the format issuer ID.
+ *  identifier where the former is issued by Google and latter is chosen by you.
+ *  Your unique identifier should only include alphanumeric characters, '.',
+ *  '_', or '-'.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Fetches a @c GTLRWalletobjects_GenericObjectAddMessageResponse.
+ *
+ *  Adds a message to the generic object referenced by the given object ID.
+ *
+ *  @param object The @c GTLRWalletobjects_AddMessageRequest to include in the
+ *    query.
+ *  @param resourceId The unique identifier for an object. This ID must be
+ *    unique across all classes from an issuer. This value should follow the
+ *    format issuer ID. identifier where the former is issued by Google and
+ *    latter is chosen by you. Your unique identifier should only include
+ *    alphanumeric characters, '.', '_', or '-'.
+ *
+ *  @return GTLRWalletobjectsQuery_GenericobjectAddmessage
+ */
++ (instancetype)queryWithObject:(GTLRWalletobjects_AddMessageRequest *)object
                      resourceId:(NSString *)resourceId;
 
 @end
@@ -3401,30 +3479,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRWalletobjects_TransitObject *)object
                      resourceId:(NSString *)resourceId;
-
-@end
-
-/**
- *  Upload private data (text or URI) and returns an Id to be used in its place.
- *
- *  Method: walletobjects.walletobjects.v1.privateContent.uploadPrivateData
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeWalletobjectsWalletObjectIssuer
- */
-@interface GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentUploadPrivateData : GTLRWalletobjectsQuery
-
-/**
- *  Fetches a @c GTLRWalletobjects_UploadPrivateDataResponse.
- *
- *  Upload private data (text or URI) and returns an Id to be used in its place.
- *
- *  @param object The @c GTLRWalletobjects_UploadPrivateDataRequest to include
- *    in the query.
- *
- *  @return GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentUploadPrivateData
- */
-+ (instancetype)queryWithObject:(GTLRWalletobjects_UploadPrivateDataRequest *)object;
 
 @end
 

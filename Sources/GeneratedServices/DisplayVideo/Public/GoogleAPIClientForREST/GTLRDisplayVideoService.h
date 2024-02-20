@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Display & Video 360 API (displayvideo/v4)
+//   Display & Video 360 API (displayvideo/v3)
 // Description:
 //   Display & Video 360 API allows users to automate complex Display & Video
 //   360 workflows, such as creating insertion orders and setting targeting
@@ -33,6 +33,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/display-video"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideo;
+/**
+ *  Authorization scope: Create, see, and edit Display & Video 360 Campaign
+ *  entities and see billing invoices
+ *
+ *  Value "https://www.googleapis.com/auth/display-video-mediaplanning"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoMediaplanning;
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/display-video-user-management
+ *
+ *  Value "https://www.googleapis.com/auth/display-video-user-management"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoUserManagement;
 /**
  *  Authorization scope: View and manage your reports in DoubleClick Bid Manager
  *

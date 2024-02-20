@@ -11536,10 +11536,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InstanceGroupManager
-@dynamic autoHealingPolicies, baseInstanceName, creationTimestamp,
-         currentActions, descriptionProperty, distributionPolicy, fingerprint,
-         identifier, instanceGroup, instanceLifecyclePolicy, instanceTemplate,
-         kind, listManagedInstancesResults, name, namedPorts, region, selfLink,
+@dynamic allInstancesConfig, autoHealingPolicies, baseInstanceName,
+         creationTimestamp, currentActions, descriptionProperty,
+         distributionPolicy, fingerprint, identifier, instanceGroup,
+         instanceLifecyclePolicy, instanceTemplate, kind,
+         listManagedInstancesResults, name, namedPorts, region, selfLink,
          statefulPolicy, status, targetPools, targetSize, updatePolicy,
          versions, zoneProperty;
 
@@ -11639,6 +11640,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InstanceGroupManagerAggregatedList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerAllInstancesConfig
+//
+
+@implementation GTLRCompute_InstanceGroupManagerAllInstancesConfig
+@dynamic properties;
 @end
 
 
@@ -12004,7 +12015,17 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InstanceGroupManagerStatus
-@dynamic autoscaler, isStable, stateful, versionTarget;
+@dynamic allInstancesConfig, autoscaler, isStable, stateful, versionTarget;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerStatusAllInstancesConfig
+//
+
+@implementation GTLRCompute_InstanceGroupManagerStatusAllInstancesConfig
+@dynamic currentRevision, effective;
 @end
 
 
@@ -12452,6 +12473,44 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InstanceProperties_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstancePropertiesPatch
+//
+
+@implementation GTLRCompute_InstancePropertiesPatch
+@dynamic labels, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstancePropertiesPatch_Labels
+//
+
+@implementation GTLRCompute_InstancePropertiesPatch_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstancePropertiesPatch_Metadata
+//
+
+@implementation GTLRCompute_InstancePropertiesPatch_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

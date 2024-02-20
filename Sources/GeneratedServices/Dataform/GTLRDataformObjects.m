@@ -1084,7 +1084,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Repository
-@dynamic displayName, gitRemoteSettings, labels, name,
+@dynamic createTime, displayName, gitRemoteSettings, labels, name,
          npmrcEnvironmentVariablesSecretVersion, serviceAccount,
          setAuthenticatedUserAdmin, workspaceCompilationOverrides;
 @end

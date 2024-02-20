@@ -121,6 +121,8 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionAttributionModelSettings;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionFloodlightSettings;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionValueSettings;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionTrackingSetting;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomer;
@@ -152,7 +154,11 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView;
+@class GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomDimensionHeader;
+@class GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomMetricHeader;
 @class GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader;
+@class GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionDimensionHeader;
+@class GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionMetricHeader;
 @class GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row;
 
 // Generated comments include content from the discovery document; avoid them
@@ -4621,7 +4627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAs
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter.vertical
 
 /**
- *  Represents the shopping vertical.
+ *  Represents the shopping vertical. The vertical is allowed only in
+ *  Performance Max for Retail campaigns.
  *
  *  Value: "SHOPPING"
  */
@@ -7053,6 +7060,185 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionAttributionModelSettings_DataDrivenModelStatus_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable.cardinality
+
+/**
+ *  The conversion custom variable has exceeded the segmentation limits, and is
+ *  approaching the stats limits (> 90%). Segmentation will be disabled, but
+ *  stats can accrue for new values if the variable is enabled.
+ *
+ *  Value: "APPROACHES_STATS_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ApproachesStatsLimit;
+/**
+ *  The conversion custom variable has cardinality below all limits. The
+ *  variable can be used for segmentation, and stats can accrue for new values
+ *  if the variable is enabled.
+ *
+ *  Value: "BELOW_ALL_LIMITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_BelowAllLimits;
+/**
+ *  The conversion custom variable has cardinality that exceeds the segmentation
+ *  limit, but does not exceed the stats limit. Segmentation will be disabled,
+ *  but stats can accrue for new values if the variable is enabled.
+ *
+ *  Value: "EXCEEDS_SEGMENTATION_LIMIT_BUT_NOT_STATS_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ExceedsSegmentationLimitButNotStatsLimit;
+/**
+ *  The conversion custom variable has exceeded both the segmentation limits and
+ *  stats limits. Segmentation will be disabled, and stats for enabled variables
+ *  can accrue only if the existing values do not increase the cardinality of
+ *  the variable any further.
+ *
+ *  Value: "EXCEEDS_STATS_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ExceedsStatsLimit;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable.family
+
+/**
+ *  The conversion custom variable imported from a custom floodlight variable.
+ *
+ *  Value: "FLOODLIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Floodlight;
+/**
+ *  The standard conversion custom variable. Customers are required to activate
+ *  before use.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Standard;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable.status
+
+/**
+ *  The conversion custom variable is pending activation and will not accrue
+ *  stats until set to ENABLED. This status can't be used in CREATE and UPDATE
+ *  requests.
+ *
+ *  Value: "ACTIVATION_NEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_ActivationNeeded;
+/**
+ *  The conversion custom variable is enabled and will accrue stats.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Enabled;
+/**
+ *  The conversion custom variable is paused and will not accrue stats until set
+ *  to ENABLED again.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Paused;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo.floodlightVariableDataType
+
+/**
+ *  Represents a floodlight variable of "Number" type. This variable may be
+ *  assigned to floodlight variables of DIMENSION or METRIC types.
+ *
+ *  Value: "NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Number;
+/**
+ *  Represents a floodlight variable of "String" type. This variable may be
+ *  assigned to floodlight variables of DIMENSION type.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_String;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo.floodlightVariableType
+
+/**
+ *  Dimension floodlight variable type.
+ *
+ *  Value: "DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Dimension;
+/**
+ *  Metric floodlight variable type.
+ *
+ *  Value: "METRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Metric;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unknown;
+/**
+ *  Floodlight variable type is unset.
+ *
+ *  Value: "UNSET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unset;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionTrackingSetting.conversionTrackingStatus
 
 /**
@@ -9347,6 +9533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, strong, nullable) NSNumber *contentRankLostImpressionShare;
 
+/** The conversion custom metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonValue *> *conversionCustomMetrics;
+
 /**
  *  The number of conversions. This only includes conversion actions which
  *  include_in_conversions_metric attribute is set to true. If you use
@@ -9738,6 +9927,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mobileFriendlyClicksPercentage;
+
+/** The raw event conversion metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonValue *> *rawEventConversionMetrics;
 
 /**
  *  The percentage of the customer's Shopping or Search ad impressions that are
@@ -10218,6 +10410,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** Conversion action name. */
 @property(nonatomic, copy, nullable) NSString *conversionActionName;
 
+/** The conversion custom dimensions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonValue *> *conversionCustomDimensions;
+
 /**
  *  Date to which metrics apply. yyyy-MM-dd format, for example, 2018-04-17.
  */
@@ -10479,6 +10674,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  on 2018-04-01. Formatted as yyyy-MM-dd.
  */
 @property(nonatomic, copy, nullable) NSString *quarter;
+
+/** The raw event conversion dimensions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonValue *> *rawEventConversionDimensions;
 
 /**
  *  Week as defined as Monday through Sunday, and represented by the date of
@@ -13387,7 +13585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *
  *  Likely values:
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Vertical_Shopping
- *        Represents the shopping vertical. (Value: "SHOPPING")
+ *        Represents the shopping vertical. The vertical is allowed only in
+ *        Performance Max for Retail campaigns. (Value: "SHOPPING")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupListingGroupFilter_Vertical_Unknown
  *        Used for return value only. Represents value unknown in this version.
  *        (Value: "UNKNOWN")
@@ -15665,6 +15864,184 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A conversion custom variable. See "About custom Floodlight metrics and
+ *  dimensions in the new Search Ads 360" at
+ *  https://support.google.com/sa360/answer/13567857
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable : GTLRObject
+
+/**
+ *  Output only. Cardinality of the conversion custom variable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ApproachesStatsLimit
+ *        The conversion custom variable has exceeded the segmentation limits,
+ *        and is approaching the stats limits (> 90%). Segmentation will be
+ *        disabled, but stats can accrue for new values if the variable is
+ *        enabled. (Value: "APPROACHES_STATS_LIMIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_BelowAllLimits
+ *        The conversion custom variable has cardinality below all limits. The
+ *        variable can be used for segmentation, and stats can accrue for new
+ *        values if the variable is enabled. (Value: "BELOW_ALL_LIMITS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ExceedsSegmentationLimitButNotStatsLimit
+ *        The conversion custom variable has cardinality that exceeds the
+ *        segmentation limit, but does not exceed the stats limit. Segmentation
+ *        will be disabled, but stats can accrue for new values if the variable
+ *        is enabled. (Value: "EXCEEDS_SEGMENTATION_LIMIT_BUT_NOT_STATS_LIMIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ExceedsStatsLimit
+ *        The conversion custom variable has exceeded both the segmentation
+ *        limits and stats limits. Segmentation will be disabled, and stats for
+ *        enabled variables can accrue only if the existing values do not
+ *        increase the cardinality of the variable any further. (Value:
+ *        "EXCEEDS_STATS_LIMIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *cardinality;
+
+/**
+ *  Output only. The IDs of custom columns that use this conversion custom
+ *  variable.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *customColumnIds;
+
+/**
+ *  Output only. Family of the conversion custom variable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Floodlight
+ *        The conversion custom variable imported from a custom floodlight
+ *        variable. (Value: "FLOODLIGHT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Standard
+ *        The standard conversion custom variable. Customers are required to
+ *        activate before use. (Value: "STANDARD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *family;
+
+/**
+ *  Output only. Fields for Search Ads 360 floodlight conversion custom
+ *  variables.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo *floodlightConversionCustomVariableInfo;
+
+/**
+ *  Output only. The ID of the conversion custom variable.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Required. The name of the conversion custom variable. Name should be unique.
+ *  The maximum length of name is 100 characters. There should not be any extra
+ *  spaces before and after.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The resource name of the customer that owns the conversion
+ *  custom variable.
+ */
+@property(nonatomic, copy, nullable) NSString *ownerCustomer;
+
+/**
+ *  Immutable. The resource name of the conversion custom variable. Conversion
+ *  custom variable resource names have the form:
+ *  `customers/{customer_id}/conversionCustomVariables/{conversion_custom_variable_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  The status of the conversion custom variable for conversion event accrual.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_ActivationNeeded
+ *        The conversion custom variable is pending activation and will not
+ *        accrue stats until set to ENABLED. This status can't be used in CREATE
+ *        and UPDATE requests. (Value: "ACTIVATION_NEEDED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Enabled
+ *        The conversion custom variable is enabled and will accrue stats.
+ *        (Value: "ENABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Paused
+ *        The conversion custom variable is paused and will not accrue stats
+ *        until set to ENABLED again. (Value: "PAUSED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Required. Immutable. The tag of the conversion custom variable. Tag should
+ *  be unique and consist of a "u" character directly followed with a number
+ *  less than ormequal to 100. For example: "u4".
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Information for Search Ads 360 Floodlight Conversion Custom Variables.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo : GTLRObject
+
+/**
+ *  Output only. Floodlight variable data type defined in Search Ads 360.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Number
+ *        Represents a floodlight variable of "Number" type. This variable may
+ *        be assigned to floodlight variables of DIMENSION or METRIC types.
+ *        (Value: "NUMBER")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_String
+ *        Represents a floodlight variable of "String" type. This variable may
+ *        be assigned to floodlight variables of DIMENSION type. (Value:
+ *        "STRING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *floodlightVariableDataType;
+
+/**
+ *  Output only. Floodlight variable type defined in Search Ads 360.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Dimension
+ *        Dimension floodlight variable type. (Value: "DIMENSION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Metric
+ *        Metric floodlight variable type. (Value: "METRIC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unset
+ *        Floodlight variable type is unset. (Value: "UNSET")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *floodlightVariableType;
+
+@end
+
+
+/**
  *  A collection of customer-wide settings related to Search Ads 360 Conversion
  *  Tracking.
  */
@@ -17247,6 +17624,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  Message for conversion custom dimension header.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomDimensionHeader : GTLRObject
+
+/**
+ *  The conversion custom dimension ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** The user defined name of the conversion custom dimension. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Message for conversion custom metric header.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomMetricHeader : GTLRObject
+
+/**
+ *  The conversion custom metric ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** The user defined name of the conversion custom metric. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Message for custom column header.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader : GTLRObject
@@ -17294,6 +17711,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The CustomColumns owned by the provided customer. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn *> *customColumns;
+
+@end
+
+
+/**
+ *  Message for raw event conversion dimension header.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionDimensionHeader : GTLRObject
+
+/**
+ *  The conversion custom variable ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** The user defined name of the raw event dimension. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Message for raw event conversion metric header.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionMetricHeader : GTLRObject
+
+/**
+ *  The conversion custom variable ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** The user defined name of the raw event metric. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -17395,6 +17852,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The conversion action referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction *conversionAction;
+
+/** The conversion custom variable referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable *conversionCustomVariable;
 
 /** The custom columns. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonValue *> *customColumns;
@@ -17593,6 +18053,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Response : GTLRObject
 
+/** The headers of the conversion custom dimensions in the results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomDimensionHeader *> *conversionCustomDimensionHeaders;
+
+/** The headers of the conversion custom metrics in the results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomMetricHeader *> *conversionCustomMetricHeaders;
+
 /** The headers of the custom columns in the results. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader *> *customColumnHeaders;
 
@@ -17609,6 +18075,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  `next_page_token` is not returned for the last page.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** The headers of the raw event conversion dimensions in the results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionDimensionHeader *> *rawEventConversionDimensionHeaders;
+
+/** The headers of the raw event conversion metrics in the results. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionMetricHeader *> *rawEventConversionMetricHeaders;
 
 /** The list of rows that matched the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row *> *results;

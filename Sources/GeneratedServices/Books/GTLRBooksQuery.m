@@ -660,7 +660,7 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 @implementation GTLRBooksQuery_MylibraryAnnotationsSummary
 
-@dynamic layerIds, volumeId;
+@dynamic layerIds, source, volumeId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

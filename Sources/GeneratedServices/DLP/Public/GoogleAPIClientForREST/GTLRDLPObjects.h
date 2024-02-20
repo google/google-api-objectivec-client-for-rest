@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Data Loss Prevention (DLP) (dlp/v2)
+//   Sensitive Data Protection (DLP) (dlp/v2)
 // Description:
-//   Provides methods for detection, risk analysis, and de-identification of
-//   privacy-sensitive fragments in text, images, and Google Cloud Platform
-//   storage repositories.
+//   Discover and protect your sensitive data. A fully managed service designed
+//   to help you discover, classify, and protect your valuable data assets with
+//   ease.
 // Documentation:
 //   https://cloud.google.com/dlp/docs/
 
@@ -260,7 +260,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "RANDOM_START"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_RandomStart;
-/** Value: "SAMPLE_METHOD_UNSPECIFIED" */
+/**
+ *  No sampling.
+ *
+ *  Value: "SAMPLE_METHOD_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified;
 /**
  *  Scan groups of rows in the order BigQuery provides (default). Multiple
@@ -491,8 +495,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  *  c++, cs, css, dart, dat, dot, eml,, epbub, ged, go, h, hh, hpp, hxx, h++,
  *  hs, html, htm, mkd, markdown, m, ml, mli, perl, pl, plist, pm, php, phtml,
  *  pht, properties, py, pyw, rb, rbw, rs, rss, rc, scala, sh, sql, swift, tex,
- *  shtml, shtm, xhtml, lhs, ics, ini, java, js, json, kix, kml, ocaml, md, txt,
- *  text, tsv, vb, vcard, vcs, wml, xcodeproj, xml, xsl, xsd, yml, yaml.
+ *  shtml, shtm, xhtml, lhs, ics, ini, java, js, json, jsonl, kix, kml, ocaml,
+ *  md, txt, text, tsv, vb, vcard, vcs, wml, xcodeproj, xml, xsl, xsd, yml,
+ *  yaml.
  *
  *  Value: "TEXT_FILE"
  */
@@ -523,7 +528,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  *  Value: "RANDOM_START"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_RandomStart;
-/** Value: "SAMPLE_METHOD_UNSPECIFIED" */
+/**
+ *  No sampling.
+ *
+ *  Value: "SAMPLE_METHOD_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_SampleMethodUnspecified;
 /**
  *  Scan from the top (default).
@@ -648,7 +657,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_
  *  Value: "NULL_PERCENTAGE_LOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageLow;
-/** Value: "NULL_PERCENTAGE_MEDIUM" */
+/**
+ *  A few null entries.
+ *
+ *  Value: "NULL_PERCENTAGE_MEDIUM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageMedium;
 /**
  *  Very few null entries.
@@ -1061,8 +1074,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTyp
  *  c++, cs, css, dart, dat, dot, eml,, epbub, ged, go, h, hh, hpp, hxx, h++,
  *  hs, html, htm, mkd, markdown, m, ml, mli, perl, pl, plist, pm, php, phtml,
  *  pht, properties, py, pyw, rb, rbw, rs, rss, rc, scala, sh, sql, swift, tex,
- *  shtml, shtm, xhtml, lhs, ics, ini, java, js, json, kix, kml, ocaml, md, txt,
- *  text, tsv, vb, vcard, vcs, wml, xcodeproj, xml, xsl, xsd, yml, yaml.
+ *  shtml, shtm, xhtml, lhs, ics, ini, java, js, json, jsonl, kix, kml, ocaml,
+ *  md, txt, text, tsv, vb, vcard, vcs, wml, xcodeproj, xml, xsl, xsd, yml,
+ *  yaml.
  *
  *  Value: "TEXT_FILE"
  */
@@ -2418,13 +2432,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDesc
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2TransformationLocation.containerType
 
-/** Value: "TRANSFORM_BODY" */
+/**
+ *  Body of a file.
+ *
+ *  Value: "TRANSFORM_BODY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformBody;
-/** Value: "TRANSFORM_METADATA" */
+/**
+ *  Metadata for a file.
+ *
+ *  Value: "TRANSFORM_METADATA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformMetadata;
-/** Value: "TRANSFORM_TABLE" */
+/**
+ *  A table.
+ *
+ *  Value: "TRANSFORM_TABLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformTable;
-/** Value: "TRANSFORM_UNKNOWN_CONTAINER" */
+/**
+ *  Unused.
+ *
+ *  Value: "TRANSFORM_UNKNOWN_CONTAINER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformUnknownContainer;
 
 // ----------------------------------------------------------------------------
@@ -2453,7 +2483,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResu
  *  Value: "METADATA_UNRETRIEVABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_MetadataUnretrievable;
-/** Value: "STATE_TYPE_UNSPECIFIED" */
+/**
+ *  Unused.
+ *
+ *  Value: "STATE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_StateTypeUnspecified;
 /**
  *  This will be set when the transformation and storing of it is successful.
@@ -2770,13 +2804,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *rowsLimitPercent;
 
 /**
- *  sampleMethod
+ *  How to sample the data.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_RandomStart
  *        Randomly pick groups of rows to scan. (Value: "RANDOM_START")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified
- *        Value "SAMPLE_METHOD_UNSPECIFIED"
+ *        No sampling. (Value: "SAMPLE_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top Scan
  *        groups of rows in the order BigQuery provides (default). Multiple
  *        groups of rows may be scanned in parallel, so results may not appear
@@ -3230,7 +3264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
 
 /**
- *  sampleMethod
+ *  How to sample the data.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_RandomStart
@@ -3238,7 +3272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        offset to start scanning. The scanned bytes are contiguous. (Value:
  *        "RANDOM_START")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_SampleMethodUnspecified
- *        Value "SAMPLE_METHOD_UNSPECIFIED"
+ *        No sampling. (Value: "SAMPLE_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_Top
  *        Scan from the top (default). (Value: "TOP")
  */
@@ -3425,7 +3459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageLow
  *        Some null entries. (Value: "NULL_PERCENTAGE_LOW")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageMedium
- *        Value "NULL_PERCENTAGE_MEDIUM"
+ *        A few null entries. (Value: "NULL_PERCENTAGE_MEDIUM")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_EstimatedNullPercentage_NullPercentageVeryLow
  *        Very few null entries. (Value: "NULL_PERCENTAGE_VERY_LOW")
  */
@@ -3632,7 +3666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2ContentItem
+ *  Type of content to inspect.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ContentItem : GTLRObject
 
@@ -5940,6 +5974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ImageTransformations : GTLRObject
 
+/** List of transforms to make. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ImageTransformation *> *transforms;
 
 @end
@@ -7647,7 +7682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2ProfileStatus
+ *  Success or errors for the profile generation.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ProfileStatus : GTLRObject
 
@@ -7986,7 +8021,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2RecordKey : GTLRObject
 
+/** Datastore key */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryKey *bigQueryKey;
+
+/** Bigquery key */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DatastoreKey *datastoreKey;
 
 /**
@@ -8031,7 +8069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2RecordTransformation
+ *  The field in a record to transform.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2RecordTransformation : GTLRObject
 
@@ -8481,6 +8519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Hybrid inspection options. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridOptions *hybridOptions;
 
+/** Configuration of the timespan of the items to include in scanning. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TimespanConfig *timespanConfig;
 
 @end
@@ -8491,6 +8530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2StorageMetadataLabel : GTLRObject
 
+/** Label name. */
 @property(nonatomic, copy, nullable) NSString *key;
 
 @end
@@ -9238,13 +9278,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformBody
- *        Value "TRANSFORM_BODY"
+ *        Body of a file. (Value: "TRANSFORM_BODY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformMetadata
- *        Value "TRANSFORM_METADATA"
+ *        Metadata for a file. (Value: "TRANSFORM_METADATA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformTable
- *        Value "TRANSFORM_TABLE"
+ *        A table. (Value: "TRANSFORM_TABLE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformUnknownContainer
- *        Value "TRANSFORM_UNKNOWN_CONTAINER"
+ *        Unused. (Value: "TRANSFORM_UNKNOWN_CONTAINER")
  */
 @property(nonatomic, copy, nullable) NSString *containerType;
 
@@ -9282,7 +9322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2TransformationResultStatus
+ *  The outcome of a transformation.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TransformationResultStatus : GTLRObject
 
@@ -9307,7 +9347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        file, but at the write time of the transformed file, this key / value
  *        pair is unretrievable. (Value: "METADATA_UNRETRIEVABLE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_StateTypeUnspecified
- *        Value "STATE_TYPE_UNSPECIFIED"
+ *        Unused. (Value: "STATE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_Success
  *        This will be set when the transformation and storing of it is
  *        successful. (Value: "SUCCESS")

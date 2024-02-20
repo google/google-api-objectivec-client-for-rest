@@ -999,10 +999,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Raw Resource Id used by Google Endpoint Verification. If the user is
  *  enrolled into Google Endpoint Verification, this id will be saved as the
- *  'device_resource_id' field in the following platform dependent files. Mac:
- *  ~/.secureConnect/context_aware_config.json Windows:
- *  C:\\Users\\%USERPROFILE%\\.secureConnect\\context_aware_config.json Linux:
- *  ~/.secureConnect/context_aware_config.json
+ *  'device_resource_id' field in the following platform dependent files. *
+ *  macOS: ~/.secureConnect/context_aware_config.json * Windows:
+ *  %USERPROFILE%\\AppData\\Local\\Google\\Endpoint Verification\\accounts.json
+ *  * Linux: ~/.secureConnect/context_aware_config.json
  */
 @property(nonatomic, copy, nullable) NSString *rawResourceId;
 

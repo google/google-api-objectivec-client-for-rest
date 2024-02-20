@@ -369,6 +369,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Exports the selected entity types.
+ *
+ *  Method: dialogflow.projects.locations.agents.entityTypes.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesExport : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the parent agent to export entity types. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Exports the selected entity types.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest to
+ *    include in the query.
+ *  @param parent Required. The name of the parent agent to export entity types.
+ *    Format: `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesExport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Retrieves the specified entity type.
  *
  *  Method: dialogflow.projects.locations.agents.entityTypes.get
@@ -407,6 +442,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports the specified entitytypes into the agent.
+ *
+ *  Method: dialogflow.projects.locations.agents.entityTypes.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesImport : GTLRDialogflowQuery
+
+/**
+ *  Required. The agent to import the entity types into. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Imports the specified entitytypes into the agent.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest to
+ *    include in the query.
+ *  @param parent Required. The agent to import the entity types into. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesImport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

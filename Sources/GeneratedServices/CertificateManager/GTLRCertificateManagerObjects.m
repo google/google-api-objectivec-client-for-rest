@@ -42,6 +42,11 @@ NSString * const kGTLRCertificateManager_CertificateMapEntry_State_Active = @"AC
 NSString * const kGTLRCertificateManager_CertificateMapEntry_State_Pending = @"PENDING";
 NSString * const kGTLRCertificateManager_CertificateMapEntry_State_ServingStateUnspecified = @"SERVING_STATE_UNSPECIFIED";
 
+// GTLRCertificateManager_DnsAuthorization.type
+NSString * const kGTLRCertificateManager_DnsAuthorization_Type_FixedRecord = @"FIXED_RECORD";
+NSString * const kGTLRCertificateManager_DnsAuthorization_Type_PerProjectRecord = @"PER_PROJECT_RECORD";
+NSString * const kGTLRCertificateManager_DnsAuthorization_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRCertificateManager_ManagedCertificate.state
 NSString * const kGTLRCertificateManager_ManagedCertificate_State_Active = @"ACTIVE";
 NSString * const kGTLRCertificateManager_ManagedCertificate_State_Failed = @"FAILED";
@@ -240,7 +245,7 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 @implementation GTLRCertificateManager_DnsAuthorization
 @dynamic createTime, descriptionProperty, dnsResourceRecord, domain, labels,
-         name, updateTime;
+         name, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

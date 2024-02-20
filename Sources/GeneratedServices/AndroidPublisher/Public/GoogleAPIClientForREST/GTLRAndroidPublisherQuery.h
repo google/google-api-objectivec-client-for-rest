@@ -3078,16 +3078,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @end
 
 /**
- *  Archives a subscription. Can only be done if at least one base plan was
- *  active in the past, and no base plan is available for new or existing
- *  subscribers currently. This action is irreversible, and the subscription ID
- *  will remain reserved.
+ *  Deprecated: subscription archiving is not supported.
  *
  *  Method: androidpublisher.monetization.subscriptions.archive
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidPublisher
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsArchive : GTLRAndroidPublisherQuery
 
 /**
@@ -3102,10 +3100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 /**
  *  Fetches a @c GTLRAndroidPublisher_Subscription.
  *
- *  Archives a subscription. Can only be done if at least one base plan was
- *  active in the past, and no base plan is available for new or existing
- *  subscribers currently. This action is irreversible, and the subscription ID
- *  will remain reserved.
+ *  Deprecated: subscription archiving is not supported.
  *
  *  @param object The @c GTLRAndroidPublisher_ArchiveSubscriptionRequest to
  *    include in the query.
@@ -4269,11 +4264,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  Whether archived subscriptions should be included in the response. Defaults
- *  to false.
- */
-@property(nonatomic, assign) BOOL showArchived;
+/** Deprecated: subscription archiving is not supported. */
+@property(nonatomic, assign) BOOL showArchived GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ListSubscriptionsResponse.

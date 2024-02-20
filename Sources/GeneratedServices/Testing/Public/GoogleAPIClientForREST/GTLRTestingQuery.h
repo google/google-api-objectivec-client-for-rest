@@ -92,6 +92,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @interface GTLRTestingQuery_ApplicationDetailServiceGetApkDetails : GTLRTestingQuery
 
 /**
+ *  A path to a file in Google Cloud Storage. Example:
+ *  gs://build-app-1414623860166/app%40debug-unaligned.apk These paths are
+ *  expected to be url encoded (percent encoding)
+ */
+@property(nonatomic, copy, nullable) NSString *bundleLocationGcsPath;
+
+/**
  *  Fetches a @c GTLRTesting_GetApkDetailsResponse.
  *
  *  Gets the details of an Android application APK.

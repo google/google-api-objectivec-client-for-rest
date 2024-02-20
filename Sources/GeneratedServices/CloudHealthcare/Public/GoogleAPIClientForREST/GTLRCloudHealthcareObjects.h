@@ -1205,7 +1205,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1353,7 +1357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Consent_Metadata *metadata;
 
 /**
- *  Resource name of the Consent, of the form
+ *  Identifier. Resource name of the Consent, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/consents/{consent_id}`.
  *  Cannot be changed after creation.
  */
@@ -1569,7 +1573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ConsentStore_Labels *labels;
 
 /**
- *  Resource name of the consent store, of the form
+ *  Identifier. Resource name of the consent store, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}`.
  *  Cannot be changed after creation.
  */
@@ -1603,7 +1607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_CreateMessageRequest : GTLRObject
 
-/** HL7v2 message. */
+/** Required. HL7v2 message. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Message *message;
 
 @end
@@ -1642,7 +1646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_Dataset : GTLRObject
 
 /**
- *  Resource name of the dataset, of the form
+ *  Identifier. Resource name of the dataset, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3438,7 +3442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Hl7V2Store_Labels *labels;
 
 /**
- *  Resource name of the HL7v2 store, of the form
+ *  Identifier. Resource name of the HL7v2 store, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3779,7 +3783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_IngestMessageRequest : GTLRObject
 
-/** HL7v2 message to ingest. */
+/** Required. HL7v2 message to ingest. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Message *message;
 
 @end
@@ -4281,7 +4285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Raw message bytes.
+ *  Required. Raw message bytes.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -4304,7 +4308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *messageType;
 
 /**
- *  Resource name of the Message, of the form
+ *  Output only. Resource name of the Message, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
  *  Assigned by the server.
  */

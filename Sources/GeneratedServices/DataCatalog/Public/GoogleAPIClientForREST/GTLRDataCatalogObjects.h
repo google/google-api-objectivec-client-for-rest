@@ -28,6 +28,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudBigtableSystemSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaFieldElementType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CommonUsageStats;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts;
@@ -1413,6 +1414,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @property(nonatomic, strong, nullable) NSNumber *ordinalPosition;
 
 /**
+ *  Optional. The subtype of the RANGE, if the type of this field is RANGE. If
+ *  the type is RANGE, this field is required. Possible values for the field
+ *  element type of a RANGE include: * DATE * DATETIME * TIMESTAMP
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaFieldElementType *rangeElementType;
+
+/**
  *  Optional. Schema of sub-columns. A column can have zero or more sub-columns.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema *> *subcolumns;
@@ -1421,6 +1429,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *  Required. Type of the column. Must be a UTF-8 string with the maximum size
  *  of 128 bytes.
  */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents the type of a field element.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaFieldElementType : GTLRObject
+
+/** Required. The type of a field element. See ColumnSchema.type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end

@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Retail API (retail/v2)
+//   Vertex AI Search for Retail API (retail/v2)
 // Description:
-//   Cloud Retail service enables customers to build end-to-end personalized
-//   recommendation systems without requiring a high level of expertise in
-//   machine learning, recommendation system, or Google Cloud.
+//   Vertex AI Search for Retail API is made up of Retail Search, Browse and
+//   Recommendations. These discovery AI solutions help you implement
+//   personalized search, browse and recommendations, based on machine learning
+//   models, across your websites and mobile applications.
 // Documentation:
 //   https://cloud.google.com/recommendations
 
@@ -39,11 +40,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRetailCloudPlatform;
 //
 
 /**
- *  Service for executing Retail API queries.
+ *  Service for executing Vertex AI Search for Retail API queries.
  *
- *  Cloud Retail service enables customers to build end-to-end personalized
- *  recommendation systems without requiring a high level of expertise in
- *  machine learning, recommendation system, or Google Cloud.
+ *  Vertex AI Search for Retail API is made up of Retail Search, Browse and
+ *  Recommendations. These discovery AI solutions help you implement
+ *  personalized search, browse and recommendations, based on machine learning
+ *  models, across your websites and mobile applications.
  */
 @interface GTLRCloudRetailService : GTLRService
 

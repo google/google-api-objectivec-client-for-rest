@@ -16,30 +16,47 @@
 
 @class GTLRTPU_AcceleratorConfig;
 @class GTLRTPU_AcceleratorType;
+@class GTLRTPU_AcceptedData;
 @class GTLRTPU_AccessConfig;
+@class GTLRTPU_ActiveData;
 @class GTLRTPU_AttachedDisk;
+@class GTLRTPU_CreatingData;
+@class GTLRTPU_DeletingData;
+@class GTLRTPU_FailedData;
+@class GTLRTPU_Guaranteed;
 @class GTLRTPU_GuestAttributes;
 @class GTLRTPU_GuestAttributesEntry;
 @class GTLRTPU_GuestAttributesValue;
+@class GTLRTPU_Interval;
 @class GTLRTPU_Location;
 @class GTLRTPU_Location_Labels;
 @class GTLRTPU_Location_Metadata;
+@class GTLRTPU_MultisliceParams;
 @class GTLRTPU_NetworkConfig;
 @class GTLRTPU_NetworkEndpoint;
 @class GTLRTPU_Node;
 @class GTLRTPU_Node_Labels;
 @class GTLRTPU_Node_Metadata;
+@class GTLRTPU_NodeSpec;
 @class GTLRTPU_Operation;
 @class GTLRTPU_Operation_Metadata;
 @class GTLRTPU_Operation_Response;
+@class GTLRTPU_ProvisioningData;
+@class GTLRTPU_QueuedResource;
+@class GTLRTPU_QueuedResourceState;
+@class GTLRTPU_QueueingPolicy;
 @class GTLRTPU_RuntimeVersion;
 @class GTLRTPU_SchedulingConfig;
 @class GTLRTPU_ServiceAccount;
 @class GTLRTPU_ServiceIdentity;
 @class GTLRTPU_ShieldedInstanceConfig;
+@class GTLRTPU_Spot;
 @class GTLRTPU_Status;
 @class GTLRTPU_Status_Details_Item;
+@class GTLRTPU_SuspendedData;
+@class GTLRTPU_SuspendingData;
 @class GTLRTPU_Symptom;
+@class GTLRTPU_Tpu;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -269,6 +286,108 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 // ----------------------------------------------------------------------------
+// GTLRTPU_QueuedResourceState.state
+
+/**
+ *  The QueuedResource request has passed initial validation/admission control
+ *  and has been persisted in the queue.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_Accepted;
+/**
+ *  The resources specified in the QueuedResource request have been provisioned
+ *  and are ready for use by the end-user/consumer.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_Active;
+/**
+ *  The QueuedResource request has been received. We're still working on
+ *  determining if we will be able to honor this request.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_Creating;
+/**
+ *  The QueuedResource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_Deleting;
+/**
+ *  The request could not be completed. This may be due to some late-discovered
+ *  problem with the request itself, or due to unavailability of resources
+ *  within the constraints of the request (e.g., the 'valid until' start timing
+ *  constraint expired).
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_Failed;
+/**
+ *  The QueuedResource request has been selected. The associated resources are
+ *  currently being provisioned (or very soon will begin provisioning).
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_Provisioning;
+/**
+ *  State of the QueuedResource request is not known/set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_StateUnspecified;
+/**
+ *  The resources specified in the QueuedResource request have been deleted.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_Suspended;
+/**
+ *  The resources specified in the QueuedResource request are being deleted.
+ *  This may have been initiated by the user, or the Cloud TPU service. Inspect
+ *  the state data for more details.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_Suspending;
+/**
+ *  The QueuedResource request has passed initial validation and has been
+ *  persisted in the queue. It will remain in this state until there are
+ *  sufficient free resources to begin provisioning your request. Wait times
+ *  will vary significantly depending on demand levels. When demand is high, not
+ *  all requests can be immediately provisioned. If you need more reliable
+ *  obtainability of TPUs consider purchasing a reservation. To put a limit on
+ *  how long you are willing to wait, use [timing
+ *  constraints](https://cloud.google.com/tpu/docs/queued-resources#request_a_queued_resource_before_a_specified_time).
+ *
+ *  Value: "WAITING_FOR_RESOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_State_WaitingForResources;
+
+// ----------------------------------------------------------------------------
+// GTLRTPU_QueuedResourceState.stateInitiator
+
+/**
+ *  The current QueuedResource state was initiated by the service.
+ *
+ *  Value: "SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_StateInitiator_Service;
+/**
+ *  The state initiator is unspecified.
+ *
+ *  Value: "STATE_INITIATOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_StateInitiator_StateInitiatorUnspecified;
+/**
+ *  The current QueuedResource state was initiated by the user.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_QueuedResourceState_StateInitiator_User;
+
+// ----------------------------------------------------------------------------
 // GTLRTPU_Symptom.symptomType
 
 /**
@@ -356,6 +475,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  Further data for the accepted state.
+ */
+@interface GTLRTPU_AcceptedData : GTLRObject
+@end
+
+
+/**
  *  An access config attached to the TPU worker.
  */
 @interface GTLRTPU_AccessConfig : GTLRObject
@@ -363,6 +489,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** Output only. An external IP address associated with the TPU worker. */
 @property(nonatomic, copy, nullable) NSString *externalIp;
 
+@end
+
+
+/**
+ *  Further data for the active state.
+ */
+@interface GTLRTPU_ActiveData : GTLRObject
 @end
 
 
@@ -397,12 +530,40 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  Further data for the creating state.
+ */
+@interface GTLRTPU_CreatingData : GTLRObject
+@end
+
+
+/**
+ *  Further data for the deleting state.
+ */
+@interface GTLRTPU_DeletingData : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRTPU_Empty : GTLRObject
+@end
+
+
+/**
+ *  Further data for the failed state.
+ */
+@interface GTLRTPU_FailedData : GTLRObject
+
+/**
+ *  Output only. The error that caused the queued resource to enter the FAILED
+ *  state.
+ */
+@property(nonatomic, strong, nullable) GTLRTPU_Status *error;
+
 @end
 
 
@@ -448,6 +609,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /** The guest attributes for the TPU workers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_GuestAttributes *> *guestAttributes;
+
+@end
+
+
+/**
+ *  Guaranteed tier definition.
+ */
+@interface GTLRTPU_Guaranteed : GTLRObject
+
+/**
+ *  Optional. Defines the minimum duration of the guarantee. If specified, the
+ *  requested resources will only be provisioned if they can be allocated for at
+ *  least the given duration.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minDuration;
 
 @end
 
@@ -505,6 +681,29 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_GuestAttributesEntry *> *items;
+
+@end
+
+
+/**
+ *  Represents a time interval, encoded as a Timestamp start (inclusive) and a
+ *  Timestamp end (exclusive). The start must be less than or equal to the end.
+ *  When the start equals the end, the interval is empty (matches no time). When
+ *  both start and end are unspecified, the interval matches any time.
+ */
+@interface GTLRTPU_Interval : GTLRObject
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -612,6 +811,33 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  Response for ListQueuedResources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "queuedResources" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRTPU_ListQueuedResourcesResponse : GTLRCollectionObject
+
+/** The next page token or empty if none. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The listed queued resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_QueuedResource *> *queuedResources;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response for ListRuntimeVersions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -696,6 +922,32 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRTPU_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Parameters to specify for multislice QueuedResource requests. This message
+ *  must be populated in case of multislice requests instead of node_id.
+ */
+@interface GTLRTPU_MultisliceParams : GTLRObject
+
+/**
+ *  Required. Number of nodes with this spec. The system will attempt to
+ *  provison "node_count" nodes as part of the request. This needs to be > 1.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/**
+ *  Optional. Prefix of node_ids in case of multislice request. Should follow
+ *  the `^[A-Za-z0-9_.~+%-]+$` regex format. If node_count = 3 and
+ *  node_id_prefix = "np", node ids of nodes created will be "np-0", "np-1",
+ *  "np-2". If this field is not provided we use queued_resource_id as the
+ *  node_id_prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeIdPrefix;
+
 @end
 
 
@@ -976,6 +1228,33 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  Details of the TPU node(s) being requested. Users can request either a
+ *  single node or multiple nodes. NodeSpec provides the specification for
+ *  node(s) to be created.
+ */
+@interface GTLRTPU_NodeSpec : GTLRObject
+
+/** Optional. Fields to specify in case of multislice request. */
+@property(nonatomic, strong, nullable) GTLRTPU_MultisliceParams *multisliceParams;
+
+/** Required. The node. */
+@property(nonatomic, strong, nullable) GTLRTPU_Node *node;
+
+/**
+ *  Optional. The unqualified resource name. Should follow the
+ *  `^[A-Za-z0-9_.~+%-]+$` regex format. This is only specified when requesting
+ *  a single node. In case of multislice requests, multislice_params must be
+ *  populated instead.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeId;
+
+/** Required. The parent resource name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1092,6 +1371,182 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  Further data for the provisioning state.
+ */
+@interface GTLRTPU_ProvisioningData : GTLRObject
+@end
+
+
+/**
+ *  A QueuedResource represents a request for resources that will be placed in a
+ *  queue and fulfilled when the necessary resources are available.
+ */
+@interface GTLRTPU_QueuedResource : GTLRObject
+
+/** Output only. The time when the QueuedResource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The Guaranteed tier */
+@property(nonatomic, strong, nullable) GTLRTPU_Guaranteed *guaranteed;
+
+/** Output only. Immutable. The name of the QueuedResource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The queueing policy of the QueuedRequest. */
+@property(nonatomic, strong, nullable) GTLRTPU_QueueingPolicy *queueingPolicy;
+
+/**
+ *  Optional. Name of the reservation in which the resource should be
+ *  provisioned. Format:
+ *  projects/{project}/locations/{zone}/reservations/{reservation}
+ */
+@property(nonatomic, copy, nullable) NSString *reservationName;
+
+/** Optional. The Spot tier. */
+@property(nonatomic, strong, nullable) GTLRTPU_Spot *spot;
+
+/** Output only. State of the QueuedResource request. */
+@property(nonatomic, strong, nullable) GTLRTPU_QueuedResourceState *state;
+
+/** Optional. Defines a TPU resource. */
+@property(nonatomic, strong, nullable) GTLRTPU_Tpu *tpu;
+
+@end
+
+
+/**
+ *  QueuedResourceState defines the details of the QueuedResource request.
+ */
+@interface GTLRTPU_QueuedResourceState : GTLRObject
+
+/** Output only. Further data for the accepted state. */
+@property(nonatomic, strong, nullable) GTLRTPU_AcceptedData *acceptedData;
+
+/** Output only. Further data for the active state. */
+@property(nonatomic, strong, nullable) GTLRTPU_ActiveData *activeData;
+
+/** Output only. Further data for the creating state. */
+@property(nonatomic, strong, nullable) GTLRTPU_CreatingData *creatingData;
+
+/** Output only. Further data for the deleting state. */
+@property(nonatomic, strong, nullable) GTLRTPU_DeletingData *deletingData;
+
+/** Output only. Further data for the failed state. */
+@property(nonatomic, strong, nullable) GTLRTPU_FailedData *failedData;
+
+/** Output only. Further data for the provisioning state. */
+@property(nonatomic, strong, nullable) GTLRTPU_ProvisioningData *provisioningData;
+
+/**
+ *  Output only. State of the QueuedResource request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_Accepted The QueuedResource
+ *        request has passed initial validation/admission control and has been
+ *        persisted in the queue. (Value: "ACCEPTED")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_Active The resources specified
+ *        in the QueuedResource request have been provisioned and are ready for
+ *        use by the end-user/consumer. (Value: "ACTIVE")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_Creating The QueuedResource
+ *        request has been received. We're still working on determining if we
+ *        will be able to honor this request. (Value: "CREATING")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_Deleting The QueuedResource is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_Failed The request could not be
+ *        completed. This may be due to some late-discovered problem with the
+ *        request itself, or due to unavailability of resources within the
+ *        constraints of the request (e.g., the 'valid until' start timing
+ *        constraint expired). (Value: "FAILED")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_Provisioning The QueuedResource
+ *        request has been selected. The associated resources are currently
+ *        being provisioned (or very soon will begin provisioning). (Value:
+ *        "PROVISIONING")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_StateUnspecified State of the
+ *        QueuedResource request is not known/set. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_Suspended The resources
+ *        specified in the QueuedResource request have been deleted. (Value:
+ *        "SUSPENDED")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_Suspending The resources
+ *        specified in the QueuedResource request are being deleted. This may
+ *        have been initiated by the user, or the Cloud TPU service. Inspect the
+ *        state data for more details. (Value: "SUSPENDING")
+ *    @arg @c kGTLRTPU_QueuedResourceState_State_WaitingForResources The
+ *        QueuedResource request has passed initial validation and has been
+ *        persisted in the queue. It will remain in this state until there are
+ *        sufficient free resources to begin provisioning your request. Wait
+ *        times will vary significantly depending on demand levels. When demand
+ *        is high, not all requests can be immediately provisioned. If you need
+ *        more reliable obtainability of TPUs consider purchasing a reservation.
+ *        To put a limit on how long you are willing to wait, use [timing
+ *        constraints](https://cloud.google.com/tpu/docs/queued-resources#request_a_queued_resource_before_a_specified_time).
+ *        (Value: "WAITING_FOR_RESOURCES")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The initiator of the QueuedResources's current state. Used to
+ *  indicate whether the SUSPENDING/SUSPENDED state was initiated by the user or
+ *  the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_QueuedResourceState_StateInitiator_Service The current
+ *        QueuedResource state was initiated by the service. (Value: "SERVICE")
+ *    @arg @c kGTLRTPU_QueuedResourceState_StateInitiator_StateInitiatorUnspecified
+ *        The state initiator is unspecified. (Value:
+ *        "STATE_INITIATOR_UNSPECIFIED")
+ *    @arg @c kGTLRTPU_QueuedResourceState_StateInitiator_User The current
+ *        QueuedResource state was initiated by the user. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *stateInitiator;
+
+/** Output only. Further data for the suspended state. */
+@property(nonatomic, strong, nullable) GTLRTPU_SuspendedData *suspendedData;
+
+/** Output only. Further data for the suspending state. */
+@property(nonatomic, strong, nullable) GTLRTPU_SuspendingData *suspendingData;
+
+@end
+
+
+/**
+ *  Defines the policy of the QueuedRequest.
+ */
+@interface GTLRTPU_QueueingPolicy : GTLRObject
+
+/** Optional. A relative time after which resources may be created. */
+@property(nonatomic, strong, nullable) GTLRDuration *validAfterDuration;
+
+/** Optional. An absolute time after which resources may be created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *validAfterTime;
+
+/**
+ *  Optional. An absolute time interval within which resources may be created.
+ */
+@property(nonatomic, strong, nullable) GTLRTPU_Interval *validInterval;
+
+/**
+ *  Optional. A relative time after which resources should not be created. If
+ *  the request cannot be fulfilled by this time the request will be failed.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *validUntilDuration;
+
+/**
+ *  Optional. An absolute time after which resources should not be created. If
+ *  the request cannot be fulfilled by this time the request will be failed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *validUntilTime;
+
+@end
+
+
+/**
+ *  Request for ResetQueuedResource.
+ */
+@interface GTLRTPU_ResetQueuedResourceRequest : GTLRObject
+@end
+
+
+/**
  *  A runtime version that a Node can be configured with.
  */
 @interface GTLRTPU_RuntimeVersion : GTLRObject
@@ -1181,6 +1636,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  Spot tier definition.
+ */
+@interface GTLRTPU_Spot : GTLRObject
+@end
+
+
+/**
  *  Request for StartNode.
  */
 @interface GTLRTPU_StartNodeRequest : GTLRObject
@@ -1240,6 +1702,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  Further data for the suspended state.
+ */
+@interface GTLRTPU_SuspendedData : GTLRObject
+@end
+
+
+/**
+ *  Further data for the suspending state.
+ */
+@interface GTLRTPU_SuspendingData : GTLRObject
+@end
+
+
+/**
  *  A Symptom instance.
  */
 @interface GTLRTPU_Symptom : GTLRObject
@@ -1274,6 +1750,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /** A string used to uniquely distinguish a worker within a TPU node. */
 @property(nonatomic, copy, nullable) NSString *workerId;
+
+@end
+
+
+/**
+ *  Details of the TPU resource(s) being requested.
+ */
+@interface GTLRTPU_Tpu : GTLRObject
+
+/** Optional. The TPU node(s) being requested. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_NodeSpec *> *nodeSpec;
 
 @end
 

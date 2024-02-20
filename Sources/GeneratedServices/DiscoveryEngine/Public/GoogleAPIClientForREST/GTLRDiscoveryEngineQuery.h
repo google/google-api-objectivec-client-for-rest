@@ -1495,6 +1495,133 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to get. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
+ *
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to get. Format:
+ *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  100. If a value greater than 100 is provided, at most 100 results are
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListServingConfigs` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The dataStore resource name. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse.
+ *
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  @param parent Required. The dataStore resource name. Format:
+ *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided ServingConfig to update. The
+ *  following are NOT supported: * ServingConfig.name If not set, all supported
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
+ *
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig to
+ *    include in the query.
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.recommend
@@ -2901,6 +3028,133 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesPatch
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to get. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
+ *
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to get. Format:
+ *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  100. If a value greater than 100 is provided, at most 100 results are
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListServingConfigs` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The dataStore resource name. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse.
+ *
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  @param parent Required. The dataStore resource name. Format:
+ *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided ServingConfig to update. The
+ *  following are NOT supported: * ServingConfig.name If not set, all supported
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
+ *
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig to
+ *    include in the query.
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig *)object
                            name:(NSString *)name;
 
 @end
@@ -4386,6 +4640,133 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSchemasPatch
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to get. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
+ *
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to get. Format:
+ *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  100. If a value greater than 100 is provided, at most 100 results are
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListServingConfigs` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The dataStore resource name. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse.
+ *
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  @param parent Required. The dataStore resource name. Format:
+ *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided ServingConfig to update. The
+ *  following are NOT supported: * ServingConfig.name If not set, all supported
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
+ *
+ *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig to
+ *    include in the query.
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig *)object
                            name:(NSString *)name;
 
 @end

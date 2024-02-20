@@ -525,7 +525,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_AppLinkDataAppLinkInfoAppTarget
-@dynamic targetUri;
+@dynamic packageName, targetUri;
 @end
 
 
@@ -1329,7 +1329,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_GenericClass
 @dynamic callbackOptions, classTemplateInfo, enableSmartTap, identifier,
-         imageModulesData, linksModuleData,
+         imageModulesData, linksModuleData, messages,
          multipleDevicesAndHoldersAllowedStatus, redemptionIssuers,
          securityAnimation, textModulesData, viewUnlockRequirement;
 
@@ -1340,12 +1340,23 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"messages" : [GTLRWalletobjects_Message class],
     @"redemptionIssuers" : [NSNumber class],
     @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_GenericClassAddMessageResponse
+//
+
+@implementation GTLRWalletobjects_GenericClassAddMessageResponse
+@dynamic resource;
 @end
 
 
@@ -1391,6 +1402,16 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_GenericObjectAddMessageResponse
+//
+
+@implementation GTLRWalletobjects_GenericObjectAddMessageResponse
+@dynamic resource;
 @end
 
 
@@ -2293,31 +2314,6 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWalletobjects_PrivateText
-//
-
-@implementation GTLRWalletobjects_PrivateText
-@dynamic body, header;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWalletobjects_PrivateUri
-//
-
-@implementation GTLRWalletobjects_PrivateUri
-@dynamic descriptionProperty, uri;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWalletobjects_PurchaseDetails
 //
 
@@ -2781,46 +2777,6 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_UpcomingNotification
 @dynamic enableNotification;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWalletobjects_UploadPrivateDataRequest
-//
-
-@implementation GTLRWalletobjects_UploadPrivateDataRequest
-@dynamic issuerId, text, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWalletobjects_UploadPrivateDataResponse
-//
-
-@implementation GTLRWalletobjects_UploadPrivateDataResponse
-@dynamic privateContentId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWalletobjects_UploadPrivateImageRequest
-//
-
-@implementation GTLRWalletobjects_UploadPrivateImageRequest
-@dynamic blob, mediaRequestInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWalletobjects_UploadPrivateImageResponse
-//
-
-@implementation GTLRWalletobjects_UploadPrivateImageResponse
-@dynamic privateContentId;
 @end
 
 

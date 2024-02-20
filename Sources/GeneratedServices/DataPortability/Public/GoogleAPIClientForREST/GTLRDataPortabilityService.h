@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Authorization scope: Move a copy of messages between you and the businesses
- *  you have conversations with.
+ *  you have conversations with across Google services.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.businessmessaging.conversations"
  */
@@ -84,7 +84,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsStarredPlace
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityMaps;
 /**
- *  Authorization scope: Move a copy of your search activity.
+ *  Authorization scope: Move a copy of your Google Search activity.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.myactivity.search"
  */
@@ -102,14 +102,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityShoppi
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityYoutube;
 /**
- *  Authorization scope: Move a copy of your shipping information.
+ *  Authorization scope: Move a copy of your shipping information on Shopping.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.shopping.addresses"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityShoppingAddresses;
 /**
  *  Authorization scope: Move a copy of reviews you wrote about products or
- *  online stores.
+ *  online stores on Google Search.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.shopping.reviews"
  */

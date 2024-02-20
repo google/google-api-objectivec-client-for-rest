@@ -923,6 +923,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_MatrixErrorDetail
+//
+
+@implementation GTLRTesting_MatrixErrorDetail
+@dynamic message, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_Metadata
 //
 
@@ -1011,7 +1021,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_PerAndroidVersionInfo
-@dynamic deviceCapacity, directAccessVersionInfo, versionId;
+@dynamic deviceCapacity, directAccessVersionInfo,
+         interactiveDeviceAvailabilityEstimate, versionId;
 @end
 
 
@@ -1213,12 +1224,14 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestMatrix
-@dynamic clientInfo, environmentMatrix, failFast, flakyTestAttempts,
-         invalidMatrixDetails, outcomeSummary, projectId, resultStorage, state,
-         testExecutions, testMatrixId, testSpecification, timestamp;
+@dynamic clientInfo, environmentMatrix, extendedInvalidMatrixDetails, failFast,
+         flakyTestAttempts, invalidMatrixDetails, outcomeSummary, projectId,
+         resultStorage, state, testExecutions, testMatrixId, testSpecification,
+         timestamp;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"extendedInvalidMatrixDetails" : [GTLRTesting_MatrixErrorDetail class],
     @"testExecutions" : [GTLRTesting_TestExecution class]
   };
   return map;

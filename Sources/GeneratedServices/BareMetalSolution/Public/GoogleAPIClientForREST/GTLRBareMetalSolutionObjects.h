@@ -631,6 +631,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierHt;
 /**
+ *  QoS 2.0 high performance storage.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_QOS2_PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierQos2Performance;
+/**
  *  Regular volumes, shared aggregates.
  *
  *  Value: "VOLUME_PERFORMANCE_TIER_SHARED"
@@ -795,6 +801,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VolumeConfig_Performan
  *  Value: "VOLUME_PERFORMANCE_TIER_HT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierHt;
+/**
+ *  QoS 2.0 high performance storage.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_QOS2_PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierQos2Performance;
 /**
  *  Regular volumes, shared aggregates.
  *
@@ -3092,6 +3104,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *        Assigned aggregates. (Value: "VOLUME_PERFORMANCE_TIER_ASSIGNED")
  *    @arg @c kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierHt
  *        High throughput aggregates. (Value: "VOLUME_PERFORMANCE_TIER_HT")
+ *    @arg @c kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierQos2Performance
+ *        QoS 2.0 high performance storage. (Value:
+ *        "VOLUME_PERFORMANCE_TIER_QOS2_PERFORMANCE")
  *    @arg @c kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierShared
  *        Regular volumes, shared aggregates. (Value:
  *        "VOLUME_PERFORMANCE_TIER_SHARED")
@@ -3268,6 +3283,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *        Assigned aggregates. (Value: "VOLUME_PERFORMANCE_TIER_ASSIGNED")
  *    @arg @c kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierHt
  *        High throughput aggregates. (Value: "VOLUME_PERFORMANCE_TIER_HT")
+ *    @arg @c kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierQos2Performance
+ *        QoS 2.0 high performance storage. (Value:
+ *        "VOLUME_PERFORMANCE_TIER_QOS2_PERFORMANCE")
  *    @arg @c kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierShared
  *        Regular volumes, shared aggregates. (Value:
  *        "VOLUME_PERFORMANCE_TIER_SHARED")

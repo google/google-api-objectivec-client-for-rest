@@ -22,6 +22,73 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/chat.bot
+ *
+ *  Value "https://www.googleapis.com/auth/chat.bot"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatBot;
+/**
+ *  Authorization scope: View, add, and remove members from conversations in
+ *  Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.memberships"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMemberships;
+/**
+ *  Authorization scope: View members in Google Chat conversations.
+ *
+ *  Value "https://www.googleapis.com/auth/chat.memberships.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly;
+/**
+ *  Authorization scope: View, compose, send, update, and delete messages, and
+ *  add, view, and delete reactions to messages.
+ *
+ *  Value "https://www.googleapis.com/auth/chat.messages"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessages;
+/**
+ *  Authorization scope: View, add, and delete reactions to messages in Google
+ *  Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.messages.reactions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactions;
+/**
+ *  Authorization scope: View reactions to messages in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.messages.reactions.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactionsReadonly;
+/**
+ *  Authorization scope: View messages and reactions in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.messages.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly;
+/**
+ *  Authorization scope: Create conversations and spaces and see or edit
+ *  metadata (including history settings and access settings) in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.spaces"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatSpaces;
+/**
+ *  Authorization scope: View chat and spaces in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.spaces.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly;
+
+// ----------------------------------------------------------------------------
+//   GTLRWorkspaceEventsService
+//
+
 /**
  *  Service for executing Google Workspace Events API queries.
  *

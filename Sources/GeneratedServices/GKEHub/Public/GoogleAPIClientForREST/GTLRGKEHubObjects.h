@@ -583,6 +583,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_R
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Terminating;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncState.state
+
+/**
+ *  CS encounters errors.
+ *
+ *  Value: "CONFIG_SYNC_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncError;
+/**
+ *  The expected CS version is installed successfully.
+ *
+ *  Value: "CONFIG_SYNC_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncInstalled;
+/**
+ *  CS is not installed.
+ *
+ *  Value: "CONFIG_SYNC_NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncNotInstalled;
+/**
+ *  CS is installing or terminating.
+ *
+ *  Value: "CONFIG_SYNC_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncPending;
+/**
+ *  CS's state cannot be determined.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperAudit
 
 /**
@@ -751,6 +785,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControll
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Pending;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementMembershipSpec.management
+
+/**
+ *  Google will manage the Feature for the cluster.
+ *
+ *  Value: "MANAGEMENT_AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementAutomatic;
+/**
+ *  User will manually manage the Feature for the cluster.
+ *
+ *  Value: "MANAGEMENT_MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementManual;
+/**
+ *  Unspecified
+ *
+ *  Value: "MANAGEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementOperatorState.deploymentState
@@ -2729,6 +2785,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *rootsyncCrd;
 
+/**
+ *  The state of CS This field summarizes the other fields in this message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncError
+ *        CS encounters errors. (Value: "CONFIG_SYNC_ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncInstalled
+ *        The expected CS version is installed successfully. (Value:
+ *        "CONFIG_SYNC_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncNotInstalled
+ *        CS is not installed. (Value: "CONFIG_SYNC_NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncPending
+ *        CS is installing or terminating. (Value: "CONFIG_SYNC_PENDING")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncState_State_StateUnspecified
+ *        CS's state cannot be determined. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 /** The state of ConfigSync's process to sync configs to a cluster */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementSyncState *syncState;
 
@@ -3052,6 +3126,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Hierarchy Controller configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerConfig *hierarchyController;
+
+/**
+ *  Enables automatic Feature management.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementAutomatic
+ *        Google will manage the Feature for the cluster. (Value:
+ *        "MANAGEMENT_AUTOMATIC")
+ *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementManual
+ *        User will manually manage the Feature for the cluster. (Value:
+ *        "MANAGEMENT_MANUAL")
+ *    @arg @c kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementUnspecified
+ *        Unspecified (Value: "MANAGEMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *management;
 
 /** Policy Controller configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyController *policyController;

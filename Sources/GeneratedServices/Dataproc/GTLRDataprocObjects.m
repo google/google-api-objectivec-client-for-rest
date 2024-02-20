@@ -13,6 +13,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataproc_AnalyzeOperationMetadata.analyzedWorkloadType
+NSString * const kGTLRDataproc_AnalyzeOperationMetadata_AnalyzedWorkloadType_Batch = @"BATCH";
+NSString * const kGTLRDataproc_AnalyzeOperationMetadata_AnalyzedWorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
+
 // GTLRDataproc_Batch.state
 NSString * const kGTLRDataproc_Batch_State_Cancelled        = @"CANCELLED";
 NSString * const kGTLRDataproc_Batch_State_Cancelling       = @"CANCELLING";
@@ -130,10 +134,15 @@ NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_NodeGrou
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Repair = @"REPAIR";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize = @"RESIZE";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Update = @"UPDATE";
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_UpdateLabels = @"UPDATE_LABELS";
 
 // GTLRDataproc_NodePool.repairAction
 NSString * const kGTLRDataproc_NodePool_RepairAction_Delete    = @"DELETE";
 NSString * const kGTLRDataproc_NodePool_RepairAction_RepairActionUnspecified = @"REPAIR_ACTION_UNSPECIFIED";
+
+// GTLRDataproc_RepairNodeGroupRequest.repairAction
+NSString * const kGTLRDataproc_RepairNodeGroupRequest_RepairAction_RepairActionUnspecified = @"REPAIR_ACTION_UNSPECIFIED";
+NSString * const kGTLRDataproc_RepairNodeGroupRequest_RepairAction_Replace = @"REPLACE";
 
 // GTLRDataproc_ReservationAffinity.consumeReservationType
 NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
@@ -225,6 +234,43 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_AcceleratorConfig
 @dynamic acceleratorCount, acceleratorTypeUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AnalyzeOperationMetadata
+//
+
+@implementation GTLRDataproc_AnalyzeOperationMetadata
+@dynamic analyzedWorkloadName, analyzedWorkloadType, analyzedWorkloadUuid,
+         createTime, descriptionProperty, doneTime, labels, warnings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AnalyzeOperationMetadata_Labels
+//
+
+@implementation GTLRDataproc_AnalyzeOperationMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2081,6 +2127,24 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"nodePools" : [GTLRDataproc_NodePool class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RepairNodeGroupRequest
+//
+
+@implementation GTLRDataproc_RepairNodeGroupRequest
+@dynamic instanceNames, repairAction, requestId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instanceNames" : [NSString class]
   };
   return map;
 }

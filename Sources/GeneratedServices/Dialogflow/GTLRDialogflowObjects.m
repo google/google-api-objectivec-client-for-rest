@@ -154,6 +154,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_Dat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_JsonPackage = @"JSON_PACKAGE";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest.dataFormat
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_Blob = @"BLOB";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_JsonPackage = @"JSON_PACKAGE";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest.dataFormat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_Blob = @"BLOB";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest_DataFormat_Csv = @"CSV";
@@ -178,6 +183,14 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Pending = @"PENDING";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest.mergeOption
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Keep = @"KEEP";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Merge = @"MERGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_MergeOptionUnspecified = @"MERGE_OPTION_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Rename = @"RENAME";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Replace = @"REPLACE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_ReportConflict = @"REPORT_CONFLICT";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest.importOption
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_Fallback = @"FALLBACK";
@@ -1287,6 +1300,25 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportEntityTypesMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportEntityTypesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportEntityTypesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportEntityTypesResponse
+@dynamic entityTypesContent, entityTypesUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportFlowResponse
 //
 
@@ -1498,6 +1530,52 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"warnings" : [GTLRDialogflow_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponse
+@dynamic conflictingResources, entityTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entityTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources
+@dynamic entityDisplayNames, entityTypeDisplayNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entityDisplayNames" : [NSString class],
+    @"entityTypeDisplayNames" : [NSString class]
   };
   return map;
 }
@@ -3011,6 +3089,44 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest
+@dynamic dataFormat, entityTypes, entityTypesContentInline, entityTypesUri,
+         languageCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entityTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesResponse
+@dynamic entityTypesContent, entityTypesUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest
 //
 
@@ -3435,6 +3551,62 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"warnings" : [GTLRDialogflow_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest
+@dynamic entityTypesContent, entityTypesUri, mergeOption, targetEntityType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponse
+@dynamic conflictingResources, entityTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entityTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources
+@dynamic entityDisplayNames, entityTypeDisplayNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entityDisplayNames" : [NSString class],
+    @"entityTypeDisplayNames" : [NSString class]
   };
   return map;
 }

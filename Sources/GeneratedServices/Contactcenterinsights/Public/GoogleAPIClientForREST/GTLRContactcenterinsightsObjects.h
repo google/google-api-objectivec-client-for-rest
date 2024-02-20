@@ -54,10 +54,14 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequestBigQueryDestination;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelRequestGcsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequestGcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsMetadataIngestConversationsStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig;
@@ -135,10 +139,14 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExactMatchConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequestBigQueryDestination;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequestGcsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1HoldData;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequestGcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsMetadataIngestConversationsStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig;
@@ -2428,6 +2436,55 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Metadata used for export issue model.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelMetadata : GTLRObject
+
+/** The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The original export request. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelRequest *request;
+
+@end
+
+
+/**
+ *  Request to export an issue model.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelRequest : GTLRObject
+
+/** Google Cloud Storage URI to export the Issue Model to. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelRequestGcsDestination *gcsDestination;
+
+/** Required. The issue model to export */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Google Cloud Storage Object URI to save the issue model to.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelRequestGcsDestination : GTLRObject
+
+/** Required. Format: `gs:///` */
+@property(nonatomic, copy, nullable) NSString *objectUri;
+
+@end
+
+
+/**
+ *  Response from export issue model
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportIssueModelResponse : GTLRObject
+@end
+
+
+/**
  *  Agent Assist frequently-asked-question answer data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData : GTLRObject
@@ -2505,6 +2562,64 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  The data for a hold annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData : GTLRObject
+@end
+
+
+/**
+ *  Metadata used for import issue model.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelMetadata : GTLRObject
+
+/** The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The original import request. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequest *request;
+
+@end
+
+
+/**
+ *  Request to import an issue model.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequest : GTLRObject
+
+/**
+ *  Optional. If set to true, will create a new issue model from the imported
+ *  file with randomly generated IDs for the issue model and corresponding
+ *  issues. Otherwise, replaces an existing model with the same ID as the file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createNewModel;
+
+/** Google Cloud Storage source message. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequestGcsSource *gcsSource;
+
+/** Required. The parent resource of the issue model. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  Google Cloud Storage Object URI to get the issue model file from.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequestGcsSource : GTLRObject
+
+/** Required. Format: `gs:///` */
+@property(nonatomic, copy, nullable) NSString *objectUri;
+
+@end
+
+
+/**
+ *  Response from import issue model
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelResponse : GTLRObject
 @end
 
 
@@ -2661,6 +2776,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Required. The Cloud Storage bucket containing source objects. */
 @property(nonatomic, copy, nullable) NSString *bucketUri;
+
+/**
+ *  Optional. Custom keys to extract as conversation labels from metadata files
+ *  in `metadata_bucket_uri`. Keys not included in this field will be ignored.
+ *  Note that there is a limit of 20 labels per conversation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customMetadataKeys;
+
+/**
+ *  Optional. The Cloud Storage path to the source object metadata. Note that:
+ *  [1] metadata files are expected to be in JSON format [2] metadata and source
+ *  objects must be in separate buckets [3] a source object's metadata object
+ *  must share the same name to be properly ingested
+ */
+@property(nonatomic, copy, nullable) NSString *metadataBucketUri;
 
 @end
 
@@ -4880,6 +5010,55 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metadata used for export issue model.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelMetadata : GTLRObject
+
+/** The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The original export request. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequest *request;
+
+@end
+
+
+/**
+ *  Request to export an issue model.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequest : GTLRObject
+
+/** Google Cloud Storage URI to export the Issue Model to. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequestGcsDestination *gcsDestination;
+
+/** Required. The issue model to export */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Google Cloud Storage Object URI to save the issue model to.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequestGcsDestination : GTLRObject
+
+/** Required. Format: `gs:///` */
+@property(nonatomic, copy, nullable) NSString *objectUri;
+
+@end
+
+
+/**
+ *  Response from export issue model
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelResponse : GTLRObject
+@end
+
+
+/**
  *  Agent Assist frequently-asked-question answer data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData : GTLRObject
@@ -4957,6 +5136,64 @@ GTLR_DEPRECATED
  *  The data for a hold annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1HoldData : GTLRObject
+@end
+
+
+/**
+ *  Metadata used for import issue model.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelMetadata : GTLRObject
+
+/** The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The original import request. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequest *request;
+
+@end
+
+
+/**
+ *  Request to import an issue model.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequest : GTLRObject
+
+/**
+ *  Optional. If set to true, will create a new issue model from the imported
+ *  file with randomly generated IDs for the issue model and corresponding
+ *  issues. Otherwise, replaces an existing model with the same ID as the file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createNewModel;
+
+/** Google Cloud Storage source message. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequestGcsSource *gcsSource;
+
+/** Required. The parent resource of the issue model. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  Google Cloud Storage Object URI to get the issue model file from.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequestGcsSource : GTLRObject
+
+/** Required. Format: `gs:///` */
+@property(nonatomic, copy, nullable) NSString *objectUri;
+
+@end
+
+
+/**
+ *  Response from import issue model
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelResponse : GTLRObject
 @end
 
 
@@ -5113,6 +5350,21 @@ GTLR_DEPRECATED
 
 /** Required. The Cloud Storage bucket containing source objects. */
 @property(nonatomic, copy, nullable) NSString *bucketUri;
+
+/**
+ *  Optional. Custom keys to extract as conversation labels from metadata files
+ *  in `metadata_bucket_uri`. Keys not included in this field will be ignored.
+ *  Note that there is a limit of 20 labels per conversation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customMetadataKeys;
+
+/**
+ *  Optional. The Cloud Storage path to the source object metadata. Note that:
+ *  [1] metadata files are expected to be in JSON format [2] metadata and source
+ *  objects must be in separate buckets [3] a source object's metadata object
+ *  must share the same name to be properly ingested
+ */
+@property(nonatomic, copy, nullable) NSString *metadataBucketUri;
 
 @end
 

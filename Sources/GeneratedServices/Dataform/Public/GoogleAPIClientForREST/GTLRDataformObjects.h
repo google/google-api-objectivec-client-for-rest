@@ -2054,6 +2054,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_Repository : GTLRObject
 
+/** Output only. The timestamp of when the repository was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /** Optional. The repository's user-friendly name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

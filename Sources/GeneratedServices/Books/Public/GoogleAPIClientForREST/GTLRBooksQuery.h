@@ -1441,6 +1441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
 /** Array of layer IDs to get the summary for. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *layerIds;
 
+/** Optional. String to identify the originator of this request. */
+@property(nonatomic, copy, nullable) NSString *source;
+
 /** Volume id to get the summary for. */
 @property(nonatomic, copy, nullable) NSString *volumeId;
 
