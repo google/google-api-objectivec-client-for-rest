@@ -280,6 +280,13 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_Sta
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Updating = @"UPDATING";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult.state
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Failed = @"FAILED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Running = @"RUNNING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Succeeded = @"SUCCEEDED";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1Schema.partitionStyle
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Schema_PartitionStyle_HiveCompatible = @"HIVE_COMPATIBLE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Schema_PartitionStyle_PartitionStyleUnspecified = @"PARTITION_STYLE_UNSPECIFIED";
@@ -2165,6 +2172,27 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return @"zones";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEvent
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEvent
+@dynamic importResult, message, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult
+@dynamic createdEntries, deletedEntries, mutatedEntryGroups, recreatedEntries,
+         state, unchangedEntries, updatedEntries;
 @end
 
 

@@ -32,6 +32,123 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates an Application in a host project and location.
+ *
+ *  Method: apphub.projects.locations.applications.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsCreate : GTLRAppHubQuery
+
+/**
+ *  Required. The Application identifier. Must contain only lowercase letters,
+ *  numbers or hyphens, with the first character a letter, the last a letter or
+ *  a number, and a 63 character maximum.
+ */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Creates an Application in a host project and location.
+ *
+ *  @param object The @c GTLRAppHub_Application to include in the query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_Application *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Application in a host project and location.
+ *
+ *  Method: apphub.projects.locations.applications.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsDelete : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Deletes an Application in a host project and location.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an Application in a host project and location.
+ *
+ *  Method: apphub.projects.locations.applications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsGet : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_Application.
+ *
+ *  Gets an Application in a host project and location.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -77,6 +194,337 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Applications in a host project and location.
+ *
+ *  Method: apphub.projects.locations.applications.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsList : GTLRAppHubQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAppHub_ListApplicationsResponse.
+ *
+ *  Lists Applications in a host project and location.
+ *
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an Application in a host project and location.
+ *
+ *  Method: apphub.projects.locations.applications.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsPatch : GTLRAppHubQuery
+
+/**
+ *  Identifier. The resource name of an Application. Format:
+ *  "projects/{host-project-id}/locations/{location}/applications/{application-id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Application resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. The API changes the
+ *  values of the fields as specified in the update_mask. The API ignores the
+ *  values of all fields not covered by the update_mask. You can also unset a
+ *  field by not specifying it in the updated message, but adding the field to
+ *  the mask. This clears whatever value the field previously had.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Updates an Application in a host project and location.
+ *
+ *  @param object The @c GTLRAppHub_Application to include in the query.
+ *  @param name Identifier. The resource name of an Application. Format:
+ *    "projects/{host-project-id}/locations/{location}/applications/{application-id}"
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_Application *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Service in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.services.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsServicesCreate : GTLRAppHubQuery
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The Service identifier. Must contain only lowercase letters,
+ *  numbers or hyphens, with the first character a letter, the last a letter or
+ *  a number, and a 63 character maximum.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceId;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Creates a Service in an Application.
+ *
+ *  @param object The @c GTLRAppHub_Service to include in the query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_Service *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Service in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.services.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsServicesDelete : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Deletes a Service in an Application.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Service in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.services.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsServicesGet : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_Service.
+ *
+ *  Gets a Service in an Application.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Services in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.services.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsServicesList : GTLRAppHubQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAppHub_ListServicesResponse.
+ *
+ *  List Services in an Application.
+ *
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Service in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.services.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsServicesPatch : GTLRAppHubQuery
+
+/**
+ *  Identifier. The resource name of a Service. Format:
+ *  "projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Service resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. The API changes the values
+ *  of the fields as specified in the update_mask. The API ignores the values of
+ *  all fields not covered by the update_mask. You can also unset a field by not
+ *  specifying it in the updated message, but adding the field to the mask. This
+ *  clears whatever value the field previously had.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Updates a Service in an Application.
+ *
+ *  @param object The @c GTLRAppHub_Service to include in the query.
+ *  @param name Identifier. The resource name of a Service. Format:
+ *    "projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}"
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_Service *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -164,6 +612,411 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a Workload in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.workloads.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsCreate : GTLRAppHubQuery
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The Workload identifier. Must contain only lowercase letters,
+ *  numbers or hyphens, with the first character a letter, the last a letter or
+ *  a number, and a 63 character maximum.
+ */
+@property(nonatomic, copy, nullable) NSString *workloadId;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Creates a Workload in an Application.
+ *
+ *  @param object The @c GTLRAppHub_Workload to include in the query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_Workload *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Workload in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.workloads.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsDelete : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Deletes a Workload in an Application.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Workload in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.workloads.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsGet : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_Workload.
+ *
+ *  Gets a Workload in an Application.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Workloads in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.workloads.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsList : GTLRAppHubQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAppHub_ListWorkloadsResponse.
+ *
+ *  Lists Workloads in an Application.
+ *
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Workload in an Application.
+ *
+ *  Method: apphub.projects.locations.applications.workloads.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsPatch : GTLRAppHubQuery
+
+/**
+ *  Identifier. The resource name of the Workload. Format:
+ *  "projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Workload resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. The API changes the values
+ *  of the fields as specified in the update_mask. The API ignores the values of
+ *  all fields not covered by the update_mask. You can also unset a field by not
+ *  specifying it in the updated message, but adding the field to the mask. This
+ *  clears whatever value the field previously had.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Updates a Workload in an Application.
+ *
+ *  @param object The @c GTLRAppHub_Workload to include in the query.
+ *  @param name Identifier. The resource name of the Workload. Format:
+ *    "projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_Workload *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Detaches a service project from a host project. You can call this API from
+ *  either a host or service project.
+ *
+ *  Method: apphub.projects.locations.detachServiceProjectAttachment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsDetachServiceProjectAttachment : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_DetachServiceProjectAttachmentResponse.
+ *
+ *  Detaches a service project from a host project. You can call this API from
+ *  either a host or service project.
+ *
+ *  @param object The @c GTLRAppHub_DetachServiceProjectAttachmentRequest to
+ *    include in the query.
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsDetachServiceProjectAttachment
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_DetachServiceProjectAttachmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a discovered service in a host project and location.
+ *
+ *  Method: apphub.projects.locations.discoveredServices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesGet : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_DiscoveredService.
+ *
+ *  Gets a discovered service in a host project and location.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists discovered services that can be added to an application in a host
+ *  project and location.
+ *
+ *  Method: apphub.projects.locations.discoveredServices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesList : GTLRAppHubQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAppHub_ListDiscoveredServicesResponse.
+ *
+ *  Lists discovered services that can be added to an application in a host
+ *  project and location.
+ *
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a discovered workload in a host project and location.
+ *
+ *  Method: apphub.projects.locations.discoveredWorkloads.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsGet : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_DiscoveredWorkload.
+ *
+ *  Gets a discovered workload in a host project and location.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists discovered workloads that can be added to an application in a host
+ *  project and location.
+ *
+ *  Method: apphub.projects.locations.discoveredWorkloads.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsList : GTLRAppHubQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAppHub_ListDiscoveredWorkloadsResponse.
+ *
+ *  Lists discovered workloads that can be added to an application in a host
+ *  project and location.
+ *
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: apphub.projects.locations.get
@@ -233,6 +1086,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Looks up a service project attachment. You can call this API from either a
+ *  host or service project.
+ *
+ *  Method: apphub.projects.locations.lookupServiceProjectAttachment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsLookupServiceProjectAttachment : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_LookupServiceProjectAttachmentResponse.
+ *
+ *  Looks up a service project attachment. You can call this API from either a
+ *  host or service project.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsLookupServiceProjectAttachment
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -383,6 +1264,172 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Attaches a service project to the host project.
+ *
+ *  Method: apphub.projects.locations.serviceProjectAttachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsCreate : GTLRAppHubQuery
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The service project attachment identifier must contain the
+ *  project_id of the service project specified in the
+ *  service_project_attachment.service_project field. Hint:
+ *  "projects/{project_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *serviceProjectAttachmentId;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Attaches a service project to the host project.
+ *
+ *  @param object The @c GTLRAppHub_ServiceProjectAttachment to include in the
+ *    query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_ServiceProjectAttachment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a service project attached to the host project.
+ *
+ *  Method: apphub.projects.locations.serviceProjectAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsDelete : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Deletes a service project attached to the host project.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a service project attached to the host project.
+ *
+ *  Method: apphub.projects.locations.serviceProjectAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsGet : GTLRAppHubQuery
+
+/** Required. Value for name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_ServiceProjectAttachment.
+ *
+ *  Gets a service project attached to the host project.
+ *
+ *  @param name Required. Value for name.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List service projects attached to the host project.
+ *
+ *  Method: apphub.projects.locations.serviceProjectAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsList : GTLRAppHubQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAppHub_ListServiceProjectAttachmentsResponse.
+ *
+ *  List service projects attached to the host project.
+ *
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

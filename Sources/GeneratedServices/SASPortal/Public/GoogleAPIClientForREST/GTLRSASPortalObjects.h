@@ -25,6 +25,7 @@
 @class GTLRSASPortal_DeviceModel;
 @class GTLRSASPortal_DpaMoveList;
 @class GTLRSASPortal_FrequencyRange;
+@class GTLRSASPortal_GcpProjectDeployment;
 @class GTLRSASPortal_InstallationParams;
 @class GTLRSASPortal_Node;
 @class GTLRSASPortal_NrqzValidation;
@@ -294,22 +295,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *score;
-
-@end
-
-
-/**
- *  Response for [CheckHasProvisionedDeployment].
- *  [spectrum.sas.portal.v1alpha1.Provisioning.CheckHasProvisionedDeployment].
- */
-@interface GTLRSASPortal_CheckHasProvisionedDeploymentResponse : GTLRObject
-
-/**
- *  Whether a SAS deployment for the authentication context exists.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hasProvisionedDeployment;
 
 @end
 
@@ -736,6 +721,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 
 
 /**
+ *  Deployment associated with the GCP project. Includes whether SAS analytics
+ *  has been enabled or not.
+ */
+@interface GTLRSASPortal_GcpProjectDeployment : GTLRObject
+
+/** Deployment associated with the GCP project. */
+@property(nonatomic, strong, nullable) GTLRSASPortal_Deployment *deployment;
+
+/**
+ *  Whether SAS analytics has been enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasEnabledAnalytics;
+
+@end
+
+
+/**
  *  Request for GenerateSecret.
  */
 @interface GTLRSASPortal_GenerateSecretRequest : GTLRObject
@@ -985,6 +989,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *  empty, it means there is no more devices.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for [ListGcpProjectDeployments].
+ */
+@interface GTLRSASPortal_ListGcpProjectDeploymentsResponse : GTLRObject
+
+/** Optional. Deployments associated with the GCP project */
+@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_GcpProjectDeployment *> *deployments;
 
 @end
 

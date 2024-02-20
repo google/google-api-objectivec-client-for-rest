@@ -53,6 +53,10 @@
 @class GTLRCloudComposer_StorageConfig;
 @class GTLRCloudComposer_TaskLogsRetentionConfig;
 @class GTLRCloudComposer_TriggererResource;
+@class GTLRCloudComposer_UserWorkloadsConfigMap;
+@class GTLRCloudComposer_UserWorkloadsConfigMap_Data;
+@class GTLRCloudComposer_UserWorkloadsSecret;
+@class GTLRCloudComposer_UserWorkloadsSecret_Data;
 @class GTLRCloudComposer_WebServerConfig;
 @class GTLRCloudComposer_WebServerNetworkAccessControl;
 @class GTLRCloudComposer_WebServerResource;
@@ -1313,6 +1317,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 
 
 /**
+ *  The user workloads ConfigMaps for a given environment.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userWorkloadsConfigMaps" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudComposer_ListUserWorkloadsConfigMapsResponse : GTLRCollectionObject
+
+/** The page token used to query for the next page if one exists. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of ConfigMaps returned by a ListUserWorkloadsConfigMapsRequest.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_UserWorkloadsConfigMap *> *userWorkloadsConfigMaps;
+
+@end
+
+
+/**
+ *  The user workloads Secrets for a given environment.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userWorkloadsSecrets" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudComposer_ListUserWorkloadsSecretsResponse : GTLRCollectionObject
+
+/** The page token used to query for the next page if one exists. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Secrets returned by a ListUserWorkloadsSecretsRequest.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_UserWorkloadsSecret *> *userWorkloadsSecrets;
+
+@end
+
+
+/**
  *  Response to ListWorkloadsRequest.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2373,6 +2425,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  */
 @property(nonatomic, strong, nullable) NSNumber *memoryGb;
 
+@end
+
+
+/**
+ *  User workloads ConfigMap used by Airflow tasks that run with Kubernetes
+ *  executor or KubernetesPodOperator.
+ */
+@interface GTLRCloudComposer_UserWorkloadsConfigMap : GTLRObject
+
+/**
+ *  Optional. The "data" field of Kubernetes ConfigMap, organized in key-value
+ *  pairs. For details see:
+ *  https://kubernetes.io/docs/concepts/configuration/configmap/
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_UserWorkloadsConfigMap_Data *data;
+
+/**
+ *  Identifier. The resource name of the ConfigMap, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsConfigMaps/{userWorkloadsConfigMapId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Optional. The "data" field of Kubernetes ConfigMap, organized in key-value
+ *  pairs. For details see:
+ *  https://kubernetes.io/docs/concepts/configuration/configmap/
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudComposer_UserWorkloadsConfigMap_Data : GTLRObject
+@end
+
+
+/**
+ *  User workloads Secret used by Airflow tasks that run with Kubernetes
+ *  executor or KubernetesPodOperator.
+ */
+@interface GTLRCloudComposer_UserWorkloadsSecret : GTLRObject
+
+/**
+ *  Optional. The "data" field of Kubernetes Secret, organized in key-value
+ *  pairs, which can contain sensitive values such as a password, a token, or a
+ *  key. The values for all keys have to be base64-encoded strings. For details
+ *  see: https://kubernetes.io/docs/concepts/configuration/secret/
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_UserWorkloadsSecret_Data *data;
+
+/**
+ *  Identifier. The resource name of the Secret, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Optional. The "data" field of Kubernetes Secret, organized in key-value
+ *  pairs, which can contain sensitive values such as a password, a token, or a
+ *  key. The values for all keys have to be base64-encoded strings. For details
+ *  see: https://kubernetes.io/docs/concepts/configuration/secret/
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudComposer_UserWorkloadsSecret_Data : GTLRObject
 @end
 
 

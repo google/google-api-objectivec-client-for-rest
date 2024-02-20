@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Retail API (retail/v2)
+//   Vertex AI Search for Retail API (retail/v2)
 // Description:
-//   Cloud Retail service enables customers to build end-to-end personalized
-//   recommendation systems without requiring a high level of expertise in
-//   machine learning, recommendation system, or Google Cloud.
+//   Vertex AI Search for Retail API is made up of Retail Search, Browse and
+//   Recommendations. These discovery AI solutions help you implement
+//   personalized search, browse and recommendations, based on machine learning
+//   models, across your websites and mobile applications.
 // Documentation:
 //   https://cloud.google.com/recommendations
 
@@ -578,6 +579,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2Control class];
   query.loggingName = @"retail.projects.locations.catalogs.controls.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsExportAnalyticsMetrics
+
+@dynamic catalog;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsRequest *)object
+                        catalog:(NSString *)catalog {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"catalog" ];
+  NSString *pathURITemplate = @"v2/{+catalog}:exportAnalyticsMetrics";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsExportAnalyticsMetrics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.catalog = catalog;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningOperation class];
+  query.loggingName = @"retail.projects.locations.catalogs.exportAnalyticsMetrics";
   return query;
 }
 

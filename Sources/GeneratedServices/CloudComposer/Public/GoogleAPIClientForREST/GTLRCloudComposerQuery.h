@@ -519,6 +519,372 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a user workloads ConfigMap. This method is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsCreate : GTLRCloudComposerQuery
+
+/**
+ *  Required. The environment name to create a ConfigMap for, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_UserWorkloadsConfigMap.
+ *
+ *  Creates a user workloads ConfigMap. This method is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param object The @c GTLRCloudComposer_UserWorkloadsConfigMap to include in
+ *    the query.
+ *  @param parent Required. The environment name to create a ConfigMap for, in
+ *    the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_UserWorkloadsConfigMap *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a user workloads ConfigMap. This method is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsDelete : GTLRCloudComposerQuery
+
+/**
+ *  Required. The ConfigMap to delete, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsConfigMaps/{userWorkloadsConfigMapId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Empty.
+ *
+ *  Deletes a user workloads ConfigMap. This method is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param name Required. The ConfigMap to delete, in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsConfigMaps/{userWorkloadsConfigMapId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an existing user workloads ConfigMap. This method is supported for
+ *  Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and
+ *  newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsGet : GTLRCloudComposerQuery
+
+/**
+ *  Required. The resource name of the ConfigMap to get, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsConfigMaps/{userWorkloadsConfigMapId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_UserWorkloadsConfigMap.
+ *
+ *  Gets an existing user workloads ConfigMap. This method is supported for
+ *  Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and
+ *  newer.
+ *
+ *  @param name Required. The resource name of the ConfigMap to get, in the
+ *    form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsConfigMaps/{userWorkloadsConfigMapId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists user workloads ConfigMaps. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsList : GTLRCloudComposerQuery
+
+/** Optional. The maximum number of ConfigMaps to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. List ConfigMaps in the given environment, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_ListUserWorkloadsConfigMapsResponse.
+ *
+ *  Lists user workloads ConfigMaps. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param parent Required. List ConfigMaps in the given environment, in the
+ *    form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a user workloads ConfigMap. This method is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsConfigMaps.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsUpdate : GTLRCloudComposerQuery
+
+/**
+ *  Identifier. The resource name of the ConfigMap, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsConfigMaps/{userWorkloadsConfigMapId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_UserWorkloadsConfigMap.
+ *
+ *  Updates a user workloads ConfigMap. This method is supported for Cloud
+ *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param object The @c GTLRCloudComposer_UserWorkloadsConfigMap to include in
+ *    the query.
+ *  @param name Identifier. The resource name of the ConfigMap, in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsConfigMaps/{userWorkloadsConfigMapId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_UserWorkloadsConfigMap *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a user workloads Secret. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsSecrets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsCreate : GTLRCloudComposerQuery
+
+/**
+ *  Required. The environment name to create a Secret for, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_UserWorkloadsSecret.
+ *
+ *  Creates a user workloads Secret. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param object The @c GTLRCloudComposer_UserWorkloadsSecret to include in the
+ *    query.
+ *  @param parent Required. The environment name to create a Secret for, in the
+ *    form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_UserWorkloadsSecret *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a user workloads Secret. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsSecrets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsDelete : GTLRCloudComposerQuery
+
+/**
+ *  Required. The Secret to delete, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Empty.
+ *
+ *  Deletes a user workloads Secret. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param name Required. The Secret to delete, in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an existing user workloads Secret. Values of the "data" field in the
+ *  response are cleared. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsSecrets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsGet : GTLRCloudComposerQuery
+
+/**
+ *  Required. The resource name of the Secret to get, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_UserWorkloadsSecret.
+ *
+ *  Gets an existing user workloads Secret. Values of the "data" field in the
+ *  response are cleared. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param name Required. The resource name of the Secret to get, in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists user workloads Secrets. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsSecrets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsList : GTLRCloudComposerQuery
+
+/** Optional. The maximum number of Secrets to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. List Secrets in the given environment, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_ListUserWorkloadsSecretsResponse.
+ *
+ *  Lists user workloads Secrets. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param parent Required. List Secrets in the given environment, in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a user workloads Secret. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  Method: composer.projects.locations.environments.userWorkloadsSecrets.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsUpdate : GTLRCloudComposerQuery
+
+/**
+ *  Identifier. The resource name of the Secret, in the form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_UserWorkloadsSecret.
+ *
+ *  Updates a user workloads Secret. This method is supported for Cloud Composer
+ *  environments in versions composer-3.*.*-airflow-*.*.* and newer.
+ *
+ *  @param object The @c GTLRCloudComposer_UserWorkloadsSecret to include in the
+ *    query.
+ *  @param name Identifier. The resource name of the Secret, in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}/userWorkloadsSecrets/{userWorkloadsSecretId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_UserWorkloadsSecret *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists workloads in a Cloud Composer environment. Workload is a unit that
  *  runs a single Composer component. This method is supported for Cloud
  *  Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.

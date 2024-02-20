@@ -539,6 +539,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleM
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPscEndpoint;
 /**
+ *  The packet sent from the hybrid NEG proxy matches a non-dynamic route, but
+ *  such a configuration is not supported.
+ *
+ *  Value: "HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonDynamicRouteMatched;
+/**
+ *  The packet sent from the hybrid NEG proxy matches a dynamic route with a
+ *  next hop in a different region, but such a configuration is not supported.
+ *
+ *  Value: "HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched;
+/**
  *  Packet is sent from or to a Compute Engine instance that is not in a running
  *  state.
  *
@@ -1300,7 +1314,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_
  *  The source and destination endpoints do not uniquely identify the test
  *  location in the network, and the reachability result contains multiple
  *  traces. For some traces, a packet could be delivered, and for others, it
- *  would not be.
+ *  would not be. This result is also assigned to configuration analysis of
+ *  return path if on its own it should be REACHABLE, but configuration analysis
+ *  of forward path is AMBIGUOUS.
  *
  *  Value: "AMBIGUOUS"
  */
@@ -2390,6 +2406,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Packet was dropped because the Google-managed service uses Private
  *        Service Connect (PSC), but the PSC endpoint is not found in the
  *        project. (Value: "GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonDynamicRouteMatched
+ *        The packet sent from the hybrid NEG proxy matches a non-dynamic route,
+ *        but such a configuration is not supported. (Value:
+ *        "HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched
+ *        The packet sent from the hybrid NEG proxy matches a dynamic route with
+ *        a next hop in a different region, but such a configuration is not
+ *        supported. (Value: "HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning Packet is
  *        sent from or to a Compute Engine instance that is not in a running
  *        state. (Value: "INSTANCE_NOT_RUNNING")
@@ -3880,7 +3904,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        source and destination endpoints do not uniquely identify the test
  *        location in the network, and the reachability result contains multiple
  *        traces. For some traces, a packet could be delivered, and for others,
- *        it would not be. (Value: "AMBIGUOUS")
+ *        it would not be. This result is also assigned to configuration
+ *        analysis of return path if on its own it should be REACHABLE, but
+ *        configuration analysis of forward path is AMBIGUOUS. (Value:
+ *        "AMBIGUOUS")
  *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Reachable
  *        Possible scenarios are: * The configuration analysis determined that a
  *        packet originating from the source is expected to reach the
@@ -4391,6 +4418,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  be different between traces.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_EndpointInfo *endpointInfo;
+
+/**
+ *  ID of trace. For forward traces, this ID is unique for each trace. For
+ *  return traces, it matches ID of associated forward trace. A single forward
+ *  trace can be associated with none, one or more than one return trace.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forwardTraceId;
 
 /**
  *  A trace of a test contains multiple steps from the initial state to the

@@ -118,6 +118,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Partition;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args;
@@ -1452,6 +1453,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeM
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult.state
+
+/**
+ *  Import job was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Cancelled;
+/**
+ *  Import Job was failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Failed;
+/**
+ *  Import Job is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Running;
+/**
+ *  State Unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_StateUnspecified;
+/**
+ *  Import Job was successful.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Schema.partitionStyle
@@ -6171,6 +6206,94 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Zone *> *zones;
+
+@end
+
+
+/**
+ *  These messages contain information about the execution of a metadata job.
+ *  The monitored resource is 'MetadataJob'.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEvent : GTLRObject
+
+/** Import job results. Should only be populated on terminal states. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult *importResult;
+
+/** Message describing failure or success event. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The resource name associated with the event. Supported resources included,
+ *  but not limited to EntryGroup, MetadataJob, and Entry.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
+ *  Import job result for metadata job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult : GTLRObject
+
+/**
+ *  Total number of entries created.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdEntries;
+
+/**
+ *  Total number of entries deleted.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedEntries;
+
+/**
+ *  The number of entry groups modified/specified by the import job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mutatedEntryGroups;
+
+/**
+ *  Total number of entries recreated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recreatedEntries;
+
+/**
+ *  Output only. Terminal state of the import job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Cancelled
+ *        Import job was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Failed
+ *        Import Job was failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Running
+ *        Import Job is running. (Value: "RUNNING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_StateUnspecified
+ *        State Unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Succeeded
+ *        Import Job was successful. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Total number of entries left unchanged.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unchangedEntries;
+
+/**
+ *  Total number of entries updated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updatedEntries;
 
 @end
 

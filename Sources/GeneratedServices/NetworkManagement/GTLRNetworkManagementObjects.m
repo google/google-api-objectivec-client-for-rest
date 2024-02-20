@@ -88,6 +88,8 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAcce
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkePscEndpointMissing = @"GKE_PSC_ENDPOINT_MISSING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPeering = @"GOOGLE_MANAGED_SERVICE_NO_PEERING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPscEndpoint = @"GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonDynamicRouteMatched = @"HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched = @"HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning = @"INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet = @"LOAD_BALANCER_HAS_NO_PROXY_SUBNET";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_EXTERNAL_ADDRESS";
@@ -1109,7 +1111,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_Trace
-@dynamic endpointInfo, steps;
+@dynamic endpointInfo, forwardTraceId, steps;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

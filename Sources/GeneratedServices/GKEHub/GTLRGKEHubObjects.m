@@ -94,6 +94,13 @@ NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Install
 NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_NotInstalled = @"NOT_INSTALLED";
 NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_RootsyncCrd_Terminating = @"TERMINATING";
 
+// GTLRGKEHub_ConfigManagementConfigSyncState.state
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncError = @"CONFIG_SYNC_ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncInstalled = @"CONFIG_SYNC_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncNotInstalled = @"CONFIG_SYNC_NOT_INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_ConfigSyncPending = @"CONFIG_SYNC_PENDING";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncState_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperAudit
 NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Error = @"ERROR";
@@ -128,6 +135,11 @@ NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_
 NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Installed = @"INSTALLED";
 NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_NotInstalled = @"NOT_INSTALLED";
 NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Pending = @"PENDING";
+
+// GTLRGKEHub_ConfigManagementMembershipSpec.management
+NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementAutomatic = @"MANAGEMENT_AUTOMATIC";
+NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementManual = @"MANAGEMENT_MANUAL";
+NSString * const kGTLRGKEHub_ConfigManagementMembershipSpec_Management_ManagementUnspecified = @"MANAGEMENT_UNSPECIFIED";
 
 // GTLRGKEHub_ConfigManagementOperatorState.deploymentState
 NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
@@ -712,7 +724,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSyncState
-@dynamic deploymentState, errors, reposyncCrd, rootsyncCrd, syncState, version;
+@dynamic deploymentState, errors, reposyncCrd, rootsyncCrd, state, syncState,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -839,7 +852,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementMembershipSpec
-@dynamic cluster, configSync, hierarchyController, policyController, version;
+@dynamic cluster, configSync, hierarchyController, management, policyController,
+         version;
 @end
 
 

@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Retail API (retail/v2)
+//   Vertex AI Search for Retail API (retail/v2)
 // Description:
-//   Cloud Retail service enables customers to build end-to-end personalized
-//   recommendation systems without requiring a high level of expertise in
-//   machine learning, recommendation system, or Google Cloud.
+//   Vertex AI Search for Retail API is made up of Retail Search, Browse and
+//   Recommendations. These discovery AI solutions help you implement
+//   personalized search, browse and recommendations, based on machine learning
+//   models, across your websites and mobile applications.
 // Documentation:
 //   https://cloud.google.com/recommendations
 
@@ -50,6 +51,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2betaModelServingConfigList;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaUserEventImportSummary;
+@class GTLRCloudRetail_GoogleCloudRetailV2BigQueryOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2BigQuerySource;
 @class GTLRCloudRetail_GoogleCloudRetailV2Catalog;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute;
@@ -71,7 +73,9 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute;
 @class GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfoServingConfigExperiment;
+@class GTLRCloudRetail_GoogleCloudRetailV2ExportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo;
+@class GTLRCloudRetail_GoogleCloudRetailV2GcsOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2GcsSource;
 @class GTLRCloudRetail_GoogleCloudRetailV2Image;
 @class GTLRCloudRetail_GoogleCloudRetailV2ImportErrorsConfig;
@@ -82,6 +86,10 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2ModelFrequentlyBoughtTogetherFeaturesConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2ModelModelFeaturesConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2ModelServingConfigList;
+@class GTLRCloudRetail_GoogleCloudRetailV2OutputConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2OutputConfigBigQueryDestination;
+@class GTLRCloudRetail_GoogleCloudRetailV2OutputConfigGcsDestination;
+@class GTLRCloudRetail_GoogleCloudRetailV2OutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Labels;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Params;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictResponsePredictionResult;
@@ -3640,6 +3648,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  A BigQuery output result.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2BigQueryOutputResult : GTLRObject
+
+/** The ID of a BigQuery Dataset. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** The ID of a BigQuery Table. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
  *  BigQuery source import data from.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2BigQuerySource : GTLRObject
@@ -4512,6 +4534,84 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for the `ExportAnalyticsMetrics` method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsRequest : GTLRObject
+
+/**
+ *  A filtering expression to specify restrictions on returned metrics. The
+ *  expression is a sequence of terms. Each term applies a restriction to the
+ *  returned metrics. Use this expression to restrict results to a specific time
+ *  range. Currently we expect only one types of fields: * `timestamp`: This can
+ *  be specified twice, once with a less than operator and once with a greater
+ *  than operator. The `timestamp` restriction should result in one, contiguous,
+ *  valid, `timestamp` range. Some examples of valid filters expressions: *
+ *  Example 1: `timestamp > "2012-04-23T18:25:43.511Z" timestamp <
+ *  "2012-04-23T18:30:43.511Z"` * Example 2: `timestamp >
+ *  "2012-04-23T18:25:43.511Z"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The output location of the data. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2OutputConfig *outputConfig;
+
+@end
+
+
+/**
+ *  Response of the ExportAnalyticsMetricsRequest. If the long running operation
+ *  was successful, then this message is returned by the
+ *  google.longrunning.Operations.response field if the operation was
+ *  successful.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsResponse : GTLRObject
+
+/** A sample of errors encountered while processing the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleRpcStatus *> *errorSamples;
+
+/** This field is never set. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ExportErrorsConfig *errorsConfig;
+
+/** Output result indicating where the data were exported to. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2OutputResult *outputResult;
+
+@end
+
+
+/**
+ *  Configuration of destination for Export related errors.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ExportErrorsConfig : GTLRObject
+
+/**
+ *  Google Cloud Storage path for import errors. This must be an empty, existing
+ *  Cloud Storage bucket. Export errors will be written to a file in this
+ *  bucket, one per line, as a JSON-encoded `google.rpc.Status` message.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsPrefix;
+
+@end
+
+
+/**
+ *  Metadata related to the progress of the Export operation. This is returned
+ *  by the google.longrunning.Operation.metadata field.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ExportMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Fulfillment information, such as the store IDs for in-store pickup or region
  *  IDs for different shipping methods.
  */
@@ -4537,6 +4637,17 @@ GTLR_DEPRECATED
  *  other than these, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A Gcs output result.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2GcsOutputResult : GTLRObject
+
+/** The uri of Gcs output */
+@property(nonatomic, copy, nullable) NSString *outputUri;
 
 @end
 
@@ -5296,6 +5407,74 @@ GTLR_DEPRECATED
  *  `PAGE_OPTIMIZATION`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *servingConfigIds;
+
+@end
+
+
+/**
+ *  The output configuration setting.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2OutputConfig : GTLRObject
+
+/** The BigQuery location where the output is to be written to. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2OutputConfigBigQueryDestination *bigqueryDestination;
+
+/** The Google Cloud Storage location where the output is to be written to. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2OutputConfigGcsDestination *gcsDestination;
+
+@end
+
+
+/**
+ *  The BigQuery output destination configuration.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2OutputConfigBigQueryDestination : GTLRObject
+
+/** Required. The ID of a BigQuery Dataset. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. The prefix of exported BigQuery tables. */
+@property(nonatomic, copy, nullable) NSString *tableIdPrefix;
+
+/**
+ *  Required. Describes the table type. The following values are supported: *
+ *  `table`: A BigQuery native table. * `view`: A virtual table defined by a SQL
+ *  query.
+ */
+@property(nonatomic, copy, nullable) NSString *tableType;
+
+@end
+
+
+/**
+ *  The Google Cloud Storage output destination configuration.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2OutputConfigGcsDestination : GTLRObject
+
+/**
+ *  Required. The output uri prefix for saving output data to json files. Some
+ *  mapping examples are as follows: output_uri_prefix sample output(assuming
+ *  the object is foo.json) ========================
+ *  ============================================= gs://bucket/
+ *  gs://bucket/foo.json gs://bucket/folder/ gs://bucket/folder/foo.json
+ *  gs://bucket/folder/item_ gs://bucket/folder/item_foo.json
+ */
+@property(nonatomic, copy, nullable) NSString *outputUriPrefix;
+
+@end
+
+
+/**
+ *  Output result that stores the information about where the exported data is
+ *  stored.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2OutputResult : GTLRObject
+
+/** The BigQuery location where the result is stored. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2BigQueryOutputResult *> *bigqueryResult;
+
+/** The Google Cloud Storage location where the result is stored. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2GcsOutputResult *> *gcsResult;
 
 @end
 

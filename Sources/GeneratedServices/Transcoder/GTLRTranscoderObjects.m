@@ -24,6 +24,16 @@ NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentList =
 NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentReferenceSchemeUnspecified = @"SEGMENT_REFERENCE_SCHEME_UNSPECIFIED";
 NSString * const kGTLRTranscoder_DashConfig_SegmentReferenceScheme_SegmentTemplateNumber = @"SEGMENT_TEMPLATE_NUMBER";
 
+// GTLRTranscoder_H264CodecSettings.frameRateConversionStrategy
+NSString * const kGTLRTranscoder_H264CodecSettings_FrameRateConversionStrategy_Downsample = @"DOWNSAMPLE";
+NSString * const kGTLRTranscoder_H264CodecSettings_FrameRateConversionStrategy_DropDuplicate = @"DROP_DUPLICATE";
+NSString * const kGTLRTranscoder_H264CodecSettings_FrameRateConversionStrategy_FrameRateConversionStrategyUnspecified = @"FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED";
+
+// GTLRTranscoder_H265CodecSettings.frameRateConversionStrategy
+NSString * const kGTLRTranscoder_H265CodecSettings_FrameRateConversionStrategy_Downsample = @"DOWNSAMPLE";
+NSString * const kGTLRTranscoder_H265CodecSettings_FrameRateConversionStrategy_DropDuplicate = @"DROP_DUPLICATE";
+NSString * const kGTLRTranscoder_H265CodecSettings_FrameRateConversionStrategy_FrameRateConversionStrategyUnspecified = @"FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED";
+
 // GTLRTranscoder_Job.mode
 NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeBatch  = @"PROCESSING_MODE_BATCH";
 NSString * const kGTLRTranscoder_Job_Mode_ProcessingModeInteractive = @"PROCESSING_MODE_INTERACTIVE";
@@ -45,6 +55,11 @@ NSString * const kGTLRTranscoder_Job_State_Succeeded           = @"SUCCEEDED";
 NSString * const kGTLRTranscoder_Manifest_Type_Dash            = @"DASH";
 NSString * const kGTLRTranscoder_Manifest_Type_Hls             = @"HLS";
 NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIFEST_TYPE_UNSPECIFIED";
+
+// GTLRTranscoder_Vp9CodecSettings.frameRateConversionStrategy
+NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateConversionStrategy_Downsample = @"DOWNSAMPLE";
+NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateConversionStrategy_DropDuplicate = @"DROP_DUPLICATE";
+NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateConversionStrategy_FrameRateConversionStrategyUnspecified = @"FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -313,9 +328,10 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_H264CodecSettings
 @dynamic allowOpenGop, aqStrength, bFrameCount, bitrateBps, bPyramid, crfLevel,
-         enableTwoPass, entropyCoder, frameRate, gopDuration, gopFrameCount,
-         heightPixels, hlg, pixelFormat, preset, profile, rateControlMode, sdr,
-         tune, vbvFullnessBits, vbvSizeBits, widthPixels;
+         enableTwoPass, entropyCoder, frameRate, frameRateConversionStrategy,
+         gopDuration, gopFrameCount, heightPixels, hlg, pixelFormat, preset,
+         profile, rateControlMode, sdr, tune, vbvFullnessBits, vbvSizeBits,
+         widthPixels;
 @end
 
 
@@ -344,9 +360,9 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_H265CodecSettings
 @dynamic allowOpenGop, aqStrength, bFrameCount, bitrateBps, bPyramid, crfLevel,
-         enableTwoPass, frameRate, gopDuration, gopFrameCount, hdr10,
-         heightPixels, hlg, pixelFormat, preset, profile, rateControlMode, sdr,
-         tune, vbvFullnessBits, vbvSizeBits, widthPixels;
+         enableTwoPass, frameRate, frameRateConversionStrategy, gopDuration,
+         gopFrameCount, hdr10, heightPixels, hlg, pixelFormat, preset, profile,
+         rateControlMode, sdr, tune, vbvFullnessBits, vbvSizeBits, widthPixels;
 @end
 
 
@@ -761,9 +777,9 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_Vp9CodecSettings
-@dynamic bitrateBps, crfLevel, frameRate, gopDuration, gopFrameCount,
-         heightPixels, hlg, pixelFormat, profile, rateControlMode, sdr,
-         widthPixels;
+@dynamic bitrateBps, crfLevel, frameRate, frameRateConversionStrategy,
+         gopDuration, gopFrameCount, heightPixels, hlg, pixelFormat, profile,
+         rateControlMode, sdr, widthPixels;
 @end
 
 

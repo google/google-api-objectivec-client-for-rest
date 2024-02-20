@@ -190,7 +190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTyp
 /**
  *  The evaluation result is `conditional` when the condition expression
  *  contains variables that are either missing input values or have not been
- *  supported by Analyzer yet.
+ *  supported by Policy Analyzer yet.
  *
  *  Value: "CONDITIONAL"
  */
@@ -1584,7 +1584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  The Condition evaluation.
+ *  The condition evaluation.
  */
 @interface GTLRCloudAsset_ConditionEvaluation : GTLRObject
 
@@ -1595,7 +1595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *    @arg @c kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_Conditional
  *        The evaluation result is `conditional` when the condition expression
  *        contains variables that are either missing input values or have not
- *        been supported by Analyzer yet. (Value: "CONDITIONAL")
+ *        been supported by Policy Analyzer yet. (Value: "CONDITIONAL")
  *    @arg @c kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_EvaluationValueUnspecified
  *        Reserved for future use. (Value: "EVALUATION_VALUE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_False The
@@ -2914,10 +2914,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The condition evaluation result for this rule. Only populated if it meets
- *  all the following criteria: * there is a condition defined for this rule *
- *  this rule is within a consolidated_policy * the consolidated_policy is
- *  within AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer or
- *  AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource
+ *  all the following criteria: * There is a condition defined for this rule. *
+ *  This rule is within
+ *  AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.consolidated_policy,
+ *  or AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.consolidated_policy
+ *  when the AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset has
+ *  AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.governed_resource.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_ConditionEvaluation *conditionEvaluation;
 
@@ -2939,8 +2941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSNumber *enforce;
 
 /**
- *  List of values to be used for this PolicyRule. This field can be set only in
- *  Policies for list constraints.
+ *  List of values to be used for this policy rule. This field can be set only
+ *  in policies for list constraints.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1StringValues *values;
 
@@ -4091,9 +4093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  number (such as "organizations/123"), a folder number (such as
  *  "folders/123"), a project ID (such as "projects/my-project-id"), or a
  *  project number (such as "projects/12345"). To know how to get organization
- *  id, visit [here
+ *  ID, visit [here
  *  ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
- *  To know how to get folder or project id, visit [here
+ *  To know how to get folder or project ID, visit [here
  *  ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
  */
 @property(nonatomic, copy, nullable) NSString *scope;
@@ -6043,7 +6045,7 @@ GTLR_DEPRECATED
 
 /**
  *  The key and value for a
- *  [tag](https://cloud.google.com/resource-manager/docs/tags/tags-overview),
+ *  [tag](https://cloud.google.com/resource-manager/docs/tags/tags-overview).
  */
 @interface GTLRCloudAsset_Tag : GTLRObject
 

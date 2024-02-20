@@ -460,6 +460,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Optional. The attribute by which to order conversations in the response. If
+ *  empty, conversations will be ordered by descending creation time. Supported
+ *  values are one of the following: * create_time *
+ *  customer_satisfaction_rating * duration * latest_analysis * start_time *
+ *  turn_count The default sort order is ascending. To specify order, append
+ *  `asc` or `desc`, i.e. `create_time desc`. See
+ *  https://google.aip.dev/132#ordering for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  The maximum number of conversations to return in the response. A valid page
  *  size ranges from 0 to 1,000 inclusive. If the page size is zero or
  *  unspecified, a default page size of 100 will be chosen. Note that a call
@@ -760,6 +771,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Exports an issue model to the provided destination.
+ *
+ *  Method: contactcenterinsights.projects.locations.issueModels.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsExport : GTLRContactcenterinsightsQuery
+
+/** Required. The issue model to export */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Exports an issue model to the provided destination.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequest
+ *    to include in the query.
+ *  @param name Required. The issue model to export
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsExport
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets an issue model.
  *
  *  Method: contactcenterinsights.projects.locations.issueModels.get
@@ -783,6 +824,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports an issue model from a Cloud Storage bucket.
+ *
+ *  Method: contactcenterinsights.projects.locations.issueModels.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsImport : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the issue model. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Imports an issue model from a Cloud Storage bucket.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the issue model.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsImport
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

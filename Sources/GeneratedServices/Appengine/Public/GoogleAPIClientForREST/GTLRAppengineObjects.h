@@ -3687,6 +3687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @property(nonatomic, copy, nullable) NSString *stage;
 
+/** Supported operating systems for the runtime, e.g., 'ubuntu22', etc. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedOperatingSystems;
+
 /** Warning messages, e.g., a deprecation warning. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
 

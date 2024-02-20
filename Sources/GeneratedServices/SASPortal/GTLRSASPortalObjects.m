@@ -103,16 +103,6 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSASPortal_CheckHasProvisionedDeploymentResponse
-//
-
-@implementation GTLRSASPortal_CheckHasProvisionedDeploymentResponse
-@dynamic hasProvisionedDeployment;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSASPortal_CreateSignedDeviceRequest
 //
 
@@ -292,6 +282,16 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSASPortal_GcpProjectDeployment
+//
+
+@implementation GTLRSASPortal_GcpProjectDeployment
+@dynamic deployment, hasEnabledAnalytics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSASPortal_GenerateSecretRequest
 //
 
@@ -393,6 +393,24 @@ NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_
 
 + (NSString *)collectionItemsKey {
   return @"devices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_ListGcpProjectDeploymentsResponse
+//
+
+@implementation GTLRSASPortal_ListGcpProjectDeploymentsResponse
+@dynamic deployments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deployments" : [GTLRSASPortal_GcpProjectDeployment class]
+  };
+  return map;
 }
 
 @end

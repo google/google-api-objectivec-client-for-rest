@@ -2144,7 +2144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  disallowUnspecifiedMode
+ *  Optional. If this is true, aunspecified repo type will be treated as error.
+ *  Is used for new repo types that don't have any specific fields. Right now is
+ *  used by AOSS team when creating repos for customers.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -253,9 +253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  only be an organization number (such as "organizations/123"), a folder
  *  number (such as "folders/123"), a project ID (such as
  *  "projects/my-project-id"), or a project number (such as "projects/12345").
- *  To know how to get organization id, visit [here
+ *  To know how to get organization ID, visit [here
  *  ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
- *  To know how to get folder or project id, visit [here
+ *  To know how to get folder or project ID, visit [here
  *  ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
  */
 @property(nonatomic, copy, nullable) NSString *scope;
@@ -269,9 +269,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *    returned. This can only be an organization number (such as
  *    "organizations/123"), a folder number (such as "folders/123"), a project
  *    ID (such as "projects/my-project-id"), or a project number (such as
- *    "projects/12345"). To know how to get organization id, visit [here
+ *    "projects/12345"). To know how to get organization ID, visit [here
  *    ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
- *    To know how to get folder or project id, visit [here
+ *    To know how to get folder or project ID, visit [here
  *    ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
  *
  *  @return GTLRCloudAssetQuery_EffectiveIamPoliciesBatchGet
@@ -866,9 +866,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  number (such as "organizations/123"), a folder number (such as
  *  "folders/123"), a project ID (such as "projects/my-project-id"), or a
  *  project number (such as "projects/12345"). To know how to get organization
- *  id, visit [here
+ *  ID, visit [here
  *  ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
- *  To know how to get folder or project id, visit [here
+ *  To know how to get folder or project ID, visit [here
  *  ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
  */
 @property(nonatomic, copy, nullable) NSString *scope;
@@ -884,9 +884,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *    organization number (such as "organizations/123"), a folder number (such
  *    as "folders/123"), a project ID (such as "projects/my-project-id"), or a
  *    project number (such as "projects/12345"). To know how to get organization
- *    id, visit [here
+ *    ID, visit [here
  *    ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
- *    To know how to get folder or project id, visit [here
+ *    To know how to get folder or project ID, visit [here
  *    ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
  *
  *  @return GTLRCloudAssetQuery_V1AnalyzeIamPolicy
@@ -918,9 +918,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  number (such as "organizations/123"), a folder number (such as
  *  "folders/123"), a project ID (such as "projects/my-project-id"), or a
  *  project number (such as "projects/12345"). To know how to get organization
- *  id, visit [here
+ *  ID, visit [here
  *  ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
- *  To know how to get folder or project id, visit [here
+ *  To know how to get folder or project ID, visit [here
  *  ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
  */
 @property(nonatomic, copy, nullable) NSString *scope;
@@ -944,9 +944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *    organization number (such as "organizations/123"), a folder number (such
  *    as "folders/123"), a project ID (such as "projects/my-project-id"), or a
  *    project number (such as "projects/12345"). To know how to get organization
- *    id, visit [here
+ *    ID, visit [here
  *    ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
- *    To know how to get folder or project id, visit [here
+ *    To know how to get folder or project ID, visit [here
  *    ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
  *
  *  @return GTLRCloudAssetQuery_V1AnalyzeIamPolicyLongrunning

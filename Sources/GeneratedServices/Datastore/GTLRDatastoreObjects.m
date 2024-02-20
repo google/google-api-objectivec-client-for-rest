@@ -425,6 +425,16 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_ExplainOptions
+//
+
+@implementation GTLRDatastore_ExplainOptions
+@dynamic analyze;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_Filter
 //
 
@@ -1160,7 +1170,8 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunAggregationQueryRequest
-@dynamic aggregationQuery, databaseId, gqlQuery, partitionId, readOptions;
+@dynamic aggregationQuery, databaseId, explainOptions, gqlQuery, partitionId,
+         readOptions;
 @end
 
 
@@ -1180,7 +1191,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunQueryRequest
-@dynamic databaseId, gqlQuery, partitionId, query, readOptions;
+@dynamic databaseId, explainOptions, gqlQuery, partitionId, query, readOptions;
 @end
 
 

@@ -74,6 +74,13 @@
 @class GTLRDatastream_SourceHierarchyDatasets;
 @class GTLRDatastream_SourceObjectIdentifier;
 @class GTLRDatastream_SpecificStartPosition;
+@class GTLRDatastream_SqlServerColumn;
+@class GTLRDatastream_SqlServerObjectIdentifier;
+@class GTLRDatastream_SqlServerProfile;
+@class GTLRDatastream_SqlServerRdbms;
+@class GTLRDatastream_SqlServerSchema;
+@class GTLRDatastream_SqlServerSourceConfig;
+@class GTLRDatastream_SqlServerTable;
 @class GTLRDatastream_StaticServiceIpConnectivity;
 @class GTLRDatastream_Status;
 @class GTLRDatastream_Status_Details_Item;
@@ -398,6 +405,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** PostgreSQL data source objects to avoid backfilling. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlExcludedObjects;
 
+/** SQLServer data source objects to avoid backfilling */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerExcludedObjects;
+
 @end
 
 
@@ -560,6 +570,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Private connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PrivateConnectivity *privateConnectivity;
+
+/** SQLServer Connection Profile configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerProfile *sqlServerProfile;
 
 /** Static Service IP connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatastream_StaticServiceIpConnectivity *staticServiceIpConnectivity;
@@ -2093,6 +2106,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, copy, nullable) NSString *sourceConnectionProfile;
 
+/** SQLServer data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerSourceConfig *sqlServerSourceConfig;
+
 @end
 
 
@@ -2122,6 +2138,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** PostgreSQL data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlObjectIdentifier *postgresqlIdentifier;
 
+/** SQLServer data source object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerObjectIdentifier *sqlServerIdentifier;
+
 @end
 
 
@@ -2135,6 +2154,173 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Oracle SCN to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleScnPosition *oracleScnPosition;
+
+@end
+
+
+/**
+ *  SQLServer Column.
+ */
+@interface GTLRDatastream_SqlServerColumn : GTLRObject
+
+/** Column name. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/** The SQLServer data type. */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/**
+ *  Column length.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *length;
+
+/**
+ *  Whether or not the column can accept a null value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullable;
+
+/**
+ *  The ordinal position of the column in the table.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ordinalPosition;
+
+/**
+ *  Column precision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precision;
+
+/**
+ *  Whether or not the column represents a primary key.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *primaryKey;
+
+/**
+ *  Column scale.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scale;
+
+@end
+
+
+/**
+ *  SQLServer data source object identifier.
+ */
+@interface GTLRDatastream_SqlServerObjectIdentifier : GTLRObject
+
+/** Required. The schema name. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/** Required. The table name. */
+@property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  SQLServer database profile
+ */
+@interface GTLRDatastream_SqlServerProfile : GTLRObject
+
+/** Required. Database for the SQLServer connection. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** Required. Hostname for the SQLServer connection. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/** Required. Password for the SQLServer connection. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Port for the SQLServer connection, default value is 1433.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/** Required. Username for the SQLServer connection. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  SQLServer database structure.
+ */
+@interface GTLRDatastream_SqlServerRdbms : GTLRObject
+
+/** SQLServer schemas in the database server. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SqlServerSchema *> *schemas;
+
+@end
+
+
+/**
+ *  SQLServer schema.
+ */
+@interface GTLRDatastream_SqlServerSchema : GTLRObject
+
+/** Schema name. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/** Tables in the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SqlServerTable *> *tables;
+
+@end
+
+
+/**
+ *  SQLServer data source configuration
+ */
+@interface GTLRDatastream_SqlServerSourceConfig : GTLRObject
+
+/** SQLServer objects to exclude from the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *excludeObjects;
+
+/** SQLServer objects to include in the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *includeObjects;
+
+/**
+ *  Max concurrent backfill tasks.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentBackfillTasks;
+
+/**
+ *  Max concurrent CDC tasks.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcTasks;
+
+@end
+
+
+/**
+ *  SQLServer table.
+ */
+@interface GTLRDatastream_SqlServerTable : GTLRObject
+
+/**
+ *  SQLServer columns in the schema. When unspecified as part of include/exclude
+ *  objects, includes/excludes everything.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SqlServerColumn *> *columns;
+
+/** Table name. */
+@property(nonatomic, copy, nullable) NSString *table;
 
 @end
 

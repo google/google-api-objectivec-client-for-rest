@@ -57,6 +57,7 @@
 @class GTLRYouTube_ChannelStatus;
 @class GTLRYouTube_ChannelTopicDetails;
 @class GTLRYouTube_ChannelToStoreLinkDetails;
+@class GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails;
 @class GTLRYouTube_Comment;
 @class GTLRYouTube_CommentSnippet;
 @class GTLRYouTube_CommentSnippetAuthorChannelId;
@@ -96,6 +97,9 @@
 @class GTLRYouTube_LiveChatModerator;
 @class GTLRYouTube_LiveChatModeratorSnippet;
 @class GTLRYouTube_LiveChatNewSponsorDetails;
+@class GTLRYouTube_LiveChatPollDetails;
+@class GTLRYouTube_LiveChatPollDetailsPollMetadata;
+@class GTLRYouTube_LiveChatPollDetailsPollMetadataPollOption;
 @class GTLRYouTube_LiveChatSuperChatDetails;
 @class GTLRYouTube_LiveChatSuperStickerDetails;
 @class GTLRYouTube_LiveChatTextMessageDetails;
@@ -413,6 +417,18 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Priv
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails.billingStatus
+
+/** Value: "billingStatusActive" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusActive;
+/** Value: "billingStatusInactive" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusInactive;
+/** Value: "billingStatusPending" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusPending;
+/** Value: "billingStatusUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CommentSnippet.moderationStatus
@@ -3786,6 +3802,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Mess
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent;
 /** Value: "newSponsorEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent;
+/** Value: "pollEvent" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollEvent;
 /** Value: "sponsorOnlyModeEndedEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent;
 /** Value: "sponsorOnlyModeStartedEvent" */
@@ -3800,6 +3818,16 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Text
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Tombstone;
 /** Value: "userBannedEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_UserBannedEvent;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_LiveChatPollDetails.status
+
+/** Value: "active" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatPollDetails_Status_Active;
+/** Value: "closed" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatPollDetails_Status_Closed;
+/** Value: "unknown" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatPollDetails_Status_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveChatUserBannedMessageDetails.banType
@@ -6154,6 +6182,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRYouTube_ChannelToStoreLinkDetails : GTLRObject
 
+/** Information specific to billing (read-only). */
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails *billingDetails;
+
 /**
  *  Google Merchant Center id of the store.
  *
@@ -6166,6 +6197,29 @@ GTLR_DEPRECATED
 
 /** Landing page of the store. */
 @property(nonatomic, copy, nullable) NSString *storeUrl;
+
+@end
+
+
+/**
+ *  Information specific to billing.
+ */
+@interface GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails : GTLRObject
+
+/**
+ *  The current billing profile status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusActive
+ *        Value "billingStatusActive"
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusInactive
+ *        Value "billingStatusInactive"
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusPending
+ *        Value "billingStatusPending"
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusUnspecified
+ *        Value "billingStatusUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *billingStatus;
 
 @end
 
@@ -9329,7 +9383,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Next ID: 33
+ *  Next ID: 34
  */
 @interface GTLRYouTube_LiveChatMessageSnippet : GTLRObject
 
@@ -9344,7 +9398,7 @@ GTLR_DEPRECATED
  *  messageRetractedEvent - the author that retracted their message
  *  userBannedEvent - the moderator that took the action superChatEvent - the
  *  user that made the purchase superStickerEvent - the user that made the
- *  purchase
+ *  purchase pollEvent - the user that created the poll
  */
 @property(nonatomic, copy, nullable) NSString *authorChannelId;
 
@@ -9398,6 +9452,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatNewSponsorDetails *newSponsorDetails NS_RETURNS_NOT_RETAINED;
 
+/**
+ *  Details about the poll event, this is only set if the type is 'pollEvent'.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollDetails *pollDetails;
+
 /** The date and time when the message was orignally published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -9442,6 +9501,8 @@ GTLR_DEPRECATED
  *        Value "messageRetractedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent Value
  *        "newSponsorEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollEvent Value
+ *        "pollEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent
  *        Value "sponsorOnlyModeEndedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent
@@ -9579,6 +9640,56 @@ GTLR_DEPRECATED
  *  this field isn't filled.
  */
 @property(nonatomic, copy, nullable) NSString *memberLevelName;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatPollDetails
+ */
+@interface GTLRYouTube_LiveChatPollDetails : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollDetailsPollMetadata *metadata;
+
+/**
+ *  status
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_LiveChatPollDetails_Status_Active Value "active"
+ *    @arg @c kGTLRYouTube_LiveChatPollDetails_Status_Closed Value "closed"
+ *    @arg @c kGTLRYouTube_LiveChatPollDetails_Status_Unknown Value "unknown"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatPollDetailsPollMetadata
+ */
+@interface GTLRYouTube_LiveChatPollDetailsPollMetadata : GTLRObject
+
+/** The options will be returned in the order that is displayed in 1P */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveChatPollDetailsPollMetadataPollOption *> *options;
+
+@property(nonatomic, copy, nullable) NSString *questionText;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatPollDetailsPollMetadataPollOption
+ */
+@interface GTLRYouTube_LiveChatPollDetailsPollMetadataPollOption : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *optionText;
+
+/**
+ *  tally
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tally;
 
 @end
 

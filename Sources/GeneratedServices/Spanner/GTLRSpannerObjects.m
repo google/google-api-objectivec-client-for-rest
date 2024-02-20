@@ -42,6 +42,11 @@ NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_DatabaseDial
 NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_GoogleStandardSql = @"GOOGLE_STANDARD_SQL";
 NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_Postgresql = @"POSTGRESQL";
 
+// GTLRSpanner_CreateInstanceMetadata.expectedFulfillmentPeriod
+NSString * const kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodExtended = @"FULFILLMENT_PERIOD_EXTENDED";
+NSString * const kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodNormal = @"FULFILLMENT_PERIOD_NORMAL";
+NSString * const kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodUnspecified = @"FULFILLMENT_PERIOD_UNSPECIFIED";
+
 // GTLRSpanner_Database.databaseDialect
 NSString * const kGTLRSpanner_Database_DatabaseDialect_DatabaseDialectUnspecified = @"DATABASE_DIALECT_UNSPECIFIED";
 NSString * const kGTLRSpanner_Database_DatabaseDialect_GoogleStandardSql = @"GOOGLE_STANDARD_SQL";
@@ -169,6 +174,11 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 NSString * const kGTLRSpanner_Type_TypeAnnotation_PgJsonb      = @"PG_JSONB";
 NSString * const kGTLRSpanner_Type_TypeAnnotation_PgNumeric    = @"PG_NUMERIC";
 NSString * const kGTLRSpanner_Type_TypeAnnotation_TypeAnnotationCodeUnspecified = @"TYPE_ANNOTATION_CODE_UNSPECIFIED";
+
+// GTLRSpanner_UpdateInstanceMetadata.expectedFulfillmentPeriod
+NSString * const kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodExtended = @"FULFILLMENT_PERIOD_EXTENDED";
+NSString * const kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodNormal = @"FULFILLMENT_PERIOD_NORMAL";
+NSString * const kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodUnspecified = @"FULFILLMENT_PERIOD_UNSPECIFIED";
 
 // GTLRSpanner_VisualizationData.keyUnit
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Chunk  = @"CHUNK";
@@ -482,7 +492,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CreateInstanceMetadata
-@dynamic cancelTime, endTime, instance, startTime;
+@dynamic cancelTime, endTime, expectedFulfillmentPeriod, instance, startTime;
 @end
 
 
@@ -2249,7 +2259,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_UpdateInstanceMetadata
-@dynamic cancelTime, endTime, instance, startTime;
+@dynamic cancelTime, endTime, expectedFulfillmentPeriod, instance, startTime;
 @end
 
 

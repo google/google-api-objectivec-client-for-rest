@@ -844,6 +844,33 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRLogging_Settings.analyticsMode
+
+/**
+ *  By default, analytics will be disabled for new project-level buckets unless
+ *  explicitly specified otherwise at bucket creation time.
+ *
+ *  Value: "ANALYTICS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsDisabled;
+/**
+ *  By default, analytics will be enabled for all new project-level buckets
+ *  unless explicitly specified otherwise at bucket creation time.
+ *
+ *  Value: "ANALYTICS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsEnabled;
+/**
+ *  No default analytics mode defined at this resource level, it will inherit
+ *  from the closest ancester which has a defined analytics mode. If there is no
+ *  specified analytics mode across the resource hierarchy, analytics will be
+ *  disabled by default.
+ *
+ *  Value: "ANALYTICS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRLogging_SuppressionInfo.reason
 
 /**
@@ -3981,6 +4008,28 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  billing account.
  */
 @interface GTLRLogging_Settings : GTLRObject
+
+/**
+ *  Optional. The default analytics mode of an org or folder which is inherited
+ *  by all newly created child project buckets.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_Settings_AnalyticsMode_AnalyticsDisabled By default,
+ *        analytics will be disabled for new project-level buckets unless
+ *        explicitly specified otherwise at bucket creation time. (Value:
+ *        "ANALYTICS_DISABLED")
+ *    @arg @c kGTLRLogging_Settings_AnalyticsMode_AnalyticsEnabled By default,
+ *        analytics will be enabled for all new project-level buckets unless
+ *        explicitly specified otherwise at bucket creation time. (Value:
+ *        "ANALYTICS_ENABLED")
+ *    @arg @c kGTLRLogging_Settings_AnalyticsMode_AnalyticsModeUnspecified No
+ *        default analytics mode defined at this resource level, it will inherit
+ *        from the closest ancester which has a defined analytics mode. If there
+ *        is no specified analytics mode across the resource hierarchy,
+ *        analytics will be disabled by default. (Value:
+ *        "ANALYTICS_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *analyticsMode;
 
 /** Optional. Overrides the built-in configuration for _Default sink. */
 @property(nonatomic, strong, nullable) GTLRLogging_DefaultSinkConfig *defaultSinkConfig;

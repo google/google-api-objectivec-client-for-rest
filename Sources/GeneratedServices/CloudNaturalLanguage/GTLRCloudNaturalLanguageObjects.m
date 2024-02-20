@@ -33,6 +33,191 @@ NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf1
 NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf32 = @"UTF32";
 NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf8 = @"UTF8";
 
+// GTLRCloudNaturalLanguage_CpuMetric.cpuType
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A2 = @"A2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A3 = @"A3";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C2 = @"C2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C2d = @"C2D";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C3 = @"C3";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_Custom = @"CUSTOM";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_E2 = @"E2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_G2 = @"G2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_M1 = @"M1";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_M2 = @"M2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_N1 = @"N1";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_N2 = @"N2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_N2Custom = @"N2_CUSTOM";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_N2d = @"N2D";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_UnknownCpuType = @"UNKNOWN_CPU_TYPE";
+
+// GTLRCloudNaturalLanguage_CpuMetric.machineSpec
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Highgpu1g = @"A2_HIGHGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Highgpu2g = @"A2_HIGHGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Highgpu4g = @"A2_HIGHGPU_4G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Highgpu8g = @"A2_HIGHGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Megagpu16g = @"A2_MEGAGPU_16G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu1g = @"A2_ULTRAGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu2g = @"A2_ULTRAGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu4g = @"A2_ULTRAGPU_4G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu8g = @"A2_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu16 = @"C2D_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu2 = @"C2D_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu32 = @"C2D_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu4 = @"C2D_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu56 = @"C2D_HIGHCPU_56";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu8 = @"C2D_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighmem112 = @"C2D_HIGHMEM_112";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighmem16 = @"C2D_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighmem2 = @"C2D_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighmem32 = @"C2D_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighmem4 = @"C2D_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighmem56 = @"C2D_HIGHMEM_56";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighmem8 = @"C2D_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dStandard112 = @"C2D_STANDARD_112";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dStandard16 = @"C2D_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dStandard2 = @"C2D_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dStandard32 = @"C2D_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dStandard4 = @"C2D_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dStandard56 = @"C2D_STANDARD_56";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dStandard8 = @"C2D_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2Standard16 = @"C2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2Standard30 = @"C2_STANDARD_30";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2Standard4 = @"C2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2Standard60 = @"C2_STANDARD_60";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2Standard8 = @"C2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu176 = @"C3_HIGHCPU_176";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu22 = @"C3_HIGHCPU_22";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu4 = @"C3_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu44 = @"C3_HIGHCPU_44";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu8 = @"C3_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu88 = @"C3_HIGHCPU_88";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highmem176 = @"C3_HIGHMEM_176";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highmem22 = @"C3_HIGHMEM_22";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highmem4 = @"C3_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highmem44 = @"C3_HIGHMEM_44";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highmem8 = @"C3_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highmem88 = @"C3_HIGHMEM_88";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Standard176 = @"C3_STANDARD_176";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Standard22 = @"C3_STANDARD_22";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Standard4 = @"C3_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Standard44 = @"C3_STANDARD_44";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Standard8 = @"C3_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Standard88 = @"C3_STANDARD_88";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highcpu16 = @"E2_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highcpu2 = @"E2_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highcpu32 = @"E2_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highcpu4 = @"E2_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highcpu8 = @"E2_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highmem16 = @"E2_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highmem2 = @"E2_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highmem4 = @"E2_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Highmem8 = @"E2_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Standard16 = @"E2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Standard2 = @"E2_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Standard32 = @"E2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Standard4 = @"E2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_E2Standard8 = @"E2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard12 = @"G2_STANDARD_12";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard16 = @"G2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard24 = @"G2_STANDARD_24";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard32 = @"G2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard4 = @"G2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard48 = @"G2_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard8 = @"G2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard96 = @"G2_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu16 = @"N1_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu2 = @"N1_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu32 = @"N1_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu4 = @"N1_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu64 = @"N1_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu8 = @"N1_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu96 = @"N1_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highmem16 = @"N1_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highmem2 = @"N1_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highmem32 = @"N1_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highmem4 = @"N1_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highmem64 = @"N1_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highmem8 = @"N1_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highmem96 = @"N1_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Standard16 = @"N1_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Standard2 = @"N1_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Standard32 = @"N1_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Standard4 = @"N1_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Standard64 = @"N1_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Standard8 = @"N1_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Standard96 = @"N1_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu128 = @"N2D_HIGHCPU_128";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu16 = @"N2D_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu2 = @"N2D_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu224 = @"N2D_HIGHCPU_224";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu32 = @"N2D_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu4 = @"N2D_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu48 = @"N2D_HIGHCPU_48";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu64 = @"N2D_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu8 = @"N2D_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu80 = @"N2D_HIGHCPU_80";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighcpu96 = @"N2D_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem16 = @"N2D_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem2 = @"N2D_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem32 = @"N2D_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem4 = @"N2D_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem48 = @"N2D_HIGHMEM_48";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem64 = @"N2D_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem8 = @"N2D_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem80 = @"N2D_HIGHMEM_80";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dHighmem96 = @"N2D_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard128 = @"N2D_STANDARD_128";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard16 = @"N2D_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard2 = @"N2D_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard224 = @"N2D_STANDARD_224";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard32 = @"N2D_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard4 = @"N2D_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard48 = @"N2D_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard64 = @"N2D_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard8 = @"N2D_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard80 = @"N2D_STANDARD_80";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2dStandard96 = @"N2D_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu16 = @"N2_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu2 = @"N2_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu32 = @"N2_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu4 = @"N2_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu48 = @"N2_HIGHCPU_48";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu64 = @"N2_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu8 = @"N2_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu80 = @"N2_HIGHCPU_80";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highcpu96 = @"N2_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem128 = @"N2_HIGHMEM_128";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem16 = @"N2_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem2 = @"N2_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem32 = @"N2_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem4 = @"N2_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem48 = @"N2_HIGHMEM_48";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem64 = @"N2_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem8 = @"N2_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem80 = @"N2_HIGHMEM_80";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Highmem96 = @"N2_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard128 = @"N2_STANDARD_128";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard16 = @"N2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard2 = @"N2_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard32 = @"N2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard4 = @"N2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard48 = @"N2_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard64 = @"N2_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard8 = @"N2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard80 = @"N2_STANDARD_80";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N2Standard96 = @"N2_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_UnknownMachineSpec = @"UNKNOWN_MACHINE_SPEC";
+
+// GTLRCloudNaturalLanguage_DiskMetric.diskType
+NSString * const kGTLRCloudNaturalLanguage_DiskMetric_DiskType_PdSsd = @"PD_SSD";
+NSString * const kGTLRCloudNaturalLanguage_DiskMetric_DiskType_PdStandard = @"PD_STANDARD";
+NSString * const kGTLRCloudNaturalLanguage_DiskMetric_DiskType_RegionalSsd = @"REGIONAL_SSD";
+NSString * const kGTLRCloudNaturalLanguage_DiskMetric_DiskType_RegionalStorage = @"REGIONAL_STORAGE";
+NSString * const kGTLRCloudNaturalLanguage_DiskMetric_DiskType_StorageSnapshot = @"STORAGE_SNAPSHOT";
+NSString * const kGTLRCloudNaturalLanguage_DiskMetric_DiskType_UnknownDiskType = @"UNKNOWN_DISK_TYPE";
+
 // GTLRCloudNaturalLanguage_Document.type
 NSString * const kGTLRCloudNaturalLanguage_Document_Type_Html  = @"HTML";
 NSString * const kGTLRCloudNaturalLanguage_Document_Type_PlainText = @"PLAIN_TEXT";
@@ -57,6 +242,545 @@ NSString * const kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt = @"WORK_OF_ART
 NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Common = @"COMMON";
 NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Proper = @"PROPER";
 NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown = @"TYPE_UNKNOWN";
+
+// GTLRCloudNaturalLanguage_GpuMetric.gpuType
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH10080gb = @"NVIDIA_H100_80GB";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaL4 = @"NVIDIA_L4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaT4 = @"NVIDIA_TESLA_T4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_UnknownGpuType = @"UNKNOWN_GPU_TYPE";
+
+// GTLRCloudNaturalLanguage_GpuMetric.machineSpec
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Highgpu1g = @"A2_HIGHGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Highgpu2g = @"A2_HIGHGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Highgpu4g = @"A2_HIGHGPU_4G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Highgpu8g = @"A2_HIGHGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Megagpu16g = @"A2_MEGAGPU_16G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu1g = @"A2_ULTRAGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu2g = @"A2_ULTRAGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu4g = @"A2_ULTRAGPU_4G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu8g = @"A2_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu16 = @"C2D_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu2 = @"C2D_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu32 = @"C2D_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu4 = @"C2D_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu56 = @"C2D_HIGHCPU_56";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu8 = @"C2D_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighmem112 = @"C2D_HIGHMEM_112";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighmem16 = @"C2D_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighmem2 = @"C2D_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighmem32 = @"C2D_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighmem4 = @"C2D_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighmem56 = @"C2D_HIGHMEM_56";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighmem8 = @"C2D_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dStandard112 = @"C2D_STANDARD_112";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dStandard16 = @"C2D_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dStandard2 = @"C2D_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dStandard32 = @"C2D_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dStandard4 = @"C2D_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dStandard56 = @"C2D_STANDARD_56";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dStandard8 = @"C2D_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2Standard16 = @"C2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2Standard30 = @"C2_STANDARD_30";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2Standard4 = @"C2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2Standard60 = @"C2_STANDARD_60";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2Standard8 = @"C2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu176 = @"C3_HIGHCPU_176";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu22 = @"C3_HIGHCPU_22";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu4 = @"C3_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu44 = @"C3_HIGHCPU_44";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu8 = @"C3_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu88 = @"C3_HIGHCPU_88";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highmem176 = @"C3_HIGHMEM_176";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highmem22 = @"C3_HIGHMEM_22";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highmem4 = @"C3_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highmem44 = @"C3_HIGHMEM_44";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highmem8 = @"C3_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highmem88 = @"C3_HIGHMEM_88";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Standard176 = @"C3_STANDARD_176";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Standard22 = @"C3_STANDARD_22";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Standard4 = @"C3_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Standard44 = @"C3_STANDARD_44";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Standard8 = @"C3_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Standard88 = @"C3_STANDARD_88";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highcpu16 = @"E2_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highcpu2 = @"E2_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highcpu32 = @"E2_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highcpu4 = @"E2_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highcpu8 = @"E2_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highmem16 = @"E2_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highmem2 = @"E2_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highmem4 = @"E2_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Highmem8 = @"E2_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Standard16 = @"E2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Standard2 = @"E2_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Standard32 = @"E2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Standard4 = @"E2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_E2Standard8 = @"E2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard12 = @"G2_STANDARD_12";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard16 = @"G2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard24 = @"G2_STANDARD_24";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard32 = @"G2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard4 = @"G2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard48 = @"G2_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard8 = @"G2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard96 = @"G2_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu16 = @"N1_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu2 = @"N1_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu32 = @"N1_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu4 = @"N1_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu64 = @"N1_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu8 = @"N1_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu96 = @"N1_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highmem16 = @"N1_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highmem2 = @"N1_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highmem32 = @"N1_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highmem4 = @"N1_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highmem64 = @"N1_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highmem8 = @"N1_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highmem96 = @"N1_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Standard16 = @"N1_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Standard2 = @"N1_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Standard32 = @"N1_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Standard4 = @"N1_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Standard64 = @"N1_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Standard8 = @"N1_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Standard96 = @"N1_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu128 = @"N2D_HIGHCPU_128";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu16 = @"N2D_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu2 = @"N2D_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu224 = @"N2D_HIGHCPU_224";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu32 = @"N2D_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu4 = @"N2D_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu48 = @"N2D_HIGHCPU_48";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu64 = @"N2D_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu8 = @"N2D_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu80 = @"N2D_HIGHCPU_80";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighcpu96 = @"N2D_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem16 = @"N2D_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem2 = @"N2D_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem32 = @"N2D_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem4 = @"N2D_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem48 = @"N2D_HIGHMEM_48";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem64 = @"N2D_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem8 = @"N2D_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem80 = @"N2D_HIGHMEM_80";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dHighmem96 = @"N2D_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard128 = @"N2D_STANDARD_128";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard16 = @"N2D_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard2 = @"N2D_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard224 = @"N2D_STANDARD_224";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard32 = @"N2D_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard4 = @"N2D_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard48 = @"N2D_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard64 = @"N2D_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard8 = @"N2D_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard80 = @"N2D_STANDARD_80";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2dStandard96 = @"N2D_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu16 = @"N2_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu2 = @"N2_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu32 = @"N2_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu4 = @"N2_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu48 = @"N2_HIGHCPU_48";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu64 = @"N2_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu8 = @"N2_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu80 = @"N2_HIGHCPU_80";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highcpu96 = @"N2_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem128 = @"N2_HIGHMEM_128";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem16 = @"N2_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem2 = @"N2_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem32 = @"N2_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem4 = @"N2_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem48 = @"N2_HIGHMEM_48";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem64 = @"N2_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem8 = @"N2_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem80 = @"N2_HIGHMEM_80";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Highmem96 = @"N2_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard128 = @"N2_STANDARD_128";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard16 = @"N2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard2 = @"N2_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard32 = @"N2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard4 = @"N2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard48 = @"N2_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard64 = @"N2_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard8 = @"N2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard80 = @"N2_STANDARD_80";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N2Standard96 = @"N2_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_UnknownMachineSpec = @"UNKNOWN_MACHINE_SPEC";
+
+// GTLRCloudNaturalLanguage_RamMetric.machineSpec
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Highgpu1g = @"A2_HIGHGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Highgpu2g = @"A2_HIGHGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Highgpu4g = @"A2_HIGHGPU_4G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Highgpu8g = @"A2_HIGHGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Megagpu16g = @"A2_MEGAGPU_16G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu1g = @"A2_ULTRAGPU_1G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu2g = @"A2_ULTRAGPU_2G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu4g = @"A2_ULTRAGPU_4G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu8g = @"A2_ULTRAGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu8g = @"A3_HIGHGPU_8G";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu112 = @"C2D_HIGHCPU_112";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu16 = @"C2D_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu2 = @"C2D_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu32 = @"C2D_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu4 = @"C2D_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu56 = @"C2D_HIGHCPU_56";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu8 = @"C2D_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighmem112 = @"C2D_HIGHMEM_112";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighmem16 = @"C2D_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighmem2 = @"C2D_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighmem32 = @"C2D_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighmem4 = @"C2D_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighmem56 = @"C2D_HIGHMEM_56";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighmem8 = @"C2D_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dStandard112 = @"C2D_STANDARD_112";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dStandard16 = @"C2D_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dStandard2 = @"C2D_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dStandard32 = @"C2D_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dStandard4 = @"C2D_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dStandard56 = @"C2D_STANDARD_56";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dStandard8 = @"C2D_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2Standard16 = @"C2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2Standard30 = @"C2_STANDARD_30";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2Standard4 = @"C2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2Standard60 = @"C2_STANDARD_60";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2Standard8 = @"C2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu176 = @"C3_HIGHCPU_176";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu22 = @"C3_HIGHCPU_22";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu4 = @"C3_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu44 = @"C3_HIGHCPU_44";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu8 = @"C3_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu88 = @"C3_HIGHCPU_88";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highmem176 = @"C3_HIGHMEM_176";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highmem22 = @"C3_HIGHMEM_22";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highmem4 = @"C3_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highmem44 = @"C3_HIGHMEM_44";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highmem8 = @"C3_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highmem88 = @"C3_HIGHMEM_88";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Standard176 = @"C3_STANDARD_176";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Standard22 = @"C3_STANDARD_22";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Standard4 = @"C3_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Standard44 = @"C3_STANDARD_44";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Standard8 = @"C3_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Standard88 = @"C3_STANDARD_88";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highcpu16 = @"E2_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highcpu2 = @"E2_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highcpu32 = @"E2_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highcpu4 = @"E2_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highcpu8 = @"E2_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highmem16 = @"E2_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highmem2 = @"E2_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highmem4 = @"E2_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Highmem8 = @"E2_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Standard16 = @"E2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Standard2 = @"E2_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Standard32 = @"E2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Standard4 = @"E2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_E2Standard8 = @"E2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard12 = @"G2_STANDARD_12";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard16 = @"G2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard24 = @"G2_STANDARD_24";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard32 = @"G2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard4 = @"G2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard48 = @"G2_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard8 = @"G2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard96 = @"G2_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu16 = @"N1_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu2 = @"N1_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu32 = @"N1_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu4 = @"N1_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu64 = @"N1_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu8 = @"N1_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu96 = @"N1_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highmem16 = @"N1_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highmem2 = @"N1_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highmem32 = @"N1_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highmem4 = @"N1_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highmem64 = @"N1_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highmem8 = @"N1_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highmem96 = @"N1_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Standard16 = @"N1_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Standard2 = @"N1_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Standard32 = @"N1_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Standard4 = @"N1_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Standard64 = @"N1_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Standard8 = @"N1_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Standard96 = @"N1_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu128 = @"N2D_HIGHCPU_128";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu16 = @"N2D_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu2 = @"N2D_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu224 = @"N2D_HIGHCPU_224";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu32 = @"N2D_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu4 = @"N2D_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu48 = @"N2D_HIGHCPU_48";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu64 = @"N2D_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu8 = @"N2D_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu80 = @"N2D_HIGHCPU_80";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighcpu96 = @"N2D_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem16 = @"N2D_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem2 = @"N2D_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem32 = @"N2D_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem4 = @"N2D_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem48 = @"N2D_HIGHMEM_48";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem64 = @"N2D_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem8 = @"N2D_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem80 = @"N2D_HIGHMEM_80";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dHighmem96 = @"N2D_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard128 = @"N2D_STANDARD_128";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard16 = @"N2D_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard2 = @"N2D_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard224 = @"N2D_STANDARD_224";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard32 = @"N2D_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard4 = @"N2D_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard48 = @"N2D_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard64 = @"N2D_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard8 = @"N2D_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard80 = @"N2D_STANDARD_80";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2dStandard96 = @"N2D_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu16 = @"N2_HIGHCPU_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu2 = @"N2_HIGHCPU_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu32 = @"N2_HIGHCPU_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu4 = @"N2_HIGHCPU_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu48 = @"N2_HIGHCPU_48";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu64 = @"N2_HIGHCPU_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu8 = @"N2_HIGHCPU_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu80 = @"N2_HIGHCPU_80";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highcpu96 = @"N2_HIGHCPU_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem128 = @"N2_HIGHMEM_128";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem16 = @"N2_HIGHMEM_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem2 = @"N2_HIGHMEM_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem32 = @"N2_HIGHMEM_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem4 = @"N2_HIGHMEM_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem48 = @"N2_HIGHMEM_48";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem64 = @"N2_HIGHMEM_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem8 = @"N2_HIGHMEM_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem80 = @"N2_HIGHMEM_80";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Highmem96 = @"N2_HIGHMEM_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard128 = @"N2_STANDARD_128";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard16 = @"N2_STANDARD_16";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard2 = @"N2_STANDARD_2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard32 = @"N2_STANDARD_32";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard4 = @"N2_STANDARD_4";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard48 = @"N2_STANDARD_48";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard64 = @"N2_STANDARD_64";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard8 = @"N2_STANDARD_8";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard80 = @"N2_STANDARD_80";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N2Standard96 = @"N2_STANDARD_96";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_UnknownMachineSpec = @"UNKNOWN_MACHINE_SPEC";
+
+// GTLRCloudNaturalLanguage_RamMetric.ramType
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A2 = @"A2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A3 = @"A3";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C2 = @"C2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C2d = @"C2D";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C3 = @"C3";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_Custom = @"CUSTOM";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_E2 = @"E2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_G2 = @"G2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_M1 = @"M1";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_M2 = @"M2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_N1 = @"N1";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_N2 = @"N2";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_N2Custom = @"N2_CUSTOM";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_N2d = @"N2D";
+NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_UnknownRamType = @"UNKNOWN_RAM_TYPE";
+
+// GTLRCloudNaturalLanguage_TpuMetric.tpuType
+NSString * const kGTLRCloudNaturalLanguage_TpuMetric_TpuType_TpuV2 = @"TPU_V2";
+NSString * const kGTLRCloudNaturalLanguage_TpuMetric_TpuType_TpuV2Pod = @"TPU_V2_POD";
+NSString * const kGTLRCloudNaturalLanguage_TpuMetric_TpuType_TpuV3 = @"TPU_V3";
+NSString * const kGTLRCloudNaturalLanguage_TpuMetric_TpuType_TpuV3Pod = @"TPU_V3_POD";
+NSString * const kGTLRCloudNaturalLanguage_TpuMetric_TpuType_TpuV5Litepod = @"TPU_V5_LITEPOD";
+NSString * const kGTLRCloudNaturalLanguage_TpuMetric_TpuType_UnknownTpuType = @"UNKNOWN_TPU_TYPE";
+
+// GTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata.columnType
+NSString * const kGTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata_ColumnType_ColumnTypeUnspecified = @"COLUMN_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata_ColumnType_Key = @"KEY";
+NSString * const kGTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata_ColumnType_KeyMetadata = @"KEY_METADATA";
+NSString * const kGTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata_ColumnType_TimeSeriesAvailablePastAndFuture = @"TIME_SERIES_AVAILABLE_PAST_AND_FUTURE";
+NSString * const kGTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata_ColumnType_TimeSeriesAvailablePastOnly = @"TIME_SERIES_AVAILABLE_PAST_ONLY";
+
+// GTLRCloudNaturalLanguage_XPSDataErrors.errorType
+NSString * const kGTLRCloudNaturalLanguage_XPSDataErrors_ErrorType_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataErrors_ErrorType_FileExtensionMismatchWithAudioFormat = @"FILE_EXTENSION_MISMATCH_WITH_AUDIO_FORMAT";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataErrors_ErrorType_FileTooLarge = @"FILE_TOO_LARGE";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataErrors_ErrorType_MissingTranscription = @"MISSING_TRANSCRIPTION";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataErrors_ErrorType_UnsupportedAudioFormat = @"UNSUPPORTED_AUDIO_FORMAT";
+
+// GTLRCloudNaturalLanguage_XPSDataType.typeCode
+NSString * const kGTLRCloudNaturalLanguage_XPSDataType_TypeCode_Array = @"ARRAY";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataType_TypeCode_Category = @"CATEGORY";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataType_TypeCode_Float64 = @"FLOAT64";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataType_TypeCode_String = @"STRING";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataType_TypeCode_Struct = @"STRUCT";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataType_TypeCode_Timestamp = @"TIMESTAMP";
+NSString * const kGTLRCloudNaturalLanguage_XPSDataType_TypeCode_TypeCodeUnspecified = @"TYPE_CODE_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSDockerFormat.cpuArchitecture
+NSString * const kGTLRCloudNaturalLanguage_XPSDockerFormat_CpuArchitecture_CpuArchitectureUnspecified = @"CPU_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSDockerFormat_CpuArchitecture_CpuArchitectureX8664 = @"CPU_ARCHITECTURE_X86_64";
+
+// GTLRCloudNaturalLanguage_XPSDockerFormat.gpuArchitecture
+NSString * const kGTLRCloudNaturalLanguage_XPSDockerFormat_GpuArchitecture_GpuArchitectureNvidia = @"GPU_ARCHITECTURE_NVIDIA";
+NSString * const kGTLRCloudNaturalLanguage_XPSDockerFormat_GpuArchitecture_GpuArchitectureUnspecified = @"GPU_ARCHITECTURE_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSFileSpec.fileFormat
+NSString * const kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatRawCapacitor = @"FILE_FORMAT_RAW_CAPACITOR";
+NSString * const kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatRawCsv = @"FILE_FORMAT_RAW_CSV";
+NSString * const kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatRecordio = @"FILE_FORMAT_RECORDIO";
+NSString * const kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatSstable = @"FILE_FORMAT_SSTABLE";
+NSString * const kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatTranslationRkv = @"FILE_FORMAT_TRANSLATION_RKV";
+NSString * const kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatUnknown = @"FILE_FORMAT_UNKNOWN";
+
+// GTLRCloudNaturalLanguage_XPSImageClassificationTrainResponse.stopReason
+NSString * const kGTLRCloudNaturalLanguage_XPSImageClassificationTrainResponse_StopReason_TrainStopReasonBudgetReached = @"TRAIN_STOP_REASON_BUDGET_REACHED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageClassificationTrainResponse_StopReason_TrainStopReasonModelConverged = @"TRAIN_STOP_REASON_MODEL_CONVERGED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageClassificationTrainResponse_StopReason_TrainStopReasonModelEarlyStopped = @"TRAIN_STOP_REASON_MODEL_EARLY_STOPPED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageClassificationTrainResponse_StopReason_TrainStopReasonUnspecified = @"TRAIN_STOP_REASON_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation.computeEngineAcceleratorType
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH10080gb = @"NVIDIA_H100_80GB";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaL4 = @"NVIDIA_L4";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaTeslaT4 = @"NVIDIA_TESLA_T4";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_TpuV2 = @"TPU_V2";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_TpuV3 = @"TPU_V3";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_TpuV4Pod = @"TPU_V4_POD";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_TpuV5Litepod = @"TPU_V5_LITEPOD";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation.servomaticPartitionType
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionCpu = @"PARTITION_CPU";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionCustomStorageCpu = @"PARTITION_CUSTOM_STORAGE_CPU";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionJellyfish = @"PARTITION_JELLYFISH";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionReducedHoming = @"PARTITION_REDUCED_HOMING";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionTypeUnspecified = @"PARTITION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionZero = @"PARTITION_ZERO";
+
+// GTLRCloudNaturalLanguage_XPSImageObjectDetectionModelSpec.stopReason
+NSString * const kGTLRCloudNaturalLanguage_XPSImageObjectDetectionModelSpec_StopReason_TrainStopReasonBudgetReached = @"TRAIN_STOP_REASON_BUDGET_REACHED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageObjectDetectionModelSpec_StopReason_TrainStopReasonModelConverged = @"TRAIN_STOP_REASON_MODEL_CONVERGED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageObjectDetectionModelSpec_StopReason_TrainStopReasonModelEarlyStopped = @"TRAIN_STOP_REASON_MODEL_EARLY_STOPPED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageObjectDetectionModelSpec_StopReason_TrainStopReasonUnspecified = @"TRAIN_STOP_REASON_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSImageSegmentationTrainResponse.stopReason
+NSString * const kGTLRCloudNaturalLanguage_XPSImageSegmentationTrainResponse_StopReason_TrainStopReasonBudgetReached = @"TRAIN_STOP_REASON_BUDGET_REACHED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageSegmentationTrainResponse_StopReason_TrainStopReasonModelConverged = @"TRAIN_STOP_REASON_MODEL_CONVERGED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageSegmentationTrainResponse_StopReason_TrainStopReasonModelEarlyStopped = @"TRAIN_STOP_REASON_MODEL_EARLY_STOPPED";
+NSString * const kGTLRCloudNaturalLanguage_XPSImageSegmentationTrainResponse_StopReason_TrainStopReasonUnspecified = @"TRAIN_STOP_REASON_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSModelArtifactItem.artifactFormat
+NSString * const kGTLRCloudNaturalLanguage_XPSModelArtifactItem_ArtifactFormat_ArtifactFormatUnspecified = @"ARTIFACT_FORMAT_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSModelArtifactItem_ArtifactFormat_CoreMl = @"CORE_ML";
+NSString * const kGTLRCloudNaturalLanguage_XPSModelArtifactItem_ArtifactFormat_EdgeTpuTfLite = @"EDGE_TPU_TF_LITE";
+NSString * const kGTLRCloudNaturalLanguage_XPSModelArtifactItem_ArtifactFormat_TfCheckpoint = @"TF_CHECKPOINT";
+NSString * const kGTLRCloudNaturalLanguage_XPSModelArtifactItem_ArtifactFormat_TfJs = @"TF_JS";
+NSString * const kGTLRCloudNaturalLanguage_XPSModelArtifactItem_ArtifactFormat_TfLite = @"TF_LITE";
+NSString * const kGTLRCloudNaturalLanguage_XPSModelArtifactItem_ArtifactFormat_TfSavedModel = @"TF_SAVED_MODEL";
+
+// GTLRCloudNaturalLanguage_XPSResponseExplanationMetadataInputMetadata.modality
+NSString * const kGTLRCloudNaturalLanguage_XPSResponseExplanationMetadataInputMetadata_Modality_Categorical = @"CATEGORICAL";
+NSString * const kGTLRCloudNaturalLanguage_XPSResponseExplanationMetadataInputMetadata_Modality_Image = @"IMAGE";
+NSString * const kGTLRCloudNaturalLanguage_XPSResponseExplanationMetadataInputMetadata_Modality_ModalityUnspecified = @"MODALITY_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSResponseExplanationMetadataInputMetadata_Modality_Numeric = @"NUMERIC";
+
+// GTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric.biasingModelType
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric_BiasingModelType_BiasingModelTypeUnspecified = @"BIASING_MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric_BiasingModelType_CommandAndSearch = @"COMMAND_AND_SEARCH";
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric_BiasingModelType_Default = @"DEFAULT";
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric_BiasingModelType_PhoneCall = @"PHONE_CALL";
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric_BiasingModelType_Video = @"VIDEO";
+
+// GTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec.biasingModelType
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec_BiasingModelType_BiasingModelTypeUnspecified = @"BIASING_MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec_BiasingModelType_CommandAndSearch = @"COMMAND_AND_SEARCH";
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec_BiasingModelType_Default = @"DEFAULT";
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec_BiasingModelType_PhoneCall = @"PHONE_CALL";
+NSString * const kGTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec_BiasingModelType_Video = @"VIDEO";
+
+// GTLRCloudNaturalLanguage_XPSTablesTrainingOperationMetadata.createModelStage
+NSString * const kGTLRCloudNaturalLanguage_XPSTablesTrainingOperationMetadata_CreateModelStage_CreateModelStageUnspecified = @"CREATE_MODEL_STAGE_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSTablesTrainingOperationMetadata_CreateModelStage_DataPreprocessing = @"DATA_PREPROCESSING";
+NSString * const kGTLRCloudNaturalLanguage_XPSTablesTrainingOperationMetadata_CreateModelStage_Evaluating = @"EVALUATING";
+NSString * const kGTLRCloudNaturalLanguage_XPSTablesTrainingOperationMetadata_CreateModelStage_ModelPostProcessing = @"MODEL_POST_PROCESSING";
+NSString * const kGTLRCloudNaturalLanguage_XPSTablesTrainingOperationMetadata_CreateModelStage_Training = @"TRAINING";
+
+// GTLRCloudNaturalLanguage_XPSTextComponentModel.partition
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionCpu = @"PARTITION_CPU";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionCustomStorageCpu = @"PARTITION_CUSTOM_STORAGE_CPU";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionJellyfish = @"PARTITION_JELLYFISH";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionReducedHoming = @"PARTITION_REDUCED_HOMING";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionTypeUnspecified = @"PARTITION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionZero = @"PARTITION_ZERO";
+
+// GTLRCloudNaturalLanguage_XPSTextComponentModel.submodelType
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeAllModels = @"TEXT_MODEL_TYPE_ALL_MODELS";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeAtc = @"TEXT_MODEL_TYPE_ATC";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeBert = @"TEXT_MODEL_TYPE_BERT";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeChatbase = @"TEXT_MODEL_TYPE_CHATBASE";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeClara2 = @"TEXT_MODEL_TYPE_CLARA2";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeComposite = @"TEXT_MODEL_TYPE_COMPOSITE";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeDefault = @"TEXT_MODEL_TYPE_DEFAULT";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeEncPalm = @"TEXT_MODEL_TYPE_ENC_PALM";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeMetaArchitect = @"TEXT_MODEL_TYPE_META_ARCHITECT";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeRelationshipExtraction = @"TEXT_MODEL_TYPE_RELATIONSHIP_EXTRACTION";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeSaftSpanLabeling = @"TEXT_MODEL_TYPE_SAFT_SPAN_LABELING";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeTextExtraction = @"TEXT_MODEL_TYPE_TEXT_EXTRACTION";
+NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeUnspecified = @"TEXT_MODEL_TYPE_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSTranslationTrainResponse.modelType
+NSString * const kGTLRCloudNaturalLanguage_XPSTranslationTrainResponse_ModelType_Current = @"CURRENT";
+NSString * const kGTLRCloudNaturalLanguage_XPSTranslationTrainResponse_ModelType_Legacy = @"LEGACY";
+NSString * const kGTLRCloudNaturalLanguage_XPSTranslationTrainResponse_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSVisionErrorAnalysisConfig.queryType
+NSString * const kGTLRCloudNaturalLanguage_XPSVisionErrorAnalysisConfig_QueryType_QueryTypeAllSimilar = @"QUERY_TYPE_ALL_SIMILAR";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisionErrorAnalysisConfig_QueryType_QueryTypeSameClassDissimilar = @"QUERY_TYPE_SAME_CLASS_DISSIMILAR";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisionErrorAnalysisConfig_QueryType_QueryTypeSameClassSimilar = @"QUERY_TYPE_SAME_CLASS_SIMILAR";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisionErrorAnalysisConfig_QueryType_QueryTypeUnspecified = @"QUERY_TYPE_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSVisualization.colorMap
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_ColorMap_ColorMapUnspecified = @"COLOR_MAP_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_ColorMap_Green = @"GREEN";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_ColorMap_PinkGreen = @"PINK_GREEN";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_ColorMap_PinkWhiteGreen = @"PINK_WHITE_GREEN";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_ColorMap_Red = @"RED";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_ColorMap_RedGreen = @"RED_GREEN";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_ColorMap_Viridis = @"VIRIDIS";
+
+// GTLRCloudNaturalLanguage_XPSVisualization.overlayType
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_OverlayType_Grayscale = @"GRAYSCALE";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_OverlayType_MaskBlack = @"MASK_BLACK";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_OverlayType_None = @"NONE";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_OverlayType_Original = @"ORIGINAL";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_OverlayType_OverlayTypeUnspecified = @"OVERLAY_TYPE_UNSPECIFIED";
+
+// GTLRCloudNaturalLanguage_XPSVisualization.polarity
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Polarity_Both = @"BOTH";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Polarity_Negative = @"NEGATIVE";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Polarity_PolarityUnspecified = @"POLARITY_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Polarity_Positive = @"POSITIVE";
+
+// GTLRCloudNaturalLanguage_XPSVisualization.type
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Type_Outlines = @"OUTLINES";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Type_Pixels = @"PIXELS";
+NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -126,6 +850,16 @@ NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown = @"TY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudNaturalLanguage_AnnotateTextRequestFeatures
+//
+
+@implementation GTLRCloudNaturalLanguage_AnnotateTextRequestFeatures
+@dynamic classifyText, extractDocumentSentiment, extractEntities, moderateText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudNaturalLanguage_AnnotateTextResponse
 //
 
@@ -186,6 +920,50 @@ NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown = @"TY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudNaturalLanguage_Color
+//
+
+@implementation GTLRCloudNaturalLanguage_Color
+@dynamic alpha, blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_CpuMetric
+//
+
+@implementation GTLRCloudNaturalLanguage_CpuMetric
+@dynamic coreNumber, coreSec, cpuType, machineSpec, trackingLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_CpuMetric_TrackingLabels
+//
+
+@implementation GTLRCloudNaturalLanguage_CpuMetric_TrackingLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_DiskMetric
+//
+
+@implementation GTLRCloudNaturalLanguage_DiskMetric
+@dynamic diskType, gibSec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudNaturalLanguage_Document
 //
 
@@ -238,11 +1016,47 @@ NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown = @"TY
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudNaturalLanguage_Features
+//   GTLRCloudNaturalLanguage_GpuMetric
 //
 
-@implementation GTLRCloudNaturalLanguage_Features
-@dynamic classifyText, extractDocumentSentiment, extractEntities, moderateText;
+@implementation GTLRCloudNaturalLanguage_GpuMetric
+@dynamic gpuSec, gpuType, machineSpec, trackingLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_GpuMetric_TrackingLabels
+//
+
+@implementation GTLRCloudNaturalLanguage_GpuMetric_TrackingLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_InfraUsage
+//
+
+@implementation GTLRCloudNaturalLanguage_InfraUsage
+@dynamic cpuMetrics, diskMetrics, gpuMetrics, ramMetrics, tpuMetrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cpuMetrics" : [GTLRCloudNaturalLanguage_CpuMetric class],
+    @"diskMetrics" : [GTLRCloudNaturalLanguage_DiskMetric class],
+    @"gpuMetrics" : [GTLRCloudNaturalLanguage_GpuMetric class],
+    @"ramMetrics" : [GTLRCloudNaturalLanguage_RamMetric class],
+    @"tpuMetrics" : [GTLRCloudNaturalLanguage_TpuMetric class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -269,6 +1083,30 @@ NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown = @"TY
     @"moderationCategories" : [GTLRCloudNaturalLanguage_ClassificationCategory class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_RamMetric
+//
+
+@implementation GTLRCloudNaturalLanguage_RamMetric
+@dynamic gibSec, machineSpec, memories, ramType, trackingLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_RamMetric_TrackingLabels
+//
+
+@implementation GTLRCloudNaturalLanguage_RamMetric_TrackingLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -334,3 +1172,1643 @@ NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown = @"TY
 @implementation GTLRCloudNaturalLanguage_TextSpan
 @dynamic beginOffset, content;
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_TpuMetric
+//
+
+@implementation GTLRCloudNaturalLanguage_TpuMetric
+@dynamic tpuSec, tpuType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSArrayStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSArrayStats
+@dynamic commonStats, memberStats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSBatchPredictResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSBatchPredictResponse
+@dynamic exampleSet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSBoundingBoxMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSBoundingBoxMetricsEntry
+@dynamic confidenceMetricsEntries, iouThreshold, meanAveragePrecision;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceMetricsEntries" : [GTLRCloudNaturalLanguage_XPSBoundingBoxMetricsEntryConfidenceMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSBoundingBoxMetricsEntryConfidenceMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSBoundingBoxMetricsEntryConfidenceMetricsEntry
+@dynamic confidenceThreshold, f1Score, precision, recall;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSCategoryStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSCategoryStats
+@dynamic commonStats, topCategoryStats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topCategoryStats" : [GTLRCloudNaturalLanguage_XPSCategoryStatsSingleCategoryStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSCategoryStatsSingleCategoryStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSCategoryStatsSingleCategoryStats
+@dynamic count, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSClassificationEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSClassificationEvaluationMetrics
+@dynamic auPrc, auRoc, baseAuPrc, confidenceMetricsEntries, confusionMatrix,
+         evaluatedExamplesCount, logLoss;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceMetricsEntries" : [GTLRCloudNaturalLanguage_XPSConfidenceMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSColorMap
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSColorMap
+@dynamic annotationSpecIdToken, color, displayName, intColor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSColorMapIntColor
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSColorMapIntColor
+@dynamic blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSColumnSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSColumnSpec
+@dynamic columnId, dataStats, dataType, displayName, forecastingMetadata,
+         topCorrelatedColumns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topCorrelatedColumns" : [GTLRCloudNaturalLanguage_XPSColumnSpecCorrelatedColumn class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSColumnSpecCorrelatedColumn
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSColumnSpecCorrelatedColumn
+@dynamic columnId, correlationStats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata
+@dynamic columnType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSCommonStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSCommonStats
+@dynamic distinctValueCount, nullValueCount, validValueCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSConfidenceMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSConfidenceMetricsEntry
+@dynamic confidenceThreshold, f1Score, f1ScoreAt1, falseNegativeCount,
+         falsePositiveCount, falsePositiveRate, falsePositiveRateAt1,
+         positionThreshold, precision, precisionAt1, recall, recallAt1,
+         trueNegativeCount, truePositiveCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSConfusionMatrix
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSConfusionMatrix
+@dynamic annotationSpecIdToken, category, row, sentimentLabel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotationSpecIdToken" : [NSString class],
+    @"category" : [NSNumber class],
+    @"row" : [GTLRCloudNaturalLanguage_XPSConfusionMatrixRow class],
+    @"sentimentLabel" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSConfusionMatrixRow
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSConfusionMatrixRow
+@dynamic count, exampleCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"count" : [NSNumber class],
+    @"exampleCount" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSCoreMlFormat
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSCoreMlFormat
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSCorrelationStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSCorrelationStats
+@dynamic cramersV;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSDataErrors
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSDataErrors
+@dynamic count, errorType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSDataStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSDataStats
+@dynamic arrayStats, categoryStats, distinctValueCount, float64Stats,
+         nullValueCount, stringStats, structStats, timestampStats,
+         validValueCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSDataType
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSDataType
+@dynamic compatibleDataTypes, listElementType, nullable, structType, timeFormat,
+         typeCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"compatibleDataTypes" : [GTLRCloudNaturalLanguage_XPSDataType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSDockerFormat
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSDockerFormat
+@dynamic cpuArchitecture, gpuArchitecture;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSEdgeTpuTfLiteFormat
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSEdgeTpuTfLiteFormat
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSEvaluationMetrics
+@dynamic annotationSpecIdToken, category, evaluatedExampleCount,
+         imageClassificationEvalMetrics, imageObjectDetectionEvalMetrics,
+         imageSegmentationEvalMetrics, label, regressionEvalMetrics,
+         tablesClassificationEvalMetrics, tablesEvalMetrics,
+         textClassificationEvalMetrics, textExtractionEvalMetrics,
+         textSentimentEvalMetrics, translationEvalMetrics,
+         videoActionRecognitionEvalMetrics, videoClassificationEvalMetrics,
+         videoObjectTrackingEvalMetrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSEvaluationMetricsSet
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSEvaluationMetricsSet
+@dynamic evaluationMetrics, fileSpec, numEvaluationMetrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"evaluationMetrics" : [GTLRCloudNaturalLanguage_XPSEvaluationMetrics class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSExampleSet
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSExampleSet
+@dynamic fileSpec, fingerprint, numExamples, numInputSources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSExportModelOutputConfig
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSExportModelOutputConfig
+@dynamic coreMlFormat, dockerFormat, edgeTpuTfLiteFormat,
+         exportFirebaseAuxiliaryInfo, outputGcrUri, outputGcsUri, tfJsFormat,
+         tfLiteFormat, tfSavedModelFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSFileSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSFileSpec
+@dynamic directoryPath, fileFormat, fileSpec, singleFilePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSFloat64Stats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSFloat64Stats
+@dynamic commonStats, histogramBuckets, mean, quantiles, standardDeviation;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"histogramBuckets" : [GTLRCloudNaturalLanguage_XPSFloat64StatsHistogramBucket class],
+    @"quantiles" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSFloat64StatsHistogramBucket
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSFloat64StatsHistogramBucket
+@dynamic count, max, min;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageClassificationTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageClassificationTrainResponse
+@dynamic classCount, exportModelSpec, modelArtifactSpec, modelServingSpec,
+         stopReason, trainCostInNodeTime, trainCostNodeSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageExportModelSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageExportModelSpec
+@dynamic exportModelOutputConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exportModelOutputConfig" : [GTLRCloudNaturalLanguage_XPSExportModelOutputConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageModelArtifactSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageModelArtifactSpec
+@dynamic checkpointArtifact, exportArtifact, labelGcsUri, servingArtifact,
+         tfJsBinaryGcsPrefix, tfLiteMetadataGcsUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exportArtifact" : [GTLRCloudNaturalLanguage_XPSModelArtifactItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageModelServingSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageModelServingSpec
+@dynamic modelThroughputEstimation, nodeQps, tfRuntimeVersion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modelThroughputEstimation" : [GTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation
+@dynamic computeEngineAcceleratorType, latencyInMilliseconds, nodeQps,
+         servomaticPartitionType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageObjectDetectionEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageObjectDetectionEvaluationMetrics
+@dynamic boundingBoxMeanAveragePrecision, boundingBoxMetricsEntries,
+         evaluatedBoundingBoxCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"boundingBoxMetricsEntries" : [GTLRCloudNaturalLanguage_XPSBoundingBoxMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageObjectDetectionModelSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageObjectDetectionModelSpec
+@dynamic classCount, exportModelSpec, maxBoundingBoxCount, modelArtifactSpec,
+         modelServingSpec, stopReason, trainCostNodeSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageSegmentationEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageSegmentationEvaluationMetrics
+@dynamic confidenceMetricsEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceMetricsEntries" : [GTLRCloudNaturalLanguage_XPSImageSegmentationEvaluationMetricsConfidenceMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageSegmentationEvaluationMetricsConfidenceMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageSegmentationEvaluationMetricsConfidenceMetricsEntry
+@dynamic confidenceThreshold, confusionMatrix, diceScoreCoefficient, iouScore,
+         precision, recall;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSImageSegmentationTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSImageSegmentationTrainResponse
+@dynamic colorMaps, exportModelSpec, modelArtifactSpec, modelServingSpec,
+         stopReason, trainCostNodeSeconds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"colorMaps" : [GTLRCloudNaturalLanguage_XPSColorMap class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSIntegratedGradientsAttribution
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSIntegratedGradientsAttribution
+@dynamic stepCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSMetricEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSMetricEntry
+@dynamic argentumMetricId, doubleValue, int64Value, metricName, systemLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"systemLabels" : [GTLRCloudNaturalLanguage_XPSMetricEntryLabel class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSMetricEntryLabel
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSMetricEntryLabel
+@dynamic labelName, labelValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSModelArtifactItem
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSModelArtifactItem
+@dynamic artifactFormat, gcsUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSPreprocessResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSPreprocessResponse
+@dynamic outputExampleSet, speechPreprocessResp, tablesPreprocessResponse,
+         translationPreprocessResp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSRegressionEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSRegressionEvaluationMetrics
+@dynamic meanAbsoluteError, meanAbsolutePercentageError,
+         regressionMetricsEntries, rootMeanSquaredError,
+         rootMeanSquaredLogError, rSquared;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regressionMetricsEntries" : [GTLRCloudNaturalLanguage_XPSRegressionMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSRegressionMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSRegressionMetricsEntry
+@dynamic predictedValue, trueValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSReportingMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSReportingMetrics
+@dynamic effectiveTrainingDuration, metricEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metricEntries" : [GTLRCloudNaturalLanguage_XPSMetricEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSResponseExplanationMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSResponseExplanationMetadata
+@dynamic inputs, outputs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSResponseExplanationMetadata_Inputs
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSResponseExplanationMetadata_Inputs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudNaturalLanguage_XPSResponseExplanationMetadataInputMetadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSResponseExplanationMetadata_Outputs
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSResponseExplanationMetadata_Outputs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudNaturalLanguage_XPSResponseExplanationMetadataOutputMetadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSResponseExplanationMetadataInputMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSResponseExplanationMetadataInputMetadata
+@dynamic inputTensorName, modality, visualizationConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSResponseExplanationMetadataOutputMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSResponseExplanationMetadataOutputMetadata
+@dynamic outputTensorName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSResponseExplanationParameters
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSResponseExplanationParameters
+@dynamic integratedGradientsAttribution, xraiAttribution;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSResponseExplanationSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSResponseExplanationSpec
+@dynamic explanationType, metadata, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSRow
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSRow
+@dynamic columnIds, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columnIds" : [NSNumber class],
+    @"values" : [NSObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSSpeechEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSSpeechEvaluationMetrics
+@dynamic subModelEvaluationMetrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subModelEvaluationMetrics" : [GTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSSpeechEvaluationMetricsSubModelEvaluationMetric
+@dynamic biasingModelType, isEnhancedModel, numDeletions, numInsertions,
+         numSubstitutions, numUtterances, numWords, sentenceAccuracy, wer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSSpeechModelSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSSpeechModelSpec
+@dynamic datasetId, language, subModelSpecs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subModelSpecs" : [GTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSSpeechModelSpecSubModelSpec
+@dynamic biasingModelType, clientId, contextId, isEnhancedModel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSSpeechPreprocessResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSSpeechPreprocessResponse
+@dynamic cnsTestDataPath, cnsTrainDataPath, prebuiltModelEvaluationMetrics,
+         speechPreprocessStats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSSpeechPreprocessStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSSpeechPreprocessStats
+@dynamic dataErrors, numHumanLabeledExamples, numLogsExamples,
+         numMachineTranscribedExamples, testExamplesCount, testSentencesCount,
+         testWordsCount, trainExamplesCount, trainSentencesCount,
+         trainWordsCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataErrors" : [GTLRCloudNaturalLanguage_XPSDataErrors class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSStringStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSStringStats
+@dynamic commonStats, topUnigramStats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topUnigramStats" : [GTLRCloudNaturalLanguage_XPSStringStatsUnigramStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSStringStatsUnigramStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSStringStatsUnigramStats
+@dynamic count, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSStructStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSStructStats
+@dynamic commonStats, fieldStats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSStructStats_FieldStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSStructStats_FieldStats
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudNaturalLanguage_XPSDataStats class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSStructType
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSStructType
+@dynamic fields;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSStructType_Fields
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSStructType_Fields
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudNaturalLanguage_XPSDataType class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesClassificationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesClassificationMetrics
+@dynamic curveMetrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"curveMetrics" : [GTLRCloudNaturalLanguage_XPSTablesClassificationMetricsCurveMetrics class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesClassificationMetricsCurveMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesClassificationMetricsCurveMetrics
+@dynamic aucPr, aucRoc, confidenceMetricsEntries, logLoss, positionThreshold,
+         value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceMetricsEntries" : [GTLRCloudNaturalLanguage_XPSTablesConfidenceMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesConfidenceMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesConfidenceMetricsEntry
+@dynamic confidenceThreshold, f1Score, falseNegativeCount, falsePositiveCount,
+         falsePositiveRate, precision, recall, trueNegativeCount,
+         truePositiveCount, truePositiveRate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesDatasetMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesDatasetMetadata
+@dynamic mlUseColumnId, primaryTableSpec, targetColumnCorrelations,
+         targetColumnId, weightColumnId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesDatasetMetadata_TargetColumnCorrelations
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesDatasetMetadata_TargetColumnCorrelations
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudNaturalLanguage_XPSCorrelationStats class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesEvaluationMetrics
+@dynamic classificationMetrics, regressionMetrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesModelColumnInfo
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesModelColumnInfo
+@dynamic columnId, featureImportance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesModelStructure
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesModelStructure
+@dynamic modelParameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modelParameters" : [GTLRCloudNaturalLanguage_XPSTablesModelStructureModelParameters class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesModelStructureModelParameters
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesModelStructureModelParameters
+@dynamic hyperparameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hyperparameters" : [GTLRCloudNaturalLanguage_XPSTablesModelStructureModelParametersParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesModelStructureModelParametersParameter
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesModelStructureModelParametersParameter
+@dynamic floatValue, intValue, name, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTableSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTableSpec
+@dynamic columnSpecs, importedDataSizeInBytes, rowCount, timeColumnId,
+         validRowCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTableSpec_ColumnSpecs
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTableSpec_ColumnSpecs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudNaturalLanguage_XPSColumnSpec class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesPreprocessResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesPreprocessResponse
+@dynamic tablesDatasetMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesRegressionMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesRegressionMetrics
+@dynamic meanAbsoluteError, meanAbsolutePercentageError,
+         regressionMetricsEntries, rootMeanSquaredError,
+         rootMeanSquaredLogError, rSquared;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regressionMetricsEntries" : [GTLRCloudNaturalLanguage_XPSRegressionMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesTrainingOperationMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesTrainingOperationMetadata
+@dynamic createModelStage, optimizationObjective, topTrials,
+         trainBudgetMilliNodeHours, trainingObjectivePoints, trainingStartTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topTrials" : [GTLRCloudNaturalLanguage_XPSTuningTrial class],
+    @"trainingObjectivePoints" : [GTLRCloudNaturalLanguage_XPSTrainingObjectivePoint class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTablesTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTablesTrainResponse
+@dynamic modelStructure, predictionSampleRows, tablesModelColumnInfo,
+         trainCostMilliNodeHours;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"predictionSampleRows" : [GTLRCloudNaturalLanguage_XPSRow class],
+    @"tablesModelColumnInfo" : [GTLRCloudNaturalLanguage_XPSTablesModelColumnInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTextComponentModel
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTextComponentModel
+@dynamic batchPredictionModelGcsUri, onlinePredictionModelGcsUri, partition,
+         servingArtifact, servoModelName, submodelName, submodelType,
+         tfRuntimeVersion, versionNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTextExtractionEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTextExtractionEvaluationMetrics
+@dynamic bestF1ConfidenceMetrics, confidenceMetricsEntries, confusionMatrix,
+         perLabelConfidenceMetrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceMetricsEntries" : [GTLRCloudNaturalLanguage_XPSConfidenceMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTextExtractionEvaluationMetrics_PerLabelConfidenceMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTextExtractionEvaluationMetrics_PerLabelConfidenceMetrics
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudNaturalLanguage_XPSConfidenceMetricsEntry class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTextSentimentEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTextSentimentEvaluationMetrics
+@dynamic confusionMatrix, f1Score, linearKappa, meanAbsoluteError,
+         meanSquaredError, precision, quadraticKappa, recall;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTextToSpeechTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTextToSpeechTrainResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTextTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTextTrainResponse
+@dynamic componentModel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"componentModel" : [GTLRCloudNaturalLanguage_XPSTextComponentModel class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTfJsFormat
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTfJsFormat
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTfLiteFormat
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTfLiteFormat
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTfSavedModelFormat
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTfSavedModelFormat
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTimestampStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTimestampStats
+@dynamic commonStats, granularStats, medianTimestampNanos;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTimestampStats_GranularStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTimestampStats_GranularStats
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudNaturalLanguage_XPSTimestampStatsGranularStats class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTimestampStatsGranularStats
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTimestampStatsGranularStats
+@dynamic buckets;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTimestampStatsGranularStats_Buckets
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTimestampStatsGranularStats_Buckets
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTrackMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTrackMetricsEntry
+@dynamic confidenceMetricsEntries, iouThreshold, meanBoundingBoxIou,
+         meanMismatchRate, meanTrackingAveragePrecision;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceMetricsEntries" : [GTLRCloudNaturalLanguage_XPSTrackMetricsEntryConfidenceMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTrackMetricsEntryConfidenceMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTrackMetricsEntryConfidenceMetricsEntry
+@dynamic boundingBoxIou, confidenceThreshold, mismatchRate, trackingPrecision,
+         trackingRecall;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTrainingObjectivePoint
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTrainingObjectivePoint
+@dynamic createTime, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTrainResponse
+@dynamic deployedModelSizeBytes, errorAnalysisConfigs, evaluatedExampleSet,
+         evaluationMetricsSet, explanationConfigs, imageClassificationTrainResp,
+         imageObjectDetectionTrainResp, imageSegmentationTrainResp, modelToken,
+         speechTrainResp, tablesTrainResp, textToSpeechTrainResp, textTrainResp,
+         translationTrainResp, videoActionRecognitionTrainResp,
+         videoClassificationTrainResp, videoObjectTrackingTrainResp;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorAnalysisConfigs" : [GTLRCloudNaturalLanguage_XPSVisionErrorAnalysisConfig class],
+    @"explanationConfigs" : [GTLRCloudNaturalLanguage_XPSResponseExplanationSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTranslationEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTranslationEvaluationMetrics
+@dynamic baseBleuScore, bleuScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTranslationPreprocessResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTranslationPreprocessResponse
+@dynamic parsedExampleCount, validExampleCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTranslationTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTranslationTrainResponse
+@dynamic modelType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSTuningTrial
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSTuningTrial
+@dynamic modelStructure, trainingObjectivePoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoActionMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoActionMetricsEntry
+@dynamic confidenceMetricsEntries, meanAveragePrecision, precisionWindowLength;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceMetricsEntries" : [GTLRCloudNaturalLanguage_XPSVideoActionMetricsEntryConfidenceMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoActionMetricsEntryConfidenceMetricsEntry
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoActionMetricsEntryConfidenceMetricsEntry
+@dynamic confidenceThreshold, f1Score, precision, recall;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoActionRecognitionEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoActionRecognitionEvaluationMetrics
+@dynamic evaluatedActionCount, videoActionMetricsEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"videoActionMetricsEntries" : [GTLRCloudNaturalLanguage_XPSVideoActionMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoActionRecognitionTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoActionRecognitionTrainResponse
+@dynamic modelArtifactSpec, trainCostNodeSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoBatchPredictOperationMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoBatchPredictOperationMetadata
+@dynamic outputExamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"outputExamples" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoClassificationTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoClassificationTrainResponse
+@dynamic modelArtifactSpec, trainCostNodeSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoExportModelSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoExportModelSpec
+@dynamic exportModelOutputConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exportModelOutputConfig" : [GTLRCloudNaturalLanguage_XPSExportModelOutputConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoModelArtifactSpec
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoModelArtifactSpec
+@dynamic exportArtifact, servingArtifact;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exportArtifact" : [GTLRCloudNaturalLanguage_XPSModelArtifactItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoObjectTrackingEvaluationMetrics
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoObjectTrackingEvaluationMetrics
+@dynamic boundingBoxMeanAveragePrecision, boundingBoxMetricsEntries,
+         evaluatedBoundingboxCount, evaluatedFrameCount, evaluatedTrackCount,
+         trackMeanAveragePrecision, trackMeanBoundingBoxIou,
+         trackMeanMismatchRate, trackMetricsEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"boundingBoxMetricsEntries" : [GTLRCloudNaturalLanguage_XPSBoundingBoxMetricsEntry class],
+    @"trackMetricsEntries" : [GTLRCloudNaturalLanguage_XPSTrackMetricsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoObjectTrackingTrainResponse
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoObjectTrackingTrainResponse
+@dynamic exportModelSpec, modelArtifactSpec, trainCostNodeSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVideoTrainingOperationMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVideoTrainingOperationMetadata
+@dynamic trainCostMilliNodeHour;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVisionErrorAnalysisConfig
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVisionErrorAnalysisConfig
+@dynamic exampleCount, queryType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVisionTrainingOperationMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVisionTrainingOperationMetadata
+@dynamic explanationUsage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSVisualization
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSVisualization
+@dynamic clipPercentLowerbound, clipPercentUpperbound, colorMap, overlayType,
+         polarity, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSXpsOperationMetadata
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSXpsOperationMetadata
+@dynamic exampleCount, reportingMetrics, tablesTrainingOperationMetadata,
+         videoBatchPredictOperationMetadata, videoTrainingOperationMetadata,
+         visionTrainingOperationMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_XPSXraiAttribution
+//
+
+@implementation GTLRCloudNaturalLanguage_XPSXraiAttribution
+@dynamic stepCount;
+@end
+
+#pragma clang diagnostic pop

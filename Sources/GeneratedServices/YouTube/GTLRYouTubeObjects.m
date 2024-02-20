@@ -126,6 +126,12 @@ NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted = @"unlisted";
 
+// GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails.billingStatus
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusActive = @"billingStatusActive";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusInactive = @"billingStatusInactive";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusPending = @"billingStatusPending";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusUnspecified = @"billingStatusUnspecified";
+
 // GTLRYouTube_CommentSnippet.moderationStatus
 NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_HeldForReview = @"heldForReview";
 NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_LikelySpam = @"likelySpam";
@@ -952,6 +958,7 @@ NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MembershipGiftingEvent
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent = @"messageDeletedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent = @"messageRetractedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent = @"newSponsorEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollEvent = @"pollEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent = @"sponsorOnlyModeEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent = @"sponsorOnlyModeStartedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent = @"superChatEvent";
@@ -959,6 +966,11 @@ NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperStickerEvent = @"
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent = @"textMessageEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Tombstone = @"tombstone";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_UserBannedEvent = @"userBannedEvent";
+
+// GTLRYouTube_LiveChatPollDetails.status
+NSString * const kGTLRYouTube_LiveChatPollDetails_Status_Active = @"active";
+NSString * const kGTLRYouTube_LiveChatPollDetails_Status_Closed = @"closed";
+NSString * const kGTLRYouTube_LiveChatPollDetails_Status_Unknown = @"unknown";
 
 // GTLRYouTube_LiveChatUserBannedMessageDetails.banType
 NSString * const kGTLRYouTube_LiveChatUserBannedMessageDetails_BanType_Permanent = @"permanent";
@@ -1884,7 +1896,17 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ChannelToStoreLinkDetails
-@dynamic merchantId, storeName, storeUrl;
+@dynamic billingDetails, merchantId, storeName, storeUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails
+//
+
+@implementation GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails
+@dynamic billingStatus;
 @end
 
 
@@ -2550,8 +2572,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
          giftMembershipReceivedDetails, hasDisplayContent, liveChatId,
          memberMilestoneChatDetails, membershipGiftingDetails,
          messageDeletedDetails, messageRetractedDetails, newSponsorDetails,
-         publishedAt, superChatDetails, superStickerDetails, textMessageDetails,
-         type, userBannedDetails;
+         pollDetails, publishedAt, superChatDetails, superStickerDetails,
+         textMessageDetails, type, userBannedDetails;
 @end
 
 
@@ -2614,6 +2636,44 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatNewSponsorDetails
 @dynamic isUpgrade, memberLevelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatPollDetails
+//
+
+@implementation GTLRYouTube_LiveChatPollDetails
+@dynamic metadata, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatPollDetailsPollMetadata
+//
+
+@implementation GTLRYouTube_LiveChatPollDetailsPollMetadata
+@dynamic options, questionText;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"options" : [GTLRYouTube_LiveChatPollDetailsPollMetadataPollOption class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatPollDetailsPollMetadataPollOption
+//
+
+@implementation GTLRYouTube_LiveChatPollDetailsPollMetadataPollOption
+@dynamic optionText, tally;
 @end
 
 

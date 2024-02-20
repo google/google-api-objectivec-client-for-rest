@@ -37,14 +37,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Search for full hashes matching the specified prefixes. This is a custom
- *  method as described by guidance at https://google.aip.dev/136
+ *  method as defined by https://google.aip.dev/136 (the custom method refers to
+ *  this method having a custom name within Google's general API development
+ *  nomenclature; it does not refer to using a custom HTTP method).
  *
  *  Method: safebrowsing.hashes.search
  */
 @interface GTLRSafebrowsingQuery_HashesSearch : GTLRSafebrowsingQuery
 
 /**
- *  Required. The hash prefixes to be looked up.
+ *  Required. The hash prefixes to be looked up. Clients MUST NOT send more than
+ *  1000 hash prefixes. However, following the URL processing procedure, clients
+ *  SHOULD NOT need to send more than 30 hash prefixes. Currently each hash
+ *  prefix is required to be exactly 4 bytes long. This MAY be relaxed in the
+ *  future.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -56,7 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchHashesResponse.
  *
  *  Search for full hashes matching the specified prefixes. This is a custom
- *  method as described by guidance at https://google.aip.dev/136
+ *  method as defined by https://google.aip.dev/136 (the custom method refers to
+ *  this method having a custom name within Google's general API development
+ *  nomenclature; it does not refer to using a custom HTTP method).
  *
  *  @return GTLRSafebrowsingQuery_HashesSearch
  */

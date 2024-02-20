@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Retail API (retail/v2)
+//   Vertex AI Search for Retail API (retail/v2)
 // Description:
-//   Cloud Retail service enables customers to build end-to-end personalized
-//   recommendation systems without requiring a high level of expertise in
-//   machine learning, recommendation system, or Google Cloud.
+//   Vertex AI Search for Retail API is made up of Retail Search, Browse and
+//   Recommendations. These discovery AI solutions help you implement
+//   personalized search, browse and recommendations, based on machine learning
+//   models, across your websites and mobile applications.
 // Documentation:
 //   https://cloud.google.com/recommendations
 
@@ -1200,6 +1201,44 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Control *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Exports analytics metrics. `Operation.response` is of type
+ *  `ExportAnalyticsMetricsResponse`. `Operation.metadata` is of type
+ *  `ExportMetadata`.
+ *
+ *  Method: retail.projects.locations.catalogs.exportAnalyticsMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsExportAnalyticsMetrics : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full resource name of the parent catalog. Expected format:
+ *  `projects/ * /locations/ * /catalogs/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
+ *
+ *  Exports analytics metrics. `Operation.response` is of type
+ *  `ExportAnalyticsMetricsResponse`. `Operation.metadata` is of type
+ *  `ExportMetadata`.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsRequest to
+ *    include in the query.
+ *  @param catalog Required. Full resource name of the parent catalog. Expected
+ *    format: `projects/ * /locations/ * /catalogs/ *`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsExportAnalyticsMetrics
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ExportAnalyticsMetricsRequest *)object
+                        catalog:(NSString *)catalog;
 
 @end
 

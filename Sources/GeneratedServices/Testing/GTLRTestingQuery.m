@@ -34,6 +34,12 @@ NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware   = @"PROVIDED_SOFT
 
 @implementation GTLRTestingQuery_ApplicationDetailServiceGetApkDetails
 
+@dynamic bundleLocationGcsPath;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"bundleLocationGcsPath" : @"bundleLocation.gcsPath" };
+}
+
 + (instancetype)queryWithObject:(GTLRTesting_FileReference *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG

@@ -387,6 +387,117 @@
 
 @end
 
+@implementation GTLRTPUQuery_ProjectsLocationsQueuedResourcesCreate
+
+@dynamic parent, queuedResourceId, requestId;
+
++ (instancetype)queryWithObject:(GTLRTPU_QueuedResource *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/queuedResources";
+  GTLRTPUQuery_ProjectsLocationsQueuedResourcesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTPU_Operation class];
+  query.loggingName = @"tpu.projects.locations.queuedResources.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRTPUQuery_ProjectsLocationsQueuedResourcesDelete
+
+@dynamic force, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRTPUQuery_ProjectsLocationsQueuedResourcesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTPU_Operation class];
+  query.loggingName = @"tpu.projects.locations.queuedResources.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTPUQuery_ProjectsLocationsQueuedResourcesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRTPUQuery_ProjectsLocationsQueuedResourcesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTPU_QueuedResource class];
+  query.loggingName = @"tpu.projects.locations.queuedResources.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTPUQuery_ProjectsLocationsQueuedResourcesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/queuedResources";
+  GTLRTPUQuery_ProjectsLocationsQueuedResourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTPU_ListQueuedResourcesResponse class];
+  query.loggingName = @"tpu.projects.locations.queuedResources.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTPUQuery_ProjectsLocationsQueuedResourcesReset
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRTPU_ResetQueuedResourceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:reset";
+  GTLRTPUQuery_ProjectsLocationsQueuedResourcesReset *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTPU_Operation class];
+  query.loggingName = @"tpu.projects.locations.queuedResources.reset";
+  return query;
+}
+
+@end
+
 @implementation GTLRTPUQuery_ProjectsLocationsRuntimeVersionsGet
 
 @dynamic name;

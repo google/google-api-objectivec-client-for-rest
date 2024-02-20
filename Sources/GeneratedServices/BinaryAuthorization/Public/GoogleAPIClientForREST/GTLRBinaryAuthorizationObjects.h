@@ -42,6 +42,10 @@
 @class GTLRBinaryAuthorization_Policy_KubernetesServiceAccountAdmissionRules;
 @class GTLRBinaryAuthorization_Scope;
 @class GTLRBinaryAuthorization_Signature;
+@class GTLRBinaryAuthorization_SigstoreAuthority;
+@class GTLRBinaryAuthorization_SigstorePublicKey;
+@class GTLRBinaryAuthorization_SigstorePublicKeySet;
+@class GTLRBinaryAuthorization_SigstoreSignatureCheck;
 @class GTLRBinaryAuthorization_SimpleSigningAttestationCheck;
 @class GTLRBinaryAuthorization_SlsaCheck;
 @class GTLRBinaryAuthorization_TrustedDirectoryCheck;
@@ -547,9 +551,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 @interface GTLRBinaryAuthorization_AttestationSource : GTLRObject
 
 /**
- *  The IDs of the GCP projects storing the SLSA attestations as Container
- *  Analysis Occurrences, in the format `projects/[PROJECT_ID]`. Maximum number
- *  of `container_analysis_attestation_projects` allowed in each
+ *  The IDs of the Google Cloud projects that store the SLSA attestations as
+ *  Container Analysis Occurrences, in the format `projects/[PROJECT_ID]`.
+ *  Maximum number of `container_analysis_attestation_projects` allowed in each
  *  `AttestationSource` is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *containerAnalysisAttestationProjects;
@@ -758,6 +762,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *  time. Image age is determined by its upload time.
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_ImageFreshnessCheck *imageFreshnessCheck;
+
+/**
+ *  Optional. Require that an image was signed by Cosign with a trusted key.
+ *  This check requires that both the image and signature are stored in Artifact
+ *  Registry.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_SigstoreSignatureCheck *sigstoreSignatureCheck;
 
 /**
  *  Optional. Require a SimpleSigning-type attestation for every image in the
@@ -1475,6 +1486,69 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *signature;
+
+@end
+
+
+/**
+ *  A Sigstore authority, used to verify signatures that are created by
+ *  Sigstore. An authority is analogous to an attestation authenticator,
+ *  verifying that a signature is valid or invalid.
+ */
+@interface GTLRBinaryAuthorization_SigstoreAuthority : GTLRObject
+
+/**
+ *  Optional. A user-provided name for this `SigstoreAuthority`. This field has
+ *  no effect on the policy evaluation behavior except to improve readability of
+ *  messages in evaluation results.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. A simple set of public keys. A signature is considered valid if
+ *  any keys in the set validate the signature.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_SigstorePublicKeySet *publicKeySet;
+
+@end
+
+
+/**
+ *  A Sigstore public key. `SigstorePublicKey` is the public key material used
+ *  to authenticate Sigstore signatures.
+ */
+@interface GTLRBinaryAuthorization_SigstorePublicKey : GTLRObject
+
+/** The public key material in PEM format. */
+@property(nonatomic, copy, nullable) NSString *publicKeyPem;
+
+@end
+
+
+/**
+ *  A bundle of Sigstore public keys, used to verify Sigstore signatures. A
+ *  signature is authenticated by a `SigstorePublicKeySet` if any of the keys
+ *  verify it.
+ */
+@interface GTLRBinaryAuthorization_SigstorePublicKeySet : GTLRObject
+
+/** Required. `public_keys` must have at least one entry. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_SigstorePublicKey *> *publicKeys;
+
+@end
+
+
+/**
+ *  A Sigstore signature check, which verifies the Sigstore signature associated
+ *  with an image.
+ */
+@interface GTLRBinaryAuthorization_SigstoreSignatureCheck : GTLRObject
+
+/**
+ *  Required. The authorities required by this check to verify the signature. A
+ *  signature only needs to be verified by one authority to pass the check.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_SigstoreAuthority *> *sigstoreAuthorities;
 
 @end
 

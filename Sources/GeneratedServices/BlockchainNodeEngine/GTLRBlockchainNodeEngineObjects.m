@@ -340,7 +340,7 @@ NSString * const kGTLRBlockchainNodeEngine_GethDetails_GarbageCollectionMode_Gar
 //
 
 @implementation GTLRBlockchainNodeEngine_ValidatorConfig
-@dynamic managedValidatorClient, mevRelayUrls;
+@dynamic beaconFeeRecipient, managedValidatorClient, mevRelayUrls;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

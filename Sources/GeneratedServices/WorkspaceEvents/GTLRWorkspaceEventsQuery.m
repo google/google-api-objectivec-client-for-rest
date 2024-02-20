@@ -16,3 +16,159 @@
 @dynamic fields;
 
 @end
+
+@implementation GTLRWorkspaceEventsQuery_OperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkspaceEventsQuery_OperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Operation class];
+  query.loggingName = @"workspaceevents.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_SubscriptionsCreate
+
+@dynamic validateOnly;
+
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_Subscription *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/subscriptions";
+  GTLRWorkspaceEventsQuery_SubscriptionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Operation class];
+  query.loggingName = @"workspaceevents.subscriptions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_SubscriptionsDelete
+
+@dynamic allowMissing, ETag, name, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkspaceEventsQuery_SubscriptionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Operation class];
+  query.loggingName = @"workspaceevents.subscriptions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_SubscriptionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkspaceEventsQuery_SubscriptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Subscription class];
+  query.loggingName = @"workspaceevents.subscriptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_SubscriptionsList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/subscriptions";
+  GTLRWorkspaceEventsQuery_SubscriptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRWorkspaceEvents_ListSubscriptionsResponse class];
+  query.loggingName = @"workspaceevents.subscriptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_SubscriptionsPatch
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_Subscription *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkspaceEventsQuery_SubscriptionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Operation class];
+  query.loggingName = @"workspaceevents.subscriptions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_SubscriptionsReactivate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_ReactivateSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:reactivate";
+  GTLRWorkspaceEventsQuery_SubscriptionsReactivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Operation class];
+  query.loggingName = @"workspaceevents.subscriptions.reactivate";
+  return query;
+}
+
+@end

@@ -1206,10 +1206,11 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 @implementation GTLRAppengine_Runtime
 @dynamic decommissionedDate, deprecationDate, endOfSupportDate, environment,
-         name, stage, warnings;
+         name, stage, supportedOperatingSystems, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"supportedOperatingSystems" : [NSString class],
     @"warnings" : [NSString class]
   };
   return map;

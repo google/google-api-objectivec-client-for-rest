@@ -832,7 +832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 /**
  *  Defines time to stop scheduling transfer runs. A transfer run cannot be
  *  scheduled at or after the end time. The end time can be changed at any
- *  moment. The time when a data transfer can be trigerred manually is not
+ *  moment. The time when a data transfer can be triggered manually is not
  *  limited by this option.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
@@ -841,7 +841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  Specifies time to start scheduling transfer runs. The first run will be
  *  scheduled at or after the start time according to a recurrence pattern
  *  defined in the schedule string. The start time can be changed at any moment.
- *  The time when a data transfer can be trigerred manually is not limited by
+ *  The time when a data transfer can be triggered manually is not limited by
  *  this option.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -1019,8 +1019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, copy, nullable) NSString *destinationDatasetId;
 
 /**
- *  Is this config disabled. When set to true, no runs are scheduled for a given
- *  transfer.
+ *  Is this config disabled. When set to true, no runs will be scheduled for
+ *  this transfer config.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1060,7 +1060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 /**
  *  Pub/Sub topic where notifications will be sent after transfer runs
  *  associated with this transfer config finish. The format for specifying a
- *  pubsub topic is: `projects/{project}/topics/{topic}`
+ *  pubsub topic is: `projects/{project_id}/topics/{topic_id}`
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
@@ -1211,7 +1211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 /**
  *  Output only. Pub/Sub topic where a notification will be sent after this
  *  transfer run finishes. The format for specifying a pubsub topic is:
- *  `projects/{project}/topics/{topic}`
+ *  `projects/{project_id}/topics/{topic_id}`
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 

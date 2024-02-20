@@ -32,28 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Checks whether a SAS deployment for the authentication context exists.
- *
- *  Method: sasportal.customers.checkHasProvisionedDeployment
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeSASPortal
- *    @c kGTLRAuthScopeSASPortalCloudPlatform
- */
-@interface GTLRSASPortalQuery_CustomersCheckHasProvisionedDeployment : GTLRSASPortalQuery
-
-/**
- *  Fetches a @c GTLRSASPortal_CheckHasProvisionedDeploymentResponse.
- *
- *  Checks whether a SAS deployment for the authentication context exists.
- *
- *  @return GTLRSASPortalQuery_CustomersCheckHasProvisionedDeployment
- */
-+ (instancetype)query;
-
-@end
-
-/**
  *  Creates a new deployment.
  *
  *  Method: sasportal.customers.deployments.create
@@ -717,7 +695,31 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Checks whether account is legacy.
+ *  Returns a list of SAS deployments associated with current GCP project.
+ *  Includes whether SAS analytics has been enabled or not.
+ *
+ *  Method: sasportal.customers.listGcpProjectDeployments
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortal
+ *    @c kGTLRAuthScopeSASPortalCloudPlatform
+ */
+@interface GTLRSASPortalQuery_CustomersListGcpProjectDeployments : GTLRSASPortalQuery
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListGcpProjectDeploymentsResponse.
+ *
+ *  Returns a list of SAS deployments associated with current GCP project.
+ *  Includes whether SAS analytics has been enabled or not.
+ *
+ *  @return GTLRSASPortalQuery_CustomersListGcpProjectDeployments
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Returns a list of legacy organizations.
  *
  *  Method: sasportal.customers.listLegacyOrganizations
  *
@@ -730,7 +732,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSASPortal_ListLegacyOrganizationsResponse.
  *
- *  Checks whether account is legacy.
+ *  Returns a list of legacy organizations.
  *
  *  @return GTLRSASPortalQuery_CustomersListLegacyOrganizations
  */

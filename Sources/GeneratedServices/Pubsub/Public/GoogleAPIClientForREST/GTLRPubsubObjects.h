@@ -84,7 +84,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_ConsumerNotFound
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_KinesisPermissionDenied;
 /**
  *  Permission denied encountered while publishing to the topic. This can happen
- *  due to Pub/Sub SA has not been granted the [appropriate publish
+ *  if the Pub/Sub SA has not been granted the [appropriate publish
  *  permissions](https://cloud.google.com/pubsub/docs/access-control#pubsub.publisher)
  *
  *  Value: "PUBLISH_PERMISSION_DENIED"
@@ -379,8 +379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        permission on `gcp_service_account`. (Value:
  *        "KINESIS_PERMISSION_DENIED")
  *    @arg @c kGTLRPubsub_AwsKinesis_State_PublishPermissionDenied Permission
- *        denied encountered while publishing to the topic. This can happen due
- *        to Pub/Sub SA has not been granted the [appropriate publish
+ *        denied encountered while publishing to the topic. This can happen if
+ *        the Pub/Sub SA has not been granted the [appropriate publish
  *        permissions](https://cloud.google.com/pubsub/docs/access-control#pubsub.publisher)
  *        (Value: "PUBLISH_PERMISSION_DENIED")
  *    @arg @c kGTLRPubsub_AwsKinesis_State_StateUnspecified Default value. This
@@ -411,6 +411,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dropUnknownFields;
+
+/**
+ *  Optional. The service account to use to write to BigQuery. The subscription
+ *  creator or updater that specifies this field must have
+ *  `iam.serviceAccounts.actAs` permission on the service account. If not
+ *  specified, the Pub/Sub [service
+ *  agent](https://cloud.google.com/iam/docs/service-agents),
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
  *  Output only. An output-only field that indicates whether or not the
@@ -612,6 +622,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  exceed the subscription's acknowledgement deadline.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxDuration;
+
+/**
+ *  Optional. The service account to use to write to Cloud Storage. The
+ *  subscription creator or updater that specifies this field must have
+ *  `iam.serviceAccounts.actAs` permission on the service account. If not
+ *  specified, the Pub/Sub [service
+ *  agent](https://cloud.google.com/iam/docs/service-agents),
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
  *  Output only. An output-only field that indicates whether or not the

@@ -1183,7 +1183,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          defaultRoundingMode, defaultTableExpirationMs, descriptionProperty,
          ETag, externalDatasetReference, friendlyName, identifier,
          isCaseInsensitive, kind, labels, lastModifiedTime, linkedDatasetSource,
-         location, maxTimeTravelHours, satisfiesPzs, selfLink,
+         location, maxTimeTravelHours, satisfiesPzi, satisfiesPzs, selfLink,
          storageBillingModel, tags, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1953,7 +1953,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobConfigurationLoad
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, clustering,
-         connectionProperties, createDisposition, createSession,
+         connectionProperties, copyFilesOnly, createDisposition, createSession,
          decimalTargetTypes, destinationEncryptionConfiguration,
          destinationTable, destinationTableProperties, encoding, fieldDelimiter,
          fileSetSpecType, hivePartitioningOptions, ignoreUnknownValues,

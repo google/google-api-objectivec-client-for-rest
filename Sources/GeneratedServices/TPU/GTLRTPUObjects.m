@@ -55,6 +55,23 @@ NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 NSString * const kGTLRTPU_Node_State_Terminated       = @"TERMINATED";
 NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 
+// GTLRTPU_QueuedResourceState.state
+NSString * const kGTLRTPU_QueuedResourceState_State_Accepted   = @"ACCEPTED";
+NSString * const kGTLRTPU_QueuedResourceState_State_Active     = @"ACTIVE";
+NSString * const kGTLRTPU_QueuedResourceState_State_Creating   = @"CREATING";
+NSString * const kGTLRTPU_QueuedResourceState_State_Deleting   = @"DELETING";
+NSString * const kGTLRTPU_QueuedResourceState_State_Failed     = @"FAILED";
+NSString * const kGTLRTPU_QueuedResourceState_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRTPU_QueuedResourceState_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRTPU_QueuedResourceState_State_Suspended  = @"SUSPENDED";
+NSString * const kGTLRTPU_QueuedResourceState_State_Suspending = @"SUSPENDING";
+NSString * const kGTLRTPU_QueuedResourceState_State_WaitingForResources = @"WAITING_FOR_RESOURCES";
+
+// GTLRTPU_QueuedResourceState.stateInitiator
+NSString * const kGTLRTPU_QueuedResourceState_StateInitiator_Service = @"SERVICE";
+NSString * const kGTLRTPU_QueuedResourceState_StateInitiator_StateInitiatorUnspecified = @"STATE_INITIATOR_UNSPECIFIED";
+NSString * const kGTLRTPU_QueuedResourceState_StateInitiator_User = @"USER";
+
 // GTLRTPU_Symptom.symptomType
 NSString * const kGTLRTPU_Symptom_SymptomType_ExecuteTimedOut  = @"EXECUTE_TIMED_OUT";
 NSString * const kGTLRTPU_Symptom_SymptomType_HbmOutOfMemory   = @"HBM_OUT_OF_MEMORY";
@@ -94,11 +111,29 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_AcceptedData
+//
+
+@implementation GTLRTPU_AcceptedData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_AccessConfig
 //
 
 @implementation GTLRTPU_AccessConfig
 @dynamic externalIp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_ActiveData
+//
+
+@implementation GTLRTPU_ActiveData
 @end
 
 
@@ -114,10 +149,38 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_CreatingData
+//
+
+@implementation GTLRTPU_CreatingData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_DeletingData
+//
+
+@implementation GTLRTPU_DeletingData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_Empty
 //
 
 @implementation GTLRTPU_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_FailedData
+//
+
+@implementation GTLRTPU_FailedData
+@dynamic error;
 @end
 
 
@@ -178,6 +241,16 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_Guaranteed
+//
+
+@implementation GTLRTPU_Guaranteed
+@dynamic minDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_GuestAttributes
 //
 
@@ -216,6 +289,16 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_Interval
+//
+
+@implementation GTLRTPU_Interval
+@dynamic endTime, startTime;
 @end
 
 
@@ -311,6 +394,29 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_ListQueuedResourcesResponse
+//
+
+@implementation GTLRTPU_ListQueuedResourcesResponse
+@dynamic nextPageToken, queuedResources, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queuedResources" : [GTLRTPU_QueuedResource class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"queuedResources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_ListRuntimeVersionsResponse
 //
 
@@ -367,6 +473,16 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_MultisliceParams
+//
+
+@implementation GTLRTPU_MultisliceParams
+@dynamic nodeCount, nodeIdPrefix;
 @end
 
 
@@ -453,6 +569,16 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_NodeSpec
+//
+
+@implementation GTLRTPU_NodeSpec
+@dynamic multisliceParams, node, nodeId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_Operation
 //
 
@@ -497,6 +623,57 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 @implementation GTLRTPU_OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_ProvisioningData
+//
+
+@implementation GTLRTPU_ProvisioningData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_QueuedResource
+//
+
+@implementation GTLRTPU_QueuedResource
+@dynamic createTime, guaranteed, name, queueingPolicy, reservationName, spot,
+         state, tpu;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_QueuedResourceState
+//
+
+@implementation GTLRTPU_QueuedResourceState
+@dynamic acceptedData, activeData, creatingData, deletingData, failedData,
+         provisioningData, state, stateInitiator, suspendedData, suspendingData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_QueueingPolicy
+//
+
+@implementation GTLRTPU_QueueingPolicy
+@dynamic validAfterDuration, validAfterTime, validInterval, validUntilDuration,
+         validUntilTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_ResetQueuedResourceRequest
+//
+
+@implementation GTLRTPU_ResetQueuedResourceRequest
 @end
 
 
@@ -560,6 +737,15 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_Spot
+//
+
+@implementation GTLRTPU_Spot
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_StartNodeRequest
 //
 
@@ -610,9 +796,45 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_SuspendedData
+//
+
+@implementation GTLRTPU_SuspendedData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_SuspendingData
+//
+
+@implementation GTLRTPU_SuspendingData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_Symptom
 //
 
 @implementation GTLRTPU_Symptom
 @dynamic createTime, details, symptomType, workerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_Tpu
+//
+
+@implementation GTLRTPU_Tpu
+@dynamic nodeSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodeSpec" : [GTLRTPU_NodeSpec class]
+  };
+  return map;
+}
+
 @end

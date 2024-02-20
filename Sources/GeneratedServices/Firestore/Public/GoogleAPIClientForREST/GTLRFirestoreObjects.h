@@ -36,12 +36,14 @@
 @class GTLRFirestore_DocumentsTarget;
 @class GTLRFirestore_DocumentTransform;
 @class GTLRFirestore_ExistenceFilter;
+@class GTLRFirestore_ExplainOptions;
 @class GTLRFirestore_FieldFilter;
 @class GTLRFirestore_FieldReference;
 @class GTLRFirestore_FieldTransform;
 @class GTLRFirestore_Filter;
 @class GTLRFirestore_GoogleFirestoreAdminV1Backup;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
+@class GTLRFirestore_GoogleFirestoreAdminV1CmekConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database;
 @class GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot;
@@ -1706,6 +1708,24 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Explain options for the query.
+ */
+@interface GTLRFirestore_ExplainOptions : GTLRObject
+
+/**
+ *  Optional. Whether to execute this query. When false (the default), the query
+ *  will be planned, returning only metrics from the planning stages. When true,
+ *  the query will be planned and executed, returning the full query results
+ *  along with both planning and execution stage metrics.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *analyze;
+
+@end
+
+
+/**
  *  A filter on a specific field.
  */
 @interface GTLRFirestore_FieldFilter : GTLRObject
@@ -1990,6 +2010,35 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The CMEK (Customer Managed Encryption Key) configuration for a Firestore
+ *  database. If not present, the database is secured by the default Google
+ *  encryption key.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CmekConfig : GTLRObject
+
+/**
+ *  Output only. Currently in-use [KMS key
+ *  versions](https://cloud.google.com/kms/docs/resource-hierarchy#key_versions).
+ *  During [key rotation](https://cloud.google.com/kms/docs/key-rotation), there
+ *  can be multiple in-use key versions. The expected format is
+ *  `projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{key_version}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *activeKeyVersion;
+
+/**
+ *  Required. Only keys in the same location as this database are allowed to be
+ *  used for encryption. For Firestore's nam5 multi-region, this corresponds to
+ *  Cloud KMS multi-region us. For Firestore's eur3 multi-region, this
+ *  corresponds to Cloud KMS multi-region europe. See
+ *  https://cloud.google.com/kms/docs/locations. The expected format is
+ *  `projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
  *  Metadata related to the create database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1CreateDatabaseMetadata : GTLRObject
@@ -2026,6 +2075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        writes to the database. (Value: "ENABLED")
  */
 @property(nonatomic, copy, nullable) NSString *appEngineIntegrationMode;
+
+/** Optional. Presence indicates CMEK is enabled for this database. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1CmekConfig *cmekConfig;
 
 /**
  *  The concurrency control mode to use for this database.
@@ -3774,6 +3826,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_RunAggregationQueryRequest : GTLRObject
 
 /**
+ *  Optional. Explain options for the query. If set, additional query statistics
+ *  will be returned. If not, only query results will be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExplainOptions *explainOptions;
+
+/**
  *  Starts a new transaction as part of the query, defaulting to read-only. The
  *  new transaction ID will be returned as the first response in the stream.
  */
@@ -3838,6 +3896,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The request for Firestore.RunQuery.
  */
 @interface GTLRFirestore_RunQueryRequest : GTLRObject
+
+/**
+ *  Optional. Explain options for the query. If set, additional query statistics
+ *  will be returned. If not, only query results will be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExplainOptions *explainOptions;
 
 /**
  *  Starts a new transaction and reads the documents. Defaults to a read-only

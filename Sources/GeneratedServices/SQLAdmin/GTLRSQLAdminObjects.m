@@ -362,7 +362,9 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailur
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica = @"EXISTING_DATA_IN_REPLICA";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseMinorVersion = @"INCOMPATIBLE_DATABASE_MINOR_VERSION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion = @"INCOMPATIBLE_DATABASE_VERSION";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientDiskSize = @"INSUFFICIENT_DISK_SIZE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientGcsPermissions = @"INSUFFICIENT_GCS_PERMISSIONS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMachineTier = @"INSUFFICIENT_MACHINE_TIER";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWalSenders = @"INSUFFICIENT_MAX_WAL_SENDERS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWorkerProcesses = @"INSUFFICIENT_MAX_WORKER_PROCESSES";
@@ -379,6 +381,8 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MissingOptionalP
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MysqlParallelImportInsufficientPrivilege = @"MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSubscriptionCount = @"PG_SUBSCRIPTION_COUNT";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSyncParallelLevel = @"PG_SYNC_PARALLEL_LEVEL";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup = @"PRIMARY_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege = @"RISKY_BACKUP_ADMIN_PRIVILEGE";

@@ -260,6 +260,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDi
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_Postgresql;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_CreateInstanceMetadata.expectedFulfillmentPeriod
+
+/**
+ *  Extended fulfillment period. It can take up to an hour for the operation to
+ *  complete.
+ *
+ *  Value: "FULFILLMENT_PERIOD_EXTENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodExtended;
+/**
+ *  Normal fulfillment period. The operation is expected to complete within
+ *  minutes.
+ *
+ *  Value: "FULFILLMENT_PERIOD_NORMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodNormal;
+/**
+ *  Not specified.
+ *
+ *  Value: "FULFILLMENT_PERIOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_Database.databaseDialect
 
 /**
@@ -912,6 +936,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_TypeAnnotation_PgNumeric;
  *  Value: "TYPE_ANNOTATION_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_TypeAnnotation_TypeAnnotationCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_UpdateInstanceMetadata.expectedFulfillmentPeriod
+
+/**
+ *  Extended fulfillment period. It can take up to an hour for the operation to
+ *  complete.
+ *
+ *  Value: "FULFILLMENT_PERIOD_EXTENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodExtended;
+/**
+ *  Normal fulfillment period. The operation is expected to complete within
+ *  minutes.
+ *
+ *  Value: "FULFILLMENT_PERIOD_NORMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodNormal;
+/**
+ *  Not specified.
+ *
+ *  Value: "FULFILLMENT_PERIOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_VisualizationData.keyUnit
@@ -1705,9 +1753,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto).
  *  To generate it, [install](https://grpc.io/docs/protoc-installation/) and run
  *  `protoc` with --include_imports and --descriptor_set_out. For example, to
- *  generate for moon/shot/app.proto, run """ $protoc --proto_path=/app_path
+ *  generate for moon/shot/app.proto, run ``` $protoc --proto_path=/app_path
  *  --proto_path=/lib_path \\ --include_imports \\
- *  --descriptor_set_out=descriptors.data \\ moon/shot/app.proto """ For more
+ *  --descriptor_set_out=descriptors.data \\ moon/shot/app.proto ``` For more
  *  details, see protobuffer [self
  *  description](https://developers.google.com/protocol-buffers/docs/techniques#self-description).
  *
@@ -1782,6 +1830,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /** The time at which this operation failed or was completed successfully. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The expected fulfillment period of this create operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodExtended
+ *        Extended fulfillment period. It can take up to an hour for the
+ *        operation to complete. (Value: "FULFILLMENT_PERIOD_EXTENDED")
+ *    @arg @c kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodNormal
+ *        Normal fulfillment period. The operation is expected to complete
+ *        within minutes. (Value: "FULFILLMENT_PERIOD_NORMAL")
+ *    @arg @c kGTLRSpanner_CreateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodUnspecified
+ *        Not specified. (Value: "FULFILLMENT_PERIOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *expectedFulfillmentPeriod;
 
 /** The instance being created. */
 @property(nonatomic, strong, nullable) GTLRSpanner_Instance *instance;
@@ -2080,8 +2143,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_DirectedReadOptions : GTLRObject
 
 /**
- *  Exclude_replicas indicates that should be excluded from serving requests.
- *  Spanner will not route requests to the replicas in this list.
+ *  Exclude_replicas indicates that specified replicas should be excluded from
+ *  serving requests. Spanner will not route requests to the replicas in this
+ *  list.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ExcludeReplicas *excludeReplicas;
 
@@ -4705,7 +4769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  `type` - The type of the replica. Some examples of using replica_selectors
  *  are: * `location:us-east1` --> The "us-east1" replica(s) of any available
  *  type will be used to process the request. * `type:READ_ONLY` --> The
- *  "READ_ONLY" type replica(s) in nearest . available location will be used to
+ *  "READ_ONLY" type replica(s) in nearest available location will be used to
  *  process the request. * `location:us-east1 type:READ_ONLY` --> The
  *  "READ_ONLY" type replica(s) in location "us-east1" will be used to process
  *  the request.
@@ -5854,9 +5918,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto).
  *  To generate it, [install](https://grpc.io/docs/protoc-installation/) and run
  *  `protoc` with --include_imports and --descriptor_set_out. For example, to
- *  generate for moon/shot/app.proto, run """ $protoc --proto_path=/app_path
+ *  generate for moon/shot/app.proto, run ``` $protoc --proto_path=/app_path
  *  --proto_path=/lib_path \\ --include_imports \\
- *  --descriptor_set_out=descriptors.data \\ moon/shot/app.proto """ For more
+ *  --descriptor_set_out=descriptors.data \\ moon/shot/app.proto ``` For more
  *  details, see protobuffer [self
  *  description](https://developers.google.com/protocol-buffers/docs/techniques#self-description).
  *
@@ -5977,6 +6041,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /** The time at which this operation failed or was completed successfully. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The expected fulfillment period of this update operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodExtended
+ *        Extended fulfillment period. It can take up to an hour for the
+ *        operation to complete. (Value: "FULFILLMENT_PERIOD_EXTENDED")
+ *    @arg @c kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodNormal
+ *        Normal fulfillment period. The operation is expected to complete
+ *        within minutes. (Value: "FULFILLMENT_PERIOD_NORMAL")
+ *    @arg @c kGTLRSpanner_UpdateInstanceMetadata_ExpectedFulfillmentPeriod_FulfillmentPeriodUnspecified
+ *        Not specified. (Value: "FULFILLMENT_PERIOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *expectedFulfillmentPeriod;
 
 /** The desired end state of the update. */
 @property(nonatomic, strong, nullable) GTLRSpanner_Instance *instance;

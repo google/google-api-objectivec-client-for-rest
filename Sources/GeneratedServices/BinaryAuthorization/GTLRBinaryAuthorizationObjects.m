@@ -216,8 +216,8 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 
 @implementation GTLRBinaryAuthorization_Check
 @dynamic alwaysDeny, displayName, imageAllowlist, imageFreshnessCheck,
-         simpleSigningAttestationCheck, slsaCheck, trustedDirectoryCheck,
-         vulnerabilityCheck;
+         sigstoreSignatureCheck, simpleSigningAttestationCheck, slsaCheck,
+         trustedDirectoryCheck, vulnerabilityCheck;
 @end
 
 
@@ -541,6 +541,62 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 
 @implementation GTLRBinaryAuthorization_Signature
 @dynamic publicKeyId, signature;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_SigstoreAuthority
+//
+
+@implementation GTLRBinaryAuthorization_SigstoreAuthority
+@dynamic displayName, publicKeySet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_SigstorePublicKey
+//
+
+@implementation GTLRBinaryAuthorization_SigstorePublicKey
+@dynamic publicKeyPem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_SigstorePublicKeySet
+//
+
+@implementation GTLRBinaryAuthorization_SigstorePublicKeySet
+@dynamic publicKeys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"publicKeys" : [GTLRBinaryAuthorization_SigstorePublicKey class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_SigstoreSignatureCheck
+//
+
+@implementation GTLRBinaryAuthorization_SigstoreSignatureCheck
+@dynamic sigstoreAuthorities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sigstoreAuthorities" : [GTLRBinaryAuthorization_SigstoreAuthority class]
+  };
+  return map;
+}
+
 @end
 
 

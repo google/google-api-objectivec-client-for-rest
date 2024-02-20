@@ -11,6 +11,23 @@
 
 #import <GoogleAPIClientForREST/GTLRWorkspaceEvents.h>
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+NSString * const kGTLRAuthScopeWorkspaceEventsChatBot          = @"https://www.googleapis.com/auth/chat.bot";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatMemberships  = @"https://www.googleapis.com/auth/chat.memberships";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly = @"https://www.googleapis.com/auth/chat.memberships.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatMessages     = @"https://www.googleapis.com/auth/chat.messages";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactions = @"https://www.googleapis.com/auth/chat.messages.reactions";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactionsReadonly = @"https://www.googleapis.com/auth/chat.messages.reactions.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly = @"https://www.googleapis.com/auth/chat.messages.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatSpaces       = @"https://www.googleapis.com/auth/chat.spaces";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly = @"https://www.googleapis.com/auth/chat.spaces.readonly";
+
+// ----------------------------------------------------------------------------
+//   GTLRWorkspaceEventsService
+//
+
 @implementation GTLRWorkspaceEventsService
 
 - (instancetype)init {

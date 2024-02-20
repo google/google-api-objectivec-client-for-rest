@@ -286,6 +286,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
 /** Location of the associated account's home city. */
 @property(nonatomic, copy, nullable) NSString *geo;
 
+/**
+ *  Unique identifier of a Detailed Lead Report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleAdsLeadId;
+
 /** Lead category (e.g. hvac, plumber) */
 @property(nonatomic, copy, nullable) NSString *leadCategory;
 
@@ -293,7 +300,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
 @property(nonatomic, strong, nullable) GTLRDateTime *leadCreationTimestamp;
 
 /**
- *  Unique identifier of a Detailed Lead Report.
+ *  Deprecated in favor of google_ads_lead_id. Unique identifier of a Detailed
+ *  Lead Report.
  *
  *  Uses NSNumber of longLongValue.
  */

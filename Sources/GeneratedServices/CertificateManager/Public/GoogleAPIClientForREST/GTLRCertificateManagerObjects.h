@@ -205,6 +205,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_CertificateMapEntry_S
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_CertificateMapEntry_State_ServingStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCertificateManager_DnsAuthorization.type
+
+/**
+ *  FIXED_RECORD DNS authorization uses DNS-01 validation method.
+ *
+ *  Value: "FIXED_RECORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_DnsAuthorization_Type_FixedRecord;
+/**
+ *  PER_PROJECT_RECORD DNS authorization allows for independent management of
+ *  Google-managed certificates with DNS authorization across multiple projects.
+ *
+ *  Value: "PER_PROJECT_RECORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_DnsAuthorization_Type_PerProjectRecord;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_DnsAuthorization_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCertificateManager_ManagedCertificate.state
 
 /**
@@ -677,6 +700,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *  /dnsAuthorizations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. Type of DnsAuthorization. If unset during resource creation the
+ *  following default will be used: - in location global: FIXED_RECORD.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateManager_DnsAuthorization_Type_FixedRecord
+ *        FIXED_RECORD DNS authorization uses DNS-01 validation method. (Value:
+ *        "FIXED_RECORD")
+ *    @arg @c kGTLRCertificateManager_DnsAuthorization_Type_PerProjectRecord
+ *        PER_PROJECT_RECORD DNS authorization allows for independent management
+ *        of Google-managed certificates with DNS authorization across multiple
+ *        projects. (Value: "PER_PROJECT_RECORD")
+ *    @arg @c kGTLRCertificateManager_DnsAuthorization_Type_TypeUnspecified Type
+ *        is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** Output only. The last update timestamp of a DnsAuthorization. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

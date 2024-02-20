@@ -618,6 +618,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_ExplainOptions
+//
+
+@implementation GTLRFirestore_ExplainOptions
+@dynamic analyze;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_FieldFilter
 //
 
@@ -680,6 +690,24 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1CmekConfig
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1CmekConfig
+@dynamic activeKeyVersion, kmsKeyName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activeKeyVersion" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1CreateDatabaseMetadata
 //
 
@@ -702,7 +730,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Database
-@dynamic appEngineIntegrationMode, concurrencyMode, createTime,
+@dynamic appEngineIntegrationMode, cmekConfig, concurrencyMode, createTime,
          deleteProtectionState, earliestVersionTime, ETag, keyPrefix,
          locationId, name, pointInTimeRecoveryEnablement, type, uid, updateTime,
          versionRetentionPeriod;
@@ -1487,7 +1515,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunAggregationQueryRequest
-@dynamic newTransaction, readTime, structuredAggregationQuery, transaction;
+@dynamic explainOptions, newTransaction, readTime, structuredAggregationQuery,
+         transaction;
 @end
 
 
@@ -1507,7 +1536,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunQueryRequest
-@dynamic newTransaction, readTime, structuredQuery, transaction;
+@dynamic explainOptions, newTransaction, readTime, structuredQuery, transaction;
 @end
 
 

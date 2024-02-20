@@ -66,8 +66,9 @@ NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1Detailed
 
 @implementation GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport
 @dynamic accountId, aggregatorInfo, bookingLead, businessName, chargeStatus,
-         currencyCode, disputeStatus, geo, leadCategory, leadCreationTimestamp,
-         leadId, leadPrice, leadType, messageLead, phoneLead, timezone;
+         currencyCode, disputeStatus, geo, googleAdsLeadId, leadCategory,
+         leadCreationTimestamp, leadId, leadPrice, leadType, messageLead,
+         phoneLead, timezone;
 @end
 
 

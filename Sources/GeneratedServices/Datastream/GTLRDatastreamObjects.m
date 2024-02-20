@@ -82,7 +82,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_BackfillAllStrategy
-@dynamic mysqlExcludedObjects, oracleExcludedObjects, postgresqlExcludedObjects;
+@dynamic mysqlExcludedObjects, oracleExcludedObjects, postgresqlExcludedObjects,
+         sqlServerExcludedObjects;
 @end
 
 
@@ -160,8 +161,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_ConnectionProfile
 @dynamic bigqueryProfile, createTime, displayName, forwardSshConnectivity,
          gcsProfile, labels, mysqlProfile, name, oracleProfile,
-         postgresqlProfile, privateConnectivity, staticServiceIpConnectivity,
-         updateTime;
+         postgresqlProfile, privateConnectivity, sqlServerProfile,
+         staticServiceIpConnectivity, updateTime;
 @end
 
 
@@ -1026,7 +1027,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_SourceConfig
 @dynamic mysqlSourceConfig, oracleSourceConfig, postgresqlSourceConfig,
-         sourceConnectionProfile;
+         sourceConnectionProfile, sqlServerSourceConfig;
 @end
 
 
@@ -1046,7 +1047,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SourceObjectIdentifier
-@dynamic mysqlIdentifier, oracleIdentifier, postgresqlIdentifier;
+@dynamic mysqlIdentifier, oracleIdentifier, postgresqlIdentifier,
+         sqlServerIdentifier;
 @end
 
 
@@ -1057,6 +1059,102 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_SpecificStartPosition
 @dynamic mysqlLogPosition, oracleScnPosition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerColumn
+//
+
+@implementation GTLRDatastream_SqlServerColumn
+@dynamic column, dataType, length, nullable, ordinalPosition, precision,
+         primaryKey, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerObjectIdentifier
+//
+
+@implementation GTLRDatastream_SqlServerObjectIdentifier
+@dynamic schema, table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerProfile
+//
+
+@implementation GTLRDatastream_SqlServerProfile
+@dynamic database, hostname, password, port, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerRdbms
+//
+
+@implementation GTLRDatastream_SqlServerRdbms
+@dynamic schemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemas" : [GTLRDatastream_SqlServerSchema class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerSchema
+//
+
+@implementation GTLRDatastream_SqlServerSchema
+@dynamic schema, tables;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tables" : [GTLRDatastream_SqlServerTable class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerSourceConfig
+//
+
+@implementation GTLRDatastream_SqlServerSourceConfig
+@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks,
+         maxConcurrentCdcTasks;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerTable
+//
+
+@implementation GTLRDatastream_SqlServerTable
+@dynamic columns, table;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [GTLRDatastream_SqlServerColumn class]
+  };
+  return map;
+}
+
 @end
 
 

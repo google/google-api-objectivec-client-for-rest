@@ -48,7 +48,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_Attributes_FrameOnly;
 /**
- *  Unknown.
+ *  Unknown attribute. If this is returned by the server, the client shall
+ *  disregard the enclosing `FullHashDetail` altogether.
  *
  *  Value: "THREAT_ATTRIBUTE_UNSPECIFIED"
  */
@@ -76,7 +77,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_SocialEngineering;
 /**
- *  Unknown.
+ *  Unknown threat type. If this is returned by the server, the client shall
+ *  disregard the enclosing `FullHashDetail` altogether.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
  */
@@ -116,13 +118,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  compatibility: new threat types and threat attributes may be added by the
  *  server at any time; those additions are considered minor version changes. It
  *  is Google's policy not to expose minor version numbers in APIs (see
- *  https://cloud.google.com/apis/design/versioning), so clients MUST be
- *  prepared to receive FullHashDetail messages containing ThreatType enum
- *  values or ThreatAttribute enum values that are considered invalid by the
- *  client. Therefore, it is the client's responsibility to check for the
- *  validity of all ThreatType and ThreatAttribute enum values; if any value is
- *  considered invalid, the client MUST disregard the entire FullHashDetail
- *  message.
+ *  https://cloud.google.com/apis/design/versioning for the versioning policy),
+ *  so clients MUST be prepared to receive `FullHashDetail` messages containing
+ *  `ThreatType` enum values or `ThreatAttribute` enum values that are
+ *  considered invalid by the client. Therefore, it is the client's
+ *  responsibility to check for the validity of all `ThreatType` and
+ *  `ThreatAttribute` enum values; if any value is considered invalid, the
+ *  client MUST disregard the entire `FullHashDetail` message.
  */
 @interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail : GTLRObject
 
@@ -144,7 +146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_SocialEngineering
  *        Social engineering threat type. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_ThreatTypeUnspecified
- *        Unknown. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *        Unknown threat type. If this is returned by the server, the client
+ *        shall disregard the enclosing `FullHashDetail` altogether. (Value:
+ *        "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_UnwantedSoftware
  *        Unwanted software threat type. (Value: "UNWANTED_SOFTWARE")
  */
@@ -154,21 +158,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 
 
 /**
- *  The response returned after searching threat hashes. Note that if nothing is
- *  found, the server will return an OK status (HTTP status code 200) with the
+ *  The response returned after searching threat hashes. If nothing is found,
+ *  the server will return an OK status (HTTP status code 200) with the
  *  `full_hashes` field empty, rather than returning a NOT_FOUND status (HTTP
- *  status code 404).
+ *  status code 404). **What's new in V5**: There is a separation between
+ *  FullHash and FullHashDetail. In the case when a hash represents a site
+ *  having multiple threats (e.g. both MALWARE and SOCIAL_ENGINEERING), the full
+ *  hash does not need to be sent twice as in V4. Furthermore, the cache
+ *  duration has been simplified into a single `cache_duration` field.
  */
 @interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchHashesResponse : GTLRObject
 
 /**
- *  The client-side cache duration. The client shall add this duration to the
+ *  The client-side cache duration. The client MUST add this duration to the
  *  current time to determine the expiration time. The expiration time then
  *  applies to every hash prefix queried by the client in the request,
  *  regardless of how many full hashes are returned in the response. Even if the
- *  server returns no full hashes for a particular hash prefix, this fact should
- *  also be cached by the client. Important: the client must not assume that the
- *  server will return the same cache duration for all responses. The server may
+ *  server returns no full hashes for a particular hash prefix, this fact MUST
+ *  also be cached by the client. Important: the client MUST NOT assume that the
+ *  server will return the same cache duration for all responses. The server MAY
  *  choose different cache durations for different responses depending on the
  *  situation.
  */

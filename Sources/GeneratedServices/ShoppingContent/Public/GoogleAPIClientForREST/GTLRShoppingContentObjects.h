@@ -4027,7 +4027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. Lookback windows (in days) used for attribution in this source.
- *  Supported values are 7, 30, 60, 90.
+ *  Supported values are 7, 30, 40.
  *
  *  Uses NSNumber of intValue.
  */

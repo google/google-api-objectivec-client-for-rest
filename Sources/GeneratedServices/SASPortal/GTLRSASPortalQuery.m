@@ -14,21 +14,6 @@
 
 @end
 
-@implementation GTLRSASPortalQuery_CustomersCheckHasProvisionedDeployment
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v1alpha1/customers:checkHasProvisionedDeployment";
-  GTLRSASPortalQuery_CustomersCheckHasProvisionedDeployment *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRSASPortal_CheckHasProvisionedDeploymentResponse class];
-  query.loggingName = @"sasportal.customers.checkHasProvisionedDeployment";
-  return query;
-}
-
-@end
-
 @implementation GTLRSASPortalQuery_CustomersDeploymentsCreate
 
 @dynamic parent;
@@ -490,6 +475,21 @@
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRSASPortal_ListCustomersResponse class];
   query.loggingName = @"sasportal.customers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSASPortalQuery_CustomersListGcpProjectDeployments
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1alpha1/customers:listGcpProjectDeployments";
+  GTLRSASPortalQuery_CustomersListGcpProjectDeployments *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRSASPortal_ListGcpProjectDeploymentsResponse class];
+  query.loggingName = @"sasportal.customers.listGcpProjectDeployments";
   return query;
 }
 

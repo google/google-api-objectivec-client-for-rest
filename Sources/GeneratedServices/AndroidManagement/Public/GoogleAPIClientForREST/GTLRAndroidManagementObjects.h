@@ -222,6 +222,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsUserChoice;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AdvancedSecurityOverrides.mtePolicy
+
+/**
+ *  MTE is disabled on the device and the user is not allowed to change this
+ *  setting. This applies only on fully managed devices. In other cases, a
+ *  nonComplianceDetail with MANAGEMENT_MODE is reported. A nonComplianceDetail
+ *  with DEVICE_INCOMPATIBLE is reported if the device does not support
+ *  MTE.Supported on Android 14 and above. A nonComplianceDetail with API_LEVEL
+ *  is reported if the Android version is less than 14.
+ *
+ *  Value: "MTE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteDisabled;
+/**
+ *  MTE is enabled on the device and the user is not allowed to change this
+ *  setting. This can be set on fully managed devices and work profiles on
+ *  company-owned devices. A nonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for other management modes. A nonComplianceDetail with
+ *  DEVICE_INCOMPATIBLE is reported if the device does not support MTE.Supported
+ *  on Android 14 and above. A nonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 14.
+ *
+ *  Value: "MTE_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteEnforced;
+/**
+ *  Unspecified. Defaults to MTE_USER_CHOICE.
+ *
+ *  Value: "MTE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MtePolicyUnspecified;
+/**
+ *  The user can choose to enable or disable MTE on the device if the device
+ *  supports this.
+ *
+ *  Value: "MTE_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
 
 /**
@@ -506,6 +546,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Conn
  *  Value: "CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.credentialProviderPolicy
+
+/**
+ *  App is allowed to act as a credential provider.
+ *
+ *  Value: "CREDENTIAL_PROVIDER_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderAllowed;
+/**
+ *  Unspecified. The behaviour is governed by credentialProviderPolicyDefault.
+ *
+ *  Value: "CREDENTIAL_PROVIDER_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.defaultPermissionPolicy
@@ -2239,6 +2295,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Sp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidValue;
 /**
+ *  Key pair alias specified via ClientCertKeyPairAlias
+ *  (https://chromium.googlesource.com/chromium/src/+/main/components/onc/docs/onc_spec.md#eap-type)
+ *  field in openNetworkConfiguration does not correspond to an existing key
+ *  installed on the device. nonComplianceReason is set to INVALID_VALUE.
+ *
+ *  Value: "ONC_WIFI_KEY_PAIR_ALIAS_NOT_CORRESPONDING_TO_EXISTING_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiKeyPairAliasNotCorrespondingToExistingKey;
+/**
  *  User needs to remove the configured Wi-Fi network manually. This is
  *  applicable only on work profiles on personally-owned devices.
  *  nonComplianceReason is set to USER_ACTION.
@@ -2879,6 +2944,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_Ca
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUserChoice;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.credentialProviderPolicyDefault
+
+/**
+ *  Apps with credentialProviderPolicy unspecified are not allowed to act as a
+ *  credential provider.
+ *
+ *  Value: "CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowed;
+/**
+ *  Apps with credentialProviderPolicy unspecified are not allowed to act as a
+ *  credential provider except for the OEM default credential providers. OEM
+ *  default credential providers are always allowed to act as credential
+ *  providers.
+ *
+ *  Value: "CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED_EXCEPT_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowedExceptSystem;
+/**
+ *  Unspecified. Defaults to CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED.
+ *
+ *  Value: "CREDENTIAL_PROVIDER_POLICY_DEFAULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderPolicyDefaultUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
 
 /**
@@ -3164,6 +3255,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PreferentialNet
  *  Value: "PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.printingPolicy
+
+/**
+ *  Printing is allowed.
+ *
+ *  Value: "PRINTING_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingAllowed;
+/**
+ *  Printing is disallowed. A nonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 9.
+ *
+ *  Value: "PRINTING_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingDisallowed;
+/**
+ *  Unspecified. Defaults to PRINTING_ALLOWED.
+ *
+ *  Value: "PRINTING_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
@@ -3976,6 +4090,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *googlePlayProtectVerifyApps;
 
 /**
+ *  Optional. Controls Memory Tagging Extension (MTE)
+ *  (https://source.android.com/docs/security/test/memory-safety/arm-mte) on the
+ *  device. The device needs to be rebooted to apply changes to the MTE policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteDisabled
+ *        MTE is disabled on the device and the user is not allowed to change
+ *        this setting. This applies only on fully managed devices. In other
+ *        cases, a nonComplianceDetail with MANAGEMENT_MODE is reported. A
+ *        nonComplianceDetail with DEVICE_INCOMPATIBLE is reported if the device
+ *        does not support MTE.Supported on Android 14 and above. A
+ *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 14. (Value: "MTE_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteEnforced
+ *        MTE is enabled on the device and the user is not allowed to change
+ *        this setting. This can be set on fully managed devices and work
+ *        profiles on company-owned devices. A nonComplianceDetail with
+ *        MANAGEMENT_MODE is reported for other management modes. A
+ *        nonComplianceDetail with DEVICE_INCOMPATIBLE is reported if the device
+ *        does not support MTE.Supported on Android 14 and above. A
+ *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 14. (Value: "MTE_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MtePolicyUnspecified
+ *        Unspecified. Defaults to MTE_USER_CHOICE. (Value:
+ *        "MTE_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteUserChoice
+ *        The user can choose to enable or disable MTE on the device if the
+ *        device supports this. (Value: "MTE_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *mtePolicy;
+
+/**
  *  Personal apps that can read work profile notifications using a
  *  NotificationListenerService
  *  (https://developer.android.com/reference/android/service/notification/NotificationListenerService).
@@ -4342,6 +4488,21 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *connectedWorkAndPersonalApp;
 
 /**
+ *  Optional. Whether the app is allowed to act as a credential provider on
+ *  Android 14 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderAllowed
+ *        App is allowed to act as a credential provider. (Value:
+ *        "CREDENTIAL_PROVIDER_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderPolicyUnspecified
+ *        Unspecified. The behaviour is governed by
+ *        credentialProviderPolicyDefault. (Value:
+ *        "CREDENTIAL_PROVIDER_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *credentialProviderPolicy;
+
+/**
  *  The default policy for all permissions requested by the app. If specified,
  *  this overrides the policy-level default_permission_policy which applies to
  *  all apps. It does not override the permission_grants which applies to all
@@ -4406,11 +4567,11 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_InstallConstraint *> *installConstraint;
 
 /**
- *  Optional. Amongst apps with installTypeset to:FORCE_INSTALLEDPREINSTALLED
- *  this controls the relative priority of installation. A value of 0 (default)
- *  means this app has no priority over other apps. For values between 1 and
- *  10,000, a lower value means a higher priority. Values outside of the range 0
- *  to 10,000 inclusive are rejected.
+ *  Optional. Amongst apps with installType set to: FORCE_INSTALLED
+ *  PREINSTALLEDthis controls the relative priority of installation. A value of
+ *  0 (default) means this app has no priority over other apps. For values
+ *  between 1 and 10,000, a lower value means a higher priority. Values outside
+ *  of the range 0 to 10,000 inclusive are rejected.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6645,10 +6806,10 @@ GTLR_DEPRECATED
 
 
 /**
- *  Amongst apps with InstallTypeset to:FORCE_INSTALLEDPREINSTALLED this defines
- *  a set of restrictions for the app installation. At least one of the fields
- *  must be set. When multiple fields are set, then all the constraints need to
- *  be satisfied for the app to be installed.
+ *  Amongst apps with InstallType set to: FORCE_INSTALLED PREINSTALLEDthis
+ *  defines a set of restrictions for the app installation. At least one of the
+ *  fields must be set. When multiple fields are set, then all the constraints
+ *  need to be satisfied for the app to be installed.
  */
 @interface GTLRAndroidManagement_InstallConstraint : GTLRObject
 
@@ -7748,6 +7909,13 @@ GTLR_DEPRECATED
  *        specifies which field value is incorrect. oncWifiContext is set.
  *        nonComplianceReason is set to INVALID_VALUE. (Value:
  *        "ONC_WIFI_INVALID_VALUE")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiKeyPairAliasNotCorrespondingToExistingKey
+ *        Key pair alias specified via ClientCertKeyPairAlias
+ *        (https://chromium.googlesource.com/chromium/src/+/main/components/onc/docs/onc_spec.md#eap-type)
+ *        field in openNetworkConfiguration does not correspond to an existing
+ *        key installed on the device. nonComplianceReason is set to
+ *        INVALID_VALUE. (Value:
+ *        "ONC_WIFI_KEY_PAIR_ALIAS_NOT_CORRESPONDING_TO_EXISTING_KEY")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiUserShouldRemoveNetwork
  *        User needs to remove the configured Wi-Fi network manually. This is
  *        applicable only on work profiles on personally-owned devices.
@@ -8649,6 +8817,30 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *createWindowsDisabled;
 
 /**
+ *  Controls which apps are allowed to act as credential providers on Android 14
+ *  and above. These apps store credentials, see this
+ *  (https://developer.android.com/training/sign-in/passkeys) and this
+ *  (https://developer.android.com/reference/androidx/credentials/CredentialManager)
+ *  for details. See also credentialProviderPolicy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowed
+ *        Apps with credentialProviderPolicy unspecified are not allowed to act
+ *        as a credential provider. (Value:
+ *        "CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowedExceptSystem
+ *        Apps with credentialProviderPolicy unspecified are not allowed to act
+ *        as a credential provider except for the OEM default credential
+ *        providers. OEM default credential providers are always allowed to act
+ *        as credential providers. (Value:
+ *        "CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED_EXCEPT_SYSTEM")
+ *    @arg @c kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderPolicyDefaultUnspecified
+ *        Unspecified. Defaults to CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED.
+ *        (Value: "CREDENTIAL_PROVIDER_POLICY_DEFAULT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *credentialProviderPolicyDefault;
+
+/**
  *  Whether configuring user credentials is disabled.
  *
  *  Uses NSNumber of boolValue.
@@ -9054,6 +9246,23 @@ GTLR_DEPRECATED
  *        (Value: "PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *preferentialNetworkService;
+
+/**
+ *  Optional. Controls whether printing is allowed. This is supported on devices
+ *  running Android 9 and above. .
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingAllowed
+ *        Printing is allowed. (Value: "PRINTING_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingDisallowed
+ *        Printing is disallowed. A nonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 9. (Value:
+ *        "PRINTING_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingPolicyUnspecified
+ *        Unspecified. Defaults to PRINTING_ALLOWED. (Value:
+ *        "PRINTING_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *printingPolicy;
 
 /**
  *  Allows showing UI on a device for a user to choose a private key alias if

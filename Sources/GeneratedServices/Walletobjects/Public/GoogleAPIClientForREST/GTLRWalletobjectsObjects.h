@@ -98,8 +98,6 @@
 @class GTLRWalletobjects_Pagination;
 @class GTLRWalletobjects_PassConstraints;
 @class GTLRWalletobjects_Permission;
-@class GTLRWalletobjects_PrivateText;
-@class GTLRWalletobjects_PrivateUri;
 @class GTLRWalletobjects_PurchaseDetails;
 @class GTLRWalletobjects_ReservationInfo;
 @class GTLRWalletobjects_Resources;
@@ -2211,6 +2209,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @interface GTLRWalletobjects_AppLinkDataAppLinkInfoAppTarget : GTLRObject
 
+/** Package name for AppTarget. For example: com.google.android.gm */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  URI for AppTarget. The description on the URI must be set. Prefer setting
+ *  package field instead, if this target is defined for your application.
+ */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Uri *targetUri;
 
 @end
@@ -4833,6 +4838,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_LinksModuleData *linksModuleData;
 
 /**
+ *  An array of messages displayed in the app. All users of this object will
+ *  receive its associated messages. The maximum number of these fields is 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_Message *> *messages;
+
+/**
  *  Identifies whether multiple users and devices will save the same object
  *  referencing this class.
  *
@@ -4892,6 +4903,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *        "VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *viewUnlockRequirement;
+
+@end
+
+
+/**
+ *  Response to adding a new issuer message to the class. This contains the
+ *  entire updated GenericClass.
+ */
+@interface GTLRWalletobjects_GenericClassAddMessageResponse : GTLRObject
+
+/** The updated EventTicketClass resource. */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_GenericClass *resource;
 
 @end
 
@@ -5102,6 +5125,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  logo in the top left of the card view.
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *wideLogo;
+
+@end
+
+
+/**
+ *  Response to adding a new issuer message to the object. This contains the
+ *  entire updated GenericObject.
+ */
+@interface GTLRWalletobjects_GenericObjectAddMessageResponse : GTLRObject
+
+/** The updated GenericObject resource. */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_GenericObject *resource;
 
 @end
 
@@ -7784,47 +7819,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 
 /**
- *  Private data for TextModule. This data will be rendered as a TextModule for
- *  a pass.
- */
-@interface GTLRWalletobjects_PrivateText : GTLRObject
-
-/** Translated strings for the body. */
-@property(nonatomic, strong, nullable) GTLRWalletobjects_LocalizedString *body;
-
-/** Translated strings for the header. */
-@property(nonatomic, strong, nullable) GTLRWalletobjects_LocalizedString *header;
-
-@end
-
-
-/**
- *  Private data for LinkModule. This data will be rendered as the LinkModule
- *  for a pass.
- */
-@interface GTLRWalletobjects_PrivateUri : GTLRObject
-
-/**
- *  The URI's title appearing in the app as text and its translated strings.
- *  Recommended maximum is 20 characters to ensure the full string is displayed
- *  on smaller screens.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, strong, nullable) GTLRWalletobjects_LocalizedString *descriptionProperty;
-
-/**
- *  The location of a web page, image, or other resource. URIs in the
- *  `LinksModuleData` can have different prefixes indicating the type of URI (a
- *  link to a web page, a link to a map, a telephone number, or an email
- *  address).
- */
-@property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
  *  GTLRWalletobjects_PurchaseDetails
  */
 @interface GTLRWalletobjects_PurchaseDetails : GTLRObject
@@ -9304,71 +9298,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableNotification;
-
-@end
-
-
-/**
- *  Request for sending user private Text or URI by the Issuer.
- */
-@interface GTLRWalletobjects_UploadPrivateDataRequest : GTLRObject
-
-/**
- *  The ID of the issuer sending the data.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *issuerId;
-
-/** Private text data of the user. */
-@property(nonatomic, strong, nullable) GTLRWalletobjects_PrivateText *text;
-
-/** Private URIs of the user. */
-@property(nonatomic, strong, nullable) GTLRWalletobjects_PrivateUri *uri;
-
-@end
-
-
-/**
- *  Response for uploading user private data (text or URIs)
- */
-@interface GTLRWalletobjects_UploadPrivateDataResponse : GTLRObject
-
-/**
- *  A 64-bit content id for the private data that was uploaded by the Issuer.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *privateContentId;
-
-@end
-
-
-/**
- *  Request to upload user's private images by Issuers to be used in passes.
- */
-@interface GTLRWalletobjects_UploadPrivateImageRequest : GTLRObject
-
-/** A reference to the image payload that was uploaded by Scotty. */
-@property(nonatomic, strong, nullable) GTLRWalletobjects_Media *blob;
-
-/** Extra information about the uploaded media. */
-@property(nonatomic, strong, nullable) GTLRWalletobjects_MediaRequestInfo *mediaRequestInfo;
-
-@end
-
-
-/**
- *  Response for uploading the private image
- */
-@interface GTLRWalletobjects_UploadPrivateImageResponse : GTLRObject
-
-/**
- *  A 64-bit content id for the image that was uploaded by the Issuer.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *privateContentId;
 
 @end
 

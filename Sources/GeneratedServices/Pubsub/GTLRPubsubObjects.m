@@ -106,8 +106,8 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_BigQueryConfig
-@dynamic dropUnknownFields, state, table, useTableSchema, useTopicSchema,
-         writeMetadata;
+@dynamic dropUnknownFields, serviceAccountEmail, state, table, useTableSchema,
+         useTopicSchema, writeMetadata;
 @end
 
 
@@ -136,7 +136,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_CloudStorageConfig
 @dynamic avroConfig, bucket, filenamePrefix, filenameSuffix, maxBytes,
-         maxDuration, state, textConfig;
+         maxDuration, serviceAccountEmail, state, textConfig;
 @end
 
 

@@ -57,6 +57,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentSetParameterAction;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GcsDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportIntentsResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InlineDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig;
@@ -160,6 +161,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Generator;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSource;
@@ -1126,6 +1128,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Expo
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_JsonPackage;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest.dataFormat
+
+/**
+ *  EntityTypes will be exported as raw bytes.
+ *
+ *  Value: "BLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_Blob;
+/**
+ *  Unspecified format. Treated as `BLOB`.
+ *
+ *  Value: "DATA_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_DataFormatUnspecified;
+/**
+ *  EntityTypes will be exported in JSON Package format.
+ *
+ *  Value: "JSON_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_JsonPackage;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportIntentsRequest.dataFormat
 
 /**
@@ -1245,6 +1269,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Gene
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest.mergeOption
+
+/**
+ *  Keep the original entity type and discard the conflicting new entity type
+ *  when display name conflicts exist.
+ *
+ *  Value: "KEEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Keep;
+/**
+ *  Merge the original entity type with the new entity type when display name
+ *  conflicts exist.
+ *
+ *  Value: "MERGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Merge;
+/**
+ *  Unspecified. If used, system uses REPORT_CONFLICT as default.
+ *
+ *  Value: "MERGE_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_MergeOptionUnspecified;
+/**
+ *  Create new entity types with new display names to differentiate them from
+ *  the existing entity types when display name conflicts exist.
+ *
+ *  Value: "RENAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Rename;
+/**
+ *  Replace the original entity type in the agent with the new entity type when
+ *  display name conflicts exist.
+ *
+ *  Value: "REPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Replace;
+/**
+ *  Report conflict information if display names conflict is detected.
+ *  Otherwise, import entity types.
+ *
+ *  Value: "REPORT_CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_ReportConflict;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest.importOption
@@ -4839,6 +4908,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the EntityTypes.ExportEntityTypes long running
+ *  operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportEntityTypesMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response message for EntityTypes.ExportEntityTypes.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportEntityTypesResponse : GTLRObject
+
+/**
+ *  Uncompressed byte content for entity types. This field is populated only if
+ *  `entity_types_content_inline` is set to true in ExportEntityTypesRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InlineDestination *entityTypesContent;
+
+/**
+ *  The URI to a file containing the exported entity types. This field is
+ *  populated only if `entity_types_uri` is specified in
+ *  ExportEntityTypesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *entityTypesUri;
+
+@end
+
+
+/**
  *  The response message for Flows.ExportFlow.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportFlowResponse : GTLRObject
@@ -5219,6 +5317,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata returned for the EntityTypes.ImportEntityTypes long running
+ *  operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response message for EntityTypes.ImportEntityTypes.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponse : GTLRObject
+
+/**
+ *  Info which resources have conflicts when REPORT_CONFLICT merge_option is set
+ *  in ImportEntityTypesRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources *conflictingResources;
+
+/**
+ *  The unique identifier of the imported entity types. Format:
+ *  `projects//locations//agents//entity_types/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityTypes;
+
+@end
+
+
+/**
+ *  Conflicting resources detected during the import process. Only filled when
+ *  REPORT_CONFLICT is set in the request and there are conflicts in the display
+ *  names.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources : GTLRObject
+
+/** Display names of conflicting entities. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityDisplayNames;
+
+/** Display names of conflicting entity types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityTypeDisplayNames;
 
 @end
 
@@ -8410,6 +8552,93 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the EntityTypes.ExportEntityTypes long running
+ *  operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request message for EntityTypes.ExportEntityTypes.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest : GTLRObject
+
+/**
+ *  Optional. The data format of the exported entity types. If not specified,
+ *  `BLOB` is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_Blob
+ *        EntityTypes will be exported as raw bytes. (Value: "BLOB")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_DataFormatUnspecified
+ *        Unspecified format. Treated as `BLOB`. (Value:
+ *        "DATA_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesRequest_DataFormat_JsonPackage
+ *        EntityTypes will be exported in JSON Package format. (Value:
+ *        "JSON_PACKAGE")
+ */
+@property(nonatomic, copy, nullable) NSString *dataFormat;
+
+/**
+ *  Required. The name of the entity types to export. Format:
+ *  `projects//locations//agents//entityTypes/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityTypes;
+
+/**
+ *  Optional. The option to return the serialized entity types inline.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entityTypesContentInline;
+
+/**
+ *  Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/)
+ *  URI to export the entity types to. The format of this URI must be `gs:///`.
+ *  Dialogflow performs a write operation for the Cloud Storage object on the
+ *  caller's behalf, so your request authentication must have write permissions
+ *  for the object. For more information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
+ */
+@property(nonatomic, copy, nullable) NSString *entityTypesUri;
+
+/**
+ *  Optional. The language to retrieve the entity type for. The following fields
+ *  are language dependent: * `EntityType.entities.value` *
+ *  `EntityType.entities.synonyms` * `EntityType.excluded_phrases.value` If not
+ *  specified, all language dependent fields will be retrieved. [Many
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
+ *  supported. Note: languages must be enabled in the agent before they can be
+ *  used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  The response message for EntityTypes.ExportEntityTypes.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportEntityTypesResponse : GTLRObject
+
+/**
+ *  Uncompressed byte content for entity types. This field is populated only if
+ *  `entity_types_content_inline` is set to true in ExportEntityTypesRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination *entityTypesContent;
+
+/**
+ *  The URI to a file containing the exported entity types. This field is
+ *  populated only if `entity_types_uri` is specified in
+ *  ExportEntityTypesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *entityTypesUri;
+
+@end
+
+
+/**
  *  The request message for Flows.ExportFlow.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest : GTLRObject
@@ -9279,6 +9508,106 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata returned for the EntityTypes.ImportEntityTypes long running
+ *  operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request message for EntityTypes.ImportEntityTypes.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest : GTLRObject
+
+/** Uncompressed byte content of entity types. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3InlineSource *entityTypesContent;
+
+/**
+ *  The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to
+ *  import entity types from. The format of this URI must be `gs:///`.
+ *  Dialogflow performs a read operation for the Cloud Storage object on the
+ *  caller's behalf, so your request authentication must have read permissions
+ *  for the object. For more information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
+ */
+@property(nonatomic, copy, nullable) NSString *entityTypesUri;
+
+/**
+ *  Required. Merge option for importing entity types.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Keep
+ *        Keep the original entity type and discard the conflicting new entity
+ *        type when display name conflicts exist. (Value: "KEEP")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Merge
+ *        Merge the original entity type with the new entity type when display
+ *        name conflicts exist. (Value: "MERGE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_MergeOptionUnspecified
+ *        Unspecified. If used, system uses REPORT_CONFLICT as default. (Value:
+ *        "MERGE_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Rename
+ *        Create new entity types with new display names to differentiate them
+ *        from the existing entity types when display name conflicts exist.
+ *        (Value: "RENAME")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_Replace
+ *        Replace the original entity type in the agent with the new entity type
+ *        when display name conflicts exist. (Value: "REPLACE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest_MergeOption_ReportConflict
+ *        Report conflict information if display names conflict is detected.
+ *        Otherwise, import entity types. (Value: "REPORT_CONFLICT")
+ */
+@property(nonatomic, copy, nullable) NSString *mergeOption;
+
+/**
+ *  Optional. The target entity type to import into. Format:
+ *  `projects//locations//agents//entity_types/`. If set, there should be only
+ *  one entity type included in entity_types, of which the type should match the
+ *  type of the target entity type. All entities in the imported entity type
+ *  will be added to the target entity type.
+ */
+@property(nonatomic, copy, nullable) NSString *targetEntityType;
+
+@end
+
+
+/**
+ *  The response message for EntityTypes.ImportEntityTypes.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponse : GTLRObject
+
+/**
+ *  Info which resources have conflicts when REPORT_CONFLICT merge_option is set
+ *  in ImportEntityTypesRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources *conflictingResources;
+
+/**
+ *  The unique identifier of the imported entity types. Format:
+ *  `projects//locations//agents//entity_types/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityTypes;
+
+@end
+
+
+/**
+ *  Conflicting resources detected during the import process. Only filled when
+ *  REPORT_CONFLICT is set in the request and there are conflicts in the display
+ *  names.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources : GTLRObject
+
+/** Display names of conflicting entities. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityDisplayNames;
+
+/** Display names of conflicting entity types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entityTypeDisplayNames;
 
 @end
 

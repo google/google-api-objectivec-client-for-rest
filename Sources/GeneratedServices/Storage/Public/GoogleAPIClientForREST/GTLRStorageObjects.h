@@ -1212,6 +1212,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the bucket containing this folder. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
+/** The creation time of the folder in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
  *  The ID of the folder, including the bucket name, folder name.
  *
@@ -1242,11 +1245,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** The link to this folder. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** The creation time of the folder in RFC 3339 format. */
-@property(nonatomic, strong, nullable) GTLRDateTime *timeCreated;
-
 /** The modification time of the folder metadata in RFC 3339 format. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

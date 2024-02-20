@@ -150,6 +150,11 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRLogging_Settings.analyticsMode
+NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsDisabled = @"ANALYTICS_DISABLED";
+NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsEnabled = @"ANALYTICS_ENABLED";
+NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsModeUnspecified = @"ANALYTICS_MODE_UNSPECIFIED";
+
 // GTLRLogging_SuppressionInfo.reason
 NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed = @"NOT_CONSUMED";
 NSString * const kGTLRLogging_SuppressionInfo_Reason_RateLimit = @"RATE_LIMIT";
@@ -1226,8 +1231,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_Settings
-@dynamic defaultSinkConfig, disableDefaultSink, kmsKeyName, kmsServiceAccountId,
-         loggingServiceAccountId, name, storageLocation;
+@dynamic analyticsMode, defaultSinkConfig, disableDefaultSink, kmsKeyName,
+         kmsServiceAccountId, loggingServiceAccountId, name, storageLocation;
 @end
 
 

@@ -1338,6 +1338,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_SslMode
  *  Only allow connections encrypted with SSL/TLS and with valid client
  *  certificates. When this value is used, the legacy `require_ssl` flag must be
  *  true or cleared to avoid the conflict between values of two flags.
+ *  PostgreSQL clients or users that connect using IAM database authentication
+ *  must use either the [Cloud SQL Auth
+ *  Proxy](https://cloud.google.com/sql/docs/postgres/connect-auth-proxy) or
+ *  [Cloud SQL
+ *  Connectors](https://cloud.google.com/sql/docs/postgres/connect-connectors)
+ *  to enforce client identity verification.
  *
  *  Value: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
  */
@@ -1913,11 +1919,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Value: "INCOMPATIBLE_DATABASE_VERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion;
 /**
+ *  The disk size of the replica instance is smaller than the data size of the
+ *  source instance.
+ *
+ *  Value: "INSUFFICIENT_DISK_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientDiskSize;
+/**
  *  The Cloud Storage bucket is missing necessary permissions.
  *
  *  Value: "INSUFFICIENT_GCS_PERMISSIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientGcsPermissions;
+/**
+ *  The data size of the source instance is greater than 1 TB, the number of
+ *  cores of the replica instance is less than 8, and the memory of the replica
+ *  is less than 32 GB.
+ *
+ *  Value: "INSUFFICIENT_MACHINE_TIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMachineTier;
 /**
  *  The value of parameter max_replication_slots is not sufficient.
  *
@@ -2017,6 +2038,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "PGLOGICAL_NODE_ALREADY_EXISTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists;
+/**
+ *  Count of subscriptions needed to sync source data for PostgreSQL database.
+ *
+ *  Value: "PG_SUBSCRIPTION_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSubscriptionCount;
+/**
+ *  Final parallel level that is used to do migration.
+ *
+ *  Value: "PG_SYNC_PARALLEL_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSyncParallelLevel;
 /**
  *  The primary instance has been setup and will fail the setup.
  *
@@ -3242,10 +3275,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *pscServiceAttachmentLink;
 
 /**
- *  The geographical region. Can be: * `us-central` (`FIRST_GEN` instances only)
- *  * `us-central1` (`SECOND_GEN` instances only) * `asia-east1` or
- *  `europe-west1`. Defaults to `us-central` or `us-central1` depending on the
- *  instance type. The region cannot be changed after instance creation.
+ *  The geographical region of the Cloud SQL instance. It can be one of the
+ *  [regions](https://cloud.google.com/sql/docs/mysql/locations#location-r)
+ *  where Cloud SQL operates: For example, `asia-east1`, `europe-west1`, and
+ *  `us-central1`. The default value is `us-central1`.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -4472,7 +4505,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Only allow connections encrypted with SSL/TLS and with valid client
  *        certificates. When this value is used, the legacy `require_ssl` flag
  *        must be true or cleared to avoid the conflict between values of two
- *        flags. (Value: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED")
+ *        flags. PostgreSQL clients or users that connect using IAM database
+ *        authentication must use either the [Cloud SQL Auth
+ *        Proxy](https://cloud.google.com/sql/docs/postgres/connect-auth-proxy)
+ *        or [Cloud SQL
+ *        Connectors](https://cloud.google.com/sql/docs/postgres/connect-connectors)
+ *        to enforce client identity verification. (Value:
+ *        "TRUSTED_CLIENT_CERTIFICATE_REQUIRED")
  */
 @property(nonatomic, copy, nullable) NSString *sslMode;
 
@@ -5039,12 +5078,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *complexity;
 
 /**
- *  Disallow credentials that have been previously compromised by a public data
- *  breach.
+ *  This field is deprecated and will be removed in a future version of the API.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *disallowCompromisedCredentials;
+@property(nonatomic, strong, nullable) NSNumber *disallowCompromisedCredentials GTLR_DEPRECATED;
 
 /**
  *  Disallow username as a part of the password.
@@ -5567,9 +5605,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        (Value: "INCOMPATIBLE_DATABASE_MINOR_VERSION")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion
  *        Value "INCOMPATIBLE_DATABASE_VERSION"
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientDiskSize
+ *        The disk size of the replica instance is smaller than the data size of
+ *        the source instance. (Value: "INSUFFICIENT_DISK_SIZE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientGcsPermissions
  *        The Cloud Storage bucket is missing necessary permissions. (Value:
  *        "INSUFFICIENT_GCS_PERMISSIONS")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMachineTier
+ *        The data size of the source instance is greater than 1 TB, the number
+ *        of cores of the replica instance is less than 8, and the memory of the
+ *        replica is less than 32 GB. (Value: "INSUFFICIENT_MACHINE_TIER")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots
  *        The value of parameter max_replication_slots is not sufficient.
  *        (Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS")
@@ -5619,6 +5664,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists
  *        pglogical node already exists on databases, applicable for postgres.
  *        (Value: "PGLOGICAL_NODE_ALREADY_EXISTS")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSubscriptionCount
+ *        Count of subscriptions needed to sync source data for PostgreSQL
+ *        database. (Value: "PG_SUBSCRIPTION_COUNT")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSyncParallelLevel
+ *        Final parallel level that is used to do migration. (Value:
+ *        "PG_SYNC_PARALLEL_LEVEL")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup
  *        The primary instance has been setup and will fail the setup. (Value:
  *        "PRIMARY_ALREADY_SETUP")

@@ -305,6 +305,10 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewF
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewNonFinancialDataGlobal = @"CAN_VIEW_NON_FINANCIAL_DATA_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_DeveloperLevelPermissionUnspecified = @"DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAndroidPublisher_Abi
@@ -623,8 +627,9 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_AutoRenewingBasePlanType
-@dynamic billingPeriodDuration, gracePeriodDuration, legacyCompatible,
-         legacyCompatibleSubscriptionOfferId, prorationMode, resubscribeState;
+@dynamic accountHoldDuration, billingPeriodDuration, gracePeriodDuration,
+         legacyCompatible, legacyCompatibleSubscriptionOfferId, prorationMode,
+         resubscribeState;
 @end
 
 
@@ -3369,3 +3374,5 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 }
 
 @end
+
+#pragma clang diagnostic pop

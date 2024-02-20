@@ -27,6 +27,7 @@
 @class GTLRDatastore_Entity;
 @class GTLRDatastore_Entity_Properties;
 @class GTLRDatastore_EntityResult;
+@class GTLRDatastore_ExplainOptions;
 @class GTLRDatastore_Filter;
 @class GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata;
 @class GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_Labels;
@@ -1259,6 +1260,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Explain options for the query.
+ */
+@interface GTLRDatastore_ExplainOptions : GTLRObject
+
+/**
+ *  Optional. Whether to execute this query. When false (the default), the query
+ *  will be planned, returning only metrics from the planning stages. When true,
+ *  the query will be planned and executed, returning the full query results
+ *  along with both planning and execution stage metrics.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *analyze;
 
 @end
 
@@ -2964,6 +2983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
+/**
+ *  Optional. Explain options for the query. If set, additional query statistics
+ *  will be returned. If not, only query results will be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_ExplainOptions *explainOptions;
+
 /** The GQL query to run. This query must be an aggregation query. */
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;
 
@@ -3014,6 +3039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  allowed; please use empty string '' to refer the default database.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
+
+/**
+ *  Optional. Explain options for the query. If set, additional query statistics
+ *  will be returned. If not, only query results will be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_ExplainOptions *explainOptions;
 
 /** The GQL query to run. This query must be a non-aggregation query. */
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;

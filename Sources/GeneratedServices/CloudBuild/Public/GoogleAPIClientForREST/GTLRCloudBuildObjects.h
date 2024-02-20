@@ -17,6 +17,8 @@
 @class GTLRCloudBuild_AuditConfig;
 @class GTLRCloudBuild_AuditLogConfig;
 @class GTLRCloudBuild_Binding;
+@class GTLRCloudBuild_BitbucketCloudConfig;
+@class GTLRCloudBuild_BitbucketDataCenterConfig;
 @class GTLRCloudBuild_Capabilities;
 @class GTLRCloudBuild_ChildStatusReference;
 @class GTLRCloudBuild_Connection;
@@ -684,6 +686,87 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  Configuration for connections to Bitbucket Cloud.
+ */
+@interface GTLRCloudBuild_BitbucketCloudConfig : GTLRObject
+
+/**
+ *  Required. An access token with the `webhook`, `repository`,
+ *  `repository:admin` and `pullrequest` scope access. It can be either a
+ *  workspace, project or repository access token. It's recommended to use a
+ *  system account to generate these credentials.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_UserCredential *authorizerCredential;
+
+/**
+ *  Required. An access token with the `repository` access. It can be either a
+ *  workspace, project or repository access token. It's recommended to use a
+ *  system account to generate the credentials.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_UserCredential *readAuthorizerCredential;
+
+/**
+ *  Required. SecretManager resource containing the webhook secret used to
+ *  verify webhook events, formatted as `projects/ * /secrets/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
+
+/**
+ *  Required. The Bitbucket Cloud Workspace ID to be connected to Google Cloud
+ *  Platform.
+ */
+@property(nonatomic, copy, nullable) NSString *workspace;
+
+@end
+
+
+/**
+ *  Configuration for connections to Bitbucket Data Center.
+ */
+@interface GTLRCloudBuild_BitbucketDataCenterConfig : GTLRObject
+
+/** Required. A http access token with the `REPO_ADMIN` scope access. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_UserCredential *authorizerCredential;
+
+/**
+ *  Required. The URI of the Bitbucket Data Center instance or cluster this
+ *  connection is for.
+ */
+@property(nonatomic, copy, nullable) NSString *hostUri;
+
+/** Required. A http access token with the `REPO_READ` access. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_UserCredential *readAuthorizerCredential;
+
+/**
+ *  Output only. Version of the Bitbucket Data Center running on the `host_uri`.
+ */
+@property(nonatomic, copy, nullable) NSString *serverVersion;
+
+/**
+ *  Optional. Configuration for using Service Directory to privately connect to
+ *  a Bitbucket Data Center. This should only be set if the Bitbucket Data
+ *  Center is hosted on-premises and not reachable by public internet. If this
+ *  field is left empty, calls to the Bitbucket Data Center will be made over
+ *  the public internet.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig *serviceDirectoryConfig;
+
+/**
+ *  Optional. SSL certificate to use for requests to the Bitbucket Data Center.
+ */
+@property(nonatomic, copy, nullable) NSString *sslCa;
+
+/**
+ *  Required. Immutable. SecretManager resource containing the webhook secret
+ *  used to verify webhook events, formatted as `projects/ * /secrets/ *
+ *  /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudBuild_CancelOperationRequest : GTLRObject
@@ -737,13 +820,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
- *  A connection to a SCM like GitHub, GitHub Enterprise, Bitbucket Data Center
- *  or GitLab.
+ *  A connection to a SCM like GitHub, GitHub Enterprise, Bitbucket Data Center,
+ *  Bitbucket Cloud or GitLab.
  */
 @interface GTLRCloudBuild_Connection : GTLRObject
 
 /** Allows clients to store small amounts of arbitrary data. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Connection_Annotations *annotations;
+
+/** Configuration for connections to Bitbucket Cloud. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketCloudConfig *bitbucketCloudConfig;
+
+/** Configuration for connections to Bitbucket Data Center. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketDataCenterConfig *bitbucketDataCenterConfig;
 
 /**
  *  Output only. Server assigned timestamp for when the connection was created.
@@ -1825,6 +1914,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** Optional. Provenance configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Provenance *provenance;
+
+/**
+ *  Output only. The `Record` of this `PipelineRun`. Format:
+ *  `projects/{project}/locations/{location}/results/{result_id}/records/{record_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *record;
 
 /** Output only. The exact PipelineSpec used to instantiate the run. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *resolvedPipelineSpec;

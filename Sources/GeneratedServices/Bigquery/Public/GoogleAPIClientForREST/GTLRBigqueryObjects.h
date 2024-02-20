@@ -917,7 +917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTabl
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_CodeUnspecified;
 /**
- *  Indicates that the esitmated performance gain from using the search index is
+ *  Indicates that the estimated performance gain from using the search index is
  *  too low for the given search query.
  *
  *  Value: "ESTIMATED_PERFORMANCE_GAIN_TOO_LOW"
@@ -5042,8 +5042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Optional. Information about the external metadata storage where the dataset
- *  is defined. Filled out when the dataset type is EXTERNAL.
+ *  Optional. Reference to a read-only external dataset defined in data catalogs
+ *  outside of BigQuery. Filled out when the dataset type is EXTERNAL.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_ExternalDatasetReference *externalDatasetReference;
 
@@ -5110,6 +5110,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxTimeTravelHours;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  Output only. Reserved for future use.
@@ -6809,7 +6816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_CodeUnspecified Code not
  *        specified. (Value: "CODE_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_EstimatedPerformanceGainTooLow
- *        Indicates that the esitmated performance gain from using the search
+ *        Indicates that the estimated performance gain from using the search
  *        index is too low for the given search query. (Value:
  *        "ESTIMATED_PERFORMANCE_GAIN_TOO_LOW")
  *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_IndexConfigModified Indicates
@@ -7281,6 +7288,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  used to resolve _SESSION appearing as the dataset id.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
+
+/**
+ *  Optional. [Experimental] Configures the load job to only copy files to the
+ *  destination BigLake managed table with an external storage_uri, without
+ *  reading file content and writing them to new files. Copying files only is
+ *  supported when: * source_uris are in the same external storage system as the
+ *  destination table but they do not overlap with storage_uri of the
+ *  destination table. * source_format is the same file format as the
+ *  destination table. * destination_table is an existing BigLake managed table.
+ *  Its schema does not have default value expression. It schema does not have
+ *  type parameters other than precision and scale. * No options other than the
+ *  above are specified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *copyFilesOnly NS_RETURNS_NOT_RETAINED;
 
 /**
  *  Optional. Specifies whether the job is allowed to create new tables. The
@@ -8532,7 +8555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *undeclaredQueryParameters;
 
-/** Output only. Search query specific statistics. */
+/** Output only. Vector Search query specific statistics. */
 @property(nonatomic, strong, nullable) GTLRBigquery_VectorSearchStatistics *vectorSearchStatistics;
 
 @end

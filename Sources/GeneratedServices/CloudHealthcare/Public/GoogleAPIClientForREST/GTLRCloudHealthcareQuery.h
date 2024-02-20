@@ -856,7 +856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsPatch : GTLRCloudHealthcareQuery
 
 /**
- *  Resource name of the Consent, of the form
+ *  Identifier. Resource name of the Consent, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/consents/{consent_id}`.
  *  Cannot be changed after creation.
  */
@@ -881,7 +881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  revision of the specified Consent is in the `REJECTED` or `REVOKED` state.
  *
  *  @param object The @c GTLRCloudHealthcare_Consent to include in the query.
- *  @param name Resource name of the Consent, of the form
+ *  @param name Identifier. Resource name of the Consent, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}/consents/{consent_id}`.
  *    Cannot be changed after creation.
  *
@@ -1232,7 +1232,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresPatch : GTLRCloudHealthcareQuery
 
 /**
- *  Resource name of the consent store, of the form
+ *  Identifier. Resource name of the consent store, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}`.
  *  Cannot be changed after creation.
  */
@@ -1256,7 +1256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_ConsentStore to include in the
  *    query.
- *  @param name Resource name of the consent store, of the form
+ *  @param name Identifier. Resource name of the consent store, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}`.
  *    Cannot be changed after creation.
  *
@@ -1684,14 +1684,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsCreate : GTLRCloudHealthcareQuery
 
 /**
- *  The ID of the dataset that is being created. The string must match the
- *  following regex: `[\\p{L}\\p{N}_\\-\\.]{1,256}`.
+ *  Required. The ID of the dataset that is being created. The string must match
+ *  the following regex: `[\\p{L}\\p{N}_\\-\\.]{1,256}`.
  */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  The name of the project where the server creates the dataset. For example,
- *  `projects/{project_id}/locations/{location_id}`.
+ *  Required. The name of the project where the server creates the dataset. For
+ *  example, `projects/{project_id}/locations/{location_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1703,8 +1703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Dataset or `Operation.error`. The metadata field type is OperationMetadata.
  *
  *  @param object The @c GTLRCloudHealthcare_Dataset to include in the query.
- *  @param parent The name of the project where the server creates the dataset.
- *    For example, `projects/{project_id}/locations/{location_id}`.
+ *  @param parent Required. The name of the project where the server creates the
+ *    dataset. For example, `projects/{project_id}/locations/{location_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsCreate
  */
@@ -1777,7 +1777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDelete : GTLRCloudHealthcareQuery
 
 /**
- *  The name of the dataset to delete. For example,
+ *  Required. The name of the dataset to delete. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1789,7 +1789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Deleting a dataset does not affect the sources from which the dataset was
  *  imported (if any).
  *
- *  @param name The name of the dataset to delete. For example,
+ *  @param name Required. The name of the dataset to delete. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDelete
@@ -5587,7 +5587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGet : GTLRCloudHealthcareQuery
 
 /**
- *  The name of the dataset to read. For example,
+ *  Required. The name of the dataset to read. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5597,7 +5597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets any metadata associated with a dataset.
  *
- *  @param name The name of the dataset to read. For example,
+ *  @param name Required. The name of the dataset to read. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGet
@@ -5668,12 +5668,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresCreate : GTLRCloudHealthcareQuery
 
 /**
- *  The ID of the HL7v2 store that is being created. The string must match the
- *  following regex: `[\\p{L}\\p{N}_\\-\\.]{1,256}`.
+ *  Required. The ID of the HL7v2 store that is being created. The string must
+ *  match the following regex: `[\\p{L}\\p{N}_\\-\\.]{1,256}`.
  */
 @property(nonatomic, copy, nullable) NSString *hl7V2StoreId;
 
-/** The name of the dataset this HL7v2 store belongs to. */
+/** Required. The name of the dataset this HL7v2 store belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -5682,7 +5682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Creates a new HL7v2 store within the parent dataset.
  *
  *  @param object The @c GTLRCloudHealthcare_Hl7V2Store to include in the query.
- *  @param parent The name of the dataset this HL7v2 store belongs to.
+ *  @param parent Required. The name of the dataset this HL7v2 store belongs to.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresCreate
  */
@@ -5702,7 +5702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresDelete : GTLRCloudHealthcareQuery
 
-/** The resource name of the HL7v2 store to delete. */
+/** Required. The resource name of the HL7v2 store to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -5710,7 +5710,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Deletes the specified HL7v2 store and removes all messages that it contains.
  *
- *  @param name The resource name of the HL7v2 store to delete.
+ *  @param name Required. The resource name of the HL7v2 store to delete.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresDelete
  */
@@ -5736,7 +5736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresExport : GTLRCloudHealthcareQuery
 
 /**
- *  The name of the source HL7v2 store, in the format
+ *  Required. The name of the source HL7v2 store, in the format
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7v2Stores/{hl7v2_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5754,7 +5754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_ExportMessagesRequest to include in
  *    the query.
- *  @param name The name of the source HL7v2 store, in the format
+ *  @param name Required. The name of the source HL7v2 store, in the format
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7v2Stores/{hl7v2_store_id}`
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresExport
@@ -5775,7 +5775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGet : GTLRCloudHealthcareQuery
 
-/** The resource name of the HL7v2 store to get. */
+/** Required. The resource name of the HL7v2 store to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -5783,7 +5783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets the specified HL7v2 store.
  *
- *  @param name The resource name of the HL7v2 store to get.
+ *  @param name Required. The resource name of the HL7v2 store to get.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGet
  */
@@ -5803,7 +5803,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetHL7v2StoreMetrics : GTLRCloudHealthcareQuery
 
 /**
- *  The resource name of the HL7v2 store to get metrics for, in the format
+ *  Required. The resource name of the HL7v2 store to get metrics for, in the
+ *  format
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5813,8 +5814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets metrics associated with the HL7v2 store.
  *
- *  @param name The resource name of the HL7v2 store to get metrics for, in the
- *    format
+ *  @param name Required. The resource name of the HL7v2 store to get metrics
+ *    for, in the format
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetHL7v2StoreMetrics
@@ -5908,7 +5909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresImport : GTLRCloudHealthcareQuery
 
 /**
- *  The name of the target HL7v2 store, in the format
+ *  Required. The name of the target HL7v2 store, in the format
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7v2Stores/{hl7v2_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5943,7 +5944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_ImportMessagesRequest to include in
  *    the query.
- *  @param name The name of the target HL7v2 store, in the format
+ *  @param name Required. The name of the target HL7v2 store, in the format
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7v2Stores/{hl7v2_store_id}`
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresImport
@@ -6001,7 +6002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Name of the dataset. */
+/** Required. Name of the dataset. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -6009,7 +6010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Lists the HL7v2 stores in the given dataset.
  *
- *  @param parent Name of the dataset.
+ *  @param parent Required. Name of the dataset.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresList
  *
@@ -6036,7 +6037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesCreate : GTLRCloudHealthcareQuery
 
-/** The name of the HL7v2 store this message belongs to. */
+/** Required. The name of the HL7v2 store this message belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -6050,7 +6051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_CreateMessageRequest to include in
  *    the query.
- *  @param parent The name of the HL7v2 store this message belongs to.
+ *  @param parent Required. The name of the HL7v2 store this message belongs to.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesCreate
  */
@@ -6070,7 +6071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesDelete : GTLRCloudHealthcareQuery
 
-/** The resource name of the HL7v2 message to delete. */
+/** Required. The resource name of the HL7v2 message to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -6078,7 +6079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Deletes an HL7v2 message.
  *
- *  @param name The resource name of the HL7v2 message to delete.
+ *  @param name Required. The resource name of the HL7v2 message to delete.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesDelete
  */
@@ -6097,7 +6098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesGet : GTLRCloudHealthcareQuery
 
-/** The resource name of the HL7v2 message to retrieve. */
+/** Required. The resource name of the HL7v2 message to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -6128,7 +6129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets an HL7v2 message.
  *
- *  @param name The resource name of the HL7v2 message to retrieve.
+ *  @param name Required. The resource name of the HL7v2 message to retrieve.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesGet
  */
@@ -6155,7 +6156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesIngest : GTLRCloudHealthcareQuery
 
-/** The name of the HL7v2 store this message belongs to. */
+/** Required. The name of the HL7v2 store this message belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -6173,7 +6174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @param object The @c GTLRCloudHealthcare_IngestMessageRequest to include in
  *    the query.
- *  @param parent The name of the HL7v2 store this message belongs to.
+ *  @param parent Required. The name of the HL7v2 store this message belongs to.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesIngest
  */
@@ -6256,7 +6257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Name of the HL7v2 store to retrieve messages from. */
+/** Required. Name of the HL7v2 store to retrieve messages from. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -6292,7 +6293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  delay between the time a message is created and when it can be found through
  *  a filter.
  *
- *  @param parent Name of the HL7v2 store to retrieve messages from.
+ *  @param parent Required. Name of the HL7v2 store to retrieve messages from.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesList
  *
@@ -6320,14 +6321,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesPatch : GTLRCloudHealthcareQuery
 
 /**
- *  Resource name of the Message, of the form
+ *  Output only. Resource name of the Message, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
  *  Assigned by the server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
@@ -6344,7 +6346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  same keys are updated.
  *
  *  @param object The @c GTLRCloudHealthcare_Message to include in the query.
- *  @param name Resource name of the Message, of the form
+ *  @param name Output only. Resource name of the Message, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
  *    Assigned by the server.
  *
@@ -6367,13 +6369,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresPatch : GTLRCloudHealthcareQuery
 
 /**
- *  Resource name of the HL7v2 store, of the form
+ *  Identifier. Resource name of the HL7v2 store, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
@@ -6386,7 +6389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Updates the HL7v2 store.
  *
  *  @param object The @c GTLRCloudHealthcare_Hl7V2Store to include in the query.
- *  @param name Resource name of the HL7v2 store, of the form
+ *  @param name Identifier. Resource name of the HL7v2 store, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresPatch
@@ -6505,8 +6508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the project whose datasets should be listed. For example,
- *  `projects/{project_id}/locations/{location_id}`.
+ *  Required. The name of the project whose datasets should be listed. For
+ *  example, `projects/{project_id}/locations/{location_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6515,8 +6518,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Lists the health datasets in the current project.
  *
- *  @param parent The name of the project whose datasets should be listed. For
- *    example, `projects/{project_id}/locations/{location_id}`.
+ *  @param parent Required. The name of the project whose datasets should be
+ *    listed. For example, `projects/{project_id}/locations/{location_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsList
  *
@@ -6659,13 +6662,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsPatch : GTLRCloudHealthcareQuery
 
 /**
- *  Resource name of the dataset, of the form
+ *  Identifier. Resource name of the dataset, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
@@ -6678,7 +6682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Updates dataset metadata.
  *
  *  @param object The @c GTLRCloudHealthcare_Dataset to include in the query.
- *  @param name Resource name of the dataset, of the form
+ *  @param name Identifier. Resource name of the dataset, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsPatch

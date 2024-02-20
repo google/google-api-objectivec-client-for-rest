@@ -447,6 +447,50 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_ListUserWorkloadsConfigMapsResponse
+//
+
+@implementation GTLRCloudComposer_ListUserWorkloadsConfigMapsResponse
+@dynamic nextPageToken, userWorkloadsConfigMaps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userWorkloadsConfigMaps" : [GTLRCloudComposer_UserWorkloadsConfigMap class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userWorkloadsConfigMaps";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ListUserWorkloadsSecretsResponse
+//
+
+@implementation GTLRCloudComposer_ListUserWorkloadsSecretsResponse
+@dynamic nextPageToken, userWorkloadsSecrets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userWorkloadsSecrets" : [GTLRCloudComposer_UserWorkloadsSecret class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userWorkloadsSecrets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_ListWorkloadsResponse
 //
 
@@ -837,6 +881,54 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 @implementation GTLRCloudComposer_TriggererResource
 @dynamic count, cpu, memoryGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_UserWorkloadsConfigMap
+//
+
+@implementation GTLRCloudComposer_UserWorkloadsConfigMap
+@dynamic data, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_UserWorkloadsConfigMap_Data
+//
+
+@implementation GTLRCloudComposer_UserWorkloadsConfigMap_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_UserWorkloadsSecret
+//
+
+@implementation GTLRCloudComposer_UserWorkloadsSecret
+@dynamic data, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_UserWorkloadsSecret_Data
+//
+
+@implementation GTLRCloudComposer_UserWorkloadsSecret_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

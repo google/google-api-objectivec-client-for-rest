@@ -1458,6 +1458,493 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new `LbRouteExtension` resource in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.lbRouteExtensions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. User-provided ID of the `LbRouteExtension` resource to be created.
+ */
+@property(nonatomic, copy, nullable) NSString *lbRouteExtensionId;
+
+/**
+ *  Required. The parent resource of the `LbRouteExtension` resource. Must be in
+ *  the format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new `LbRouteExtension` resource in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_LbRouteExtension to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the `LbRouteExtension`
+ *    resource. Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_LbRouteExtension *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified `LbRouteExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbRouteExtensions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The name of the `LbRouteExtension` resource to delete. Must be in
+ *  the format
+ *  `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes after the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes the specified `LbRouteExtension` resource.
+ *
+ *  @param name Required. The name of the `LbRouteExtension` resource to delete.
+ *    Must be in the format
+ *    `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specified `LbRouteExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbRouteExtensions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `LbRouteExtension` resource to get. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_LbRouteExtension.
+ *
+ *  Gets details of the specified `LbRouteExtension` resource.
+ *
+ *  @param name Required. A name of the `LbRouteExtension` resource to get. Must
+ *    be in the format
+ *    `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `LbRouteExtension` resources in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.lbRouteExtensions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsList : GTLRNetworkServicesQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results that the server returns.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `LbRouteExtension`
+ *  resources are listed, specified in the following format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListLbRouteExtensionsResponse.
+ *
+ *  Lists `LbRouteExtension` resources in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    `LbRouteExtension` resources are listed, specified in the following
+ *    format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of the specified `LbRouteExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbRouteExtensions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Identifier. Name of the `LbRouteExtension` resource in the
+ *  following format:
+ *  `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Used to specify the fields to be overwritten in the
+ *  `LbRouteExtension` resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not specify a mask, then
+ *  all fields are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of the specified `LbRouteExtension` resource.
+ *
+ *  @param object The @c GTLRNetworkServices_LbRouteExtension to include in the
+ *    query.
+ *  @param name Required. Identifier. Name of the `LbRouteExtension` resource in
+ *    the following format:
+ *    `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_LbRouteExtension *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new `LbTrafficExtension` resource in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.lbTrafficExtensions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. User-provided ID of the `LbTrafficExtension` resource to be
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *lbTrafficExtensionId;
+
+/**
+ *  Required. The parent resource of the `LbTrafficExtension` resource. Must be
+ *  in the format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new `LbTrafficExtension` resource in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_LbTrafficExtension to include in
+ *    the query.
+ *  @param parent Required. The parent resource of the `LbTrafficExtension`
+ *    resource. Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_LbTrafficExtension *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified `LbTrafficExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbTrafficExtensions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The name of the `LbTrafficExtension` resource to delete. Must be
+ *  in the format
+ *  `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes after the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes the specified `LbTrafficExtension` resource.
+ *
+ *  @param name Required. The name of the `LbTrafficExtension` resource to
+ *    delete. Must be in the format
+ *    `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specified `LbTrafficExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbTrafficExtensions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `LbTrafficExtension` resource to get. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_LbTrafficExtension.
+ *
+ *  Gets details of the specified `LbTrafficExtension` resource.
+ *
+ *  @param name Required. A name of the `LbTrafficExtension` resource to get.
+ *    Must be in the format
+ *    `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `LbTrafficExtension` resources in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.lbTrafficExtensions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsList : GTLRNetworkServicesQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results that the server returns.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `LbTrafficExtension`
+ *  resources are listed, specified in the following format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListLbTrafficExtensionsResponse.
+ *
+ *  Lists `LbTrafficExtension` resources in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    `LbTrafficExtension` resources are listed, specified in the following
+ *    format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of the specified `LbTrafficExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbTrafficExtensions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Identifier. Name of the `LbTrafficExtension` resource in the
+ *  following format:
+ *  `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Used to specify the fields to be overwritten in the
+ *  `LbTrafficExtension` resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not specify a mask, then
+ *  all fields are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of the specified `LbTrafficExtension` resource.
+ *
+ *  @param object The @c GTLRNetworkServices_LbTrafficExtension to include in
+ *    the query.
+ *  @param name Required. Identifier. Name of the `LbTrafficExtension` resource
+ *    in the following format:
+ *    `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbTrafficExtensionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_LbTrafficExtension *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: networkservices.projects.locations.list
@@ -2237,6 +2724,331 @@ NS_ASSUME_NONNULL_BEGIN
  *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new ServiceLbPolicy in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.serviceLbPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The parent resource of the ServiceLbPolicy. Must be in the format
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Short name of the ServiceLbPolicy resource to be created. E.g. for
+ *  resource name
+ *  `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
+ *  the id is value of {service_lb_policy_name}
+ */
+@property(nonatomic, copy, nullable) NSString *serviceLbPolicyId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new ServiceLbPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_ServiceLbPolicy to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the ServiceLbPolicy. Must be
+ *    in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_ServiceLbPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ServiceLbPolicy.
+ *
+ *  Method: networkservices.projects.locations.serviceLbPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the ServiceLbPolicy to delete. Must be in the format
+ *  `projects/{project}/locations/{location}/serviceLbPolicies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single ServiceLbPolicy.
+ *
+ *  @param name Required. A name of the ServiceLbPolicy to delete. Must be in
+ *    the format `projects/{project}/locations/{location}/serviceLbPolicies/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ServiceLbPolicy.
+ *
+ *  Method: networkservices.projects.locations.serviceLbPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the ServiceLbPolicy to get. Must be in the format
+ *  `projects/{project}/locations/{location}/serviceLbPolicies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ServiceLbPolicy.
+ *
+ *  Gets details of a single ServiceLbPolicy.
+ *
+ *  @param name Required. A name of the ServiceLbPolicy to get. Must be in the
+ *    format `projects/{project}/locations/{location}/serviceLbPolicies/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networkservices.projects.locations.serviceLbPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesGetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ServiceLbPolicies in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.serviceLbPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesList : GTLRNetworkServicesQuery
+
+/** Maximum number of ServiceLbPolicies to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListServiceLbPoliciesResponse` Indicates
+ *  that this is a continuation of a prior `ListRouters` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the ServiceLbPolicies should
+ *  be listed, specified in the format
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListServiceLbPoliciesResponse.
+ *
+ *  Lists ServiceLbPolicies in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    ServiceLbPolicies should be listed, specified in the format
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single ServiceLbPolicy.
+ *
+ *  Method: networkservices.projects.locations.serviceLbPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the ServiceLbPolicy resource. It matches pattern
+ *  `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  ServiceLbPolicy resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single ServiceLbPolicy.
+ *
+ *  @param object The @c GTLRNetworkServices_ServiceLbPolicy to include in the
+ *    query.
+ *  @param name Required. Name of the ServiceLbPolicy resource. It matches
+ *    pattern
+ *    `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_ServiceLbPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networkservices.projects.locations.serviceLbPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesSetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networkservices.projects.locations.serviceLbPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesTestIamPermissions : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;

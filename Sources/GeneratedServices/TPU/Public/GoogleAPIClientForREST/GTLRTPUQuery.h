@@ -595,6 +595,175 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a QueuedResource TPU instance.
+ *
+ *  Method: tpu.projects.locations.queuedResources.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsQueuedResourcesCreate : GTLRTPUQuery
+
+/** Required. The parent resource name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The unqualified resource name. Should follow the
+ *  `^[A-Za-z0-9_.~+%-]+$` regex format.
+ */
+@property(nonatomic, copy, nullable) NSString *queuedResourceId;
+
+/** Optional. Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRTPU_Operation.
+ *
+ *  Creates a QueuedResource TPU instance.
+ *
+ *  @param object The @c GTLRTPU_QueuedResource to include in the query.
+ *  @param parent Required. The parent resource name.
+ *
+ *  @return GTLRTPUQuery_ProjectsLocationsQueuedResourcesCreate
+ */
++ (instancetype)queryWithObject:(GTLRTPU_QueuedResource *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a QueuedResource TPU instance.
+ *
+ *  Method: tpu.projects.locations.queuedResources.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsQueuedResourcesDelete : GTLRTPUQuery
+
+/**
+ *  Optional. If set to true, all running nodes belonging to this queued
+ *  resource will be deleted first and then the queued resource will be deleted.
+ *  Otherwise (i.e. force=false), the queued resource will only be deleted if
+ *  its nodes have already been deleted or the queued resource is in the
+ *  ACCEPTED, FAILED, or SUSPENDED state.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRTPU_Operation.
+ *
+ *  Deletes a QueuedResource TPU instance.
+ *
+ *  @param name Required. The resource name.
+ *
+ *  @return GTLRTPUQuery_ProjectsLocationsQueuedResourcesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a queued resource.
+ *
+ *  Method: tpu.projects.locations.queuedResources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsQueuedResourcesGet : GTLRTPUQuery
+
+/** Required. The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTPU_QueuedResource.
+ *
+ *  Gets details of a queued resource.
+ *
+ *  @param name Required. The resource name.
+ *
+ *  @return GTLRTPUQuery_ProjectsLocationsQueuedResourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists queued resources.
+ *
+ *  Method: tpu.projects.locations.queuedResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsQueuedResourcesList : GTLRTPUQuery
+
+/** Optional. The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTPU_ListQueuedResourcesResponse.
+ *
+ *  Lists queued resources.
+ *
+ *  @param parent Required. The parent resource name.
+ *
+ *  @return GTLRTPUQuery_ProjectsLocationsQueuedResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Resets a QueuedResource TPU instance
+ *
+ *  Method: tpu.projects.locations.queuedResources.reset
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsQueuedResourcesReset : GTLRTPUQuery
+
+/** Required. The name of the queued resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTPU_Operation.
+ *
+ *  Resets a QueuedResource TPU instance
+ *
+ *  @param object The @c GTLRTPU_ResetQueuedResourceRequest to include in the
+ *    query.
+ *  @param name Required. The name of the queued resource.
+ *
+ *  @return GTLRTPUQuery_ProjectsLocationsQueuedResourcesReset
+ */
++ (instancetype)queryWithObject:(GTLRTPU_ResetQueuedResourceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets a runtime version.
  *
  *  Method: tpu.projects.locations.runtimeVersions.get

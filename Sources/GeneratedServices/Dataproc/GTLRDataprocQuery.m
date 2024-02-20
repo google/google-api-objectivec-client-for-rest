@@ -1289,6 +1289,33 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsRepair
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_RepairNodeGroupRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:repair";
+  GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsRepair *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.clusters.nodeGroups.repair";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsResize
 
 @dynamic name;

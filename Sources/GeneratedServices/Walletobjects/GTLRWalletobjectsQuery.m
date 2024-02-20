@@ -599,6 +599,33 @@
 
 @end
 
+@implementation GTLRWalletobjectsQuery_GenericclassAddmessage
+
+@dynamic resourceId;
+
++ (instancetype)queryWithObject:(GTLRWalletobjects_AddMessageRequest *)object
+                     resourceId:(NSString *)resourceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resourceId" ];
+  NSString *pathURITemplate = @"walletobjects/v1/genericClass/{resourceId}/addMessage";
+  GTLRWalletobjectsQuery_GenericclassAddmessage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resourceId = resourceId;
+  query.expectedObjectClass = [GTLRWalletobjects_GenericClassAddMessageResponse class];
+  query.loggingName = @"walletobjects.genericclass.addmessage";
+  return query;
+}
+
+@end
+
 @implementation GTLRWalletobjectsQuery_GenericclassGet
 
 @dynamic resourceId;
@@ -706,6 +733,33 @@
   query.resourceId = resourceId;
   query.expectedObjectClass = [GTLRWalletobjects_GenericClass class];
   query.loggingName = @"walletobjects.genericclass.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRWalletobjectsQuery_GenericobjectAddmessage
+
+@dynamic resourceId;
+
++ (instancetype)queryWithObject:(GTLRWalletobjects_AddMessageRequest *)object
+                     resourceId:(NSString *)resourceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resourceId" ];
+  NSString *pathURITemplate = @"walletobjects/v1/genericObject/{resourceId}/addMessage";
+  GTLRWalletobjectsQuery_GenericobjectAddmessage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resourceId = resourceId;
+  query.expectedObjectClass = [GTLRWalletobjects_GenericObjectAddMessageResponse class];
+  query.loggingName = @"walletobjects.genericobject.addmessage";
   return query;
 }
 
@@ -2214,28 +2268,6 @@
   query.resourceId = resourceId;
   query.expectedObjectClass = [GTLRWalletobjects_TransitObject class];
   query.loggingName = @"walletobjects.transitobject.update";
-  return query;
-}
-
-@end
-
-@implementation GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentUploadPrivateData
-
-+ (instancetype)queryWithObject:(GTLRWalletobjects_UploadPrivateDataRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"walletobjects/v1/privateContent/uploadPrivateData";
-  GTLRWalletobjectsQuery_WalletobjectsV1PrivateContentUploadPrivateData *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRWalletobjects_UploadPrivateDataResponse class];
-  query.loggingName = @"walletobjects.walletobjects.v1.privateContent.uploadPrivateData";
   return query;
 }
 

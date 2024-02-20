@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Data Loss Prevention (DLP) (dlp/v2)
+//   Sensitive Data Protection (DLP) (dlp/v2)
 // Description:
-//   Provides methods for detection, risk analysis, and de-identification of
-//   privacy-sensitive fragments in text, images, and Google Cloud Platform
-//   storage repositories.
+//   Discover and protect your sensitive data. A fully managed service designed
+//   to help you discover, classify, and protect your valuable data assets with
+//   ease.
 // Documentation:
 //   https://cloud.google.com/dlp/docs/
 
@@ -39,11 +39,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDLPCloudPlatform;
 //
 
 /**
- *  Service for executing Cloud Data Loss Prevention (DLP) queries.
+ *  Service for executing Sensitive Data Protection (DLP) queries.
  *
- *  Provides methods for detection, risk analysis, and de-identification of
- *  privacy-sensitive fragments in text, images, and Google Cloud Platform
- *  storage repositories.
+ *  Discover and protect your sensitive data. A fully managed service designed
+ *  to help you discover, classify, and protect your valuable data assets with
+ *  ease.
  */
 @interface GTLRDLPService : GTLRService
 

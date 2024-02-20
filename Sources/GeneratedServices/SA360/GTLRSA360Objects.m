@@ -1250,6 +1250,40 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionAttr
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionAttributionModelSettings_DataDrivenModelStatus_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionActionAttributionModelSettings_DataDrivenModelStatus_Unspecified = @"UNSPECIFIED";
 
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable.cardinality
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ApproachesStatsLimit = @"APPROACHES_STATS_LIMIT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_BelowAllLimits = @"BELOW_ALL_LIMITS";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ExceedsSegmentationLimitButNotStatsLimit = @"EXCEEDS_SEGMENTATION_LIMIT_BUT_NOT_STATS_LIMIT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_ExceedsStatsLimit = @"EXCEEDS_STATS_LIMIT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Cardinality_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable.family
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Floodlight = @"FLOODLIGHT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Standard = @"STANDARD";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Family_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable.status
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_ActivationNeeded = @"ACTIVATION_NEEDED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Enabled = @"ENABLED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Paused = @"PAUSED";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable_Status_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo.floodlightVariableDataType
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Number = @"NUMBER";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_String = @"STRING";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableDataType_Unspecified = @"UNSPECIFIED";
+
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo.floodlightVariableType
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Dimension = @"DIMENSION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Metric = @"METRIC";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unset = @"UNSET";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo_FloodlightVariableType_Unspecified = @"UNSPECIFIED";
+
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionTrackingSetting.conversionTrackingStatus
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionTrackingSetting_ConversionTrackingStatus_ConversionTrackingManagedByAnotherManager = @"CONVERSION_TRACKING_MANAGED_BY_ANOTHER_MANAGER";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionTrackingSetting_ConversionTrackingStatus_ConversionTrackingManagedBySelf = @"CONVERSION_TRACKING_MANAGED_BY_SELF";
@@ -1755,7 +1789,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
          clientAccountLeadGrossProfitMicros, clientAccountLeadRevenueMicros,
          clientAccountLeadUnitsSold, clientAccountViewThroughConversions,
          contentBudgetLostImpressionShare, contentImpressionShare,
-         contentRankLostImpressionShare, conversions,
+         contentRankLostImpressionShare, conversionCustomMetrics, conversions,
          conversionsByConversionDate, conversionsFromInteractionsRate,
          conversionsFromInteractionsValuePerInteraction, conversionsValue,
          conversionsValueByConversionDate, conversionsValuePerCost, costMicros,
@@ -1768,7 +1802,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
          interactionEventTypes, interactionRate, interactions, invalidClickRate,
          invalidClicks, leadCostOfGoodsSoldMicros, leadGrossProfitMicros,
          leadRevenueMicros, leadUnitsSold, mobileFriendlyClicksPercentage,
-         searchAbsoluteTopImpressionShare,
+         rawEventConversionMetrics, searchAbsoluteTopImpressionShare,
          searchBudgetLostAbsoluteTopImpressionShare,
          searchBudgetLostImpressionShare, searchBudgetLostTopImpressionShare,
          searchClickShare, searchExactMatchImpressionShare,
@@ -1780,7 +1814,9 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"interactionEventTypes" : [NSString class]
+    @"conversionCustomMetrics" : [GTLRSA360_GoogleAdsSearchads360V0CommonValue class],
+    @"interactionEventTypes" : [NSString class],
+    @"rawEventConversionMetrics" : [GTLRSA360_GoogleAdsSearchads360V0CommonValue class]
   };
   return map;
 }
@@ -1876,25 +1912,35 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0CommonSegments
 @dynamic adNetworkType, assetInteractionTarget, conversionAction,
-         conversionActionCategory, conversionActionName, date, dayOfWeek,
-         device, keyword, month, productBiddingCategoryLevel1,
-         productBiddingCategoryLevel2, productBiddingCategoryLevel3,
-         productBiddingCategoryLevel4, productBiddingCategoryLevel5,
-         productBrand, productChannel, productChannelExclusivity,
-         productCondition, productCountry, productCustomAttribute0,
-         productCustomAttribute1, productCustomAttribute2,
-         productCustomAttribute3, productCustomAttribute4, productItemId,
-         productLanguage, productSoldBiddingCategoryLevel1,
-         productSoldBiddingCategoryLevel2, productSoldBiddingCategoryLevel3,
-         productSoldBiddingCategoryLevel4, productSoldBiddingCategoryLevel5,
-         productSoldBrand, productSoldCondition, productSoldCustomAttribute0,
+         conversionActionCategory, conversionActionName,
+         conversionCustomDimensions, date, dayOfWeek, device, keyword, month,
+         productBiddingCategoryLevel1, productBiddingCategoryLevel2,
+         productBiddingCategoryLevel3, productBiddingCategoryLevel4,
+         productBiddingCategoryLevel5, productBrand, productChannel,
+         productChannelExclusivity, productCondition, productCountry,
+         productCustomAttribute0, productCustomAttribute1,
+         productCustomAttribute2, productCustomAttribute3,
+         productCustomAttribute4, productItemId, productLanguage,
+         productSoldBiddingCategoryLevel1, productSoldBiddingCategoryLevel2,
+         productSoldBiddingCategoryLevel3, productSoldBiddingCategoryLevel4,
+         productSoldBiddingCategoryLevel5, productSoldBrand,
+         productSoldCondition, productSoldCustomAttribute0,
          productSoldCustomAttribute1, productSoldCustomAttribute2,
          productSoldCustomAttribute3, productSoldCustomAttribute4,
          productSoldItemId, productSoldTitle, productSoldTypeL1,
          productSoldTypeL2, productSoldTypeL3, productSoldTypeL4,
          productSoldTypeL5, productStoreId, productTitle, productTypeL1,
          productTypeL2, productTypeL3, productTypeL4, productTypeL5, quarter,
-         week, year;
+         rawEventConversionDimensions, week, year;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conversionCustomDimensions" : [GTLRSA360_GoogleAdsSearchads360V0CommonValue class],
+    @"rawEventConversionDimensions" : [GTLRSA360_GoogleAdsSearchads360V0CommonValue class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2898,6 +2944,40 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariable
+@dynamic cardinality, customColumnIds, family,
+         floodlightConversionCustomVariableInfo, identifier, name,
+         ownerCustomer, resourceName, status, tag;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customColumnIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionCustomVariableFloodlightConversionCustomVariableInfo
+@dynamic floodlightVariableDataType, floodlightVariableType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionTrackingSetting
 //
 
@@ -3314,6 +3394,36 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomDimensionHeader
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomDimensionHeader
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomMetricHeader
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomMetricHeader
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader
 //
 
@@ -3365,6 +3475,36 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionDimensionHeader
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionDimensionHeader
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionMetricHeader
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionMetricHeader
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row
 //
 
@@ -3376,11 +3516,12 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
          assetGroupTopCombinationView, assetSet, assetSetAsset, audience,
          biddingStrategy, campaign, campaignAsset, campaignAssetSet,
          campaignAudienceView, campaignBudget, campaignCriterion, campaignLabel,
-         cartDataSalesView, conversion, conversionAction, customColumns,
-         customer, customerAsset, customerAssetSet, customerClient,
-         customerManagerLink, dynamicSearchAdsSearchTermView, genderView,
-         geoTargetConstant, keywordView, label, languageConstant, locationView,
-         metrics, productBiddingCategoryConstant, productGroupView, segments,
+         cartDataSalesView, conversion, conversionAction,
+         conversionCustomVariable, customColumns, customer, customerAsset,
+         customerAssetSet, customerClient, customerManagerLink,
+         dynamicSearchAdsSearchTermView, genderView, geoTargetConstant,
+         keywordView, label, languageConstant, locationView, metrics,
+         productBiddingCategoryConstant, productGroupView, segments,
          shoppingPerformanceView, userList, visit, webpageView;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -3442,12 +3583,18 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Response
-@dynamic customColumnHeaders, fieldMask, nextPageToken, results, summaryRow,
-         totalResultsCount;
+@dynamic conversionCustomDimensionHeaders, conversionCustomMetricHeaders,
+         customColumnHeaders, fieldMask, nextPageToken,
+         rawEventConversionDimensionHeaders, rawEventConversionMetricHeaders,
+         results, summaryRow, totalResultsCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"conversionCustomDimensionHeaders" : [GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomDimensionHeader class],
+    @"conversionCustomMetricHeaders" : [GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomMetricHeader class],
     @"customColumnHeaders" : [GTLRSA360_GoogleAdsSearchads360V0ServicesCustomColumnHeader class],
+    @"rawEventConversionDimensionHeaders" : [GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionDimensionHeader class],
+    @"rawEventConversionMetricHeaders" : [GTLRSA360_GoogleAdsSearchads360V0ServicesRawEventConversionMetricHeader class],
     @"results" : [GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row class]
   };
   return map;

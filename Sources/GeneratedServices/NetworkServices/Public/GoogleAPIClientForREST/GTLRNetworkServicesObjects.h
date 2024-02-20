@@ -21,6 +21,9 @@
 @class GTLRNetworkServices_EndpointPolicy;
 @class GTLRNetworkServices_EndpointPolicy_Labels;
 @class GTLRNetworkServices_Expr;
+@class GTLRNetworkServices_ExtensionChain;
+@class GTLRNetworkServices_ExtensionChainExtension;
+@class GTLRNetworkServices_ExtensionChainMatchCondition;
 @class GTLRNetworkServices_Gateway;
 @class GTLRNetworkServices_Gateway_Labels;
 @class GTLRNetworkServices_GrpcRoute;
@@ -58,6 +61,10 @@
 @class GTLRNetworkServices_HttpRouteRouteRule;
 @class GTLRNetworkServices_HttpRouteStatefulSessionAffinityPolicy;
 @class GTLRNetworkServices_HttpRouteURLRewrite;
+@class GTLRNetworkServices_LbRouteExtension;
+@class GTLRNetworkServices_LbRouteExtension_Labels;
+@class GTLRNetworkServices_LbTrafficExtension;
+@class GTLRNetworkServices_LbTrafficExtension_Labels;
 @class GTLRNetworkServices_Location;
 @class GTLRNetworkServices_Location_Labels;
 @class GTLRNetworkServices_Location_Metadata;
@@ -69,6 +76,10 @@
 @class GTLRNetworkServices_Policy;
 @class GTLRNetworkServices_ServiceBinding;
 @class GTLRNetworkServices_ServiceBinding_Labels;
+@class GTLRNetworkServices_ServiceLbPolicy;
+@class GTLRNetworkServices_ServiceLbPolicy_Labels;
+@class GTLRNetworkServices_ServiceLbPolicyAutoCapacityDrain;
+@class GTLRNetworkServices_ServiceLbPolicyFailoverConfig;
 @class GTLRNetworkServices_Status;
 @class GTLRNetworkServices_Status_Details_Item;
 @class GTLRNetworkServices_TcpRoute;
@@ -168,6 +179,44 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Grpc
  *  Value: "SIDECAR_PROXY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ExtensionChainExtension.supportedEvents
+
+/**
+ *  Unspecified value. Do not use.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_EventTypeUnspecified;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  request body arrives.
+ *
+ *  Value: "REQUEST_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestBody;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  request headers arrive.
+ *
+ *  Value: "REQUEST_HEADERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestHeaders;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  response body arrives.
+ *
+ *  Value: "RESPONSE_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseBody;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  response headers arrive.
+ *
+ *  Value: "RESPONSE_HEADERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseHeaders;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_Gateway.envoyHeaders
@@ -325,6 +374,50 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRedirect;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkServices_LbRouteExtension.loadBalancingScheme
+
+/**
+ *  Signifies that this is used for External Managed HTTP(S) Load Balancing.
+ *
+ *  Value: "EXTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbRouteExtension_LoadBalancingScheme_ExternalManaged;
+/**
+ *  Signifies that this is used for Internal HTTP(S) Load Balancing.
+ *
+ *  Value: "INTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbRouteExtension_LoadBalancingScheme_InternalManaged;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "LOAD_BALANCING_SCHEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbRouteExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_LbTrafficExtension.loadBalancingScheme
+
+/**
+ *  Signifies that this is used for External Managed HTTP(S) Load Balancing.
+ *
+ *  Value: "EXTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_ExternalManaged;
+/**
+ *  Signifies that this is used for Internal HTTP(S) Load Balancing.
+ *
+ *  Value: "INTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_InternalManaged;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "LOAD_BALANCING_SCHEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkServices_Mesh.envoyHeaders
 
 /**
@@ -348,6 +441,47 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_EnvoyH
  *  Value: "NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ServiceLbPolicy.loadBalancingAlgorithm
+
+/**
+ *  The type of the loadbalancing algorithm is unspecified.
+ *
+ *  Value: "LOAD_BALANCING_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_LoadBalancingAlgorithmUnspecified;
+/**
+ *  Direct traffic to the nearest region with endpoints and capacity before
+ *  spilling over to other regions and spread the traffic from each client to
+ *  all the MIGs/NEGs in a region.
+ *
+ *  Value: "SPRAY_TO_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToRegion;
+/**
+ *  Balance traffic across all backends across the world proportionally based on
+ *  capacity.
+ *
+ *  Value: "SPRAY_TO_WORLD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToWorld;
+/**
+ *  Direct traffic to the nearest region with endpoints and capacity before
+ *  spilling over to other regions. All MIGs/NEGs within a region are evenly
+ *  loaded but each client might not spread the traffic to all the MIGs/NEGs in
+ *  the region.
+ *
+ *  Value: "WATERFALL_BY_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByRegion;
+/**
+ *  Attempt to keep traffic in a single zone closest to the client, before
+ *  spilling over to other zones.
+ *
+ *  Value: "WATERFALL_BY_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByZone;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -743,10 +877,125 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
 
 
 /**
+ *  A single extension chain wrapper that contains the match conditions and
+ *  extensions to execute.
+ */
+@interface GTLRNetworkServices_ExtensionChain : GTLRObject
+
+/**
+ *  Required. A set of extensions to execute for the matching request. At least
+ *  one extension is required. Up to 3 extensions can be defined for each
+ *  extension chain for `LbTrafficExtension` resource. `LbRouteExtension` chains
+ *  are limited to 1 extension per extension chain.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChainExtension *> *extensions;
+
+/** Required. Conditions under which this chain is invoked for a request. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionChainMatchCondition *matchCondition;
+
+/**
+ *  Required. The name for this extension chain. The name is logged as part of
+ *  the HTTP request logs. The name must conform with RFC-1034, is restricted to
+ *  lower-cased letters, numbers and hyphens, and can have a maximum length of
+ *  63 characters. Additionally, the first character must be a letter and the
+ *  last a letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A single extension in the chain to execute for the matching request.
+ */
+@interface GTLRNetworkServices_ExtensionChainExtension : GTLRObject
+
+/**
+ *  Optional. The `:authority` header in the gRPC request sent from Envoy to the
+ *  extension service.
+ */
+@property(nonatomic, copy, nullable) NSString *authority;
+
+/**
+ *  Optional. Determines how the proxy behaves if the call to the extension
+ *  fails or times out. When set to `TRUE`, request or response processing
+ *  continues without error. Any subsequent extensions in the extension chain
+ *  are also executed. When set to `FALSE`: * If response headers have not been
+ *  delivered to the downstream client, a generic 500 error is returned to the
+ *  client. The error response can be tailored by configuring a custom error
+ *  response in the load balancer. * If response headers have been delivered,
+ *  then the HTTP stream to the downstream client is reset. Default is `FALSE`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failOpen;
+
+/**
+ *  Optional. List of the HTTP headers to forward to the extension (from the
+ *  client or backend). If omitted, all headers are sent. Each element is a
+ *  string indicating the header name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forwardHeaders;
+
+/**
+ *  Required. The name for this extension. The name is logged as part of the
+ *  HTTP request logs. The name must conform with RFC-1034, is restricted to
+ *  lower-cased letters, numbers and hyphens, and can have a maximum length of
+ *  63 characters. Additionally, the first character must be a letter and the
+ *  last a letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The reference to the service that runs the extension. Currently
+ *  only Callout extensions are supported here. To configure a Callout
+ *  extension, `service` must be a fully-qualified reference to a [backend
+ *  service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices)
+ *  in the format:
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}`
+ *  or
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}`.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Optional. A set of events during request or response processing for which
+ *  this extension is called. This field is required for the
+ *  `LbTrafficExtension` resource. It's not relevant for the `LbRouteExtension`
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
+
+/**
+ *  Required. Specifies the timeout for each individual message on the stream.
+ *  The timeout must be between 10-1000 milliseconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  Conditions under which this chain is invoked for a request.
+ */
+@interface GTLRNetworkServices_ExtensionChainMatchCondition : GTLRObject
+
+/**
+ *  Required. A Common Expression Language (CEL) expression that is used to
+ *  match requests for which the extension chain is executed. For more
+ *  information, see [CEL matcher language
+ *  reference](https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference).
+ */
+@property(nonatomic, copy, nullable) NSString *celExpression;
+
+@end
+
+
+/**
  *  Gateway represents the configuration for a proxy, typically a load balancer.
  *  It captures the ip:port over which the services are exposed by the proxy,
  *  along with any policy configurations. Routes have reference to to Gateways
- *  to dictate how requests should be routed by this Gateway. Next id: 30
+ *  to dictate how requests should be routed by this Gateway. Next id: 32
  */
 @interface GTLRNetworkServices_Gateway : GTLRObject
 
@@ -2078,6 +2327,182 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
 
 
 /**
+ *  `LbRouteExtension` is a resource that lets you control where traffic is
+ *  routed to for a given request.
+ */
+@interface GTLRNetworkServices_LbRouteExtension : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. A set of ordered extension chains that contain the match
+ *  conditions and extensions to execute. Match conditions for each extension
+ *  chain are evaluated in sequence for a given request. The first extension
+ *  chain that has a condition that matches the request is executed. Any
+ *  subsequent extension chains do not execute. Limited to 5 extension chains
+ *  per resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChain *> *extensionChains;
+
+/**
+ *  Required. A list of references to the forwarding rules to which this service
+ *  extension is attached to. At least one forwarding rule is required. There
+ *  can be only one `LbRouteExtension` resource per forwarding rule.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forwardingRules;
+
+/**
+ *  Optional. Set of labels associated with the `LbRouteExtension` resource. The
+ *  format must comply with [the following
+ *  requirements](/compute/docs/labeling-resources#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_LbRouteExtension_Labels *labels;
+
+/**
+ *  Required. All backend services and forwarding rules referenced by this
+ *  extension must share the same load balancing scheme. Supported values:
+ *  `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
+ *  [Choosing a load
+ *  balancer](https://cloud.google.com/load-balancing/docs/backend-service).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_LbRouteExtension_LoadBalancingScheme_ExternalManaged
+ *        Signifies that this is used for External Managed HTTP(S) Load
+ *        Balancing. (Value: "EXTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkServices_LbRouteExtension_LoadBalancingScheme_InternalManaged
+ *        Signifies that this is used for Internal HTTP(S) Load Balancing.
+ *        (Value: "INTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkServices_LbRouteExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified
+ *        Default value. Do not use. (Value:
+ *        "LOAD_BALANCING_SCHEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  Required. Identifier. Name of the `LbRouteExtension` resource in the
+ *  following format:
+ *  `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `LbRouteExtension` resource. The
+ *  format must comply with [the following
+ *  requirements](/compute/docs/labeling-resources#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_LbRouteExtension_Labels : GTLRObject
+@end
+
+
+/**
+ *  `LbTrafficExtension` is a resource that lets the extension service modify
+ *  the headers and payloads of both requests and responses without impacting
+ *  the choice of backend services or any other security policies associated
+ *  with the backend service.
+ */
+@interface GTLRNetworkServices_LbTrafficExtension : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. A set of ordered extension chains that contain the match
+ *  conditions and extensions to execute. Match conditions for each extension
+ *  chain are evaluated in sequence for a given request. The first extension
+ *  chain that has a condition that matches the request is executed. Any
+ *  subsequent extension chains do not execute. Limited to 5 extension chains
+ *  per resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChain *> *extensionChains;
+
+/**
+ *  Required. A list of references to the forwarding rules to which this service
+ *  extension is attached to. At least one forwarding rule is required. There
+ *  can be only one `LBTrafficExtension` resource per forwarding rule.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forwardingRules;
+
+/**
+ *  Optional. Set of labels associated with the `LbTrafficExtension` resource.
+ *  The format must comply with [the following
+ *  requirements](/compute/docs/labeling-resources#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_LbTrafficExtension_Labels *labels;
+
+/**
+ *  Required. All backend services and forwarding rules referenced by this
+ *  extension must share the same load balancing scheme. Supported values:
+ *  `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
+ *  [Choosing a load
+ *  balancer](https://cloud.google.com/load-balancing/docs/backend-service).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_ExternalManaged
+ *        Signifies that this is used for External Managed HTTP(S) Load
+ *        Balancing. (Value: "EXTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_InternalManaged
+ *        Signifies that this is used for Internal HTTP(S) Load Balancing.
+ *        (Value: "INTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified
+ *        Default value. Do not use. (Value:
+ *        "LOAD_BALANCING_SCHEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  Required. Identifier. Name of the `LbTrafficExtension` resource in the
+ *  following format:
+ *  `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `LbTrafficExtension` resource.
+ *  The format must comply with [the following
+ *  requirements](/compute/docs/labeling-resources#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_LbTrafficExtension_Labels : GTLRObject
+@end
+
+
+/**
  *  Response returned by the ListEndpointPolicies method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2193,6 +2618,60 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
 
 
 /**
+ *  Message for response to listing `LbRouteExtension` resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "lbRouteExtensions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkServices_ListLbRouteExtensionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of `LbRouteExtension` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_LbRouteExtension *> *lbRouteExtensions;
+
+/** A token identifying a page of results that the server returns. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing `LbTrafficExtension` resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "lbTrafficExtensions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkServices_ListLbTrafficExtensionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of `LbTrafficExtension` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_LbTrafficExtension *> *lbTrafficExtensions;
+
+/** A token identifying a page of results that the server returns. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2292,6 +2771,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ServiceBinding *> *serviceBindings;
+
+@end
+
+
+/**
+ *  Response returned by the ListServiceLbPolicies method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "serviceLbPolicies" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkServices_ListServiceLbPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of ServiceLbPolicy resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ServiceLbPolicy *> *serviceLbPolicies;
 
 @end
 
@@ -2757,6 +3264,127 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None;
  *        fetch them all at once.
  */
 @interface GTLRNetworkServices_ServiceBinding_Labels : GTLRObject
+@end
+
+
+/**
+ *  ServiceLbPolicy holds global load balancing and traffic distribution
+ *  configuration that can be applied to a BackendService.
+ */
+@interface GTLRNetworkServices_ServiceLbPolicy : GTLRObject
+
+/**
+ *  Optional. Configuration to automatically move traffic away for unhealthy
+ *  IG/NEG for the associated Backend Service.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicyAutoCapacityDrain *autoCapacityDrain;
+
+/** Output only. The timestamp when this resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Configuration related to health based failover. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicyFailoverConfig *failoverConfig;
+
+/**
+ *  Optional. Set of label tags associated with the ServiceLbPolicy resource.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicy_Labels *labels;
+
+/**
+ *  Optional. The type of load balancing algorithm to be used. The default
+ *  behavior is WATERFALL_BY_REGION.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_LoadBalancingAlgorithmUnspecified
+ *        The type of the loadbalancing algorithm is unspecified. (Value:
+ *        "LOAD_BALANCING_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToRegion
+ *        Direct traffic to the nearest region with endpoints and capacity
+ *        before spilling over to other regions and spread the traffic from each
+ *        client to all the MIGs/NEGs in a region. (Value: "SPRAY_TO_REGION")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToWorld
+ *        Balance traffic across all backends across the world proportionally
+ *        based on capacity. (Value: "SPRAY_TO_WORLD")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByRegion
+ *        Direct traffic to the nearest region with endpoints and capacity
+ *        before spilling over to other regions. All MIGs/NEGs within a region
+ *        are evenly loaded but each client might not spread the traffic to all
+ *        the MIGs/NEGs in the region. (Value: "WATERFALL_BY_REGION")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByZone
+ *        Attempt to keep traffic in a single zone closest to the client, before
+ *        spilling over to other zones. (Value: "WATERFALL_BY_ZONE")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingAlgorithm;
+
+/**
+ *  Required. Name of the ServiceLbPolicy resource. It matches pattern
+ *  `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The timestamp when this resource was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of label tags associated with the ServiceLbPolicy resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_ServiceLbPolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  Option to specify if an unhealthy IG/NEG should be considered for global
+ *  load balancing and traffic routing.
+ */
+@interface GTLRNetworkServices_ServiceLbPolicyAutoCapacityDrain : GTLRObject
+
+/**
+ *  Optional. If set to 'True', an unhealthy IG/NEG will be set as drained. - An
+ *  IG/NEG is considered unhealthy if less than 25% of the instances/endpoints
+ *  in the IG/NEG are healthy. - This option will never result in draining more
+ *  than 50% of the configured IGs/NEGs for the Backend Service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enable;
+
+@end
+
+
+/**
+ *  Option to specify health based failover behavior. This is not related to
+ *  Network load balancer FailoverPolicy.
+ */
+@interface GTLRNetworkServices_ServiceLbPolicyFailoverConfig : GTLRObject
+
+/**
+ *  Optional. The percentage threshold that a load balancer will begin to send
+ *  traffic to failover backends. If the percentage of endpoints in a MIG/NEG is
+ *  smaller than this value, traffic would be sent to failover backends if
+ *  possible. This field should be set to a value between 1 and 99. The default
+ *  value is 50 for Global external HTTP(S) load balancer (classic) and
+ *  Proxyless service mesh, and 70 for others.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failoverHealthThreshold;
+
 @end
 
 

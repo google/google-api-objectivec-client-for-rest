@@ -2768,6 +2768,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *executionEnvironment;
 
 /**
+ *  Optional. Disables health checking containers during deployment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *healthCheckDisabled;
+
+/**
  *  Unstructured key value map that can be used to organize and categorize
  *  objects. User-provided labels are shared with Google's billing system, so
  *  they can be used to filter, or break down billing charges by team,
@@ -2806,7 +2813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
- *  Enable session affinity.
+ *  Optional. Enable session affinity.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -40,11 +40,11 @@
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartBlob;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartFileData;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadata;
-@class GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadataModelLevelMetadata;
 @class GTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating;
+@class GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm;
 @class GTLRAiplatform_CloudAiNlLlmProtoServiceUsageMetadata;
 @class GTLRAiplatform_GoogleApiHttpBody;
 @class GTLRAiplatform_GoogleApiHttpBody_Extensions_Item;
@@ -194,6 +194,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySourceFeatureGroup;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSync;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncSyncSummary;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse_ProtoStruct;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairList;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairListFeatureNameValuePair;
@@ -214,6 +216,10 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttributionWeb;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IdMatcher;
@@ -303,9 +309,15 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1NasJobSpecMultiTrialAlgorithmSpecTrainTrialSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NasTrial;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NasTrialDetail;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQuery;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryEmbedding;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryParameters;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryStringFilter;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighbors;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataContentValidationStats;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError;
+@class GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborsNeighbor;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Neighbor;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NetworkSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NfsMount;
@@ -327,9 +339,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_InputArtifacts;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_Parameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig_ParameterValues;
-@class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact;
-@class GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetail;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetail_Inputs;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetail_Outputs;
@@ -351,6 +361,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployGke;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenFineTuningPipelines;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionOpenNotebooks;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences;
@@ -367,6 +378,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerMonthUsageData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerUserUsageData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourcesConsumed;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Retrieval;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SampleConfig;
@@ -471,6 +483,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaTrainingjobDefinitionWindowConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaVertex;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequestStatsAnomaliesObjective;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Segment;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ShieldedVmConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SmoothGradConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SpecialistPool;
@@ -525,6 +538,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1UnmanagedContainerModel;
 @class GTLRAiplatform_GoogleCloudAiplatformV1UserActionReference;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Value;
+@class GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VideoMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1WorkerPoolSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1WriteFeatureValuesPayload;
@@ -970,6 +984,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafet
  *  Value: "NEGLIGIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Probability_Negligible;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating.severity
+
+/**
+ *  Harm probability unspecified.
+ *
+ *  Value: "HARM_PROBABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_HarmProbabilityUnspecified;
+/**
+ *  High level of harm.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_High;
+/**
+ *  Low level of harm.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Low;
+/**
+ *  Medium level of harm.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Medium;
+/**
+ *  Negligible level of harm.
+ *
+ *  Value: "NEGLIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Negligible;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm.source
+
+/**
+ *  The influential term comes from the prompt.
+ *
+ *  Value: "PROMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_Prompt;
+/**
+ *  The influential term comes from the response.
+ *
+ *  Value: "RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_Response;
+/**
+ *  Unspecified source.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_SourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1Artifact.state
@@ -2459,6 +2529,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModelS
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModelSourceInfo_SourceType_Genie;
 /**
+ *  The Model is saved or tuned from Marketplace.
+ *
+ *  Value: "MARKETPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModelSourceInfo_SourceType_Marketplace;
+/**
  *  The Model is saved or tuned from Model Garden.
  *
  *  Value: "MODEL_GARDEN"
@@ -2683,6 +2759,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Neares
  *  Value: "INVALID_EMBEDDING_ID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEmbeddingId;
+/**
+ *  File is not in UTF_8 format.
+ *
+ *  Value: "INVALID_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEncoding;
 /**
  *  Invalid json format.
  *
@@ -4550,6 +4632,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CleanArxiv;
 /** Value: "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix;
+/**
+ *  Cloud gemit pro FT datasets.
+ *
+ *  Value: "CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCloudFactualityGroundingMagi;
+/** Value: "CLOUD_GEMIT_CODE_IF_V1" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCodeIfV1;
+/** Value: "CLOUD_GEMIT_CODE_SELF_REPAIR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCodeSelfRepair;
+/** Value: "CLOUD_GEMIT_COMMIT_MSG_GEN_V3" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCommitMsgGenV3;
+/** Value: "CLOUD_GEMIT_IDENTITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitIdentity;
+/** Value: "CLOUD_GEMIT_MT_DIALGUE_LMSYS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitMtDialgueLmsys;
+/** Value: "CLOUD_GEMIT_MTS_DIALOGUE_V3" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitMtsDialogueV3;
 /** Value: "CLOUD_SECURITY_FINETUNING" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityFinetuning;
 /**
@@ -4664,15 +4764,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop20bTop100bGcc;
 /** Value: "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc;
+/**
+ *  Gemini Goose FT datasets.
+ *
+ *  Value: "GEMINI_GOOSE_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiGoosePublic;
+/** Value: "GEMINI_GOOSE_SILOED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiGooseSiloed;
 /** Value: "GEMINI_IT_ACI_BENCH" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAciBench;
 /** Value: "GEMINI_IT_AQUAMUSE" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAquamuse;
-/**
- *  Gemini IT Cloud Build datasets.
- *
- *  Value: "GEMINI_IT_CLOUD_CODE_IF"
- */
+/** Value: "GEMINI_IT_CLOUD_CODE_IF" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudCodeIf;
 /** Value: "GEMINI_IT_CLOUD_EUR_LEX_JSON" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudEurLexJson;
@@ -4742,12 +4846,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
  *  Value: "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate;
-/**
- *  Github
- *
- *  Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
- */
+/** Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7;
+/**
+ *  Github dataset with license info. We prefer this to help cite proper
+ *  licenses for code recitation.
+ *
+ *  Value: "GEMINI_V1_CMS_GITHUB_V7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsGithubV7;
 /** Value: "GEMINI_V1_CMS_STACKEXCHANGE_DECONT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont;
 /** Value: "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2" */
@@ -5447,6 +5554,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CleanArxiv;
 /** Value: "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix;
+/**
+ *  Cloud gemit pro FT datasets.
+ *
+ *  Value: "CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCloudFactualityGroundingMagi;
+/** Value: "CLOUD_GEMIT_CODE_IF_V1" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCodeIfV1;
+/** Value: "CLOUD_GEMIT_CODE_SELF_REPAIR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCodeSelfRepair;
+/** Value: "CLOUD_GEMIT_COMMIT_MSG_GEN_V3" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCommitMsgGenV3;
+/** Value: "CLOUD_GEMIT_IDENTITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitIdentity;
+/** Value: "CLOUD_GEMIT_MT_DIALGUE_LMSYS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitMtDialgueLmsys;
+/** Value: "CLOUD_GEMIT_MTS_DIALOGUE_V3" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitMtsDialogueV3;
 /** Value: "CLOUD_SECURITY_FINETUNING" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityFinetuning;
 /**
@@ -5561,15 +5686,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop20bTop100bGcc;
 /** Value: "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc;
+/**
+ *  Gemini Goose FT datasets.
+ *
+ *  Value: "GEMINI_GOOSE_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiGoosePublic;
+/** Value: "GEMINI_GOOSE_SILOED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiGooseSiloed;
 /** Value: "GEMINI_IT_ACI_BENCH" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAciBench;
 /** Value: "GEMINI_IT_AQUAMUSE" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAquamuse;
-/**
- *  Gemini IT Cloud Build datasets.
- *
- *  Value: "GEMINI_IT_CLOUD_CODE_IF"
- */
+/** Value: "GEMINI_IT_CLOUD_CODE_IF" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudCodeIf;
 /** Value: "GEMINI_IT_CLOUD_EUR_LEX_JSON" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudEurLexJson;
@@ -5639,12 +5768,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
  *  Value: "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate;
-/**
- *  Github
- *
- *  Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
- */
+/** Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7;
+/**
+ *  Github dataset with license info. We prefer this to help cite proper
+ *  licenses for code recitation.
+ *
+ *  Value: "GEMINI_V1_CMS_GITHUB_V7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsGithubV7;
 /** Value: "GEMINI_V1_CMS_STACKEXCHANGE_DECONT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont;
 /** Value: "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2" */
@@ -6374,6 +6506,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAtt
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CleanArxiv;
 /** Value: "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix;
+/**
+ *  Cloud gemit pro FT datasets.
+ *
+ *  Value: "CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCloudFactualityGroundingMagi;
+/** Value: "CLOUD_GEMIT_CODE_IF_V1" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCodeIfV1;
+/** Value: "CLOUD_GEMIT_CODE_SELF_REPAIR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCodeSelfRepair;
+/** Value: "CLOUD_GEMIT_COMMIT_MSG_GEN_V3" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCommitMsgGenV3;
+/** Value: "CLOUD_GEMIT_IDENTITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitIdentity;
+/** Value: "CLOUD_GEMIT_MT_DIALGUE_LMSYS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitMtDialgueLmsys;
+/** Value: "CLOUD_GEMIT_MTS_DIALOGUE_V3" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitMtsDialogueV3;
 /** Value: "CLOUD_SECURITY_FINETUNING" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityFinetuning;
 /**
@@ -6488,15 +6638,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAtt
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop20bTop100bGcc;
 /** Value: "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc;
+/**
+ *  Gemini Goose FT datasets.
+ *
+ *  Value: "GEMINI_GOOSE_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiGoosePublic;
+/** Value: "GEMINI_GOOSE_SILOED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiGooseSiloed;
 /** Value: "GEMINI_IT_ACI_BENCH" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAciBench;
 /** Value: "GEMINI_IT_AQUAMUSE" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAquamuse;
-/**
- *  Gemini IT Cloud Build datasets.
- *
- *  Value: "GEMINI_IT_CLOUD_CODE_IF"
- */
+/** Value: "GEMINI_IT_CLOUD_CODE_IF" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudCodeIf;
 /** Value: "GEMINI_IT_CLOUD_EUR_LEX_JSON" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudEurLexJson;
@@ -6566,12 +6720,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAtt
  *  Value: "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate;
-/**
- *  Github
- *
- *  Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
- */
+/** Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7;
+/**
+ *  Github Github dataset with license info. We prefer this to help cite proper
+ *  licenses for code recitation.
+ *
+ *  Value: "GEMINI_V1_CMS_GITHUB_V7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsGithubV7;
 /** Value: "GEMINI_V1_CMS_STACKEXCHANGE_DECONT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont;
 /** Value: "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2" */
@@ -7271,6 +7428,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CleanArxiv;
 /** Value: "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix;
+/**
+ *  Cloud gemit pro FT datasets.
+ *
+ *  Value: "CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCloudFactualityGroundingMagi;
+/** Value: "CLOUD_GEMIT_CODE_IF_V1" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCodeIfV1;
+/** Value: "CLOUD_GEMIT_CODE_SELF_REPAIR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCodeSelfRepair;
+/** Value: "CLOUD_GEMIT_COMMIT_MSG_GEN_V3" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCommitMsgGenV3;
+/** Value: "CLOUD_GEMIT_IDENTITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitIdentity;
+/** Value: "CLOUD_GEMIT_MT_DIALGUE_LMSYS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitMtDialgueLmsys;
+/** Value: "CLOUD_GEMIT_MTS_DIALOGUE_V3" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitMtsDialogueV3;
 /** Value: "CLOUD_SECURITY_FINETUNING" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityFinetuning;
 /**
@@ -7385,15 +7560,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop20bTop100bGcc;
 /** Value: "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc;
+/**
+ *  Gemini Goose FT datasets.
+ *
+ *  Value: "GEMINI_GOOSE_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiGoosePublic;
+/** Value: "GEMINI_GOOSE_SILOED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiGooseSiloed;
 /** Value: "GEMINI_IT_ACI_BENCH" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAciBench;
 /** Value: "GEMINI_IT_AQUAMUSE" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAquamuse;
-/**
- *  Gemini IT Cloud Build datasets.
- *
- *  Value: "GEMINI_IT_CLOUD_CODE_IF"
- */
+/** Value: "GEMINI_IT_CLOUD_CODE_IF" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudCodeIf;
 /** Value: "GEMINI_IT_CLOUD_EUR_LEX_JSON" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudEurLexJson;
@@ -7463,12 +7642,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
  *  Value: "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate;
-/**
- *  Github
- *
- *  Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
- */
+/** Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7;
+/**
+ *  Github Github dataset with license info. We prefer this to help cite proper
+ *  licenses for code recitation.
+ *
+ *  Value: "GEMINI_V1_CMS_GITHUB_V7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsGithubV7;
 /** Value: "GEMINI_V1_CMS_STACKEXCHANGE_DECONT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont;
 /** Value: "GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2" */
@@ -9474,33 +9656,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 /** The end offset of the video. */
 @property(nonatomic, strong, nullable) GTLRDuration *endOffset;
 
-/** Internal only model level metadata. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadataModelLevelMetadata *modelLevelMetaData;
-
 /** The start offset of the video. */
 @property(nonatomic, strong, nullable) GTLRDuration *startOffset;
-
-@end
-
-
-/**
- *  Internal only fields
- */
-@interface GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadataModelLevelMetadata : GTLRObject
-
-/**
- *  Frame rate to decode from this video.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fps;
-
-/**
- *  Number of frames to decode from this video.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numFrames;
 
 @end
 
@@ -9747,6 +9904,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/** The influential terms that could potentially block the response. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm *> *influentialTerms;
+
 /**
  *  Harm probability levels in the content.
  *
@@ -9763,6 +9923,75 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        Negligible level of harm. (Value: "NEGLIGIBLE")
  */
 @property(nonatomic, copy, nullable) NSString *probability;
+
+/**
+ *  Harm probability score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *probabilityScore;
+
+/**
+ *  Harm severity levels in the content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_HarmProbabilityUnspecified
+ *        Harm probability unspecified. (Value: "HARM_PROBABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_High
+ *        High level of harm. (Value: "HIGH")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Low
+ *        Low level of harm. (Value: "LOW")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Medium
+ *        Medium level of harm. (Value: "MEDIUM")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Negligible
+ *        Negligible level of harm. (Value: "NEGLIGIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  Harm severity score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *severityScore;
+
+@end
+
+
+/**
+ *  The influential term that could potentially block the response.
+ */
+@interface GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm : GTLRObject
+
+/**
+ *  The beginning offset of the influential term.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *beginOffset;
+
+/**
+ *  The confidence score of the influential term.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  The source of the influential term, prompt or response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_Prompt
+ *        The influential term comes from the prompt. (Value: "PROMPT")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_Response
+ *        The influential term comes from the response. (Value: "RESPONSE")
+ *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_SourceUnspecified
+ *        Unspecified source. (Value: "SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** The influential term. */
+@property(nonatomic, copy, nullable) NSString *term;
 
 @end
 
@@ -11354,6 +11583,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @property(nonatomic, copy, nullable) NSString *finishReason;
 
 /**
+ *  Output only. Metadata specifies sources used to ground generated content.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata *groundingMetadata;
+
+/**
  *  Output only. Index of the candidate.
  *
  *  Uses NSNumber of intValue.
@@ -12069,14 +12303,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  characters are `/a-z-/`.
  */
 @property(nonatomic, copy, nullable) NSString *pipelineJobId;
-
-/**
- *  Optional. Whether to do component level validations before job creation.
- *  Currently we only support Google First Party Component/Pipelines.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *preflightValidations;
 
 @end
 
@@ -13779,6 +14005,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 /** Configures the request-response logging for online prediction. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PredictRequestResponseLoggingConfig *predictRequestResponseLoggingConfig;
+
+/**
+ *  Optional. Configuration for private service connect. network and
+ *  private_service_connect_config are mutually exclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig *privateServiceConnectConfig;
 
 /**
  *  A map from a DeployedModel's ID to the percentage of this Endpoint's traffic
@@ -16613,6 +16845,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 /** Required. List of features that need to be synced to Online Store. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewFeatureRegistrySourceFeatureGroup *> *featureGroups;
 
+/**
+ *  Optional. The project number of the parent project of the Feature Groups.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *projectNumber;
+
 @end
 
 
@@ -16656,6 +16895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 /** Output only. Time when this FeatureViewSync is finished. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleTypeInterval *runTime;
 
+/** Output only. Summary of the sync job. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncSyncSummary *syncSummary;
+
 @end
 
 
@@ -16673,6 +16915,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  * * * *".
  */
 @property(nonatomic, copy, nullable) NSString *cron;
+
+@end
+
+
+/**
+ *  Summary from the Sync job. For continuous syncs, the summary is updated
+ *  periodically. For batch syncs, it gets updated on completion of the sync.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncSyncSummary : GTLRObject
+
+/**
+ *  Output only. Total number of rows synced.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowSynced;
+
+/**
+ *  Output only. BigQuery slot milliseconds consumed for the sync job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSlot;
 
 @end
 
@@ -17139,8 +17404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  Optional. A list of `Tools` the model may use to generate the next response.
  *  A `Tool` is a piece of code that enables the system to interact with
  *  external systems to perform an action, or set of actions, outside of
- *  knowledge and scope of the model. The only supported tool is currently
- *  `Function`
+ *  knowledge and scope of the model.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Tool *> *tools;
 
@@ -17290,6 +17554,73 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  operation has finished (successfully or not), this is the finish time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Tool to retrieve public web data for grounding, powered by Google.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval : GTLRObject
+
+/**
+ *  Optional. Disable using the result from this tool in detecting grounding
+ *  attribution. This does not affect how the result is given to the model for
+ *  generation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableAttribution;
+
+@end
+
+
+/**
+ *  Grounding attribution.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution : GTLRObject
+
+/**
+ *  Optional. Output only. Confidence score of the attribution. Ranges from 0 to
+ *  1. 1 is the most confident.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidenceScore;
+
+/** Output only. Segment of the content this attribution belongs to. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Segment *segment;
+
+/** Optional. Attribution from the web. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttributionWeb *web;
+
+@end
+
+
+/**
+ *  Attribution from the web.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttributionWeb : GTLRObject
+
+/** Output only. Title of the attribution. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. URI reference of the attribution. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Metadata returned to client when grounding is enabled.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata : GTLRObject
+
+/** Optional. List of grounding attributions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution *> *groundingAttributions;
+
+/** Optional. Web search queries for the following-up web search. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *webSearchQueries;
 
 @end
 
@@ -20171,7 +20502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 /**
  *  Immutable. The path to the directory containing the Model artifact and any
- *  of its supporting files. Not present for AutoML Models or Large Models.
+ *  of its supporting files. Not required for AutoML Models.
  */
 @property(nonatomic, copy, nullable) NSString *artifactUri;
 
@@ -20179,7 +20510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  Input only. The specification of the container that is to be used when
  *  deploying this Model. The specification is ingested upon
  *  ModelService.UploadModel, and all binaries it contains are copied and stored
- *  internally by Vertex AI. Not present for AutoML Models or Large Models.
+ *  internally by Vertex AI. Not required for AutoML Models.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ModelContainerSpec *containerSpec;
 
@@ -20705,6 +21036,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        Predict logs. (Value: "PREDICT")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+/**
+ *  Output only. The schema version of the request/response logging BigQuery
+ *  table. Default to v1 if unset.
+ */
+@property(nonatomic, copy, nullable) NSString *requestResponseLoggingSchemaVersion;
 
 @end
 
@@ -21319,7 +21656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 
 /**
- *  GTLRAiplatform_GoogleCloudAiplatformV1ModelMonitoringAlertConfig
+ *  The alert config for model monitoring.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ModelMonitoringAlertConfig : GTLRObject
 
@@ -21704,6 +22041,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        "CUSTOM_TEXT_EMBEDDING")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ModelSourceInfo_SourceType_Genie
  *        The Model is saved or tuned from Genie. (Value: "GENIE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ModelSourceInfo_SourceType_Marketplace
+ *        The Model is saved or tuned from Marketplace. (Value: "MARKETPLACE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ModelSourceInfo_SourceType_ModelGarden
  *        The Model is saved or tuned from Model Garden. (Value: "MODEL_GARDEN")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ModelSourceInfo_SourceType_ModelSourceTypeUnspecified
@@ -22174,6 +22513,123 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 
 /**
+ *  A query to find a number of similar entities.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQuery : GTLRObject
+
+/** Optional. The embedding vector that be used for similar search. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryEmbedding *embedding;
+
+/**
+ *  Optional. The entity id whose similar entities should be searched for. If
+ *  embedding is set, search will use embedding instead of entity_id.
+ */
+@property(nonatomic, copy, nullable) NSString *entityId;
+
+/**
+ *  Optional. The number of similar entities to be retrieved from feature view
+ *  for each query.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *neighborCount;
+
+/** Optional. Parameters that can be set to tune query on the fly. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryParameters *parameters;
+
+/**
+ *  Optional. Crowding is a constraint on a neighbor list produced by nearest
+ *  neighbor search requiring that no more than
+ *  sper_crowding_attribute_neighbor_count of the k neighbors returned have the
+ *  same value of crowding_attribute. It's used for improving result diversity.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *perCrowdingAttributeNeighborCount;
+
+/** Optional. The list of string filters. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryStringFilter *> *stringFilters;
+
+@end
+
+
+/**
+ *  The embedding vector.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryEmbedding : GTLRObject
+
+/**
+ *  Optional. Individual value in the embedding.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *value;
+
+@end
+
+
+/**
+ *  Parameters that can be overrided in each query to tune query latency and
+ *  recall.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryParameters : GTLRObject
+
+/**
+ *  Optional. The number of neighbors to find via approximate search before
+ *  exact reordering is performed; if set, this value must be > neighbor_count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *approximateNeighborCandidates;
+
+/**
+ *  Optional. The fraction of the number of leaves to search, set at query time
+ *  allows user to tune search performance. This value increase result in both
+ *  search accuracy and latency increase. The value should be between 0.0 and
+ *  1.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leafNodesSearchFraction;
+
+@end
+
+
+/**
+ *  String filter is used to search a subset of the entities by using boolean
+ *  rules on string columns. For example: if a query specifies string filter
+ *  with 'name = color, allow_tokens = {red, blue}, deny_tokens = {purple}','
+ *  then that query will match entities that are red or blue, but if those
+ *  points are also purple, then they will be excluded even if they are
+ *  red/blue. Only string filter is supported for now, numeric filter will be
+ *  supported in the near future.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryStringFilter : GTLRObject
+
+/** Optional. The allowed tokens. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowTokens;
+
+/** Optional. The denied tokens. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *denyTokens;
+
+/** Required. Column names in BigQuery that used as filters. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Nearest neighbors for one query.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighbors : GTLRObject
+
+/** All its neighbors. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborsNeighbor *> *neighbors;
+
+@end
+
+
+/**
  *  Runtime operation metadata with regard to Matching Engine Index.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadata : GTLRObject
@@ -22263,6 +22719,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        Invalid csv format. (Value: "INVALID_CSV_SYNTAX")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEmbeddingId
  *        The embedding id is not valid. (Value: "INVALID_EMBEDDING_ID")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEncoding
+ *        File is not in UTF_8 format. (Value: "INVALID_ENCODING")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidJsonSyntax
  *        Invalid json format. (Value: "INVALID_JSON_SYNTAX")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidNumericValue
@@ -22288,6 +22746,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 /** Cloud Storage URI pointing to the original file in user's bucket. */
 @property(nonatomic, copy, nullable) NSString *sourceGcsUri;
+
+@end
+
+
+/**
+ *  A neighbor of the query vector.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborsNeighbor : GTLRObject
+
+/**
+ *  The distance between the neighbor and the query vector.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distance;
+
+/** The id of the similar entity. */
+@property(nonatomic, copy, nullable) NSString *entityId;
+
+/**
+ *  The attributes of the neighbor, e.g. filters, crowding and metadata Note
+ *  that full entities are returned only when "return_full_entity" is set to
+ *  true. Otherwise, only the "entity_id" and "distance" fields are populated.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse *entityKeyValues;
 
 @end
 
@@ -23053,13 +23536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfig : GTLRObject
 
 /**
- *  Optional. The default runtime for the PipelineJob. If not provided, Vertex
- *  Custom Job is used as the runtime. For Vertex Custom Job, please refer to
- *  https://cloud.google.com/vertex-ai/docs/training/overview
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime *defaultRuntime;
-
-/**
  *  Represents the failure policy of a pipeline. Currently, the default of a
  *  pipeline is that the pipeline will continue to run until no more tasks can
  *  be executed, also known as PIPELINE_FAILURE_POLICY_FAIL_SLOW. However, if a
@@ -23170,17 +23646,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  The default runtime for the PipelineJob.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime : GTLRObject
-
-/** Persistent resource based runtime detail. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail *persistentResourceRuntimeDetail;
-
-@end
-
-
-/**
  *  The type of an input artifact.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact : GTLRObject
@@ -23193,21 +23658,6 @@ GTLR_DEPRECATED
  *  metadatastore as the pipeline.
  */
 @property(nonatomic, copy, nullable) NSString *artifactId;
-
-@end
-
-
-/**
- *  Persistent resource based runtime detail. For more information, refer to
- *  https://cloud.google.com/vertex-ai/docs/training/persistent-resource-overview
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail : GTLRObject
-
-/**
- *  Persistent resource name. Format:
- *  `projects/{project}/locations/{location}/persistentResources/{persistent_resource}`
- */
-@property(nonatomic, copy, nullable) NSString *persistentResourceName;
 
 @end
 
@@ -23933,6 +24383,9 @@ GTLR_DEPRECATED
 /** Optional. Deploy the PublisherModel to Vertex Endpoint. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy *deploy;
 
+/** Optional. Deploy PublisherModel to Google Kubernetes Engine. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployGke *deployGke;
+
 /** Optional. Open evaluation pipeline of the PublisherModel. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *openEvaluationPipeline;
 
@@ -24019,6 +24472,17 @@ GTLR_DEPRECATED
 
 /** Required. The title of the regional resource reference. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Configurations for PublisherModel GKE deployment
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployGke : GTLRObject
+
+/** Optional. GKE deployment configuration in yaml format. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gkeYamlConfigs;
 
 @end
 
@@ -24719,6 +25183,26 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Defines a retrieval tool that model can call to access external knowledge.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Retrieval : GTLRObject
+
+/**
+ *  Optional. Disable using the result from this tool in detecting grounding
+ *  attribution. This does not affect how the result is given to the model for
+ *  generation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableAttribution;
+
+/** Set to use data source powered by Vertex AI Search. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearch *vertexAiSearch;
+
+@end
+
+
+/**
  *  Safety rating corresponding to the generated content.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating : GTLRObject
@@ -25153,12 +25637,6 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableRetries;
-
-/**
- *  Optional. This is the maximum time a user will wait in the QRM queue for
- *  resources. Default is 1 day
- */
-@property(nonatomic, strong, nullable) GTLRDuration *maxWaitDuration;
 
 /**
  *  Restarts the entire CustomJob if a worker gets restarted. This feature can
@@ -30508,6 +30986,69 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The request message for FeatureOnlineStoreService.SearchNearestEntities.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SearchNearestEntitiesRequest : GTLRObject
+
+/** Required. The query. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQuery *query;
+
+/**
+ *  Optional. If set to true, the full entities (including all vector values and
+ *  metadata) of the nearest neighbors are returned; otherwise only entity id of
+ *  the nearest neighbors will be returned. Note that returning full entities
+ *  will significantly increase the latency and cost of the query.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnFullEntity;
+
+@end
+
+
+/**
+ *  Response message for FeatureOnlineStoreService.SearchNearestEntities
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SearchNearestEntitiesResponse : GTLRObject
+
+/** The nearest neighbors of the query entity. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighbors *nearestNeighbors;
+
+@end
+
+
+/**
+ *  Segment of the content.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Segment : GTLRObject
+
+/**
+ *  Output only. End index in the given Part, measured in bytes. Offset from the
+ *  start of the Part, exclusive, starting at zero.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  Output only. The index of a Part object within its parent Content object.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partIndex;
+
+/**
+ *  Output only. Start index in the given Part, measured in bytes. Offset from
+ *  the start of the Part, inclusive, starting at zero.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
  *  A set of Shielded Instance options. See [Images using supported Shielded VM
  *  features](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm).
  */
@@ -32264,7 +32805,7 @@ GTLR_DEPRECATED
  *  Tool details that the model may use to generate response. A `Tool` is a
  *  piece of code that enables the system to interact with external systems to
  *  perform an action, or set of actions, outside of knowledge and scope of the
- *  model.
+ *  model. A Tool object should contain exactly one type of Tool.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Tool : GTLRObject
 
@@ -32277,6 +32818,16 @@ GTLR_DEPRECATED
  *  Maximum 64 function declarations can be provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration *> *functionDeclarations;
+
+/** Optional. Specialized retrieval tool that is powered by Google search. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval *googleSearchRetrieval;
+
+/**
+ *  Optional. System will always execute the provided retrieval tool(s) to get
+ *  external knowledge to answer the prompt. Retrieval results are presented to
+ *  the model for generation.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Retrieval *retrieval;
 
 @end
 
@@ -33012,6 +33563,17 @@ GTLR_DEPRECATED
 /** A list of datapoints to be created/updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint *> *datapoints;
 
+/**
+ *  Optional. Update mask is used to specify the fields to be overwritten in the
+ *  datapoints by the update. The fields specified in the update_mask are
+ *  relative to each IndexDatapoint inside datapoints, not the full request.
+ *  Updatable fields: * Use `all_restricts` to update both restricts and
+ *  numeric_restricts.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
 @end
 
 
@@ -33072,6 +33634,21 @@ GTLR_DEPRECATED
 
 /** A string value. */
 @property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
+ *  Retrieve from Vertex AI Search datastore for grounding. See
+ *  https://cloud.google.com/vertex-ai-search-and-conversation
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearch : GTLRObject
+
+/**
+ *  Required. Fully-qualified Vertex AI Search's datastore resource ID.
+ *  projects/<>/locations/<>/collections/<>/dataStores/<>
+ */
+@property(nonatomic, copy, nullable) NSString *datastore;
 
 @end
 
@@ -34102,6 +34679,21 @@ GTLR_DEPRECATED
  *        Value "CLEAN_ARXIV"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix
  *        Value "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCloudFactualityGroundingMagi
+ *        Cloud gemit pro FT datasets. (Value:
+ *        "CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCodeIfV1
+ *        Value "CLOUD_GEMIT_CODE_IF_V1"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCodeSelfRepair
+ *        Value "CLOUD_GEMIT_CODE_SELF_REPAIR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCommitMsgGenV3
+ *        Value "CLOUD_GEMIT_COMMIT_MSG_GEN_V3"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitIdentity
+ *        Value "CLOUD_GEMIT_IDENTITY"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitMtDialgueLmsys
+ *        Value "CLOUD_GEMIT_MT_DIALGUE_LMSYS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitMtsDialogueV3
+ *        Value "CLOUD_GEMIT_MTS_DIALOGUE_V3"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityFinetuning
  *        Value "CLOUD_SECURITY_FINETUNING"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityPretraining
@@ -34195,12 +34787,16 @@ GTLR_DEPRECATED
  *        Value "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc
  *        Value "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiGoosePublic
+ *        Gemini Goose FT datasets. (Value: "GEMINI_GOOSE_PUBLIC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiGooseSiloed
+ *        Value "GEMINI_GOOSE_SILOED"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAciBench
  *        Value "GEMINI_IT_ACI_BENCH"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAquamuse
  *        Value "GEMINI_IT_AQUAMUSE"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudCodeIf
- *        Gemini IT Cloud Build datasets. (Value: "GEMINI_IT_CLOUD_CODE_IF")
+ *        Value "GEMINI_IT_CLOUD_CODE_IF"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudEurLexJson
  *        Value "GEMINI_IT_CLOUD_EUR_LEX_JSON"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudOasst
@@ -34262,7 +34858,10 @@ GTLR_DEPRECATED
  *        Value
  *        "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7
- *        Github (Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7")
+ *        Value "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsGithubV7
+ *        Github dataset with license info. We prefer this to help cite proper
+ *        licenses for code recitation. (Value: "GEMINI_V1_CMS_GITHUB_V7")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont
  *        Value "GEMINI_V1_CMS_STACKEXCHANGE_DECONT"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackoverflowMultilingualV2
@@ -34848,7 +35447,8 @@ GTLR_DEPRECATED
 /**
  *  The recitation action for one given input. When its segments contain
  *  different actions, the overall action will be returned in the precedence of
- *  BLOCK > CITE > NO_ACTION.
+ *  BLOCK > CITE > NO_ACTION. When the given input is not found in any source,
+ *  the recitation action will not be specified.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_ActionUnspecified
@@ -34915,6 +35515,21 @@ GTLR_DEPRECATED
  *        Value "CLEAN_ARXIV"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix
  *        Value "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCloudFactualityGroundingMagi
+ *        Cloud gemit pro FT datasets. (Value:
+ *        "CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCodeIfV1
+ *        Value "CLOUD_GEMIT_CODE_IF_V1"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCodeSelfRepair
+ *        Value "CLOUD_GEMIT_CODE_SELF_REPAIR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCommitMsgGenV3
+ *        Value "CLOUD_GEMIT_COMMIT_MSG_GEN_V3"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitIdentity
+ *        Value "CLOUD_GEMIT_IDENTITY"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitMtDialgueLmsys
+ *        Value "CLOUD_GEMIT_MT_DIALGUE_LMSYS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitMtsDialogueV3
+ *        Value "CLOUD_GEMIT_MTS_DIALOGUE_V3"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityFinetuning
  *        Value "CLOUD_SECURITY_FINETUNING"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityPretraining
@@ -35008,12 +35623,16 @@ GTLR_DEPRECATED
  *        Value "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc
  *        Value "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiGoosePublic
+ *        Gemini Goose FT datasets. (Value: "GEMINI_GOOSE_PUBLIC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiGooseSiloed
+ *        Value "GEMINI_GOOSE_SILOED"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAciBench
  *        Value "GEMINI_IT_ACI_BENCH"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAquamuse
  *        Value "GEMINI_IT_AQUAMUSE"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudCodeIf
- *        Gemini IT Cloud Build datasets. (Value: "GEMINI_IT_CLOUD_CODE_IF")
+ *        Value "GEMINI_IT_CLOUD_CODE_IF"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudEurLexJson
  *        Value "GEMINI_IT_CLOUD_EUR_LEX_JSON"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudOasst
@@ -35075,7 +35694,10 @@ GTLR_DEPRECATED
  *        Value
  *        "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7
- *        Github (Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7")
+ *        Value "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsGithubV7
+ *        Github dataset with license info. We prefer this to help cite proper
+ *        licenses for code recitation. (Value: "GEMINI_V1_CMS_GITHUB_V7")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont
  *        Value "GEMINI_V1_CMS_STACKEXCHANGE_DECONT"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackoverflowMultilingualV2
@@ -35755,6 +36377,21 @@ GTLR_DEPRECATED
  *        Value "CLEAN_ARXIV"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix
  *        Value "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCloudFactualityGroundingMagi
+ *        Cloud gemit pro FT datasets. (Value:
+ *        "CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCodeIfV1
+ *        Value "CLOUD_GEMIT_CODE_IF_V1"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCodeSelfRepair
+ *        Value "CLOUD_GEMIT_CODE_SELF_REPAIR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCommitMsgGenV3
+ *        Value "CLOUD_GEMIT_COMMIT_MSG_GEN_V3"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitIdentity
+ *        Value "CLOUD_GEMIT_IDENTITY"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitMtDialgueLmsys
+ *        Value "CLOUD_GEMIT_MT_DIALGUE_LMSYS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitMtsDialogueV3
+ *        Value "CLOUD_GEMIT_MTS_DIALOGUE_V3"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityFinetuning
  *        Value "CLOUD_SECURITY_FINETUNING"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityPretraining
@@ -35848,12 +36485,16 @@ GTLR_DEPRECATED
  *        Value "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc
  *        Value "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiGoosePublic
+ *        Gemini Goose FT datasets. (Value: "GEMINI_GOOSE_PUBLIC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiGooseSiloed
+ *        Value "GEMINI_GOOSE_SILOED"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAciBench
  *        Value "GEMINI_IT_ACI_BENCH"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAquamuse
  *        Value "GEMINI_IT_AQUAMUSE"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudCodeIf
- *        Gemini IT Cloud Build datasets. (Value: "GEMINI_IT_CLOUD_CODE_IF")
+ *        Value "GEMINI_IT_CLOUD_CODE_IF"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudEurLexJson
  *        Value "GEMINI_IT_CLOUD_EUR_LEX_JSON"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudOasst
@@ -35915,7 +36556,11 @@ GTLR_DEPRECATED
  *        Value
  *        "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7
- *        Github (Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7")
+ *        Value "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsGithubV7
+ *        Github Github dataset with license info. We prefer this to help cite
+ *        proper licenses for code recitation. (Value:
+ *        "GEMINI_V1_CMS_GITHUB_V7")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont
  *        Value "GEMINI_V1_CMS_STACKEXCHANGE_DECONT"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackoverflowMultilingualV2
@@ -36500,7 +37145,8 @@ GTLR_DEPRECATED
 /**
  *  The recitation action for one given input. When its segments contain
  *  different actions, the overall action will be returned in the precedence of
- *  BLOCK > CITE > NO_ACTION.
+ *  BLOCK > CITE > NO_ACTION. When the given input is not found in any source,
+ *  the recitation action will be NO_ACTION.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_ActionUnspecified
@@ -36567,6 +37213,21 @@ GTLR_DEPRECATED
  *        Value "CLEAN_ARXIV"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix
  *        Value "CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCloudFactualityGroundingMagi
+ *        Cloud gemit pro FT datasets. (Value:
+ *        "CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCodeIfV1
+ *        Value "CLOUD_GEMIT_CODE_IF_V1"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCodeSelfRepair
+ *        Value "CLOUD_GEMIT_CODE_SELF_REPAIR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCommitMsgGenV3
+ *        Value "CLOUD_GEMIT_COMMIT_MSG_GEN_V3"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitIdentity
+ *        Value "CLOUD_GEMIT_IDENTITY"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitMtDialgueLmsys
+ *        Value "CLOUD_GEMIT_MT_DIALGUE_LMSYS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitMtsDialogueV3
+ *        Value "CLOUD_GEMIT_MTS_DIALOGUE_V3"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityFinetuning
  *        Value "CLOUD_SECURITY_FINETUNING"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityPretraining
@@ -36660,12 +37321,16 @@ GTLR_DEPRECATED
  *        Value "GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc
  *        Value "GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiGoosePublic
+ *        Gemini Goose FT datasets. (Value: "GEMINI_GOOSE_PUBLIC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiGooseSiloed
+ *        Value "GEMINI_GOOSE_SILOED"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAciBench
  *        Value "GEMINI_IT_ACI_BENCH"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAquamuse
  *        Value "GEMINI_IT_AQUAMUSE"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudCodeIf
- *        Gemini IT Cloud Build datasets. (Value: "GEMINI_IT_CLOUD_CODE_IF")
+ *        Value "GEMINI_IT_CLOUD_CODE_IF"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudEurLexJson
  *        Value "GEMINI_IT_CLOUD_EUR_LEX_JSON"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudOasst
@@ -36727,7 +37392,11 @@ GTLR_DEPRECATED
  *        Value
  *        "GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7
- *        Github (Value: "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7")
+ *        Value "GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsGithubV7
+ *        Github Github dataset with license info. We prefer this to help cite
+ *        proper licenses for code recitation. (Value:
+ *        "GEMINI_V1_CMS_GITHUB_V7")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont
  *        Value "GEMINI_V1_CMS_STACKEXCHANGE_DECONT"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackoverflowMultilingualV2
@@ -37660,6 +38329,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *pqc;
 
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories *safetycat;
+
+/**
+ *  Spii Filter uses buckets
+ *  http://google3/google/privacy/dlp/v2/storage.proto;l=77;rcl=584719820 to
+ *  classify the input. LMRoot converts the bucket into double score. For
+ *  example the score for "POSSIBLE" is 3 / 5 = 0.6 .
+ */
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootHarmSpiiFilter *spii;
 
 /**
@@ -38392,6 +39068,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *finishReason;
 
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootGroundingMetadata *groundingMetadata;
+
+/**
+ *  Applies to streaming response message only. Whether the message is a code.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isCode;
 
 /**
  *  Applies to Response message only. Indicates whether the message is a

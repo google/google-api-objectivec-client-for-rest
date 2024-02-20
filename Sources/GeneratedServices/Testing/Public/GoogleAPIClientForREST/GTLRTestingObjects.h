@@ -60,6 +60,7 @@
 @class GTLRTesting_LauncherActivityIntent;
 @class GTLRTesting_Locale;
 @class GTLRTesting_ManualSharding;
+@class GTLRTesting_MatrixErrorDetail;
 @class GTLRTesting_Metadata;
 @class GTLRTesting_NetworkConfiguration;
 @class GTLRTesting_NetworkConfigurationCatalog;
@@ -1545,7 +1546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  Android application details based on application manifest and apk archive
+ *  Android application details based on application manifest and archive
  *  contents.
  */
 @interface GTLRTesting_ApkDetail : GTLRObject
@@ -2022,11 +2023,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  Response containing the details of the specified Android application APK.
+ *  Response containing the details of the specified Android application.
  */
 @interface GTLRTesting_GetApkDetailsResponse : GTLRObject
 
-/** Details of the Android APK. */
+/** Details of the Android App. */
 @property(nonatomic, strong, nullable) GTLRTesting_ApkDetail *apkDetail;
 
 @end
@@ -2492,6 +2493,27 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Describes a single error or issue with a matrix.
+ */
+@interface GTLRTesting_MatrixErrorDetail : GTLRObject
+
+/**
+ *  Output only. A human-readable message about how the error in the TestMatrix.
+ *  Expands on the `reason` field with additional details and possible options
+ *  to fix the issue.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Output only. The reason for the error. This is a constant value in
+ *  UPPER_SNAKE_CASE that identifies the cause of the error.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
  *  A tag within a manifest.
  *  https://developer.android.com/guide/topics/manifest/meta-data-element.html
  */
@@ -2630,6 +2652,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  version.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_DirectAccessVersionInfo *directAccessVersionInfo;
+
+/**
+ *  Output only. The estimated wait time for a single interactive device session
+ *  using Direct Access.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *interactiveDeviceAvailabilityEstimate;
 
 /** An Android version. */
 @property(nonatomic, copy, nullable) NSString *versionId;
@@ -3146,6 +3174,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** Required. The devices the tests are being executed on. */
 @property(nonatomic, strong, nullable) GTLRTesting_EnvironmentMatrix *environmentMatrix;
+
+/**
+ *  Output only. Details about why a matrix was deemed invalid. If multiple
+ *  checks can be safely performed, they will be reported but no assumptions
+ *  should be made about the length of this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_MatrixErrorDetail *> *extendedInvalidMatrixDetails;
 
 /**
  *  If true, only a single attempt at most will be made to run each
