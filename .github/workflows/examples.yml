@@ -31,12 +31,15 @@ on:
 
 jobs:
   examples:
-    runs-on: macos-latest
+    runs-on: macos-14
     strategy:
       fail-fast: false
       matrix:
         SAMPLE: ["Calendar", "Drive", "YouTube", "Storage"]
     steps:
+    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
+    - name: Xcode version
+      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
     - uses: actions/checkout@v4
     - name: Build Debug
       run:  |
