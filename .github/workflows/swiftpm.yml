@@ -24,12 +24,15 @@ on:
 jobs:
   swift:
     # The swift command line only support build/testing for macOS on.
-    runs-on: macos-latest
+    runs-on: macos-14
     strategy:
       fail-fast: false
       matrix:
         CONFIGURATION: ["debug", "release"]
     steps:
+    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
+    - name: Xcode version
+      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
     - uses: actions/checkout@v4
     - name: Build and Test Library
       run:  |
@@ -40,20 +43,23 @@ jobs:
   xcodebuild:
     # Job(s) to build for all the platforms to ensure that is working and the
     # tests are passing.
-    runs-on: macos-latest
+    runs-on: macos-14
     strategy:
       fail-fast: false
       matrix:
         PLATFORM: ["ios", "macos", "tvos", "watchos"]
         CONFIGURATION: ["Debug", "Release"]
     steps:
+    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
+    - name: Xcode version
+      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
     - uses: actions/checkout@v4
     - name: Build and Test Library
       run:  |
         set -eu
         case "${{matrix.PLATFORM}}" in
           ios)
-            DESTINATION="platform=iOS Simulator,name=iPhone 8,OS=latest"
+            DESTINATION="platform=iOS Simulator,name=iPhone 14,OS=latest"
             ;;
           macos)
             DESTINATION="platform=macOS"
