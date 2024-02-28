@@ -22,11 +22,13 @@ Pod::Spec.new do |s|
   ios_deployment_target = '10.0'
   osx_deployment_target = '10.12'
   tvos_deployment_target = '10.0'
+  visionos_deployment_target = '1.0'
   watchos_deployment_target = '6.0'
 
   s.ios.deployment_target = ios_deployment_target
   s.osx.deployment_target = osx_deployment_target
   s.tvos.deployment_target = tvos_deployment_target
+  s.visionos.deployment_target = visionos_deployment_target
   s.watchos.deployment_target = watchos_deployment_target
 
   s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 4.0'
@@ -50,6 +52,7 @@ Pod::Spec.new do |s|
       :ios => ios_deployment_target,
       :osx => osx_deployment_target,
       :tvos => tvos_deployment_target,
+      :visionos => visionos_deployment_target,
       # Seem to need a higher min to get a good test runner picked/supported.
       :watchos => '7.4'
     }
