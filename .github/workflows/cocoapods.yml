@@ -35,11 +35,14 @@ jobs:
     - name: Xcode version
       run: sudo xcode-select -switch /Applications/Xcode_15.2.app
     - uses: actions/checkout@v4
-    - name: "iOS, macOS, and tvOS"
+    # The "macos-14" image has CocoaPods 1.14.x, and 1.15 is needed for visionOS
+    - name: Update CocoaPods
+      run: gem install cocoapods
+    - name: "iOS, macOS, tvOS, and visionOS"
       run:  |
         pod lib lint --verbose ${{ matrix.extra_flags }} \
           --configuration=${{ matrix.pod_configuration }} \
-          --platforms=ios,macos,tvos \
+          --platforms=ios,macos,tvos,visionos \
           --no-subspecs \
           --test-specs=Tests \
           GoogleAPIClientForREST.podspec

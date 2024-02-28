@@ -47,7 +47,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        PLATFORM: ["ios", "macos", "tvos", "watchos"]
+        PLATFORM: ["ios", "macos", "tvos", "watchos", "visionos"]
         CONFIGURATION: ["Debug", "Release"]
     steps:
     # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
@@ -66,6 +66,9 @@ jobs:
             ;;
           tvos)
             DESTINATION="platform=tvOS Simulator,name=Apple TV,OS=latest"
+            ;;
+          visionos)
+            DESTINATION="platform=visionOS Simulator,name=Apple Vision Pro,OS=latest"
             ;;
           watchos)
             DESTINATION="platform=WatchOS Simulator,name=Apple Watch Series 7 (45mm),OS=latest"
