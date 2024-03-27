@@ -23,7 +23,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "GTLRStorage.h"
+#import <GoogleAPIClientForREST/GTLRStorage.h>
 
 @interface StorageSampleWindowController : NSWindowController {
  @private

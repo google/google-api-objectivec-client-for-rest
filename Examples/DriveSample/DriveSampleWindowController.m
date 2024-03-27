@@ -19,8 +19,8 @@
 
 #import "DriveSampleWindowController.h"
 
-#import <AppAuth/AppAuth.h>
-#import <GTMAppAuth/GTMAppAuth.h>
+@import AppAuth;
+@import GTMAppAuth;
 #import <GTMSessionFetcher/GTMSessionFetcherService.h>
 #import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
 #import <GoogleAPIClientForREST/GTLRUtilities.h>
@@ -69,6 +69,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
   NSError *_detailsFetchError;
 
   OIDRedirectHTTPHandler *_redirectHTTPHandler;
+  GTMKeychainStore *_keychainStore;
+  GTMAuthSession *_authSession;
 }
 
 + (DriveSampleWindowController *)sharedWindowController {
@@ -85,9 +87,13 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
 
 - (void)awakeFromNib {
   // Attempts to deserialize authorization from keychain in GTMAppAuth format.
-  id<GTMFetcherAuthorizationProtocol> authorization =
-      [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
-  self.driveService.authorizer = authorization;
+  _keychainStore = [[GTMKeychainStore alloc] initWithItemName:kGTMAppAuthKeychainItemName];
+  NSError *err;
+  _authSession = [_keychainStore retrieveAuthSessionWithError:&err];
+  if (err) {
+    NSLog(@"Failed to load AuthSession: %@", err);
+  }
+  self.driveService.authorizer = _authSession;
 
   // Set the result text fields to have a distinctive color and mono-spaced font.
   _fileListResultTextField.textColor = [NSColor darkGrayColor];
@@ -104,7 +110,10 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
 
 - (NSString *)signedInUsername {
   // Get the email address of the signed-in user.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> auth = self.driveService.authorizer;
+#pragma clang diagnostic pop
   BOOL isSignedIn = auth.canAuthorize;
   if (isSignedIn) {
     return auth.userEmail;
@@ -130,8 +139,11 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
     // Sign out
     GTLRDriveService *service = self.driveService;
 
-    [GTMAppAuthFetcherAuthorization
-        removeAuthorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+    NSError *err;
+    if (![_keychainStore removeAuthSessionWithError:&err]) {
+      NSLog(@"Fail to remove authSession: %@", err);
+    }
+    _authSession = nil;
     service.authorizer = nil;
     [self updateUI];
   }
@@ -265,19 +277,21 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
   // Here's how to download with a GTMSessionFetcher. The fetcher will use the authorizer that's
   // attached to the GTLR service's fetcherService.
   //
-  //  NSURLRequest *downloadRequest = [service requestForQuery:query];
-  //  GTMSessionFetcher *fetcher = [service.fetcherService fetcherWithRequest:downloadRequest];
+  // [service requestForQuery:query
+  //               completion:^(NSURLRequest *downloadRequest) {
+  //    GTMSessionFetcher *fetcher = [service.fetcherService fetcherWithRequest:downloadRequest];
   //
-  //  [fetcher setCommentWithFormat:@"Downloading %@", file.name];
-  //  fetcher.destinationFileURL = destinationURL;
+  //    [fetcher setCommentWithFormat:@"Downloading %@", file.name];
+  //    fetcher.destinationFileURL = destinationURL;
   //
-  //  [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
-  //    if (error == nil) {
-  //      NSLog(@"Download succeeded.");
+  //    [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
+  //      if (error == nil) {
+  //        NSLog(@"Download succeeded.");
   //
-  //      // With a destinationFileURL property set, the fetcher's callback
-  //      // data parameter here will be nil.
-  //    }
+  //        // With a destinationFileURL property set, the fetcher's callback
+  //        // data parameter here will be nil.
+  //      }
+  //    }];
   //  }];
 
   [service executeQuery:query
@@ -845,8 +859,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
   }
 
   // Builds authentication request.
-  OIDServiceConfiguration *configuration =
-      [GTMAppAuthFetcherAuthorization configurationForGoogle];
+  OIDServiceConfiguration *configuration = [GTMAuthSession configurationForGoogle];
   // Applications that only need to access files created by this app should
   // use the kGTLRAuthScopeDriveFile scope.
   NSArray<NSString *> *scopes = @[ kGTLRAuthScopeDrive, OIDScopeEmail ];
@@ -863,6 +876,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
   __weak __typeof(self) weakSelf = self;
   _redirectHTTPHandler.currentAuthorizationFlow =
       [OIDAuthState authStateByPresentingAuthorizationRequest:request
+                  presentingWindow:self.window
                           callback:^(OIDAuthState *_Nullable authState,
                                      NSError *_Nullable error) {
     // Using weakSelf/strongSelf pattern to avoid retaining self as block execution is indeterminate
@@ -877,16 +891,19 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
                              NSApplicationActivateIgnoringOtherApps)];
 
     if (authState) {
-      // Creates a GTMAppAuthFetcherAuthorization object for authorizing requests.
-      GTMAppAuthFetcherAuthorization *gtmAuthorization =
-          [[GTMAppAuthFetcherAuthorization alloc] initWithAuthState:authState];
+      // Creates a GTMAuthSession object for authorizing requests.
+      GTMAuthSession *gtmAuthorization = [[GTMAuthSession alloc] initWithAuthState:authState];
+      strongSelf->_authSession = gtmAuthorization;
 
       // Sets the authorizer on the GTLRYouTubeService object so API calls will be authenticated.
       strongSelf.driveService.authorizer = gtmAuthorization;
 
       // Serializes authorization to keychain in GTMAppAuth format.
-      [GTMAppAuthFetcherAuthorization saveAuthorization:gtmAuthorization
-                                      toKeychainForName:kGTMAppAuthKeychainItemName];
+      NSError *err;
+      [strongSelf->_keychainStore saveAuthSession:gtmAuthorization error:&error];
+      if (err) {
+        NSLog(@"Failed to say AuthSession: %@", err);
+      }
 
       // Executes post sign-in handler.
       if (handler) handler();
@@ -1153,7 +1170,7 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
   if (file.trashed.boolValue) {
     [title insertString:@"\u2717 " atIndex:0]; // X character
   }
-  if (file.viewersCanCopyContent.boolValue) {
+  if (file.copyRequiresWriterPermission.boolValue) {
     [title appendString:@" \u21DF"]; // crossed down arrow character
   }
   return title;

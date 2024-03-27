@@ -19,7 +19,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "GTLRCalendar.h"
+#import <GoogleAPIClientForREST/GTLRCalendar.h>
 
 @interface CalendarSampleWindowController : NSWindowController {
  @private

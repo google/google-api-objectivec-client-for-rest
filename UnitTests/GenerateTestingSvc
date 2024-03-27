@@ -1,0 +1,38 @@
+#!/bin/bash
+# Generates the GTLRService test support files.
+
+set -e
+
+# Where does this script live so we can hit things in the tree.
+readonly TestsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
+readonly ScriptName=$(basename "$0")
+
+readonly ToolsDir="${TestsDir}/../Tools"
+readonly Configuration=debug
+readonly ServiceGeneratorBinary="${ToolsDir}/.build/${Configuration}/ServiceGenerator"
+
+# -----------------------------------------------------------------------------
+
+# Helper to print a message and hopefully have it seen.
+Banner() {
+  echo ""
+  echo "==============================================================================="
+  echo "    $*"
+  echo "==============================================================================="
+  echo ""
+}
+
+# -----------------------------------------------------------------------------
+
+Banner "Ensuring ServiceGenerator is up to date..."
+( cd "${ToolsDir}" && swift build --configuration "${Configuration}" )
+
+# -----------------------------------------------------------------------------
+
+Banner "Running the ServiceGenerator..."
+"${ServiceGeneratorBinary}" \
+    --outputDir "${TestsDir}" \
+    --gtlrFrameworkName GoogleAPIClientForREST \
+    --auditJSON \
+    --brief \
+    "${TestsDir}/TestingSvc.json"

@@ -1,0 +1,80 @@
+name: CocoaPods
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'Sources/**'
+    - 'UnitTests/**'
+    - '*.podspec'
+    - '.github/workflows/cocoapods.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'Sources/**'
+    - 'UnitTests/**'
+    - '*.podspec'
+    - '.github/workflows/cocoapods.yml'
+  schedule:
+    # Run the first and fifteenth of every month at 6:12 UTC
+    - cron:  '12 6 1,15 * *'
+
+jobs:
+  # Test with --no-subspecs because there are so many it takes a really long
+  # time, so this covers the Core spec and tests.
+  pod-lib-lint-core:
+    name: CocoaPods lib lint Core
+    runs-on: macos-14
+    strategy:
+      fail-fast: false
+      matrix:
+        pod_configuration: ["Debug", "Release"]
+        extra_flags: ["", "--use-static-frameworks"]
+    steps:
+    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
+    - name: Xcode version
+      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
+    - uses: actions/checkout@v4
+    # The "macos-14" image has CocoaPods 1.14.x, and 1.15 is needed for visionOS
+    - name: Update CocoaPods
+      run: gem install cocoapods
+    - name: "iOS, macOS, tvOS, and visionOS"
+      run:  |
+        pod lib lint --verbose ${{ matrix.extra_flags }} \
+          --configuration=${{ matrix.pod_configuration }} \
+          --platforms=ios,macos,tvos,visionos \
+          --no-subspecs \
+          --test-specs=Tests \
+          GoogleAPIClientForREST.podspec
+    # No test specs, that still fails on CI.
+    - name: "watchOS"
+      run:  |
+        pod lib lint --verbose ${{ matrix.extra_flags }} \
+          --configuration=${{ matrix.pod_configuration }} \
+          --platforms=watchos \
+          --no-subspecs \
+          --skip-tests \
+          GoogleAPIClientForREST.podspec
+  # Repeat the validation just for macOS but allow all the subspecs to be
+  # validated also. Uses --skip-tests since they were done in Core. This is the
+  # longest validation be far, and adding other platforms would just use more
+  # resources without any real gain.
+  pod-lib-lint-subspecs:
+    name: CocoaPods lib lint SubSpecs
+    runs-on: macos-14
+    strategy:
+      fail-fast: false
+      matrix:
+        pod_configuration: ["Debug", "Release"]
+    steps:
+    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
+    - name: Xcode version
+      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
+    - uses: actions/checkout@v4
+    - name: "macOS"
+      run:  |
+        pod lib lint --verbose \
+          --configuration=${{ matrix.pod_configuration }} \
+          --platforms=macos \
+          --skip-tests \
+          GoogleAPIClientForREST.podspec

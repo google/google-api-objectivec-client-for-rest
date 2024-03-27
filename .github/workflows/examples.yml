@@ -1,0 +1,62 @@
+name: Examples
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'Examples/**'
+    - '!Examples/**/*.md'
+    - 'Sources/Core/**'
+    - 'Sources/GeneratedServices/Calendar/**'
+    - 'Sources/GeneratedServices/Drive/**'
+    - 'Sources/GeneratedServices/Storage/**'
+    - 'Sources/GeneratedServices/YouTube/**'
+    - '*.podspec'
+    - '.github/workflows/examples.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'Examples/**'
+    - '!Examples/**/*.md'
+    - 'Sources/Core/**'
+    - 'Sources/GeneratedServices/Calendar/**'
+    - 'Sources/GeneratedServices/Drive/**'
+    - 'Sources/GeneratedServices/Storage/**'
+    - 'Sources/GeneratedServices/YouTube/**'
+    - '*.podspec'
+    - '.github/workflows/examples.yml'
+  schedule:
+    # Run the first and fifteenth of every month at 6:22 UTC
+    - cron:  '22 6 1,15 * *'
+
+jobs:
+  examples:
+    runs-on: macos-14
+    strategy:
+      fail-fast: false
+      matrix:
+        SAMPLE: ["Calendar", "Drive", "YouTube", "Storage"]
+    steps:
+    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
+    - name: Xcode version
+      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
+    - uses: actions/checkout@v4
+    - name: Build Debug
+      run:  |
+        set -eu
+        cd Examples/${{ matrix.SAMPLE }}Sample
+        pod install
+        xcodebuild \
+          -workspace "${{ matrix.SAMPLE }}Sample.xcworkspace" \
+          -scheme "${{ matrix.SAMPLE }}Sample" \
+          -configuration Debug \
+          build
+    - name: Build Release
+      run:  |
+        set -eu
+        cd Examples/${{ matrix.SAMPLE }}Sample
+        xcodebuild \
+          -workspace "${{ matrix.SAMPLE }}Sample.xcworkspace" \
+          -scheme "${{ matrix.SAMPLE }}Sample" \
+          -configuration Release \
+          build

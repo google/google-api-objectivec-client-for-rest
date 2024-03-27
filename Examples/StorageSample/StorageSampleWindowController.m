@@ -19,8 +19,8 @@
 
 #import "StorageSampleWindowController.h"
 
-#import <AppAuth/AppAuth.h>
-#import <GTMAppAuth/GTMAppAuth.h>
+@import AppAuth;
+@import GTMAppAuth;
 #import <GTMSessionFetcher/GTMSessionFetcherService.h>
 #import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
 
@@ -63,6 +63,8 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
   GTLRStorage_ObjectAccessControls *_defaultObjectAccessControlsList;
 
   OIDRedirectHTTPHandler *_redirectHTTPHandler;
+  GTMKeychainStore *_keychainStore;
+  GTMAuthSession *_authSession;
 }
 
 + (StorageSampleWindowController *)sharedWindowController {
@@ -79,9 +81,13 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
 
 - (void)awakeFromNib {
   // Attempts to deserialize authorization from keychain in GTMAppAuth format.
-  id<GTMFetcherAuthorizationProtocol> authorization =
-      [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
-  self.storageService.authorizer = authorization;
+  _keychainStore = [[GTMKeychainStore alloc] initWithItemName:kGTMAppAuthKeychainItemName];
+  NSError *err;
+  _authSession = [_keychainStore retrieveAuthSessionWithError:&err];
+  if (err) {
+    NSLog(@"Failed to load AuthSession: %@", err);
+  }
+  self.storageService.authorizer = _authSession;
 
   // Set the result text fields to have a distinctive color and mono-spaced font.
   _bucketListResultTextField.textColor = [NSColor darkGrayColor];
@@ -98,7 +104,10 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
 
 - (NSString *)signedInUsername {
   // Get the email address of the signed-in user.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> auth = self.storageService.authorizer;
+#pragma clang diagnostic pop
   BOOL isSignedIn = auth.canAuthorize;
   if (isSignedIn) {
     return auth.userEmail;
@@ -124,8 +133,11 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
     // Sign out
     GTLRStorageService *service = self.storageService;
 
-    [GTMAppAuthFetcherAuthorization
-        removeAuthorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+    NSError *err;
+    if (![_keychainStore removeAuthSessionWithError:&err]) {
+      NSLog(@"Fail to remove authSession: %@", err);
+    }
+    _authSession = nil;
     service.authorizer = nil;
     [self updateUI];
   }
@@ -181,39 +193,39 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
       // Having the service execute this query would download the data to a GTLRDataObject.
       // But for downloads that might be large, we'll use a fetcher, since that offers
       // better control and monitoring of downloading.
-      NSURLRequest *request = [storageService requestForQuery:query];
+      [storageService
+          requestForQuery:query
+               completion:^(NSURLRequest *request) {
+                 // The Storage service's fetcherService will create a fetcher with an appropriate
+                 // authorizer.
+                 GTMSessionFetcher *fetcher =
+                     [storageService.fetcherService fetcherWithRequest:request];
 
-      // The Storage service's fetcherService will create a fetcher with an appropriate
-      // authorizer.
-      GTMSessionFetcher *fetcher = [storageService.fetcherService fetcherWithRequest:request];
+                 // The fetcher can save data directly to a file.
+                 fetcher.destinationFileURL = destinationURL;
 
-      // The fetcher can save data directly to a file.
-      fetcher.destinationFileURL = destinationURL;
+                 // Fetcher logging can include comments.
+                 [fetcher setCommentWithFormat:@"Downloading \"%@/%@\"", storageObject.bucket,
+                                               storageObject.name];
 
-      // Fetcher logging can include comments.
-      [fetcher setCommentWithFormat:@"Downloading \"%@/%@\"",
-       storageObject.bucket, storageObject.name];
+                 fetcher.downloadProgressBlock = ^(int64_t bytesWritten, int64_t totalBytesWritten,
+                                                   int64_t totalBytesExpectedToWrite) {
+                   // The fetcher will call the download progress block periodically.
+                 };
 
-      fetcher.downloadProgressBlock = ^(int64_t bytesWritten,
-                                        int64_t totalBytesWritten,
-                                        int64_t totalBytesExpectedToWrite) {
-        // The fetcher will call the download progress block periodically.
-      };
-
-      [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
-        // Callback
-        if (error == nil) {
-          // Successfully saved the file.
-          //
-          // Since a downloadPath property was specified, the data argument is
-          // nil, and the file data has been written to disk.
-          [self displayAlert:@"Downloaded"
-                      format:@"%@", destinationURL.path];
-        } else {
-          [self displayAlert:@"Error Downloading File"
-                      format:@"%@", error];
-        }
-      }];
+                 [fetcher beginFetchWithCompletionHandler:^(NSData *data, NSError *error) {
+                   // Callback
+                   if (error == nil) {
+                     // Successfully saved the file.
+                     //
+                     // Since a downloadPath property was specified, the data argument is
+                     // nil, and the file data has been written to disk.
+                     [self displayAlert:@"Downloaded" format:@"%@", destinationURL.path];
+                   } else {
+                     [self displayAlert:@"Error Downloading File" format:@"%@", error];
+                   }
+                 }];
+               }];
     }  // result == NSFileHandlingPanelOKButton
   }];  // beginSheetModalForWindow:
 }
@@ -675,8 +687,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
   }
 
   // Builds authentication request.
-  OIDServiceConfiguration *configuration =
-      [GTMAppAuthFetcherAuthorization configurationForGoogle];
+  OIDServiceConfiguration *configuration = [GTMAuthSession configurationForGoogle];
   // Applications that only need to access files created by this app should
   // use the kGTLAuthScopeStorageDevstorageReadOnly scope.
   NSArray<NSString *> *scopes = @[ kGTLRAuthScopeStorageDevstorageFullControl, OIDScopeEmail ];
@@ -693,6 +704,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
   __weak __typeof(self) weakSelf = self;
   _redirectHTTPHandler.currentAuthorizationFlow =
       [OIDAuthState authStateByPresentingAuthorizationRequest:request
+                  presentingWindow:self.window
                           callback:^(OIDAuthState *_Nullable authState,
                                      NSError *_Nullable error) {
     // Using weakSelf/strongSelf pattern to avoid retaining self as block execution is indeterminate
@@ -707,16 +719,19 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
                              NSApplicationActivateIgnoringOtherApps)];
 
     if (authState) {
-      // Creates a GTMAppAuthFetcherAuthorization object for authorizing requests.
-      GTMAppAuthFetcherAuthorization *gtmAuthorization =
-          [[GTMAppAuthFetcherAuthorization alloc] initWithAuthState:authState];
+      // Creates a GTMAuthSession object for authorizing requests.
+      GTMAuthSession *gtmAuthorization = [[GTMAuthSession alloc] initWithAuthState:authState];
+      strongSelf->_authSession = gtmAuthorization;
 
       // Sets the authorizer on the GTLRYouTubeService object so API calls will be authenticated.
       strongSelf.storageService.authorizer = gtmAuthorization;
 
       // Serializes authorization to keychain in GTMAppAuth format.
-      [GTMAppAuthFetcherAuthorization saveAuthorization:gtmAuthorization
-                                      toKeychainForName:kGTMAppAuthKeychainItemName];
+      NSError *err;
+      [strongSelf->_keychainStore saveAuthSession:gtmAuthorization error:&error];
+      if (err) {
+        NSLog(@"Failed to say AuthSession: %@", err);
+      }
 
       // Executes post sign-in handler.
       if (handler) handler();
