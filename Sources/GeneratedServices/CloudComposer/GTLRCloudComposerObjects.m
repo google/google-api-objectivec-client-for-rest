@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudComposer_AirflowMetadataRetentionPolicyConfig.retentionMode
+NSString * const kGTLRCloudComposer_AirflowMetadataRetentionPolicyConfig_RetentionMode_RetentionModeDisabled = @"RETENTION_MODE_DISABLED";
+NSString * const kGTLRCloudComposer_AirflowMetadataRetentionPolicyConfig_RetentionMode_RetentionModeEnabled = @"RETENTION_MODE_ENABLED";
+NSString * const kGTLRCloudComposer_AirflowMetadataRetentionPolicyConfig_RetentionMode_RetentionModeUnspecified = @"RETENTION_MODE_UNSPECIFIED";
+
 // GTLRCloudComposer_CheckUpgradeResponse.containsPypiModulesConflict
 NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_Conflict = @"CONFLICT";
 NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified = @"CONFLICT_RESULT_UNSPECIFIED";
@@ -88,6 +93,16 @@ NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_WebServe
 NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingAndCloudStorage = @"CLOUD_LOGGING_AND_CLOUD_STORAGE";
 NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_CloudLoggingOnly = @"CLOUD_LOGGING_ONLY";
 NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogsStorageModeUnspecified = @"TASK_LOGS_STORAGE_MODE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_AirflowMetadataRetentionPolicyConfig
+//
+
+@implementation GTLRCloudComposer_AirflowMetadataRetentionPolicyConfig
+@dynamic retentionDays, retentionMode;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -218,7 +233,7 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_DataRetentionConfig
-@dynamic taskLogsRetentionConfig;
+@dynamic airflowMetadataRetentionConfig, taskLogsRetentionConfig;
 @end
 
 

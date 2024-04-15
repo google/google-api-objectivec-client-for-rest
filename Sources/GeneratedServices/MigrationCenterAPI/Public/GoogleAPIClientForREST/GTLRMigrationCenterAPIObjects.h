@@ -50,6 +50,8 @@
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationNetwork;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationStats;
 @class GTLRMigrationCenterAPI_Date;
+@class GTLRMigrationCenterAPI_DiscoveryClient;
+@class GTLRMigrationCenterAPI_DiscoveryClient_Labels;
 @class GTLRMigrationCenterAPI_DiskEntry;
 @class GTLRMigrationCenterAPI_DiskEntryList;
 @class GTLRMigrationCenterAPI_DiskPartition;
@@ -161,6 +163,46 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_AssetFrame.collectionType
+
+/**
+ *  Third-party owned sources.
+ *
+ *  Value: "SOURCE_TYPE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeCustom;
+/**
+ *  Discovery clients
+ *
+ *  Value: "SOURCE_TYPE_DISCOVERY_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeDiscoveryClient;
+/**
+ *  Guest-level info
+ *
+ *  Value: "SOURCE_TYPE_GUEST_OS_SCAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeGuestOsScan;
+/**
+ *  Inventory-level scan
+ *
+ *  Value: "SOURCE_TYPE_INVENTORY_SCAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeInventoryScan;
+/**
+ *  Unspecified
+ *
+ *  Value: "SOURCE_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUnknown;
+/**
+ *  Manually uploaded file (e.g. CSV)
+ *
+ *  Value: "SOURCE_TYPE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUpload;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_ComputeEnginePreferences.licenseType
 
 /**
@@ -240,6 +282,40 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescrip
  *  Value: "PERSISTENT_DISK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_DiscoveryClient.state
+
+/**
+ *  Client is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Active;
+/**
+ *  Client is in a degraded state. See the `errors` field for details.
+ *
+ *  Value: "DEGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Degraded;
+/**
+ *  Client has expired. See the expire_time field for the expire time.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Expired;
+/**
+ *  Client is offline.
+ *
+ *  Value: "OFFLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Offline;
+/**
+ *  Client state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_DiskEntry.interfaceType
@@ -889,6 +965,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_State_StateUns
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeCustom;
 /**
+ *  Discovery clients
+ *
+ *  Value: "SOURCE_TYPE_DISCOVERY_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeDiscoveryClient;
+/**
  *  Guest-level info
  *
  *  Value: "SOURCE_TYPE_GUEST_OS_SCAN"
@@ -1468,6 +1550,26 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 /** Generic asset attributes. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetFrame_Attributes *attributes;
 
+/**
+ *  Optional. Frame collection type, if not specified the collection type will
+ *  be based on the source type of the source the frame was reported on.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeCustom
+ *        Third-party owned sources. (Value: "SOURCE_TYPE_CUSTOM")
+ *    @arg @c kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeDiscoveryClient
+ *        Discovery clients (Value: "SOURCE_TYPE_DISCOVERY_CLIENT")
+ *    @arg @c kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeGuestOsScan
+ *        Guest-level info (Value: "SOURCE_TYPE_GUEST_OS_SCAN")
+ *    @arg @c kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeInventoryScan
+ *        Inventory-level scan (Value: "SOURCE_TYPE_INVENTORY_SCAN")
+ *    @arg @c kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUnknown
+ *        Unspecified (Value: "SOURCE_TYPE_UNKNOWN")
+ *    @arg @c kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUpload
+ *        Manually uploaded file (e.g. CSV) (Value: "SOURCE_TYPE_UPLOAD")
+ */
+@property(nonatomic, copy, nullable) NSString *collectionType;
+
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetFrame_Labels *labels;
 
@@ -1950,6 +2052,111 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, strong, nullable) NSNumber *year;
 
+@end
+
+
+/**
+ *  Represents an installed Migration Center Discovery Client instance.
+ */
+@interface GTLRMigrationCenterAPI_DiscoveryClient : GTLRObject
+
+/** Output only. Time when the discovery client was first created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Free text description. Maximum length is 1000 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Free text display name. Maximum length is 63 characters. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. Errors affecting client functionality. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_Status *> *errors;
+
+/**
+ *  Optional. Client expiration time in UTC. If specified, the backend will not
+ *  accept new frames after this time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. Last heartbeat time. Healthy clients are expected to send
+ *  heartbeats regularly (normally every few minutes).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *heartbeatTime;
+
+/** Optional. Labels as key value pairs. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_DiscoveryClient_Labels *labels;
+
+/** Output only. Identifier. Full name of this discovery client. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Service account used by the discovery client for various
+ *  operation.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Output only. This field is intended for internal use. */
+@property(nonatomic, copy, nullable) NSString *signalsEndpoint;
+
+/**
+ *  Required. Immutable. Full name of the source object associated with this
+ *  discovery client.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Output only. Current state of the discovery client.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_DiscoveryClient_State_Active Client is
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRMigrationCenterAPI_DiscoveryClient_State_Degraded Client is
+ *        in a degraded state. See the `errors` field for details. (Value:
+ *        "DEGRADED")
+ *    @arg @c kGTLRMigrationCenterAPI_DiscoveryClient_State_Expired Client has
+ *        expired. See the expire_time field for the expire time. (Value:
+ *        "EXPIRED")
+ *    @arg @c kGTLRMigrationCenterAPI_DiscoveryClient_State_Offline Client is
+ *        offline. (Value: "OFFLINE")
+ *    @arg @c kGTLRMigrationCenterAPI_DiscoveryClient_State_StateUnspecified
+ *        Client state is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. Input only. Client time-to-live. If specified, the backend will
+ *  not accept new frames after this time. This field is input only. The derived
+ *  expiration time is provided as output through the `expire_time` field.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/**
+ *  Output only. Time when the discovery client was last updated. This value is
+ *  not updated by heartbeats, to view the last heartbeat time please refer to
+ *  the `heartbeat_time` field.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. Client version, as reported in recent heartbeat. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMigrationCenterAPI_DiscoveryClient_Labels : GTLRObject
 @end
 
 
@@ -2745,6 +2952,36 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_Asset *> *assets;
 
 /** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for listing discovery clients.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "discoveryClients" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRMigrationCenterAPI_ListDiscoveryClientsResponse : GTLRCollectionObject
+
+/**
+ *  List of discovery clients.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_DiscoveryClient *> *discoveryClients;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Locations that could not be reached. */
@@ -4511,6 +4748,20 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 
 /**
+ *  A request to send a discovery client heartbeat.
+ */
+@interface GTLRMigrationCenterAPI_SendDiscoveryClientHeartbeatRequest : GTLRObject
+
+/** Optional. Errors affecting client functionality. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_Status *> *errors;
+
+/** Optional. Client application version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Describes the Migration Center settings related to the project.
  */
 @interface GTLRMigrationCenterAPI_Settings : GTLRObject
@@ -4677,6 +4928,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  *  Likely values:
  *    @arg @c kGTLRMigrationCenterAPI_Source_Type_SourceTypeCustom Third-party
  *        owned sources. (Value: "SOURCE_TYPE_CUSTOM")
+ *    @arg @c kGTLRMigrationCenterAPI_Source_Type_SourceTypeDiscoveryClient
+ *        Discovery clients (Value: "SOURCE_TYPE_DISCOVERY_CLIENT")
  *    @arg @c kGTLRMigrationCenterAPI_Source_Type_SourceTypeGuestOsScan
  *        Guest-level info (Value: "SOURCE_TYPE_GUEST_OS_SCAN")
  *    @arg @c kGTLRMigrationCenterAPI_Source_Type_SourceTypeInventoryScan

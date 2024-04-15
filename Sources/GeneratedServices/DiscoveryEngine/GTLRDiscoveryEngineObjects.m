@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Discovery Engine API (discoveryengine/v1beta)
+//   Discovery Engine API (discoveryengine/v1)
 // Description:
 //   Discovery Engine API.
 // Documentation:
@@ -13,6 +13,30 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer.answerSkippedReasons
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_AdversarialQueryIgnored = @"ADVERSARIAL_QUERY_IGNORED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_AnswerSkippedReasonUnspecified = @"ANSWER_SKIPPED_REASON_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_NonAnswerSeekingQueryIgnored = @"NON_ANSWER_SEEKING_QUERY_IGNORED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_OutOfDomainQueryIgnored = @"OUT_OF_DOMAIN_QUERY_IGNORED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_AnswerSkippedReasons_PotentialPolicyViolation = @"POTENTIAL_POLICY_VIOLATION";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer.state
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_State_Failed = @"FAILED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer_State_Succeeded = @"SUCCEEDED";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo.type
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo_Type_AdversarialQuery = @"ADVERSARIAL_QUERY";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo_Type_NonAnswerSeekingQuery = @"NON_ANSWER_SEEKING_QUERY";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep.state
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep_State_Failed = @"FAILED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep_State_Succeeded = @"SUCCEEDED";
+
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.contentConfig
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_ContentConfigUnspecified = @"CONTENT_CONFIG_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ContentConfig_ContentRequired = @"CONTENT_REQUIRED";
@@ -21,22 +45,26 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.industryVertical
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_Generic = @"GENERIC";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_HealthcareFhir = @"HEALTHCARE_FHIR";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_IndustryVerticalUnspecified = @"INDUSTRY_VERTICAL_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_IndustryVertical_Media = @"MEDIA";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.solutionTypes
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeChat = @"SOLUTION_TYPE_CHAT";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeGenerativeChat = @"SOLUTION_TYPE_GENERATIVE_CHAT";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine.industryVertical
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_Generic = @"GENERIC";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_HealthcareFhir = @"HEALTHCARE_FHIR";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_IndustryVerticalUnspecified = @"INDUSTRY_VERTICAL_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_IndustryVertical_Media = @"MEDIA";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine.solutionType
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeChat = @"SOLUTION_TYPE_CHAT";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeGenerativeChat = @"SOLUTION_TYPE_GENERATIVE_CHAT";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_SolutionType_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
@@ -106,10 +134,19 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConf
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_SearchableOption_SearchableEnabled = @"SEARCHABLE_ENABLED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_SearchableOption_SearchableOptionUnspecified = @"SEARCHABLE_OPTION_UNSPECIFIED";
 
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig.idpType
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig_IdpType_Gsuite = @"GSUITE";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig_IdpType_IdpTypeUnspecified = @"IDP_TYPE_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig_IdpType_ThirdParty = @"THIRD_PARTY";
+
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason.corpusType
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_Desktop = @"DESKTOP";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason_CorpusType_Mobile = @"MOBILE";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSession.state
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSession_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSession_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo.siteVerificationState
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo_SiteVerificationState_Exempted = @"EXEMPTED";
@@ -129,11 +166,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSit
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_Include = @"INCLUDE";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.state
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation_State_Completed = @"COMPLETED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation_State_InProgress = @"IN_PROGRESS";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.contentConfig
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_ContentConfig_ContentConfigUnspecified = @"CONTENT_CONFIG_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_ContentConfig_ContentRequired = @"CONTENT_REQUIRED";
@@ -142,22 +174,26 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.industryVertical
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_IndustryVertical_Generic = @"GENERIC";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_IndustryVertical_HealthcareFhir = @"HEALTHCARE_FHIR";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_IndustryVertical_IndustryVerticalUnspecified = @"INDUSTRY_VERTICAL_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_IndustryVertical_Media = @"MEDIA";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.solutionTypes
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_SolutionTypes_SolutionTypeChat = @"SOLUTION_TYPE_CHAT";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_SolutionTypes_SolutionTypeGenerativeChat = @"SOLUTION_TYPE_GENERATIVE_CHAT";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_SolutionTypes_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_SolutionTypes_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_SolutionTypes_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.industryVertical
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_IndustryVertical_Generic = @"GENERIC";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_IndustryVertical_HealthcareFhir = @"HEALTHCARE_FHIR";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_IndustryVertical_IndustryVerticalUnspecified = @"INDUSTRY_VERTICAL_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_IndustryVertical_Media = @"MEDIA";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.solutionType
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_SolutionType_SolutionTypeChat = @"SOLUTION_TYPE_CHAT";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_SolutionType_SolutionTypeGenerativeChat = @"SOLUTION_TYPE_GENERATIVE_CHAT";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_SolutionType_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_SolutionType_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_SolutionType_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
@@ -171,45 +207,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineSear
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineSearchEngineConfig_SearchTier_SearchTierStandard = @"SEARCH_TIER_STANDARD";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineSearchEngineConfig_SearchTier_SearchTierUnspecified = @"SEARCH_TIER_UNSPECIFIED";
 
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest.reconciliationMode
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest_ReconciliationMode_Full = @"FULL";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest_ReconciliationMode_ReconciliationModeUnspecified = @"RECONCILIATION_MODE_UNSPECIFIED";
-
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec.condition
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec_Condition_Auto = @"AUTO";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec_Condition_ConditionUnspecified = @"CONDITION_UNSPECIFIED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec_Condition_Disabled = @"DISABLED";
-
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec.mode
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec_Mode_Auto = @"AUTO";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec_Mode_SuggestionOnly = @"SUGGESTION_ONLY";
-
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary.summarySkippedReasons
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_AdversarialQueryIgnored = @"ADVERSARIAL_QUERY_IGNORED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_LlmAddonNotEnabled = @"LLM_ADDON_NOT_ENABLED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_NonSummarySeekingQueryIgnored = @"NON_SUMMARY_SEEKING_QUERY_IGNORED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_OutOfDomainQueryIgnored = @"OUT_OF_DOMAIN_QUERY_IGNORED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_PotentialPolicyViolation = @"POTENTIAL_POLICY_VIOLATION";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary_SummarySkippedReasons_SummarySkippedReasonUnspecified = @"SUMMARY_SKIPPED_REASON_UNSPECIFIED";
-
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.solutionType
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeChat = @"SOLUTION_TYPE_CHAT";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig_SolutionType_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
-
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo.siteVerificationState
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo_SiteVerificationState_Exempted = @"EXEMPTED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo_SiteVerificationState_SiteVerificationStateUnspecified = @"SITE_VERIFICATION_STATE_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo_SiteVerificationState_Unverified = @"UNVERIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo_SiteVerificationState_Verified = @"VERIFIED";
-
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSuggestionDenyListEntry.matchOperator
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSuggestionDenyListEntry_MatchOperator_Contains = @"CONTAINS";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSuggestionDenyListEntry_MatchOperator_ExactMatch = @"EXACT_MATCH";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSuggestionDenyListEntry_MatchOperator_MatchOperatorUnspecified = @"MATCH_OPERATOR_UNSPECIFIED";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite.indexingStatus
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_IndexingStatus_Deleting = @"DELETING";
@@ -223,6 +225,41 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_Type_Include = @"INCLUDE";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn.encoding
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Encoding_Binary = @"BINARY";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Encoding_Text = @"TEXT";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn.type
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Type_BigNumeric = @"BIG_NUMERIC";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Type_Boolean = @"BOOLEAN";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Type_Integer = @"INTEGER";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Type_Json = @"JSON";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Type_Number = @"NUMBER";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Type_String = @"STRING";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn_Type_VarInteger = @"VAR_INTEGER";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily.encoding
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Encoding_Binary = @"BINARY";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Encoding_Text = @"TEXT";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily.type
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_BigNumeric = @"BIG_NUMERIC";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_Boolean = @"BOOLEAN";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_Integer = @"INTEGER";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_Json = @"JSON";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_Number = @"NUMBER";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_String = @"STRING";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily_Type_VarInteger = @"VAR_INTEGER";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.state
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation_State_Completed = @"COMPLETED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.contentConfig
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_ContentConfig_ContentConfigUnspecified = @"CONTENT_CONFIG_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_ContentConfig_ContentRequired = @"CONTENT_REQUIRED";
@@ -231,22 +268,26 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_Cont
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.industryVertical
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_IndustryVertical_Generic = @"GENERIC";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_IndustryVertical_HealthcareFhir = @"HEALTHCARE_FHIR";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_IndustryVertical_IndustryVerticalUnspecified = @"INDUSTRY_VERTICAL_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_IndustryVertical_Media = @"MEDIA";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.solutionTypes
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_SolutionTypes_SolutionTypeChat = @"SOLUTION_TYPE_CHAT";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_SolutionTypes_SolutionTypeGenerativeChat = @"SOLUTION_TYPE_GENERATIVE_CHAT";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_SolutionTypes_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_SolutionTypes_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_SolutionTypes_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.industryVertical
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_IndustryVertical_Generic = @"GENERIC";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_IndustryVertical_HealthcareFhir = @"HEALTHCARE_FHIR";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_IndustryVertical_IndustryVerticalUnspecified = @"INDUSTRY_VERTICAL_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_IndustryVertical_Media = @"MEDIA";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.solutionType
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_SolutionType_SolutionTypeChat = @"SOLUTION_TYPE_CHAT";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_SolutionType_SolutionTypeGenerativeChat = @"SOLUTION_TYPE_GENERATIVE_CHAT";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_SolutionType_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_SolutionType_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_SolutionType_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
@@ -260,11 +301,39 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEn
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEngineConfig_SearchTier_SearchTierStandard = @"SEARCH_TIER_STANDARD";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEngineConfig_SearchTier_SearchTierUnspecified = @"SEARCH_TIER_UNSPECIFIED";
 
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest.reconciliationMode
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest_ReconciliationMode_Full = @"FULL";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest_ReconciliationMode_ReconciliationModeUnspecified = @"RECONCILIATION_MODE_UNSPECIFIED";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec.condition
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec_Condition_Auto = @"AUTO";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec_Condition_ConditionUnspecified = @"CONDITION_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec_Condition_Disabled = @"DISABLED";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec.mode
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec_Mode_Auto = @"AUTO";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec_Mode_SuggestionOnly = @"SUGGESTION_ONLY";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary.summarySkippedReasons
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary_SummarySkippedReasons_AdversarialQueryIgnored = @"ADVERSARIAL_QUERY_IGNORED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary_SummarySkippedReasons_LlmAddonNotEnabled = @"LLM_ADDON_NOT_ENABLED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary_SummarySkippedReasons_NonSummarySeekingQueryIgnored = @"NON_SUMMARY_SEEKING_QUERY_IGNORED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary_SummarySkippedReasons_OutOfDomainQueryIgnored = @"OUT_OF_DOMAIN_QUERY_IGNORED";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary_SummarySkippedReasons_PotentialPolicyViolation = @"POTENTIAL_POLICY_VIOLATION";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary_SummarySkippedReasons_SummarySkippedReasonUnspecified = @"SUMMARY_SKIPPED_REASON_UNSPECIFIED";
+
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo.siteVerificationState
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo_SiteVerificationState_Exempted = @"EXEMPTED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo_SiteVerificationState_SiteVerificationStateUnspecified = @"SITE_VERIFICATION_STATE_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo_SiteVerificationState_Unverified = @"UNVERIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo_SiteVerificationState_Verified = @"VERIFIED";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SuggestionDenyListEntry.matchOperator
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SuggestionDenyListEntry_MatchOperator_Contains = @"CONTAINS";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SuggestionDenyListEntry_MatchOperator_ExactMatch = @"EXACT_MATCH";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SuggestionDenyListEntry_MatchOperator_MatchOperatorUnspecified = @"MATCH_OPERATOR_UNSPECIFIED";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite.indexingStatus
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_IndexingStatus_Deleting = @"DELETING";
@@ -277,10 +346,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Ind
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Type_Exclude = @"EXCLUDE";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Type_Include = @"INCLUDE";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -405,6 +470,253 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAclConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAclConfig
+@dynamic idpConfig, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer
+@dynamic answerSkippedReasons, answerText, citations, completeTime, createTime,
+         name, queryUnderstandingInfo, references, relatedQuestions, state,
+         steps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"answerSkippedReasons" : [NSString class],
+    @"citations" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerCitation class],
+    @"references" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReference class],
+    @"relatedQuestions" : [NSString class],
+    @"steps" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerCitation
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerCitation
+@dynamic endIndex, sources, startIndex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerCitationSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerCitationSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerCitationSource
+@dynamic referenceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfo
+@dynamic queryClassificationInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryClassificationInfo" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerQueryUnderstandingInfoQueryClassificationInfo
+@dynamic positive, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReference
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReference
+@dynamic chunkInfo, unstructuredDocumentInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceChunkInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceChunkInfo
+@dynamic chunk, content, documentMetadata, relevanceScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceChunkInfoDocumentMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceChunkInfoDocumentMetadata
+@dynamic document, pageIdentifier, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceUnstructuredDocumentInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceUnstructuredDocumentInfo
+@dynamic chunkContents, document, title, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chunkContents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceUnstructuredDocumentInfoChunkContent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceUnstructuredDocumentInfoChunkContent
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerReferenceUnstructuredDocumentInfoChunkContent
+@dynamic content, pageIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep
+@dynamic actions, descriptionProperty, state, thought;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepAction class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepAction
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepAction
+@dynamic observation, searchAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservation
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservation
+@dynamic searchResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"searchResults" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResult
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResult
+@dynamic chunkInfo, document, snippetInfo, title, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chunkInfo" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultChunkInfo class],
+    @"snippetInfo" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultSnippetInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultChunkInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultChunkInfo
+@dynamic chunk, content, relevanceScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultSnippetInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultSnippetInfo
+@dynamic snippet, snippetStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionSearchAction
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionSearchAction
+@dynamic query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBatchCreateTargetSiteMetadata
 //
 
@@ -477,8 +789,9 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore
-@dynamic contentConfig, createTime, defaultSchemaId, displayName,
-         industryVertical, name, solutionTypes;
+@dynamic aclEnabled, contentConfig, createTime, defaultSchemaId, displayName,
+         documentProcessingConfig, idpConfig, industryVertical, name,
+         solutionTypes, startingSchema;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -532,15 +845,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDigitalParsingConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDigitalParsingConfig
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDisableAdvancedSiteSearchMetadata
 //
 
@@ -564,7 +868,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig
-@dynamic defaultParsingConfig, name, ocrConfig, parsingConfigOverrides;
+@dynamic chunkingConfig, defaultParsingConfig, name, parsingConfigOverrides;
 @end
 
 
@@ -584,11 +888,67 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigChunkingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigChunkingConfig
+@dynamic layoutBasedChunkingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigChunkingConfigLayoutBasedChunkingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigChunkingConfigLayoutBasedChunkingConfig
+@dynamic chunkSize, includeAncestorHeadings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfig
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfig
 @dynamic digitalParsingConfig, layoutParsingConfig, ocrParsingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigDigitalParsingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigDigitalParsingConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigLayoutParsingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigLayoutParsingConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigOcrParsingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigOcrParsingConfig
+@dynamic enhancedDocumentElements, useNativeText;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enhancedDocumentElements" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -764,11 +1124,59 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig
+@dynamic externalIdpConfig, idpType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfigExternalIdpConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfigExternalIdpConfig
+@dynamic workforcePoolName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportCompletionSuggestionsMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportCompletionSuggestionsMetadata
+@dynamic createTime, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportCompletionSuggestionsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportCompletionSuggestionsResponse
+@dynamic errorSamples, failureCount, successCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRDiscoveryEngine_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportDocumentsMetadata
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportDocumentsMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
+@dynamic createTime, failureCount, successCount, totalCount, updateTime;
 @end
 
 
@@ -858,56 +1266,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLayoutParsingConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLayoutParsingConfig
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrConfig
-@dynamic enabled, enhancedDocumentElements, useNativeText;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"enhancedDocumentElements" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrParsingConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOcrParsingConfig
-@dynamic enhancedDocumentElements, useNativeText;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"enhancedDocumentElements" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeDocumentsMetadata
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeDocumentsMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
+@dynamic createTime, failureCount, ignoredCount, successCount, updateTime;
 @end
 
 
@@ -974,6 +1337,16 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaPurgeUserEventsResponse
 @dynamic purgeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaQuery
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaQuery
+@dynamic queryId, text;
 @end
 
 
@@ -1077,6 +1450,34 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSession
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSession
+@dynamic endTime, name, startTime, state, turns, userPseudoId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"turns" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn
+@dynamic answer, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo
 //
 
@@ -1132,13 +1533,27 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelResponse
-@dynamic errorConfig, errorSamples, modelStatus;
+@dynamic errorConfig, errorSamples, metrics, modelStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"errorSamples" : [GTLRDiscoveryEngine_GoogleRpcStatus class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelResponse_Metrics
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelResponse_Metrics
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
 }
 
 @end
@@ -1195,6 +1610,24 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CreateTargetSiteRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchCreateTargetSitesResponse
 //
 
@@ -1213,29 +1646,20 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSiteMetadata
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSiteMetadata
-@dynamic createTime, updateTime;
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSiteMetadata
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest
-@dynamic requests;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"requests" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCreateTargetSiteRequest class]
-  };
-  return map;
-}
-
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSiteMetadata
+@dynamic createTime, updateTime;
 @end
 
 
@@ -1250,162 +1674,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"targetSites" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchVerifyTargetSitesRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchVerifyTargetSitesRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBigQuerySource
-@dynamic dataSchema, datasetId, gcsStagingDir, partitionDate, projectId,
-         tableId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompleteQueryResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompleteQueryResponse
-@dynamic querySuggestions, tailMatchTriggered;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"querySuggestions" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompleteQueryResponseQuerySuggestion class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompleteQueryResponseQuerySuggestion
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompleteQueryResponseQuerySuggestion
-@dynamic completableFieldPaths, suggestion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"completableFieldPaths" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompletionInfo
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompletionInfo
-@dynamic selectedPosition, selectedSuggestion;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation
-@dynamic endTime, messages, name, startTime, state, userPseudoId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messages" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversationMessage class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversationContext
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversationContext
-@dynamic activeDocument, contextDocuments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"contextDocuments" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversationMessage
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversationMessage
-@dynamic createTime, reply, userInput;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest
-@dynamic conversation, filter, query, safeSearch, servingConfig, summarySpec,
-         userLabels;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest_UserLabels
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest_UserLabels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationResponse
-@dynamic conversation, relatedQuestions, reply, searchResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"relatedQuestions" : [NSString class],
-    @"searchResults" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult class]
   };
   return map;
 }
@@ -1455,41 +1723,13 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCreateTargetSiteRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCreateTargetSiteRequest
-@dynamic parent, targetSite;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomAttribute
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomAttribute
-@dynamic numbers, text;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"numbers" : [NSNumber class],
-    @"text" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore
 @dynamic contentConfig, createTime, defaultSchemaId, displayName,
-         industryVertical, name, solutionTypes;
+         documentProcessingConfig, industryVertical, name, solutionTypes,
+         startingSchema;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1553,15 +1793,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchResponse
 //
 
@@ -1571,29 +1802,23 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument
-@dynamic content, derivedStructData, identifier, jsonData, name,
-         parentDocumentId, schemaId, structData;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig
+@dynamic defaultParsingConfig, name, parsingConfigOverrides;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument_DerivedStructData
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig_ParsingConfigOverrides
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument_DerivedStructData
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig_ParsingConfigOverrides
 
 + (Class)classForAdditionalProperties {
-  return [NSObject class];
+  return [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfig class];
 }
 
 @end
@@ -1601,75 +1826,38 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument_StructData
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfig
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument_StructData
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfig
+@dynamic digitalParsingConfig, ocrParsingConfig;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentContent
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfigDigitalParsingConfig
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentContent
-@dynamic mimeType, rawBytes, uri;
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfigDigitalParsingConfig
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentInfo
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfigOcrParsingConfig
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentInfo
-@dynamic identifier, name, promotionIds, quantity, uri;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfigOcrParsingConfig
+@dynamic enhancedDocumentElements, useNativeText;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"promotionIds" : [NSString class]
+    @"enhancedDocumentElements" : [NSString class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDoubleList
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDoubleList
-@dynamic values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEmbeddingConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEmbeddingConfig
-@dynamic fieldPath;
 @end
 
 
@@ -1680,15 +1868,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchMetadata
 @dynamic createTime, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest
 @end
 
 
@@ -1781,80 +1960,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaFetchDomainVerificationStatusResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaFetchDomainVerificationStatusResponse
-@dynamic nextPageToken, targetSites, totalSize;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"targetSites" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"targetSites";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaGcsSource
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaGcsSource
-@dynamic dataSchema, inputUris;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"inputUris" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsMetadata
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest
-@dynamic autoGenerateIds, bigquerySource, errorConfig, gcsSource, idField,
-         inlineSource, reconciliationMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequestInlineSource
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequestInlineSource
-@dynamic documents;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"documents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument class]
-  };
-  return map;
-}
-
+@dynamic createTime, failureCount, successCount, totalCount, updateTime;
 @end
 
 
@@ -1898,34 +2008,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest
-@dynamic gcsSource, inlineSource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequestInlineSource
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequestInlineSource
-@dynamic entries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"entries" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSuggestionDenyListEntry class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesResponse
 //
 
@@ -1954,34 +2036,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest
-@dynamic bigquerySource, errorConfig, gcsSource, inlineSource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequestInlineSource
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequestInlineSource
-@dynamic userEvents;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"userEvents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsResponse
 //
 
@@ -2000,215 +2054,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaInterval
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaInterval
-@dynamic exclusiveMaximum, exclusiveMinimum, maximum, minimum;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListConversationsResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListConversationsResponse
-@dynamic conversations, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conversations" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"conversations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDataStoresResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDataStoresResponse
-@dynamic dataStores, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dataStores" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"dataStores";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDocumentsResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDocumentsResponse
-@dynamic documents, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"documents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"documents";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListEnginesResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListEnginesResponse
-@dynamic engines, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"engines" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"engines";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListSchemasResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListSchemasResponse
-@dynamic nextPageToken, schemas;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"schemas" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"schemas";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse
-@dynamic nextPageToken, servingConfigs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"servingConfigs" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"servingConfigs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListTargetSitesResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListTargetSitesResponse
-@dynamic nextPageToken, targetSites, totalSize;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"targetSites" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"targetSites";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaMediaInfo
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaMediaInfo
-@dynamic mediaProgressDuration, mediaProgressPercentage;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPageInfo
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPageInfo
-@dynamic pageCategory, pageviewId, referrerUri, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPanelInfo
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPanelInfo
-@dynamic displayName, panelId, panelPosition, totalPanels;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsMetadata
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest
-@dynamic filter, force;
+@dynamic createTime, failureCount, ignoredCount, successCount, updateTime;
 @end
 
 
@@ -2242,15 +2092,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesResponse
 //
 
@@ -2264,138 +2105,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest
-@dynamic filter, pageSize, params, userEvent, userLabels, validateOnly;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest_Params
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest_Params
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest_UserLabels
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest_UserLabels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponse
-@dynamic attributionToken, missingIds, results, validateOnly;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"missingIds" : [NSString class],
-    @"results" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult
-@dynamic document, identifier, metadata;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult_Metadata
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponseRecommendationResult_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest
-@dynamic uris;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"uris" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReply
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReply
-@dynamic references, reply, summary;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"references" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReplyReference class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReplyReference
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaReplyReference
-@dynamic anchorText, end, start, uri;
 @end
 
 
@@ -2425,578 +2134,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchInfo
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchInfo
-@dynamic offset, orderBy, searchQuery;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest
-@dynamic boostSpec, branch, canonicalFilter, contentSearchSpec, embeddingSpec,
-         facetSpecs, filter, imageQuery, offset, orderBy, pageSize, pageToken,
-         params, query, queryExpansionSpec, rankingExpression, safeSearch,
-         spellCorrectionSpec, userInfo, userLabels, userPseudoId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"facetSpecs" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestFacetSpec class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_Params
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_Params
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_UserLabels
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_UserLabels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpec
-@dynamic conditionBoostSpecs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditionBoostSpecs" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpecConditionBoostSpec class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpecConditionBoostSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpecConditionBoostSpec
-@dynamic boost, condition;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpec
-@dynamic extractiveContentSpec, snippetSpec, summarySpec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecExtractiveContentSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecExtractiveContentSpec
-@dynamic maxExtractiveAnswerCount, maxExtractiveSegmentCount, numNextSegments,
-         numPreviousSegments;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSnippetSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSnippetSpec
-@dynamic maxSnippetCount, referenceOnly, returnSnippet;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpec
-@dynamic ignoreAdversarialQuery, ignoreNonSummarySeekingQuery, includeCitations,
-         languageCode, modelPromptSpec, modelSpec, summaryResultCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelPromptSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelPromptSpec
-@dynamic preamble;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestContentSearchSpecSummarySpecModelSpec
-@dynamic version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpec
-@dynamic embeddingVectors;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"embeddingVectors" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpecEmbeddingVector class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpecEmbeddingVector
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestEmbeddingSpecEmbeddingVector
-@dynamic fieldPath, vector;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"vector" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestFacetSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestFacetSpec
-@dynamic enableDynamicPosition, excludedFilterKeys, facetKey, limit;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"excludedFilterKeys" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestFacetSpecFacetKey
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestFacetSpecFacetKey
-@dynamic caseInsensitive, contains, intervals, key, orderBy, prefixes,
-         restrictedValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"contains" : [NSString class],
-    @"intervals" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaInterval class],
-    @"prefixes" : [NSString class],
-    @"restrictedValues" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestImageQuery
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestImageQuery
-@dynamic imageBytes;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec
-@dynamic condition, pinUnexpandedResults;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec
-@dynamic mode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponse
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponse
-@dynamic appliedControls, attributionToken, correctedQuery, facets,
-         geoSearchDebugInfo, guidedSearchResult, nextPageToken,
-         queryExpansionInfo, redirectUri, results, summary, totalSize;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"appliedControls" : [NSString class],
-    @"facets" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacet class],
-    @"geoSearchDebugInfo" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo class],
-    @"results" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacet
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacet
-@dynamic dynamicFacet, key, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacetFacetValue class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacetFacetValue
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseFacetFacetValue
-@dynamic count, interval, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGeoSearchDebugInfo
-@dynamic errorMessage, originalAddressQuery;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGuidedSearchResult
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGuidedSearchResult
-@dynamic followUpQuestions, refinementAttributes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"followUpQuestions" : [NSString class],
-    @"refinementAttributes" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGuidedSearchResultRefinementAttribute class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGuidedSearchResultRefinementAttribute
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseGuidedSearchResultRefinementAttribute
-@dynamic attributeKey, attributeValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseQueryExpansionInfo
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseQueryExpansionInfo
-@dynamic expandedQuery, pinnedResultCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult
-@dynamic document, identifier, modelScores;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult_ModelScores
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSearchResult_ModelScores
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDoubleList class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummary
-@dynamic safetyAttributes, summarySkippedReasons, summaryText,
-         summaryWithMetadata;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"summarySkippedReasons" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitation
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitation
-@dynamic endIndex, sources, startIndex;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"sources" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationSource class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationMetadata
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationMetadata
-@dynamic citations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"citations" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationSource
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryCitationSource
-@dynamic referenceIndex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryReference
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryReference
-@dynamic document, title, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySafetyAttributes
-@dynamic categories, scores;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"categories" : [NSString class],
-    @"scores" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummaryWithMetadata
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummaryWithMetadata
-@dynamic citationMetadata, references, summary;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"references" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponseSummaryReference class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig
-@dynamic boostControlIds, createTime, displayName, dissociateControlIds,
-         diversityLevel, embeddingConfig, filterControlIds, genericConfig,
-         ignoreControlIds, mediaConfig, modelId, name, onewaySynonymsControlIds,
-         rankingExpression, redirectControlIds, replacementControlIds,
-         solutionType, synonymsControlIds, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"boostControlIds" : [NSString class],
-    @"dissociateControlIds" : [NSString class],
-    @"filterControlIds" : [NSString class],
-    @"ignoreControlIds" : [NSString class],
-    @"onewaySynonymsControlIds" : [NSString class],
-    @"redirectControlIds" : [NSString class],
-    @"replacementControlIds" : [NSString class],
-    @"synonymsControlIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigGenericConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigGenericConfig
-@dynamic contentSearchSpec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigMediaConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfigMediaConfig
-@dynamic contentFreshnessCutoffDays, contentWatchedMinutesThreshold,
-         contentWatchedPercentageThreshold, contentWatchedSecondsThreshold,
-         demotionEventType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteSearchEngine
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteSearchEngine
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo
 @dynamic siteVerificationState, verifyTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSuggestionDenyListEntry
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSuggestionDenyListEntry
-@dynamic blockPhrase, matchOperator;
 @end
 
 
@@ -3033,21 +2175,53 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTextInput
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTrainCustomModelMetadata
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTextInput
-@dynamic context, input;
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTrainCustomModelMetadata
+@dynamic createTime, updateTime;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTransactionInfo
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTrainCustomModelResponse
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTransactionInfo
-@dynamic cost, currency, discountValue, tax, transactionId, value;
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTrainCustomModelResponse
+@dynamic errorConfig, errorSamples, metrics, modelStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRDiscoveryEngine_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTrainCustomModelResponse_Metrics
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTrainCustomModelResponse_Metrics
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTuneEngineMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTuneEngineMetadata
+@dynamic engine;
 @end
 
 
@@ -3073,20 +2247,60 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigQuerySource
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent
-@dynamic attributes, attributionToken, completionInfo, directUserRequest,
-         documents, eventTime, eventType, filter, mediaInfo, pageInfo, panel,
-         promotionIds, searchInfo, sessionId, tagIds, transactionInfo, userInfo,
-         userPseudoId;
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigQuerySource
+@dynamic dataSchema, datasetId, gcsStagingDir, partitionDate, projectId,
+         tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptions
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptions
+@dynamic families, keyFieldName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptions_Families
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptions_Families
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn
+@dynamic encoding, fieldName, qualifier, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumnFamily
+@dynamic columns, encoding, fieldName, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"documents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentInfo class],
-    @"promotionIds" : [NSString class],
-    @"tagIds" : [NSString class]
+    @"columns" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableOptionsBigtableColumn class]
   };
   return map;
 }
@@ -3096,13 +2310,37 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent_Attributes
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableSource
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent_Attributes
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BigtableSource
+@dynamic bigtableOptions, instanceId, projectId, tableId;
+@end
 
-+ (Class)classForAdditionalProperties {
-  return [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomAttribute class];
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CloudSqlSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CloudSqlSource
+@dynamic databaseId, gcsStagingDir, instanceId, offload, projectId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponse
+@dynamic querySuggestions, tailMatchTriggered;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"querySuggestions" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponseQuerySuggestion class]
+  };
+  return map;
 }
 
 @end
@@ -3110,11 +2348,118 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserInfo
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponseQuerySuggestion
 //
 
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserInfo
-@dynamic userAgent, userId;
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponseQuerySuggestion
+@dynamic completableFieldPaths, suggestion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"completableFieldPaths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompletionInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompletionInfo
+@dynamic selectedPosition, selectedSuggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation
+@dynamic endTime, messages, name, startTime, state, userPseudoId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConversationMessage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConversationContext
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConversationContext
+@dynamic activeDocument, contextDocuments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contextDocuments" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConversationMessage
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConversationMessage
+@dynamic createTime, reply, userInput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest
+@dynamic boostSpec, conversation, filter, query, safeSearch, servingConfig,
+         summarySpec, userLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest_UserLabels
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationResponse
+@dynamic conversation, reply, searchResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"searchResults" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3160,12 +2505,42 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CreateTargetSiteRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CreateTargetSiteRequest
+@dynamic parent, targetSite;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CustomAttribute
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CustomAttribute
+@dynamic numbers, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"numbers" : [NSNumber class],
+    @"text" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore
 @dynamic contentConfig, createTime, defaultSchemaId, displayName,
-         industryVertical, name, solutionTypes;
+         documentProcessingConfig, industryVertical, name, solutionTypes,
+         startingSchema;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3229,10 +2604,156 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchResponse
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document
+@dynamic content, derivedStructData, identifier, indexTime, jsonData, name,
+         parentDocumentId, schemaId, structData;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document_DerivedStructData
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document_DerivedStructData
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document_StructData
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document_StructData
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentContent
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentContent
+@dynamic mimeType, rawBytes, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentInfo
+@dynamic identifier, name, promotionIds, quantity, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"promotionIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfig
+@dynamic defaultParsingConfig, name, parsingConfigOverrides;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfig_ParsingConfigOverrides
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfig_ParsingConfigOverrides
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfig
+@dynamic digitalParsingConfig, ocrParsingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigDigitalParsingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigDigitalParsingConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigOcrParsingConfig
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigOcrParsingConfig
+@dynamic enhancedDocumentElements, useNativeText;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enhancedDocumentElements" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3243,6 +2764,15 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchMetadata
 @dynamic createTime, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest
 @end
 
 
@@ -3335,11 +2865,101 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchDomainVerificationStatusResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchDomainVerificationStatusResponse
+@dynamic nextPageToken, targetSites, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetSites" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"targetSites";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FhirStoreSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FhirStoreSource
+@dynamic fhirStore, gcsStagingDir;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FirestoreSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FirestoreSource
+@dynamic collectionId, databaseId, gcsStagingDir, projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GcsSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1GcsSource
+@dynamic dataSchema, inputUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inputUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsMetadata
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
+@dynamic createTime, failureCount, successCount, totalCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest
+@dynamic autoGenerateIds, bigquerySource, bigtableSource, cloudSqlSource,
+         errorConfig, fhirStoreSource, firestoreSource, gcsSource, idField,
+         inlineSource, reconciliationMode, spannerSource, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequestInlineSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequestInlineSource
+@dynamic documents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"documents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3383,6 +3003,34 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest
+@dynamic gcsSource, inlineSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequestInlineSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequestInlineSource
+@dynamic entries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SuggestionDenyListEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesResponse
 //
 
@@ -3411,6 +3059,34 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest
+@dynamic bigquerySource, errorConfig, gcsSource, inlineSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequestInlineSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequestInlineSource
+@dynamic userEvents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userEvents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsResponse
 //
 
@@ -3429,11 +3105,193 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Interval
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Interval
+@dynamic exclusiveMaximum, exclusiveMinimum, maximum, minimum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListConversationsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListConversationsResponse
+@dynamic conversations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conversations" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"conversations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListDataStoresResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListDataStoresResponse
+@dynamic dataStores, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataStores" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataStores";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListDocumentsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListDocumentsResponse
+@dynamic documents, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"documents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"documents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListEnginesResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListEnginesResponse
+@dynamic engines, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"engines" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"engines";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListSchemasResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListSchemasResponse
+@dynamic nextPageToken, schemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemas" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"schemas";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListTargetSitesResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListTargetSitesResponse
+@dynamic nextPageToken, targetSites, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetSites" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"targetSites";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1MediaInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1MediaInfo
+@dynamic mediaProgressDuration, mediaProgressPercentage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PageInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PageInfo
+@dynamic pageCategory, pageviewId, referrerUri, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PanelInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PanelInfo
+@dynamic displayName, panelId, panelPosition, totalPanels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsMetadata
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
+@dynamic createTime, failureCount, ignoredCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsRequest
+@dynamic filter, force;
 @end
 
 
@@ -3467,6 +3325,15 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesResponse
 //
 
@@ -3480,6 +3347,120 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest
+@dynamic filter, pageSize, params, userEvent, userLabels, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest_Params
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest_UserLabels
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponse
+@dynamic attributionToken, missingIds, results, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"missingIds" : [NSString class],
+    @"results" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponseRecommendationResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponseRecommendationResult
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponseRecommendationResult
+@dynamic document, identifier, metadata;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponseRecommendationResult_Metadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponseRecommendationResult_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecrawlUrisRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecrawlUrisRequest
+@dynamic uris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Reply
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Reply
+@dynamic summary;
 @end
 
 
@@ -3509,11 +3490,475 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchInfo
+@dynamic offset, orderBy, searchQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest
+@dynamic boostSpec, branch, canonicalFilter, contentSearchSpec, dataStoreSpecs,
+         facetSpecs, filter, imageQuery, offset, orderBy, pageSize, pageToken,
+         params, query, queryExpansionSpec, safeSearch, spellCorrectionSpec,
+         userInfo, userLabels, userPseudoId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataStoreSpecs" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec class],
+    @"facetSpecs" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestFacetSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_Params
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_UserLabels
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestBoostSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestBoostSpec
+@dynamic conditionBoostSpecs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditionBoostSpecs" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestBoostSpecConditionBoostSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestBoostSpecConditionBoostSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestBoostSpecConditionBoostSpec
+@dynamic boost, condition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpec
+@dynamic extractiveContentSpec, snippetSpec, summarySpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecExtractiveContentSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecExtractiveContentSpec
+@dynamic maxExtractiveAnswerCount, maxExtractiveSegmentCount, numNextSegments,
+         numPreviousSegments, returnExtractiveSegmentScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSnippetSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSnippetSpec
+@dynamic maxSnippetCount, referenceOnly, returnSnippet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSummarySpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSummarySpec
+@dynamic ignoreAdversarialQuery, ignoreNonSummarySeekingQuery, includeCitations,
+         languageCode, modelPromptSpec, modelSpec, summaryResultCount,
+         useSemanticChunks;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSummarySpecModelPromptSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSummarySpecModelPromptSpec
+@dynamic preamble;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSummarySpecModelSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestContentSearchSpecSummarySpecModelSpec
+@dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestDataStoreSpec
+@dynamic dataStore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestFacetSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestFacetSpec
+@dynamic enableDynamicPosition, excludedFilterKeys, facetKey, limit;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedFilterKeys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestFacetSpecFacetKey
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestFacetSpecFacetKey
+@dynamic caseInsensitive, contains, intervals, key, orderBy, prefixes,
+         restrictedValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contains" : [NSString class],
+    @"intervals" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Interval class],
+    @"prefixes" : [NSString class],
+    @"restrictedValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestImageQuery
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestImageQuery
+@dynamic imageBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec
+@dynamic condition, pinUnexpandedResults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSpellCorrectionSpec
+@dynamic mode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponse
+@dynamic attributionToken, correctedQuery, facets, nextPageToken,
+         queryExpansionInfo, redirectUri, results, summary, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facets" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseFacet class],
+    @"results" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseFacet
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseFacet
+@dynamic dynamicFacet, key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseFacetFacetValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseFacetFacetValue
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseFacetFacetValue
+@dynamic count, interval, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseQueryExpansionInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseQueryExpansionInfo
+@dynamic expandedQuery, pinnedResultCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSearchResult
+@dynamic document, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummary
+@dynamic safetyAttributes, summarySkippedReasons, summaryText,
+         summaryWithMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"summarySkippedReasons" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitation
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitation
+@dynamic endIndex, sources, startIndex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitationSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitationMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitationMetadata
+@dynamic citations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citations" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitationSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryCitationSource
+@dynamic referenceIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryReference
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryReference
+@dynamic chunkContents, document, title, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chunkContents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryReferenceChunkContent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryReferenceChunkContent
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryReferenceChunkContent
+@dynamic content, pageIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummarySafetyAttributes
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummarySafetyAttributes
+@dynamic categories, scores;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [NSString class],
+    @"scores" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummarySummaryWithMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummarySummaryWithMetadata
+@dynamic citationMetadata, references, summary;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponseSummaryReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteSearchEngine
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteSearchEngine
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo
 @dynamic siteVerificationState, verifyTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SpannerSource
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SpannerSource
+@dynamic databaseId, enableDataBoost, instanceId, projectId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SuggestionDenyListEntry
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SuggestionDenyListEntry
+@dynamic blockPhrase, matchOperator;
 @end
 
 
@@ -3550,6 +3995,26 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TextInput
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TextInput
+@dynamic context, input;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TransactionInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TransactionInfo
+@dynamic cost, currency, discountValue, tax, transactionId, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UpdateSchemaMetadata
 //
 
@@ -3565,6 +4030,53 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UpdateTargetSiteMetadata
 @dynamic createTime, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent
+@dynamic attributes, attributionToken, completionInfo, directUserRequest,
+         documents, eventTime, eventType, filter, mediaInfo, pageInfo, panel,
+         promotionIds, searchInfo, sessionId, tagIds, transactionInfo, userInfo,
+         userPseudoId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"documents" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentInfo class],
+    @"promotionIds" : [NSString class],
+    @"tagIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent_Attributes
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent_Attributes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CustomAttribute class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserInfo
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserInfo
+@dynamic userAgent, userId;
 @end
 
 
@@ -3677,5 +4189,3 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite_Typ
 @implementation GTLRDiscoveryEngine_GoogleTypeDate
 @dynamic day, month, year;
 @end
-
-#pragma clang diagnostic pop

@@ -424,6 +424,34 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponse
+@dynamic crashEventCounts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"crashEventCounts" : [GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount
+@dynamic browserVersion, count, date;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse
 //
 
@@ -641,6 +669,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails
+@dynamic deviceName, justification;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1DiskInfo
 //
 
@@ -698,6 +736,50 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 + (NSString *)collectionItemsKey {
   return @"printJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1FetchDevicesRequestingExtensionResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1FetchDevicesRequestingExtensionResponse
+@dynamic deviceDetails, nextPageToken, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceDetails" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deviceDetails";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1FetchUsersRequestingExtensionResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1FetchUsersRequestingExtensionResponse
+@dynamic nextPageToken, totalSize, userDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userDetails" : [GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userDetails";
 }
 
 @end
@@ -1052,6 +1134,17 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport
+@dynamic enterHibernationCount, enterPoweroffCount, enterSleepCount, reportTime,
+         uptimeRuntimeDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1StorageInfo
 //
 
@@ -1117,7 +1210,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
          kioskAppStatusReport, memoryInfo, memoryStatusReport, name,
          networkBandwidthReport, networkDiagnosticsReport, networkInfo,
          networkStatusReport, orgUnitId, osUpdateStatus, peripheralsReport,
-         serialNumber, storageInfo, storageStatusReport, thunderboltInfo;
+         runtimeCountersReport, serialNumber, storageInfo, storageStatusReport,
+         thunderboltInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1136,6 +1230,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
     @"networkStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport class],
     @"osUpdateStatus" : [GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus class],
     @"peripheralsReport" : [GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport class],
+    @"runtimeCountersReport" : [GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport class],
     @"storageStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport class],
     @"thunderboltInfo" : [GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo class]
   };
@@ -1378,6 +1473,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport
 @dynamic deviceCount, jobCount, printerCount, userEmail, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails
+@dynamic email, justification;
 @end
 
 

@@ -1178,6 +1178,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PretargetingConfig_Inclu
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_HostedMatchData;
 /**
+ *  The request has a publisher-provided ID available to the bidder.
+ *
+ *  Value: "PUBLISHER_PROVIDED_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_PublisherProvidedId;
+/**
  *  Placeholder for unspecified user identifier.
  *
  *  Value: "USER_ID_TYPE_UNSPECIFIED"

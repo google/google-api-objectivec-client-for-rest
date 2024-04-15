@@ -42,6 +42,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background;
 /**
+ *  Continuous SQL jobs will use this reservation. Reservations with continuous
+ *  assignments cannot be mixed with non-continuous assignments.
+ *
+ *  Value: "CONTINUOUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Continuous;
+/**
  *  Invalid type. Requests with this value will be rejected with error code
  *  `google.rpc.Code.INVALID_ARGUMENT`.
  *
@@ -364,6 +371,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Background Background
  *        jobs that BigQuery runs for the customers in the background. (Value:
  *        "BACKGROUND")
+ *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Continuous Continuous
+ *        SQL jobs will use this reservation. Reservations with continuous
+ *        assignments cannot be mixed with non-continuous assignments. (Value:
+ *        "CONTINUOUS")
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified
  *        Invalid type. Requests with this value will be rejected with error
  *        code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
@@ -666,6 +677,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 
 
 /**
+ *  The request for ReservationService.FailoverReservation.
+ */
+@interface GTLRBigQueryReservation_FailoverReservationRequest : GTLRObject
+@end
+
+
+/**
  *  The response for ReservationService.ListAssignments.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -800,8 +818,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  that can run concurrently in this reservation. This is a soft target due to
  *  asynchronous nature of the system and various optimizations for small
  *  queries. Default value is 0 which means that concurrency target will be
- *  automatically computed by the system. NOTE: this field is exposed as
- *  `target_job_concurrency` in the Information Schema, DDL and BQ CLI.
+ *  automatically computed by the system. NOTE: this field is exposed as target
+ *  job concurrency in the Information Schema, DDL and BQ CLI.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -855,6 +873,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  end with a dash. Its maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The original primary location of the reservation which is set only
+ *  during its creation and remains unchanged afterwards. It can be used by the
+ *  customer to answer questions about disaster recovery billing. The field is
+ *  output only for customers and should not be specified, however, the
+ *  google.api.field_behavior is not set to OUTPUT_ONLY since these fields are
+ *  set in rerouted requests sent across regions.
+ */
+@property(nonatomic, copy, nullable) NSString *originalPrimaryLocation;
+
+/**
+ *  Optional. The primary location of the reservation. The field is only
+ *  meaningful for reservation used for cross region disaster recovery. The
+ *  field is output only for customers and should not be specified, however, the
+ *  google.api.field_behavior is not set to OUTPUT_ONLY since these fields are
+ *  set in rerouted requests sent across regions.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryLocation;
+
+/**
+ *  Optional. The secondary location of the reservation which is used for cross
+ *  region disaster recovery purposes. Customer can set this in create/update
+ *  reservation calls to create a failover reservation or convert a non-failover
+ *  reservation to a failover reservation.
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryLocation;
 
 /**
  *  Baseline slots available to this reservation. A slot is a unit of

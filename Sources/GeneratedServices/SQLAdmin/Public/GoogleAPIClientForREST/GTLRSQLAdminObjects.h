@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRSQLAdmin_AclEntry;
+@class GTLRSQLAdmin_AcquireSsrsLeaseContext;
 @class GTLRSQLAdmin_AdvancedMachineFeatures;
 @class GTLRSQLAdmin_ApiWarning;
 @class GTLRSQLAdmin_BackupConfiguration;
@@ -43,10 +44,12 @@
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions;
 @class GTLRSQLAdmin_FailoverContext;
 @class GTLRSQLAdmin_Flag;
+@class GTLRSQLAdmin_GeminiInstanceConfig;
 @class GTLRSQLAdmin_ImportContext;
 @class GTLRSQLAdmin_ImportContext_BakImportOptions;
 @class GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions;
 @class GTLRSQLAdmin_ImportContext_CsvImportOptions;
+@class GTLRSQLAdmin_ImportContext_SqlImportOptions;
 @class GTLRSQLAdmin_InsightsConfig;
 @class GTLRSQLAdmin_InstanceReference;
 @class GTLRSQLAdmin_IpConfiguration;
@@ -63,6 +66,7 @@
 @class GTLRSQLAdmin_PasswordValidationPolicy;
 @class GTLRSQLAdmin_PscConfig;
 @class GTLRSQLAdmin_ReplicaConfiguration;
+@class GTLRSQLAdmin_ReplicationCluster;
 @class GTLRSQLAdmin_Reschedule;
 @class GTLRSQLAdmin_RestoreBackupContext;
 @class GTLRSQLAdmin_RotateServerCaContext;
@@ -130,6 +134,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachab
  *  Value: "SQL_API_WARNING_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_BackupConfiguration.transactionalLogStorageState
+
+/**
+ *  The transaction logs for the instance are stored in Cloud Storage.
+ *
+ *  Value: "CLOUD_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_CloudStorage;
+/**
+ *  The transaction logs for the instance are stored on a data disk.
+ *
+ *  Value: "DISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_Disk;
+/**
+ *  The transaction logs for the instance are now stored in Cloud Storage.
+ *  Previously, they were stored on a data disk.
+ *
+ *  Value: "SWITCHED_TO_CLOUD_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_SwitchedToCloudStorage;
+/**
+ *  The transaction logs for the instance are switching from being stored on a
+ *  data disk to being stored in Cloud Storage.
+ *
+ *  Value: "SWITCHING_TO_CLOUD_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_SwitchingToCloudStorage;
+/**
+ *  Unspecified.
+ *
+ *  Value: "TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_TransactionalLogStorageStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupReencryptionConfig.backupType
@@ -413,6 +453,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8036;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 37.
+ *
+ *  Value: "MYSQL_8_0_37"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8037;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 38.
+ *
+ *  Value: "MYSQL_8_0_38"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8038;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 39.
+ *
+ *  Value: "MYSQL_8_0_39"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8039;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 40.
+ *
+ *  Value: "MYSQL_8_0_40"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -666,6 +730,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_8_0_36"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8036;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 37.
+ *
+ *  Value: "MYSQL_8_0_37"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8037;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 38.
+ *
+ *  Value: "MYSQL_8_0_38"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8038;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 39.
+ *
+ *  Value: "MYSQL_8_0_39"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8039;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 40.
+ *
+ *  Value: "MYSQL_8_0_40"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -1083,6 +1171,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8035;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8036;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 37.
+ *
+ *  Value: "MYSQL_8_0_37"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8037;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 38.
+ *
+ *  Value: "MYSQL_8_0_38"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8038;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 39.
+ *
+ *  Value: "MYSQL_8_0_39"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8039;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 40.
+ *
+ *  Value: "MYSQL_8_0_40"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -1427,6 +1539,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_W
 // GTLRSQLAdmin_Operation.operationType
 
 /**
+ *  Acquire a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  Value: "ACQUIRE_SSRS_LEASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_AcquireSsrsLease;
+/**
  *  Performs auto-restart of an HA-enabled Cloud SQL database for auto recovery.
  *
  *  Value: "AUTO_RESTART"
@@ -1564,6 +1682,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Mainten
  *  Value: "PROMOTE_REPLICA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica;
+/**
+ *  Reconfigures old primary after a promote replica operation. Effect of a
+ *  promote operation to the old primary is executed in this operation,
+ *  asynchronously from the promote replica operation executed to the replica.
+ *
+ *  Value: "RECONFIGURE_OLD_PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary;
 /** Value: "RECREATE_REPLICA" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica;
 /**
@@ -1572,6 +1698,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Recreat
  *  Value: "REENCRYPT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Reencrypt;
+/**
+ *  Release a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  Value: "RELEASE_SSRS_LEASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ReleaseSsrsLease;
 /**
  *  Reschedule maintenance to another time.
  *
@@ -2158,6 +2290,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.migrationType
+
+/**
+ *  Logical Migrations
+ *
+ *  Value: "LOGICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Logical;
+/**
+ *  Default value is logical migration
+ *
+ *  Value: "MIGRATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_MigrationTypeUnspecified;
+/**
+ *  Physical file based Migrations
+ *
+ *  Value: "PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Physical;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.syncMode
 
 /**
@@ -2210,6 +2364,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRe
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncParallelLevel_Optimal;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest.migrationType
+
+/**
+ *  Logical Migrations
+ *
+ *  Value: "LOGICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_Logical;
+/**
+ *  Default value is logical migration
+ *
+ *  Value: "MIGRATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_MigrationTypeUnspecified;
+/**
+ *  Physical file based Migrations
+ *
+ *  Value: "PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_Physical;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest.syncMode
 
 /**
@@ -2232,6 +2408,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncS
  *  Value: "ONLINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Online;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest.syncParallelLevel
+
+/**
+ *  Unknown sync parallel level. Will be defaulted to OPTIMAL.
+ *
+ *  Value: "EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_ExternalSyncParallelLevelUnspecified;
+/**
+ *  Maximum parallel level.
+ *
+ *  Value: "MAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_Max;
+/**
+ *  Minimal parallel level.
+ *
+ *  Value: "MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_Min;
+/**
+ *  Optimal parallel level.
+ *
+ *  Value: "OPTIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_Optimal;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlOutOfDiskReport.sqlOutOfDiskState
@@ -2348,6 +2552,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Acquire SSRS lease context.
+ */
+@interface GTLRSQLAdmin_AcquireSsrsLeaseContext : GTLRObject
+
+/** Lease duration needed for SSRS setup. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** The report database to be used for SSRS setup. */
+@property(nonatomic, copy, nullable) NSString *reportDatabase;
+
+/**
+ *  The username to be used as the service login to connect to the report
+ *  database for SSRS setup.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceLogin;
+
+/**
+ *  The username to be used as the setup login to connect to the database server
+ *  for SSRS setup.
+ */
+@property(nonatomic, copy, nullable) NSString *setupLogin;
+
+@end
+
+
+/**
  *  Specifies options for controlling advanced machine features.
  */
 @interface GTLRSQLAdmin_AdvancedMachineFeatures : GTLRObject
@@ -2447,6 +2677,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  format - `HH:MM`.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
+
+/**
+ *  Output only. This value contains the storage location of transactional logs
+ *  for the database for point-in-time recovery.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_CloudStorage
+ *        The transaction logs for the instance are stored in Cloud Storage.
+ *        (Value: "CLOUD_STORAGE")
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_Disk
+ *        The transaction logs for the instance are stored on a data disk.
+ *        (Value: "DISK")
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_SwitchedToCloudStorage
+ *        The transaction logs for the instance are now stored in Cloud Storage.
+ *        Previously, they were stored on a data disk. (Value:
+ *        "SWITCHED_TO_CLOUD_STORAGE")
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_SwitchingToCloudStorage
+ *        The transaction logs for the instance are switching from being stored
+ *        on a data disk to being stored in Cloud Storage. (Value:
+ *        "SWITCHING_TO_CLOUD_STORAGE")
+ *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_TransactionalLogStorageStateUnspecified
+ *        Unspecified. (Value: "TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transactionalLogStorageState;
 
 /**
  *  The number of days of transaction logs we retain for point in time restore,
@@ -2867,6 +3121,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8036 The
  *        database major version is MySQL 8.0 and the minor version is 36.
  *        (Value: "MYSQL_8_0_36")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8037 The
+ *        database major version is MySQL 8.0 and the minor version is 37.
+ *        (Value: "MYSQL_8_0_37")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8038 The
+ *        database major version is MySQL 8.0 and the minor version is 38.
+ *        (Value: "MYSQL_8_0_38")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8039 The
+ *        database major version is MySQL 8.0 and the minor version is 39.
+ *        (Value: "MYSQL_8_0_39")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040 The
+ *        database major version is MySQL 8.0 and the minor version is 40.
+ *        (Value: "MYSQL_8_0_40")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -3121,6 +3387,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8036 The
  *        database major version is MySQL 8.0 and the minor version is 36.
  *        (Value: "MYSQL_8_0_36")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8037 The
+ *        database major version is MySQL 8.0 and the minor version is 37.
+ *        (Value: "MYSQL_8_0_37")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8038 The
+ *        database major version is MySQL 8.0 and the minor version is 38.
+ *        (Value: "MYSQL_8_0_38")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8039 The
+ *        database major version is MySQL 8.0 and the minor version is 39.
+ *        (Value: "MYSQL_8_0_39")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040 The
+ *        database major version is MySQL 8.0 and the minor version is 40.
+ *        (Value: "MYSQL_8_0_40")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -3202,6 +3480,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Changing this might restart the instance.
  */
 @property(nonatomic, copy, nullable) NSString *gceZone;
+
+/** Gemini configuration. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_GeminiInstanceConfig *geminiConfig;
 
 /**
  *  The instance type.
@@ -3287,6 +3568,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The replicas of the instance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *replicaNames;
+
+/**
+ *  Optional. The pair of a primary instance and disaster recovery (DR) replica.
+ *  A DR replica is a cross-region replica that you designate for failover in
+ *  the event that the primary instance has regional failure.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ReplicationCluster *replicationCluster;
 
 /**
  *  Initial root password. Use only on creation. You must set root passwords
@@ -3965,6 +4253,56 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Gemini configuration.
+ */
+@interface GTLRSQLAdmin_GeminiInstanceConfig : GTLRObject
+
+/**
+ *  Output only. Whether active query is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeQueryEnabled;
+
+/**
+ *  Output only. Whether gemini is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entitled;
+
+/**
+ *  Output only. Whether flag recommender is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flagRecommenderEnabled;
+
+/**
+ *  Output only. Whether vacuum management is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleVacuumMgmtEnabled;
+
+/**
+ *  Output only. Whether index advisor is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *indexAdvisorEnabled;
+
+/**
+ *  Output only. Whether oom session cancel is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *oomSessionCancelEnabled;
+
+@end
+
+
+/**
  *  Ephemeral certificate creation request.
  */
 @interface GTLRSQLAdmin_GenerateEphemeralCertRequest : GTLRObject
@@ -4039,6 +4377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always `sql#importContext`. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** Optional. Options for importing data from SQL statements. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_SqlImportOptions *sqlImportOptions;
 
 /**
  *  Path to the import file in Cloud Storage, in the form
@@ -4156,6 +4497,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Optional. Options for importing data from SQL statements.
+ */
+@interface GTLRSQLAdmin_ImportContext_SqlImportOptions : GTLRObject
+
+/**
+ *  Optional. Whether or not the import should be parallel.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parallel;
+
+/**
+ *  Optional. The number of threads to use for parallel import.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threads;
+
+@end
+
+
+/**
  *  GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions
  */
 @interface GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions : GTLRObject
@@ -4247,6 +4610,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The region of the Cloud SQL instance being referenced. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
+ *  Request to acquire a lease for SSRS.
+ */
+@interface GTLRSQLAdmin_InstancesAcquireSsrsLeaseRequest : GTLRObject
+
+/** Contains details about the acquire SSRS lease operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_AcquireSsrsLeaseContext *acquireSsrsLeaseContext;
 
 @end
 
@@ -4460,33 +4834,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_PscConfig *pscConfig;
 
 /**
- *  Use `ssl_mode` instead for MySQL and PostgreSQL. SQL Server uses this flag.
- *  Whether SSL/TLS connections over IP are enforced. If set to false, then
- *  allow both non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS connections,
- *  the client certificate won't be verified. If set to true, then only allow
- *  connections encrypted with SSL/TLS and with valid client certificates. If
- *  you want to enforce SSL/TLS without enforcing the requirement for valid
- *  client certificates, then use the `ssl_mode` flag instead of the
- *  `require_ssl` flag.
+ *  Use `ssl_mode` instead. Whether SSL/TLS connections over IP are enforced. If
+ *  set to false, then allow both non-SSL/non-TLS and SSL/TLS connections. For
+ *  SSL/TLS connections, the client certificate won't be verified. If set to
+ *  true, then only allow connections encrypted with SSL/TLS and with valid
+ *  client certificates. If you want to enforce SSL/TLS without enforcing the
+ *  requirement for valid client certificates, then use the `ssl_mode` flag
+ *  instead of the `require_ssl` flag.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireSsl;
 
 /**
- *  Specify how SSL/TLS is enforced in database connections. MySQL and
- *  PostgreSQL use the `ssl_mode` flag. If you must use the `require_ssl` flag
- *  for backward compatibility, then only the following value pairs are valid: *
+ *  Specify how SSL/TLS is enforced in database connections. If you must use the
+ *  `require_ssl` flag for backward compatibility, then only the following value
+ *  pairs are valid: For PostgreSQL and MySQL: *
  *  `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and `require_ssl=false` *
  *  `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false` *
- *  `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true` The
+ *  `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true` For
+ *  SQL Server: * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and
+ *  `require_ssl=false` * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=true` The
  *  value of `ssl_mode` gets priority over the value of `require_ssl`. For
  *  example, for the pair `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false`, the
  *  `ssl_mode=ENCRYPTED_ONLY` means only accept SSL connections, while the
  *  `require_ssl=false` means accept both non-SSL and SSL connections. MySQL and
  *  PostgreSQL databases respect `ssl_mode` in this case and accept only SSL
- *  connections. SQL Server uses the `require_ssl` flag. You can set the value
- *  for this flag to `true` or `false`.
+ *  connections.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted
@@ -4767,6 +5141,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_Operation : GTLRObject
 
+/** The context for acquire SSRS lease operation, if applicable. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_AcquireSsrsLeaseContext *acquireSsrsLeaseContext;
+
 /** An Admin API warning message. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ApiWarning *apiWarning;
 
@@ -4816,6 +5193,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  `DELETE_DATABASE`
  *
  *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AcquireSsrsLease Acquire a
+ *        lease for the setup of SQL Server Reporting Services (SSRS). (Value:
+ *        "ACQUIRE_SSRS_LEASE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AutoRestart Performs
  *        auto-restart of an HA-enabled Cloud SQL database for auto recovery.
  *        (Value: "AUTO_RESTART")
@@ -4867,10 +5247,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        the instance to be unavailable for 1-3 minutes. (Value: "MAINTENANCE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PromoteReplica Promotes a
  *        Cloud SQL replica instance. (Value: "PROMOTE_REPLICA")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary
+ *        Reconfigures old primary after a promote replica operation. Effect of
+ *        a promote operation to the old primary is executed in this operation,
+ *        asynchronously from the promote replica operation executed to the
+ *        replica. (Value: "RECONFIGURE_OLD_PRIMARY")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RecreateReplica Value
  *        "RECREATE_REPLICA"
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Reencrypt Re-encrypts CMEK
  *        instances with latest key version. (Value: "REENCRYPT")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ReleaseSsrsLease Release a
+ *        lease for the setup of SQL Server Reporting Services (SSRS). (Value:
+ *        "RELEASE_SSRS_LEASE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance
  *        Reschedule maintenance to another time. (Value:
  *        "RESCHEDULE_MAINTENANCE")
@@ -5202,6 +5590,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Primary-DR replica pair
+ */
+@interface GTLRSQLAdmin_ReplicationCluster : GTLRObject
+
+/**
+ *  Output only. read-only field that indicates if the replica is a dr_replica;
+ *  not set for a primary.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *drReplica;
+
+/**
+ *  Optional. If the instance is a primary instance, then this field identifies
+ *  the disaster recovery (DR) replica. A DR replica is an optional
+ *  configuration for Enterprise Plus edition instances. If the instance is a
+ *  read replica, then the field is not set. Users can set this field to set a
+ *  designated DR replica for a primary. Removing this field removes the DR
+ *  replica.
+ */
+@property(nonatomic, copy, nullable) NSString *failoverDrReplicaName;
+
+@end
+
+
+/**
  *  GTLRSQLAdmin_Reschedule
  */
 @interface GTLRSQLAdmin_Reschedule : GTLRObject
@@ -5433,6 +5847,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
  */
 @property(nonatomic, copy, nullable) NSString *edition;
+
+/**
+ *  Optional. When this parameter is set to true, Cloud SQL instances can
+ *  connect to Vertex AI to pass requests for real-time predictions and insights
+ *  to the AI. The default value is false. This applies only to Cloud SQL for
+ *  PostgreSQL instances.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableGoogleMlIntegration;
 
 /** Insights configuration, for now relevant only for Postgres. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_InsightsConfig *insightsConfig;
@@ -5733,6 +6157,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Response for the acquire SSRS lease request.
+ */
+@interface GTLRSQLAdmin_SqlInstancesAcquireSsrsLeaseResponse : GTLRObject
+
+/** The unique identifier for this operation. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
  *  Instance get disk shrink config response.
  */
 @interface GTLRSQLAdmin_SqlInstancesGetDiskShrinkConfigResponse : GTLRObject
@@ -5768,6 +6203,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Response for the release SSRS lease request.
+ */
+@interface GTLRSQLAdmin_SqlInstancesReleaseSsrsLeaseResponse : GTLRObject
+
+/** The unique identifier for this operation. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
  *  Reschedule options for maintenance windows.
  */
 @interface GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody : GTLRObject
@@ -5789,6 +6235,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Instance start external sync request.
  */
 @interface GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest : GTLRObject
+
+/**
+ *  Optional. MigrationType decides if the migration is a physical file based
+ *  migration or logical migration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Logical
+ *        Logical Migrations (Value: "LOGICAL")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_MigrationTypeUnspecified
+ *        Default value is logical migration (Value:
+ *        "MIGRATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Physical
+ *        Physical file based Migrations (Value: "PHYSICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *migrationType;
 
 /** MySQL-specific settings for start external sync. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlSyncConfig *mysqlSyncConfig;
@@ -5841,6 +6302,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest : GTLRObject
 
+/**
+ *  Optional. MigrationType decides if the migration is a physical file based
+ *  migration or logical migration
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_Logical
+ *        Logical Migrations (Value: "LOGICAL")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_MigrationTypeUnspecified
+ *        Default value is logical migration (Value:
+ *        "MIGRATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_Physical
+ *        Physical file based Migrations (Value: "PHYSICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *migrationType;
+
 /** Optional. MySQL-specific settings for start external sync. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlSyncConfig *mysqlSyncConfig;
 
@@ -5859,6 +6335,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        external sync (Value: "ONLINE")
  */
 @property(nonatomic, copy, nullable) NSString *syncMode;
+
+/**
+ *  Optional. Parallel level for initial data sync. Currently only applicable
+ *  for PostgreSQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_ExternalSyncParallelLevelUnspecified
+ *        Unknown sync parallel level. Will be defaulted to OPTIMAL. (Value:
+ *        "EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_Max
+ *        Maximum parallel level. (Value: "MAX")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_Min
+ *        Minimal parallel level. (Value: "MIN")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_Optimal
+ *        Optimal parallel level. (Value: "OPTIMAL")
+ */
+@property(nonatomic, copy, nullable) NSString *syncParallelLevel;
 
 /**
  *  Flag to enable verifying connection only

@@ -199,6 +199,18 @@ NSString * const kGTLRBigquery_JobCreationReason_Code_LongRunning = @"LONG_RUNNI
 NSString * const kGTLRBigquery_JobCreationReason_Code_Other    = @"OTHER";
 NSString * const kGTLRBigquery_JobCreationReason_Code_Requested = @"REQUESTED";
 
+// GTLRBigquery_JoinRestrictionPolicy.joinCondition
+NSString * const kGTLRBigquery_JoinRestrictionPolicy_JoinCondition_JoinAll = @"JOIN_ALL";
+NSString * const kGTLRBigquery_JoinRestrictionPolicy_JoinCondition_JoinAny = @"JOIN_ANY";
+NSString * const kGTLRBigquery_JoinRestrictionPolicy_JoinCondition_JoinBlocked = @"JOIN_BLOCKED";
+NSString * const kGTLRBigquery_JoinRestrictionPolicy_JoinCondition_JoinConditionUnspecified = @"JOIN_CONDITION_UNSPECIFIED";
+NSString * const kGTLRBigquery_JoinRestrictionPolicy_JoinCondition_JoinNotRequired = @"JOIN_NOT_REQUIRED";
+
+// GTLRBigquery_LinkedDatasetMetadata.linkState
+NSString * const kGTLRBigquery_LinkedDatasetMetadata_LinkState_Linked = @"LINKED";
+NSString * const kGTLRBigquery_LinkedDatasetMetadata_LinkState_LinkStateUnspecified = @"LINK_STATE_UNSPECIFIED";
+NSString * const kGTLRBigquery_LinkedDatasetMetadata_LinkState_Unlinked = @"UNLINKED";
+
 // GTLRBigquery_MaterializedView.rejectedReason
 NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableDataChange = @"BASE_TABLE_DATA_CHANGE";
 NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTableExpiredPartition = @"BASE_TABLE_EXPIRED_PARTITION";
@@ -1181,9 +1193,10 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 @dynamic access, creationTime, datasetReference, defaultCollation,
          defaultEncryptionConfiguration, defaultPartitionExpirationMs,
          defaultRoundingMode, defaultTableExpirationMs, descriptionProperty,
-         ETag, externalDatasetReference, friendlyName, identifier,
-         isCaseInsensitive, kind, labels, lastModifiedTime, linkedDatasetSource,
-         location, maxTimeTravelHours, satisfiesPzi, satisfiesPzs, selfLink,
+         ETag, externalCatalogDatasetOptions, externalDatasetReference,
+         friendlyName, identifier, isCaseInsensitive, kind, labels,
+         lastModifiedTime, linkedDatasetMetadata, linkedDatasetSource, location,
+         maxTimeTravelHours, satisfiesPzi, satisfiesPzs, selfLink,
          storageBillingModel, tags, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1372,6 +1385,17 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_DifferentialPrivacyPolicy
+//
+
+@implementation GTLRBigquery_DifferentialPrivacyPolicy
+@dynamic deltaBudget, deltaPerQuery, epsilonBudget, maxEpsilonPerQuery,
+         maxGroupsContributed, privacyUnitColumn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_DimensionalityReductionMetrics
 //
 
@@ -1553,6 +1577,54 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ExternalCatalogDatasetOptions
+//
+
+@implementation GTLRBigquery_ExternalCatalogDatasetOptions
+@dynamic defaultStorageLocationUri, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ExternalCatalogDatasetOptions_Parameters
+//
+
+@implementation GTLRBigquery_ExternalCatalogDatasetOptions_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ExternalCatalogTableOptions
+//
+
+@implementation GTLRBigquery_ExternalCatalogTableOptions
+@dynamic connectionId, parameters, storageDescriptor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ExternalCatalogTableOptions_Parameters
+//
+
+@implementation GTLRBigquery_ExternalCatalogTableOptions_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2269,6 +2341,24 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_JoinRestrictionPolicy
+//
+
+@implementation GTLRBigquery_JoinRestrictionPolicy
+@dynamic joinAllowedColumns, joinCondition;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"joinAllowedColumns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_JsonObject
 //
 
@@ -2288,6 +2378,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JsonOptions
 @dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_LinkedDatasetMetadata
+//
+
+@implementation GTLRBigquery_LinkedDatasetMetadata
+@dynamic linkState;
 @end
 
 
@@ -2619,6 +2719,52 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_PartitionedColumn
+//
+
+@implementation GTLRBigquery_PartitionedColumn
+@dynamic field;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_PartitioningDefinition
+//
+
+@implementation GTLRBigquery_PartitioningDefinition
+@dynamic partitionedColumn;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partitionedColumn" : [GTLRBigquery_PartitionedColumn class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_PartitionSkew
+//
+
+@implementation GTLRBigquery_PartitionSkew
+@dynamic skewSources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skewSources" : [GTLRBigquery_SkewSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_PerformanceInsights
 //
 
@@ -2677,7 +2823,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_PrivacyPolicy
-@dynamic aggregationThresholdPolicy;
+@dynamic aggregationThresholdPolicy, differentialPrivacyPolicy,
+         joinRestrictionPolicy;
 @end
 
 
@@ -3145,6 +3292,30 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_SerDeInfo
+//
+
+@implementation GTLRBigquery_SerDeInfo
+@dynamic name, parameters, serializationLibrary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SerDeInfo_Parameters
+//
+
+@implementation GTLRBigquery_SerDeInfo_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_SessionInfo
 //
 
@@ -3160,6 +3331,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SkewSource
+//
+
+@implementation GTLRBigquery_SkewSource
+@dynamic stageId;
 @end
 
 
@@ -3261,7 +3442,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_StagePerformanceStandaloneInsight
 @dynamic biEngineReasons, highCardinalityJoins, insufficientShuffleQuota,
-         slotContention, stageId;
+         partitionSkew, slotContention, stageId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3327,6 +3508,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_StorageDescriptor
+//
+
+@implementation GTLRBigquery_StorageDescriptor
+@dynamic inputFormat, locationUri, outputFormat, serdeInfo;
 @end
 
 
@@ -3405,16 +3596,17 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 @dynamic biglakeConfiguration, cloneDefinition, clustering, creationTime,
          defaultCollation, defaultRoundingMode, descriptionProperty,
          encryptionConfiguration, ETag, expirationTime,
-         externalDataConfiguration, friendlyName, identifier, kind, labels,
-         lastModifiedTime, location, materializedView, materializedViewStatus,
-         maxStaleness, model, numActiveLogicalBytes, numActivePhysicalBytes,
-         numBytes, numLongTermBytes, numLongTermLogicalBytes,
-         numLongTermPhysicalBytes, numPartitions, numPhysicalBytes, numRows,
-         numTimeTravelPhysicalBytes, numTotalLogicalBytes,
-         numTotalPhysicalBytes, rangePartitioning, replicas,
-         requirePartitionFilter, resourceTags, schema, selfLink,
-         snapshotDefinition, streamingBuffer, tableConstraints, tableReference,
-         tableReplicationInfo, timePartitioning, type, view;
+         externalCatalogTableOptions, externalDataConfiguration, friendlyName,
+         identifier, kind, labels, lastModifiedTime, location, materializedView,
+         materializedViewStatus, maxStaleness, model, numActiveLogicalBytes,
+         numActivePhysicalBytes, numBytes, numLongTermBytes,
+         numLongTermLogicalBytes, numLongTermPhysicalBytes, numPartitions,
+         numPhysicalBytes, numRows, numTimeTravelPhysicalBytes,
+         numTotalLogicalBytes, numTotalPhysicalBytes, partitionDefinition,
+         rangePartitioning, replicas, requirePartitionFilter, resourceTags,
+         schema, selfLink, snapshotDefinition, streamingBuffer,
+         tableConstraints, tableReference, tableReplicationInfo,
+         timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

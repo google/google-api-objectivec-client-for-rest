@@ -29,6 +29,30 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttri
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes_OwnershipPrivilege_OwnershipPrivilegeUnspecified = @"OWNERSHIP_PRIVILEGE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes_OwnershipPrivilege_ProfileOwner = @"PROFILE_OWNER";
 
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.browserManagementState
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_BrowserManaged = @"BROWSER_MANAGED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ManagedByOtherDomain = @"MANAGED_BY_OTHER_DOMAIN";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ProfileManaged = @"PROFILE_MANAGED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unmanaged = @"UNMANAGED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.passwordProtectionWarningTrigger
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordProtectionTriggerUnspecified = @"PASSWORD_PROTECTION_TRIGGER_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordReuse = @"PASSWORD_REUSE";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PhishingReuse = @"PHISHING_REUSE";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_ProtectionOff = @"PROTECTION_OFF";
+
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.safeBrowsingProtectionLevel
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Disabled = @"DISABLED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Enhanced = @"ENHANCED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_SafeBrowsingLevelUnspecified = @"SAFE_BROWSING_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Standard = @"STANDARD";
+
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes.validationState
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_CertificateValidationStateUnspecified = @"CERTIFICATE_VALIDATION_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationFailed = @"VALIDATION_FAILED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationSuccessful = @"VALIDATION_SUCCESSFUL";
+
 // GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState.complianceState
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState_ComplianceState_ComplianceStateUnspecified = @"COMPLIANCE_STATE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState_ComplianceState_Compliant = @"COMPLIANT";
@@ -461,6 +485,32 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes
+@dynamic chromeBrowserInfo, chromeProfileId, lastProfileSyncTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo
+@dynamic browserManagementState, browserVersion, isBuiltInDnsClientEnabled,
+         isBulkDataEntryAnalysisEnabled, isChromeCleanupEnabled,
+         isChromeRemoteDesktopAppBlocked, isFileDownloadAnalysisEnabled,
+         isFileUploadAnalysisEnabled, isRealtimeUrlCheckEnabled,
+         isSecurityEventAnalysisEnabled, isSiteIsolationEnabled,
+         isThirdPartyBlockingEnabled, passwordProtectionWarningTrigger,
+         safeBrowsingProtectionLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceMetadata
 //
 
@@ -514,6 +564,32 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserResponse
 @dynamic deviceUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes
+@dynamic certificateTemplate, fingerprint, issuer, serialNumber, subject,
+         thumbprint, validationState, validityExpirationTime, validityStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate
+@dynamic identifier, majorVersion, minorVersion;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -600,10 +676,10 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 @dynamic androidSpecificAttributes, assetTag, basebandVersion,
          bootloaderVersion, brand, buildNumber, compromisedState, createTime,
          deviceId, deviceType, enabledDeveloperOptions, enabledUsbDebugging,
-         encryptionState, hostname, imei, kernelVersion, lastSyncTime,
-         managementState, manufacturer, meid, model, name, networkOperator,
-         osVersion, otherAccounts, ownerType, releaseVersion, securityPatchTime,
-         serialNumber, wifiMacAddresses;
+         encryptionState, endpointVerificationSpecificAttributes, hostname,
+         imei, kernelVersion, lastSyncTime, managementState, manufacturer, meid,
+         model, name, networkOperator, osVersion, otherAccounts, ownerType,
+         releaseVersion, securityPatchTime, serialNumber, wifiMacAddresses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -625,6 +701,39 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 @dynamic compromisedState, createTime, firstSyncTime, languageCode,
          lastSyncTime, managementState, name, passwordState, userAgent,
          userEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes
+@dynamic additionalSignals, browserAttributes, certificateAttributes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"browserAttributes" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes class],
+    @"certificateAttributes" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

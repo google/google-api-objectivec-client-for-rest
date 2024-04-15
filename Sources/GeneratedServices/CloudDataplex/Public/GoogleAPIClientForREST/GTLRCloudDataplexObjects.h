@@ -23,6 +23,16 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ActionMissingData;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ActionMissingResource;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ActionUnauthorizedResource;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Aspect;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Aspect_Data;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1AspectSource;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1AspectType;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1AspectType_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeAuthorization;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplate;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateAnnotations;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateConstraints;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateEnumValue;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Asset;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Asset_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetDiscoverySpec;
@@ -71,12 +81,18 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSqlAssertion;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsBigQueryExport;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsJobEndTrigger;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsJobFailureTrigger;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsNotificationReport;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsRecipients;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsScoreThresholdTrigger;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs;
@@ -102,6 +118,17 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Entity;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntityCompatibilityStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntityCompatibilityStatusCompatibility;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Entry;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Entry_Aspects;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySourceAncestor;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryType;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryType_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAspectInfo;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAuthorization;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Environment;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Environment_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentEndpoints;
@@ -118,7 +145,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Partition;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args;
@@ -128,6 +154,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Schema;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SchemaPartitionField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SchemaSchemaField;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResultSnippets;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Session;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SessionEventQueryDetail;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess;
@@ -253,6 +281,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Actio
  *  Value: "PARTITION_STRUCTURE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ActionInvalidDataPartition_ExpectedStructure_PartitionStructureUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1AspectType.transferStatus
+
+/**
+ *  Indicates that a resource was migrated from Data Catalog service but it
+ *  hasn't been transferred yet. In particular the resource cannot be updated
+ *  from Dataplex API.
+ *
+ *  Value: "TRANSFER_STATUS_MIGRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusMigrated;
+/**
+ *  Indicates that a resource was transferred from Data Catalog service. The
+ *  resource can only be updated from Dataplex API.
+ *
+ *  Value: "TRANSFER_STATUS_TRANSFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusTransferred;
+/**
+ *  The default value. It is set for resources that were not subject for
+ *  migration from Data Catalog service.
+ *
+ *  Value: "TRANSFER_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Asset.state
@@ -1045,6 +1099,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entit
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entity_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup.transferStatus
+
+/**
+ *  Indicates that a resource was migrated from Data Catalog service but it
+ *  hasn't been transferred yet. In particular the resource cannot be updated
+ *  from Dataplex API.
+ *
+ *  Value: "TRANSFER_STATUS_MIGRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusMigrated;
+/**
+ *  Indicates that a resource was transferred from Data Catalog service. The
+ *  resource can only be updated from Dataplex API.
+ *
+ *  Value: "TRANSFER_STATUS_TRANSFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusTransferred;
+/**
+ *  The default value. It is set for resources that were not subject for
+ *  migration from Data Catalog service.
+ *
+ *  Value: "TRANSFER_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Environment.state
 
 /**
@@ -1453,40 +1533,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeM
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Updating;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult.state
-
-/**
- *  Import job was cancelled.
- *
- *  Value: "CANCELLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Cancelled;
-/**
- *  Import Job was failed.
- *
- *  Value: "FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Failed;
-/**
- *  Import Job is running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Running;
-/**
- *  State Unspecified.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_StateUnspecified;
-/**
- *  Import Job was successful.
- *
- *  Value: "SUCCEEDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Schema.partitionStyle
@@ -2355,6 +2401,334 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  access or manage the resource associated with an asset.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1ActionUnauthorizedResource : GTLRObject
+@end
+
+
+/**
+ *  An aspect is a single piece of metadata describing an entry.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Aspect : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1AspectSource *aspectSource;
+
+/** Output only. The resource name of the type used to create this Aspect. */
+@property(nonatomic, copy, nullable) NSString *aspectType;
+
+/** Output only. The time when the Aspect was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The content of the aspect, according to its aspect type schema.
+ *  This will replace content. The maximum size of the field is 120KB (encoded
+ *  as UTF-8).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Aspect_Data *data;
+
+/** Output only. The path in the entry under which the aspect is attached. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Output only. The time when the Aspect was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Required. The content of the aspect, according to its aspect type schema.
+ *  This will replace content. The maximum size of the field is 120KB (encoded
+ *  as UTF-8).
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Aspect_Data : GTLRObject
+@end
+
+
+/**
+ *  AspectSource contains source system related information for the aspect.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectSource : GTLRObject
+
+/** The create time of the aspect in the source system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The update time of the aspect in the source system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Aspect Type is a template for creating Aspects, and represents the
+ *  JSON-schema for a given Entry, e.g., BigQuery Table Schema.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectType : GTLRObject
+
+/** Immutable. Authorization defined for this type. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeAuthorization *authorization;
+
+/** Output only. The time when the AspectType was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the AspectType.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User friendly display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels for the AspectType. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1AspectType_Labels *labels;
+
+/** Required. MetadataTemplate of the aspect. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplate *metadataTemplate;
+
+/**
+ *  Output only. The relative resource name of the AspectType, of the form:
+ *  projects/{project_number}/locations/{location_id}/aspectTypes/{aspect_type_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Denotes the transfer status of the Aspect Type. It is
+ *  unspecified for Aspect Types created from Dataplex API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusMigrated
+ *        Indicates that a resource was migrated from Data Catalog service but
+ *        it hasn't been transferred yet. In particular the resource cannot be
+ *        updated from Dataplex API. (Value: "TRANSFER_STATUS_MIGRATED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusTransferred
+ *        Indicates that a resource was transferred from Data Catalog service.
+ *        The resource can only be updated from Dataplex API. (Value:
+ *        "TRANSFER_STATUS_TRANSFERRED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusUnspecified
+ *        The default value. It is set for resources that were not subject for
+ *        migration from Data Catalog service. (Value:
+ *        "TRANSFER_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transferStatus;
+
+/**
+ *  Output only. System generated globally unique ID for the AspectType. This ID
+ *  will be different if the AspectType is deleted and re-created with the same
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the AspectType was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the AspectType.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectType_Labels : GTLRObject
+@end
+
+
+/**
+ *  Autorization for an Aspect Type.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeAuthorization : GTLRObject
+
+/**
+ *  Immutable. The IAM permission grantable on the Entry Group to allow access
+ *  to instantiate Aspects of Dataplex owned Aspect Types, only settable for
+ *  Dataplex owned Types.
+ */
+@property(nonatomic, copy, nullable) NSString *alternateUsePermission;
+
+@end
+
+
+/**
+ *  MetadataTemplate definition for AspectType
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplate : GTLRObject
+
+/** Optional. Specifies annotations on this field. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateAnnotations *annotations;
+
+/**
+ *  Optional. array_items needs to be set if the type is array. array_items can
+ *  refer to a primitive field or a complex (record only) field. To specify a
+ *  primitive field, just name and type needs to be set in the nested
+ *  MetadataTemplate. The recommended value for the name field is item, as this
+ *  is not used in the actual payload.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplate *arrayItems;
+
+/** Optional. Specifies the constraints on this field. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateConstraints *constraints;
+
+/**
+ *  Optional. The list of values for an enum type. Needs to be defined if the
+ *  type is enum.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateEnumValue *> *enumValues;
+
+/**
+ *  Optional. Index is used to encode Template messages. The value of index can
+ *  range between 1 and 2,147,483,647. Index must be unique within all fields in
+ *  a Template. (Nested Templates can reuse indexes). Once a Template is
+ *  defined, the index cannot be changed, because it identifies the field in the
+ *  actual storage format. Index is a mandatory field, but it is optional for
+ *  top level fields, and map/array "values" definitions.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  Optional. map_items needs to be set if the type is map. map_items can refer
+ *  to a primitive field or a complex (record only) field. To specify a
+ *  primitive field, just name and type needs to be set in the nested
+ *  MetadataTemplate. The recommended value for the name field is item, as this
+ *  is not used in the actual payload.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplate *mapItems;
+
+/** Required. The name of the field. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field definition, needs to be specified if the type is record.
+ *  Defines the nested fields.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplate *> *recordFields;
+
+/**
+ *  Required. The datatype of this field. The following values are supported:
+ *  Primitive types (string, integer, boolean, double, datetime); datetime must
+ *  be of the format RFC3339 UTC "Zulu" (Examples: "2014-10-02T15:01:23Z" and
+ *  "2014-10-02T15:01:23.045123456Z"). Complex types (enum, array, map, record).
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Optional. Id can be used if this definition of the field needs to be reused
+ *  later. Id needs to be unique across the entire template. Id can only be
+ *  specified if the field type is record.
+ */
+@property(nonatomic, copy, nullable) NSString *typeId;
+
+/**
+ *  Optional. A reference to another field definition (instead of an inline
+ *  definition). The value must be equal to the value of an id field defined
+ *  elsewhere in the MetadataTemplate. Only fields with type as record can refer
+ *  to other fields.
+ */
+@property(nonatomic, copy, nullable) NSString *typeRef;
+
+@end
+
+
+/**
+ *  Definition of the annotations of a field
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateAnnotations : GTLRObject
+
+/**
+ *  Optional. Marks a field as deprecated, a deprecation message can be
+ *  included.
+ */
+@property(nonatomic, copy, nullable) NSString *deprecated;
+
+/**
+ *  Optional. Specify a description for a field
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Specify a displayname for a field. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Specify a display order for a field. Display order can be used to
+ *  reorder where a field is rendered
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *displayOrder;
+
+/**
+ *  Optional. String Type annotations can be used to specify special meaning to
+ *  string fields. The following values are supported: richText: The field must
+ *  be interpreted as a rich text field. url: A fully qualified url link.
+ *  resource: A service qualified resource reference.
+ */
+@property(nonatomic, copy, nullable) NSString *stringType;
+
+/**
+ *  Optional. Suggested hints for string fields. These can be used to suggest
+ *  values to users, through an UI for example.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stringValues;
+
+@end
+
+
+/**
+ *  Definition of the constraints of a field
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateConstraints : GTLRObject
+
+/**
+ *  Optional. Marks this as an optional/required field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *required;
+
+@end
+
+
+/**
+ *  Definition of Enumvalue (to be used by enum fields)
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1AspectTypeMetadataTemplateEnumValue : GTLRObject
+
+/**
+ *  Optional. Optional deprecation message to be set if an enum value needs to
+ *  be deprecated.
+ */
+@property(nonatomic, copy, nullable) NSString *deprecated;
+
+/**
+ *  Required. Index for the enum. Cannot be modified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  Required. Name of the enumvalue. This is the actual value that the aspect
+ *  will contain.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -3707,6 +4081,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation *setExpectation;
 
 /**
+ *  Aggregate rule which evaluates the number of rows returned for the provided
+ *  statement.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSqlAssertion *sqlAssertion;
+
+/**
  *  Aggregate rule which evaluates whether the column aggregate statistic lies
  *  between a specified range.
  */
@@ -3796,6 +4176,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult : GTLRObject
 
 /**
+ *  Output only. The number of rows returned by the sql statement in the
+ *  SqlAssertion rule.This field is only valid for SqlAssertion rules.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assertionRowCount;
+
+/**
  *  The number of rows a rule was evaluated against.This field is only valid for
  *  row-level type rules.Evaluated count can be configured to either include all
  *  rows (default) - with null rows automatically failing rule evaluation, or
@@ -3867,6 +4255,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /** Optional. Expected values for the column value. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Queries for rows returned by the provided SQL statement. If any rows are are
+ *  returned, this rule fails.The SQL statement needs to use BigQuery standard
+ *  SQL syntax, and must not contain any semicolons.${data()} can be used to
+ *  reference the rows being evaluated, i.e. the table after all additional
+ *  filters (row filters, incremental data filters, sampling) are
+ *  applied.Example: SELECT * FROM ${data()} WHERE price < 0
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSqlAssertion : GTLRObject
+
+/** Optional. The SQL statement. */
+@property(nonatomic, copy, nullable) NSString *sqlStatement;
 
 @end
 
@@ -4111,6 +4515,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsBigQueryExport *bigqueryExport;
 
+/**
+ *  Optional. If set, results will be sent to the provided notification receipts
+ *  upon triggers.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsNotificationReport *notificationReport;
+
 @end
 
 
@@ -4124,6 +4534,73 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
  */
 @property(nonatomic, copy, nullable) NSString *resultsTable;
+
+@end
+
+
+/**
+ *  This trigger is triggered whenever a scan job run ends, regardless of the
+ *  result.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsJobEndTrigger : GTLRObject
+@end
+
+
+/**
+ *  This trigger is triggered when the scan job itself fails, regardless of the
+ *  result.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsJobFailureTrigger : GTLRObject
+@end
+
+
+/**
+ *  The configuration of notification report post scan action.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsNotificationReport : GTLRObject
+
+/** Optional. If set, report will be sent when a scan job ends. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsJobEndTrigger *jobEndTrigger;
+
+/** Optional. If set, report will be sent when a scan job fails. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsJobFailureTrigger *jobFailureTrigger;
+
+/** Required. The recipients who will receive the notification report. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsRecipients *recipients;
+
+/** Optional. If set, report will be sent when score threshold is met. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsScoreThresholdTrigger *scoreThresholdTrigger;
+
+@end
+
+
+/**
+ *  The individuals or groups who are designated to receive notifications upon
+ *  triggers.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsRecipients : GTLRObject
+
+/**
+ *  Optional. The email recipients who will receive the DataQualityScan results
+ *  report.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *emails;
+
+@end
+
+
+/**
+ *  This trigger is triggered when the DQ score in the job result is less than a
+ *  specified input score.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActionsScoreThresholdTrigger : GTLRObject
+
+/**
+ *  Optional. The score range is in 0,100.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scoreThreshold;
 
 @end
 
@@ -5093,6 +5570,333 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  An entry is a representation of a data asset which can be described by
+ *  various metadata.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Entry : GTLRObject
+
+/**
+ *  Optional. The Aspects attached to the Entry. The key is either the resource
+ *  name of the aspect type (if the aspect is attached directly to the entry) or
+ *  "aspectType\@path" if the aspect is attached to an entry's path.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry_Aspects *aspects;
+
+/** Output only. The time when the Entry was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Source system related information for an entry. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource *entrySource;
+
+/**
+ *  Required. Immutable. The resource name of the EntryType used to create this
+ *  Entry.
+ */
+@property(nonatomic, copy, nullable) NSString *entryType;
+
+/**
+ *  Optional. A name for the entry that can reference it in an external system.
+ *  The maximum size of the field is 4000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *fullyQualifiedName;
+
+/**
+ *  Identifier. The relative resource name of the Entry, of the form:
+ *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Immutable. The resource name of the parent entry. */
+@property(nonatomic, copy, nullable) NSString *parentEntry;
+
+/** Output only. The time when the Entry was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. The Aspects attached to the Entry. The key is either the resource
+ *  name of the aspect type (if the aspect is attached directly to the entry) or
+ *  "aspectType\@path" if the aspect is attached to an entry's path.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDataplex_GoogleCloudDataplexV1Aspect. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Entry_Aspects : GTLRObject
+@end
+
+
+/**
+ *  An Entry Group represents a logical grouping of one or more Entries.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup : GTLRObject
+
+/** Output only. The time when the EntryGroup was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the EntryGroup.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User friendly display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels for the EntryGroup. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels *labels;
+
+/**
+ *  Output only. The relative resource name of the EntryGroup, of the form:
+ *  projects/{project_number}/locations/{location_id}/entryGroups/{entry_group_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Denotes the transfer status of the Entry Group. It is
+ *  unspecified for Entry Group created from Dataplex API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusMigrated
+ *        Indicates that a resource was migrated from Data Catalog service but
+ *        it hasn't been transferred yet. In particular the resource cannot be
+ *        updated from Dataplex API. (Value: "TRANSFER_STATUS_MIGRATED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusTransferred
+ *        Indicates that a resource was transferred from Data Catalog service.
+ *        The resource can only be updated from Dataplex API. (Value:
+ *        "TRANSFER_STATUS_TRANSFERRED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusUnspecified
+ *        The default value. It is set for resources that were not subject for
+ *        migration from Data Catalog service. (Value:
+ *        "TRANSFER_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transferStatus;
+
+/**
+ *  Output only. System generated globally unique ID for the EntryGroup. This ID
+ *  will be different if the EntryGroup is deleted and re-created with the same
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the EntryGroup was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the EntryGroup.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  EntrySource contains source system related information for the entry.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource : GTLRObject
+
+/** Immutable. The ancestors of the Entry in the source system. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EntrySourceAncestor *> *ancestors;
+
+/** The create time of the resource in the source system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Description of the Entry. The maximum size of the field is 2000 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  User friendly display name. The maximum size of the field is 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  User-defined labels. The maximum size of keys and values is 128 characters
+ *  each.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource_Labels *labels;
+
+/**
+ *  The platform containing the source system. The maximum size of the field is
+ *  64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *platform;
+
+/**
+ *  The name of the resource in the source system. The maximum size of the field
+ *  is 4000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the source system. The maximum size of the field is 64
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *system;
+
+/** The update time of the resource in the source system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  User-defined labels. The maximum size of keys and values is 128 characters
+ *  each.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource_Labels : GTLRObject
+@end
+
+
+/**
+ *  Ancestor contains information about individual items in the hierarchy of an
+ *  Entry.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntrySourceAncestor : GTLRObject
+
+/** Optional. The name of the ancestor resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The type of the ancestor resource. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Entry Type is a template for creating Entries.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryType : GTLRObject
+
+/** Immutable. Authorization defined for this type. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAuthorization *authorization;
+
+/** Output only. The time when the EntryType was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the EntryType.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. User friendly display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels for the EntryType. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntryType_Labels *labels;
+
+/**
+ *  Output only. The relative resource name of the EntryType, of the form:
+ *  projects/{project_number}/locations/{location_id}/entryTypes/{entry_type_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The platform that Entries of this type belongs to. */
+@property(nonatomic, copy, nullable) NSString *platform;
+
+/** AspectInfo for the entry type. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAspectInfo *> *requiredAspects;
+
+/**
+ *  Optional. The system that Entries of this type belongs to. Examples include
+ *  CloudSQL, MariaDB etc
+ */
+@property(nonatomic, copy, nullable) NSString *system;
+
+/**
+ *  Optional. Indicates the class this Entry Type belongs to, for example,
+ *  TABLE, DATABASE, MODEL.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *typeAliases;
+
+/**
+ *  Output only. System generated globally unique ID for the EntryType. This ID
+ *  will be different if the EntryType is deleted and re-created with the same
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the EntryType was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the EntryType.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryType_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAspectInfo
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAspectInfo : GTLRObject
+
+/** Required aspect type for the entry type. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Authorization for an Entry Type.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAuthorization : GTLRObject
+
+/**
+ *  Immutable. The IAM permission grantable on the Entry Group to allow access
+ *  to instantiate Entries of Dataplex owned Entry Types, only settable for
+ *  Dataplex owned Types.
+ */
+@property(nonatomic, copy, nullable) NSString *alternateUsePermission;
+
+@end
+
+
+/**
  *  Environment represents a user-visible compute infrastructure for analytics
  *  within a lake.
  */
@@ -5323,6 +6127,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *active;
+
+@end
+
+
+/**
+ *  Generate recommended DataQualityRules request.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GenerateDataQualityRulesRequest : GTLRObject
+@end
+
+
+/**
+ *  Generate recommended DataQualityRules response.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GenerateDataQualityRulesResponse : GTLRObject
+
+/** Generated recommended {\@link DataQualityRule}s. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *> *rule;
 
 @end
 
@@ -5788,6 +6610,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  List AspectTypes response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "aspectTypes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListAspectTypesResponse : GTLRCollectionObject
+
+/**
+ *  ListAspectTypes under the given parent location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1AspectType *> *aspectTypes;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
  *  List assets response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6016,6 +6868,90 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListEntriesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListEntriesResponse : GTLRCollectionObject
+
+/**
+ *  The list of entries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Entry *> *entries;
+
+/** Pagination token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  List ListEntryGroups response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entryGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListEntryGroupsResponse : GTLRCollectionObject
+
+/**
+ *  ListEntryGroups under the given parent location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup *> *entryGroups;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
+ *  List EntryTypes response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entryTypes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListEntryTypesResponse : GTLRCollectionObject
+
+/**
+ *  ListEntryTypes under the given parent location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EntryType *> *entryTypes;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
  *  List environments response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6206,94 +7142,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Zone *> *zones;
-
-@end
-
-
-/**
- *  These messages contain information about the execution of a metadata job.
- *  The monitored resource is 'MetadataJob'.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEvent : GTLRObject
-
-/** Import job results. Should only be populated on terminal states. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult *importResult;
-
-/** Message describing failure or success event. */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/**
- *  The resource name associated with the event. Supported resources included,
- *  but not limited to EntryGroup, MetadataJob, and Entry.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-@end
-
-
-/**
- *  Import job result for metadata job.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult : GTLRObject
-
-/**
- *  Total number of entries created.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *createdEntries;
-
-/**
- *  Total number of entries deleted.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *deletedEntries;
-
-/**
- *  The number of entry groups modified/specified by the import job.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *mutatedEntryGroups;
-
-/**
- *  Total number of entries recreated.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *recreatedEntries;
-
-/**
- *  Output only. Terminal state of the import job.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Cancelled
- *        Import job was cancelled. (Value: "CANCELLED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Failed
- *        Import Job was failed. (Value: "FAILED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Running
- *        Import Job is running. (Value: "RUNNING")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_StateUnspecified
- *        State Unspecified. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobEventImportResult_State_Succeeded
- *        Import Job was successful. (Value: "SUCCEEDED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/**
- *  Total number of entries left unchanged.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *unchangedEntries;
-
-/**
- *  Total number of entries updated.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *updatedEntries;
 
 @end
 
@@ -6709,6 +7557,98 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        SchemaType unspecified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "results" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResponse : GTLRCollectionObject
+
+/** Pagination token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The results matching the search query.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResult *> *results;
+
+/**
+ *  The estimated total number of matching entries. Not guaranteed to be
+ *  accurate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+/**
+ *  Unreachable locations. Search results don't include data from those
+ *  locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  A single result of a SearchEntries request.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResult : GTLRObject
+
+/** Entry format of the result. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *dataplexEntry;
+
+/**
+ *  Entry description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty GTLR_DEPRECATED;
+
+/** Display name. */
+@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
+
+/** Resource name of the entry. */
+@property(nonatomic, copy, nullable) NSString *entry GTLR_DEPRECATED;
+
+/** The entry type. */
+@property(nonatomic, copy, nullable) NSString *entryType GTLR_DEPRECATED;
+
+/** Fully qualified name. */
+@property(nonatomic, copy, nullable) NSString *fullyQualifiedName GTLR_DEPRECATED;
+
+/** Linked resource name. */
+@property(nonatomic, copy, nullable) NSString *linkedResource;
+
+/** The last modification timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *modifyTime GTLR_DEPRECATED;
+
+/** Relative resource name. */
+@property(nonatomic, copy, nullable) NSString *relativeResource GTLR_DEPRECATED;
+
+/** Snippets. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResultSnippets *snippets;
+
+@end
+
+
+/**
+ *  Snippets for the entry, contains HTML-style highlighting for matched tokens,
+ *  will be used in UI.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResultSnippets : GTLRObject
+
+/** Entry */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *dataplexEntry;
 
 @end
 

@@ -151,6 +151,8 @@
 @class GTLRAndroidPublisher_Targeting;
 @class GTLRAndroidPublisher_TargetingInfo;
 @class GTLRAndroidPublisher_TargetingRuleScope;
+@class GTLRAndroidPublisher_TargetingRuleScopeAnySubscriptionInApp;
+@class GTLRAndroidPublisher_TargetingRuleScopeThisSubscription;
 @class GTLRAndroidPublisher_TargetingUpdate;
 @class GTLRAndroidPublisher_TestPurchase;
 @class GTLRAndroidPublisher_TextureCompressionFormat;
@@ -306,6 +308,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Statu
  *  Value: "RECOVERY_STATUS_DRAFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusDraft;
+/**
+ *  The app recovery action generation has failed.
+ *
+ *  Value: "RECOVERY_STATUS_GENERATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusGenerationFailed;
+/**
+ *  The recovery action is generating recovery apks.
+ *
+ *  Value: "RECOVERY_STATUS_GENERATION_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusGenerationInProgress;
 /**
  *  RecoveryStatus is unspecified.
  *
@@ -602,6 +616,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_Re
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusDraft;
 /**
+ *  The app recovery action generation has failed.
+ *
+ *  Value: "RECOVERY_STATUS_GENERATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusGenerationFailed;
+/**
+ *  The recovery action is generating recovery apks.
+ *
+ *  Value: "RECOVERY_STATUS_GENERATION_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusGenerationInProgress;
+/**
  *  RecoveryStatus is unspecified.
  *
  *  Value: "RECOVERY_STATUS_UNSPECIFIED"
@@ -630,6 +656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissio
  *  Value: "CAN_MANAGE_APP_CONTENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent;
+/**
+ *  Manage the deep links setup of an app.
+ *
+ *  Value: "CAN_MANAGE_DEEPLINKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDeeplinks;
 /**
  *  Edit and delete draft apps.
  *
@@ -904,12 +936,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_Tim
 // GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
 
 /**
- *  Alternatively billing only, where users may only use developer-manager
+ *  Alternative billing only, where users may only use developer-manager
  *  billing.
  *
- *  Value: "ALTERTNATIVE_BILLING_ONLY"
+ *  Value: "ALTERNATIVE_BILLING_ONLY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AltertnativeBillingOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AlternativeBillingOnly;
 /**
  *  Unspecified transaction program. Not used.
  *
@@ -1516,6 +1548,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal;
 /**
+ *  Manage the deep links setup for all apps for the developer.
+ *
+ *  Value: "CAN_MANAGE_DEEPLINKS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDeeplinksGlobal;
+/**
  *  Create, edit, and delete draft apps.
  *
  *  Value: "CAN_MANAGE_DRAFT_APPS_GLOBAL"
@@ -2030,6 +2068,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *    @arg @c kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusDraft
  *        The recovery action is in the draft state and has not yet been
  *        deployed to users. (Value: "RECOVERY_STATUS_DRAFT")
+ *    @arg @c kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusGenerationFailed
+ *        The app recovery action generation has failed. (Value:
+ *        "RECOVERY_STATUS_GENERATION_FAILED")
+ *    @arg @c kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusGenerationInProgress
+ *        The recovery action is generating recovery apks. (Value:
+ *        "RECOVERY_STATUS_GENERATION_IN_PROGRESS")
  *    @arg @c kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusUnspecified
  *        RecoveryStatus is unspecified. (Value: "RECOVERY_STATUS_UNSPECIFIED")
  */
@@ -2045,8 +2089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
- *  Data format for a list of app versions. Only one app version is supported
- *  for now.
+ *  Data format for a list of app versions.
  */
 @interface GTLRAndroidPublisher_AppVersionList : GTLRObject
 
@@ -3569,6 +3612,12 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusDraft
  *        The recovery action is in the draft state and has not yet been
  *        deployed to users. (Value: "RECOVERY_STATUS_DRAFT")
+ *    @arg @c kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusGenerationFailed
+ *        The app recovery action generation has failed. (Value:
+ *        "RECOVERY_STATUS_GENERATION_FAILED")
+ *    @arg @c kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusGenerationInProgress
+ *        The recovery action is generating recovery apks. (Value:
+ *        "RECOVERY_STATUS_GENERATION_IN_PROGRESS")
  *    @arg @c kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusUnspecified
  *        RecoveryStatus is unspecified. (Value: "RECOVERY_STATUS_UNSPECIFIED")
  */
@@ -4899,8 +4948,8 @@ GTLR_DEPRECATED
  *  The type of purchase of the inapp product. This field is only set if this
  *  purchase was not made using the standard in-app billing flow. Possible
  *  values are: 0. Test (i.e. purchased from a license testing account) 1. Promo
- *  (i.e. purchased using a promo code) 2. Rewarded (i.e. from watching a video
- *  ad instead of paying)
+ *  (i.e. purchased using a promo code). Does not include Play Points purchases.
+ *  2. Rewarded (i.e. from watching a video ad instead of paying)
  *
  *  Uses NSNumber of intValue.
  */
@@ -4913,6 +4962,14 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  The quantity eligible for refund, i.e. quantity that hasn't been refunded.
+ *  The value reflects quantity-based partial refunds and full refunds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *refundableQuantity;
 
 /**
  *  ISO 3166-1 alpha-2 billing region code of the user at the time the product
@@ -4965,9 +5022,9 @@ GTLR_DEPRECATED
  *  reporting.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AltertnativeBillingOnly
- *        Alternatively billing only, where users may only use developer-manager
- *        billing. (Value: "ALTERTNATIVE_BILLING_ONLY")
+ *    @arg @c kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AlternativeBillingOnly
+ *        Alternative billing only, where users may only use developer-manager
+ *        billing. (Value: "ALTERNATIVE_BILLING_ONLY")
  *    @arg @c kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_ExternalTransactionProgramUnspecified
  *        Unspecified transaction program. Not used. (Value:
  *        "EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED")
@@ -6538,12 +6595,40 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_TargetingRuleScope : GTLRObject
 
 /**
+ *  The scope of the current targeting rule is any subscription in the parent
+ *  app.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_TargetingRuleScopeAnySubscriptionInApp *anySubscriptionInApp;
+
+/**
  *  The scope of the current targeting rule is the subscription with the
  *  specified subscription ID. Must be a subscription within the same parent
  *  app.
  */
 @property(nonatomic, copy, nullable) NSString *specificSubscriptionInApp;
 
+/**
+ *  The scope of the current targeting rule is the subscription in which this
+ *  offer is defined.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_TargetingRuleScopeThisSubscription *thisSubscription;
+
+@end
+
+
+/**
+ *  Represents the targeting rule scope corresponding to any subscription in the
+ *  parent app.
+ */
+@interface GTLRAndroidPublisher_TargetingRuleScopeAnySubscriptionInApp : GTLRObject
+@end
+
+
+/**
+ *  Represents the targeting rule scope corresponding to the subscriptions in
+ *  which this offer is defined.
+ */
+@interface GTLRAndroidPublisher_TargetingRuleScopeThisSubscription : GTLRObject
 @end
 
 
@@ -7353,6 +7438,15 @@ GTLR_DEPRECATED
  *  from version 3 of the API).
  */
 @property(nonatomic, copy, nullable) NSString *purchaseToken;
+
+/**
+ *  The voided quantity as the result of a quantity-based partial refund. Voided
+ *  purchases of quantity-based partial refunds may only be returned when
+ *  includeQuantityBasedPartialRefund is set to true.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *voidedQuantity;
 
 /**
  *  The reason why the purchase was voided, possible values are: 0. Other 1.

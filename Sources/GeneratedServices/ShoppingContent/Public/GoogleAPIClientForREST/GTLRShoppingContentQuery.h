@@ -3424,6 +3424,56 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Start an action. The action can be requested by merchants in third-party
+ *  application. Before merchants can request the action, the third-party
+ *  application needs to show them action specific content and display a user
+ *  input form. The action can be successfully started only once all `required`
+ *  inputs are provided. If any `required` input is missing, or invalid value
+ *  was provided, the service will return 400 error. Validation errors will
+ *  contain Ids for all problematic field together with translated, human
+ *  readable error messages that can be shown to the user.
+ *
+ *  Method: content.merchantsupport.triggeraction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_MerchantsupportTriggeraction : GTLRShoppingContentQuery
+
+/**
+ *  Optional. Language code [IETF BCP 47
+ *  syntax](https://tools.ietf.org/html/bcp47) used to localize the response. If
+ *  not set, the result will be in default language `en-US`.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. The ID of the merchant's account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_TriggerActionResponse.
+ *
+ *  Start an action. The action can be requested by merchants in third-party
+ *  application. Before merchants can request the action, the third-party
+ *  application needs to show them action specific content and display a user
+ *  input form. The action can be successfully started only once all `required`
+ *  inputs are provided. If any `required` input is missing, or invalid value
+ *  was provided, the service will return 400 error. Validation errors will
+ *  contain Ids for all problematic field together with translated, human
+ *  readable error messages that can be shown to the user.
+ *
+ *  @param object The @c GTLRShoppingContent_TriggerActionPayload to include in
+ *    the query.
+ *  @param merchantId Required. The ID of the merchant's account.
+ *
+ *  @return GTLRShoppingContentQuery_MerchantsupportTriggeraction
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_TriggerActionPayload *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
  *  Creates a charge invoice for a shipment group, and triggers a charge capture
  *  for orderinvoice enabled orders.
  *

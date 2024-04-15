@@ -543,6 +543,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Acquire a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  Method: sql.instances.acquireSsrsLease
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesAcquireSsrsLease : GTLRSQLAdminQuery
+
+/**
+ *  Required. Cloud SQL instance ID. This doesn't include the project ID. It's
+ *  composed of lowercase letters, numbers, and hyphens, and it must start with
+ *  a letter. The total length must be 98 characters or less (Example:
+ *  instance-id).
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Required. Project ID of the project that contains the instance (Example:
+ *  project-id).
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesAcquireSsrsLeaseResponse.
+ *
+ *  Acquire a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesAcquireSsrsLeaseRequest to
+ *    include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance (Example: project-id).
+ *  @param instance Required. Cloud SQL instance ID. This doesn't include the
+ *    project ID. It's composed of lowercase letters, numbers, and hyphens, and
+ *    it must start with a letter. The total length must be 98 characters or
+ *    less (Example: instance-id).
+ *
+ *  @return GTLRSQLAdminQuery_InstancesAcquireSsrsLease
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesAcquireSsrsLeaseRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Adds a new trusted Certificate Authority (CA) version for the specified
  *  instance. Required to prepare for a certificate rotation. If a CA version
  *  was previously added but never used in a certificate rotation, this
@@ -1119,6 +1166,46 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesReencryptRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Release a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  Method: sql.instances.releaseSsrsLease
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesReleaseSsrsLease : GTLRSQLAdminQuery
+
+/**
+ *  Required. The Cloud SQL instance ID. This doesn't include the project ID.
+ *  The instance ID contains lowercase letters, numbers, and hyphens, and it
+ *  must start with a letter. This ID can have a maximum length of 98
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. The project ID that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesReleaseSsrsLeaseResponse.
+ *
+ *  Release a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  @param project Required. The project ID that contains the instance.
+ *  @param instance Required. The Cloud SQL instance ID. This doesn't include
+ *    the project ID. The instance ID contains lowercase letters, numbers, and
+ *    hyphens, and it must start with a letter. This ID can have a maximum
+ *    length of 98 characters.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesReleaseSsrsLease
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
 
 @end
 

@@ -34,6 +34,7 @@
 @class GTLRAnalyticsHub_Policy;
 @class GTLRAnalyticsHub_Publisher;
 @class GTLRAnalyticsHub_RestrictedExportConfig;
+@class GTLRAnalyticsHub_SelectedResource;
 @class GTLRAnalyticsHub_SharingEnvironmentConfig;
 @class GTLRAnalyticsHub_Status;
 @class GTLRAnalyticsHub_Status_Details_Item;
@@ -251,6 +252,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
+/**
+ *  Optional. Resources in this dataset that are selectively shared. If this
+ *  field is empty, then the entire dataset (all resources) are shared. This
+ *  field is only valid for data clean room exchanges.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_SelectedResource *> *selectedResources;
+
 @end
 
 
@@ -425,6 +433,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Data Clean Room (DCR), used for privacy-safe and secured data sharing.
  */
 @interface GTLRAnalyticsHub_DcrExchangeConfig : GTLRObject
+
+/**
+ *  Output only. If True, when subscribing to this DCR, it will create only one
+ *  linked dataset containing all resources shared within the cleanroom. If
+ *  False, when subscribing to this DCR, it will create 1 linked dataset per
+ *  listing. This is not configurable, and by default, all new DCRs will have
+ *  the restriction set to True.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *singleLinkedDatasetPerCleanroom;
+
+/**
+ *  Output only. If True, this DCR restricts the contributors to sharing only a
+ *  single resource in a Listing. And no two resources should have the same IDs.
+ *  So if a contributor adds a view with a conflicting name, the CreateListing
+ *  API will reject the request. if False, the data contributor can publish an
+ *  entire dataset (as before). This is not configurable, and by default, all
+ *  new DCRs will have the restriction set to True.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *singleSelectedResourceSharingRestriction;
+
 @end
 
 
@@ -1118,6 +1150,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Message for response when you revoke a subscription.
  */
 @interface GTLRAnalyticsHub_RevokeSubscriptionResponse : GTLRObject
+@end
+
+
+/**
+ *  Resource in this dataset that are selectively shared.
+ */
+@interface GTLRAnalyticsHub_SelectedResource : GTLRObject
+
+/**
+ *  Optional. Format: For table:
+ *  `projects/{projectId}/datasets/{datasetId}/tables/{tableId}`
+ *  Example:"projects/test_project/datasets/test_dataset/tables/test_table"
+ */
+@property(nonatomic, copy, nullable) NSString *table;
+
 @end
 
 

@@ -1736,6 +1736,113 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists Memberships bound to a Scope. The response includes relevant
+ *  Memberships from all regions.
+ *
+ *  Method: gkehub.projects.locations.scopes.listMemberships
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesListMemberships : GTLRGKEHubQuery
+
+/**
+ *  Optional. Lists Memberships that match the filter expression, following the
+ *  syntax outlined in https://google.aip.dev/160. Currently, filtering can be
+ *  done only based on Memberships's `name`, `labels`, `create_time`,
+ *  `update_time`, and `unique_id`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. When requesting a 'page' of resources, `page_size` specifies
+ *  number of resources to return. If unspecified or set to 0, all resources
+ *  will be returned. Pagination is currently not supported; therefore, setting
+ *  this field does not have any impact for now.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to `ListBoundMemberships` which
+ *  specifies the position in the list from where to continue listing the
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the Scope, in the format `projects/ *
+ *  /locations/global/scopes/ *`, to which the Memberships are bound.
+ */
+@property(nonatomic, copy, nullable) NSString *scopeName;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListBoundMembershipsResponse.
+ *
+ *  Lists Memberships bound to a Scope. The response includes relevant
+ *  Memberships from all regions.
+ *
+ *  @param scopeName Required. Name of the Scope, in the format `projects/ *
+ *    /locations/global/scopes/ *`, to which the Memberships are bound.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesListMemberships
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithScopeName:(NSString *)scopeName;
+
+@end
+
+/**
+ *  Lists permitted Scopes.
+ *
+ *  Method: gkehub.projects.locations.scopes.listPermitted
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEHubCloudPlatform
+ */
+@interface GTLRGKEHubQuery_ProjectsLocationsScopesListPermitted : GTLRGKEHubQuery
+
+/**
+ *  Optional. When requesting a 'page' of resources, `page_size` specifies
+ *  number of resources to return. If unspecified or set to 0, all resources
+ *  will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to `ListPermittedScopes` which
+ *  specifies the position in the list from where to continue listing the
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent (project and location) where the Scope will be listed.
+ *  Specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGKEHub_ListPermittedScopesResponse.
+ *
+ *  Lists permitted Scopes.
+ *
+ *  @param parent Required. The parent (project and location) where the Scope
+ *    will be listed. Specified in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRGKEHubQuery_ProjectsLocationsScopesListPermitted
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a fleet namespace.
  *
  *  Method: gkehub.projects.locations.scopes.namespaces.create

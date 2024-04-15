@@ -32,6 +32,7 @@
 @class GTLRContainer_BinaryAuthorization;
 @class GTLRContainer_BlueGreenInfo;
 @class GTLRContainer_BlueGreenSettings;
+@class GTLRContainer_CertificateAuthorityDomainConfig;
 @class GTLRContainer_CidrBlock;
 @class GTLRContainer_ClientCertificateConfig;
 @class GTLRContainer_CloudRunConfig;
@@ -46,6 +47,7 @@
 @class GTLRContainer_CostManagementConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
+@class GTLRContainer_DConfig;
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
@@ -58,6 +60,7 @@
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
+@class GTLRContainer_GCPSecretManagerCertificateConfig;
 @class GTLRContainer_GcsFuseCsiDriverConfig;
 @class GTLRContainer_GkeBackupAgentConfig;
 @class GTLRContainer_GPUDriverInstallationConfig;
@@ -65,6 +68,7 @@
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
+@class GTLRContainer_HugepagesConfig;
 @class GTLRContainer_IdentityServiceConfig;
 @class GTLRContainer_ILBSubsettingConfig;
 @class GTLRContainer_IntraNodeVisibilityConfig;
@@ -116,6 +120,7 @@
 @class GTLRContainer_NodeTaints;
 @class GTLRContainer_NotificationConfig;
 @class GTLRContainer_Operation;
+@class GTLRContainer_OperationError;
 @class GTLRContainer_OperationProgress;
 @class GTLRContainer_ParentProductConfig;
 @class GTLRContainer_ParentProductConfig_Labels;
@@ -123,6 +128,7 @@
 @class GTLRContainer_PodCIDROverprovisionConfig;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
+@class GTLRContainer_PrivateRegistryAccessConfig;
 @class GTLRContainer_PubSub;
 @class GTLRContainer_QueuedProvisioning;
 @class GTLRContainer_RangeInfo;
@@ -137,6 +143,8 @@
 @class GTLRContainer_ResourceManagerTags_Tags;
 @class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_SandboxConfig;
+@class GTLRContainer_SecondaryBootDisk;
+@class GTLRContainer_SecondaryBootDiskUpdateStrategy;
 @class GTLRContainer_SecurityPostureConfig;
 @class GTLRContainer_ServiceExternalIPsConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
@@ -516,6 +524,55 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_StackTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_DatabaseEncryption.currentState
+
+/**
+ *  Secrets in etcd are stored in plain text (at etcd level) - this is unrelated
+ *  to Compute Engine level full disk encryption.
+ *
+ *  Value: "CURRENT_STATE_DECRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecrypted;
+/**
+ *  De-crypting Secrets to plain text in etcd encountered an error.
+ *
+ *  Value: "CURRENT_STATE_DECRYPTION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionError;
+/**
+ *  De-crypting Secrets to plain text in etcd is in progress.
+ *
+ *  Value: "CURRENT_STATE_DECRYPTION_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionPending;
+/**
+ *  Secrets in etcd are encrypted.
+ *
+ *  Value: "CURRENT_STATE_ENCRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncrypted;
+/**
+ *  Encryption (or re-encryption with a different CloudKMS key) of Secrets in
+ *  etcd encountered an error.
+ *
+ *  Value: "CURRENT_STATE_ENCRYPTION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncryptionError;
+/**
+ *  Encryption (or re-encryption with a different CloudKMS key) of Secrets is in
+ *  progress.
+ *
+ *  Value: "CURRENT_STATE_ENCRYPTION_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncryptionPending;
+/**
+ *  Should never be set
+ *
+ *  Value: "CURRENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.state
 
 /**
@@ -703,6 +760,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_Gp
  *  Value: "GPU_SHARING_STRATEGY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_GpuSharingStrategyUnspecified;
+/**
+ *  GPUs are shared between containers with NVIDIA MPS.
+ *
+ *  Value: "MPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_Mps;
 /**
  *  GPUs are time-shared between containers.
  *
@@ -1528,6 +1591,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor;
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_SecondaryBootDisk.mode
+
+/**
+ *  CONTAINER_IMAGE_CACHE is for using the secondary boot disk as a container
+ *  image cache.
+ *
+ *  Value: "CONTAINER_IMAGE_CACHE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecondaryBootDisk_Mode_ContainerImageCache;
+/**
+ *  MODE_UNSPECIFIED is when mode is not set.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecondaryBootDisk_Mode_ModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_SecurityPostureConfig.mode
@@ -2554,6 +2634,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  CertificateAuthorityDomainConfig configures one or more fully qualified
+ *  domain names (FQDN) to a specific certificate.
+ */
+@interface GTLRContainer_CertificateAuthorityDomainConfig : GTLRObject
+
+/**
+ *  List of fully qualified domain names (FQDN). Specifying port is supported.
+ *  Wilcards are NOT supported. Examples: - my.customdomain.com - 10.0.1.2:5000
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fqdns;
+
+/** Google Secret Manager (GCP) certificate configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_GCPSecretManagerCertificateConfig *gcpSecretManagerCertificateConfig;
+
+@end
+
+
+/**
  *  CheckAutopilotCompatibilityResponse has a list of compatibility issues.
  */
 @interface GTLRContainer_CheckAutopilotCompatibilityResponse : GTLRObject
@@ -3167,6 +3265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Cluster-level autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *desiredClusterAutoscaling;
 
+/** The desired containerd config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_DConfig *desiredContainerdConfig;
+
 /** The desired configuration for the fine-grained cost management feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_CostManagementConfig *desiredCostManagementConfig;
 
@@ -3197,11 +3298,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *desiredDnsConfig;
 
 /**
+ *  Enable/Disable Cilium Clusterwide Network Policy for the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredEnableCiliumClusterwideNetworkPolicy;
+
+/**
  *  Enable/Disable FQDN Network Policy for the cluster.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *desiredEnableFqdnNetworkPolicy;
+
+/**
+ *  Enable/Disable Multi-Networking for the cluster
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredEnableMultiNetworking;
 
 /**
  *  Enable/Disable private endpoint for the cluster's master.
@@ -3365,7 +3480,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired parent product config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_ParentProductConfig *desiredParentProductConfig;
 
-/** The desired private cluster configuration. */
+/**
+ *  The desired private cluster configuration. master_global_access_config is
+ *  the only field that can be changed via this field. See also
+ *  ClusterUpdate.desired_enable_private_endpoint for modifying other fields
+ *  within PrivateClusterConfig.
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *desiredPrivateClusterConfig;
 
 /**
@@ -3659,10 +3779,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_DatabaseEncryption : GTLRObject
 
 /**
+ *  Output only. The current state of etcd encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecrypted
+ *        Secrets in etcd are stored in plain text (at etcd level) - this is
+ *        unrelated to Compute Engine level full disk encryption. (Value:
+ *        "CURRENT_STATE_DECRYPTED")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionError
+ *        De-crypting Secrets to plain text in etcd encountered an error.
+ *        (Value: "CURRENT_STATE_DECRYPTION_ERROR")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionPending
+ *        De-crypting Secrets to plain text in etcd is in progress. (Value:
+ *        "CURRENT_STATE_DECRYPTION_PENDING")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncrypted
+ *        Secrets in etcd are encrypted. (Value: "CURRENT_STATE_ENCRYPTED")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncryptionError
+ *        Encryption (or re-encryption with a different CloudKMS key) of Secrets
+ *        in etcd encountered an error. (Value:
+ *        "CURRENT_STATE_ENCRYPTION_ERROR")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncryptionPending
+ *        Encryption (or re-encryption with a different CloudKMS key) of Secrets
+ *        is in progress. (Value: "CURRENT_STATE_ENCRYPTION_PENDING")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateUnspecified
+ *        Should never be set (Value: "CURRENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *currentState;
+
+/**
+ *  Output only. Keys in use by the cluster for decrypting existing objects, in
+ *  addition to the key in `key_name`. Each item is a CloudKMS key resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *decryptionKeys;
+
+/**
  *  Name of CloudKMS key to use for the encryption of secrets in etcd. Ex.
  *  projects/my-project/locations/global/keyRings/my-ring/cryptoKeys/my-key
  */
 @property(nonatomic, copy, nullable) NSString *keyName;
+
+/**
+ *  Output only. Records errors seen during DatabaseEncryption update
+ *  operations.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_OperationError *> *lastOperationErrors;
 
 /**
  *  The desired state of etcd encryption.
@@ -3677,6 +3837,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        set (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  ContainerdConfig contains configuration to customize containerd.
+ */
+@interface GTLRContainer_DConfig : GTLRObject
+
+/**
+ *  PrivateRegistryAccessConfig is used to configure access configuration for
+ *  private container registries.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_PrivateRegistryAccessConfig *privateRegistryAccessConfig;
 
 @end
 
@@ -3716,6 +3890,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  DNSConfig contains the desired set of options for configuring clusterDNS.
  */
 @interface GTLRContainer_DNSConfig : GTLRObject
+
+/** Optional. The domain used in Additive VPC scope. */
+@property(nonatomic, copy, nullable) NSString *additiveVpcScopeDnsDomain;
 
 /**
  *  cluster_dns indicates which in-cluster DNS provider should be used.
@@ -3945,6 +4122,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  GCPSecretManagerCertificateConfig configures a secret from [Google Secret
+ *  Manager](https://cloud.google.com/secret-manager).
+ */
+@interface GTLRContainer_GCPSecretManagerCertificateConfig : GTLRObject
+
+/**
+ *  Secret URI, in the form
+ *  "projects/$PROJECT_ID/secrets/$SECRET_NAME/versions/$VERSION". Version can
+ *  be fixed (e.g. "2") or "latest"
+ */
+@property(nonatomic, copy, nullable) NSString *secretUri;
+
+@end
+
+
+/**
  *  Configuration for the Cloud Storage Fuse CSI driver.
  */
 @interface GTLRContainer_GcsFuseCsiDriverConfig : GTLRObject
@@ -4067,6 +4260,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Likely values:
  *    @arg @c kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_GpuSharingStrategyUnspecified
  *        Default value. (Value: "GPU_SHARING_STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_Mps GPUs are
+ *        shared between containers with NVIDIA MPS. (Value: "MPS")
  *    @arg @c kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_TimeSharing
  *        GPUs are time-shared between containers. (Value: "TIME_SHARING")
  */
@@ -4135,6 +4330,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  Hugepages amount in both 2m and 1g size
+ */
+@interface GTLRContainer_HugepagesConfig : GTLRObject
+
+/**
+ *  Optional. Amount of 1G hugepages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hugepageSize1g;
+
+/**
+ *  Optional. Amount of 2M hugepages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hugepageSize2m;
 
 @end
 
@@ -4471,6 +4688,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        on the node image. (Value: "CGROUP_MODE_V2")
  */
 @property(nonatomic, copy, nullable) NSString *cgroupMode;
+
+/** Optional. Amounts for 2M and 1G hugepages */
+@property(nonatomic, strong, nullable) GTLRContainer_HugepagesConfig *hugepages;
 
 /**
  *  The Linux kernel parameters to be applied to the nodes and all pods running
@@ -4966,6 +5186,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *dnsConfig;
 
 /**
+ *  Whether CiliumClusterwideNetworkPolicy is enabled on this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableCiliumClusterwideNetworkPolicy;
+
+/**
  *  Whether FQDN Network Policy is enabled on this cluster.
  *
  *  Uses NSNumber of boolValue.
@@ -5203,6 +5430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
 
+/** Parameters for containerd customization. */
+@property(nonatomic, strong, nullable) GTLRContainer_DConfig *containerdConfig;
+
 /**
  *  Size of the disk attached to each node, specified in GB. The smallest
  *  allowed disk size is 10GB. If unspecified, the default disk size is 100GB.
@@ -5216,6 +5446,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  'pd-balanced') If unspecified, the default disk type is 'pd-standard'
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  Optional. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialStorage;
 
 /**
  *  Parameters for the node ephemeral storage using Local SSDs. If unspecified,
@@ -5360,6 +5597,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Sandbox configuration for this node. */
 @property(nonatomic, strong, nullable) GTLRContainer_SandboxConfig *sandboxConfig;
 
+/** List of secondary boot disks attached to the nodes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_SecondaryBootDisk *> *secondaryBootDisks;
+
+/** Secondary boot disk update strategy. */
+@property(nonatomic, strong, nullable) GTLRContainer_SecondaryBootDiskUpdateStrategy *secondaryBootDiskUpdateStrategy;
+
 /**
  *  The Google Cloud Platform Service Account to be used by the node VMs.
  *  Specify the email address of the Service Account; otherwise, if no Service
@@ -5467,6 +5710,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Subset of NodeConfig message that has defaults.
  */
 @interface GTLRContainer_NodeConfigDefaults : GTLRObject
+
+/** Parameters for containerd customization. */
+@property(nonatomic, strong, nullable) GTLRContainer_DConfig *containerdConfig;
 
 /** GCFS (Google Container File System, also known as Riptide) options. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
@@ -6201,6 +6447,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  OperationError records errors seen from CloudKMS keys encountered during
+ *  updates to DatabaseEncryption configuration.
+ */
+@interface GTLRContainer_OperationError : GTLRObject
+
+/** Description of the error seen during the operation. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** CloudKMS key resource that had the error. */
+@property(nonatomic, copy, nullable) NSString *keyName;
+
+/** Time when the CloudKMS error was seen. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+@end
+
+
+/**
  *  Information about operation (or operation stage) progress.
  */
 @interface GTLRContainer_OperationProgress : GTLRObject
@@ -6377,6 +6641,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Whenever master is accessible globally or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  PrivateRegistryAccessConfig contains access configuration for private
+ *  container registries.
+ */
+@interface GTLRContainer_PrivateRegistryAccessConfig : GTLRObject
+
+/** Private registry access configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_CertificateAuthorityDomainConfig *> *certificateAuthorityDomainConfig;
+
+/**
+ *  Private registry access is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6761,6 +7044,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  SecondaryBootDisk represents a persistent disk attached to a node with
+ *  special configurations based on its mode.
+ */
+@interface GTLRContainer_SecondaryBootDisk : GTLRObject
+
+/** Fully-qualified resource ID for an existing disk image. */
+@property(nonatomic, copy, nullable) NSString *diskImage;
+
+/**
+ *  Disk mode (container image cache, etc.)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_SecondaryBootDisk_Mode_ContainerImageCache
+ *        CONTAINER_IMAGE_CACHE is for using the secondary boot disk as a
+ *        container image cache. (Value: "CONTAINER_IMAGE_CACHE")
+ *    @arg @c kGTLRContainer_SecondaryBootDisk_Mode_ModeUnspecified
+ *        MODE_UNSPECIFIED is when mode is not set. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
+ *  SecondaryBootDiskUpdateStrategy is a placeholder which will be extended in
+ *  the future to define different options for updating secondary boot disks.
+ */
+@interface GTLRContainer_SecondaryBootDiskUpdateStrategy : GTLRObject
 @end
 
 
@@ -7941,6 +8256,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_UpdateNodePoolRequest : GTLRObject
 
 /**
+ *  A list of hardware accelerators to be attached to each node. See
+ *  https://cloud.google.com/compute/docs/gpus for more information about
+ *  support for GPUs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_AcceleratorConfig *> *accelerators;
+
+/**
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
@@ -7951,6 +8273,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Confidential VM once enabled.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
+
+/**
+ *  The desired containerd config for nodes in the node pool. Initiates an
+ *  upgrade operation that recreates the nodes with the new config.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_DConfig *containerdConfig;
 
 /**
  *  Optional. The desired disk size for nodes in the node pool specified in GB.
@@ -8057,6 +8385,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
+
+/** Specifies the configuration of queued provisioning. */
+@property(nonatomic, strong, nullable) GTLRContainer_QueuedProvisioning *queuedProvisioning;
 
 /**
  *  The resource labels for the node pool to use to annotate any related Google

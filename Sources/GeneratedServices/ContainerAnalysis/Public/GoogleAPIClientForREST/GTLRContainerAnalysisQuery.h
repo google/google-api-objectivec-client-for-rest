@@ -38,6 +38,303 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the specified note.
+ *
+ *  Method: containeranalysis.projects.locations.notes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsLocationsNotesGet : GTLRContainerAnalysisQuery
+
+/**
+ *  Required. The name of the note in the form of
+ *  `projects/[PROVIDER_ID]/notes/[NOTE_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_Note.
+ *
+ *  Gets the specified note.
+ *
+ *  @param name Required. The name of the note in the form of
+ *    `projects/[PROVIDER_ID]/notes/[NOTE_ID]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsLocationsNotesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists notes for the specified project.
+ *
+ *  Method: containeranalysis.projects.locations.notes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsLocationsNotesList : GTLRContainerAnalysisQuery
+
+/** The filter expression. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Number of notes to return in the list. Must be positive. Max allowed page
+ *  size is 1000. If not specified, page size defaults to 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to provide to skip to a particular spot in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the project to list notes for in the form of
+ *  `projects/[PROJECT_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_ListNotesResponse.
+ *
+ *  Lists notes for the specified project.
+ *
+ *  @param parent Required. The name of the project to list notes for in the
+ *    form of `projects/[PROJECT_ID]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsLocationsNotesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists occurrences referencing the specified note. Provider projects can use
+ *  this method to get all occurrences across consumer projects referencing the
+ *  specified note.
+ *
+ *  Method: containeranalysis.projects.locations.notes.occurrences.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsLocationsNotesOccurrencesList : GTLRContainerAnalysisQuery
+
+/** The filter expression. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The name of the note to list occurrences for in the form of
+ *  `projects/[PROVIDER_ID]/notes/[NOTE_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Number of occurrences to return in the list. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to provide to skip to a particular spot in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_ListNoteOccurrencesResponse.
+ *
+ *  Lists occurrences referencing the specified note. Provider projects can use
+ *  this method to get all occurrences across consumer projects referencing the
+ *  specified note.
+ *
+ *  @param name Required. The name of the note to list occurrences for in the
+ *    form of `projects/[PROVIDER_ID]/notes/[NOTE_ID]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsLocationsNotesOccurrencesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the specified occurrence.
+ *
+ *  Method: containeranalysis.projects.locations.occurrences.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGet : GTLRContainerAnalysisQuery
+
+/**
+ *  Required. The name of the occurrence in the form of
+ *  `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_Occurrence.
+ *
+ *  Gets the specified occurrence.
+ *
+ *  @param name Required. The name of the occurrence in the form of
+ *    `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the note attached to the specified occurrence. Consumer projects can
+ *  use this method to get a note that belongs to a provider project.
+ *
+ *  Method: containeranalysis.projects.locations.occurrences.getNotes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetNotes : GTLRContainerAnalysisQuery
+
+/**
+ *  Required. The name of the occurrence in the form of
+ *  `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_Note.
+ *
+ *  Gets the note attached to the specified occurrence. Consumer projects can
+ *  use this method to get a note that belongs to a provider project.
+ *
+ *  @param name Required. The name of the occurrence in the form of
+ *    `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetNotes
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a summary of the number and severity of occurrences.
+ *
+ *  Method: containeranalysis.projects.locations.occurrences.getVulnerabilitySummary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetVulnerabilitySummary : GTLRContainerAnalysisQuery
+
+/** The filter expression. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The name of the project to get a vulnerability summary for in the
+ *  form of `projects/[PROJECT_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_VulnerabilityOccurrencesSummary.
+ *
+ *  Gets a summary of the number and severity of occurrences.
+ *
+ *  @param parent Required. The name of the project to get a vulnerability
+ *    summary for in the form of `projects/[PROJECT_ID]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetVulnerabilitySummary
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists occurrences for the specified project.
+ *
+ *  Method: containeranalysis.projects.locations.occurrences.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesList : GTLRContainerAnalysisQuery
+
+/** The filter expression. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Number of occurrences to return in the list. Must be positive. Max allowed
+ *  page size is 1000. If not specified, page size defaults to 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to provide to skip to a particular spot in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the project to list occurrences for in the form of
+ *  `projects/[PROJECT_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_ListOccurrencesResponse.
+ *
+ *  Lists occurrences for the specified project.
+ *
+ *  @param parent Required. The name of the project to list occurrences for in
+ *    the form of `projects/[PROJECT_ID]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Generates an SBOM for the given resource.
+ *
+ *  Method: containeranalysis.projects.locations.resources.exportSBOM
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsLocationsResourcesExportSBOM : GTLRContainerAnalysisQuery
+
+/**
+ *  Required. The name of the resource in the form of
+ *  `projects/[PROJECT_ID]/resources/[RESOURCE_URL]`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_ExportSBOMResponse.
+ *
+ *  Generates an SBOM for the given resource.
+ *
+ *  @param object The @c GTLRContainerAnalysis_ExportSBOMRequest to include in
+ *    the query.
+ *  @param name Required. The name of the resource in the form of
+ *    `projects/[PROJECT_ID]/resources/[RESOURCE_URL]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsLocationsResourcesExportSBOM
+ */
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_ExportSBOMRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates new notes in batch.
  *
  *  Method: containeranalysis.projects.notes.batchCreate
@@ -847,6 +1144,39 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Generates an SBOM for the given resource.
+ *
+ *  Method: containeranalysis.projects.resources.exportSBOM
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_ProjectsResourcesExportSBOM : GTLRContainerAnalysisQuery
+
+/**
+ *  Required. The name of the resource in the form of
+ *  `projects/[PROJECT_ID]/resources/[RESOURCE_URL]`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_ExportSBOMResponse.
+ *
+ *  Generates an SBOM for the given resource.
+ *
+ *  @param object The @c GTLRContainerAnalysis_ExportSBOMRequest to include in
+ *    the query.
+ *  @param name Required. The name of the resource in the form of
+ *    `projects/[PROJECT_ID]/resources/[RESOURCE_URL]`.
+ *
+ *  @return GTLRContainerAnalysisQuery_ProjectsResourcesExportSBOM
+ */
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_ExportSBOMRequest *)object
+                           name:(NSString *)name;
 
 @end
 

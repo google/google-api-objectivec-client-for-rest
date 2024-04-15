@@ -3221,6 +3221,313 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Lists instance partition long-running operations in the given instance. An
+ *  instance partition operation has a name of the form
+ *  `projects//instances//instancePartitions//operations/`. The long-running
+ *  operation metadata field type `metadata.type_url` describes the type of the
+ *  metadata. Operations returned include those that have
+ *  completed/failed/canceled within the last 7 days, and pending operations.
+ *  Operations returned are ordered by `operation.metadata.value.start_time` in
+ *  descending order starting from the most recently started operation.
+ *  Authorization requires `spanner.instancePartitionOperations.list` permission
+ *  on the resource parent.
+ *
+ *  Method: spanner.projects.instances.instancePartitionOperations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionOperationsList : GTLRSpannerQuery
+
+/**
+ *  Optional. An expression that filters the list of returned operations. A
+ *  filter expression consists of a field name, a comparison operator, and a
+ *  value for filtering. The value must be a string, a number, or a boolean. The
+ *  comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
+ *  Colon `:` is the contains operator. Filter rules are not case sensitive. The
+ *  following fields in the Operation are eligible for filtering: * `name` - The
+ *  name of the long-running operation * `done` - False if the operation is in
+ *  progress, else true. * `metadata.\@type` - the type of metadata. For
+ *  example, the type string for CreateInstancePartitionMetadata is
+ *  `type.googleapis.com/google.spanner.admin.instance.v1.CreateInstancePartitionMetadata`.
+ *  * `metadata.` - any field in metadata.value. `metadata.\@type` must be
+ *  specified first, if filtering on metadata fields. * `error` - Error
+ *  associated with the long-running operation. * `response.\@type` - the type
+ *  of response. * `response.` - any field in response.value. You can combine
+ *  multiple expressions by enclosing each expression in parentheses. By
+ *  default, expressions are combined with AND logic. However, you can specify
+ *  AND, OR, and NOT logic explicitly. Here are a few examples: * `done:true` -
+ *  The operation is complete. * `(metadata.\@type=` \\
+ *  `type.googleapis.com/google.spanner.admin.instance.v1.CreateInstancePartitionMetadata)
+ *  AND` \\ `(metadata.instance_partition.name:custom-instance-partition) AND`
+ *  \\ `(metadata.start_time < \\"2021-03-28T14:50:00Z\\") AND` \\ `(error:*)` -
+ *  Return operations where: * The operation's metadata type is
+ *  CreateInstancePartitionMetadata. * The instance partition name contains
+ *  "custom-instance-partition". * The operation started before
+ *  2021-03-28T14:50:00Z. * The operation resulted in an error.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Deadline used while retrieving metadata for instance partition
+ *  operations. Instance partitions whose operation metadata cannot be retrieved
+ *  within this deadline will be added to unreachable in
+ *  ListInstancePartitionOperationsResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *instancePartitionDeadline;
+
+/**
+ *  Optional. Number of operations to be returned in the response. If 0 or less,
+ *  defaults to the server's maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If non-empty, `page_token` should contain a next_page_token from a
+ *  previous ListInstancePartitionOperationsResponse to the same `parent` and
+ *  with the same `filter`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent instance of the instance partition operations. Values
+ *  are of the form `projects//instances/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListInstancePartitionOperationsResponse.
+ *
+ *  Lists instance partition long-running operations in the given instance. An
+ *  instance partition operation has a name of the form
+ *  `projects//instances//instancePartitions//operations/`. The long-running
+ *  operation metadata field type `metadata.type_url` describes the type of the
+ *  metadata. Operations returned include those that have
+ *  completed/failed/canceled within the last 7 days, and pending operations.
+ *  Operations returned are ordered by `operation.metadata.value.start_time` in
+ *  descending order starting from the most recently started operation.
+ *  Authorization requires `spanner.instancePartitionOperations.list` permission
+ *  on the resource parent.
+ *
+ *  @param parent Required. The parent instance of the instance partition
+ *    operations. Values are of the form `projects//instances/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an instance partition and begins preparing it to be used. The
+ *  returned long-running operation can be used to track the progress of
+ *  preparing the new instance partition. The instance partition name is
+ *  assigned by the caller. If the named instance partition already exists,
+ *  `CreateInstancePartition` returns `ALREADY_EXISTS`. Immediately upon
+ *  completion of this request: * The instance partition is readable via the
+ *  API, with all requested attributes but no allocated resources. Its state is
+ *  `CREATING`. Until completion of the returned operation: * Cancelling the
+ *  operation renders the instance partition immediately unreadable via the API.
+ *  * The instance partition can be deleted. * All other attempts to modify the
+ *  instance partition are rejected. Upon completion of the returned operation:
+ *  * Billing for all successfully-allocated resources begins (some types may
+ *  have lower than the requested levels). * Databases can start using this
+ *  instance partition. * The instance partition's allocated resource levels are
+ *  readable via the API. * The instance partition's state becomes `READY`. The
+ *  returned long-running operation will have a name of the format
+ *  `/operations/` and can be used to track creation of the instance partition.
+ *  The metadata field type is CreateInstancePartitionMetadata. The response
+ *  field type is InstancePartition, if successful.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsCreate : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the instance in which to create the instance
+ *  partition. Values are of the form `projects//instances/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Creates an instance partition and begins preparing it to be used. The
+ *  returned long-running operation can be used to track the progress of
+ *  preparing the new instance partition. The instance partition name is
+ *  assigned by the caller. If the named instance partition already exists,
+ *  `CreateInstancePartition` returns `ALREADY_EXISTS`. Immediately upon
+ *  completion of this request: * The instance partition is readable via the
+ *  API, with all requested attributes but no allocated resources. Its state is
+ *  `CREATING`. Until completion of the returned operation: * Cancelling the
+ *  operation renders the instance partition immediately unreadable via the API.
+ *  * The instance partition can be deleted. * All other attempts to modify the
+ *  instance partition are rejected. Upon completion of the returned operation:
+ *  * Billing for all successfully-allocated resources begins (some types may
+ *  have lower than the requested levels). * Databases can start using this
+ *  instance partition. * The instance partition's allocated resource levels are
+ *  readable via the API. * The instance partition's state becomes `READY`. The
+ *  returned long-running operation will have a name of the format
+ *  `/operations/` and can be used to track creation of the instance partition.
+ *  The metadata field type is CreateInstancePartitionMetadata. The response
+ *  field type is InstancePartition, if successful.
+ *
+ *  @param object The @c GTLRSpanner_CreateInstancePartitionRequest to include
+ *    in the query.
+ *  @param parent Required. The name of the instance in which to create the
+ *    instance partition. Values are of the form `projects//instances/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_CreateInstancePartitionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing instance partition. Requires that the instance partition
+ *  is not used by any database or backup and is not the default instance
+ *  partition of an instance. Authorization requires
+ *  `spanner.instancePartitions.delete` permission on the resource name.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsDelete : GTLRSpannerQuery
+
+/**
+ *  Optional. If not empty, the API only deletes the instance partition when the
+ *  etag provided matches the current status of the requested instance
+ *  partition. Otherwise, deletes the instance partition without checking the
+ *  current status of the requested instance partition.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the instance partition to be deleted. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/instancePartitions/{instance_partition}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Empty.
+ *
+ *  Deletes an existing instance partition. Requires that the instance partition
+ *  is not used by any database or backup and is not the default instance
+ *  partition of an instance. Authorization requires
+ *  `spanner.instancePartitions.delete` permission on the resource name.
+ *
+ *  @param name Required. The name of the instance partition to be deleted.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/instancePartitions/{instance_partition}`
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a particular instance partition.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsGet : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the requested instance partition. Values are of the
+ *  form
+ *  `projects/{project}/instances/{instance}/instancePartitions/{instance_partition}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_InstancePartition.
+ *
+ *  Gets information about a particular instance partition.
+ *
+ *  @param name Required. The name of the requested instance partition. Values
+ *    are of the form
+ *    `projects/{project}/instances/{instance}/instancePartitions/{instance_partition}`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all instance partitions for the given instance.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsList : GTLRSpannerQuery
+
+/**
+ *  Optional. Deadline used while retrieving metadata for instance partitions.
+ *  Instance partitions whose metadata cannot be retrieved within this deadline
+ *  will be added to unreachable in ListInstancePartitionsResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *instancePartitionDeadline;
+
+/**
+ *  Number of instance partitions to be returned in the response. If 0 or less,
+ *  defaults to the server's maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If non-empty, `page_token` should contain a next_page_token from a previous
+ *  ListInstancePartitionsResponse.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The instance whose instance partitions should be listed. Values
+ *  are of the form `projects//instances/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListInstancePartitionsResponse.
+ *
+ *  Lists all instance partitions for the given instance.
+ *
+ *  @param parent Required. The instance whose instance partitions should be
+ *    listed. Values are of the form `projects//instances/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -3370,6 +3677,88 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Updates an instance partition, and begins allocating or releasing resources
+ *  as requested. The returned long-running operation can be used to track the
+ *  progress of updating the instance partition. If the named instance partition
+ *  does not exist, returns `NOT_FOUND`. Immediately upon completion of this
+ *  request: * For resource types for which a decrease in the instance
+ *  partition's allocation has been requested, billing is based on the
+ *  newly-requested level. Until completion of the returned operation: *
+ *  Cancelling the operation sets its metadata's cancel_time, and begins
+ *  restoring resources to their pre-request values. The operation is guaranteed
+ *  to succeed at undoing all resource changes, after which point it terminates
+ *  with a `CANCELLED` status. * All other attempts to modify the instance
+ *  partition are rejected. * Reading the instance partition via the API
+ *  continues to give the pre-request resource levels. Upon completion of the
+ *  returned operation: * Billing begins for all successfully-allocated
+ *  resources (some types may have lower than the requested levels). * All
+ *  newly-reserved resources are available for serving the instance partition's
+ *  tables. * The instance partition's new resource levels are readable via the
+ *  API. The returned long-running operation will have a name of the format
+ *  `/operations/` and can be used to track the instance partition modification.
+ *  The metadata field type is UpdateInstancePartitionMetadata. The response
+ *  field type is InstancePartition, if successful. Authorization requires
+ *  `spanner.instancePartitions.update` permission on the resource name.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsPatch : GTLRSpannerQuery
+
+/**
+ *  Required. A unique identifier for the instance partition. Values are of the
+ *  form `projects//instances//instancePartitions/a-z*[a-z0-9]`. The final
+ *  segment of the name must be between 2 and 64 characters in length. An
+ *  instance partition's name cannot be changed after the instance partition is
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Updates an instance partition, and begins allocating or releasing resources
+ *  as requested. The returned long-running operation can be used to track the
+ *  progress of updating the instance partition. If the named instance partition
+ *  does not exist, returns `NOT_FOUND`. Immediately upon completion of this
+ *  request: * For resource types for which a decrease in the instance
+ *  partition's allocation has been requested, billing is based on the
+ *  newly-requested level. Until completion of the returned operation: *
+ *  Cancelling the operation sets its metadata's cancel_time, and begins
+ *  restoring resources to their pre-request values. The operation is guaranteed
+ *  to succeed at undoing all resource changes, after which point it terminates
+ *  with a `CANCELLED` status. * All other attempts to modify the instance
+ *  partition are rejected. * Reading the instance partition via the API
+ *  continues to give the pre-request resource levels. Upon completion of the
+ *  returned operation: * Billing begins for all successfully-allocated
+ *  resources (some types may have lower than the requested levels). * All
+ *  newly-reserved resources are available for serving the instance partition's
+ *  tables. * The instance partition's new resource levels are readable via the
+ *  API. The returned long-running operation will have a name of the format
+ *  `/operations/` and can be used to track the instance partition modification.
+ *  The metadata field type is UpdateInstancePartitionMetadata. The response
+ *  field type is InstancePartition, if successful. Authorization requires
+ *  `spanner.instancePartitions.update` permission on the resource name.
+ *
+ *  @param object The @c GTLRSpanner_UpdateInstancePartitionRequest to include
+ *    in the query.
+ *  @param name Required. A unique identifier for the instance partition. Values
+ *    are of the form `projects//instances//instancePartitions/a-z*[a-z0-9]`.
+ *    The final segment of the name must be between 2 and 64 characters in
+ *    length. An instance partition's name cannot be changed after the instance
+ *    partition is created.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_UpdateInstancePartitionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists all instances in the given project.
  *
  *  Method: spanner.projects.instances.list
@@ -3434,6 +3823,96 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves the instance to the target instance config. The returned long-running
+ *  operation can be used to track the progress of moving the instance.
+ *  `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets any of
+ *  the following criteria: * Has an ongoing move to a different instance config
+ *  * Has backups * Has an ongoing update * Is under free trial * Contains any
+ *  CMEK-enabled databases While the operation is pending: * All other attempts
+ *  to modify the instance, including changes to its compute capacity, are
+ *  rejected. * The following database and backup admin operations are rejected:
+ *  * DatabaseAdmin.CreateDatabase, * DatabaseAdmin.UpdateDatabaseDdl (Disabled
+ *  if default_leader is specified in the request.) *
+ *  DatabaseAdmin.RestoreDatabase * DatabaseAdmin.CreateBackup *
+ *  DatabaseAdmin.CopyBackup * Both the source and target instance configs are
+ *  subject to hourly compute and storage charges. * The instance may experience
+ *  higher read-write latencies and a higher transaction abort rate. However,
+ *  moving an instance does not cause any downtime. The returned long-running
+ *  operation will have a name of the format `/operations/` and can be used to
+ *  track the move instance operation. The metadata field type is
+ *  MoveInstanceMetadata. The response field type is Instance, if successful.
+ *  Cancelling the operation sets its metadata's cancel_time. Cancellation is
+ *  not immediate since it involves moving any data previously moved to target
+ *  instance config back to the original instance config. The same operation can
+ *  be used to track the progress of the cancellation. Upon successful
+ *  completion of the cancellation, the operation terminates with CANCELLED
+ *  status. Upon completion(if not cancelled) of the returned operation: *
+ *  Instance would be successfully moved to the target instance config. * You
+ *  are billed for compute and storage in target instance config. Authorization
+ *  requires `spanner.instances.update` permission on the resource instance. For
+ *  more details, please see
+ *  [documentation](https://cloud.google.com/spanner/docs/move-instance).
+ *
+ *  Method: spanner.projects.instances.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesMove : GTLRSpannerQuery
+
+/**
+ *  Required. The instance to move. Values are of the form
+ *  `projects//instances/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Moves the instance to the target instance config. The returned long-running
+ *  operation can be used to track the progress of moving the instance.
+ *  `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets any of
+ *  the following criteria: * Has an ongoing move to a different instance config
+ *  * Has backups * Has an ongoing update * Is under free trial * Contains any
+ *  CMEK-enabled databases While the operation is pending: * All other attempts
+ *  to modify the instance, including changes to its compute capacity, are
+ *  rejected. * The following database and backup admin operations are rejected:
+ *  * DatabaseAdmin.CreateDatabase, * DatabaseAdmin.UpdateDatabaseDdl (Disabled
+ *  if default_leader is specified in the request.) *
+ *  DatabaseAdmin.RestoreDatabase * DatabaseAdmin.CreateBackup *
+ *  DatabaseAdmin.CopyBackup * Both the source and target instance configs are
+ *  subject to hourly compute and storage charges. * The instance may experience
+ *  higher read-write latencies and a higher transaction abort rate. However,
+ *  moving an instance does not cause any downtime. The returned long-running
+ *  operation will have a name of the format `/operations/` and can be used to
+ *  track the move instance operation. The metadata field type is
+ *  MoveInstanceMetadata. The response field type is Instance, if successful.
+ *  Cancelling the operation sets its metadata's cancel_time. Cancellation is
+ *  not immediate since it involves moving any data previously moved to target
+ *  instance config back to the original instance config. The same operation can
+ *  be used to track the progress of the cancellation. Upon successful
+ *  completion of the cancellation, the operation terminates with CANCELLED
+ *  status. Upon completion(if not cancelled) of the returned operation: *
+ *  Instance would be successfully moved to the target instance config. * You
+ *  are billed for compute and storage in target instance config. Authorization
+ *  requires `spanner.instances.update` permission on the resource instance. For
+ *  more details, please see
+ *  [documentation](https://cloud.google.com/spanner/docs/move-instance).
+ *
+ *  @param object The @c GTLRSpanner_MoveInstanceRequest to include in the
+ *    query.
+ *  @param name Required. The instance to move. Values are of the form
+ *    `projects//instances/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesMove
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_MoveInstanceRequest *)object
+                           name:(NSString *)name;
 
 @end
 

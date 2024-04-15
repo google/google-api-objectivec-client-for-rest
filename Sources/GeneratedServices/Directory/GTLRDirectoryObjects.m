@@ -74,6 +74,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_StateUnspecified = 
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CaptureLogs = @"CAPTURE_LOGS";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession = @"DEVICE_START_CRD_SESSION";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_FetchSupportPacket = @"FETCH_SUPPORT_PACKET";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot = @"REBOOT";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_RemotePowerwash = @"REMOTE_POWERWASH";
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_SetVolume = @"SET_VOLUME";
@@ -90,6 +91,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Success = @"
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CaptureLogs = @"CAPTURE_LOGS";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession = @"DEVICE_START_CRD_SESSION";
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchSupportPacket = @"FETCH_SUPPORT_PACKET";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot = @"REBOOT";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_RemotePowerwash = @"REMOTE_POWERWASH";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_SetVolume = @"SET_VOLUME";
@@ -229,6 +231,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 @implementation GTLRDirectory_AuxiliaryMessage
 @dynamic auxiliaryMessage, fieldMask, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BacklightInfo
+//
+
+@implementation GTLRDirectory_BacklightInfo
+@dynamic brightness, maxBrightness, path;
 @end
 
 
@@ -585,14 +597,15 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         autoUpdateExpiration, bootMode, cpuInfo, cpuStatusReports,
-         deprovisionReason, deviceFiles, deviceId, deviceLicenseType,
-         diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
-         ethernetMacAddress0, firmwareVersion, firstEnrollmentTime, kind,
-         lastDeprovisionTimestamp, lastEnrollmentTime, lastKnownNetwork,
-         lastSync, macAddress, manufactureDate, meid, model, notes, orderNumber,
-         orgUnitId, orgUnitPath, osUpdateStatus, osVersion, platformVersion,
-         recentUsers, screenshotFiles, serialNumber, status, supportEndDate,
+         autoUpdateExpiration, backlightInfo, bootMode, cpuInfo,
+         cpuStatusReports, deprovisionReason, deviceFiles, deviceId,
+         deviceLicenseType, diskVolumeReports, dockMacAddress, ETag,
+         ethernetMacAddress, ethernetMacAddress0, firmwareVersion,
+         firstEnrollmentTime, kind, lastDeprovisionTimestamp,
+         lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
+         manufactureDate, meid, model, notes, orderNumber, orgUnitId,
+         orgUnitPath, osUpdateStatus, osVersion, platformVersion, recentUsers,
+         screenshotFiles, serialNumber, status, supportEndDate,
          systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -602,6 +615,7 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"activeTimeRanges" : [GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item class],
+    @"backlightInfo" : [GTLRDirectory_BacklightInfo class],
     @"cpuInfo" : [GTLRDirectory_ChromeOsDevice_CpuInfo_Item class],
     @"cpuStatusReports" : [GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item class],
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],

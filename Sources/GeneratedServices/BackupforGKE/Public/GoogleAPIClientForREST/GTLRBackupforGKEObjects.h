@@ -26,7 +26,10 @@
 @class GTLRBackupforGKE_ClusterMetadata;
 @class GTLRBackupforGKE_ClusterMetadata_BackupCrdVersions;
 @class GTLRBackupforGKE_ClusterResourceRestoreScope;
+@class GTLRBackupforGKE_Date;
+@class GTLRBackupforGKE_DayOfWeekList;
 @class GTLRBackupforGKE_EncryptionKey;
+@class GTLRBackupforGKE_ExclusionWindow;
 @class GTLRBackupforGKE_Expr;
 @class GTLRBackupforGKE_GoogleLongrunningOperation;
 @class GTLRBackupforGKE_GoogleLongrunningOperation_Metadata;
@@ -48,8 +51,10 @@
 @class GTLRBackupforGKE_RestorePlan;
 @class GTLRBackupforGKE_RestorePlan_Labels;
 @class GTLRBackupforGKE_RetentionPolicy;
+@class GTLRBackupforGKE_RpoConfig;
 @class GTLRBackupforGKE_Schedule;
 @class GTLRBackupforGKE_SubstitutionRule;
+@class GTLRBackupforGKE_TimeOfDay;
 @class GTLRBackupforGKE_TransformationRule;
 @class GTLRBackupforGKE_TransformationRuleAction;
 @class GTLRBackupforGKE_VolumeBackup;
@@ -180,6 +185,58 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_Ready;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupforGKE_DayOfWeekList.daysOfWeek
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupforGKE_Restore.state
@@ -599,7 +656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Represents a request to perform a single point-in-time capture of some
  *  portion of the state of a GKE cluster, the record of the backup operation
  *  itself, and an anchor for the underlying artifacts that comprise the Backup
- *  (the config backup and VolumeBackups). Next id: 29
+ *  (the config backup and VolumeBackups).
  */
 @interface GTLRBackupforGKE_Backup : GTLRObject
 
@@ -949,6 +1006,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_RetentionPolicy *retentionPolicy;
 
 /**
+ *  Output only. A number that represents the current risk level of this
+ *  BackupPlan from RPO perspective with 1 being no risk and 5 being highest
+ *  risk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rpoRiskLevel;
+
+/**
+ *  Output only. Human-readable description of why the BackupPlan is in the
+ *  current rpo_risk_level and action items if any.
+ */
+@property(nonatomic, copy, nullable) NSString *rpoRiskReason;
+
+/**
  *  Output only. State of the BackupPlan. This State field reflects the various
  *  stages a BackupPlan can be in during the Create operation. It will be set to
  *  "DEACTIVATED" if the BackupPlan is deactivated on an Update
@@ -1180,6 +1252,57 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRBackupforGKE_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  Holds repeated DaysOfWeek values as a container.
+ */
+@interface GTLRBackupforGKE_DayOfWeekList : GTLRObject
+
+/** Optional. A list of days of week. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *daysOfWeek;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1200,6 +1323,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  * /keyRings/ * /cryptoKeys/ *`
  */
 @property(nonatomic, copy, nullable) NSString *gcpKmsEncryptionKey;
+
+@end
+
+
+/**
+ *  Defines a time window during which no backup should happen. All time and
+ *  date are in UTC.
+ */
+@interface GTLRBackupforGKE_ExclusionWindow : GTLRObject
+
+/**
+ *  The exclusion window occurs every day if set to "True". Specifying this
+ *  field to "False" is an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *daily;
+
+/** The exclusion window occurs on these days of each week in UTC. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_DayOfWeekList *daysOfWeek;
+
+/**
+ *  Required. Specifies duration of the window. Restrictions for duration based
+ *  on the recurrence type to allow some time for backup to happen: -
+ *  single_occurrence_date: no restriction, but UI may warn about this when
+ *  duration >= target RPO - daily window: duration < 24 hours - weekly window:
+ *  - days of week includes all seven days of a week: duration < 24 hours - all
+ *  other weekly window: duration < 168 hours (i.e., 24 * 7 hours)
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  No recurrence. The exclusion window occurs only once and on this date in
+ *  UTC.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_Date *singleOccurrenceDate;
+
+/**
+ *  Required. Specifies the start time of the window using time of the day in
+ *  UTC.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_TimeOfDay *startTime;
 
 @end
 
@@ -1249,6 +1414,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Response message for GetBackupIndexDownloadUrl.
+ */
+@interface GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *signedUrl;
 
 @end
 
@@ -1902,7 +2077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Represents both a request to Restore some portion of a Backup into a target
- *  GKE cluster and a record of the restore operation itself. Next id: 20
+ *  GKE cluster and a record of the restore operation itself.
  */
 @interface GTLRBackupforGKE_Restore : GTLRObject
 
@@ -2044,7 +2219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Configuration of a restore. Next id: 14
+ *  Configuration of a restore.
  */
 @interface GTLRBackupforGKE_RestoreConfig : GTLRObject
 
@@ -2191,7 +2366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  The configuration of a potential series of Restore operations to be
- *  performed against Backups belong to a particular BackupPlan. Next id: 13
+ *  performed against Backups belong to a particular BackupPlan.
  */
 @interface GTLRBackupforGKE_RestorePlan : GTLRObject
 
@@ -2342,6 +2517,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  Defines RPO scheduling configuration for automatically creating Backups via
+ *  this BackupPlan.
+ */
+@interface GTLRBackupforGKE_RpoConfig : GTLRObject
+
+/**
+ *  Optional. User specified time windows during which backup can NOT happen for
+ *  this BackupPlan - backups should start and finish outside of any given
+ *  exclusion window. Note: backup jobs will be scheduled to start and finish
+ *  outside the duration of the window as much as possible, but running jobs
+ *  will not get canceled when it runs into the window. All the time and date
+ *  values in exclusion_windows entry in the API are in UTC. We only allow <=1
+ *  recurrence (daily or weekly) exclusion window for a BackupPlan while no
+ *  restriction on number of single occurrence windows.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_ExclusionWindow *> *exclusionWindows;
+
+/**
+ *  Required. Defines the target RPO for the BackupPlan in minutes, which means
+ *  the target maximum data loss in time that is acceptable for this BackupPlan.
+ *  This must be at least 60, i.e., 1 hour, and at most 86400, i.e., 60 days.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetRpoMinutes;
+
+@end
+
+
+/**
  *  Defines scheduling parameters for automatically creating Backups via this
  *  BackupPlan.
  */
@@ -2358,12 +2563,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *cronSchedule;
 
 /**
+ *  Output only. Start time of next scheduled backup under this BackupPlan by
+ *  either cron_schedule or rpo config.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextScheduledBackupTime;
+
+/**
  *  Optional. This flag denotes whether automatic Backup creation is paused for
  *  this BackupPlan. Default: False
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *paused;
+
+/**
+ *  Optional. Defines the RPO schedule configuration for this BackupPlan. This
+ *  is mutually exclusive with the cron_schedule field since at most one
+ *  schedule can be defined for a BackupPLan. If this is defined, then
+ *  backup_retain_days must also be defined. Default (empty): no automatic
+ *  backup creation will occur.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_RpoConfig *rpoConfig;
 
 @end
 
@@ -2480,6 +2700,46 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRBackupforGKE_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
+ *  allow the value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of hour of day. Must be from 0 to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+ *  allow the value 60 if it allows leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
  *  A transformation rule to be applied against Kubernetes resources as they are
  *  selected for restoration from a Backup. A rule contains both filtering logic
  *  (which resources are subject to transform) and transformation logic.
@@ -2575,7 +2835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  Represents the backup of a specific persistent volume as a component of a
  *  Backup - both the record of the operation and a pointer to the underlying
- *  storage-specific artifacts. Next id: 14
+ *  storage-specific artifacts.
  */
 @interface GTLRBackupforGKE_VolumeBackup : GTLRObject
 
@@ -2696,8 +2956,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Represents the operation of restoring a volume from a VolumeBackup. Next id:
- *  13
+ *  Represents the operation of restoring a volume from a VolumeBackup.
  */
 @interface GTLRBackupforGKE_VolumeRestore : GTLRObject
 

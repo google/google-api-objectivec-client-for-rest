@@ -1042,6 +1042,28 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchRollout_Mode_ModeUnspecifi
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchRollout_Mode_ZoneByZone;
 
 // ----------------------------------------------------------------------------
+// GTLROSConfig_ProjectFeatureSettings.patchAndConfigFeatureSet
+
+/**
+ *  Enables only the basic set of VM Manager features in the project.
+ *
+ *  Value: "OSCONFIG_B"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_OsconfigB;
+/**
+ *  Enables all VM Manager features in the project.
+ *
+ *  Value: "OSCONFIG_C"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_OsconfigC;
+/**
+ *  Not specified placeholder
+ *
+ *  Value: "PATCH_AND_CONFIG_FEATURE_SET_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_PatchAndConfigFeatureSetUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROSConfig_RecurringSchedule.frequency
 
 /**
@@ -4106,6 +4128,36 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  A request message for pausing a patch deployment.
  */
 @interface GTLROSConfig_PausePatchDeploymentRequest : GTLRObject
+@end
+
+
+/**
+ *  ProjectFeatureSettings represents the VM Manager feature settings in a
+ *  project. For more information, see Enable full VM Manager functionality.
+ */
+@interface GTLROSConfig_ProjectFeatureSettings : GTLRObject
+
+/**
+ *  Required. Immutable. Name specifies the URL for the ProjectFeatureSettings
+ *  resource: projects/project_id/locations/global/projectFeatureSettings.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Set PatchAndConfigFeatureSet for the project.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_OsconfigB
+ *        Enables only the basic set of VM Manager features in the project.
+ *        (Value: "OSCONFIG_B")
+ *    @arg @c kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_OsconfigC
+ *        Enables all VM Manager features in the project. (Value: "OSCONFIG_C")
+ *    @arg @c kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_PatchAndConfigFeatureSetUnspecified
+ *        Not specified placeholder (Value:
+ *        "PATCH_AND_CONFIG_FEATURE_SET_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *patchAndConfigFeatureSet;
+
 @end
 
 

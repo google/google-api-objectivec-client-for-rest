@@ -20,6 +20,166 @@
 
 @end
 
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Note class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notes";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainerAnalysis_ListNotesResponse class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesOccurrencesList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/occurrences";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesOccurrencesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_ListNoteOccurrencesResponse class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.occurrences.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Occurrence class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetNotes
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/notes";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetNotes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Note class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.getNotes";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetVulnerabilitySummary
+
+@dynamic filter, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/occurrences:vulnerabilitySummary";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetVulnerabilitySummary *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainerAnalysis_VulnerabilityOccurrencesSummary class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.getVulnerabilitySummary";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/occurrences";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainerAnalysis_ListOccurrencesResponse class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsResourcesExportSBOM
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_ExportSBOMRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:exportSBOM";
+  GTLRContainerAnalysisQuery_ProjectsLocationsResourcesExportSBOM *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_ExportSBOMResponse class];
+  query.loggingName = @"containeranalysis.projects.locations.resources.exportSBOM";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerAnalysisQuery_ProjectsNotesBatchCreate
 
 @dynamic parent;
@@ -510,6 +670,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRContainerAnalysis_TestIamPermissionsResponse class];
   query.loggingName = @"containeranalysis.projects.occurrences.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsResourcesExportSBOM
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_ExportSBOMRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:exportSBOM";
+  GTLRContainerAnalysisQuery_ProjectsResourcesExportSBOM *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_ExportSBOMResponse class];
+  query.loggingName = @"containeranalysis.projects.resources.exportSBOM";
   return query;
 }
 

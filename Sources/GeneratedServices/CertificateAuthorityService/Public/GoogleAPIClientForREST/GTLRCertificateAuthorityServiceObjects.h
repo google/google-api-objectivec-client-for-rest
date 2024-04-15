@@ -31,6 +31,7 @@
 @class GTLRCertificateAuthorityService_CertificateAuthority;
 @class GTLRCertificateAuthorityService_CertificateAuthority_Labels;
 @class GTLRCertificateAuthorityService_CertificateConfig;
+@class GTLRCertificateAuthorityService_CertificateConfigKeyId;
 @class GTLRCertificateAuthorityService_CertificateDescription;
 @class GTLRCertificateAuthorityService_CertificateExtensionConstraints;
 @class GTLRCertificateAuthorityService_CertificateFingerprint;
@@ -1317,10 +1318,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_SubjectConfig *subjectConfig;
 
 /**
+ *  Optional. When specified this provides a custom SKI to be used in the
+ *  certificate. This should only be used to maintain a SKI of an existing CA
+ *  originally created outside CAS, which was not generated using method (1)
+ *  described in RFC 5280 section 4.2.1.2.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateConfigKeyId *subjectKeyId;
+
+/**
  *  Required. Describes how some of the technical X.509 fields in a certificate
  *  should be populated.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_X509Parameters *x509Config;
+
+@end
+
+
+/**
+ *  A KeyId identifies a specific public key, usually by hashing the public key.
+ */
+@interface GTLRCertificateAuthorityService_CertificateConfigKeyId : GTLRObject
+
+/**
+ *  Required. The value of this KeyId encoded in lowercase hexadecimal. This is
+ *  most likely the 160 bit SHA-1 hash of the public key.
+ */
+@property(nonatomic, copy, nullable) NSString *keyId;
 
 @end
 

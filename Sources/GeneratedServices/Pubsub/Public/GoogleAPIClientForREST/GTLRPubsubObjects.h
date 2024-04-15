@@ -595,6 +595,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
+ *  Optional. User-provided format string specifying how to represent datetimes
+ *  in Cloud Storage filenames. See the [datetime format
+ *  guidance](https://cloud.google.com/pubsub/docs/create-cloudstorage-subscription#file_names).
+ */
+@property(nonatomic, copy, nullable) NSString *filenameDatetimeFormat;
+
+/**
  *  Optional. User-provided prefix for Cloud Storage filename. See the [object
  *  naming requirements](https://cloud.google.com/storage/docs/objects#naming).
  */
@@ -1947,9 +1954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  */
 @interface GTLRPubsub_Topic : GTLRObject
 
-/**
- *  Optional. Settings for managed ingestion from a data source into this topic.
- */
+/** Optional. Settings for ingestion from a data source into this topic. */
 @property(nonatomic, strong, nullable) GTLRPubsub_IngestionDataSourceSettings *ingestionDataSourceSettings;
 
 /**

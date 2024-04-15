@@ -1969,6 +1969,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 
 @end
 
+/**
+ *  Lists all domains the user is authorized to administer.
+ *
+ *  Method: appengine.projects.locations.applications.authorizedDomains.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineAdmin
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedDomainsList : GTLRAppengineQuery
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `parent`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/** Maximum results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Part of `parent`. Name of the parent Application resource. Example:
+ *  apps/myapp.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_ListAuthorizedDomainsResponse.
+ *
+ *  Lists all domains the user is authorized to administer.
+ *
+ *  @param projectsId Part of `parent`. Name of the parent Application resource.
+ *    Example: apps/myapp.
+ *  @param locationsId Part of `parent`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `parent`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedDomainsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

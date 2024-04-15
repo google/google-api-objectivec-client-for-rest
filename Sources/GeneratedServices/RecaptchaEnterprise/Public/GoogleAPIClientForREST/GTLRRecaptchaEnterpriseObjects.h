@@ -333,6 +333,33 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionDeclined;
 
 // ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event.fraudPrevention
+
+/**
+ *  Disable Fraud Prevention for this assessment, regardless of opt-in status or
+ *  Google Cloud console settings.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Disabled;
+/**
+ *  Enable Fraud Prevention for this assessment, if Fraud Prevention is enabled
+ *  in the Google Cloud console.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled;
+/**
+ *  Default, unspecified setting. If opted in for automatic detection,
+ *  `fraud_prevention_assessment` is returned based on the request. Otherwise,
+ *  `fraud_prevention_assessment` is returned if `transaction_data` is present
+ *  in the `Event` and Fraud Prevention is enabled in the Google Cloud console.
+ *
+ *  Value: "FRAUD_PREVENTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_FraudPreventionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals.cardLabels
 
 /**
@@ -1124,6 +1151,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) NSNumber *firewallPolicyEvaluation;
 
 /**
+ *  Optional. The Fraud Prevention setting for this assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Disabled
+ *        Disable Fraud Prevention for this assessment, regardless of opt-in
+ *        status or Google Cloud console settings. (Value: "DISABLED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled
+ *        Enable Fraud Prevention for this assessment, if Fraud Prevention is
+ *        enabled in the Google Cloud console. (Value: "ENABLED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_FraudPreventionUnspecified
+ *        Default, unspecified setting. If opted in for automatic detection,
+ *        `fraud_prevention_assessment` is returned based on the request.
+ *        Otherwise, `fraud_prevention_assessment` is returned if
+ *        `transaction_data` is present in the `Event` and Fraud Prevention is
+ *        enabled in the Google Cloud console. (Value:
+ *        "FRAUD_PREVENTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *fraudPrevention;
+
+/**
  *  Optional. Deprecated: use `user_info.account_id` instead. Unique stable
  *  hashed user identifier for the request. The identifier must be hashed using
  *  hmac-sha256 with stable secret.
@@ -1595,7 +1642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  Response to request to list firewall policies belonging to a key.
+ *  Response to request to list firewall policies belonging to a project.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "firewallPolicies" property. If returned as the result of a query,

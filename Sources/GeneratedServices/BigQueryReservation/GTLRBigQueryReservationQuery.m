@@ -368,6 +368,33 @@
 
 @end
 
+@implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsFailoverReservation
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_FailoverReservationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:failoverReservation";
+  GTLRBigQueryReservationQuery_ProjectsLocationsReservationsFailoverReservation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryReservation_Reservation class];
+  query.loggingName = @"bigqueryreservation.projects.locations.reservations.failoverReservation";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsGet
 
 @dynamic name;

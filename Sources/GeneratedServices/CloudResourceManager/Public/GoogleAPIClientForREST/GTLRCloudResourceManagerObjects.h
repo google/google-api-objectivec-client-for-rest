@@ -21,6 +21,7 @@
 @class GTLRCloudResourceManager_EffectiveTag;
 @class GTLRCloudResourceManager_Expr;
 @class GTLRCloudResourceManager_Folder;
+@class GTLRCloudResourceManager_Folder_Tags;
 @class GTLRCloudResourceManager_GetPolicyOptions;
 @class GTLRCloudResourceManager_Lien;
 @class GTLRCloudResourceManager_Operation_Metadata;
@@ -29,6 +30,7 @@
 @class GTLRCloudResourceManager_Policy;
 @class GTLRCloudResourceManager_Project;
 @class GTLRCloudResourceManager_Project_Labels;
+@class GTLRCloudResourceManager_Project_Tags;
 @class GTLRCloudResourceManager_Status;
 @class GTLRCloudResourceManager_Status_Details_Item;
 @class GTLRCloudResourceManager_TagBinding;
@@ -733,9 +735,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  folder. Each item in the map must be expressed as " : ". For example:
+ *  "123/environment" : "production", "123/costCenter" : "marketing" Note:
+ *  Currently this field is in Preview.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Folder_Tags *tags;
+
 /** Output only. Timestamp when the folder was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  folder. Each item in the map must be expressed as " : ". For example:
+ *  "123/environment" : "production", "123/costCenter" : "marketing" Note:
+ *  Currently this field is in Preview.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_Folder_Tags : GTLRObject
 @end
 
 
@@ -1582,6 +1607,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  project. Each item in the map must be expressed as " : ". For example:
+ *  "123/environment" : "production", "123/costCenter" : "marketing" Note:
+ *  Currently this field is in Preview.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Project_Tags *tags;
+
 /** Output only. The most recent time this resource was modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -1604,6 +1637,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *        fetch them all at once.
  */
 @interface GTLRCloudResourceManager_Project_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  project. Each item in the map must be expressed as " : ". For example:
+ *  "123/environment" : "production", "123/costCenter" : "marketing" Note:
+ *  Currently this field is in Preview.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_Project_Tags : GTLRObject
 @end
 
 

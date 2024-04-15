@@ -180,7 +180,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Au
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Floodlight;
 /**
- *  Full Path report.
+ *  Full Path report. This report type is deprecated and will sunset on **May 1,
+ *  2024**. After sunset, requests retrieving, creating, or running reports of
+ *  this type will return an error.
  *
  *  Value: "FULL_PATH"
  */
@@ -198,7 +200,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Gr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability;
 /**
- *  Path Attribution report.
+ *  Path Attribution report. This report type is deprecated and will sunset on
+ *  **May 1, 2024**. After sunset, requests retrieving, creating, or running
+ *  reports of this type will return an error.
  *
  *  Value: "PATH_ATTRIBUTION"
  */
@@ -681,7 +685,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  */
 @property(nonatomic, strong, nullable) NSNumber *includeOnlyTargetedUserLists;
 
-/** Options that contain Path Filters and Custom Channel Groupings. */
+/**
+ *  Options that contain Path Filters and Custom Channel Groupings. This field
+ *  is deprecated and will sunset on **May 1, 2024**. After sunset, requests
+ *  using this field will return an error.
+ */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_PathQueryOptions *pathQueryOptions;
 
 @end
@@ -714,13 +722,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Floodlight Floodlight
  *        report. (Value: "FLOODLIGHT")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_FullPath Full Path
- *        report. (Value: "FULL_PATH")
+ *        report. This report type is deprecated and will sunset on **May 1,
+ *        2024**. After sunset, requests retrieving, creating, or running
+ *        reports of this type will return an error. (Value: "FULL_PATH")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Grp GRP report. (Value:
  *        "GRP")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability
  *        Inventory Availability report. (Value: "INVENTORY_AVAILABILITY")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution Path
- *        Attribution report. (Value: "PATH_ATTRIBUTION")
+ *        Attribution report. This report type is deprecated and will sunset on
+ *        **May 1, 2024**. After sunset, requests retrieving, creating, or
+ *        running reports of this type will return an error. (Value:
+ *        "PATH_ATTRIBUTION")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Reach Reach report.
  *        (Value: "REACH")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_ReportTypeUnspecified

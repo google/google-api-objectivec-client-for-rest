@@ -76,7 +76,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
 
 /**
  *  Required. The resource name of the settings to retrieve. Format:
- *  organizations/{organization}/locations/{location}/settings.
+ *  organizations/{organization}/locations/{location}/settings or
+ *  projects/{projects}/locations/{location}/settings.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -87,7 +88,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *  Get notification settings.
  *
  *  @param name Required. The resource name of the settings to retrieve. Format:
- *    organizations/{organization}/locations/{location}/settings.
+ *    organizations/{organization}/locations/{location}/settings or
+ *    projects/{projects}/locations/{location}/settings.
  *
  *  @return GTLRAdvisorynotificationsQuery_OrganizationsLocationsGetSettings
  */
@@ -173,7 +175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
 /**
  *  Required. The parent, which owns this collection of notifications. Must be
  *  of the form "organizations/{organization}/locations/{location}" or
- *  "projects/{project}/locations/{location}"
+ *  "projects/{project}/locations/{location}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -203,7 +205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *  @param parent Required. The parent, which owns this collection of
  *    notifications. Must be of the form
  *    "organizations/{organization}/locations/{location}" or
- *    "projects/{project}/locations/{location}"
+ *    "projects/{project}/locations/{location}".
  *
  *  @return GTLRAdvisorynotificationsQuery_OrganizationsLocationsNotificationsList
  *
@@ -227,7 +229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
 
 /**
  *  Identifier. The resource name of the settings to retrieve. Format:
- *  organizations/{organization}/locations/{location}/settings.
+ *  organizations/{organization}/locations/{location}/settings or
+ *  projects/{projects}/locations/{location}/settings.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -241,12 +244,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *    GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings to
  *    include in the query.
  *  @param name Identifier. The resource name of the settings to retrieve.
- *    Format: organizations/{organization}/locations/{location}/settings.
+ *    Format: organizations/{organization}/locations/{location}/settings or
+ *    projects/{projects}/locations/{location}/settings.
  *
  *  @return GTLRAdvisorynotificationsQuery_OrganizationsLocationsUpdateSettings
  */
 + (instancetype)queryWithObject:(GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Get notification settings.
+ *
+ *  Method: advisorynotifications.projects.locations.getSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdvisorynotificationsCloudPlatform
+ */
+@interface GTLRAdvisorynotificationsQuery_ProjectsLocationsGetSettings : GTLRAdvisorynotificationsQuery
+
+/**
+ *  Required. The resource name of the settings to retrieve. Format:
+ *  organizations/{organization}/locations/{location}/settings or
+ *  projects/{projects}/locations/{location}/settings.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings.
+ *
+ *  Get notification settings.
+ *
+ *  @param name Required. The resource name of the settings to retrieve. Format:
+ *    organizations/{organization}/locations/{location}/settings or
+ *    projects/{projects}/locations/{location}/settings.
+ *
+ *  @return GTLRAdvisorynotificationsQuery_ProjectsLocationsGetSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -328,7 +365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
 /**
  *  Required. The parent, which owns this collection of notifications. Must be
  *  of the form "organizations/{organization}/locations/{location}" or
- *  "projects/{project}/locations/{location}"
+ *  "projects/{project}/locations/{location}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -358,7 +395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *  @param parent Required. The parent, which owns this collection of
  *    notifications. Must be of the form
  *    "organizations/{organization}/locations/{location}" or
- *    "projects/{project}/locations/{location}"
+ *    "projects/{project}/locations/{location}".
  *
  *  @return GTLRAdvisorynotificationsQuery_ProjectsLocationsNotificationsList
  *
@@ -367,6 +404,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotificationsViewNotificationVie
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update notification settings.
+ *
+ *  Method: advisorynotifications.projects.locations.updateSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdvisorynotificationsCloudPlatform
+ */
+@interface GTLRAdvisorynotificationsQuery_ProjectsLocationsUpdateSettings : GTLRAdvisorynotificationsQuery
+
+/**
+ *  Identifier. The resource name of the settings to retrieve. Format:
+ *  organizations/{organization}/locations/{location}/settings or
+ *  projects/{projects}/locations/{location}/settings.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings.
+ *
+ *  Update notification settings.
+ *
+ *  @param object The @c
+ *    GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the settings to retrieve.
+ *    Format: organizations/{organization}/locations/{location}/settings or
+ *    projects/{projects}/locations/{location}/settings.
+ *
+ *  @return GTLRAdvisorynotificationsQuery_ProjectsLocationsUpdateSettings
+ */
++ (instancetype)queryWithObject:(GTLRAdvisorynotifications_GoogleCloudAdvisorynotificationsV1Settings *)object
+                           name:(NSString *)name;
 
 @end
 

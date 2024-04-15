@@ -38,6 +38,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesCloudPlatform;
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlaces;
 /**
  *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/maps-platform.places.autocomplete
+ *
+ *  Value "https://www.googleapis.com/auth/maps-platform.places.autocomplete"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesAutocomplete;
+/**
+ *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/maps-platform.places.details
  *
  *  Value "https://www.googleapis.com/auth/maps-platform.places.details"

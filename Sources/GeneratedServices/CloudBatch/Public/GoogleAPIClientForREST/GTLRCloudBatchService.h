@@ -4,7 +4,7 @@
 // API:
 //   Batch API (batch/v1)
 // Description:
-//   An API to manage the running of batch resources on Google Cloud Platform.
+//   An API to manage the running of Batch resources on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/batch/
 
@@ -39,7 +39,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudBatchCloudPlatform;
 /**
  *  Service for executing Batch API queries.
  *
- *  An API to manage the running of batch resources on Google Cloud Platform.
+ *  An API to manage the running of Batch resources on Google Cloud Platform.
  */
 @interface GTLRCloudBatchService : GTLRService
 

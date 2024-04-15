@@ -553,7 +553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_Priva
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_ManagementURI *managementUri;
 
-/** Output only. The resource name. */
+/** Output only. Identifier. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

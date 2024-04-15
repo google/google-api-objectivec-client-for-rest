@@ -1368,11 +1368,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /** The email of the user this alert was created for. */
 @property(nonatomic, copy, nullable) NSString *email;
 
+/**
+ *  ID of the rule that triggered the alert
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
 /** Required for iOS, empty for others. */
 @property(nonatomic, copy, nullable) NSString *iosVendorId;
 
+/** Obfuscated ID of the owner of the device */
+@property(nonatomic, copy, nullable) NSString *ownerId;
+
 /** The device resource ID. */
 @property(nonatomic, copy, nullable) NSString *resourceId;
+
+/** Action taken as result of the rule */
+@property(nonatomic, copy, nullable) NSString *ruleAction;
 
 /** The serial number of the device. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;

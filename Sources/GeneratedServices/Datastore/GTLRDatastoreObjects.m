@@ -425,6 +425,40 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_ExecutionStats
+//
+
+@implementation GTLRDatastore_ExecutionStats
+@dynamic debugStats, executionDuration, readOperations, resultsReturned;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_ExecutionStats_DebugStats
+//
+
+@implementation GTLRDatastore_ExecutionStats_DebugStats
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_ExplainMetrics
+//
+
+@implementation GTLRDatastore_ExplainMetrics
+@dynamic executionStats, planSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_ExplainOptions
 //
 
@@ -919,7 +953,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_LookupRequest
-@dynamic databaseId, keys, readOptions;
+@dynamic databaseId, keys, propertyMask, readOptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -957,7 +991,8 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_Mutation
-@dynamic baseVersion, deleteProperty, insert, update, updateTime, upsert;
+@dynamic baseVersion, deleteProperty, insert, propertyMask, update, updateTime,
+         upsert;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -1009,6 +1044,38 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_PlanSummary
+//
+
+@implementation GTLRDatastore_PlanSummary
+@dynamic indexesUsed;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexesUsed" : [GTLRDatastore_PlanSummary_IndexesUsed_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_PlanSummary_IndexesUsed_Item
+//
+
+@implementation GTLRDatastore_PlanSummary_IndexesUsed_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_Projection
 //
 
@@ -1024,6 +1091,24 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRDatastore_PropertyFilter
 @dynamic op, property, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_PropertyMask
+//
+
+@implementation GTLRDatastore_PropertyMask
+@dynamic paths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"paths" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1181,7 +1266,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunAggregationQueryResponse
-@dynamic batch, query, transaction;
+@dynamic batch, explainMetrics, query, transaction;
 @end
 
 
@@ -1191,7 +1276,8 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunQueryRequest
-@dynamic databaseId, explainOptions, gqlQuery, partitionId, query, readOptions;
+@dynamic databaseId, explainOptions, gqlQuery, partitionId, propertyMask, query,
+         readOptions;
 @end
 
 
@@ -1201,7 +1287,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunQueryResponse
-@dynamic batch, query, transaction;
+@dynamic batch, explainMetrics, query, transaction;
 @end
 
 

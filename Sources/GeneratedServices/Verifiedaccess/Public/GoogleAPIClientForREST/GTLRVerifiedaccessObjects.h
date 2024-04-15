@@ -577,6 +577,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profileAffiliationIds;
 
 /**
+ *  Enrollment domain of the customer which is currently managing the profile.
+ */
+@property(nonatomic, copy, nullable) NSString *profileEnrollmentDomain;
+
+/**
  *  Whether Enterprise-grade (i.e. custom) unsafe URL scanning is enabled or
  *  not. This setting may be controlled by an enterprise policy:
  *  https://chromeenterprise.google/policies/#EnterpriseRealTimeUrlCheckMode

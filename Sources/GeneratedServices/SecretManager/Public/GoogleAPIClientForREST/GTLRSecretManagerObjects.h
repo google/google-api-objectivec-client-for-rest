@@ -835,6 +835,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 /** Output only. The time at which the Secret was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Optional. The customer-managed encryption configuration of the Regionalised
+ *  Secrets. If no configuration is provided, Google-managed default encryption
+ *  is used. Updates to the Secret encryption configuration only apply to
+ *  SecretVersions added afterwards. They do not apply retroactively to existing
+ *  SecretVersions.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryption *customerManagedEncryption;
+
 /** Optional. Etag of the currently stored Secret. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -894,6 +903,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  and AccessSecretVersion.
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Secret_VersionAliases *versionAliases;
+
+/**
+ *  Optional. Secret Version TTL after destruction request This is a part of the
+ *  Delayed secret version destroy feature. For secret with TTL>0, version
+ *  destruction doesn't happen immediately on calling destroy instead the
+ *  version goes to a disabled state and destruction happens after the TTL
+ *  expires.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *versionDestroyTtl;
 
 @end
 
@@ -1004,6 +1022,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The customer-managed encryption status of the SecretVersion.
+ *  Only populated if customer-managed encryption is used and Secret is a
+ *  Regionalised Secret.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryptionStatus *customerManagedEncryption;
+
+/**
  *  Output only. The time this SecretVersion was destroyed. Only present if
  *  state is DESTROYED.
  */
@@ -1021,6 +1046,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /** The replication status of the SecretVersion. */
 @property(nonatomic, strong, nullable) GTLRSecretManager_ReplicationStatus *replicationStatus;
+
+/**
+ *  Optional. Output only. Scheduled destroy time for secret version. This is a
+ *  part of the Delayed secret version destroy feature. For a Secret with a
+ *  valid version destroy TTL, when a secert version is destroyed, version is
+ *  moved to disabled state and it is scheduled for destruction Version is
+ *  destroyed only after the scheduled_destroy_time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledDestroyTime;
 
 /**
  *  Output only. The current state of the SecretVersion.

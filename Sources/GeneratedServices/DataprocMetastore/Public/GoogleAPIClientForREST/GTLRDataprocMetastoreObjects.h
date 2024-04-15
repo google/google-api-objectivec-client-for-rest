@@ -37,6 +37,7 @@
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_HiveMetastoreVersion;
 @class GTLRDataprocMetastore_KerberosConfig;
+@class GTLRDataprocMetastore_LatestBackup;
 @class GTLRDataprocMetastore_Location;
 @class GTLRDataprocMetastore_Location_Labels;
 @class GTLRDataprocMetastore_Location_Metadata;
@@ -53,6 +54,7 @@
 @class GTLRDataprocMetastore_Policy;
 @class GTLRDataprocMetastore_Restore;
 @class GTLRDataprocMetastore_ScalingConfig;
+@class GTLRDataprocMetastore_ScheduledBackup;
 @class GTLRDataprocMetastore_Secret;
 @class GTLRDataprocMetastore_Service;
 @class GTLRDataprocMetastore_Service_Labels;
@@ -283,6 +285,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_En
  *  Value: "THRIFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_LatestBackup.state
+
+/**
+ *  The backup failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_LatestBackup_State_Failed;
+/**
+ *  The backup is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_LatestBackup_State_InProgress;
+/**
+ *  The state of the backup is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_LatestBackup_State_StateUnspecified;
+/**
+ *  The backup completed.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_LatestBackup_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
@@ -1158,7 +1188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 /**
  *  The fully qualified customer provided Cloud KMS key name to use for customer
  *  data encryption, in the following
- *  form:projects/{project_number}/locations/{location_id}/keyRings/{key_ring_id}/cryptoKeys/{crypto_key_id}.
+ *  format:projects/{project_number}/locations/{location_id}/keyRings/{key_ring_id}/cryptoKeys/{crypto_key_id}.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
@@ -1524,6 +1554,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  but there is no exact format.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
+
+@end
+
+
+/**
+ *  The details of the latest scheduled backup.
+ */
+@interface GTLRDataprocMetastore_LatestBackup : GTLRObject
+
+/**
+ *  Output only. The ID of an in-progress scheduled backup. Empty if no backup
+ *  is in progress.
+ */
+@property(nonatomic, copy, nullable) NSString *backupId;
+
+/** Output only. The duration of the backup completion. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** Output only. The time when the backup was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The current state of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_LatestBackup_State_Failed The backup
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_LatestBackup_State_InProgress The backup is
+ *        in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDataprocMetastore_LatestBackup_State_StateUnspecified The
+ *        state of the backup is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_LatestBackup_State_Succeeded The backup
+ *        completed. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2242,6 +2307,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 @property(nonatomic, copy, nullable) NSString *backup;
 
 /**
+ *  Optional. A Cloud Storage URI specifying where the backup artifacts are
+ *  stored, in the format gs:///.
+ */
+@property(nonatomic, copy, nullable) NSString *backupLocation;
+
+/**
  *  Output only. The restore details containing the revision of the service to
  *  be restored to, in format of JSON.
  */
@@ -2299,6 +2370,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  set.
  */
 @property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Optional. A Cloud Storage URI specifying the location of the backup
+ *  artifacts, namely - backup avro files under "avro/", backup_metastore.json
+ *  and service.json, in the following form:gs://. Mutually exclusive with
+ *  backup, and exactly one of the two must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *backupLocation;
 
 /**
  *  Optional. A request ID. Specify a unique request ID to allow the server to
@@ -2363,6 +2442,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scalingFactor;
+
+@end
+
+
+/**
+ *  This specifies the configuration of scheduled backup.
+ */
+@interface GTLRDataprocMetastore_ScheduledBackup : GTLRObject
+
+/**
+ *  Optional. A Cloud Storage URI of a folder, in the format gs:///. A
+ *  sub-folder containing backup files will be stored below it.
+ */
+@property(nonatomic, copy, nullable) NSString *backupLocation;
+
+/**
+ *  Optional. The scheduled interval in Cron format, see
+ *  https://en.wikipedia.org/wiki/Cron The default is empty: scheduled backup is
+ *  not enabled. Must be specified to enable scheduled backups.
+ */
+@property(nonatomic, copy, nullable) NSString *cronSchedule;
+
+/**
+ *  Optional. Defines whether the scheduled backup is enabled. The default value
+ *  is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Output only. The details of the latest scheduled backup. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_LatestBackup *latestBackup;
+
+/**
+ *  Output only. The time when the next backups execution is scheduled to start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextScheduledTime;
+
+/**
+ *  Optional. Specifies the time zone to be used when interpreting
+ *  cron_schedule. Must be a time zone name from the time zone database
+ *  (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g.
+ *  America/Los_Angeles or Africa/Abidjan. If left unspecified, the default is
+ *  UTC.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 
@@ -2496,6 +2621,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 /** Scaling configuration of the metastore service. */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_ScalingConfig *scalingConfig;
+
+/**
+ *  Optional. The configuration of scheduled backup for the metastore service.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_ScheduledBackup *scheduledBackup;
 
 /**
  *  Output only. The current state of the metastore service.

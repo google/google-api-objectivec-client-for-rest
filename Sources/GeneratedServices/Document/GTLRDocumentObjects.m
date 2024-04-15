@@ -3599,7 +3599,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty
-@dynamic name, occurrenceType, valueType;
+@dynamic displayName, name, occurrenceType, valueType;
 @end
 
 
@@ -4056,7 +4056,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions
-@dynamic fromEnd, fromStart, individualPageSelector, ocrConfig;
+@dynamic fromEnd, fromStart, individualPageSelector, ocrConfig, schemaOverride;
 @end
 
 
@@ -4299,7 +4299,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequest
 @dynamic baseProcessorVersion, customDocumentExtractionOptions, documentSchema,
-         inputData, processorVersion;
+         foundationModelTuningOptions, inputData, processorVersion;
 @end
 
 
@@ -4310,6 +4310,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions
 @dynamic trainingMethod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestFoundationModelTuningOptions
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestFoundationModelTuningOptions
+@dynamic learningRateMultiplier, trainSteps;
 @end
 
 

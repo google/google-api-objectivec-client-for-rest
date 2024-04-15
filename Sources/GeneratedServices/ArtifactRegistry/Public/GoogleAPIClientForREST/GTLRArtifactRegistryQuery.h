@@ -64,6 +64,44 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Download a file.
+ *
+ *  Method: artifactregistry.media.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_MediaDownload : GTLRArtifactRegistryQuery
+
+/** Required. The name of the file to download. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_DownloadFileResponse.
+ *
+ *  Download a file.
+ *
+ *  @param name Required. The name of the file to download.
+ *
+ *  @return GTLRArtifactRegistryQuery_MediaDownload
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Download a file.
+ *
+ *  @param name Required. The name of the file to download.
+ *
+ *  @return GTLRArtifactRegistryQuery_MediaDownload
+ */
++ (instancetype)queryForMediaWithName:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the Settings for the Project.
  *
  *  Method: artifactregistry.projects.getProjectSettings
@@ -1032,6 +1070,48 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a package.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.packages.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesPatch : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the package, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`. If the
+ *  package ID part contains slashes, the slashes are escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Package.
+ *
+ *  Updates a package.
+ *
+ *  @param object The @c GTLRArtifactRegistry_Package to include in the query.
+ *  @param name The name of the package, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`. If
+ *    the package ID part contains slashes, the slashes are escaped.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesPatch
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_Package *)object
+                           name:(NSString *)name;
 
 @end
 

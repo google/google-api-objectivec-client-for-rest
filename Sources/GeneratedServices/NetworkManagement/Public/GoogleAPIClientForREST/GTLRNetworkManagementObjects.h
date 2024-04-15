@@ -87,11 +87,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified;
 /**
- *  Aborted because the destination endpoint could not be found.
+ *  Aborted because the destination endpoint could not be found. Deprecated, not
+ *  used in the new tests.
  *
  *  Value: "DESTINATION_ENDPOINT_NOT_FOUND"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound GTLR_DEPRECATED;
+/**
+ *  Aborted because expected firewall configuration was missing.
+ *
+ *  Value: "FIREWALL_CONFIG_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_FirewallConfigNotFound;
 /**
  *  Aborted because the connection between the control plane and the node of the
  *  source cluster is initiated by the node and managed by the Konnectivity
@@ -114,22 +121,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Google
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InternalError;
 /**
- *  Aborted because the source and/or destination endpoint specified in the test
- *  are invalid. The possible reasons that an endpoint is invalid include:
- *  malformed IP address; nonexistent instance or network URI; IP address not in
- *  the range of specified network URI; and instance not owning the network
- *  interface in the specified network.
+ *  Aborted because the source or destination endpoint specified in the request
+ *  is invalid. Some examples: - The request might contain malformed resource
+ *  URI, project ID, or IP address. - The request might contain inconsistent
+ *  information (for example, the request might include both the instance and
+ *  the network, but the instance might not have a NIC in that network).
  *
  *  Value: "INVALID_ARGUMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument;
 /**
  *  Aborted because the destination network does not match the destination
- *  endpoint.
+ *  endpoint. Deprecated, not used in the new tests.
  *
  *  Value: "MISMATCHED_DESTINATION_NETWORK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork GTLR_DEPRECATED;
 /**
  *  Aborted because the source and destination resources have no common IP
  *  version.
@@ -139,17 +146,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Mismat
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedIpVersion;
 /**
  *  Aborted because the source network does not match the source endpoint.
+ *  Deprecated, not used in the new tests.
  *
  *  Value: "MISMATCHED_SOURCE_NETWORK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedSourceNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedSourceNetwork GTLR_DEPRECATED;
+/**
+ *  Aborted because expected network configuration was missing.
+ *
+ *  Value: "NETWORK_CONFIG_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NetworkConfigNotFound;
 /**
  *  Aborted because traffic is sent from a public IP to an instance without an
- *  external IP.
+ *  external IP. Deprecated, not used in the new tests.
  *
  *  Value: "NO_EXTERNAL_IP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp GTLR_DEPRECATED;
 /**
  *  Aborted because one of the endpoints is a non-routable IP address (loopback,
  *  link-local, etc).
@@ -158,19 +172,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExte
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NonRoutableIpAddress;
 /**
- *  Aborted because no valid source endpoint is derived from the input test
- *  request.
+ *  Aborted because no valid source or destination endpoint is derived from the
+ *  input test request.
  *
  *  Value: "NO_SOURCE_LOCATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation;
 /**
- *  Aborted because the user lacks the permission to access all or part of the
- *  network configurations required to run the test.
+ *  Aborted because user lacks permission to access all or part of the network
+ *  configurations required to run the test.
  *
  *  Value: "PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied;
+/**
+ *  Aborted because user lacks permission to access Cloud NAT configs required
+ *  to run the test.
+ *
+ *  Value: "PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudNatConfigs;
+/**
+ *  Aborted because user lacks permission to access Network endpoint group
+ *  endpoint configs required to run the test.
+ *
+ *  Value: "PERMISSION_DENIED_NO_NEG_ENDPOINT_CONFIGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoNegEndpointConfigs;
 /**
  *  Aborted because expected resource configuration was missing.
  *
@@ -178,17 +206,31 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Permis
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound;
 /**
- *  Aborted because the source endpoint could not be found.
+ *  Aborted because expected route configuration was missing.
+ *
+ *  Value: "ROUTE_CONFIG_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_RouteConfigNotFound;
+/**
+ *  Aborted because the source endpoint could not be found. Deprecated, not used
+ *  in the new tests.
  *
  *  Value: "SOURCE_ENDPOINT_NOT_FOUND"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound GTLR_DEPRECATED;
 /**
  *  Aborted because tests with a forwarding rule as a source are not supported.
  *
  *  Value: "SOURCE_FORWARDING_RULE_UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported;
+/**
+ *  Aborted because the source IP address doesn't belong to any of the subnets
+ *  of the source VPC network.
+ *
+ *  Value: "SOURCE_IP_ADDRESS_NOT_IN_SOURCE_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceIpAddressNotInSourceNetwork;
 /**
  *  Aborted because tests with a PSC-based Cloud SQL instance as a source are
  *  not supported.
@@ -197,47 +239,63 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Source
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported;
 /**
- *  Aborted because the number of steps in the trace exceeding a certain limit
- *  which may be caused by routing loop.
+ *  Aborted because the number of steps in the trace exceeds a certain limit. It
+ *  might be caused by a routing loop.
  *
  *  Value: "TRACE_TOO_LONG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong;
 /**
  *  Aborted because none of the traces matches destination information specified
- *  in the input test request.
+ *  in the input test request. Deprecated, not used in the new tests.
  *
  *  Value: "UNINTENDED_DESTINATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination GTLR_DEPRECATED;
 /**
- *  Aborted because the IP address(es) are unknown.
+ *  Aborted because no endpoint with the packet's destination IP address is
+ *  found.
  *
  *  Value: "UNKNOWN_IP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp;
 /**
- *  Aborted due to unknown network. The reachability analysis cannot proceed
- *  because the user does not have access to the host project's network
- *  configurations, including firewall rules and routes. This happens when the
- *  project is a service project and the endpoints being traced are in the host
- *  project's network.
+ *  Aborted due to an unknown issue in the Google-managed project.
+ *
+ *  Value: "UNKNOWN_ISSUE_IN_GOOGLE_MANAGED_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIssueInGoogleManagedProject;
+/**
+ *  Aborted due to unknown network. Deprecated, not used in the new tests.
  *
  *  Value: "UNKNOWN_NETWORK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork GTLR_DEPRECATED;
 /**
  *  Aborted because no project information can be derived from the test input.
+ *  Deprecated, not used in the new tests.
  *
  *  Value: "UNKNOWN_PROJECT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject GTLR_DEPRECATED;
 /**
  *  Aborted because the test scenario is not supported.
  *
  *  Value: "UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Unsupported;
+/**
+ *  Aborted due to an unsupported configuration of the Google-managed project.
+ *
+ *  Value: "UNSUPPORTED_GOOGLE_MANAGED_PROJECT_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnsupportedGoogleManagedProjectConfig;
+/**
+ *  Aborted because expected VM instance configuration was missing.
+ *
+ *  Value: "VM_INSTANCE_CONFIG_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_VmInstanceConfigNotFound;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_AuditLogConfig.logType
@@ -430,6 +488,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSq
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthorizedAccess;
 /**
+ *  The packet is sent to the Private Service Connect backend (network endpoint
+ *  group) targeting a Cloud SQL service attachment, but this configuration is
+ *  not supported.
+ *
+ *  Value: "CLOUD_SQL_PSC_NEG_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlPscNegUnsupported;
+/**
  *  Packet was dropped inside Cloud SQL Service.
  *
  *  Value: "DROPPED_INSIDE_CLOUD_SQL_SERVICE"
@@ -575,6 +641,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBal
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress;
 /**
+ *  No NAT subnets are defined for the PSC service attachment.
+ *
+ *  Value: "NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment;
+/**
  *  Dropped due to no matching routes.
  *
  *  Value: "NO_ROUTE"
@@ -677,7 +749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNe
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopInstanceNonPrimaryIp;
 /**
- *  Route's next hop instance doesn't hace a NIC in the route's network.
+ *  Route's next hop instance doesn't have a NIC in the route's network.
  *
  *  Value: "ROUTE_NEXT_HOP_INSTANCE_WRONG_NETWORK"
  */
@@ -708,6 +780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNe
  *  Value: "ROUTE_WRONG_NETWORK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork;
+/**
+ *  Packet is stuck in a routing loop.
+ *
+ *  Value: "ROUTING_LOOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RoutingLoop;
 /**
  *  The type of traffic is blocked and the user cannot configure a firewall rule
  *  to enable it. See [Always blocked
@@ -1763,8 +1841,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified Cause is
  *        unspecified. (Value: "CAUSE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound
- *        Aborted because the destination endpoint could not be found. (Value:
+ *        Aborted because the destination endpoint could not be found.
+ *        Deprecated, not used in the new tests. (Value:
  *        "DESTINATION_ENDPOINT_NOT_FOUND")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_FirewallConfigNotFound
+ *        Aborted because expected firewall configuration was missing. (Value:
+ *        "FIREWALL_CONFIG_NOT_FOUND")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported
  *        Aborted because the connection between the control plane and the node
  *        of the source cluster is initiated by the node and managed by the
@@ -1776,72 +1858,102 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InternalError Aborted due
  *        to internal server error. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument Aborted
- *        because the source and/or destination endpoint specified in the test
- *        are invalid. The possible reasons that an endpoint is invalid include:
- *        malformed IP address; nonexistent instance or network URI; IP address
- *        not in the range of specified network URI; and instance not owning the
- *        network interface in the specified network. (Value:
- *        "INVALID_ARGUMENT")
+ *        because the source or destination endpoint specified in the request is
+ *        invalid. Some examples: - The request might contain malformed resource
+ *        URI, project ID, or IP address. - The request might contain
+ *        inconsistent information (for example, the request might include both
+ *        the instance and the network, but the instance might not have a NIC in
+ *        that network). (Value: "INVALID_ARGUMENT")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork
  *        Aborted because the destination network does not match the destination
- *        endpoint. (Value: "MISMATCHED_DESTINATION_NETWORK")
+ *        endpoint. Deprecated, not used in the new tests. (Value:
+ *        "MISMATCHED_DESTINATION_NETWORK")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_MismatchedIpVersion Aborted
  *        because the source and destination resources have no common IP
  *        version. (Value: "MISMATCHED_IP_VERSION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_MismatchedSourceNetwork
  *        Aborted because the source network does not match the source endpoint.
- *        (Value: "MISMATCHED_SOURCE_NETWORK")
+ *        Deprecated, not used in the new tests. (Value:
+ *        "MISMATCHED_SOURCE_NETWORK")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NetworkConfigNotFound
+ *        Aborted because expected network configuration was missing. (Value:
+ *        "NETWORK_CONFIG_NOT_FOUND")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp Aborted
  *        because traffic is sent from a public IP to an instance without an
- *        external IP. (Value: "NO_EXTERNAL_IP")
+ *        external IP. Deprecated, not used in the new tests. (Value:
+ *        "NO_EXTERNAL_IP")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NonRoutableIpAddress
  *        Aborted because one of the endpoints is a non-routable IP address
  *        (loopback, link-local, etc). (Value: "NON_ROUTABLE_IP_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation Aborted
- *        because no valid source endpoint is derived from the input test
- *        request. (Value: "NO_SOURCE_LOCATION")
+ *        because no valid source or destination endpoint is derived from the
+ *        input test request. (Value: "NO_SOURCE_LOCATION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied Aborted
- *        because the user lacks the permission to access all or part of the
- *        network configurations required to run the test. (Value:
- *        "PERMISSION_DENIED")
+ *        because user lacks permission to access all or part of the network
+ *        configurations required to run the test. (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudNatConfigs
+ *        Aborted because user lacks permission to access Cloud NAT configs
+ *        required to run the test. (Value:
+ *        "PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoNegEndpointConfigs
+ *        Aborted because user lacks permission to access Network endpoint group
+ *        endpoint configs required to run the test. (Value:
+ *        "PERMISSION_DENIED_NO_NEG_ENDPOINT_CONFIGS")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound
  *        Aborted because expected resource configuration was missing. (Value:
  *        "RESOURCE_CONFIG_NOT_FOUND")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_RouteConfigNotFound Aborted
+ *        because expected route configuration was missing. (Value:
+ *        "ROUTE_CONFIG_NOT_FOUND")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound
- *        Aborted because the source endpoint could not be found. (Value:
- *        "SOURCE_ENDPOINT_NOT_FOUND")
+ *        Aborted because the source endpoint could not be found. Deprecated,
+ *        not used in the new tests. (Value: "SOURCE_ENDPOINT_NOT_FOUND")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported
  *        Aborted because tests with a forwarding rule as a source are not
  *        supported. (Value: "SOURCE_FORWARDING_RULE_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceIpAddressNotInSourceNetwork
+ *        Aborted because the source IP address doesn't belong to any of the
+ *        subnets of the source VPC network. (Value:
+ *        "SOURCE_IP_ADDRESS_NOT_IN_SOURCE_NETWORK")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported
  *        Aborted because tests with a PSC-based Cloud SQL instance as a source
  *        are not supported. (Value: "SOURCE_PSC_CLOUD_SQL_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong Aborted
- *        because the number of steps in the trace exceeding a certain limit
- *        which may be caused by routing loop. (Value: "TRACE_TOO_LONG")
+ *        because the number of steps in the trace exceeds a certain limit. It
+ *        might be caused by a routing loop. (Value: "TRACE_TOO_LONG")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination
  *        Aborted because none of the traces matches destination information
- *        specified in the input test request. (Value: "UNINTENDED_DESTINATION")
+ *        specified in the input test request. Deprecated, not used in the new
+ *        tests. (Value: "UNINTENDED_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp Aborted because
- *        the IP address(es) are unknown. (Value: "UNKNOWN_IP")
+ *        no endpoint with the packet's destination IP address is found. (Value:
+ *        "UNKNOWN_IP")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownIssueInGoogleManagedProject
+ *        Aborted due to an unknown issue in the Google-managed project. (Value:
+ *        "UNKNOWN_ISSUE_IN_GOOGLE_MANAGED_PROJECT")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork Aborted due
- *        to unknown network. The reachability analysis cannot proceed because
- *        the user does not have access to the host project's network
- *        configurations, including firewall rules and routes. This happens when
- *        the project is a service project and the endpoints being traced are in
- *        the host project's network. (Value: "UNKNOWN_NETWORK")
+ *        to unknown network. Deprecated, not used in the new tests. (Value:
+ *        "UNKNOWN_NETWORK")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject Aborted
  *        because no project information can be derived from the test input.
- *        (Value: "UNKNOWN_PROJECT")
+ *        Deprecated, not used in the new tests. (Value: "UNKNOWN_PROJECT")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_Unsupported Aborted because
  *        the test scenario is not supported. (Value: "UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnsupportedGoogleManagedProjectConfig
+ *        Aborted due to an unsupported configuration of the Google-managed
+ *        project. (Value: "UNSUPPORTED_GOOGLE_MANAGED_PROJECT_CONFIG")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_VmInstanceConfigNotFound
+ *        Aborted because expected VM instance configuration was missing.
+ *        (Value: "VM_INSTANCE_CONFIG_NOT_FOUND")
  */
 @property(nonatomic, copy, nullable) NSString *cause;
 
+/** IP address that caused the abort. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
 /**
- *  List of project IDs that the user has specified in the request but does not
- *  have permission to access network configs. Analysis is aborted in this case
- *  with the PERMISSION_DENIED cause.
+ *  List of project IDs the user specified in the request but lacks access to.
+ *  In this case, analysis is aborted with the PERMISSION_DENIED cause.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectsMissingPermission;
 
@@ -2150,6 +2262,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_ConnectivityTest : GTLRObject
 
+/**
+ *  Whether the test should skip firewall checking. If not provided, we assume
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bypassFirewallChecks;
+
 /** Output only. The time the test was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2253,6 +2373,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_DeliverInfo : GTLRObject
 
+/** IP address of the target (if applicable). */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
 /** URI of the resource that the packet is delivered to. */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
 
@@ -2346,6 +2469,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        [Authorizing with authorized
  *        networks](https://cloud.google.com/sql/docs/mysql/authorize-networks)
  *        for more details. (Value: "CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlPscNegUnsupported
+ *        The packet is sent to the Private Service Connect backend (network
+ *        endpoint group) targeting a Cloud SQL service attachment, but this
+ *        configuration is not supported. (Value:
+ *        "CLOUD_SQL_PSC_NEG_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService
  *        Packet was dropped inside Cloud SQL Service. (Value:
  *        "DROPPED_INSIDE_CLOUD_SQL_SERVICE")
@@ -2424,6 +2552,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        with only an internal IP address tries to access external hosts, but
  *        Cloud NAT is not enabled in the subnet, unless special configurations
  *        on a VM allow this connection. (Value: "NO_EXTERNAL_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment
+ *        No NAT subnets are defined for the PSC service attachment. (Value:
+ *        "NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRoute Dropped due to no
  *        matching routes. (Value: "NO_ROUTE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address
@@ -2480,7 +2611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Route's next hop IP address is not a primary IP address of the next
  *        hop instance. (Value: "ROUTE_NEXT_HOP_INSTANCE_NON_PRIMARY_IP")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopInstanceWrongNetwork
- *        Route's next hop instance doesn't hace a NIC in the route's network.
+ *        Route's next hop instance doesn't have a NIC in the route's network.
  *        (Value: "ROUTE_NEXT_HOP_INSTANCE_WRONG_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopIpAddressNotResolved
  *        Route's next hop IP address cannot be resolved to a GCP resource.
@@ -2496,6 +2627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        VM1:Network1 to VM2:Network2, however, the route configured in
  *        Network1 sends the packet destined for VM2's IP address to Network3.
  *        (Value: "ROUTE_WRONG_NETWORK")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RoutingLoop Packet is stuck
+ *        in a routing loop. (Value: "ROUTING_LOOP")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked The type
  *        of traffic is blocked and the user cannot configure a firewall rule to
  *        enable it. See [Always blocked
@@ -2914,6 +3047,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Details of the final state "forward" and associated resource.
  */
 @interface GTLRNetworkManagement_ForwardInfo : GTLRObject
+
+/** IP address of the target (if applicable). */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /** URI of the resource that the packet is forwarded to. */
 @property(nonatomic, copy, nullable) NSString *resourceUri;

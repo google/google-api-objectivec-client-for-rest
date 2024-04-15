@@ -28,6 +28,8 @@
 @class GTLRBigQueryConnectionService_ConnectorConfiguration;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationNetwork;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationSecret;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword;
 @class GTLRBigQueryConnectionService_Expr;
@@ -561,6 +563,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint *endpoint;
 
+/** Networking configuration. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationNetwork *network;
+
 @end
 
 
@@ -586,6 +591,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
  *  https://www.ietf.org/rfc/rfc3986.html#section-3.2.3.
  */
 @property(nonatomic, copy, nullable) NSString *hostPort;
+
+@end
+
+
+/**
+ *  Network related configuration.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationNetwork : GTLRObject
+
+/** Private Service Connect networking configuration. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect *privateServiceConnect;
+
+@end
+
+
+/**
+ *  Private Service Connect configuration.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect : GTLRObject
+
+/**
+ *  Required. Network Attachment name in the format of
+ *  `projects/{project}/regions/{region}/networkAttachments/{networkattachment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
 
 @end
 

@@ -37,6 +37,16 @@ NSString * const kGTLRBackupforGKE_BackupPlan_State_Provisioning = @"PROVISIONIN
 NSString * const kGTLRBackupforGKE_BackupPlan_State_Ready      = @"READY";
 NSString * const kGTLRBackupforGKE_BackupPlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBackupforGKE_DayOfWeekList.daysOfWeek
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Friday = @"FRIDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Monday = @"MONDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Saturday = @"SATURDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Sunday = @"SUNDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Thursday = @"THURSDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Tuesday = @"TUESDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Wednesday = @"WEDNESDAY";
+
 // GTLRBackupforGKE_Restore.state
 NSString * const kGTLRBackupforGKE_Restore_State_Creating      = @"CREATING";
 NSString * const kGTLRBackupforGKE_Restore_State_Deleting      = @"DELETING";
@@ -195,7 +205,8 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 @implementation GTLRBackupforGKE_BackupPlan
 @dynamic backupConfig, backupSchedule, cluster, createTime, deactivated,
          descriptionProperty, ETag, labels, name, protectedPodCount,
-         retentionPolicy, state, stateReason, uid, updateTime;
+         retentionPolicy, rpoRiskLevel, rpoRiskReason, state, stateReason, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -285,6 +296,34 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_Date
+//
+
+@implementation GTLRBackupforGKE_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_DayOfWeekList
+//
+
+@implementation GTLRBackupforGKE_DayOfWeekList
+@dynamic daysOfWeek;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"daysOfWeek" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_Empty
 //
 
@@ -304,6 +343,16 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_ExclusionWindow
+//
+
+@implementation GTLRBackupforGKE_ExclusionWindow
+@dynamic daily, daysOfWeek, duration, singleOccurrenceDate, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_Expr
 //
 
@@ -314,6 +363,16 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse
+//
+
+@implementation GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse
+@dynamic signedUrl;
 @end
 
 
@@ -832,11 +891,29 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_RpoConfig
+//
+
+@implementation GTLRBackupforGKE_RpoConfig
+@dynamic exclusionWindows, targetRpoMinutes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exclusionWindows" : [GTLRBackupforGKE_ExclusionWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_Schedule
 //
 
 @implementation GTLRBackupforGKE_Schedule
-@dynamic cronSchedule, paused;
+@dynamic cronSchedule, nextScheduledBackupTime, paused, rpoConfig;
 @end
 
 
@@ -903,6 +980,16 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_TimeOfDay
+//
+
+@implementation GTLRBackupforGKE_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
 @end
 
 

@@ -12608,6 +12608,248 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates a new catalog item.
+ *
+ *  Method: apigee.organizations.sites.apidocs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSitesApidocsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the portal. Use the following structure in your request:
+ *  `organizations/{org}/sites/{site}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiDocResponse.
+ *
+ *  Creates a new catalog item.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiDoc to include in the
+ *    query.
+ *  @param parent Required. Name of the portal. Use the following structure in
+ *    your request: `organizations/{org}/sites/{site}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSitesApidocsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiDoc *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a catalog item.
+ *
+ *  Method: apigee.organizations.sites.apidocs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSitesApidocsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the catalog item. Use the following structure in your
+ *  request: `organizations/{org}/sites/{site}/apidocs/{apidoc}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeleteResponse.
+ *
+ *  Deletes a catalog item.
+ *
+ *  @param name Required. Name of the catalog item. Use the following structure
+ *    in your request: `organizations/{org}/sites/{site}/apidocs/{apidoc}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSitesApidocsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a catalog item.
+ *
+ *  Method: apigee.organizations.sites.apidocs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSitesApidocsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the catalog item. Use the following structure in your
+ *  request: `organizations/{org}/sites/{site}/apidocs/{apidoc}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiDocResponse.
+ *
+ *  Gets a catalog item.
+ *
+ *  @param name Required. Name of the catalog item. Use the following structure
+ *    in your request: `organizations/{org}/sites/{site}/apidocs/{apidoc}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSitesApidocsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the documentation for the specified catalog item.
+ *
+ *  Method: apigee.organizations.sites.apidocs.getDocumentation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSitesApidocsGetDocumentation : GTLRApigeeQuery
+
+/**
+ *  Required. Resource name of the catalog item documentation. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/sites/{site}/apidocs/{apidoc}/documentation`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentationResponse.
+ *
+ *  Gets the documentation for the specified catalog item.
+ *
+ *  @param name Required. Resource name of the catalog item documentation. Use
+ *    the following structure in your request:
+ *    `organizations/{org}/sites/{site}/apidocs/{apidoc}/documentation`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSitesApidocsGetDocumentation
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the catalog items associated with a portal.
+ *
+ *  Method: apigee.organizations.sites.apidocs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSitesApidocsList : GTLRApigeeQuery
+
+/**
+ *  Optional. The maximum number of items to return. The service may return
+ *  fewer than this value. If unspecified, at most 25 books will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListApiDocs` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the portal. Use the following structure in your request:
+ *  `organizations/{org}/sites/{site}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListApiDocsResponse.
+ *
+ *  Returns the catalog items associated with a portal.
+ *
+ *  @param parent Required. Name of the portal. Use the following structure in
+ *    your request: `organizations/{org}/sites/{site}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSitesApidocsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a catalog item.
+ *
+ *  Method: apigee.organizations.sites.apidocs.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSitesApidocsUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the catalog item. Use the following structure in your
+ *  request: `organizations/{org}/sites/{site}/apidocs/{apidoc}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiDocResponse.
+ *
+ *  Updates a catalog item.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiDoc to include in the
+ *    query.
+ *  @param name Required. Name of the catalog item. Use the following structure
+ *    in your request: `organizations/{org}/sites/{site}/apidocs/{apidoc}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSitesApidocsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiDoc *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the documentation for the specified catalog item. Note that the
+ *  documentation file contents will not be populated in the return message.
+ *
+ *  Method: apigee.organizations.sites.apidocs.updateDocumentation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSitesApidocsUpdateDocumentation : GTLRApigeeQuery
+
+/**
+ *  Required. Resource name of the catalog item documentation. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/sites/{site}/apidocs/{apidoc}/documentation`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentationResponse.
+ *
+ *  Updates the documentation for the specified catalog item. Note that the
+ *  documentation file contents will not be populated in the return message.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation to
+ *    include in the query.
+ *  @param name Required. Resource name of the catalog item documentation. Use
+ *    the following structure in your request:
+ *    `organizations/{org}/sites/{site}/apidocs/{apidoc}/documentation`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSitesApidocsUpdateDocumentation
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates the properties for an Apigee organization. No other fields in the
  *  organization profile will be updated.
  *

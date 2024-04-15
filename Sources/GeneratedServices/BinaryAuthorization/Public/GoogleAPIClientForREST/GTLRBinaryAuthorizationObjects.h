@@ -19,6 +19,7 @@
 
 @class GTLRBinaryAuthorization_AdmissionRule;
 @class GTLRBinaryAuthorization_AdmissionWhitelistPattern;
+@class GTLRBinaryAuthorization_AllowlistResult;
 @class GTLRBinaryAuthorization_AttestationAuthenticator;
 @class GTLRBinaryAuthorization_AttestationOccurrence;
 @class GTLRBinaryAuthorization_AttestationSource;
@@ -26,16 +27,23 @@
 @class GTLRBinaryAuthorization_AttestorPublicKey;
 @class GTLRBinaryAuthorization_Binding;
 @class GTLRBinaryAuthorization_Check;
+@class GTLRBinaryAuthorization_CheckResult;
+@class GTLRBinaryAuthorization_CheckResults;
 @class GTLRBinaryAuthorization_CheckSet;
+@class GTLRBinaryAuthorization_CheckSetResult;
+@class GTLRBinaryAuthorization_EvaluateGkePolicyRequest_Resource;
+@class GTLRBinaryAuthorization_EvaluationResult;
 @class GTLRBinaryAuthorization_Expr;
 @class GTLRBinaryAuthorization_GkePolicy;
 @class GTLRBinaryAuthorization_IamPolicy;
 @class GTLRBinaryAuthorization_ImageAllowlist;
 @class GTLRBinaryAuthorization_ImageFreshnessCheck;
+@class GTLRBinaryAuthorization_ImageResult;
 @class GTLRBinaryAuthorization_Jwt;
 @class GTLRBinaryAuthorization_PkixPublicKey;
 @class GTLRBinaryAuthorization_PkixPublicKeySet;
 @class GTLRBinaryAuthorization_PlatformPolicy;
+@class GTLRBinaryAuthorization_PodResult;
 @class GTLRBinaryAuthorization_Policy_ClusterAdmissionRules;
 @class GTLRBinaryAuthorization_Policy_IstioServiceIdentityAdmissionRules;
 @class GTLRBinaryAuthorization_Policy_KubernetesNamespaceAdmissionRules;
@@ -115,6 +123,92 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_Evalua
  *  Value: "REQUIRE_ATTESTATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAttestation;
+
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_EvaluateGkePolicyResponse.verdict
+
+/**
+ *  All Pods in the request conform to the policy.
+ *
+ *  Value: "CONFORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_Conformant;
+/**
+ *  Encountered at least one error evaluating a Pod and all other Pods conform
+ *  to the policy. Non-conformance has precedence over errors.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_Error;
+/**
+ *  At least one Pod does not conform to the policy.
+ *
+ *  Value: "NON_CONFORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_NonConformant;
+/**
+ *  Not specified. This should never be used.
+ *
+ *  Value: "VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_VerdictUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_EvaluationResult.verdict
+
+/**
+ *  Not specified. This should never be used.
+ *
+ *  Value: "CHECK_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_EvaluationResult_Verdict_CheckVerdictUnspecified;
+/**
+ *  The check was successfully evaluated and the image satisfied the check.
+ *
+ *  Value: "CONFORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_EvaluationResult_Verdict_Conformant;
+/**
+ *  The check was not successfully evaluated.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_EvaluationResult_Verdict_Error;
+/**
+ *  The check was successfully evaluated and the image did not satisfy the
+ *  check.
+ *
+ *  Value: "NON_CONFORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_EvaluationResult_Verdict_NonConformant;
+
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_ImageResult.verdict
+
+/**
+ *  Image conforms to the policy.
+ *
+ *  Value: "CONFORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ImageResult_Verdict_Conformant;
+/**
+ *  Error evaluating the image. Non-conformance has precedence over errors.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ImageResult_Verdict_Error;
+/**
+ *  Not specified. This should never be used.
+ *
+ *  Value: "IMAGE_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ImageResult_Verdict_ImageVerdictUnspecified;
+/**
+ *  Image does not conform to the policy.
+ *
+ *  Value: "NON_CONFORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ImageResult_Verdict_NonConformant;
 
 // ----------------------------------------------------------------------------
 // GTLRBinaryAuthorization_PkixPublicKey.signatureAlgorithm
@@ -233,6 +327,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_Signat
  *  Value: "SIGNATURE_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_PodResult.verdict
+
+/**
+ *  All images conform to the policy.
+ *
+ *  Value: "CONFORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PodResult_Verdict_Conformant;
+/**
+ *  Encountered at least one error evaluating an image and all other images with
+ *  non-error verdicts conform to the policy. Non-conformance has precedence
+ *  over errors.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PodResult_Verdict_Error;
+/**
+ *  At least one image does not conform to the policy.
+ *
+ *  Value: "NON_CONFORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PodResult_Verdict_NonConformant;
+/**
+ *  Not specified. This should never be used.
+ *
+ *  Value: "POD_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PodResult_Verdict_PodVerdictUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBinaryAuthorization_Policy.globalPolicyEvaluationMode
@@ -468,6 +592,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *  which matches subdirectories of a given entry.
  */
 @property(nonatomic, copy, nullable) NSString *namePattern;
+
+@end
+
+
+/**
+ *  Result of evaluating an image name allowlist.
+ */
+@interface GTLRBinaryAuthorization_AllowlistResult : GTLRObject
+
+/** The allowlist pattern that the image matched. */
+@property(nonatomic, copy, nullable) NSString *matchedPattern;
 
 @end
 
@@ -796,6 +931,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 
 /**
+ *  Result of evaluating one check.
+ */
+@interface GTLRBinaryAuthorization_CheckResult : GTLRObject
+
+/**
+ *  If the image was exempted by an allow_pattern in the check, contains the
+ *  pattern that the image name matched.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_AllowlistResult *allowlistResult;
+
+/** The name of the check. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** If a check was evaluated, contains the result of the check. */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_EvaluationResult *evaluationResult;
+
+/** Explanation of this check result. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  The index of the check.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/** The type of the check. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Result of evaluating one or more checks.
+ */
+@interface GTLRBinaryAuthorization_CheckResults : GTLRObject
+
+/** Per-check details. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_CheckResult *> *results;
+
+@end
+
+
+/**
  *  A conjunction of policy checks, scoped to a particular namespace or
  *  Kubernetes service account. In order for evaluation of a `CheckSet` to
  *  return "allowed" for a given image in a given Pod, one of the following
@@ -835,12 +1014,129 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 
 /**
+ *  Result of evaluating one check set.
+ */
+@interface GTLRBinaryAuthorization_CheckSetResult : GTLRObject
+
+/**
+ *  If the image was exempted by an allow_pattern in the check set, contains the
+ *  pattern that the image name matched.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_AllowlistResult *allowlistResult;
+
+/**
+ *  If checks were evaluated, contains the results of evaluating each check.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_CheckResults *checkResults;
+
+/** The name of the check set. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Explanation of this check set result. Only populated if no checks were
+ *  evaluated.
+ */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  The index of the check set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/** The scope of the check set. */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Scope *scope;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRBinaryAuthorization_Empty : GTLRObject
+@end
+
+
+/**
+ *  Request message for PlatformPolicyEvaluationService.EvaluateGkePolicy.
+ */
+@interface GTLRBinaryAuthorization_EvaluateGkePolicyRequest : GTLRObject
+
+/** Required. JSON or YAML blob representing a Kubernetes resource. */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_EvaluateGkePolicyRequest_Resource *resource;
+
+@end
+
+
+/**
+ *  Required. JSON or YAML blob representing a Kubernetes resource.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBinaryAuthorization_EvaluateGkePolicyRequest_Resource : GTLRObject
+@end
+
+
+/**
+ *  Response message for PlatformPolicyEvaluationService.EvaluateGkePolicy.
+ */
+@interface GTLRBinaryAuthorization_EvaluateGkePolicyResponse : GTLRObject
+
+/** Evaluation result for each Pod contained in the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_PodResult *> *results;
+
+/**
+ *  The result of evaluating all Pods in the request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_Conformant
+ *        All Pods in the request conform to the policy. (Value: "CONFORMANT")
+ *    @arg @c kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_Error
+ *        Encountered at least one error evaluating a Pod and all other Pods
+ *        conform to the policy. Non-conformance has precedence over errors.
+ *        (Value: "ERROR")
+ *    @arg @c kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_NonConformant
+ *        At least one Pod does not conform to the policy. (Value:
+ *        "NON_CONFORMANT")
+ *    @arg @c kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_VerdictUnspecified
+ *        Not specified. This should never be used. (Value:
+ *        "VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+@end
+
+
+/**
+ *  Result of evaluating one check.
+ */
+@interface GTLRBinaryAuthorization_EvaluationResult : GTLRObject
+
+/**
+ *  The result of evaluating this check.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_EvaluationResult_Verdict_CheckVerdictUnspecified
+ *        Not specified. This should never be used. (Value:
+ *        "CHECK_VERDICT_UNSPECIFIED")
+ *    @arg @c kGTLRBinaryAuthorization_EvaluationResult_Verdict_Conformant The
+ *        check was successfully evaluated and the image satisfied the check.
+ *        (Value: "CONFORMANT")
+ *    @arg @c kGTLRBinaryAuthorization_EvaluationResult_Verdict_Error The check
+ *        was not successfully evaluated. (Value: "ERROR")
+ *    @arg @c kGTLRBinaryAuthorization_EvaluationResult_Verdict_NonConformant
+ *        The check was successfully evaluated and the image did not satisfy the
+ *        check. (Value: "NON_CONFORMANT")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
 @end
 
 
@@ -1043,6 +1339,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxUploadAgeDays;
+
+@end
+
+
+/**
+ *  Result of evaluating one image.
+ */
+@interface GTLRBinaryAuthorization_ImageResult : GTLRObject
+
+/**
+ *  If the image was exempted by a top-level allow_pattern, contains the
+ *  allowlist pattern that the image name matched.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_AllowlistResult *allowlistResult;
+
+/**
+ *  If a check set was evaluated, contains the result of the check set. Empty if
+ *  there were no check sets.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_CheckSetResult *checkSetResult;
+
+/**
+ *  Explanation of this image result. Only populated if no check sets were
+ *  evaluated.
+ */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/** Image URI from the request. */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/**
+ *  The result of evaluating this image.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_ImageResult_Verdict_Conformant Image
+ *        conforms to the policy. (Value: "CONFORMANT")
+ *    @arg @c kGTLRBinaryAuthorization_ImageResult_Verdict_Error Error
+ *        evaluating the image. Non-conformance has precedence over errors.
+ *        (Value: "ERROR")
+ *    @arg @c kGTLRBinaryAuthorization_ImageResult_Verdict_ImageVerdictUnspecified
+ *        Not specified. This should never be used. (Value:
+ *        "IMAGE_VERDICT_UNSPECIFIED")
+ *    @arg @c kGTLRBinaryAuthorization_ImageResult_Verdict_NonConformant Image
+ *        does not conform to the policy. (Value: "NON_CONFORMANT")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
 
 @end
 
@@ -1252,6 +1594,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /** Output only. Time when the policy was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Result of evaluating the whole GKE policy for one Pod.
+ */
+@interface GTLRBinaryAuthorization_PodResult : GTLRObject
+
+/** Per-image details. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_ImageResult *> *imageResults;
+
+/** The Kubernetes namespace of the Pod. */
+@property(nonatomic, copy, nullable) NSString *kubernetesNamespace;
+
+/** The Kubernetes service account of the Pod. */
+@property(nonatomic, copy, nullable) NSString *kubernetesServiceAccount;
+
+/** The name of the Pod. */
+@property(nonatomic, copy, nullable) NSString *podName;
+
+/**
+ *  The result of evaluating this Pod.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_PodResult_Verdict_Conformant All images
+ *        conform to the policy. (Value: "CONFORMANT")
+ *    @arg @c kGTLRBinaryAuthorization_PodResult_Verdict_Error Encountered at
+ *        least one error evaluating an image and all other images with
+ *        non-error verdicts conform to the policy. Non-conformance has
+ *        precedence over errors. (Value: "ERROR")
+ *    @arg @c kGTLRBinaryAuthorization_PodResult_Verdict_NonConformant At least
+ *        one image does not conform to the policy. (Value: "NON_CONFORMANT")
+ *    @arg @c kGTLRBinaryAuthorization_PodResult_Verdict_PodVerdictUnspecified
+ *        Not specified. This should never be used. (Value:
+ *        "POD_VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
 
 @end
 

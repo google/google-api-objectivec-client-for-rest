@@ -357,7 +357,17 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_CertificateConfig
-@dynamic publicKey, subjectConfig, x509Config;
+@dynamic publicKey, subjectConfig, subjectKeyId, x509Config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_CertificateConfigKeyId
+//
+
+@implementation GTLRCertificateAuthorityService_CertificateConfigKeyId
+@dynamic keyId;
 @end
 
 

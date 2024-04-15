@@ -748,8 +748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_Stat
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateDefault;
 /**
  *  The app is updated as soon as possible. No constraints are applied. The
- *  device is notified immediately about a new app update after it is published
- *  by the developer.
+ *  device is notified as soon as possible about a new app update after it is
+ *  published by the developer.
  *
  *  Value: "autoUpdateHighPriority"
  */
@@ -2894,8 +2894,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *        constraints above are met. (Value: "autoUpdateDefault")
  *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateHighPriority
  *        The app is updated as soon as possible. No constraints are applied.
- *        The device is notified immediately about a new app update after it is
- *        published by the developer. (Value: "autoUpdateHighPriority")
+ *        The device is notified as soon as possible about a new app update
+ *        after it is published by the developer. (Value:
+ *        "autoUpdateHighPriority")
  *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
  *        Unspecified. Defaults to AUTO_UPDATE_DEFAULT. (Value:
  *        "autoUpdateModeUnspecified")

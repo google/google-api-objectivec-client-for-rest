@@ -43,12 +43,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataflowCompute;
  *  Value "https://www.googleapis.com/auth/compute.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataflowComputeReadonly;
-/**
- *  Authorization scope: See your primary Google Account email address
- *
- *  Value "https://www.googleapis.com/auth/userinfo.email"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataflowUserinfoEmail;
 
 // ----------------------------------------------------------------------------
 //   GTLRDataflowService

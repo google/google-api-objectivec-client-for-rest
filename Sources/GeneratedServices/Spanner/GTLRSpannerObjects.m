@@ -107,6 +107,11 @@ NSString * const kGTLRSpanner_InstanceConfig_State_Creating    = @"CREATING";
 NSString * const kGTLRSpanner_InstanceConfig_State_Ready       = @"READY";
 NSString * const kGTLRSpanner_InstanceConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRSpanner_InstancePartition.state
+NSString * const kGTLRSpanner_InstancePartition_State_Creating = @"CREATING";
+NSString * const kGTLRSpanner_InstancePartition_State_Ready    = @"READY";
+NSString * const kGTLRSpanner_InstancePartition_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRSpanner_Metric.aggregation
 NSString * const kGTLRSpanner_Metric_Aggregation_AggregationUnspecified = @"AGGREGATION_UNSPECIFIED";
 NSString * const kGTLRSpanner_Metric_Aggregation_Max           = @"MAX";
@@ -280,7 +285,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_BatchWriteRequest
-@dynamic mutationGroups, requestOptions;
+@dynamic excludeTxnFromChangeStreams, mutationGroups, requestOptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -493,6 +498,26 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_CreateInstanceMetadata
 @dynamic cancelTime, endTime, expectedFulfillmentPeriod, instance, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CreateInstancePartitionMetadata
+//
+
+@implementation GTLRSpanner_CreateInstancePartitionMetadata
+@dynamic cancelTime, endTime, instancePartition, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CreateInstancePartitionRequest
+//
+
+@implementation GTLRSpanner_CreateInstancePartitionRequest
+@dynamic instancePartition, instancePartitionId;
 @end
 
 
@@ -970,6 +995,31 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_InstancePartition
+//
+
+@implementation GTLRSpanner_InstancePartition
+@dynamic config, createTime, displayName, ETag, name, nodeCount,
+         processingUnits, referencingBackups, referencingDatabases, state,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referencingBackups" : [NSString class],
+    @"referencingDatabases" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_KeyRange
 //
 
@@ -1201,6 +1251,52 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_ListInstancePartitionOperationsResponse
+//
+
+@implementation GTLRSpanner_ListInstancePartitionOperationsResponse
+@dynamic nextPageToken, operations, unreachableInstancePartitions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRSpanner_Operation class],
+    @"unreachableInstancePartitions" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ListInstancePartitionsResponse
+//
+
+@implementation GTLRSpanner_ListInstancePartitionsResponse
+@dynamic instancePartitions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instancePartitions" : [GTLRSpanner_InstancePartition class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"instancePartitions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_ListInstancesResponse
 //
 
@@ -1384,6 +1480,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_MoveInstanceRequest
+//
+
+@implementation GTLRSpanner_MoveInstanceRequest
+@dynamic targetConfig;
 @end
 
 
@@ -1943,7 +2049,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Session
-@dynamic approximateLastUseTime, createTime, creatorRole, labels, name;
+@dynamic approximateLastUseTime, createTime, creatorRole, labels, multiplexed,
+         name;
 @end
 
 
@@ -2145,7 +2252,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_TransactionOptions
-@dynamic partitionedDml, readOnly, readWrite;
+@dynamic excludeTxnFromChangeStreams, partitionedDml, readOnly, readWrite;
 @end
 
 
@@ -2260,6 +2367,26 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_UpdateInstanceMetadata
 @dynamic cancelTime, endTime, expectedFulfillmentPeriod, instance, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_UpdateInstancePartitionMetadata
+//
+
+@implementation GTLRSpanner_UpdateInstancePartitionMetadata
+@dynamic cancelTime, endTime, instancePartition, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_UpdateInstancePartitionRequest
+//
+
+@implementation GTLRSpanner_UpdateInstancePartitionRequest
+@dynamic fieldMask, instancePartition;
 @end
 
 

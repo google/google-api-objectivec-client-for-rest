@@ -710,11 +710,12 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  ID of the organizational unit to report on. Activity records will be shown
- *  only for users who belong to the specified organizational unit. Data before
- *  Dec 17, 2018 doesn't appear in the filtered results.
+ *  `Deprecated`. This field is deprecated and is no longer supported. ID of the
+ *  organizational unit to report on. Activity records will be shown only for
+ *  users who belong to the specified organizational unit. Data before Dec 17,
+ *  2018 doesn't appear in the filtered results.
  */
-@property(nonatomic, copy, nullable) NSString *orgUnitID;
+@property(nonatomic, copy, nullable) NSString *orgUnitID GTLR_DEPRECATED;
 
 /**
  *  The token to specify next page. A report with multiple pages has a

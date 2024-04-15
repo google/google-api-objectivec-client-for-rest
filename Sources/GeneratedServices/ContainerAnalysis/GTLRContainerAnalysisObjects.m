@@ -817,6 +817,15 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_CloudStorageLocation
+//
+
+@implementation GTLRContainerAnalysis_CloudStorageLocation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_Command
 //
 
@@ -855,7 +864,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_ComplianceNote
-@dynamic cisBenchmark, descriptionProperty, rationale, remediation,
+@dynamic cisBenchmark, descriptionProperty, impact, rationale, remediation,
          scanInstructions, title, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1098,6 +1107,26 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_EnvelopeSignature
 @dynamic keyid, sig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_ExportSBOMRequest
+//
+
+@implementation GTLRContainerAnalysis_ExportSBOMRequest
+@dynamic cloudStorageLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_ExportSBOMResponse
+//
+
+@implementation GTLRContainerAnalysis_ExportSBOMResponse
+@dynamic discoveryOccurrence;
 @end
 
 

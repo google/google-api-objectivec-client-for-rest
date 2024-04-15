@@ -47,8 +47,10 @@
 @class GTLRCloudBuild_ParamSpec;
 @class GTLRCloudBuild_ParamValue;
 @class GTLRCloudBuild_PipelineRef;
+@class GTLRCloudBuild_PipelineResult;
 @class GTLRCloudBuild_PipelineRun_Annotations;
 @class GTLRCloudBuild_PipelineRun_GcbParams;
+@class GTLRCloudBuild_PipelineRunResult;
 @class GTLRCloudBuild_PipelineSpec;
 @class GTLRCloudBuild_PipelineTask;
 @class GTLRCloudBuild_PipelineWorkspaceDeclaration;
@@ -58,6 +60,8 @@
 @class GTLRCloudBuild_Provenance;
 @class GTLRCloudBuild_Repository;
 @class GTLRCloudBuild_Repository_Annotations;
+@class GTLRCloudBuild_ResultValue;
+@class GTLRCloudBuild_ResultValue_ObjectVal;
 @class GTLRCloudBuild_SecretVolumeSource;
 @class GTLRCloudBuild_Security;
 @class GTLRCloudBuild_SecurityContext;
@@ -73,7 +77,6 @@
 @class GTLRCloudBuild_TaskSpec;
 @class GTLRCloudBuild_TimeoutFields;
 @class GTLRCloudBuild_UserCredential;
-@class GTLRCloudBuild_VolumeClaim;
 @class GTLRCloudBuild_VolumeMount;
 @class GTLRCloudBuild_VolumeSource;
 @class GTLRCloudBuild_WhenExpression;
@@ -288,6 +291,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Git;
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_ResolverNameUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_PipelineResult.type
+
+/**
+ *  Array type
+ *
+ *  Value: "ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_Array;
+/**
+ *  Object type
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_Object;
+/**
+ *  Default
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_String;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_PipelineRun.pipelineRunStatus
 
 /**
@@ -394,6 +425,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Storage_PreferArti
  *  Value: "STORAGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Storage_StorageUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_ResultValue.type
+
+/**
+ *  Array type
+ *
+ *  Value: "ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ResultValue_Type_Array;
+/**
+ *  Object type
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ResultValue_Type_Object;
+/**
+ *  Default
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ResultValue_Type_String;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ResultValue_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_Security.privilegeMode
@@ -1845,6 +1904,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  A value produced by a Pipeline.
+ */
+@interface GTLRCloudBuild_PipelineResult : GTLRObject
+
+/**
+ *  Output only. Description of the result.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Name of the result. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The type of data that the result holds.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_PipelineResult_Type_Array Array type (Value:
+ *        "ARRAY")
+ *    @arg @c kGTLRCloudBuild_PipelineResult_Type_Object Object type (Value:
+ *        "OBJECT")
+ *    @arg @c kGTLRCloudBuild_PipelineResult_Type_String Default (Value:
+ *        "STRING")
+ *    @arg @c kGTLRCloudBuild_PipelineResult_Type_TypeUnspecified Default enum
+ *        type; should not be used. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Value of the result. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ResultValue *value;
+
+@end
+
+
+/**
  *  Message describing PipelineRun object
  */
 @interface GTLRCloudBuild_PipelineRun : GTLRObject
@@ -1912,6 +2007,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** PipelineSpec defines the desired state of Pipeline. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *pipelineSpec;
 
+/**
+ *  Output only. Inline pipelineSpec yaml string, used by workflow run requests.
+ */
+@property(nonatomic, copy, nullable) NSString *pipelineSpecYaml;
+
 /** Optional. Provenance configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Provenance *provenance;
 
@@ -1924,11 +2024,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Output only. The exact PipelineSpec used to instantiate the run. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *resolvedPipelineSpec;
 
+/**
+ *  Optional. Output only. List of results written out by the pipeline's
+ *  containers
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PipelineRunResult *> *results;
+
 /** Optional. Security configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Security *security;
 
-/** Service account used in the Pipeline. */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
+/**
+ *  Service account used in the Pipeline. Deprecated; please use
+ *  security.service_account instead.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
 
 /**
  *  Output only. List of tasks that were skipped due to when expressions
@@ -1995,6 +2104,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  PipelineRunResult used to describe the results of a pipeline
+ */
+@interface GTLRCloudBuild_PipelineRunResult : GTLRObject
+
+/** Output only. Name of the TaskRun */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Value of the result. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ResultValue *value;
+
+@end
+
+
+/**
  *  PipelineSpec defines the desired state of Pipeline.
  */
 @interface GTLRCloudBuild_PipelineSpec : GTLRObject
@@ -2014,6 +2137,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** List of parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_ParamSpec *> *params;
+
+/**
+ *  Optional. Output only. List of results written out by the pipeline's
+ *  containers
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PipelineResult *> *results;
 
 /** List of Tasks that execute when this Pipeline is run. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PipelineTask *> *tasks;
@@ -2337,6 +2466,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *        fetch them all at once.
  */
 @interface GTLRCloudBuild_Repository_Annotations : GTLRObject
+@end
+
+
+/**
+ *  ResultValue holds different types of data for a single result.
+ */
+@interface GTLRCloudBuild_ResultValue : GTLRObject
+
+/** Value of the result if type is array. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *arrayVal;
+
+/** Value of the result if type is object. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ResultValue_ObjectVal *objectVal;
+
+/** Value of the result if type is string. */
+@property(nonatomic, copy, nullable) NSString *stringVal;
+
+/**
+ *  Output only. The type of data that the result holds.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_ResultValue_Type_Array Array type (Value: "ARRAY")
+ *    @arg @c kGTLRCloudBuild_ResultValue_Type_Object Object type (Value:
+ *        "OBJECT")
+ *    @arg @c kGTLRCloudBuild_ResultValue_Type_String Default (Value: "STRING")
+ *    @arg @c kGTLRCloudBuild_ResultValue_Type_TypeUnspecified Default enum
+ *        type; should not be used. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Value of the result if type is object.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_ResultValue_ObjectVal : GTLRObject
 @end
 
 
@@ -2879,17 +3050,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
- *  VolumeClaim is a user's request for a volume.
- */
-@interface GTLRCloudBuild_VolumeClaim : GTLRObject
-
-/** Volume size, e.g. 1gb. */
-@property(nonatomic, copy, nullable) NSString *storage;
-
-@end
-
-
-/**
  *  Pod volumes to mount into the container's filesystem.
  */
 @interface GTLRCloudBuild_VolumeMount : GTLRObject
@@ -3008,9 +3168,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  directory). +optional
  */
 @property(nonatomic, copy, nullable) NSString *subPath;
-
-/** Volume claim that will be created in the same namespace. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_VolumeClaim *volumeClaim;
 
 @end
 

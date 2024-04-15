@@ -595,6 +595,44 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
 
 @end
 
+@implementation GTLRAdsenseQuery_AccountsPolicyIssuesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAdsenseQuery_AccountsPolicyIssuesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_PolicyIssue class];
+  query.loggingName = @"adsense.accounts.policyIssues.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsPolicyIssuesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/policyIssues";
+  GTLRAdsenseQuery_AccountsPolicyIssuesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAdsense_ListPolicyIssuesResponse class];
+  query.loggingName = @"adsense.accounts.policyIssues.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAdsenseQuery_AccountsReportsGenerate
 
 @dynamic account, currencyCode, dateRange, dimensions, endDateDay, endDateMonth,

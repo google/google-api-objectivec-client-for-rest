@@ -27,6 +27,24 @@ NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysDen
 NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_EvaluationModeUnspecified = @"EVALUATION_MODE_UNSPECIFIED";
 NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAttestation = @"REQUIRE_ATTESTATION";
 
+// GTLRBinaryAuthorization_EvaluateGkePolicyResponse.verdict
+NSString * const kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_Conformant = @"CONFORMANT";
+NSString * const kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_Error = @"ERROR";
+NSString * const kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_NonConformant = @"NON_CONFORMANT";
+NSString * const kGTLRBinaryAuthorization_EvaluateGkePolicyResponse_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
+// GTLRBinaryAuthorization_EvaluationResult.verdict
+NSString * const kGTLRBinaryAuthorization_EvaluationResult_Verdict_CheckVerdictUnspecified = @"CHECK_VERDICT_UNSPECIFIED";
+NSString * const kGTLRBinaryAuthorization_EvaluationResult_Verdict_Conformant = @"CONFORMANT";
+NSString * const kGTLRBinaryAuthorization_EvaluationResult_Verdict_Error = @"ERROR";
+NSString * const kGTLRBinaryAuthorization_EvaluationResult_Verdict_NonConformant = @"NON_CONFORMANT";
+
+// GTLRBinaryAuthorization_ImageResult.verdict
+NSString * const kGTLRBinaryAuthorization_ImageResult_Verdict_Conformant = @"CONFORMANT";
+NSString * const kGTLRBinaryAuthorization_ImageResult_Verdict_Error = @"ERROR";
+NSString * const kGTLRBinaryAuthorization_ImageResult_Verdict_ImageVerdictUnspecified = @"IMAGE_VERDICT_UNSPECIFIED";
+NSString * const kGTLRBinaryAuthorization_ImageResult_Verdict_NonConformant = @"NON_CONFORMANT";
+
 // GTLRBinaryAuthorization_PkixPublicKey.signatureAlgorithm
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP256Sha256 = @"ECDSA_P256_SHA256";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP384Sha384 = @"ECDSA_P384_SHA384";
@@ -47,6 +65,12 @@ NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSi
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
+
+// GTLRBinaryAuthorization_PodResult.verdict
+NSString * const kGTLRBinaryAuthorization_PodResult_Verdict_Conformant = @"CONFORMANT";
+NSString * const kGTLRBinaryAuthorization_PodResult_Verdict_Error = @"ERROR";
+NSString * const kGTLRBinaryAuthorization_PodResult_Verdict_NonConformant = @"NON_CONFORMANT";
+NSString * const kGTLRBinaryAuthorization_PodResult_Verdict_PodVerdictUnspecified = @"POD_VERDICT_UNSPECIFIED";
 
 // GTLRBinaryAuthorization_Policy.globalPolicyEvaluationMode
 NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disable = @"DISABLE";
@@ -107,6 +131,16 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 
 @implementation GTLRBinaryAuthorization_AdmissionWhitelistPattern
 @dynamic namePattern;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_AllowlistResult
+//
+
+@implementation GTLRBinaryAuthorization_AllowlistResult
+@dynamic matchedPattern;
 @end
 
 
@@ -223,6 +257,35 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_CheckResult
+//
+
+@implementation GTLRBinaryAuthorization_CheckResult
+@dynamic allowlistResult, displayName, evaluationResult, explanation, index,
+         type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_CheckResults
+//
+
+@implementation GTLRBinaryAuthorization_CheckResults
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRBinaryAuthorization_CheckResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_CheckSet
 //
 
@@ -241,10 +304,72 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_CheckSetResult
+//
+
+@implementation GTLRBinaryAuthorization_CheckSetResult
+@dynamic allowlistResult, checkResults, displayName, explanation, index, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_Empty
 //
 
 @implementation GTLRBinaryAuthorization_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_EvaluateGkePolicyRequest
+//
+
+@implementation GTLRBinaryAuthorization_EvaluateGkePolicyRequest
+@dynamic resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_EvaluateGkePolicyRequest_Resource
+//
+
+@implementation GTLRBinaryAuthorization_EvaluateGkePolicyRequest_Resource
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_EvaluateGkePolicyResponse
+//
+
+@implementation GTLRBinaryAuthorization_EvaluateGkePolicyResponse
+@dynamic results, verdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRBinaryAuthorization_PodResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_EvaluationResult
+//
+
+@implementation GTLRBinaryAuthorization_EvaluationResult
+@dynamic verdict;
 @end
 
 
@@ -328,6 +453,16 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 
 @implementation GTLRBinaryAuthorization_ImageFreshnessCheck
 @dynamic maxUploadAgeDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_ImageResult
+//
+
+@implementation GTLRBinaryAuthorization_ImageResult
+@dynamic allowlistResult, checkSetResult, explanation, imageUri, verdict;
 @end
 
 
@@ -423,6 +558,25 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_PodResult
+//
+
+@implementation GTLRBinaryAuthorization_PodResult
+@dynamic imageResults, kubernetesNamespace, kubernetesServiceAccount, podName,
+         verdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"imageResults" : [GTLRBinaryAuthorization_ImageResult class]
+  };
+  return map;
 }
 
 @end

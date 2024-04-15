@@ -90,6 +90,44 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersAppsFetchDevicesRequestingExtension
+
+@dynamic customer, extensionId, orgUnitId, pageSize, pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/apps:fetchDevicesRequestingExtension";
+  GTLRChromeManagementQuery_CustomersAppsFetchDevicesRequestingExtension *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1FetchDevicesRequestingExtensionResponse class];
+  query.loggingName = @"chromemanagement.customers.apps.fetchDevicesRequestingExtension";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersAppsFetchUsersRequestingExtension
+
+@dynamic customer, extensionId, orgUnitId, pageSize, pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/apps:fetchUsersRequestingExtension";
+  GTLRChromeManagementQuery_CustomersAppsFetchUsersRequestingExtension *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1FetchUsersRequestingExtensionResponse class];
+  query.loggingName = @"chromemanagement.customers.apps.fetchUsersRequestingExtension";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersAppsWebGet
 
 @dynamic name;
@@ -123,6 +161,25 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.customer = customer;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse class];
   query.loggingName = @"chromemanagement.customers.reports.countChromeBrowsersNeedingAttention";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsCountChromeCrashEvents
+
+@dynamic customer, filter, orderBy, orgUnitId;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countChromeCrashEvents";
+  GTLRChromeManagementQuery_CustomersReportsCountChromeCrashEvents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countChromeCrashEvents";
   return query;
 }
 

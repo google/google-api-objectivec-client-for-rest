@@ -585,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesFetchGitRefs : GTLRCloudBuildQuery
 
-/** Optional. Number of results to return in the list. Default to 100. */
+/** Optional. Number of results to return in the list. Default to 20. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** Optional. Page start. */

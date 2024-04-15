@@ -26,6 +26,7 @@
     "Method 'cloudsearch.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'cloudsupport.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'dfareporting.creativeAssets.insert' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
+    "Method 'displayvideo.advertisers.assets.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'displayvideo.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'firebaseappdistribution.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'groupsmigration.archive.insert' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",

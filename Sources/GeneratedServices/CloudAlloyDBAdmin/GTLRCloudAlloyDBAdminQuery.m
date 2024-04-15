@@ -233,33 +233,6 @@ NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspecified = @"INSTANCE_
 
 @end
 
-@implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersGenerateClientCertificate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_GenerateClientCertificateRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}:generateClientCertificate";
-  GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersGenerateClientCertificate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudAlloyDBAdmin_GenerateClientCertificateResponse class];
-  query.loggingName = @"alloydb.projects.locations.clusters.generateClientCertificate";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersGet
 
 @dynamic name, view;

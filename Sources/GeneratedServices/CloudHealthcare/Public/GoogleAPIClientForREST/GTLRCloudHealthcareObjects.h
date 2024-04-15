@@ -4970,8 +4970,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSNumber *force;
 
 /**
- *  Optional. GCS object containing list of {resourceType}/{resourceId} lines,
- *  identifying resources to be reverted
+ *  Optional. Cloud Storage object containing list of
+ *  {resourceType}/{resourceId} lines, identifying resources to be reverted
  */
 @property(nonatomic, copy, nullable) NSString *inputGcsObject;
 

@@ -445,7 +445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  Projects have two unique identifiers, an ID and a number, and they look like
  *  this: ``` projects/abc/cases/456 ``` ``` projects/123/cases/456 ``` You can
  *  use either of them when calling the API. To learn more about project
- *  identifiers, see [AIP-2510](https://google.aip.dev/cloud/2510). Next ID: 38
+ *  identifiers, see [AIP-2510](https://google.aip.dev/cloud/2510).
  */
 @interface GTLRCloudSupport_Case : GTLRObject
 
@@ -603,32 +603,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 
 
 /**
- *  Case comments are the main way Google Support communicates with a user who
- *  has opened a case. When a user responds to Google Support, the user's
- *  responses also appear as comments.
+ *  A comment associated with a support case. Case comments are the primary way
+ *  for Google Support to communicate with a user who has opened a case. When a
+ *  user responds to Google Support, the user's responses also appear as
+ *  comments.
  */
 @interface GTLRCloudSupport_Comment : GTLRObject
 
-/**
- *  The full comment body. Maximum of 12800 characters. This can contain rich
- *  text syntax.
- */
+/** The full comment body. Maximum of 12800 characters. */
 @property(nonatomic, copy, nullable) NSString *body;
 
-/** Output only. The time when this comment was created. */
+/** Output only. The time when the comment was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. The user or Google Support agent created this comment. */
+/** Output only. The user or Google Support agent who created the comment. */
 @property(nonatomic, strong, nullable) GTLRCloudSupport_Actor *creator;
 
-/** Output only. The resource name for the comment. */
+/** Output only. Identifier. The resource name of the comment. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. DEPRECATED. An automatically generated plain text version of
- *  body with all rich text syntax stripped.
+ *  Output only. DEPRECATED. DO NOT USE. A duplicate of the `body` field. This
+ *  field is only present for legacy reasons.
  */
-@property(nonatomic, copy, nullable) NSString *plainTextBody;
+@property(nonatomic, copy, nullable) NSString *plainTextBody GTLR_DEPRECATED;
 
 @end
 

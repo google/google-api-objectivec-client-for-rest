@@ -884,6 +884,44 @@
 
 @end
 
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesListMemberships
+
+@dynamic filter, pageSize, pageToken, scopeName;
+
++ (instancetype)queryWithScopeName:(NSString *)scopeName {
+  NSArray *pathParams = @[ @"scopeName" ];
+  NSString *pathURITemplate = @"v1/{+scopeName}:listMemberships";
+  GTLRGKEHubQuery_ProjectsLocationsScopesListMemberships *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.scopeName = scopeName;
+  query.expectedObjectClass = [GTLRGKEHub_ListBoundMembershipsResponse class];
+  query.loggingName = @"gkehub.projects.locations.scopes.listMemberships";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsScopesListPermitted
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/scopes:listPermitted";
+  GTLRGKEHubQuery_ProjectsLocationsScopesListPermitted *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_ListPermittedScopesResponse class];
+  query.loggingName = @"gkehub.projects.locations.scopes.listPermitted";
+  return query;
+}
+
+@end
+
 @implementation GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesCreate
 
 @dynamic parent, scopeNamespaceId;

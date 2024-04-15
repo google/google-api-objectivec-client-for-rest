@@ -2535,8 +2535,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveChatMessageListResponse
-@dynamic ETag, eventId, items, kind, nextPageToken, offlineAt, pageInfo,
-         pollingIntervalMillis, tokenPagination, visitorId;
+@dynamic activePollItem, ETag, eventId, items, kind, nextPageToken, offlineAt,
+         pageInfo, pollingIntervalMillis, tokenPagination, visitorId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

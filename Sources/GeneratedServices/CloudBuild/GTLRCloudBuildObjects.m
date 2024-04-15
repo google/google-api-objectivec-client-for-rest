@@ -56,6 +56,12 @@ NSString * const kGTLRCloudBuild_PipelineRef_Resolver_GcbRepo  = @"GCB_REPO";
 NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Git      = @"GIT";
 NSString * const kGTLRCloudBuild_PipelineRef_Resolver_ResolverNameUnspecified = @"RESOLVER_NAME_UNSPECIFIED";
 
+// GTLRCloudBuild_PipelineResult.type
+NSString * const kGTLRCloudBuild_PipelineResult_Type_Array     = @"ARRAY";
+NSString * const kGTLRCloudBuild_PipelineResult_Type_Object    = @"OBJECT";
+NSString * const kGTLRCloudBuild_PipelineResult_Type_String    = @"STRING";
+NSString * const kGTLRCloudBuild_PipelineResult_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRCloudBuild_PipelineRun.pipelineRunStatus
 NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunCancelled = @"PIPELINE_RUN_CANCELLED";
 NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunStatusUnspecified = @"PIPELINE_RUN_STATUS_UNSPECIFIED";
@@ -79,6 +85,12 @@ NSString * const kGTLRCloudBuild_Provenance_Storage_ArtifactProjectOnly = @"ARTI
 NSString * const kGTLRCloudBuild_Provenance_Storage_BuildProjectOnly = @"BUILD_PROJECT_ONLY";
 NSString * const kGTLRCloudBuild_Provenance_Storage_PreferArtifactProject = @"PREFER_ARTIFACT_PROJECT";
 NSString * const kGTLRCloudBuild_Provenance_Storage_StorageUnspecified = @"STORAGE_UNSPECIFIED";
+
+// GTLRCloudBuild_ResultValue.type
+NSString * const kGTLRCloudBuild_ResultValue_Type_Array        = @"ARRAY";
+NSString * const kGTLRCloudBuild_ResultValue_Type_Object       = @"OBJECT";
+NSString * const kGTLRCloudBuild_ResultValue_Type_String       = @"STRING";
+NSString * const kGTLRCloudBuild_ResultValue_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudBuild_Security.privilegeMode
 NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Privileged = @"PRIVILEGED";
@@ -804,14 +816,29 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_PipelineResult
+//
+
+@implementation GTLRCloudBuild_PipelineResult
+@dynamic descriptionProperty, name, type, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_PipelineRun
 //
 
 @implementation GTLRCloudBuild_PipelineRun
 @dynamic annotations, childReferences, completionTime, conditions, createTime,
          ETag, finallyStartTime, gcbParams, name, params, pipelineRef,
-         pipelineRunStatus, pipelineSpec, provenance, record,
-         resolvedPipelineSpec, security, serviceAccount, skippedTasks,
+         pipelineRunStatus, pipelineSpec, pipelineSpecYaml, provenance, record,
+         resolvedPipelineSpec, results, security, serviceAccount, skippedTasks,
          startTime, timeouts, uid, updateTime, worker, workerPool, workflow,
          workspaces;
 
@@ -824,6 +851,7 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
     @"childReferences" : [GTLRCloudBuild_ChildStatusReference class],
     @"conditions" : [GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition class],
     @"params" : [GTLRCloudBuild_Param class],
+    @"results" : [GTLRCloudBuild_PipelineRunResult class],
     @"skippedTasks" : [GTLRCloudBuild_SkippedTask class],
     @"workspaces" : [GTLRCloudBuild_WorkspaceBinding class]
   };
@@ -863,16 +891,27 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_PipelineRunResult
+//
+
+@implementation GTLRCloudBuild_PipelineRunResult
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_PipelineSpec
 //
 
 @implementation GTLRCloudBuild_PipelineSpec
-@dynamic finallyTasks, generatedYaml, params, tasks, workspaces;
+@dynamic finallyTasks, generatedYaml, params, results, tasks, workspaces;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"finallyTasks" : [GTLRCloudBuild_PipelineTask class],
     @"params" : [GTLRCloudBuild_ParamSpec class],
+    @"results" : [GTLRCloudBuild_PipelineResult class],
     @"tasks" : [GTLRCloudBuild_PipelineTask class],
     @"workspaces" : [GTLRCloudBuild_PipelineWorkspaceDeclaration class]
   };
@@ -993,6 +1032,38 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_Repository_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ResultValue
+//
+
+@implementation GTLRCloudBuild_ResultValue
+@dynamic arrayVal, objectVal, stringVal, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"arrayVal" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ResultValue_ObjectVal
+//
+
+@implementation GTLRCloudBuild_ResultValue_ObjectVal
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1300,16 +1371,6 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_VolumeClaim
-//
-
-@implementation GTLRCloudBuild_VolumeClaim
-@dynamic storage;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBuild_VolumeMount
 //
 
@@ -1362,7 +1423,7 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_WorkspaceBinding
-@dynamic name, secret, subPath, volumeClaim;
+@dynamic name, secret, subPath;
 @end
 
 

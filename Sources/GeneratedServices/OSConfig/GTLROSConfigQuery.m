@@ -29,6 +29,52 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
 
 @end
 
+@implementation GTLROSConfigQuery_ProjectsLocationsGlobalGetProjectFeatureSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsGlobalGetProjectFeatureSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_ProjectFeatureSettings class];
+  query.loggingName = @"osconfig.projects.locations.global.getProjectFeatureSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsGlobalUpdateProjectFeatureSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLROSConfig_ProjectFeatureSettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsGlobalUpdateProjectFeatureSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_ProjectFeatureSettings class];
+  query.loggingName = @"osconfig.projects.locations.global.updateProjectFeatureSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet
 
 @dynamic name, view;

@@ -3044,6 +3044,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_StreamingScalingReportResponse
+//
+
+@implementation GTLRDataflow_StreamingScalingReportResponse
+@dynamic maximumThreadCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_StreamingSetupTask
 //
 
@@ -3381,8 +3391,9 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_WorkerMessageResponse
-@dynamic workerHealthReportResponse, workerMetricsResponse,
-         workerShutdownNoticeResponse, workerThreadScalingReportResponse;
+@dynamic streamingScalingReportResponse, workerHealthReportResponse,
+         workerMetricsResponse, workerShutdownNoticeResponse,
+         workerThreadScalingReportResponse;
 @end
 
 

@@ -263,11 +263,25 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_Folder
-@dynamic createTime, deleteTime, displayName, ETag, name, parent, state,
+@dynamic createTime, deleteTime, displayName, ETag, name, parent, state, tags,
          updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_Folder_Tags
+//
+
+@implementation GTLRCloudResourceManager_Folder_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -650,7 +664,7 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 @implementation GTLRCloudResourceManager_Project
 @dynamic createTime, deleteTime, displayName, ETag, labels, name, parent,
-         projectId, state, updateTime;
+         projectId, state, tags, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -665,6 +679,20 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_Project_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_Project_Tags
+//
+
+@implementation GTLRCloudResourceManager_Project_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

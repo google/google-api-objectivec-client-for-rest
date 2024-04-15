@@ -750,7 +750,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesPatch : GTLRDataformQuery
 
-/** Output only. The repository's name. */
+/** Identifier. The repository's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -767,7 +767,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a single Repository.
  *
  *  @param object The @c GTLRDataform_Repository to include in the query.
- *  @param name Output only. The repository's name.
+ *  @param name Identifier. The repository's name.
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesPatch
  */
@@ -1025,7 +1025,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsPatch : GTLRDataformQuery
 
-/** Output only. The release config's name. */
+/** Identifier. The release config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1042,7 +1042,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a single ReleaseConfig.
  *
  *  @param object The @c GTLRDataform_ReleaseConfig to include in the query.
- *  @param name Output only. The release config's name.
+ *  @param name Identifier. The release config's name.
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsPatch
  */
@@ -1285,7 +1285,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsPatch : GTLRDataformQuery
 
-/** Output only. The workflow config's name. */
+/** Identifier. The workflow config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1302,7 +1302,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a single WorkflowConfig.
  *
  *  @param object The @c GTLRDataform_WorkflowConfig to include in the query.
- *  @param name Output only. The workflow config's name.
+ *  @param name Identifier. The workflow config's name.
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsPatch
  */

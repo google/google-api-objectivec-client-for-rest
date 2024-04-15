@@ -159,8 +159,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
+ *  Gets the IAM policy policy for a resource. Returns an empty policy if the
+ *  resource exists and does not have a policy set.
  *
  *  Method: sourcerepo.projects.repos.getIamPolicy
  *
@@ -196,8 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSourceRepositories_Policy.
  *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
+ *  Gets the IAM policy policy for a resource. Returns an empty policy if the
+ *  resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested. See [Resource
@@ -296,8 +296,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  Sets the IAM policy on the specified resource. Replaces any existing policy.
  *
  *  Method: sourcerepo.projects.repos.setIamPolicy
  *
@@ -317,8 +316,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSourceRepositories_Policy.
  *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  Sets the IAM policy on the specified resource. Replaces any existing policy.
  *
  *  @param object The @c GTLRCloudSourceRepositories_SetIamPolicyRequest to
  *    include in the query.

@@ -67,6 +67,8 @@
 @class GTLRTrafficDirectorService_StaticRouteConfig_RouteConfig;
 @class GTLRTrafficDirectorService_StringMatcher;
 @class GTLRTrafficDirectorService_StructMatcher;
+@class GTLRTrafficDirectorService_TypedExtensionConfig;
+@class GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig;
 @class GTLRTrafficDirectorService_UpdateFailureState;
 @class GTLRTrafficDirectorService_UpdateFailureState_FailedConfiguration;
 @class GTLRTrafficDirectorService_ValueMatcher;
@@ -485,6 +487,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  All xds configs for a particular client.
  */
 @interface GTLRTrafficDirectorService_ClientConfig : GTLRObject
+
+/**
+ *  For xDS clients, the scope in which the data is used. For example, gRPC
+ *  indicates the data plane target or that the data is associated with gRPC
+ *  server(s).
+ */
+@property(nonatomic, copy, nullable) NSString *clientScope;
 
 /**
  *  Represents generic xDS config and the exact config structure depends on the
@@ -1837,7 +1846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  Specifies the way to match a string. [#next-free-field: 8]
+ *  Specifies the way to match a string. [#next-free-field: 9]
  */
 @interface GTLRTrafficDirectorService_StringMatcher : GTLRObject
 
@@ -1847,6 +1856,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  matches the value ``xyz.abc.def``
  */
 @property(nonatomic, copy, nullable) NSString *contains;
+
+/**
+ *  Use an extension as the matcher type. [#extension-category:
+ *  envoy.string_matcher]
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_TypedExtensionConfig *custom;
 
 /**
  *  The input string must match exactly the string specified here. Examples: *
@@ -1911,6 +1926,45 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_ValueMatcher *value;
 
+@end
+
+
+/**
+ *  Message type for extension configuration.
+ */
+@interface GTLRTrafficDirectorService_TypedExtensionConfig : GTLRObject
+
+/**
+ *  The name of an extension. This is not used to select the extension, instead
+ *  it serves the role of an opaque identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The typed config for the extension. The type URL will be used to identify
+ *  the extension. In the case that the type URL is *xds.type.v3.TypedStruct*
+ *  (or, for historical reasons, *udpa.type.v1.TypedStruct*), the inner type URL
+ *  of *TypedStruct* will be utilized. See the :ref:`extension configuration
+ *  overview ` for further details.
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig *typedConfig;
+
+@end
+
+
+/**
+ *  The typed config for the extension. The type URL will be used to identify
+ *  the extension. In the case that the type URL is *xds.type.v3.TypedStruct*
+ *  (or, for historical reasons, *udpa.type.v1.TypedStruct*), the inner type URL
+ *  of *TypedStruct* will be utilized. See the :ref:`extension configuration
+ *  overview ` for further details.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig : GTLRObject
 @end
 
 

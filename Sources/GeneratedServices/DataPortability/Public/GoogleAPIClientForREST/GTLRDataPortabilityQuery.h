@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Data Portability API (dataportability/v1beta)
+//   Data Portability API (dataportability/v1)
 // Description:
 //   The Data Portability API lets you build applications that request
 //   authorization from a user to move a copy of data from Google services into
@@ -37,29 +37,66 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the state of a Takeout Archive job for the Portability API.
+ *  Retrieves the state of an Archive job for the Portability API.
  *
  *  Method: dataportability.archiveJobs.getPortabilityArchiveState
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
+ *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
+ *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
+ *    @c kGTLRAuthScopeDataPortabilityChromeExtensions
+ *    @c kGTLRAuthScopeDataPortabilityChromeHistory
+ *    @c kGTLRAuthScopeDataPortabilityChromeReadingList
+ *    @c kGTLRAuthScopeDataPortabilityChromeSettings
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverFollows
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverLikes
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverNotInterested
+ *    @c kGTLRAuthScopeDataPortabilityMapsAliasedPlaces
  *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
  *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
  *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsFactualContributions
  *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
  *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
  *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
+ *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPlayDevices
+ *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
+ *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
+ *    @c kGTLRAuthScopeDataPortabilityPlayLibrary
+ *    @c kGTLRAuthScopeDataPortabilityPlayPlaypoints
+ *    @c kGTLRAuthScopeDataPortabilityPlayPromotions
+ *    @c kGTLRAuthScopeDataPortabilityPlayPurchases
+ *    @c kGTLRAuthScopeDataPortabilityPlayRedemptions
+ *    @c kGTLRAuthScopeDataPortabilityPlaySubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityPlayUsersettings
+ *    @c kGTLRAuthScopeDataPortabilitySavedCollections
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaWatched
  *    @c kGTLRAuthScopeDataPortabilityShoppingAddresses
  *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
+ *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePosts
  *    @c kGTLRAuthScopeDataPortabilityYoutubePrivatePlaylists
  *    @c kGTLRAuthScopeDataPortabilityYoutubePrivateVideos
  *    @c kGTLRAuthScopeDataPortabilityYoutubePublicPlaylists
@@ -73,19 +110,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The archive job ID that is returned when you request the state of
- *  the job from Takeout. The format is:
- *  archiveJobs/{archive_job}/portabilityArchiveState. archive_job is the job ID
- *  returned by the InitiatePortabilityArchiveResponse.
+ *  the job. The format is: archiveJobs/{archive_job}/portabilityArchiveState.
+ *  archive_job is the job ID returned by the
+ *  InitiatePortabilityArchiveResponse.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDataPortability_PortabilityArchiveState.
  *
- *  Retrieves the state of a Takeout Archive job for the Portability API.
+ *  Retrieves the state of an Archive job for the Portability API.
  *
  *  @param name Required. The archive job ID that is returned when you request
- *    the state of the job from Takeout. The format is:
+ *    the state of the job. The format is:
  *    archiveJobs/{archive_job}/portabilityArchiveState. archive_job is the job
  *    ID returned by the InitiatePortabilityArchiveResponse.
  *
@@ -102,23 +139,60 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
+ *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
+ *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
+ *    @c kGTLRAuthScopeDataPortabilityChromeExtensions
+ *    @c kGTLRAuthScopeDataPortabilityChromeHistory
+ *    @c kGTLRAuthScopeDataPortabilityChromeReadingList
+ *    @c kGTLRAuthScopeDataPortabilityChromeSettings
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverFollows
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverLikes
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverNotInterested
+ *    @c kGTLRAuthScopeDataPortabilityMapsAliasedPlaces
  *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
  *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
  *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsFactualContributions
  *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
  *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
  *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
+ *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPlayDevices
+ *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
+ *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
+ *    @c kGTLRAuthScopeDataPortabilityPlayLibrary
+ *    @c kGTLRAuthScopeDataPortabilityPlayPlaypoints
+ *    @c kGTLRAuthScopeDataPortabilityPlayPromotions
+ *    @c kGTLRAuthScopeDataPortabilityPlayPurchases
+ *    @c kGTLRAuthScopeDataPortabilityPlayRedemptions
+ *    @c kGTLRAuthScopeDataPortabilityPlaySubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityPlayUsersettings
+ *    @c kGTLRAuthScopeDataPortabilitySavedCollections
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaWatched
  *    @c kGTLRAuthScopeDataPortabilityShoppingAddresses
  *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
+ *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePosts
  *    @c kGTLRAuthScopeDataPortabilityYoutubePrivatePlaylists
  *    @c kGTLRAuthScopeDataPortabilityYoutubePrivateVideos
  *    @c kGTLRAuthScopeDataPortabilityYoutubePublicPlaylists
@@ -131,9 +205,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataPortabilityQuery_ArchiveJobsRetry : GTLRDataPortabilityQuery
 
 /**
- *  Required. The archive job ID returned by the
- *  InitiatePortabilityArchiveResponse to be retried. Retrying is only executed
- *  if the initial job failed.
+ *  Required. The Archive job ID you're retrying. This is returned by the
+ *  InitiatePortabilityArchiveResponse. Retrying is only executed if the initial
+ *  job failed.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -144,9 +218,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataPortability_RetryPortabilityArchiveRequest to
  *    include in the query.
- *  @param name Required. The archive job ID returned by the
- *    InitiatePortabilityArchiveResponse to be retried. Retrying is only
- *    executed if the initial job failed.
+ *  @param name Required. The Archive job ID you're retrying. This is returned
+ *    by the InitiatePortabilityArchiveResponse. Retrying is only executed if
+ *    the initial job failed.
  *
  *  @return GTLRDataPortabilityQuery_ArchiveJobsRetry
  */
@@ -157,32 +231,69 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Revokes OAuth tokens and resets exhausted scopes for a user/project pair.
- *  This method allows you to initiate a Takeout request after a new consent is
- *  granted. This method also indicates that previous archives can be garbage
- *  collected. You should call this method when all jobs are complete and all
- *  archives are downloaded. Do not call it only when you start a new job.
+ *  This method allows you to initiate a request after a new consent is granted.
+ *  This method also indicates that previous archives can be garbage collected.
+ *  You should call this method when all jobs are complete and all archives are
+ *  downloaded. Do not call it only when you start a new job.
  *
  *  Method: dataportability.authorization.reset
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
+ *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
+ *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
+ *    @c kGTLRAuthScopeDataPortabilityChromeExtensions
+ *    @c kGTLRAuthScopeDataPortabilityChromeHistory
+ *    @c kGTLRAuthScopeDataPortabilityChromeReadingList
+ *    @c kGTLRAuthScopeDataPortabilityChromeSettings
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverFollows
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverLikes
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverNotInterested
+ *    @c kGTLRAuthScopeDataPortabilityMapsAliasedPlaces
  *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
  *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
  *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsFactualContributions
  *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
  *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
  *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
+ *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPlayDevices
+ *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
+ *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
+ *    @c kGTLRAuthScopeDataPortabilityPlayLibrary
+ *    @c kGTLRAuthScopeDataPortabilityPlayPlaypoints
+ *    @c kGTLRAuthScopeDataPortabilityPlayPromotions
+ *    @c kGTLRAuthScopeDataPortabilityPlayPurchases
+ *    @c kGTLRAuthScopeDataPortabilityPlayRedemptions
+ *    @c kGTLRAuthScopeDataPortabilityPlaySubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityPlayUsersettings
+ *    @c kGTLRAuthScopeDataPortabilitySavedCollections
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaWatched
  *    @c kGTLRAuthScopeDataPortabilityShoppingAddresses
  *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
+ *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePosts
  *    @c kGTLRAuthScopeDataPortabilityYoutubePrivatePlaylists
  *    @c kGTLRAuthScopeDataPortabilityYoutubePrivateVideos
  *    @c kGTLRAuthScopeDataPortabilityYoutubePublicPlaylists
@@ -198,10 +309,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataPortability_Empty.
  *
  *  Revokes OAuth tokens and resets exhausted scopes for a user/project pair.
- *  This method allows you to initiate a Takeout request after a new consent is
- *  granted. This method also indicates that previous archives can be garbage
- *  collected. You should call this method when all jobs are complete and all
- *  archives are downloaded. Do not call it only when you start a new job.
+ *  This method allows you to initiate a request after a new consent is granted.
+ *  This method also indicates that previous archives can be garbage collected.
+ *  You should call this method when all jobs are complete and all archives are
+ *  downloaded. Do not call it only when you start a new job.
  *
  *  @param object The @c GTLRDataPortability_ResetAuthorizationRequest to
  *    include in the query.
@@ -213,29 +324,66 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Initiates a new Takeout Archive job for the Portability API.
+ *  Initiates a new Archive job for the Portability API.
  *
  *  Method: dataportability.portabilityArchive.initiate
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
+ *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
+ *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
+ *    @c kGTLRAuthScopeDataPortabilityChromeDictionary
+ *    @c kGTLRAuthScopeDataPortabilityChromeExtensions
+ *    @c kGTLRAuthScopeDataPortabilityChromeHistory
+ *    @c kGTLRAuthScopeDataPortabilityChromeReadingList
+ *    @c kGTLRAuthScopeDataPortabilityChromeSettings
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverFollows
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverLikes
+ *    @c kGTLRAuthScopeDataPortabilityDiscoverNotInterested
+ *    @c kGTLRAuthScopeDataPortabilityMapsAliasedPlaces
  *    @c kGTLRAuthScopeDataPortabilityMapsCommuteRoutes
  *    @c kGTLRAuthScopeDataPortabilityMapsCommuteSettings
  *    @c kGTLRAuthScopeDataPortabilityMapsEvProfile
+ *    @c kGTLRAuthScopeDataPortabilityMapsFactualContributions
  *    @c kGTLRAuthScopeDataPortabilityMapsOfferingContributions
  *    @c kGTLRAuthScopeDataPortabilityMapsPhotosVideos
+ *    @c kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers
  *    @c kGTLRAuthScopeDataPortabilityMapsReviews
  *    @c kGTLRAuthScopeDataPortabilityMapsStarredPlaces
  *    @c kGTLRAuthScopeDataPortabilityMyactivityMaps
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityMyadcenter
+ *    @c kGTLRAuthScopeDataPortabilityMyactivityPlay
  *    @c kGTLRAuthScopeDataPortabilityMyactivitySearch
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
+ *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPlayDevices
+ *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
+ *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
+ *    @c kGTLRAuthScopeDataPortabilityPlayLibrary
+ *    @c kGTLRAuthScopeDataPortabilityPlayPlaypoints
+ *    @c kGTLRAuthScopeDataPortabilityPlayPromotions
+ *    @c kGTLRAuthScopeDataPortabilityPlayPurchases
+ *    @c kGTLRAuthScopeDataPortabilityPlayRedemptions
+ *    @c kGTLRAuthScopeDataPortabilityPlaySubscriptions
+ *    @c kGTLRAuthScopeDataPortabilityPlayUsersettings
+ *    @c kGTLRAuthScopeDataPortabilitySavedCollections
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSettings
+ *    @c kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs
+ *    @c kGTLRAuthScopeDataPortabilitySearchUgcMediaWatched
  *    @c kGTLRAuthScopeDataPortabilityShoppingAddresses
  *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
+ *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
+ *    @c kGTLRAuthScopeDataPortabilityYoutubePosts
  *    @c kGTLRAuthScopeDataPortabilityYoutubePrivatePlaylists
  *    @c kGTLRAuthScopeDataPortabilityYoutubePrivateVideos
  *    @c kGTLRAuthScopeDataPortabilityYoutubePublicPlaylists
@@ -250,7 +398,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataPortability_InitiatePortabilityArchiveResponse.
  *
- *  Initiates a new Takeout Archive job for the Portability API.
+ *  Initiates a new Archive job for the Portability API.
  *
  *  @param object The @c GTLRDataPortability_InitiatePortabilityArchiveRequest
  *    to include in the query.

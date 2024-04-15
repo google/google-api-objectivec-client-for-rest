@@ -416,6 +416,21 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_ReportResponse
+@dynamic extensions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ReportResponse_Extensions
+//
+
+@implementation GTLRServiceControl_ReportResponse_Extensions
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

@@ -4,8 +4,9 @@
 // API:
 //   Google Chat API (chat/v1)
 // Description:
-//   Enables apps to fetch information and perform actions in Google Chat.
-//   Authentication is a prerequisite for using the Google Chat REST API.
+//   The Google Chat API lets you build Chat apps to integrate your services
+//   with Google Chat and manage Chat resources such as spaces, members, and
+//   messages.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -44,6 +45,7 @@ NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Unknown = @"UNKNOWN";
 
 // GTLRHangoutsChat_Annotation.type
 NSString * const kGTLRHangoutsChat_Annotation_Type_AnnotationTypeUnspecified = @"ANNOTATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_Annotation_Type_RichLink    = @"RICH_LINK";
 NSString * const kGTLRHangoutsChat_Annotation_Type_SlashCommand = @"SLASH_COMMAND";
 NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention = @"USER_MENTION";
 
@@ -60,7 +62,6 @@ NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified =
 // GTLRHangoutsChat_CommonEventObject.hostApp
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar = @"CALENDAR";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Chat = @"CHAT";
-NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_ChatInGmail = @"CHAT_IN_GMAIL";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Demo = @"DEMO";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Docs = @"DOCS";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Drawings = @"DRAWINGS";
@@ -276,6 +277,10 @@ NSString * const kGTLRHangoutsChat_Membership_State_Joined     = @"JOINED";
 NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified = @"MEMBERSHIP_STATE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Membership_State_NotAMember = @"NOT_A_MEMBER";
 
+// GTLRHangoutsChat_RichLinkMetadata.richLinkType
+NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile = @"DRIVE_FILE";
+NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_RichLinkTypeUnspecified = @"RICH_LINK_TYPE_UNSPECIFIED";
+
 // GTLRHangoutsChat_SlashCommandMetadata.type
 NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_Add = @"ADD";
 NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_Invoke = @"INVOKE";
@@ -315,6 +320,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_AccessoryWidget
+//
+
+@implementation GTLRHangoutsChat_AccessoryWidget
+@dynamic buttonList;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_ActionParameter
 //
 
@@ -349,7 +364,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Annotation
-@dynamic length, slashCommand, startIndex, type, userMention;
+@dynamic length, richLinkMetadata, slashCommand, startIndex, type, userMention;
 @end
 
 
@@ -609,6 +624,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_DriveDataRef
 @dynamic driveFileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_DriveLinkData
+//
+
+@implementation GTLRHangoutsChat_DriveLinkData
+@dynamic driveDataRef, mimeType;
 @end
 
 
@@ -880,7 +905,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1Icon
-@dynamic altText, iconUrl, imageType, knownIcon;
+@dynamic altText, iconUrl, imageType, knownIcon, materialIcon;
 @end
 
 
@@ -911,6 +936,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle
 @dynamic aspectRatio, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1MaterialIcon
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1MaterialIcon
+@dynamic fill, grade, name, weight;
 @end
 
 
@@ -1202,6 +1237,28 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_ListSpaceEventsResponse
+//
+
+@implementation GTLRHangoutsChat_ListSpaceEventsResponse
+@dynamic nextPageToken, spaceEvents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spaceEvents" : [GTLRHangoutsChat_SpaceEvent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"spaceEvents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_ListSpacesResponse
 //
 
@@ -1254,19 +1311,104 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_MembershipBatchCreatedEventData
+//
+
+@implementation GTLRHangoutsChat_MembershipBatchCreatedEventData
+@dynamic memberships;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"memberships" : [GTLRHangoutsChat_MembershipCreatedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MembershipBatchDeletedEventData
+//
+
+@implementation GTLRHangoutsChat_MembershipBatchDeletedEventData
+@dynamic memberships;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"memberships" : [GTLRHangoutsChat_MembershipDeletedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MembershipBatchUpdatedEventData
+//
+
+@implementation GTLRHangoutsChat_MembershipBatchUpdatedEventData
+@dynamic memberships;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"memberships" : [GTLRHangoutsChat_MembershipUpdatedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MembershipCreatedEventData
+//
+
+@implementation GTLRHangoutsChat_MembershipCreatedEventData
+@dynamic membership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MembershipDeletedEventData
+//
+
+@implementation GTLRHangoutsChat_MembershipDeletedEventData
+@dynamic membership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MembershipUpdatedEventData
+//
+
+@implementation GTLRHangoutsChat_MembershipUpdatedEventData
+@dynamic membership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Message
 //
 
 @implementation GTLRHangoutsChat_Message
-@dynamic actionResponse, annotations, argumentText, attachedGifs, attachment,
-         cards, cardsV2, clientAssignedMessageId, createTime, deleteTime,
-         deletionMetadata, emojiReactionSummaries, fallbackText, formattedText,
-         lastUpdateTime, matchedUrl, name, privateMessageViewer,
-         quotedMessageMetadata, sender, slashCommand, space, text, thread,
-         threadReply;
+@dynamic accessoryWidgets, actionResponse, annotations, argumentText,
+         attachedGifs, attachment, cards, cardsV2, clientAssignedMessageId,
+         createTime, deleteTime, deletionMetadata, emojiReactionSummaries,
+         fallbackText, formattedText, lastUpdateTime, matchedUrl, name,
+         privateMessageViewer, quotedMessageMetadata, sender, slashCommand,
+         space, text, thread, threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accessoryWidgets" : [GTLRHangoutsChat_AccessoryWidget class],
     @"annotations" : [GTLRHangoutsChat_Annotation class],
     @"attachedGifs" : [GTLRHangoutsChat_AttachedGif class],
     @"attachment" : [GTLRHangoutsChat_Attachment class],
@@ -1277,6 +1419,90 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MessageBatchCreatedEventData
+//
+
+@implementation GTLRHangoutsChat_MessageBatchCreatedEventData
+@dynamic messages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRHangoutsChat_MessageCreatedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MessageBatchDeletedEventData
+//
+
+@implementation GTLRHangoutsChat_MessageBatchDeletedEventData
+@dynamic messages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRHangoutsChat_MessageDeletedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MessageBatchUpdatedEventData
+//
+
+@implementation GTLRHangoutsChat_MessageBatchUpdatedEventData
+@dynamic messages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRHangoutsChat_MessageUpdatedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MessageCreatedEventData
+//
+
+@implementation GTLRHangoutsChat_MessageCreatedEventData
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MessageDeletedEventData
+//
+
+@implementation GTLRHangoutsChat_MessageDeletedEventData
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MessageUpdatedEventData
+//
+
+@implementation GTLRHangoutsChat_MessageUpdatedEventData
+@dynamic message;
 @end
 
 
@@ -1317,6 +1543,72 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Reaction
 @dynamic emoji, name, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ReactionBatchCreatedEventData
+//
+
+@implementation GTLRHangoutsChat_ReactionBatchCreatedEventData
+@dynamic reactions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reactions" : [GTLRHangoutsChat_ReactionCreatedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ReactionBatchDeletedEventData
+//
+
+@implementation GTLRHangoutsChat_ReactionBatchDeletedEventData
+@dynamic reactions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reactions" : [GTLRHangoutsChat_ReactionDeletedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ReactionCreatedEventData
+//
+
+@implementation GTLRHangoutsChat_ReactionCreatedEventData
+@dynamic reaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ReactionDeletedEventData
+//
+
+@implementation GTLRHangoutsChat_ReactionDeletedEventData
+@dynamic reaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_RichLinkMetadata
+//
+
+@implementation GTLRHangoutsChat_RichLinkMetadata
+@dynamic driveLinkData, richLinkType, uri;
 @end
 
 
@@ -1408,6 +1700,24 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_SpaceBatchUpdatedEventData
+//
+
+@implementation GTLRHangoutsChat_SpaceBatchUpdatedEventData
+@dynamic spaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spaces" : [GTLRHangoutsChat_SpaceUpdatedEventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_SpaceDataSource
 //
 
@@ -1428,6 +1738,35 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SpaceEvent
+//
+
+@implementation GTLRHangoutsChat_SpaceEvent
+@dynamic eventTime, eventType, membershipBatchCreatedEventData,
+         membershipBatchDeletedEventData, membershipBatchUpdatedEventData,
+         membershipCreatedEventData, membershipDeletedEventData,
+         membershipUpdatedEventData, messageBatchCreatedEventData,
+         messageBatchDeletedEventData, messageBatchUpdatedEventData,
+         messageCreatedEventData, messageDeletedEventData,
+         messageUpdatedEventData, name, reactionBatchCreatedEventData,
+         reactionBatchDeletedEventData, reactionCreatedEventData,
+         reactionDeletedEventData, spaceBatchUpdatedEventData,
+         spaceUpdatedEventData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SpaceUpdatedEventData
+//
+
+@implementation GTLRHangoutsChat_SpaceUpdatedEventData
+@dynamic space;
 @end
 
 

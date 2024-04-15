@@ -466,8 +466,9 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription
 @dynamic cancellationDetails, createTime, cycleEndTime, endUserEntitled,
          freeTrialEndTime, lineItems, name, partnerUserToken, processingState,
-         products, promotions, promotionSpecs, redirectUri, renewalTime,
-         serviceLocation, state, updateTime, upgradeDowngradeDetails;
+         products, promotions, promotionSpecs, purchaseTime, redirectUri,
+         renewalTime, serviceLocation, state, updateTime,
+         upgradeDowngradeDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

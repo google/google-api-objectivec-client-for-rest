@@ -28,6 +28,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess;
+@class GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount;
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo;
@@ -35,6 +36,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails;
 @class GTLRChromeManagement_GoogleChromeManagementV1DiskInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo;
@@ -56,6 +58,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1PrinterReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1PrintJob;
+@class GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
@@ -79,6 +82,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -125,7 +129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 // GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport.batteryHealth
 
 /**
- *  Battery is healthy.
+ *  Battery is healthy, full charge capacity / design capacity > 80%
  *
  *  Value: "BATTERY_HEALTH_NORMAL"
  */
@@ -137,13 +141,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthUnspecified;
 /**
- *  Battery is unhealthy and should be replaced.
+ *  Battery is unhealthy and suggested to be replaced, full charge capacity /
+ *  design capacity < 75%
  *
  *  Value: "BATTERY_REPLACE_NOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceNow;
 /**
- *  Battery is moderately unhealthy and should be replaced soon.
+ *  Battery is moderately unhealthy and suggested to be replaced soon, full
+ *  charge capacity / design capacity 75% - 80%
  *
  *  Value: "BATTERY_REPLACE_SOON"
  */
@@ -1413,14 +1419,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *
  *  Likely values:
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthNormal
- *        Battery is healthy. (Value: "BATTERY_HEALTH_NORMAL")
+ *        Battery is healthy, full charge capacity / design capacity > 80%
+ *        (Value: "BATTERY_HEALTH_NORMAL")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthUnspecified
  *        Health unknown. (Value: "BATTERY_HEALTH_UNSPECIFIED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceNow
- *        Battery is unhealthy and should be replaced. (Value:
- *        "BATTERY_REPLACE_NOW")
+ *        Battery is unhealthy and suggested to be replaced, full charge
+ *        capacity / design capacity < 75% (Value: "BATTERY_REPLACE_NOW")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceSoon
- *        Battery is moderately unhealthy and should be replaced soon. (Value:
+ *        Battery is moderately unhealthy and suggested to be replaced soon,
+ *        full charge capacity / design capacity 75% - 80% (Value:
  *        "BATTERY_REPLACE_SOON")
  */
 @property(nonatomic, copy, nullable) NSString *batteryHealth;
@@ -1800,6 +1808,39 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recentlyEnrolledCount;
+
+@end
+
+
+/**
+ *  Response contains a list of CrashEventCountByVersionPerDay which count the
+ *  chrome crash at the certain date.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponse : GTLRObject
+
+/** Crash event counts grouped by date and browser version. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount *> *crashEventCounts;
+
+@end
+
+
+/**
+ *  The `count` of the Chrome crash events at the `date`.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount : GTLRObject
+
+/** Browser version this is counting. */
+@property(nonatomic, copy, nullable) NSString *browserVersion;
+
+/**
+ *  Total count of crash events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** Date of the crash event. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleTypeDate *date;
 
 @end
 
@@ -2279,6 +2320,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Details of a device requesting an extension, including the name of the
+ *  device and the justification of the request.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails : GTLRObject
+
+/** The name of a device that has requested the extension. */
+@property(nonatomic, copy, nullable) NSString *deviceName;
+
+/** Request justification as entered by the user. */
+@property(nonatomic, copy, nullable) NSString *justification;
+
+@end
+
+
+/**
  *  Status of the single storage device.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1DiskInfo : GTLRObject
@@ -2468,6 +2524,73 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response containing a list of devices that have requested the queried
+ *  extension.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deviceDetails" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1FetchDevicesRequestingExtensionResponse : GTLRCollectionObject
+
+/**
+ *  Details of devices that have requested the queried extension.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails *> *deviceDetails;
+
+/**
+ *  Optional. Token to specify the next page in the list. Token expires after 1
+ *  day.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Optional. Total number of devices in response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response containing a list of users that have requested the queried
+ *  extension.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userDetails" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1FetchUsersRequestingExtensionResponse : GTLRCollectionObject
+
+/** Token to specify the next page in the list. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total number of users in response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+/**
+ *  Details of users that have requested the queried extension.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails *> *userDetails;
 
 @end
 
@@ -3409,6 +3532,47 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Runtime counters retrieved from CPU. Currently the runtime counters
+ *  telemetry is only supported by Intel vPro PSR on Gen 14+.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport : GTLRObject
+
+/**
+ *  Number of times that the device has entered into the hibernation state.
+ *  Currently obtained via the PSR, count from S0->S4.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enterHibernationCount;
+
+/**
+ *  Number of times that the device has entered into the power-off state.
+ *  Currently obtained via the PSR, count from S0->S5.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enterPoweroffCount;
+
+/**
+ *  Number of times that the device has entered into the sleep state. Currently
+ *  obtained via the PSR, count from S0->S3.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enterSleepCount;
+
+/** Timestamp when the report was collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/**
+ *  Total lifetime runtime. Currently always S0 runtime from Intel vPro PSR.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *uptimeRuntimeDuration;
+
+@end
+
+
+/**
  *  Status data for storage. * This field is telemetry information and this will
  *  change over time as the device is utilized. * Data for this field is
  *  controlled via policy:
@@ -3596,6 +3760,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  decreasing order of report_time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport *> *peripheralsReport;
+
+/**
+ *  Output only. Runtime counters reports collected device lifetime runtime, as
+ *  well as the counts of S0->S3, S0->S4, and S0->S5 transitions, meaning
+ *  entering into sleep, hibernation, and power-off states
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport *> *runtimeCountersReport;
 
 /**
  *  Output only. Device serial number. This value is the same as the Admin
@@ -4208,6 +4379,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** The unique Directory API ID of the user. */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Details of a user requesting an extension, including the email and the
+ *  justification.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails : GTLRObject
+
+/** The e-mail address of a user that has requested the extension. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Request justification as entered by the user. */
+@property(nonatomic, copy, nullable) NSString *justification;
 
 @end
 

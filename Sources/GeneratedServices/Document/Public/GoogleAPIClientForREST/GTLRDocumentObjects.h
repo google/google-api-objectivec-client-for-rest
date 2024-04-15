@@ -218,6 +218,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions;
+@class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestFoundationModelTuningOptions;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData;
 @class GTLRDocument_GoogleCloudDocumentaiV1Vertex;
 @class GTLRDocument_GoogleCloudLocationLocation;
@@ -3197,6 +3198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Optional. Identifies the bounding polygon of a layout element on the page.
+ *  If `layout_type` is set, the bounding polygon must be exactly the same to
+ *  the layout element it's referring to.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly *boundingPoly;
 
@@ -4733,6 +4736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Optional. Identifies the bounding polygon of a layout element on the page.
+ *  If `layout_type` is set, the bounding polygon must be exactly the same to
+ *  the layout element it's referring to.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2BoundingPoly *boundingPoly;
 
@@ -7157,6 +7162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Optional. Identifies the bounding polygon of a layout element on the page.
+ *  If `layout_type` is set, the bounding polygon must be exactly the same to
+ *  the layout element it's referring to.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly *boundingPoly;
 
@@ -8017,6 +8024,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Defines properties that can be part of the entity type.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty : GTLRObject
+
+/** User defined name for the property. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The name of the property. Follows the same guidelines as the EntityType
@@ -8943,6 +8953,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1OcrConfig *ocrConfig;
 
+/**
+ *  Optional. Override the schema of the ProcessorVersion. Will return an
+ *  Invalid Argument error if this field is set when the underlying
+ *  ProcessorVersion doesn't support schema override.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *schemaOverride;
+
 @end
 
 
@@ -9190,13 +9207,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *modelType;
 
 /**
- *  The resource name of the processor version. Format:
+ *  Identifier. The resource name of the processor version. Format:
  *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The state of the processor version.
+ *  Output only. The state of the processor version.
  *
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Creating
@@ -9545,6 +9562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Optional. The schema the processor version will be trained with. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
 
+/** Options to control foundation model tuning of a processor. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestFoundationModelTuningOptions *foundationModelTuningOptions;
+
 /** Optional. The input data used to train the ProcessorVersion. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestInputData *inputData;
 
@@ -9572,6 +9592,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *        Value "TRAINING_METHOD_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *trainingMethod;
+
+@end
+
+
+/**
+ *  Options to control foundation model tuning of the processor.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestFoundationModelTuningOptions : GTLRObject
+
+/**
+ *  Optional. The multiplier to apply to the recommended learning rate. Valid
+ *  values are between 0.1 and 10. If not provided, recommended learning rate
+ *  will be used.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *learningRateMultiplier;
+
+/**
+ *  Optional. The number of steps to run for model tuning. Valid values are
+ *  between 1 and 400. If not provided, recommended steps will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trainSteps;
 
 @end
 

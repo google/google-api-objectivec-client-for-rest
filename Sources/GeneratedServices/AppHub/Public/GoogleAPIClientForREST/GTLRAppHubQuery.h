@@ -48,7 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
-/** Required. Value for parent. */
+/**
+ *  Required. Project and location to create Application in. Expected format:
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -72,7 +75,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates an Application in a host project and location.
  *
  *  @param object The @c GTLRAppHub_Application to include in the query.
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Project and location to create Application in.
+ *    Expected format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsCreate
  */
@@ -91,7 +95,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsDelete : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the Application to delete. Expected
+ *  format:
+ *  `projects/{project}/locations/{location}/applications/{application}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -114,7 +122,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes an Application in a host project and location.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the Application to delete.
+ *    Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsDelete
  */
@@ -132,7 +142,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsGet : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the Application to fetch. Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -140,7 +153,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets an Application in a host project and location.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the Application to fetch.
+ *    Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsGet
  */
@@ -207,10 +222,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsList : GTLRAppHubQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -224,7 +239,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Value for parent. */
+/**
+ *  Required. Project and location to list Applications on. Expected format:
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -232,7 +250,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists Applications in a host project and location.
  *
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Project and location to list Applications on.
+ *    Expected format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsList
  *
@@ -314,7 +333,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsServicesCreate : GTLRAppHubQuery
 
-/** Required. Value for parent. */
+/**
+ *  Required. Fully qualified name of the parent Application to create the
+ *  Service in. Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -345,7 +368,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a Service in an Application.
  *
  *  @param object The @c GTLRAppHub_Service to include in the query.
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Fully qualified name of the parent Application to
+ *    create the Service in. Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesCreate
  */
@@ -355,7 +380,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Service in an Application.
+ *  Deletes a Service from an Application.
  *
  *  Method: apphub.projects.locations.applications.services.delete
  *
@@ -364,7 +389,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsServicesDelete : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the Service to delete from an Application.
+ *  Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}/services/{service}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -385,9 +414,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAppHub_Operation.
  *
- *  Deletes a Service in an Application.
+ *  Deletes a Service from an Application.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the Service to delete from an
+ *    Application. Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}/services/{service}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesDelete
  */
@@ -405,7 +436,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsServicesGet : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the Service to fetch. Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}/services/{service}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -413,7 +447,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a Service in an Application.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the Service to fetch. Expected
+ *    format:
+ *    `projects/{project}/locations/{location}/applications/{application}/services/{service}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesGet
  */
@@ -422,7 +458,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List Services in an Application.
+ *  Lists Services in an Application.
  *
  *  Method: apphub.projects.locations.applications.services.list
  *
@@ -448,15 +484,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Value for parent. */
+/**
+ *  Required. Fully qualified name of the parent Application to list Services
+ *  for. Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAppHub_ListServicesResponse.
  *
- *  List Services in an Application.
+ *  Lists Services in an Application.
  *
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Fully qualified name of the parent Application to
+ *    list Services for. Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesList
  *
@@ -621,7 +663,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsCreate : GTLRAppHubQuery
 
-/** Required. Value for parent. */
+/**
+ *  Required. Fully qualified name of the Application to create Workload in.
+ *  Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -652,7 +698,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a Workload in an Application.
  *
  *  @param object The @c GTLRAppHub_Workload to include in the query.
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Fully qualified name of the Application to create
+ *    Workload in. Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsCreate
  */
@@ -662,7 +710,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Workload in an Application.
+ *  Deletes a Workload from an Application.
  *
  *  Method: apphub.projects.locations.applications.workloads.delete
  *
@@ -671,7 +719,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsDelete : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the Workload to delete from an
+ *  Application. Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}/workloads/{workload}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -692,9 +744,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAppHub_Operation.
  *
- *  Deletes a Workload in an Application.
+ *  Deletes a Workload from an Application.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the Workload to delete from an
+ *    Application. Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}/workloads/{workload}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsDelete
  */
@@ -712,7 +766,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsGet : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the Workload to fetch. Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}/workloads/{workload}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -720,7 +777,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a Workload in an Application.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the Workload to fetch.
+ *    Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}/workloads/{workload}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsGet
  */
@@ -738,10 +797,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsList : GTLRAppHubQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -755,7 +814,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Value for parent. */
+/**
+ *  Required. Fully qualified name of the parent Application to list Workloads
+ *  for. Expected format:
+ *  `projects/{project}/locations/{location}/applications/{application}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -763,7 +826,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists Workloads in an Application.
  *
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Fully qualified name of the parent Application to
+ *    list Workloads for. Expected format:
+ *    `projects/{project}/locations/{location}/applications/{application}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsList
  *
@@ -837,7 +902,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Detaches a service project from a host project. You can call this API from
- *  either a host or service project.
+ *  any service project without needing access to the host project that it is
+ *  attached to.
  *
  *  Method: apphub.projects.locations.detachServiceProjectAttachment
  *
@@ -846,18 +912,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsDetachServiceProjectAttachment : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Service project id and location to detach from a host project.
+ *  Only global location is supported. Expected format:
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAppHub_DetachServiceProjectAttachmentResponse.
  *
  *  Detaches a service project from a host project. You can call this API from
- *  either a host or service project.
+ *  any service project without needing access to the host project that it is
+ *  attached to.
  *
  *  @param object The @c GTLRAppHub_DetachServiceProjectAttachmentRequest to
  *    include in the query.
- *  @param name Required. Value for name.
+ *  @param name Required. Service project id and location to detach from a host
+ *    project. Only global location is supported. Expected format:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsDetachServiceProjectAttachment
  */
@@ -867,7 +940,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a discovered service in a host project and location.
+ *  Gets a Discovered Service in a host project and location.
  *
  *  Method: apphub.projects.locations.discoveredServices.get
  *
@@ -876,15 +949,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesGet : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the Discovered Service to fetch. Expected
+ *  format:
+ *  `projects/{project}/locations/{location}/discoveredServices/{discoveredService}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAppHub_DiscoveredService.
  *
- *  Gets a discovered service in a host project and location.
+ *  Gets a Discovered Service in a host project and location.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the Discovered Service to
+ *    fetch. Expected format:
+ *    `projects/{project}/locations/{location}/discoveredServices/{discoveredService}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesGet
  */
@@ -893,7 +972,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists discovered services that can be added to an application in a host
+ *  Lists Discovered Services that can be added to an Application in a host
  *  project and location.
  *
  *  Method: apphub.projects.locations.discoveredServices.list
@@ -903,10 +982,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesList : GTLRAppHubQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -920,16 +999,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Value for parent. */
+/**
+ *  Required. Project and location to list Discovered Services on. Expected
+ *  format: `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAppHub_ListDiscoveredServicesResponse.
  *
- *  Lists discovered services that can be added to an application in a host
+ *  Lists Discovered Services that can be added to an Application in a host
  *  project and location.
  *
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Project and location to list Discovered Services on.
+ *    Expected format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesList
  *
@@ -942,7 +1025,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a discovered workload in a host project and location.
+ *  Lists a Discovered Service in a host project and location, with a given
+ *  resource URI.
+ *
+ *  Method: apphub.projects.locations.discoveredServices.lookup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesLookup : GTLRAppHubQuery
+
+/**
+ *  Required. Host project ID and location to lookup Discovered Service in.
+ *  Expected format: `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Resource URI to find DiscoveredService for. Accepts both project
+ *  number and project ID and does translation when needed.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Fetches a @c GTLRAppHub_LookupDiscoveredServiceResponse.
+ *
+ *  Lists a Discovered Service in a host project and location, with a given
+ *  resource URI.
+ *
+ *  @param parent Required. Host project ID and location to lookup Discovered
+ *    Service in. Expected format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesLookup
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a Discovered Workload in a host project and location.
  *
  *  Method: apphub.projects.locations.discoveredWorkloads.get
  *
@@ -951,15 +1072,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsGet : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the Discovered Workload to fetch. Expected
+ *  format:
+ *  `projects/{project}/locations/{location}/discoveredWorkloads/{discoveredWorkload}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAppHub_DiscoveredWorkload.
  *
- *  Gets a discovered workload in a host project and location.
+ *  Gets a Discovered Workload in a host project and location.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the Discovered Workload to
+ *    fetch. Expected format:
+ *    `projects/{project}/locations/{location}/discoveredWorkloads/{discoveredWorkload}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsGet
  */
@@ -968,7 +1095,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists discovered workloads that can be added to an application in a host
+ *  Lists Discovered Workloads that can be added to an Application in a host
  *  project and location.
  *
  *  Method: apphub.projects.locations.discoveredWorkloads.list
@@ -978,10 +1105,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsList : GTLRAppHubQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -995,22 +1122,64 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Value for parent. */
+/**
+ *  Required. Project and location to list Discovered Workloads on. Expected
+ *  format: `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAppHub_ListDiscoveredWorkloadsResponse.
  *
- *  Lists discovered workloads that can be added to an application in a host
+ *  Lists Discovered Workloads that can be added to an Application in a host
  *  project and location.
  *
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Project and location to list Discovered Workloads
+ *    on. Expected format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists a Discovered Workload in a host project and location, with a given
+ *  resource URI.
+ *
+ *  Method: apphub.projects.locations.discoveredWorkloads.lookup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsLookup : GTLRAppHubQuery
+
+/**
+ *  Required. Host project ID and location to lookup Discovered Workload in.
+ *  Expected format: `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Resource URI to find Discovered Workload for. Accepts both project
+ *  number and project ID and does translation when needed.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Fetches a @c GTLRAppHub_LookupDiscoveredWorkloadResponse.
+ *
+ *  Lists a Discovered Workload in a host project and location, with a given
+ *  resource URI.
+ *
+ *  @param parent Required. Host project ID and location to lookup Discovered
+ *    Workload in. Expected format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsLookup
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -1092,8 +1261,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Looks up a service project attachment. You can call this API from either a
- *  host or service project.
+ *  Lists a service project attachment for a given service project. You can call
+ *  this API from any project to find if it is attached to a host project.
  *
  *  Method: apphub.projects.locations.lookupServiceProjectAttachment
  *
@@ -1102,16 +1271,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsLookupServiceProjectAttachment : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Service project ID and location to lookup service project
+ *  attachment for. Only global location is supported. Expected format:
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAppHub_LookupServiceProjectAttachmentResponse.
  *
- *  Looks up a service project attachment. You can call this API from either a
- *  host or service project.
+ *  Lists a service project attachment for a given service project. You can call
+ *  this API from any project to find if it is attached to a host project.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Service project ID and location to lookup service
+ *    project attachment for. Only global location is supported. Expected
+ *    format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsLookupServiceProjectAttachment
  */
@@ -1277,7 +1452,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsCreate : GTLRAppHubQuery
 
-/** Required. Value for parent. */
+/**
+ *  Required. Host project ID and location to which service project is being
+ *  attached. Only global location is supported. Expected format:
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1296,10 +1475,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. The service project attachment identifier must contain the
- *  project_id of the service project specified in the
- *  service_project_attachment.service_project field. Hint:
- *  "projects/{project_id}"
+ *  Required. The service project attachment identifier must contain the project
+ *  id of the service project specified in the
+ *  service_project_attachment.service_project field.
  */
 @property(nonatomic, copy, nullable) NSString *serviceProjectAttachmentId;
 
@@ -1310,7 +1488,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAppHub_ServiceProjectAttachment to include in the
  *    query.
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Host project ID and location to which service
+ *    project is being attached. Only global location is supported. Expected
+ *    format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsCreate
  */
@@ -1320,7 +1500,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a service project attached to the host project.
+ *  Deletes a service project attachment.
  *
  *  Method: apphub.projects.locations.serviceProjectAttachments.delete
  *
@@ -1329,7 +1509,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsDelete : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the service project attachment to delete.
+ *  Expected format:
+ *  `projects/{project}/locations/{location}/serviceProjectAttachments/{serviceProjectAttachment}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1350,9 +1534,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAppHub_Operation.
  *
- *  Deletes a service project attached to the host project.
+ *  Deletes a service project attachment.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the service project attachment
+ *    to delete. Expected format:
+ *    `projects/{project}/locations/{location}/serviceProjectAttachments/{serviceProjectAttachment}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsDelete
  */
@@ -1361,7 +1547,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a service project attached to the host project.
+ *  Gets a service project attachment.
  *
  *  Method: apphub.projects.locations.serviceProjectAttachments.get
  *
@@ -1370,15 +1556,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsGet : GTLRAppHubQuery
 
-/** Required. Value for name. */
+/**
+ *  Required. Fully qualified name of the service project attachment to
+ *  retrieve. Expected format:
+ *  `projects/{project}/locations/{location}/serviceProjectAttachments/{serviceProjectAttachment}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAppHub_ServiceProjectAttachment.
  *
- *  Gets a service project attached to the host project.
+ *  Gets a service project attachment.
  *
- *  @param name Required. Value for name.
+ *  @param name Required. Fully qualified name of the service project attachment
+ *    to retrieve. Expected format:
+ *    `projects/{project}/locations/{location}/serviceProjectAttachments/{serviceProjectAttachment}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsGet
  */
@@ -1387,7 +1579,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List service projects attached to the host project.
+ *  Lists service projects attached to the host project.
  *
  *  Method: apphub.projects.locations.serviceProjectAttachments.list
  *
@@ -1396,10 +1588,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsList : GTLRAppHubQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -1413,15 +1605,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Value for parent. */
+/**
+ *  Required. Host project ID and location to list service project attachments.
+ *  Only global location is supported. Expected format:
+ *  `projects/{project}/locations/{location}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAppHub_ListServiceProjectAttachmentsResponse.
  *
- *  List service projects attached to the host project.
+ *  Lists service projects attached to the host project.
  *
- *  @param parent Required. Value for parent.
+ *  @param parent Required. Host project ID and location to list service project
+ *    attachments. Only global location is supported. Expected format:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsServiceProjectAttachmentsList
  *

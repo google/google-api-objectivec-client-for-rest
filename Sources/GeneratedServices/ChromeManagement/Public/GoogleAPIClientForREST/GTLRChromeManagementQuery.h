@@ -208,6 +208,114 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Get a list of devices that have requested to install an extension.
+ *
+ *  Method: chromemanagement.customers.apps.fetchDevicesRequestingExtension
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersAppsFetchDevicesRequestingExtension : GTLRChromeManagementQuery
+
+/** Required. The customer ID or "my_customer" prefixed with "customers/". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Required. The extension for which we want to find requesting devices. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/**
+ *  The ID of the organizational unit. Only consider devices that directly
+ *  belong to this org unit, i.e. sub-orgunits are not counted. If omitted, all
+ *  data will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Optional. Maximum number of results to return. Maximum and default are 50.
+ *  Any page size larger than 50 will be coerced to 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token to specify the page of the request to be returned. Token
+ *  expires after 1 day.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1FetchDevicesRequestingExtensionResponse.
+ *
+ *  Get a list of devices that have requested to install an extension.
+ *
+ *  @param customer Required. The customer ID or "my_customer" prefixed with
+ *    "customers/".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersAppsFetchDevicesRequestingExtension
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Get a list of users that have requested to install an extension.
+ *
+ *  Method: chromemanagement.customers.apps.fetchUsersRequestingExtension
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersAppsFetchUsersRequestingExtension : GTLRChromeManagementQuery
+
+/** Required. The customer ID or "my_customer" prefixed with "customers/". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Required. The extension for which we want to find the requesting users. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/**
+ *  The ID of the organizational unit. Only consider devices that directly
+ *  belong to this org unit, i.e. sub-orgunits are not counted. If omitted, all
+ *  data will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Optional. Maximum number of results to return. Maximum and default are 50.
+ *  Any page size larger than 50 will be coerced to 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token to specify the page of the request to be returned. Token
+ *  expires after 1 day.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1FetchUsersRequestingExtensionResponse.
+ *
+ *  Get a list of users that have requested to install an extension.
+ *
+ *  @param customer Required. The customer ID or "my_customer" prefixed with
+ *    "customers/".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersAppsFetchUsersRequestingExtension
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
  *  Get a specific app for a customer by its resource name.
  *
  *  Method: chromemanagement.customers.apps.web.get
@@ -274,6 +382,53 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *    "customers/".
  *
  *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeBrowsersNeedingAttention
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Get a count of Chrome crash events.
+ *
+ *  Method: chromemanagement.customers.reports.countChromeCrashEvents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountChromeCrashEvents : GTLRChromeManagementQuery
+
+/** Customer ID. */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Query string to filter results, AND-separated fields in EBNF syntax.
+ *  Supported filter fields: * major_browser_version * minor_browser_version *
+ *  browser_channel * device_platform * past_number_days Example:
+ *  `major_browser_version = 'M115' AND past_number_days = '28'`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field used to order results. Supported order by fields: * browser_version *
+ *  count * date
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  If specified, only count the number of crash events of the devices in this
+ *  organizational unit.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponse.
+ *
+ *  Get a count of Chrome crash events.
+ *
+ *  @param customer Customer ID.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeCrashEvents
  */
 + (instancetype)queryWithCustomer:(NSString *)customer;
 
@@ -835,7 +990,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Read mask to specify which fields to return.
+ *  Required. Read mask to specify which fields to return. Supported read_mask
+ *  paths are: - name - org_unit_id - device_id - serial_number - cpu_info -
+ *  cpu_status_report - memory_info - memory_status_report - network_info -
+ *  network_diagnostics_report - network_status_report - os_update_status -
+ *  graphics_info - graphics_status_report - battery_info -
+ *  battery_status_report - storage_info - storage_status_report -
+ *  thunderbolt_info - audio_status_report - boot_performance_report -
+ *  heartbeat_status_report - network_bandwidth_report - peripherals_report -
+ *  kiosk_app_status_report - app_report - runtime_counters_report
  *
  *  String format is a comma-separated list of fields.
  */
@@ -865,11 +1028,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @interface GTLRChromeManagementQuery_CustomersTelemetryDevicesList : GTLRChromeManagementQuery
 
 /**
- *  Optional. Only include resources that match the filter. Supported filter
- *  fields: - org_unit_id - serial_number - device_id - reports_timestamp The
- *  "reports_timestamp" filter accepts either the Unix Epoch milliseconds format
- *  or the RFC3339 UTC "Zulu" format with nanosecond resolution and up to nine
- *  fractional digits. Both formats should be surrounded by simple double
+ *  Optional. Only include resources that match the filter. Requests that don't
+ *  specify a "reports_timestamp" value will default to returning only recent
+ *  reports. Specify "reports_timestamp>=0" to get all report data. Supported
+ *  filter fields: - org_unit_id - serial_number - device_id - reports_timestamp
+ *  The "reports_timestamp" filter accepts either the Unix Epoch milliseconds
+ *  format or the RFC3339 UTC "Zulu" format with nanosecond resolution and up to
+ *  nine fractional digits. Both formats should be surrounded by simple double
  *  quotes. Examples: "2014-10-02T15:01:23Z", "2014-10-02T15:01:23.045123456Z",
  *  "1679283943823".
  */
@@ -891,7 +1056,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. Read mask to specify which fields to return.
+ *  Required. Read mask to specify which fields to return. Supported read_mask
+ *  paths are: - name - org_unit_id - device_id - serial_number - cpu_info -
+ *  cpu_status_report - memory_info - memory_status_report - network_info -
+ *  network_diagnostics_report - network_status_report - os_update_status -
+ *  graphics_info - graphics_status_report - battery_info -
+ *  battery_status_report - storage_info - storage_status_report -
+ *  thunderbolt_info - audio_status_report - boot_performance_report -
+ *  heartbeat_status_report - network_bandwidth_report - peripherals_report -
+ *  kiosk_app_status_report - app_report - runtime_counters_report
  *
  *  String format is a comma-separated list of fields.
  */
@@ -957,7 +1130,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 /**
  *  Required. Read mask to specify which fields to return. Although currently
  *  required, this field will become optional, while the filter parameter with
- *  an event type will be come required.
+ *  an event type will be come required. Supported read_mask paths are: - device
+ *  - user - audio_severe_underrun_event - usb_peripherals_event -
+ *  https_latency_change_event - network_state_change_event -
+ *  wifi_signal_strength_event - vpn_connection_state_change_event -
+ *  app_install_event - app_uninstall_event - app_launch_event
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1108,7 +1285,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Read mask to specify which fields to return.
+ *  Read mask to specify which fields to return. Supported read_mask paths are:
+ *  - name - org_unit_id - user_id - user_email - user_device.device_id -
+ *  user_device.audio_status_report - user_device.device_activity_report -
+ *  user_device.network_bandwidth_report - user_device.peripherals_report
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1159,7 +1339,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Read mask to specify which fields to return.
+ *  Read mask to specify which fields to return. Supported read_mask paths are:
+ *  - name - org_unit_id - user_id - user_email - user_device.device_id -
+ *  user_device.audio_status_report - user_device.device_activity_report -
+ *  user_device.network_bandwidth_report - user_device.peripherals_report
  *
  *  String format is a comma-separated list of fields.
  */

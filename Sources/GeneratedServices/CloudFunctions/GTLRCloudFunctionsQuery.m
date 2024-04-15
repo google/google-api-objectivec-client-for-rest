@@ -172,7 +172,7 @@
 
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGet
 
-@dynamic name;
+@dynamic name, revision;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

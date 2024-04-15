@@ -4,8 +4,9 @@
 // API:
 //   Google Chat API (chat/v1)
 // Description:
-//   Enables apps to fetch information and perform actions in Google Chat.
-//   Authentication is a prerequisite for using the Google Chat REST API.
+//   The Google Chat API lets you build Chat apps to integrate your services
+//   with Google Chat and manage Chat resources such as spaces, members, and
+//   messages.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -558,6 +559,44 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRHangoutsChat_Space class];
   query.loggingName = @"chat.spaces.setup";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesSpaceEventsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesSpaceEventsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceEvent class];
+  query.loggingName = @"chat.spaces.spaceEvents.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesSpaceEventsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/spaceEvents";
+  GTLRHangoutsChatQuery_SpacesSpaceEventsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_ListSpaceEventsResponse class];
+  query.loggingName = @"chat.spaces.spaceEvents.list";
   return query;
 }
 

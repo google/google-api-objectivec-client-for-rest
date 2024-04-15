@@ -1101,12 +1101,10 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule
-@dynamic categories, groups, services;
+@dynamic services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"categories" : [NSString class],
-    @"groups" : [NSString class],
     @"services" : [NSString class]
   };
   return map;

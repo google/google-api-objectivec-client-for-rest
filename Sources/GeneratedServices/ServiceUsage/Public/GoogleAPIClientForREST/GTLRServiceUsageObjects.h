@@ -2906,18 +2906,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule : GTLRObject
 
 /**
- *  The names of the categories that are enabled. Example:
- *  `categories/googleServices`.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
-
-/**
- *  The names of the service groups that are enabled. Example:
- *  `services/container.googleapis.com/groups/dependencies`.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *groups;
-
-/**
  *  The names of the services that are enabled. Example:
  *  `services/storage.googleapis.com`.
  */

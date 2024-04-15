@@ -1623,8 +1623,9 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem
-@dynamic assignees, casePriority, caseSla, caseUri, externalSystemUpdateTime,
-         externalUid, name, status, ticketInfo;
+@dynamic assignees, caseCloseTime, caseCreateTime, casePriority, caseSla,
+         caseUri, externalSystemUpdateTime, externalUid, name, status,
+         ticketInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2221,8 +2222,9 @@ NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_Resourc
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalSystem
-@dynamic assignees, casePriority, caseSla, caseUri, externalSystemUpdateTime,
-         externalUid, name, status, ticketInfo;
+@dynamic assignees, caseCloseTime, caseCreateTime, casePriority, caseSla,
+         caseUri, externalSystemUpdateTime, externalUid, name, status,
+         ticketInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

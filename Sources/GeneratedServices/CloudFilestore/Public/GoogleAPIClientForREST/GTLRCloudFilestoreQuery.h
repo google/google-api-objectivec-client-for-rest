@@ -522,9 +522,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRevert : GTLRCloudFilestoreQuery
 
 /**
- *  Required.
- *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`. The
- *  resource name of the instance, in the format
+ *  Required. The resource name of the instance, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -535,9 +534,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_RevertInstanceRequest to include in
  *    the query.
- *  @param name Required.
+ *  @param name Required. The resource name of the instance, in the format
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
- *    The resource name of the instance, in the format
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRevert
  */

@@ -31,8 +31,10 @@ NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy = @"SIDEC
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestBody = @"REQUEST_BODY";
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestHeaders = @"REQUEST_HEADERS";
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestTrailers = @"REQUEST_TRAILERS";
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseBody = @"RESPONSE_BODY";
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseHeaders = @"RESPONSE_HEADERS";
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseTrailers = @"RESPONSE_TRAILERS";
 
 // GTLRNetworkServices_Gateway.envoyHeaders
 NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_DebugHeaders = @"DEBUG_HEADERS";

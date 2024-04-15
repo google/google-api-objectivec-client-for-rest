@@ -218,7 +218,7 @@
          intervalStartTimeNanos, intervalStartTimeSeconds,
          intervalStartTimeTimeZoneId, intervalStartTimeTimeZoneVersion,
          intervalStartTimeUtcOffset, intervalStartTimeYear, orderBy, pageSize,
-         pageToken, parent;
+         pageToken, parent, sampleErrorReportLimit;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{

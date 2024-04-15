@@ -369,6 +369,37 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesAcquireSsrsLease
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesAcquireSsrsLeaseRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/acquireSsrsLease";
+  GTLRSQLAdminQuery_InstancesAcquireSsrsLease *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesAcquireSsrsLeaseResponse class];
+  query.loggingName = @"sql.instances.acquireSsrsLease";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesAddServerCa
 
 @dynamic instance, project;
@@ -773,6 +804,29 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.reencrypt";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesReleaseSsrsLease
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/releaseSsrsLease";
+  GTLRSQLAdminQuery_InstancesReleaseSsrsLease *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesReleaseSsrsLeaseResponse class];
+  query.loggingName = @"sql.instances.releaseSsrsLease";
   return query;
 }
 

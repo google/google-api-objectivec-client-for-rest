@@ -14,13 +14,15 @@
 // Constants
 
 // view
-NSString * const kGTLRBigtableAdminViewEncryptionView  = @"ENCRYPTION_VIEW";
-NSString * const kGTLRBigtableAdminViewFull            = @"FULL";
-NSString * const kGTLRBigtableAdminViewNameOnly        = @"NAME_ONLY";
-NSString * const kGTLRBigtableAdminViewReplicationView = @"REPLICATION_VIEW";
-NSString * const kGTLRBigtableAdminViewSchemaView      = @"SCHEMA_VIEW";
-NSString * const kGTLRBigtableAdminViewStatsView       = @"STATS_VIEW";
-NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
+NSString * const kGTLRBigtableAdminViewBasic                   = @"BASIC";
+NSString * const kGTLRBigtableAdminViewEncryptionView          = @"ENCRYPTION_VIEW";
+NSString * const kGTLRBigtableAdminViewFull                    = @"FULL";
+NSString * const kGTLRBigtableAdminViewNameOnly                = @"NAME_ONLY";
+NSString * const kGTLRBigtableAdminViewReplicationView         = @"REPLICATION_VIEW";
+NSString * const kGTLRBigtableAdminViewResponseViewUnspecified = @"RESPONSE_VIEW_UNSPECIFIED";
+NSString * const kGTLRBigtableAdminViewSchemaView              = @"SCHEMA_VIEW";
+NSString * const kGTLRBigtableAdminViewStatsView               = @"STATS_VIEW";
+NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -717,6 +719,202 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.resource = resource;
   query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
   query.loggingName = @"bigtableadmin.projects.instances.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsCreate
+
+@dynamic authorizedViewId, parent;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_AuthorizedView *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/authorizedViews";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.authorizedViews.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Empty class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.authorizedViews.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_AuthorizedView class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.authorizedViews.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.authorizedViews.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsList
+
+@dynamic pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/authorizedViews";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_ListAuthorizedViewsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.authorizedViews.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsPatch
+
+@dynamic ignoreWarnings, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_AuthorizedView *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.authorizedViews.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.authorizedViews.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_TestIamPermissionsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.authorizedViews.testIamPermissions";
   return query;
 }
 

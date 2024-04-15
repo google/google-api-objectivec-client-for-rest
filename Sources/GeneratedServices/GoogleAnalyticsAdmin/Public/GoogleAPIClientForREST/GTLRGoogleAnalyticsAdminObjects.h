@@ -56,6 +56,8 @@
 @class GTLRGoogleAnalyticsAdmin_V1betaDataStreamWebStreamData;
 @class GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink;
+@class GTLRGoogleAnalyticsAdmin_V1betaKeyEvent;
+@class GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue;
 @class GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret;
 @class GTLRGoogleAnalyticsAdmin_V1betaNumericValue;
 @class GTLRGoogleAnalyticsAdmin_V1betaProperty;
@@ -475,6 +477,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Ty
  *  Value: "WEB_DATA_STREAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_WebDataStream;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.countingMethod
+
+/**
+ *  Counting method not specified.
+ *
+ *  Value: "COUNTING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_CountingMethodUnspecified;
+/**
+ *  Each Event instance is considered a Key Event.
+ *
+ *  Value: "ONCE_PER_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerEvent;
+/**
+ *  An Event instance is considered a Key Event at most once per session per
+ *  user.
+ *
+ *  Value: "ONCE_PER_SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerSession;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1betaProperty.industryCategory
@@ -1281,6 +1306,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Output only. The URI for a Google Marketing Platform organization resource.
+ *  Only set when this account is connected to a GMP organization. Format:
+ *  marketingplatformadmin.googleapis.com/organizations/{org_id}
+ */
+@property(nonatomic, copy, nullable) NSString *gmpOrganization;
+
+/**
  *  Output only. Resource name of this account. Format: accounts/{account}
  *  Example: "accounts/100"
  */
@@ -2028,6 +2060,91 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
+ *  A key event in a Google Analytics property.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1betaKeyEvent : GTLRObject
+
+/**
+ *  Required. The method by which Key Events will be counted across multiple
+ *  events within a session.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_CountingMethodUnspecified
+ *        Counting method not specified. (Value: "COUNTING_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerEvent
+ *        Each Event instance is considered a Key Event. (Value:
+ *        "ONCE_PER_EVENT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerSession
+ *        An Event instance is considered a Key Event at most once per session
+ *        per user. (Value: "ONCE_PER_SESSION")
+ */
+@property(nonatomic, copy, nullable) NSString *countingMethod;
+
+/** Output only. Time when this key event was created in the property. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. If set to true, this key event refers to a custom event. If set
+ *  to false, this key event refers to a default event in GA. Default events
+ *  typically have special meaning in GA. Default events are usually created for
+ *  you by the GA system, but in some cases can be created by property admins.
+ *  Custom events count towards the maximum number of custom key events that may
+ *  be created per property.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *custom;
+
+/** Optional. Defines a default value/currency for a key event. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue *defaultValue;
+
+/**
+ *  Output only. If set to true, this event can be deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletable;
+
+/**
+ *  Immutable. The event name for this key event. Examples: 'click', 'purchase'
+ */
+@property(nonatomic, copy, nullable) NSString *eventName;
+
+/**
+ *  Output only. Resource name of this key event. Format:
+ *  properties/{property}/keyEvents/{key_event}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Defines a default value/currency for a key event.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue : GTLRObject
+
+/**
+ *  Required. When an occurrence of this Key Event (specified by event_name) has
+ *  no set currency this currency will be applied as the default. Must be in ISO
+ *  4217 currency code format. See https://en.wikipedia.org/wiki/ISO_4217 for
+ *  more information.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Required. This will be used to populate the "value" parameter for all
+ *  occurrences of this Key Event (specified by event_name) where that parameter
+ *  is unset.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numericValue;
+
+@end
+
+
+/**
  *  Request message for ListAccounts RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2235,6 +2352,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink *> *googleAdsLinks;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListKeyEvents RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "keyEvents" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1betaListKeyEventsResponse : GTLRCollectionObject
+
+/**
+ *  The requested Key Events
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1betaKeyEvent *> *keyEvents;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If

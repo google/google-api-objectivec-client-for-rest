@@ -265,7 +265,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsEnrollDataSources : GTLRBigQueryDataTransferQuery
 
-/** The name of the project resource in the form: `projects/{project_id}` */
+/**
+ *  Required. The name of the project resource in the form:
+ *  `projects/{project_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -281,7 +284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  @param object The @c GTLRBigQueryDataTransfer_EnrollDataSourcesRequest to
  *    include in the query.
- *  @param name The name of the project resource in the form:
+ *  @param name Required. The name of the project resource in the form:
  *    `projects/{project_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsEnrollDataSources
@@ -430,7 +433,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsEnrollDataSources : GTLRBigQueryDataTransferQuery
 
-/** The name of the project resource in the form: `projects/{project_id}` */
+/**
+ *  Required. The name of the project resource in the form:
+ *  `projects/{project_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -446,7 +452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  @param object The @c GTLRBigQueryDataTransfer_EnrollDataSourcesRequest to
  *    include in the query.
- *  @param name The name of the project resource in the form:
+ *  @param name Required. The name of the project resource in the form:
  *    `projects/{project_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsEnrollDataSources
@@ -760,8 +766,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
- *  The resource name of the transfer config. Transfer config names have the
- *  form either
+ *  Identifier. The resource name of the transfer config. Transfer config names
+ *  have the form either
  *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
  *  usually a UUID, even though it is not guaranteed or required. The name is
@@ -808,8 +814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
- *  @param name The resource name of the transfer config. Transfer config names
- *    have the form either
+ *  @param name Identifier. The resource name of the transfer config. Transfer
+ *    config names have the form either
  *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
  *    usually a UUID, even though it is not guaranteed or required. The name is
@@ -1098,7 +1104,7 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsStartManualRuns : GTLRBigQueryDataTransferQuery
 
 /**
- *  Transfer configuration name in the form:
+ *  Required. Transfer configuration name in the form:
  *  `projects/{project_id}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
  */
@@ -1114,7 +1120,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRBigQueryDataTransfer_StartManualTransferRunsRequest
  *    to include in the query.
- *  @param parent Transfer configuration name in the form:
+ *  @param parent Required. Transfer configuration name in the form:
  *    `projects/{project_id}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
  *
@@ -1140,7 +1146,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsUnenrollDataSources : GTLRBigQueryDataTransferQuery
 
-/** The name of the project resource in the form: `projects/{project_id}` */
+/**
+ *  Required. The name of the project resource in the form:
+ *  `projects/{project_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1154,7 +1163,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRBigQueryDataTransfer_UnenrollDataSourcesRequest to
  *    include in the query.
- *  @param name The name of the project resource in the form:
+ *  @param name Required. The name of the project resource in the form:
  *    `projects/{project_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsUnenrollDataSources
@@ -1389,8 +1398,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
- *  The resource name of the transfer config. Transfer config names have the
- *  form either
+ *  Identifier. The resource name of the transfer config. Transfer config names
+ *  have the form either
  *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
  *  usually a UUID, even though it is not guaranteed or required. The name is
@@ -1437,8 +1446,8 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
- *  @param name The resource name of the transfer config. Transfer config names
- *    have the form either
+ *  @param name Identifier. The resource name of the transfer config. Transfer
+ *    config names have the form either
  *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
  *    usually a UUID, even though it is not guaranteed or required. The name is
@@ -1727,7 +1736,7 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsStartManualRuns : GTLRBigQueryDataTransferQuery
 
 /**
- *  Transfer configuration name in the form:
+ *  Required. Transfer configuration name in the form:
  *  `projects/{project_id}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
  */
@@ -1743,7 +1752,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRBigQueryDataTransfer_StartManualTransferRunsRequest
  *    to include in the query.
- *  @param parent Transfer configuration name in the form:
+ *  @param parent Required. Transfer configuration name in the form:
  *    `projects/{project_id}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
  *

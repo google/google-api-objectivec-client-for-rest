@@ -186,9 +186,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all fields that match the search query. List of thrown errors:
- *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
- *  [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
+ *  Returns all fields that match the search
+ *  [query](/search-ads/reporting/concepts/field-service#use_a_query_to_get_field_details).
+ *  List of thrown errors: [AuthenticationError]() [AuthorizationError]()
+ *  [HeaderError]() [InternalError]() [QueryError]() [QuotaError]()
+ *  [RequestError]()
  *
  *  Method: searchads360.searchAds360Fields.search
  *
@@ -201,9 +203,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360FieldsResponse.
  *
- *  Returns all fields that match the search query. List of thrown errors:
- *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
- *  [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
+ *  Returns all fields that match the search
+ *  [query](/search-ads/reporting/concepts/field-service#use_a_query_to_get_field_details).
+ *  List of thrown errors: [AuthenticationError]() [AuthorizationError]()
+ *  [HeaderError]() [InternalError]() [QueryError]() [QuotaError]()
+ *  [RequestError]()
  *
  *  @param object The @c
  *    GTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360FieldsRequest

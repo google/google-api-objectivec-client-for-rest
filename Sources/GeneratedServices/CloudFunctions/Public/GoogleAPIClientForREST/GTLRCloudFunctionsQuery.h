@@ -290,6 +290,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The optional version of the 1st gen function whose details should
+ *  be obtained. The version of a 1st gen function is an integer that starts
+ *  from 1 and gets incremented on redeployments. GCF may keep historical
+ *  configs for old versions of 1st gen function. This field can be specified to
+ *  fetch the historical configs. This field is valid only for GCF 1st gen
+ *  function.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
  *  Fetches a @c GTLRCloudFunctions_Function.
  *
  *  Returns a function with the given name from the requested project.

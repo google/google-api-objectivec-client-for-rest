@@ -149,6 +149,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieve the link to the backupIndex.
+ *
+ *  Method: gkebackup.projects.locations.backupPlans.backups.getBackupIndexDownloadUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsGetBackupIndexDownloadUrl : GTLRBackupforGKEQuery
+
+/**
+ *  Required. Full name of Backup resource. Format:
+ *  projects/{project}/locations/{location}/backupPlans/{backup_plan}/backups/{backup}
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse.
+ *
+ *  Retrieve the link to the backupIndex.
+ *
+ *  @param backup Required. Full name of Backup resource. Format:
+ *    projects/{project}/locations/{location}/backupPlans/{backup_plan}/backups/{backup}
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsGetBackupIndexDownloadUrl
+ */
++ (instancetype)queryWithBackup:(NSString *)backup;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *

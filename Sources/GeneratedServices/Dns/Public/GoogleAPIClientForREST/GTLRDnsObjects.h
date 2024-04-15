@@ -1787,6 +1787,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) NSNumber *managedZonesPerNetwork;
 
 /**
+ *  Maximum number of nameservers per delegation, meant to prevent abuse
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nameserversPerDelegation;
+
+/**
  *  Maximum allowed number of networks to which a privately scoped zone can be
  *  attached.
  *

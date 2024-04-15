@@ -48,13 +48,17 @@
 @class GTLRVMMigrationService_ComputeEngineTargetDetails_Labels;
 @class GTLRVMMigrationService_ComputeEngineTargetDetails_Metadata;
 @class GTLRVMMigrationService_ComputeScheduling;
+@class GTLRVMMigrationService_CreatingImageStep;
 @class GTLRVMMigrationService_CutoverForecast;
 @class GTLRVMMigrationService_CutoverJob;
 @class GTLRVMMigrationService_CutoverStep;
 @class GTLRVMMigrationService_CycleStep;
 @class GTLRVMMigrationService_DatacenterConnector;
+@class GTLRVMMigrationService_DataDiskImageImport;
 @class GTLRVMMigrationService_Disk;
 @class GTLRVMMigrationService_DiskImageDefaults;
+@class GTLRVMMigrationService_DiskImageTargetDetails;
+@class GTLRVMMigrationService_DiskImageTargetDetails_Labels;
 @class GTLRVMMigrationService_DisksMigrationDisksTargetDefaults;
 @class GTLRVMMigrationService_DisksMigrationDisksTargetDetails;
 @class GTLRVMMigrationService_DisksMigrationVmTargetDefaults;
@@ -63,9 +67,15 @@
 @class GTLRVMMigrationService_DisksMigrationVmTargetDetails;
 @class GTLRVMMigrationService_Encryption;
 @class GTLRVMMigrationService_Group;
+@class GTLRVMMigrationService_ImageImport;
+@class GTLRVMMigrationService_ImageImportJob;
+@class GTLRVMMigrationService_ImageImportOsAdaptationParameters;
+@class GTLRVMMigrationService_ImageImportStep;
+@class GTLRVMMigrationService_InitializingImageImportStep;
 @class GTLRVMMigrationService_InitializingReplicationStep;
 @class GTLRVMMigrationService_InstantiatingMigratedVMStep;
 @class GTLRVMMigrationService_Link;
+@class GTLRVMMigrationService_LoadingImageSourceFilesStep;
 @class GTLRVMMigrationService_LocalizedMessage;
 @class GTLRVMMigrationService_Location;
 @class GTLRVMMigrationService_Location_Labels;
@@ -822,6 +832,74 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_Group_MigrationTarget
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_ImageImportJob.state
+
+/**
+ *  The image import was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_Cancelled;
+/**
+ *  The image import is being cancelled.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_Cancelling;
+/**
+ *  The image import has finished with errors.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_Failed;
+/**
+ *  The image import has not yet started.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_Pending;
+/**
+ *  The image import is active and running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_Running;
+/**
+ *  The state is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_StateUnspecified;
+/**
+ *  The image import has finished successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportJob_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_ImageImportOsAdaptationParameters.licenseType
+
+/**
+ *  The license type is Bring Your Own License type.
+ *
+ *  Value: "COMPUTE_ENGINE_LICENSE_TYPE_BYOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeByol;
+/**
+ *  The license type is the default for the OS.
+ *
+ *  Value: "COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeDefault;
+/**
+ *  The license type is Pay As You Go license type.
+ *
+ *  Value: "COMPUTE_ENGINE_LICENSE_TYPE_PAYG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypePayg;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_MigratingVm.state
 
 /**
@@ -928,6 +1006,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_C
  *  Value: "ERROR_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_ErrorCodeUnspecified;
+/**
+ *  Migrate to Virtual Machines encountered an error in image import operation.
+ *
+ *  Value: "IMAGE_IMPORT_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_ImageImportError;
 /**
  *  Migrate to Virtual Machines encountered an error during OS adaptation.
  *
@@ -1977,6 +2061,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  Request message for 'CancelImageImportJob' request.
+ */
+@interface GTLRVMMigrationService_CancelImageImportJobRequest : GTLRObject
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRVMMigrationService_CancelOperationRequest : GTLRObject
@@ -2481,6 +2572,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  CreatingImageStep contains specific step details.
+ */
+@interface GTLRVMMigrationService_CreatingImageStep : GTLRObject
+@end
+
+
+/**
  *  CutoverForecast holds information about future CutoverJobs of a MigratingVm.
  */
 @interface GTLRVMMigrationService_CutoverForecast : GTLRObject
@@ -2723,6 +2821,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  Mentions that the image import is not using OS adaptation process.
+ */
+@interface GTLRVMMigrationService_DataDiskImageImport : GTLRObject
+@end
+
+
+/**
  *  A message describing a data disk.
  */
 @interface GTLRVMMigrationService_Disk : GTLRObject
@@ -2755,6 +2860,71 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** Required. The Image resource used when creating the disk. */
 @property(nonatomic, copy, nullable) NSString *sourceImage;
 
+@end
+
+
+/**
+ *  The target details of the image resource that will be created by the import
+ *  job.
+ */
+@interface GTLRVMMigrationService_DiskImageTargetDetails : GTLRObject
+
+/** Optional. Additional licenses to assign to the image. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalLicenses;
+
+/** Optional. Use to skip OS adaptation process. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DataDiskImageImport *dataDiskImageImport;
+
+/**
+ *  Optional. An optional description of the image.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Immutable. The encryption to apply to the image. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
+
+/** Optional. The name of the image family to which the new image belongs. */
+@property(nonatomic, copy, nullable) NSString *familyName;
+
+/** Required. The name of the image to be created. */
+@property(nonatomic, copy, nullable) NSString *imageName;
+
+/** Optional. A map of labels to associate with the image. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DiskImageTargetDetails_Labels *labels;
+
+/**
+ *  Optional. Use to set the parameters relevant for the OS adaptation process.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ImageImportOsAdaptationParameters *osAdaptationParameters;
+
+/**
+ *  Optional. Set to true to set the image storageLocations to the single region
+ *  of the import job. When false, the closest multi-region is selected.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *singleRegionStorage;
+
+/**
+ *  Required. Reference to the TargetProject resource that represents the target
+ *  project in which the imported image will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *targetProject;
+
+@end
+
+
+/**
+ *  Optional. A map of labels to associate with the image.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVMMigrationService_DiskImageTargetDetails_Labels : GTLRObject
 @end
 
 
@@ -2974,6 +3144,180 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  ImageImport describes the configuration of the image import to run.
+ */
+@interface GTLRVMMigrationService_ImageImport : GTLRObject
+
+/**
+ *  Immutable. The path to the Cloud Storage file from which the image should be
+ *  imported.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudStorageUri;
+
+/** Output only. The time the image import was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Immutable. Target details for importing a disk image, will be used by
+ *  ImageImportJob.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DiskImageTargetDetails *diskImageTargetDefaults;
+
+/**
+ *  Immutable. The encryption details used by the image import process during
+ *  the image adaptation for Compute Engine.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
+
+/** Output only. The resource path of the ImageImport. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The result of the most recent runs for this ImageImport. All
+ *  jobs for this ImageImport can be listed via ListImageImportJobs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_ImageImportJob *> *recentImageImportJobs;
+
+@end
+
+
+/**
+ *  ImageImportJob describes the progress and result of an image import.
+ */
+@interface GTLRVMMigrationService_ImageImportJob : GTLRObject
+
+/**
+ *  Output only. The path to the Cloud Storage file from which the image should
+ *  be imported.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudStorageUri;
+
+/**
+ *  Output only. The resource paths of the resources created by the image import
+ *  job.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *createdResources;
+
+/**
+ *  Output only. The time the image import was created (as an API call, not when
+ *  it was actually created in the target).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Target details used to import a disk image. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DiskImageTargetDetails *diskImageTargetDetails;
+
+/** Output only. The time the image import was ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Provides details on the error that led to the image import
+ *  state in case of an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_Status *> *errors;
+
+/** Output only. The resource path of the ImageImportJob. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the image import.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_ImageImportJob_State_Cancelled The image
+ *        import was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRVMMigrationService_ImageImportJob_State_Cancelling The image
+ *        import is being cancelled. (Value: "CANCELLING")
+ *    @arg @c kGTLRVMMigrationService_ImageImportJob_State_Failed The image
+ *        import has finished with errors. (Value: "FAILED")
+ *    @arg @c kGTLRVMMigrationService_ImageImportJob_State_Pending The image
+ *        import has not yet started. (Value: "PENDING")
+ *    @arg @c kGTLRVMMigrationService_ImageImportJob_State_Running The image
+ *        import is active and running. (Value: "RUNNING")
+ *    @arg @c kGTLRVMMigrationService_ImageImportJob_State_StateUnspecified The
+ *        state is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_ImageImportJob_State_Succeeded The image
+ *        import has finished successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The image import steps list representing its progress. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_ImageImportStep *> *steps;
+
+/** Output only. Warnings that occurred during the image import. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_MigrationWarning *> *warnings;
+
+@end
+
+
+/**
+ *  Parameters affecting the OS adaptation process.
+ */
+@interface GTLRVMMigrationService_ImageImportOsAdaptationParameters : GTLRObject
+
+/**
+ *  Optional. Set to true in order to generalize the imported image. The
+ *  generalization process enables co-existence of multiple VMs created from the
+ *  same image. For Windows, generalizing the image removes computer-specific
+ *  information such as installed drivers and the computer security identifier
+ *  (SID).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generalize;
+
+/**
+ *  Optional. Choose which type of license to apply to the imported image.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeByol
+ *        The license type is Bring Your Own License type. (Value:
+ *        "COMPUTE_ENGINE_LICENSE_TYPE_BYOL")
+ *    @arg @c kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeDefault
+ *        The license type is the default for the OS. (Value:
+ *        "COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT")
+ *    @arg @c kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypePayg
+ *        The license type is Pay As You Go license type. (Value:
+ *        "COMPUTE_ENGINE_LICENSE_TYPE_PAYG")
+ */
+@property(nonatomic, copy, nullable) NSString *licenseType;
+
+@end
+
+
+/**
+ *  ImageImportStep holds information about the image import step progress.
+ */
+@interface GTLRVMMigrationService_ImageImportStep : GTLRObject
+
+/** Adapting OS step. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AdaptingOSStep *adaptingOs;
+
+/** Creating image step. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_CreatingImageStep *creatingImage;
+
+/** Output only. The time the step has ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Initializing step. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_InitializingImageImportStep *initializing;
+
+/** Loading source files step. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_LoadingImageSourceFilesStep *loadingSourceFiles;
+
+/** Output only. The time the step has started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  InitializingImageImportStep contains specific step details.
+ */
+@interface GTLRVMMigrationService_InitializingImageImportStep : GTLRObject
+@end
+
+
+/**
  *  InitializingReplicationStep contains specific step details.
  */
 @interface GTLRVMMigrationService_InitializingReplicationStep : GTLRObject
@@ -3112,6 +3456,66 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_Group *> *groups;
+
+/**
+ *  Output only. A token, which can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Output only. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for 'ListImageImportJobs' call.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "imageImportJobs" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRVMMigrationService_ListImageImportJobsResponse : GTLRCollectionObject
+
+/**
+ *  Output only. The list of target response.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_ImageImportJob *> *imageImportJobs;
+
+/**
+ *  Output only. A token, which can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Output only. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for 'ListImageImports' call.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "imageImports" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVMMigrationService_ListImageImportsResponse : GTLRCollectionObject
+
+/**
+ *  Output only. The list of target response.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_ImageImport *> *imageImports;
 
 /**
  *  Output only. A token, which can be sent as `page_token` to retrieve the next
@@ -3320,6 +3724,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_UtilizationReport *> *utilizationReports;
 
+@end
+
+
+/**
+ *  LoadingImageSourceFilesStep contains specific step details.
+ */
+@interface GTLRVMMigrationService_LoadingImageSourceFilesStep : GTLRObject
 @end
 
 
@@ -3592,6 +4003,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_ErrorCodeUnspecified
  *        Default value. This value is not used. (Value:
  *        "ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_MigrationError_Code_ImageImportError
+ *        Migrate to Virtual Machines encountered an error in image import
+ *        operation. (Value: "IMAGE_IMPORT_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_OsAdaptationError
  *        Migrate to Virtual Machines encountered an error during OS adaptation.
  *        (Value: "OS_ADAPTATION_ERROR")

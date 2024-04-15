@@ -945,7 +945,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  */
 @interface GTLRCloudTasks_HeaderOverride : GTLRObject
 
-/** header embodying a key and a value. */
+/**
+ *  Header embodying a key and a value. Do not put business sensitive or
+ *  personally identifying data in the HTTP Header Override Configuration or
+ *  other similar fields in accordance with Section 12 (Resource Fields) of the
+ *  [Service Specific Terms](https://cloud.google.com/terms/service-terms).
+ */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_Header *header;
 
 @end
@@ -1157,7 +1162,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  User-Agent: This will be set to `"Google-Cloud-Tasks"`. Headers which can
  *  have multiple values (according to RFC2616) can be specified using
  *  comma-separated values. The size of the headers must be less than 80KB.
- *  Queue-level headers to override headers of all the tasks in the queue.
+ *  Queue-level headers to override headers of all the tasks in the queue. Do
+ *  not put business sensitive or personally identifying data in the HTTP Header
+ *  Override Configuration or other similar fields in accordance with Section 12
+ *  (Resource Fields) of the [Service Specific
+ *  Terms](https://cloud.google.com/terms/service-terms).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTasks_HeaderOverride *> *headerOverrides;
 

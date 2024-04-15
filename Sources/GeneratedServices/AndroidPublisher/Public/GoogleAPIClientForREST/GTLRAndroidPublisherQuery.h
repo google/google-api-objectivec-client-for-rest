@@ -2239,7 +2239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 /**
  *  Required. The id to use for the external transaction. Must be unique across
  *  all other transactions for the app. This value should be 1-63 characters and
- *  valid characters are /a-z0-9_-/. Do not use this field to store any
+ *  valid characters are /a-zA-Z0-9_-/. Do not use this field to store any
  *  Personally Identifiable Information (PII) such as emails. Attempting to
  *  store PII in this field may result in requests being blocked.
  */
@@ -4951,6 +4951,15 @@ GTLR_DEPRECATED
  *  time returned in the response.
  */
 @property(nonatomic, assign) long long endTime;
+
+/**
+ *  Optional. Whether to include voided purchases of quantity-based partial
+ *  refunds, which are applicable only to multi-quantity purchases. If true,
+ *  additional voided purchases may be returned with voidedQuantity that
+ *  indicates the refund quantity of a quantity-based partial refund. The
+ *  default value is false.
+ */
+@property(nonatomic, assign) BOOL includeQuantityBasedPartialRefund;
 
 /**
  *  Defines how many results the list operation should return. The default

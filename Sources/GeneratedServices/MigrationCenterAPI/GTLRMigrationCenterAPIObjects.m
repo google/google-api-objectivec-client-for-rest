@@ -14,6 +14,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRMigrationCenterAPI_AssetFrame.collectionType
+NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeCustom = @"SOURCE_TYPE_CUSTOM";
+NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeDiscoveryClient = @"SOURCE_TYPE_DISCOVERY_CLIENT";
+NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeGuestOsScan = @"SOURCE_TYPE_GUEST_OS_SCAN";
+NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeInventoryScan = @"SOURCE_TYPE_INVENTORY_SCAN";
+NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUnknown = @"SOURCE_TYPE_UNKNOWN";
+NSString * const kGTLRMigrationCenterAPI_AssetFrame_CollectionType_SourceTypeUpload = @"SOURCE_TYPE_UPLOAD";
+
 // GTLRMigrationCenterAPI_ComputeEnginePreferences.licenseType
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeBringYourOwnLicense = @"LICENSE_TYPE_BRING_YOUR_OWN_LICENSE";
 NSString * const kGTLRMigrationCenterAPI_ComputeEnginePreferences_LicenseType_LicenseTypeDefault = @"LICENSE_TYPE_DEFAULT";
@@ -30,6 +38,13 @@ NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_Persisten
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeSsd = @"PERSISTENT_DISK_TYPE_SSD";
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeStandard = @"PERSISTENT_DISK_TYPE_STANDARD";
 NSString * const kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeUnspecified = @"PERSISTENT_DISK_TYPE_UNSPECIFIED";
+
+// GTLRMigrationCenterAPI_DiscoveryClient.state
+NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Active = @"ACTIVE";
+NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Degraded = @"DEGRADED";
+NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Expired = @"EXPIRED";
+NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_Offline = @"OFFLINE";
+NSString * const kGTLRMigrationCenterAPI_DiscoveryClient_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRMigrationCenterAPI_DiskEntry.interfaceType
 NSString * const kGTLRMigrationCenterAPI_DiskEntry_InterfaceType_Fc = @"FC";
@@ -170,6 +185,7 @@ NSString * const kGTLRMigrationCenterAPI_Source_State_StateUnspecified = @"STATE
 
 // GTLRMigrationCenterAPI_Source.type
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeCustom = @"SOURCE_TYPE_CUSTOM";
+NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeDiscoveryClient = @"SOURCE_TYPE_DISCOVERY_CLIENT";
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeGuestOsScan = @"SOURCE_TYPE_GUEST_OS_SCAN";
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeInventoryScan = @"SOURCE_TYPE_INVENTORY_SCAN";
 NSString * const kGTLRMigrationCenterAPI_Source_Type_SourceTypeUnknown = @"SOURCE_TYPE_UNKNOWN";
@@ -460,8 +476,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_AssetFrame
-@dynamic attributes, labels, machineDetails, performanceSamples, reportTime,
-         traceToken;
+@dynamic attributes, collectionType, labels, machineDetails, performanceSamples,
+         reportTime, traceToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -761,6 +777,44 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 @implementation GTLRMigrationCenterAPI_Date
 @dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DiscoveryClient
+//
+
+@implementation GTLRMigrationCenterAPI_DiscoveryClient
+@dynamic createTime, descriptionProperty, displayName, errors, expireTime,
+         heartbeatTime, labels, name, serviceAccount, signalsEndpoint, source,
+         state, ttl, updateTime, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRMigrationCenterAPI_Status class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_DiscoveryClient_Labels
+//
+
+@implementation GTLRMigrationCenterAPI_DiscoveryClient_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1223,6 +1277,29 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 + (NSString *)collectionItemsKey {
   return @"assets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ListDiscoveryClientsResponse
+//
+
+@implementation GTLRMigrationCenterAPI_ListDiscoveryClientsResponse
+@dynamic discoveryClients, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discoveryClients" : [GTLRMigrationCenterAPI_DiscoveryClient class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"discoveryClients";
 }
 
 @end
@@ -2258,6 +2335,24 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 
 @implementation GTLRMigrationCenterAPI_RuntimeNetworkInfo
 @dynamic connections, scanTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SendDiscoveryClientHeartbeatRequest
+//
+
+@implementation GTLRMigrationCenterAPI_SendDiscoveryClientHeartbeatRequest
+@dynamic errors, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRMigrationCenterAPI_Status class]
+  };
+  return map;
+}
+
 @end
 
 

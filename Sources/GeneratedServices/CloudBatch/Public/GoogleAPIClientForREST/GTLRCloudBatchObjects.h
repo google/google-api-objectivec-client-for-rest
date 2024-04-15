@@ -4,7 +4,7 @@
 // API:
 //   Batch API (batch/v1)
 // Description:
-//   An API to manage the running of batch resources on Google Cloud Platform.
+//   An API to manage the running of Batch resources on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/batch/
 
@@ -1002,7 +1002,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /**
  *  Maximum duration the task should run. The task will be killed and marked as
- *  FAILED if over this limit.
+ *  FAILED if over this limit. The valid value range for max_run_duration in
+ *  seconds is [0, 315576000000.999999999],
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
 
@@ -1094,7 +1095,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** The placement policy. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_PlacementPolicy *placement;
 
-/** Service account that VMs will run as. */
+/**
+ *  Defines the service account for Batch-created VMs. If omitted, the [default
+ *  Compute Engine service
+ *  account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
+ *  is used. Must match the service account specified in any used instance
+ *  template configured in the Batch job. Includes the following fields: *
+ *  email: The service account's email address. If not set, the default Compute
+ *  Engine service account is used. * scopes: Additional OAuth scopes to grant
+ *  the service account, beyond the default cloud-platform scope. (list of
+ *  strings)
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_ServiceAccount *serviceAccount;
 
 /**
@@ -2465,18 +2476,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  */
 @interface GTLRCloudBatch_ServiceAccount : GTLRObject
 
-/**
- *  Email address of the service account. If not specified, the default Compute
- *  Engine service account for the project will be used. If instance template is
- *  being used, the service account has to be specified in the instance template
- *  and it has to match the email field here.
- */
+/** Email address of the service account. */
 @property(nonatomic, copy, nullable) NSString *email;
 
-/**
- *  List of scopes to be enabled for this service account on the VM, in addition
- *  to the cloud-platform API scope that will be added by default.
- */
+/** List of scopes to be enabled for this service account. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 @end
@@ -2771,7 +2774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /**
  *  Maximum duration the task should run. The task will be killed and marked as
- *  FAILED if over this limit.
+ *  FAILED if over this limit. The valid value range for max_run_duration in
+ *  seconds is [0, 315576000000.999999999],
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
 

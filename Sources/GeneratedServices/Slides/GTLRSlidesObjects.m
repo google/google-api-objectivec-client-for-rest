@@ -1369,7 +1369,8 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_PageElement
 @dynamic descriptionProperty, elementGroup, image, line, objectId, shape,
-         sheetsChart, size, table, title, transform, video, wordArt;
+         sheetsChart, size, speakerSpotlight, table, title, transform, video,
+         wordArt;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1728,6 +1729,26 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_SolidFill
 @dynamic alpha, color;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_SpeakerSpotlight
+//
+
+@implementation GTLRSlides_SpeakerSpotlight
+@dynamic speakerSpotlightProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_SpeakerSpotlightProperties
+//
+
+@implementation GTLRSlides_SpeakerSpotlightProperties
+@dynamic outline, shadow;
 @end
 
 

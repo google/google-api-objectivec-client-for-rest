@@ -814,6 +814,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Sample error reports which belong to this ErrorIssue. *Note:*
+ *  currently a maximum of 1 per ErrorIssue is supported. Format:
+ *  "apps/{app}/{report}"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sampleErrorReports;
+
+/**
  *  Type of the errors grouped in this issue.
  *
  *  Likely values:

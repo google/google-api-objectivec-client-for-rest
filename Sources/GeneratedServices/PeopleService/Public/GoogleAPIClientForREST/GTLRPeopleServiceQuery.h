@@ -104,6 +104,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeContac
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeDomainContact;
 /**
+ *  Returns SourceType.OTHER_CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_OTHER_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeOtherContact;
+/**
  *  Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and
  *  SourceType.PROFILE.
  *
@@ -543,6 +549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
  *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeOtherContact Returns
+ *        SourceType.OTHER_CONTACT. (Value: "READ_SOURCE_TYPE_OTHER_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -831,6 +839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
  *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeOtherContact Returns
+ *        SourceType.OTHER_CONTACT. (Value: "READ_SOURCE_TYPE_OTHER_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -917,6 +927,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
  *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeOtherContact Returns
+ *        SourceType.OTHER_CONTACT. (Value: "READ_SOURCE_TYPE_OTHER_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -1009,6 +1021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
  *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeOtherContact Returns
+ *        SourceType.OTHER_CONTACT. (Value: "READ_SOURCE_TYPE_OTHER_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -1036,6 +1050,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePeopleServiceContacts
+ *    @c kGTLRAuthScopePeopleServiceContactsOtherReadonly
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
  *    @c kGTLRAuthScopePeopleServiceDirectoryReadonly
  *    @c kGTLRAuthScopePeopleServiceUserAddressesRead
@@ -1095,6 +1110,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
  *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeOtherContact Returns
+ *        SourceType.OTHER_CONTACT. (Value: "READ_SOURCE_TYPE_OTHER_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -1127,6 +1144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePeopleServiceContacts
+ *    @c kGTLRAuthScopePeopleServiceContactsOtherReadonly
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
  *    @c kGTLRAuthScopePeopleServiceDirectoryReadonly
  *    @c kGTLRAuthScopePeopleServiceUserAddressesRead
@@ -1188,6 +1206,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
  *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeOtherContact Returns
+ *        SourceType.OTHER_CONTACT. (Value: "READ_SOURCE_TYPE_OTHER_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -1376,6 +1396,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
  *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeOtherContact Returns
+ *        SourceType.OTHER_CONTACT. (Value: "READ_SOURCE_TYPE_OTHER_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -1542,6 +1564,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
  *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeOtherContact Returns
+ *        SourceType.OTHER_CONTACT. (Value: "READ_SOURCE_TYPE_OTHER_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 

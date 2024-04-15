@@ -15,6 +15,7 @@
 
 // GTLRBigQueryReservation_Assignment.jobType
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background = @"BACKGROUND";
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_Continuous = @"CONTINUOUS";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified = @"JOB_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_MlExternal = @"ML_EXTERNAL";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_Pipeline = @"PIPELINE";
@@ -128,6 +129,15 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryReservation_FailoverReservationRequest
+//
+
+@implementation GTLRBigQueryReservation_FailoverReservationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryReservation_ListAssignmentsResponse
 //
 
@@ -227,7 +237,8 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 
 @implementation GTLRBigQueryReservation_Reservation
 @dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots,
-         multiRegionAuxiliary, name, slotCapacity, updateTime;
+         multiRegionAuxiliary, name, originalPrimaryLocation, primaryLocation,
+         secondaryLocation, slotCapacity, updateTime;
 @end
 
 

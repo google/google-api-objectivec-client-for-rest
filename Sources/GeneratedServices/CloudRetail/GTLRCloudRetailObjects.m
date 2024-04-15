@@ -3294,10 +3294,10 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 @implementation GTLRCloudRetail_GoogleCloudRetailV2ServingConfig
 @dynamic boostControlIds, displayName, diversityLevel, diversityType,
          doNotAssociateControlIds, dynamicFacetSpec, enableCategoryFilterLevel,
-         facetControlIds, filterControlIds, ignoreControlIds, modelId, name,
-         onewaySynonymsControlIds, personalizationSpec, priceRerankingLevel,
-         redirectControlIds, replacementControlIds, solutionTypes,
-         twowaySynonymsControlIds;
+         facetControlIds, filterControlIds, ignoreControlIds,
+         ignoreRecsDenylist, modelId, name, onewaySynonymsControlIds,
+         personalizationSpec, priceRerankingLevel, redirectControlIds,
+         replacementControlIds, solutionTypes, twowaySynonymsControlIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

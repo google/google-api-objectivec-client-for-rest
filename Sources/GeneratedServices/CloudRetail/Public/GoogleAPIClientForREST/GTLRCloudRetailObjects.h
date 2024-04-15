@@ -4518,8 +4518,9 @@ GTLR_DEPRECATED
 
 /**
  *  The fully qualified resource name of the serving config
- *  VariantArm.serving_config_id responsible for generating the search response.
- *  For example: `projects/ * /locations/ * /catalogs/ * /servingConfigs/ *`.
+ *  Experiment.VariantArm.serving_config_id responsible for generating the
+ *  search response. For example: `projects/ * /locations/ * /catalogs/ *
+ *  /servingConfigs/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *experimentServingConfig;
 
@@ -5902,10 +5903,10 @@ GTLR_DEPRECATED
  *  represented as: "categories": [ "Shoes & Accessories > Shoes", "Sports &
  *  Fitness > Athletic Clothing > Shoes" ] Must be set for Type.PRIMARY Product
  *  otherwise an INVALID_ARGUMENT error is returned. At most 250 values are
- *  allowed per Product unless overridden via pantheon UI. Empty values are not
- *  allowed. Each value must be a UTF-8 encoded string with a length limit of
- *  5,000 characters. Otherwise, an INVALID_ARGUMENT error is returned.
- *  Corresponding properties: Google Merchant Center property
+ *  allowed per Product unless overridden through the Google Cloud console.
+ *  Empty values are not allowed. Each value must be a UTF-8 encoded string with
+ *  a length limit of 5,000 characters. Otherwise, an INVALID_ARGUMENT error is
+ *  returned. Corresponding properties: Google Merchant Center property
  *  google_product_category. Schema.org property [Product.category]
  *  (https://schema.org/category). [mc_google_product_category]:
  *  https://support.google.com/merchants/answer/6324436
@@ -8074,6 +8075,14 @@ GTLR_DEPRECATED
  *  is SOLUTION_TYPE_SEARCH.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ignoreControlIds;
+
+/**
+ *  When the flag is enabled, the products in the denylist will not be filtered
+ *  out in the recommendation filtering results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreRecsDenylist;
 
 /**
  *  The id of the model in the same Catalog to use at serving time. Currently

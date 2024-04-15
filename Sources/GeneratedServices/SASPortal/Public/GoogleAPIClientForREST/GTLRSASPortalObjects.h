@@ -403,7 +403,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 
 /**
  *  The FCC identifier of the device. Refer to https://www.fcc.gov/oet/ea/fccid
- *  for FccID format.
+ *  for FccID format. Accept underscores and periods because some test-SAS
+ *  customers use them.
  */
 @property(nonatomic, copy, nullable) NSString *fccId;
 

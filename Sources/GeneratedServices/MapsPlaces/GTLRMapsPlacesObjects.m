@@ -92,6 +92,18 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPrefere
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_RankPreferenceUnspecified = @"RANK_PREFERENCE_UNSPECIFIED";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Relevance = @"RELEVANCE";
 
+// GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions.connectorTypes
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeCcsCombo1 = @"EV_CONNECTOR_TYPE_CCS_COMBO_1";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeCcsCombo2 = @"EV_CONNECTOR_TYPE_CCS_COMBO_2";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeChademo = @"EV_CONNECTOR_TYPE_CHADEMO";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeJ1772 = @"EV_CONNECTOR_TYPE_J1772";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeOther = @"EV_CONNECTOR_TYPE_OTHER";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeTesla = @"EV_CONNECTOR_TYPE_TESLA";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeType2 = @"EV_CONNECTOR_TYPE_TYPE_2";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecified = @"EV_CONNECTOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecifiedGbT = @"EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecifiedWallOutlet = @"EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRMapsPlaces_GoogleGeoTypeViewport
@@ -109,6 +121,141 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPrefere
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution
 @dynamic displayName, photoUri, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequest
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequest
+@dynamic includedPrimaryTypes, includedRegionCodes, includeQueryPredictions,
+         input, inputOffset, languageCode, locationBias, locationRestriction,
+         origin, regionCode, sessionToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"includedPrimaryTypes" : [NSString class],
+    @"includedRegionCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationBias
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationBias
+@dynamic circle, rectangle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationRestriction
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationRestriction
+@dynamic circle, rectangle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponse
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponse
+@dynamic suggestions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestions" : [GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestion
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestion
+@dynamic placePrediction, queryPrediction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionFormattableText
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionFormattableText
+@dynamic matches, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matches" : [GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStringRange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionPlacePrediction
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionPlacePrediction
+@dynamic distanceMeters, place, placeId, structuredFormat, text, types;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"types" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionQueryPrediction
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionQueryPrediction
+@dynamic structuredFormat, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStringRange
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStringRange
+@dynamic endOffset, startOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStructuredFormat
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStructuredFormat
+@dynamic mainText, secondaryText;
 @end
 
 
@@ -453,13 +600,31 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPrefere
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest
-@dynamic includedType, languageCode, locationBias, locationRestriction,
-         maxResultCount, minRating, openNow, priceLevels, rankPreference,
-         regionCode, strictTypeFiltering, textQuery;
+@dynamic evOptions, includedType, languageCode, locationBias,
+         locationRestriction, maxResultCount, minRating, openNow, priceLevels,
+         rankPreference, regionCode, strictTypeFiltering, textQuery;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"priceLevels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions
+@dynamic connectorTypes, minimumChargingRateKw;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectorTypes" : [NSString class]
   };
   return map;
 }

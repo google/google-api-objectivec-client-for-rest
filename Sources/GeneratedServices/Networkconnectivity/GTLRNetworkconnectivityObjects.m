@@ -283,7 +283,8 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConnection
 @dynamic error, errorInfo, errorType, forwardingRule, gceOperation, ip, network,
-         project, pscConnectionId, serviceAttachmentUri, state;
+         project, pscConnectionId, selectedSubnetwork, serviceAttachmentUri,
+         state;
 @end
 
 
@@ -1112,7 +1113,8 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_PscConnection
 @dynamic consumerAddress, consumerForwardingRule, consumerTargetProject, error,
-         errorInfo, errorType, gceOperation, pscConnectionId, state;
+         errorInfo, errorType, gceOperation, pscConnectionId,
+         selectedSubnetwork, state;
 @end
 
 

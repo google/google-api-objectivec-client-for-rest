@@ -50,6 +50,10 @@ NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_ReadyOptimizin
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_StateNotKnown = @"STATE_NOT_KNOWN";
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_UnplannedMaintenance = @"UNPLANNED_MAINTENANCE";
 
+// GTLRBigtableAdmin_DataBoostIsolationReadOnly.computeBillingOwner
+NSString * const kGTLRBigtableAdmin_DataBoostIsolationReadOnly_ComputeBillingOwner_ComputeBillingOwnerUnspecified = @"COMPUTE_BILLING_OWNER_UNSPECIFIED";
+NSString * const kGTLRBigtableAdmin_DataBoostIsolationReadOnly_ComputeBillingOwner_HostPays = @"HOST_PAYS";
+
 // GTLRBigtableAdmin_EncryptionInfo.encryptionType
 NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
 NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_EncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
@@ -96,8 +100,9 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_AppProfile
-@dynamic descriptionProperty, ETag, multiClusterRoutingUseAny, name, priority,
-         singleClusterRouting, standardIsolation;
+@dynamic dataBoostIsolationReadOnly, descriptionProperty, ETag,
+         multiClusterRoutingUseAny, name, priority, singleClusterRouting,
+         standardIsolation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -143,6 +148,31 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_AuthorizedView
+//
+
+@implementation GTLRBigtableAdmin_AuthorizedView
+@dynamic deletionProtection, ETag, name, subsetView;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_AutomatedBackupPolicy
+//
+
+@implementation GTLRBigtableAdmin_AutomatedBackupPolicy
+@dynamic frequency, retentionPeriod;
 @end
 
 
@@ -221,7 +251,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_CheckConsistencyRequest
-@dynamic consistencyToken, standardReadRemoteWrites;
+@dynamic consistencyToken, dataBoostReadLocalWrites, standardReadRemoteWrites;
 @end
 
 
@@ -290,7 +320,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_ColumnFamily
-@dynamic gcRule, stats;
+@dynamic gcRule, stats, valueType;
 @end
 
 
@@ -321,6 +351,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_CopyBackupRequest
 @dynamic backupId, expireTime, sourceBackup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_CreateAuthorizedViewMetadata
+//
+
+@implementation GTLRBigtableAdmin_CreateAuthorizedViewMetadata
+@dynamic finishTime, originalRequest, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_CreateAuthorizedViewRequest
+//
+
+@implementation GTLRBigtableAdmin_CreateAuthorizedViewRequest
+@dynamic authorizedView, authorizedViewId, parent;
 @end
 
 
@@ -417,6 +467,25 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_DataBoostIsolationReadOnly
+//
+
+@implementation GTLRBigtableAdmin_DataBoostIsolationReadOnly
+@dynamic computeBillingOwner;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_DataBoostReadLocalWrites
+//
+
+@implementation GTLRBigtableAdmin_DataBoostReadLocalWrites
 @end
 
 
@@ -530,6 +599,135 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewFamilySubsets
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewFamilySubsets
+@dynamic qualifierPrefixes, qualifiers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"qualifierPrefixes" : [NSString class],
+    @"qualifiers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView
+@dynamic familySubsets, rowPrefixes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rowPrefixes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewFamilySubsets class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate
+@dynamic inputType, stateType, sum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes
+@dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncoding
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncoding
+@dynamic raw;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64
+@dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding
+@dynamic bigEndianBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes
+@dynamic bytesType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_HotTablet
 //
 
@@ -599,6 +797,28 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 + (NSString *)collectionItemsKey {
   return @"appProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_ListAuthorizedViewsResponse
+//
+
+@implementation GTLRBigtableAdmin_ListAuthorizedViewsResponse
+@dynamic authorizedViews, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizedViews" : [GTLRBigtableAdmin_AuthorizedView class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"authorizedViews";
 }
 
 @end
@@ -804,7 +1024,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Modification
-@dynamic create, drop, identifier, update;
+@dynamic create, drop, identifier, update, updateMask;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1077,8 +1297,9 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Table
-@dynamic changeStreamConfig, clusterStates, columnFamilies, deletionProtection,
-         granularity, name, restoreInfo, stats;
+@dynamic automatedBackupPolicy, changeStreamConfig, clusterStates,
+         columnFamilies, deletionProtection, granularity, name, restoreInfo,
+         stats;
 @end
 
 
@@ -1169,6 +1390,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_Type
+//
+
+@implementation GTLRBigtableAdmin_Type
+@dynamic aggregateType, bytesType, int64Type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_UndeleteTableMetadata
 //
 
@@ -1210,6 +1441,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_UpdateAppProfileMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UpdateAuthorizedViewMetadata
+//
+
+@implementation GTLRBigtableAdmin_UpdateAuthorizedViewMetadata
+@dynamic finishTime, originalRequest, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UpdateAuthorizedViewRequest
+//
+
+@implementation GTLRBigtableAdmin_UpdateAuthorizedViewRequest
+@dynamic authorizedView, ignoreWarnings, updateMask;
 @end
 
 

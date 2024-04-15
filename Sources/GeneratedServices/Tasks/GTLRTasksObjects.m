@@ -17,7 +17,7 @@
 
 @implementation GTLRTasks_Task
 @dynamic completed, deleted, due, ETag, hidden, identifier, kind, links, notes,
-         parent, position, selfLink, status, title, updated;
+         parent, position, selfLink, status, title, updated, webViewLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

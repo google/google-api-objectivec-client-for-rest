@@ -21,11 +21,17 @@
 @class GTLRCloudIdentity_EntityKey;
 @class GTLRCloudIdentity_ExpiryDetail;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState_KeyValuePairs;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CustomAttributeValue;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals;
 @class GTLRCloudIdentity_Group;
 @class GTLRCloudIdentity_Group_Labels;
 @class GTLRCloudIdentity_GroupRelation;
@@ -137,6 +143,122 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
  *  Value: "PROFILE_OWNER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes_OwnershipPrivilege_ProfileOwner;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.browserManagementState
+
+/**
+ *  Browser is managed by customer.
+ *
+ *  Value: "BROWSER_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_BrowserManaged;
+/**
+ *  Browser/Profile is managed, but by some other customer.
+ *
+ *  Value: "MANAGED_BY_OTHER_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ManagedByOtherDomain;
+/**
+ *  Profile is managed by customer.
+ *
+ *  Value: "PROFILE_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ProfileManaged;
+/**
+ *  Browser/Profile is not managed by any customer.
+ *
+ *  Value: "UNMANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unmanaged;
+/**
+ *  Management state is not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.passwordProtectionWarningTrigger
+
+/**
+ *  Password protection is not specified.
+ *
+ *  Value: "PASSWORD_PROTECTION_TRIGGER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordProtectionTriggerUnspecified;
+/**
+ *  Warning is shown when the user reuses their protected password on a
+ *  non-allowed site.
+ *
+ *  Value: "PASSWORD_REUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordReuse;
+/**
+ *  Warning is shown when the user reuses their protected password on a phishing
+ *  site.
+ *
+ *  Value: "PHISHING_REUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PhishingReuse;
+/**
+ *  Password reuse is never detected.
+ *
+ *  Value: "PROTECTION_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_ProtectionOff;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.safeBrowsingProtectionLevel
+
+/**
+ *  No protection against dangerous websites, downloads, and extensions.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Disabled;
+/**
+ *  Faster, proactive protection against dangerous websites, downloads, and
+ *  extensions.
+ *
+ *  Value: "ENHANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Enhanced;
+/**
+ *  Browser protection level is not specified.
+ *
+ *  Value: "SAFE_BROWSING_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_SafeBrowsingLevelUnspecified;
+/**
+ *  Standard protection against websites, downloads, and extensions that are
+ *  known to be dangerous.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes.validationState
+
+/**
+ *  Default value.
+ *
+ *  Value: "CERTIFICATE_VALIDATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_CertificateValidationStateUnspecified;
+/**
+ *  Certificate validation failed.
+ *
+ *  Value: "VALIDATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationFailed;
+/**
+ *  Certificate validation was successful.
+ *
+ *  Value: "VALIDATION_SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationSuccessful;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState.complianceState
@@ -1238,6 +1360,191 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Contains information about browser profiles reported by the [Endpoint
+ *  Verification
+ *  extension](https://chromewebstore.google.com/detail/endpoint-verification/callobklhcbilhphinckomhgkigmfocg?pli=1).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes : GTLRObject
+
+/**
+ *  Represents the current state of the [Chrome browser
+ *  attributes](https://cloud.google.com/access-context-manager/docs/browser-attributes)
+ *  sent by the [Endpoint Verification
+ *  extension](https://chromewebstore.google.com/detail/endpoint-verification/callobklhcbilhphinckomhgkigmfocg?pli=1).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo *chromeBrowserInfo;
+
+/**
+ *  Chrome profile ID that is exposed by the Chrome API. It is unique for each
+ *  device.
+ */
+@property(nonatomic, copy, nullable) NSString *chromeProfileId;
+
+/**
+ *  Timestamp in milliseconds since Epoch when the profile/gcm id was last
+ *  synced.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastProfileSyncTime;
+
+@end
+
+
+/**
+ *  Browser-specific fields reported by the [Endpoint Verification
+ *  extension](https://chromewebstore.google.com/detail/endpoint-verification/callobklhcbilhphinckomhgkigmfocg?pli=1).
+ *  LINT.IfChange
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo : GTLRObject
+
+/**
+ *  Output only. Browser's management state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_BrowserManaged
+ *        Browser is managed by customer. (Value: "BROWSER_MANAGED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ManagedByOtherDomain
+ *        Browser/Profile is managed, but by some other customer. (Value:
+ *        "MANAGED_BY_OTHER_DOMAIN")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ProfileManaged
+ *        Profile is managed by customer. (Value: "PROFILE_MANAGED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unmanaged
+ *        Browser/Profile is not managed by any customer. (Value: "UNMANAGED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unspecified
+ *        Management state is not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *browserManagementState;
+
+/** Version of the request initiating browser. */
+@property(nonatomic, copy, nullable) NSString *browserVersion;
+
+/**
+ *  Current state of [built-in DNS
+ *  client](https://chromeenterprise.google/policies/#BuiltInDnsClientEnabled).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isBuiltInDnsClientEnabled;
+
+/**
+ *  Current state of [bulk data
+ *  analysis](https://chromeenterprise.google/policies/#OnBulkDataEntryEnterpriseConnector).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isBulkDataEntryAnalysisEnabled;
+
+/**
+ *  Current state of [Chrome
+ *  Cleanup](https://chromeenterprise.google/policies/#ChromeCleanupEnabled).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isChromeCleanupEnabled;
+
+/**
+ *  Current state of [Chrome Remote Desktop
+ *  app](https://chromeenterprise.google/policies/#URLBlocklist).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isChromeRemoteDesktopAppBlocked;
+
+/**
+ *  Current state of [file download
+ *  analysis](https://chromeenterprise.google/policies/#OnFileDownloadedEnterpriseConnector).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFileDownloadAnalysisEnabled;
+
+/**
+ *  Current state of [file upload
+ *  analysis](https://chromeenterprise.google/policies/#OnFileAttachedEnterpriseConnector).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFileUploadAnalysisEnabled;
+
+/**
+ *  Current state of [real-time URL
+ *  check](https://chromeenterprise.google/policies/#EnterpriseRealTimeUrlCheckMode).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRealtimeUrlCheckEnabled;
+
+/**
+ *  Current state of [security event
+ *  analysis](https://chromeenterprise.google/policies/#OnSecurityEventEnterpriseConnector).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSecurityEventAnalysisEnabled;
+
+/**
+ *  Current state of [site
+ *  isolation](https://chromeenterprise.google/policies/?policy=IsolateOrigins).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSiteIsolationEnabled;
+
+/**
+ *  Current state of [third-party
+ *  blocking](https://chromeenterprise.google/policies/#ThirdPartyBlockingEnabled).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isThirdPartyBlockingEnabled;
+
+/**
+ *  Current state of [password protection
+ *  trigger](https://chromeenterprise.google/policies/#PasswordProtectionWarningTrigger).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordProtectionTriggerUnspecified
+ *        Password protection is not specified. (Value:
+ *        "PASSWORD_PROTECTION_TRIGGER_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordReuse
+ *        Warning is shown when the user reuses their protected password on a
+ *        non-allowed site. (Value: "PASSWORD_REUSE")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PhishingReuse
+ *        Warning is shown when the user reuses their protected password on a
+ *        phishing site. (Value: "PHISHING_REUSE")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_ProtectionOff
+ *        Password reuse is never detected. (Value: "PROTECTION_OFF")
+ */
+@property(nonatomic, copy, nullable) NSString *passwordProtectionWarningTrigger;
+
+/**
+ *  Current state of [Safe Browsing protection
+ *  level](https://chromeenterprise.google/policies/#SafeBrowsingProtectionLevel).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Disabled
+ *        No protection against dangerous websites, downloads, and extensions.
+ *        (Value: "DISABLED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Enhanced
+ *        Faster, proactive protection against dangerous websites, downloads,
+ *        and extensions. (Value: "ENHANCED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_SafeBrowsingLevelUnspecified
+ *        Browser protection level is not specified. (Value:
+ *        "SAFE_BROWSING_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Standard
+ *        Standard protection against websites, downloads, and extensions that
+ *        are known to be dangerous. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *safeBrowsingProtectionLevel;
+
+@end
+
+
+/**
  *  Metadata for CancelWipeDevice LRO.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceMetadata : GTLRObject
@@ -1308,6 +1615,82 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /** Resultant DeviceUser object for the action. */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser *deviceUser;
+
+@end
+
+
+/**
+ *  Stores information about a certificate.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes : GTLRObject
+
+/** The X.509 extension for CertificateTemplate. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate *certificateTemplate;
+
+/** The encoded certificate fingerprint. */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/** The name of the issuer of this certificate. */
+@property(nonatomic, copy, nullable) NSString *issuer;
+
+/** Serial number of the certificate, Example: "123456789". */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/** The subject name of this certificate. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/** The certificate thumbprint. */
+@property(nonatomic, copy, nullable) NSString *thumbprint;
+
+/**
+ *  Output only. Validation state of this certificate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_CertificateValidationStateUnspecified
+ *        Default value. (Value: "CERTIFICATE_VALIDATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationFailed
+ *        Certificate validation failed. (Value: "VALIDATION_FAILED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationSuccessful
+ *        Certificate validation was successful. (Value:
+ *        "VALIDATION_SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *validationState;
+
+/** Certificate not valid at or after this timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *validityExpirationTime;
+
+/** Certificate not valid before this timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *validityStartTime;
+
+@end
+
+
+/**
+ *  CertificateTemplate (v3 Extension in X.509).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate : GTLRObject
+
+/**
+ *  The template id of the template. Example:
+ *  "1.3.6.1.4.1.311.21.8.15608621.11768144.5720724.16068415.6889630.81.2472537.7784047".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The Major version of the template. Example: 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *majorVersion;
+
+/**
+ *  The minor version of the template. Example: 12.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minorVersion;
 
 @end
 
@@ -1601,6 +1984,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  */
 @property(nonatomic, copy, nullable) NSString *encryptionState;
 
+/**
+ *  Output only. Attributes specific to [Endpoint
+ *  Verification](https://cloud.google.com/endpoint-verification/docs/overview)
+ *  devices.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes *endpointVerificationSpecificAttributes;
+
 /** Host name of the device. */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
@@ -1783,6 +2173,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /** Email address of the user registered on the device. */
 @property(nonatomic, copy, nullable) NSString *userEmail;
 
+@end
+
+
+/**
+ *  Resource representing the [Endpoint Verification-specific
+ *  attributes](https://cloud.google.com/endpoint-verification/docs/device-information)
+ *  of a device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes : GTLRObject
+
+/**
+ *  Additional signals reported by Endpoint Verification. It includes the
+ *  following attributes: 1. Non-configurable attributes: hotfixes,
+ *  av_installed, av_enabled, windows_domain_name,
+ *  is_os_native_firewall_enabled, and is_secure_boot_enabled. 2. [Configurable
+ *  attributes](https://cloud.google.com/endpoint-verification/docs/collect-config-attributes):
+ *  file, folder, and binary attributes; registry entries; and properties in a
+ *  plist.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals *additionalSignals;
+
+/** Details of browser profiles reported by Endpoint Verification. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes *> *browserAttributes;
+
+/** Details of certificates. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes *> *certificateAttributes;
+
+@end
+
+
+/**
+ *  Additional signals reported by Endpoint Verification. It includes the
+ *  following attributes: 1. Non-configurable attributes: hotfixes,
+ *  av_installed, av_enabled, windows_domain_name,
+ *  is_os_native_firewall_enabled, and is_secure_boot_enabled. 2. [Configurable
+ *  attributes](https://cloud.google.com/endpoint-verification/docs/collect-config-attributes):
+ *  file, folder, and binary attributes; registry entries; and properties in a
+ *  plist.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals : GTLRObject
 @end
 
 

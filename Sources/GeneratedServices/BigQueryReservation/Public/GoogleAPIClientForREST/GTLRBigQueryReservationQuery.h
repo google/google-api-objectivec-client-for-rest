@@ -710,6 +710,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Failover a reservation to the secondary location. The operation should be
+ *  done in the current secondary location, which will be promoted to the new
+ *  primary location for the reservation. Attempting to failover a reservation
+ *  in the current primary location will fail with the error code
+ *  `google.rpc.Code.FAILED_PRECONDITION`.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.failoverReservation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsFailoverReservation : GTLRBigQueryReservationQuery
+
+/**
+ *  Required. Resource name of the reservation to failover. E.g.,
+ *  `projects/myproject/locations/US/reservations/team1-prod`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Reservation.
+ *
+ *  Failover a reservation to the secondary location. The operation should be
+ *  done in the current secondary location, which will be promoted to the new
+ *  primary location for the reservation. Attempting to failover a reservation
+ *  in the current primary location will fail with the error code
+ *  `google.rpc.Code.FAILED_PRECONDITION`.
+ *
+ *  @param object The @c GTLRBigQueryReservation_FailoverReservationRequest to
+ *    include in the query.
+ *  @param name Required. Resource name of the reservation to failover. E.g.,
+ *    `projects/myproject/locations/US/reservations/team1-prod`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsFailoverReservation
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_FailoverReservationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns information about the reservation.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.get

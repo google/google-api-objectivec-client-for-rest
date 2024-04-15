@@ -191,7 +191,16 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue
 @dynamic cause, distinctUsers, distinctUsersPercent, errorReportCount,
          firstAppVersion, firstOsVersion, issueUri, lastAppVersion,
-         lastErrorReportTime, lastOsVersion, location, name, type;
+         lastErrorReportTime, lastOsVersion, location, name, sampleErrorReports,
+         type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sampleErrorReports" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

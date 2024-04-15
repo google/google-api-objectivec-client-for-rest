@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Discovery Engine API (discoveryengine/v1beta)
+//   Discovery Engine API (discoveryengine/v1)
 // Description:
 //   Discovery Engine API.
 // Documentation:
@@ -133,19 +133,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document.
  *
  *  Creates a Document.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument to include in
- *    the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document to include in the
+ *    query.
  *  @param parent Required. The parent resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document *)object
                          parent:(NSString *)parent;
 
 @end
@@ -206,7 +206,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document.
  *
  *  Gets a Document.
  *
@@ -249,15 +249,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Documents to be successfully updated.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest
- *    to include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest to
+ *    include in the query.
  *  @param parent Required. The parent branch resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *    Requires create/update permission.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsImport
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -300,7 +300,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDocumentsResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListDocumentsResponse.
  *
  *  Gets a list of Documents.
  *
@@ -346,13 +346,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document.
  *
  *  Updates a Document.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument to include in
- *    the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document to include in the
+ *    query.
  *  @param name Immutable. The full resource name of the document. Format:
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
  *    This field must be a UTF-8 encoded string with a length limit of 1024
@@ -360,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document *)object
                            name:(NSString *)name;
 
 @end
@@ -397,14 +397,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  set PurgeDocumentsRequest.force to false.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest
- *    to include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsRequest to
+ *    include in the query.
  *  @param parent Required. The parent resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPurge
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -540,7 +540,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompleteQueryResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponse.
  *
  *  Completes the specified user input with keyword suggestions.
  *
@@ -576,12 +576,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationResponse.
  *
  *  Converses a conversation.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest
  *    to include in the query.
  *  @param name Required. The resource name of the Conversation to get. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
@@ -592,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsConverse
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -615,21 +615,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Creates a Conversation. If the Conversation to create already exists, an
  *  ALREADY_EXISTS error is returned.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
+ *    the query.
  *  @param parent Required. Full resource name of parent data store. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation *)object
                          parent:(NSString *)parent;
 
 @end
@@ -684,8 +683,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Gets a Conversation.
  *
@@ -742,7 +740,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListConversationsResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListConversationsResponse.
  *
  *  Lists all Conversations by their parent DataStore.
  *
@@ -788,15 +786,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Updates a Conversation. Conversation action type cannot be changed. If the
  *  Conversation to update does not exist, a NOT_FOUND error is returned.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
+ *    the query.
  *  @param name Immutable. Fully qualified name `project/ *
  *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
  *    or `project/ * /locations/global/collections/{collection}/engines/ *
@@ -804,7 +801,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation *)object
                            name:(NSString *)name;
 
 @end
@@ -851,14 +848,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  created separately.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore to include in
+ *    the query.
  *  @param parent Required. The parent resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore *)object
                          parent:(NSString *)parent;
 
 @end
@@ -919,7 +916,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.
  *
  *  Gets a DataStore.
  *
@@ -956,7 +953,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteSearchEngine.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteSearchEngine.
  *
  *  Gets the SiteSearchEngine.
  *
@@ -1015,7 +1012,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDataStoresResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListDataStoresResponse.
  *
  *  Lists all the DataStores associated with the project.
  *
@@ -1205,13 +1202,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.
  *
  *  Updates a DataStore
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore to include in
+ *    the query.
  *  @param name Immutable. The full resource name of the data store. Format:
  *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *    This field must be a UTF-8 encoded string with a length limit of 1024
@@ -1219,7 +1216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore *)object
                            name:(NSString *)name;
 
 @end
@@ -1253,16 +1250,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a Schema.
  *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema to include in
- *    the query.
+ *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema
+ *    to include in the query.
  *  @param parent Required. The parent data store resource name, in the format
  *    of
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema *)object
                          parent:(NSString *)parent;
 
 @end
@@ -1314,7 +1310,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema.
  *
  *  Gets a Schema.
  *
@@ -1360,7 +1356,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListSchemasResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListSchemasResponse.
  *
  *  Gets a list of Schemas.
  *
@@ -1478,9 +1474,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates a Schema.
  *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema to include in
- *    the query.
+ *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema
+ *    to include in the query.
  *  @param name Immutable. The full resource name of the schema, in the format
  *    of
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
@@ -1489,134 +1484,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
- *  exist.
- *
- *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsGet : GTLRDiscoveryEngineQuery
-
-/**
- *  Required. The resource name of the ServingConfig to get. Format:
- *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
- *
- *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
- *  exist.
- *
- *  @param name Required. The resource name of the ServingConfig to get. Format:
- *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists all ServingConfigs linked to this dataStore.
- *
- *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsList : GTLRDiscoveryEngineQuery
-
-/**
- *  Optional. Maximum number of results to return. If unspecified, defaults to
- *  100. If a value greater than 100 is provided, at most 100 results are
- *  returned.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. A page token, received from a previous `ListServingConfigs` call.
- *  Provide this to retrieve the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The dataStore resource name. Format:
- *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse.
- *
- *  Lists all ServingConfigs linked to this dataStore.
- *
- *  @param parent Required. The dataStore resource name. Format:
- *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
- *  not exist.
- *
- *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch : GTLRDiscoveryEngineQuery
-
-/**
- *  Immutable. Fully qualified name
- *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Indicates which fields in the provided ServingConfig to update. The
- *  following are NOT supported: * ServingConfig.name If not set, all supported
- *  fields are updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
- *
- *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
- *  not exist.
- *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig to
- *    include in the query.
- *  @param name Immutable. Fully qualified name
- *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch
- */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema *)object
                            name:(NSString *)name;
 
 @end
@@ -1647,12 +1515,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponse.
  *
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest to
  *    include in the query.
  *  @param servingConfig Required. Full resource name of a ServingConfig:
  *    `projects/ * /locations/global/collections/ * /engines/ * /servingConfigs/
@@ -1667,7 +1535,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest *)object
                   servingConfig:(NSString *)servingConfig;
 
 @end
@@ -1693,14 +1561,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponse.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponse.
  *
  *  Performs a search.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest to include
+ *    in the query.
  *  @param servingConfig Required. The resource name of the Search serving
  *    config, such as `projects/ *
  *    /locations/global/collections/default_collection/engines/ *
@@ -1711,7 +1578,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsSearch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest *)object
                   servingConfig:(NSString *)servingConfig;
 
 @end
@@ -1740,7 +1607,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  sites under site search engine for verification.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchVerifyTargetSitesRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest
  *    to include in the query.
  *  @param parent Required. The parent resource shared by all TargetSites being
  *    verified.
@@ -1748,7 +1615,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineBatchVerifyTargetSites
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchVerifyTargetSitesRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -1775,7 +1642,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Downgrade from advanced site search to basic site search.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest
  *    to include in the query.
  *  @param siteSearchEngine Required. Full resource name of the
  *    SiteSearchEngine, such as
@@ -1783,7 +1650,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineDisableAdvancedSiteSearch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest *)object
                siteSearchEngine:(NSString *)siteSearchEngine;
 
 @end
@@ -1810,7 +1677,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upgrade from basic site search to advanced site search.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest
  *    to include in the query.
  *  @param siteSearchEngine Required. Full resource name of the
  *    SiteSearchEngine, such as
@@ -1818,7 +1685,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineEnableAdvancedSiteSearch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest *)object
                siteSearchEngine:(NSString *)siteSearchEngine;
 
 @end
@@ -1860,7 +1727,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaFetchDomainVerificationStatusResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1FetchDomainVerificationStatusResponse.
  *
  *  Returns list of target sites with its domain verification status. This
  *  method can only be called under data store with BASIC_SITE_SEARCH state at
@@ -1973,7 +1840,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Request on-demand recrawl for a list of URIs.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest to
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecrawlUrisRequest to
  *    include in the query.
  *  @param siteSearchEngine Required. Full resource name of the
  *    SiteSearchEngine, such as `projects/ * /locations/ * /collections/ *
@@ -1981,7 +1848,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineRecrawlUris
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecrawlUrisRequest *)object
                siteSearchEngine:(NSString *)siteSearchEngine;
 
 @end
@@ -2010,7 +1877,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates TargetSite in a batch.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest
  *    to include in the query.
  *  @param parent Required. The parent resource shared by all TargetSites being
  *    created.
@@ -2020,7 +1887,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesBatchCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2047,14 +1914,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a TargetSite.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite to include in
+ *    the query.
  *  @param parent Required. Parent resource name of TargetSite, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2116,7 +1983,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite.
  *
  *  Gets a TargetSite.
  *
@@ -2170,7 +2037,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListTargetSitesResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListTargetSitesResponse.
  *
  *  Gets a list of TargetSites.
  *
@@ -2284,8 +2151,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a TargetSite.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite to include in
+ *    the query.
  *  @param name Output only. The fully qualified resource name of the target
  *    site.
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`
@@ -2293,7 +2160,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite *)object
                            name:(NSString *)name;
 
 @end
@@ -2321,7 +2188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Imports all SuggestionDenyListEntry for a DataStore.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest
  *    to include in the query.
  *  @param parent Required. The parent data store resource name for which to
  *    import denylist entries. Follows pattern projects/ * /locations/ *
@@ -2329,7 +2196,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSuggestionDenyListEntriesImport
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2357,7 +2224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Permanently deletes all SuggestionDenyListEntry for a DataStore.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest
  *    to include in the query.
  *  @param parent Required. The parent data store resource name for which to
  *    import denylist entries. Follows pattern projects/ * /locations/ *
@@ -2365,7 +2232,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSuggestionDenyListEntriesPurge
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2456,14 +2323,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Operation.metadata is of type ImportMetadata.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest
- *    to include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest to
+ *    include in the query.
  *  @param parent Required. Parent DataStore resource name, of the form
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsImport
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2485,19 +2352,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent.
  *
  *  Writes a single user event.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent to include in
+ *    the query.
  *  @param parent Required. The parent DataStore resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsWrite
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2524,12 +2391,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationResponse.
  *
  *  Converses a conversation.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest
  *    to include in the query.
  *  @param name Required. The resource name of the Conversation to get. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
@@ -2540,7 +2407,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsConverse
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -2563,21 +2430,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Creates a Conversation. If the Conversation to create already exists, an
  *  ALREADY_EXISTS error is returned.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
+ *    the query.
  *  @param parent Required. Full resource name of parent data store. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2632,8 +2498,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Gets a Conversation.
  *
@@ -2690,7 +2555,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListConversationsResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListConversationsResponse.
  *
  *  Lists all Conversations by their parent DataStore.
  *
@@ -2736,15 +2601,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Updates a Conversation. Conversation action type cannot be changed. If the
  *  Conversation to update does not exist, a NOT_FOUND error is returned.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
+ *    the query.
  *  @param name Immutable. Fully qualified name `project/ *
  *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
  *    or `project/ * /locations/global/collections/{collection}/engines/ *
@@ -2752,7 +2616,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation *)object
                            name:(NSString *)name;
 
 @end
@@ -2786,15 +2650,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a Engine.
  *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine to include in
- *    the query.
+ *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine
+ *    to include in the query.
  *  @param parent Required. The parent resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine *)object
                          parent:(NSString *)parent;
 
 @end
@@ -2852,7 +2715,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.
  *
  *  Gets a Engine.
  *
@@ -2895,7 +2758,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListEnginesResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListEnginesResponse.
  *
  *  Lists all the Engines associated with the project.
  *
@@ -3011,13 +2874,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.
  *
  *  Updates an Engine
  *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine to include in
- *    the query.
+ *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine
+ *    to include in the query.
  *  @param name Immutable. The fully qualified resource name of the engine. This
  *    field must be a UTF-8 encoded string with a length limit of 1024
  *    characters. Format:
@@ -3027,134 +2889,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
- *  exist.
- *
- *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsGet : GTLRDiscoveryEngineQuery
-
-/**
- *  Required. The resource name of the ServingConfig to get. Format:
- *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
- *
- *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
- *  exist.
- *
- *  @param name Required. The resource name of the ServingConfig to get. Format:
- *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists all ServingConfigs linked to this dataStore.
- *
- *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsList : GTLRDiscoveryEngineQuery
-
-/**
- *  Optional. Maximum number of results to return. If unspecified, defaults to
- *  100. If a value greater than 100 is provided, at most 100 results are
- *  returned.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. A page token, received from a previous `ListServingConfigs` call.
- *  Provide this to retrieve the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The dataStore resource name. Format:
- *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse.
- *
- *  Lists all ServingConfigs linked to this dataStore.
- *
- *  @param parent Required. The dataStore resource name. Format:
- *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
- *  not exist.
- *
- *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch : GTLRDiscoveryEngineQuery
-
-/**
- *  Immutable. Fully qualified name
- *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Indicates which fields in the provided ServingConfig to update. The
- *  following are NOT supported: * ServingConfig.name If not set, all supported
- *  fields are updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
- *
- *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
- *  not exist.
- *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig to
- *    include in the query.
- *  @param name Immutable. Fully qualified name
- *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch
- */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine *)object
                            name:(NSString *)name;
 
 @end
@@ -3185,12 +2920,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponse.
  *
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest to
  *    include in the query.
  *  @param servingConfig Required. Full resource name of a ServingConfig:
  *    `projects/ * /locations/global/collections/ * /engines/ * /servingConfigs/
@@ -3205,7 +2940,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsRecommend
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest *)object
                   servingConfig:(NSString *)servingConfig;
 
 @end
@@ -3231,14 +2966,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponse.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponse.
  *
  *  Performs a search.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest to include
+ *    in the query.
  *  @param servingConfig Required. The resource name of the Search serving
  *    config, such as `projects/ *
  *    /locations/global/collections/default_collection/engines/ *
@@ -3249,7 +2983,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsSearch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest *)object
                   servingConfig:(NSString *)servingConfig;
 
 @end
@@ -3354,19 +3088,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document.
  *
  *  Creates a Document.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument to include in
- *    the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document to include in the
+ *    query.
  *  @param parent Required. The parent resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document *)object
                          parent:(NSString *)parent;
 
 @end
@@ -3427,7 +3161,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document.
  *
  *  Gets a Document.
  *
@@ -3470,15 +3204,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Documents to be successfully updated.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest
- *    to include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest to
+ *    include in the query.
  *  @param parent Required. The parent branch resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *    Requires create/update permission.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsImport
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportDocumentsRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -3521,7 +3255,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDocumentsResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListDocumentsResponse.
  *
  *  Gets a list of Documents.
  *
@@ -3567,13 +3301,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document.
  *
  *  Updates a Document.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument to include in
- *    the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document to include in the
+ *    query.
  *  @param name Immutable. The full resource name of the document. Format:
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document_id}`.
  *    This field must be a UTF-8 encoded string with a length limit of 1024
@@ -3581,7 +3315,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocument *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document *)object
                            name:(NSString *)name;
 
 @end
@@ -3618,14 +3352,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  set PurgeDocumentsRequest.force to false.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest
- *    to include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsRequest to
+ *    include in the query.
  *  @param parent Required. The parent resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsPurge
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeDocumentsRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -3761,7 +3495,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCompleteQueryResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CompleteQueryResponse.
  *
  *  Completes the specified user input with keyword suggestions.
  *
@@ -3797,12 +3531,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationResponse.
  *
  *  Converses a conversation.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest
  *    to include in the query.
  *  @param name Required. The resource name of the Conversation to get. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
@@ -3813,7 +3547,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsConverse
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConverseConversationRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -3836,21 +3570,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Creates a Conversation. If the Conversation to create already exists, an
  *  ALREADY_EXISTS error is returned.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
+ *    the query.
  *  @param parent Required. Full resource name of parent data store. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation *)object
                          parent:(NSString *)parent;
 
 @end
@@ -3905,8 +3638,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Gets a Conversation.
  *
@@ -3963,7 +3695,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListConversationsResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListConversationsResponse.
  *
  *  Lists all Conversations by their parent DataStore.
  *
@@ -4009,15 +3741,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation.
  *
  *  Updates a Conversation. Conversation action type cannot be changed. If the
  *  Conversation to update does not exist, a NOT_FOUND error is returned.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
+ *    the query.
  *  @param name Immutable. Fully qualified name `project/ *
  *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
  *    or `project/ * /locations/global/collections/{collection}/engines/ *
@@ -4025,7 +3756,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConversation *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation *)object
                            name:(NSString *)name;
 
 @end
@@ -4072,14 +3803,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  created separately.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore to include in
+ *    the query.
  *  @param parent Required. The parent resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore *)object
                          parent:(NSString *)parent;
 
 @end
@@ -4140,7 +3871,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.
  *
  *  Gets a DataStore.
  *
@@ -4177,7 +3908,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteSearchEngine.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteSearchEngine.
  *
  *  Gets the SiteSearchEngine.
  *
@@ -4236,7 +3967,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListDataStoresResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListDataStoresResponse.
  *
  *  Lists all the DataStores associated with the project.
  *
@@ -4426,13 +4157,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.
  *
  *  Updates a DataStore
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore to include in
+ *    the query.
  *  @param name Immutable. The full resource name of the data store. Format:
  *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
  *    This field must be a UTF-8 encoded string with a length limit of 1024
@@ -4440,7 +4171,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore *)object
                            name:(NSString *)name;
 
 @end
@@ -4474,16 +4205,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a Schema.
  *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema to include in
- *    the query.
+ *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema
+ *    to include in the query.
  *  @param parent Required. The parent data store resource name, in the format
  *    of
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSchemasCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema *)object
                          parent:(NSString *)parent;
 
 @end
@@ -4535,7 +4265,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema.
  *
  *  Gets a Schema.
  *
@@ -4581,7 +4311,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListSchemasResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListSchemasResponse.
  *
  *  Gets a list of Schemas.
  *
@@ -4628,9 +4358,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates a Schema.
  *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema to include in
- *    the query.
+ *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema
+ *    to include in the query.
  *  @param name Immutable. The full resource name of the schema, in the format
  *    of
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`.
@@ -4639,134 +4368,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSchemasPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSchema *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
- *  exist.
- *
- *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsGet : GTLRDiscoveryEngineQuery
-
-/**
- *  Required. The resource name of the ServingConfig to get. Format:
- *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
- *
- *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
- *  exist.
- *
- *  @param name Required. The resource name of the ServingConfig to get. Format:
- *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/servingConfigs/{serving_config_id}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists all ServingConfigs linked to this dataStore.
- *
- *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsList : GTLRDiscoveryEngineQuery
-
-/**
- *  Optional. Maximum number of results to return. If unspecified, defaults to
- *  100. If a value greater than 100 is provided, at most 100 results are
- *  returned.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. A page token, received from a previous `ListServingConfigs` call.
- *  Provide this to retrieve the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The dataStore resource name. Format:
- *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListServingConfigsResponse.
- *
- *  Lists all ServingConfigs linked to this dataStore.
- *
- *  @param parent Required. The dataStore resource name. Format:
- *    `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
- *  not exist.
- *
- *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- */
-@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch : GTLRDiscoveryEngineQuery
-
-/**
- *  Immutable. Fully qualified name
- *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Indicates which fields in the provided ServingConfig to update. The
- *  following are NOT supported: * ServingConfig.name If not set, all supported
- *  fields are updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig.
- *
- *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
- *  not exist.
- *
- *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig to
- *    include in the query.
- *  @param name Immutable. Fully qualified name
- *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/servingConfigs/{serving_config_id}`
- *
- *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch
- */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaServingConfig *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema *)object
                            name:(NSString *)name;
 
 @end
@@ -4797,12 +4399,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendResponse.
  *
  *  Makes a recommendation, which requires a contextual user event.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest to
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest to
  *    include in the query.
  *  @param servingConfig Required. Full resource name of a ServingConfig:
  *    `projects/ * /locations/global/collections/ * /engines/ * /servingConfigs/
@@ -4817,7 +4419,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecommendRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecommendRequest *)object
                   servingConfig:(NSString *)servingConfig;
 
 @end
@@ -4843,14 +4445,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *servingConfig;
 
 /**
- *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchResponse.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponse.
  *
  *  Performs a search.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest to
- *    include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest to include
+ *    in the query.
  *  @param servingConfig Required. The resource name of the Search serving
  *    config, such as `projects/ *
  *    /locations/global/collections/default_collection/engines/ *
@@ -4861,7 +4462,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsSearch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest *)object
                   servingConfig:(NSString *)servingConfig;
 
 @end
@@ -4888,7 +4489,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Downgrade from advanced site search to basic site search.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest
  *    to include in the query.
  *  @param siteSearchEngine Required. Full resource name of the
  *    SiteSearchEngine, such as
@@ -4896,7 +4497,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineDisableAdvancedSiteSearch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDisableAdvancedSiteSearchRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest *)object
                siteSearchEngine:(NSString *)siteSearchEngine;
 
 @end
@@ -4923,7 +4524,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upgrade from basic site search to advanced site search.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest
  *    to include in the query.
  *  @param siteSearchEngine Required. Full resource name of the
  *    SiteSearchEngine, such as
@@ -4931,7 +4532,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineEnableAdvancedSiteSearch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEnableAdvancedSiteSearchRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest *)object
                siteSearchEngine:(NSString *)siteSearchEngine;
 
 @end
@@ -4958,7 +4559,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Request on-demand recrawl for a list of URIs.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest to
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecrawlUrisRequest to
  *    include in the query.
  *  @param siteSearchEngine Required. Full resource name of the
  *    SiteSearchEngine, such as `projects/ * /locations/ * /collections/ *
@@ -4966,7 +4567,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineRecrawlUris
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaRecrawlUrisRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RecrawlUrisRequest *)object
                siteSearchEngine:(NSString *)siteSearchEngine;
 
 @end
@@ -4995,7 +4596,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates TargetSite in a batch.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest
  *    to include in the query.
  *  @param parent Required. The parent resource shared by all TargetSites being
  *    created.
@@ -5005,7 +4606,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesBatchCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSitesRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -5032,14 +4633,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a TargetSite.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite to include in
+ *    the query.
  *  @param parent Required. Parent resource name of TargetSite, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesCreate
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite *)object
                          parent:(NSString *)parent;
 
 @end
@@ -5101,7 +4702,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite.
  *
  *  Gets a TargetSite.
  *
@@ -5155,7 +4756,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListTargetSitesResponse.
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListTargetSitesResponse.
  *
  *  Gets a list of TargetSites.
  *
@@ -5198,8 +4799,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a TargetSite.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite to include in
+ *    the query.
  *  @param name Output only. The fully qualified resource name of the target
  *    site.
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/targetSites/{target_site}`
@@ -5207,7 +4808,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesPatch
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTargetSite *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite *)object
                            name:(NSString *)name;
 
 @end
@@ -5235,7 +4836,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Imports all SuggestionDenyListEntry for a DataStore.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest
  *    to include in the query.
  *  @param parent Required. The parent data store resource name for which to
  *    import denylist entries. Follows pattern projects/ * /locations/ *
@@ -5243,7 +4844,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSuggestionDenyListEntriesImport
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportSuggestionDenyListEntriesRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -5271,7 +4872,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Permanently deletes all SuggestionDenyListEntry for a DataStore.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest
  *    to include in the query.
  *  @param parent Required. The parent data store resource name for which to
  *    import denylist entries. Follows pattern projects/ * /locations/ *
@@ -5279,7 +4880,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSuggestionDenyListEntriesPurge
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaPurgeSuggestionDenyListEntriesRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -5370,14 +4971,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Operation.metadata is of type ImportMetadata.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest
- *    to include in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest to
+ *    include in the query.
  *  @param parent Required. Parent DataStore resource name, of the form
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsImport
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportUserEventsRequest *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -5399,19 +5000,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent.
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent.
  *
  *  Writes a single user event.
  *
  *  @param object The @c
- *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent to include
- *    in the query.
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent to include in
+ *    the query.
  *  @param parent Required. The parent DataStore resource name, such as
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsWrite
  */
-+ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserEvent *)object
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent *)object
                          parent:(NSString *)parent;
 
 @end

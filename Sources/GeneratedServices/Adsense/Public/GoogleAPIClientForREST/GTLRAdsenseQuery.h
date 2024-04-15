@@ -706,10 +706,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Creates an ad unit. This method can only be used by projects enabled for the
- *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
- *  product. Note that ad units can only be created for ad clients with an "AFC"
- *  product code. For more info see the [AdClient
+ *  Creates an ad unit. This method can be called only by a restricted set of
+ *  projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method. Note that ad
+ *  units can only be created for ad clients with an "AFC" product code. For
+ *  more info see the [AdClient
  *  resource](/adsense/management/reference/rest/v2/accounts.adclients). For
  *  now, this method can only be used to create `DISPLAY` ad units. See:
  *  https://support.google.com/adsense/answer/9183566
@@ -730,10 +732,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_AdUnit.
  *
- *  Creates an ad unit. This method can only be used by projects enabled for the
- *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
- *  product. Note that ad units can only be created for ad clients with an "AFC"
- *  product code. For more info see the [AdClient
+ *  Creates an ad unit. This method can be called only by a restricted set of
+ *  projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method. Note that ad
+ *  units can only be created for ad clients with an "AFC" product code. For
+ *  more info see the [AdClient
  *  resource](/adsense/management/reference/rest/v2/accounts.adclients). For
  *  now, this method can only be used to create `DISPLAY` ad units. See:
  *  https://support.google.com/adsense/answer/9183566
@@ -917,10 +921,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Updates an ad unit. This method can only be used by projects enabled for the
- *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
- *  product. For now, this method can only be used to update `DISPLAY` ad units.
- *  See: https://support.google.com/adsense/answer/9183566
+ *  Updates an ad unit. This method can be called only by a restricted set of
+ *  projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method. For now, this
+ *  method can only be used to update `DISPLAY` ad units. See:
+ *  https://support.google.com/adsense/answer/9183566
  *
  *  Method: adsense.accounts.adclients.adunits.patch
  *
@@ -945,10 +951,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_AdUnit.
  *
- *  Updates an ad unit. This method can only be used by projects enabled for the
- *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
- *  product. For now, this method can only be used to update `DISPLAY` ad units.
- *  See: https://support.google.com/adsense/answer/9183566
+ *  Updates an ad unit. This method can be called only by a restricted set of
+ *  projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method. For now, this
+ *  method can only be used to update `DISPLAY` ad units. See:
+ *  https://support.google.com/adsense/answer/9183566
  *
  *  @param object The @c GTLRAdsense_AdUnit to include in the query.
  *  @param name Output only. Resource name of the ad unit. Format:
@@ -962,9 +970,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Creates a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Creates a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  Method: adsense.accounts.adclients.customchannels.create
  *
@@ -982,9 +991,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_CustomChannel.
  *
- *  Creates a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Creates a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  @param object The @c GTLRAdsense_CustomChannel to include in the query.
  *  @param parent Required. The ad client to create a custom channel under.
@@ -998,9 +1008,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Deletes a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Deletes a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  Method: adsense.accounts.adclients.customchannels.delete
  *
@@ -1018,9 +1029,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_Empty.
  *
- *  Deletes a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Deletes a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  @param name Required. Name of the custom channel to delete. Format:
  *    accounts/{account}/adclients/{adclient}/customchannels/{customchannel}
@@ -1164,9 +1176,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Updates a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Updates a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  Method: adsense.accounts.adclients.customchannels.patch
  *
@@ -1191,9 +1204,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_CustomChannel.
  *
- *  Updates a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Updates a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  @param object The @c GTLRAdsense_CustomChannel to include in the query.
  *  @param name Output only. Resource name of the custom channel. Format:
@@ -1619,6 +1633,87 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    Format: accounts/{account}
  *
  *  @return GTLRAdsenseQuery_AccountsPaymentsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets information about the selected policy issue.
+ *
+ *  Method: adsense.accounts.policyIssues.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdsense
+ *    @c kGTLRAuthScopeAdsenseReadonly
+ */
+@interface GTLRAdsenseQuery_AccountsPolicyIssuesGet : GTLRAdsenseQuery
+
+/**
+ *  Required. Name of the policy issue. Format:
+ *  accounts/{account}/policyIssues/{policy_issue}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAdsense_PolicyIssue.
+ *
+ *  Gets information about the selected policy issue.
+ *
+ *  @param name Required. Name of the policy issue. Format:
+ *    accounts/{account}/policyIssues/{policy_issue}
+ *
+ *  @return GTLRAdsenseQuery_AccountsPolicyIssuesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the policy issues for the specified account.
+ *
+ *  Method: adsense.accounts.policyIssues.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdsense
+ *    @c kGTLRAuthScopeAdsenseReadonly
+ */
+@interface GTLRAdsenseQuery_AccountsPolicyIssuesList : GTLRAdsenseQuery
+
+/**
+ *  The maximum number of policy issues to include in the response, used for
+ *  paging. If unspecified, at most 10000 policy issues will be returned. The
+ *  maximum value is 10000; values above 10000 will be coerced to 10000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListPolicyIssues` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListPolicyIssues` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The account for which policy issues are being retrieved. Format:
+ *  accounts/{account}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAdsense_ListPolicyIssuesResponse.
+ *
+ *  Lists all the policy issues for the specified account.
+ *
+ *  @param parent Required. The account for which policy issues are being
+ *    retrieved. Format: accounts/{account}
+ *
+ *  @return GTLRAdsenseQuery_AccountsPolicyIssuesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

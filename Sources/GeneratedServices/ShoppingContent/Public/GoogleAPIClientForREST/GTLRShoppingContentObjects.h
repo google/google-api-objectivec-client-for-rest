@@ -51,6 +51,8 @@
 @class GTLRShoppingContent_AccountUser;
 @class GTLRShoppingContent_AccountYouTubeChannelLink;
 @class GTLRShoppingContent_Action;
+@class GTLRShoppingContent_ActionFlow;
+@class GTLRShoppingContent_ActionInput;
 @class GTLRShoppingContent_ActionReason;
 @class GTLRShoppingContent_Address;
 @class GTLRShoppingContent_AlternateDisputeResolution;
@@ -63,7 +65,9 @@
 @class GTLRShoppingContent_BreakdownRegion;
 @class GTLRShoppingContent_BuiltInSimpleAction;
 @class GTLRShoppingContent_BuiltInSimpleActionAdditionalContent;
+@class GTLRShoppingContent_BuiltInUserInputAction;
 @class GTLRShoppingContent_BusinessDayConfig;
+@class GTLRShoppingContent_Callout;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
 @class GTLRShoppingContent_CloudExportAdditionalProperties;
@@ -107,6 +111,15 @@
 @class GTLRShoppingContent_Headers;
 @class GTLRShoppingContent_HolidayCutoff;
 @class GTLRShoppingContent_HolidaysHoliday;
+@class GTLRShoppingContent_InputField;
+@class GTLRShoppingContent_InputFieldCheckboxInput;
+@class GTLRShoppingContent_InputFieldChoiceInput;
+@class GTLRShoppingContent_InputFieldChoiceInputChoiceInputOption;
+@class GTLRShoppingContent_InputFieldTextInput;
+@class GTLRShoppingContent_InputValue;
+@class GTLRShoppingContent_InputValueCheckboxInputValue;
+@class GTLRShoppingContent_InputValueChoiceInputValue;
+@class GTLRShoppingContent_InputValueTextInputValue;
 @class GTLRShoppingContent_Installment;
 @class GTLRShoppingContent_InvoiceSummary;
 @class GTLRShoppingContent_InvoiceSummaryAdditionalChargeSummary;
@@ -125,7 +138,7 @@
 @class GTLRShoppingContent_LocalinventoryCustomBatchRequestEntry;
 @class GTLRShoppingContent_LocalinventoryCustomBatchResponseEntry;
 @class GTLRShoppingContent_LocationIdSet;
-@class GTLRShoppingContent_LoyaltyPoints;
+@class GTLRShoppingContent_LoyaltyProgram;
 @class GTLRShoppingContent_MerchantCenterDestination;
 @class GTLRShoppingContent_MerchantOrderReturn;
 @class GTLRShoppingContent_MerchantOrderReturnItem;
@@ -215,6 +228,8 @@
 @class GTLRShoppingContent_ProductstatusesCustomBatchRequestEntry;
 @class GTLRShoppingContent_ProductstatusesCustomBatchResponseEntry;
 @class GTLRShoppingContent_ProductStatusItemLevelIssue;
+@class GTLRShoppingContent_ProductStructuredDescription;
+@class GTLRShoppingContent_ProductStructuredTitle;
 @class GTLRShoppingContent_ProductSubscriptionCost;
 @class GTLRShoppingContent_ProductTax;
 @class GTLRShoppingContent_ProductUnitPricingBaseMeasure;
@@ -287,8 +302,10 @@
 @class GTLRShoppingContent_TestOrderLineItemProduct;
 @class GTLRShoppingContent_TestOrderPickupDetails;
 @class GTLRShoppingContent_TestOrderPickupDetailsPickupPerson;
+@class GTLRShoppingContent_TextWithTooltip;
 @class GTLRShoppingContent_TimePeriod;
 @class GTLRShoppingContent_TimeZone;
+@class GTLRShoppingContent_TopicTrends;
 @class GTLRShoppingContent_TransitTable;
 @class GTLRShoppingContent_TransitTableTransitTimeRow;
 @class GTLRShoppingContent_TransitTableTransitTimeRowTransitTimeValue;
@@ -799,6 +816,36 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ReviewDisapproved;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_Callout.styleHint
+
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "CALLOUT_STYLE_HINT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Callout_StyleHint_CalloutStyleHintUnspecified;
+/**
+ *  The most important type of information highlighting problems, like an
+ *  unsuccessful outcome of previously requested actions.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Callout_StyleHint_Error;
+/**
+ *  Default severity for important information like pending status of previously
+ *  requested action or cooldown for re-review.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Callout_StyleHint_Info;
+/**
+ *  Information warning about pending problems, risks or deadlines.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Callout_StyleHint_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_CaptureOrderResponse.executionStatus
 
 /**
@@ -1187,6 +1234,30 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_InputFieldTextInput.type
+
+/**
+ *  Used when a longer text is expected. The field should be rendered as a
+ *  [textarea](https://www.w3.org/TR/2012/WD-html-markup-20121025/textarea.html#textarea).
+ *
+ *  Value: "GENERIC_LONG_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InputFieldTextInput_Type_GenericLongText;
+/**
+ *  Used when a short text is expected. The field can be rendered as a [text
+ *  field](https://www.w3.org/TR/2012/WD-html-markup-20121025/input.text.html#input.text).
+ *
+ *  Value: "GENERIC_SHORT_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InputFieldTextInput_Type_GenericShortText;
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "TEXT_INPUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InputFieldTextInput_Type_TextInputTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_OrderTrackingSignalShippingInfo.shippingStatus
 
 /**
@@ -1355,6 +1426,37 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_Channel_Loca
  *  Value: "ONLINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_Channel_Online;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductView.clickPotential
+
+/**
+ *  Unknown predicted clicks impact.
+ *
+ *  Value: "CLICK_POTENTIAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_ClickPotential_ClickPotentialUnspecified;
+/**
+ *  Potential to receive a similar number of clicks as the highest performing
+ *  products of the merchant.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_ClickPotential_High;
+/**
+ *  Potential to receive a low number of clicks compared to the highest
+ *  performing products of the merchant.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_ClickPotential_Low;
+/**
+ *  Potential to receive a moderate number of clicks compared to the highest
+ *  performing products of the merchant.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_ClickPotential_Medium;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_ProductViewItemIssue.resolution
@@ -1692,6 +1794,33 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderAccountIssuesReque
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_PreRenderedHtml;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_RenderAccountIssuesRequestPayload.userInputActionOption
+
+/**
+ *  Returns content and input form definition for each complex action. Your
+ *  application needs to display this content and input form to the merchant
+ *  before they can request processing of the action. To start the action, your
+ *  application needs to call the `triggeraction` method.
+ *
+ *  Value: "BUILT_IN_USER_INPUT_ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_BuiltInUserInputActions;
+/**
+ *  Actions that require user input are represented only as links that points
+ *  merchant to Merchant Center where they can request the action. Provides
+ *  easier to implement alternative to `BUILT_IN_USER_INPUT_ACTIONS`.
+ *
+ *  Value: "REDIRECT_TO_MERCHANT_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_RedirectToMerchantCenter;
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "USER_INPUT_ACTION_RENDERING_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_UserInputActionRenderingOptionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_RenderProductIssuesRequestPayload.contentOption
 
 /**
@@ -1706,6 +1835,33 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderProductIssuesReque
  *  Value: "PRE_RENDERED_HTML"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_PreRenderedHtml;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_RenderProductIssuesRequestPayload.userInputActionOption
+
+/**
+ *  Returns content and input form definition for each complex action. Your
+ *  application needs to display this content and input form to the merchant
+ *  before they can request processing of the action. To start the action, your
+ *  application needs to call the `triggeraction` method.
+ *
+ *  Value: "BUILT_IN_USER_INPUT_ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_BuiltInUserInputActions;
+/**
+ *  Actions that require user input are represented only as links that points
+ *  merchant to Merchant Center where they can request the action. Provides
+ *  easier to implement alternative to `BUILT_IN_USER_INPUT_ACTIONS`.
+ *
+ *  Value: "REDIRECT_TO_MERCHANT_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_RedirectToMerchantCenter;
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "USER_INPUT_ACTION_RENDERING_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_UserInputActionRenderingOptionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_ReportInteractionRequest.interactionType
@@ -2094,6 +2250,30 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
  *  Value: "WILL_BE_REVIEWED_AUTOMATICALLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_TextWithTooltip.tooltipIconStyle
+
+/**
+ *  Used when the tooltip adds additional information to the context, the 'i'
+ *  can be used as an icon.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_Info;
+/**
+ *  Used when the tooltip shows helpful information, the '?' can be used as an
+ *  icon.
+ *
+ *  Value: "QUESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_Question;
+/**
+ *  Default value. Will never be provided by the API.
+ *
+ *  Value: "TOOLTIP_ICON_STYLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_TooltipIconStyleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_VerifyPhoneNumberRequest.phoneVerificationMethod
@@ -3832,7 +4012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *paymentsManager;
 
 /**
- *  Whether user is a reporting manager.
+ *  Whether user is a reporting manager. This role is equivalent to the
+ *  Performance and insights role in Merchant Center.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3879,6 +4060,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_BuiltInSimpleAction *builtinSimpleAction;
 
+/**
+ *  Action implemented and performed in (your) third-party application. The
+ *  application needs to show an additional content and input form to the
+ *  merchant as specified for given action. They can trigger the action only
+ *  when they provided all required inputs.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_BuiltInUserInputAction *builtinUserInputAction;
+
 /** Label of the action button. */
 @property(nonatomic, copy, nullable) NSString *buttonLabel;
 
@@ -3907,6 +4096,71 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  them should be displayed, for example in a pop-up dialog.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ActionReason *> *reasons;
+
+@end
+
+
+/**
+ *  Flow that can be selected for an action. When merchant selects a flow,
+ *  application should open a dialog with more information and input form.
+ */
+@interface GTLRShoppingContent_ActionFlow : GTLRObject
+
+/**
+ *  Label for the button to trigger the action from the action dialog. For
+ *  example: "Request review"
+ */
+@property(nonatomic, copy, nullable) NSString *dialogButtonLabel;
+
+/**
+ *  Important message to be highlighted in the request dialog. For example: "You
+ *  can only request a review for disagreeing with this issue once. If it's not
+ *  approved, you'll need to fix the issue and wait a few days before you can
+ *  request another review."
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Callout *dialogCallout;
+
+/**
+ *  Message displayed in the request dialog. For example: "Make sure you've
+ *  fixed all your country-specific issues. If not, you may have to wait 7 days
+ *  to request another review". There may be an more information to be shown in
+ *  a tooltip.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TextWithTooltip *dialogMessage;
+
+/** Title of the request dialog. For example: "Before you request a review" */
+@property(nonatomic, copy, nullable) NSString *dialogTitle;
+
+/**
+ *  Not for display but need to be sent back for the selected action flow.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of input fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_InputField *> *inputs;
+
+/**
+ *  Text value describing the intent for the action flow. It can be used as an
+ *  input label if merchant needs to pick one of multiple flows. For example: "I
+ *  disagree with the issue"
+ */
+@property(nonatomic, copy, nullable) NSString *label;
+
+@end
+
+
+/**
+ *  Input provided by the merchant.
+ */
+@interface GTLRShoppingContent_ActionInput : GTLRObject
+
+/** Required. Id of the selected action flow. */
+@property(nonatomic, copy, nullable) NSString *actionFlowId;
+
+/** Required. Values for input fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_InputValue *> *inputValues;
 
 @end
 
@@ -4360,6 +4614,33 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Action that is implemented and performed in (your) third-party application.
+ *  The application needs to show an additional content and input form to the
+ *  merchant. They can start the action only when they provided all required
+ *  inputs. The application will request processing of the action by calling the
+ *  [triggeraction
+ *  method](https://developers.google.com/shopping-content/reference/rest/v2.1/merchantsupport/triggeraction).
+ */
+@interface GTLRShoppingContent_BuiltInUserInputAction : GTLRObject
+
+/**
+ *  Internal details. Not for display but need to be sent back when triggering
+ *  the action.
+ */
+@property(nonatomic, copy, nullable) NSString *actionContext;
+
+/**
+ *  Actions may provide multiple different flows. Merchant selects one that fits
+ *  best to their intent. Selecting the flow is the first step in user's
+ *  interaction with the action. It affects what input fields will be available
+ *  and required and also how the request will be processed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ActionFlow *> *flows;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_BusinessDayConfig
  */
 @interface GTLRShoppingContent_BusinessDayConfig : GTLRObject
@@ -4470,6 +4751,38 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        (Value: "REVIEW_DISAPPROVED")
  */
 @property(nonatomic, copy, nullable) NSString *participationStage;
+
+@end
+
+
+/**
+ *  An important message that should be highlighted. Usually displayed as a
+ *  banner.
+ */
+@interface GTLRShoppingContent_Callout : GTLRObject
+
+/** A full message that needs to be shown to the merchant. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TextWithTooltip *fullMessage;
+
+/**
+ *  Can be used to render messages with different severity in different styles.
+ *  Snippets off all types contain important information that should be
+ *  displayed to merchants.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_Callout_StyleHint_CalloutStyleHintUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "CALLOUT_STYLE_HINT_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_Callout_StyleHint_Error The most important
+ *        type of information highlighting problems, like an unsuccessful
+ *        outcome of previously requested actions. (Value: "ERROR")
+ *    @arg @c kGTLRShoppingContent_Callout_StyleHint_Info Default severity for
+ *        important information like pending status of previously requested
+ *        action or cooldown for re-review. (Value: "INFO")
+ *    @arg @c kGTLRShoppingContent_Callout_StyleHint_Warning Information warning
+ *        about pending problems, risks or deadlines. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *styleHint;
 
 @end
 
@@ -5858,9 +6171,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
- *  The list of destinations to exclude for this target (corresponds to cleared
- *  check boxes in Merchant Center). Products that are excluded from all
- *  destinations for more than 7 days are automatically deleted.
+ *  The list of [destinations to
+ *  exclude](//support.google.com/merchants/answer/6324486) for this target
+ *  (corresponds to cleared check boxes in Merchant Center). Products that are
+ *  excluded from all destinations for more than 7 days are automatically
+ *  deleted.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestinations;
 
@@ -5873,9 +6188,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *feedLabel;
 
 /**
- *  The list of destinations to include for this target (corresponds to checked
- *  check boxes in Merchant Center). Default destinations are always included
- *  unless provided in `excludedDestinations`.
+ *  The list of [destinations to
+ *  include](//support.google.com/merchants/answer/7501026) for this target
+ *  (corresponds to checked check boxes in Merchant Center). Default
+ *  destinations are always included unless provided in `excludedDestinations`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestinations;
 
@@ -6664,6 +6980,219 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`Mother's Day`" - "`Thanksgiving`" - "`Valentine's Day`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Input field that needs to be available to the merchant. If the field is
+ *  marked as required, then a value needs to be provided for a successful
+ *  processing of the request.
+ */
+@interface GTLRShoppingContent_InputField : GTLRObject
+
+/**
+ *  Input field to provide a boolean value. Corresponds to the [html input
+ *  type=checkbox](https://www.w3.org/TR/2012/WD-html-markup-20121025/input.checkbox.html#input.checkbox).
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InputFieldCheckboxInput *checkboxInput;
+
+/**
+ *  Input field to select one of the offered choices. Corresponds to the [html
+ *  input
+ *  type=radio](https://www.w3.org/TR/2012/WD-html-markup-20121025/input.radio.html#input.radio).
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InputFieldChoiceInput *choiceInput;
+
+/**
+ *  Not for display but need to be sent back for the given input field.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Input field label. There may be more information to be shown in a tooltip.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TextWithTooltip *label;
+
+/**
+ *  Whether the field is required. The action button needs to stay disabled till
+ *  values for all required fields are provided.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *required;
+
+/**
+ *  Input field to provide text information. Corresponds to the [html input
+ *  type=text](https://www.w3.org/TR/2012/WD-html-markup-20121025/input.text.html#input.text)
+ *  or [html
+ *  textarea](https://www.w3.org/TR/2012/WD-html-markup-20121025/textarea.html#textarea).
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InputFieldTextInput *textInput;
+
+@end
+
+
+/**
+ *  Checkbox input allows merchants to provide a boolean value. Corresponds to
+ *  the [html input
+ *  type=checkbox](https://www.w3.org/TR/2012/WD-html-markup-20121025/input.checkbox.html#input.checkbox).
+ *  If merchant checks the box, the input value for the field is `true`,
+ *  otherwise it is `false`. This type of input is often used as a confirmation
+ *  that the merchant completed required steps before they are allowed to start
+ *  the action. In such a case, the input field is marked as required and the
+ *  button to trigger the action should stay disabled until the merchant checks
+ *  the box.
+ */
+@interface GTLRShoppingContent_InputFieldCheckboxInput : GTLRObject
+@end
+
+
+/**
+ *  Choice input allows merchants to select one of the offered choices. Some
+ *  choices may be linked to additional input fields that should be displayed
+ *  under or next to the choice option. The value for the additional input field
+ *  needs to be provided only when the specific choice is selected by the
+ *  merchant. For example, additional input field can be hidden or disabled
+ *  until the merchant selects the specific choice.
+ */
+@interface GTLRShoppingContent_InputFieldChoiceInput : GTLRObject
+
+/** A list of choices. Only one option can be selected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_InputFieldChoiceInputChoiceInputOption *> *options;
+
+@end
+
+
+/**
+ *  A choice that merchant can select.
+ */
+@interface GTLRShoppingContent_InputFieldChoiceInputChoiceInputOption : GTLRObject
+
+/**
+ *  Input that should be displayed when this option is selected. The additional
+ *  input will not contain a `ChoiceInput`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InputField *additionalInput;
+
+/**
+ *  Not for display but need to be sent back for the selected choice option.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Short description of the choice option. There may be more information to be
+ *  shown as a tooltip.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TextWithTooltip *label;
+
+@end
+
+
+/**
+ *  Text input allows merchants to provide a text value.
+ */
+@interface GTLRShoppingContent_InputFieldTextInput : GTLRObject
+
+/**
+ *  Additional info regarding the field to be displayed to merchant. For
+ *  example, warning to not include personal identifiable information. There may
+ *  be more information to be shown in a tooltip.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TextWithTooltip *additionalInfo;
+
+/**
+ *  Text to be used as the
+ *  [aria-label](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html) for the input.
+ */
+@property(nonatomic, copy, nullable) NSString *ariaLabel;
+
+/**
+ *  Information about the required format. If present, it should be shown close
+ *  to the input field to help merchants to provide a correct value. For
+ *  example: "VAT numbers should be in a format similar to SK9999999999"
+ */
+@property(nonatomic, copy, nullable) NSString *formatInfo;
+
+/**
+ *  Type of the text input
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_InputFieldTextInput_Type_GenericLongText Used
+ *        when a longer text is expected. The field should be rendered as a
+ *        [textarea](https://www.w3.org/TR/2012/WD-html-markup-20121025/textarea.html#textarea).
+ *        (Value: "GENERIC_LONG_TEXT")
+ *    @arg @c kGTLRShoppingContent_InputFieldTextInput_Type_GenericShortText
+ *        Used when a short text is expected. The field can be rendered as a
+ *        [text
+ *        field](https://www.w3.org/TR/2012/WD-html-markup-20121025/input.text.html#input.text).
+ *        (Value: "GENERIC_SHORT_TEXT")
+ *    @arg @c kGTLRShoppingContent_InputFieldTextInput_Type_TextInputTypeUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "TEXT_INPUT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Input provided by the merchant for input field.
+ */
+@interface GTLRShoppingContent_InputValue : GTLRObject
+
+/** Value for checkbox input field. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InputValueCheckboxInputValue *checkboxInputValue;
+
+/** Value for choice input field. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InputValueChoiceInputValue *choiceInputValue;
+
+/** Required. Id of the corresponding input field. */
+@property(nonatomic, copy, nullable) NSString *inputFieldId;
+
+/** Value for text input field. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_InputValueTextInputValue *textInputValue;
+
+@end
+
+
+/**
+ *  Value for checkbox input field.
+ */
+@interface GTLRShoppingContent_InputValueCheckboxInputValue : GTLRObject
+
+/**
+ *  Required. True if the merchant checked the box field. False otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  Value for choice input field.
+ */
+@interface GTLRShoppingContent_InputValueChoiceInputValue : GTLRObject
+
+/** Required. Id of the option that was selected by the merchant. */
+@property(nonatomic, copy, nullable) NSString *choiceInputOptionId;
+
+@end
+
+
+/**
+ *  Value for text input field.
+ */
+@interface GTLRShoppingContent_InputValueTextInputValue : GTLRObject
+
+/** Required. Text provided by the merchant. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -7626,30 +8155,41 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  GTLRShoppingContent_LoyaltyPoints
+ *  Allows the setting up of loyalty program benefits (for example price or
+ *  points). https://support.google.com/merchants/answer/12922446
  */
-@interface GTLRShoppingContent_LoyaltyPoints : GTLRObject
+@interface GTLRShoppingContent_LoyaltyProgram : GTLRObject
+
+/** Optional. The cashback that can be used for future purchases. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *cashbackForFutureUse;
 
 /**
- *  Name of loyalty points program. It is recommended to limit the name to 12
- *  full-width characters or 24 Roman characters.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The retailer's loyalty points in absolute value.
+ *  Optional. The amount of loyalty points earned on a purchase.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *pointsValue;
+@property(nonatomic, strong, nullable) NSNumber *loyaltyPoints;
 
 /**
- *  The ratio of a point when converted to currency. Google assumes currency
- *  based on Merchant Center settings. If ratio is left out, it defaults to 1.0.
- *
- *  Uses NSNumber of doubleValue.
+ *  Optional. The price for members of the given tier (instant discount price).
+ *  Must be smaller or equal to the regular price.
  */
-@property(nonatomic, strong, nullable) NSNumber *ratio;
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
+
+/**
+ *  Required. The label of the loyalty program. This is an internal label that
+ *  uniquely identifies the relationship between a merchant entity and a loyalty
+ *  program entity. It must be provided so that system can associate the assets
+ *  below (for example, price and points) with a merchant. The corresponding
+ *  program must be linked to the merchant account.
+ */
+@property(nonatomic, copy, nullable) NSString *programLabel;
+
+/**
+ *  Required. The label of the tier within the loyalty program. Must match one
+ *  of the labels within the program.
+ */
+@property(nonatomic, copy, nullable) NSString *tierLabel;
 
 @end
 
@@ -7797,23 +8337,29 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_MethodQuota : GTLRObject
 
 /**
- *  The method name, for example `products.list`. Method name does not contain
- *  version because quota can be shared between different API versions of the
- *  same method.
+ *  Output only. The method name, for example `products.list`. Method name does
+ *  not contain version because quota can be shared between different API
+ *  versions of the same method.
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
- *  The current quota limit per day, meaning the maximum number of calls for the
- *  method.
+ *  Output only. The maximum number of calls allowed per day for the method.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quotaLimit;
 
 /**
- *  The current quota usage, meaning the number of calls already made to the
- *  method.
+ *  Output only. The maximum number of calls allowed per minute for the method.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quotaMinuteLimit;
+
+/**
+ *  Output only. The current quota usage, meaning the number of calls already
+ *  made to the method per day. Usage is reset every day at 12 PM midday UTC.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -11830,6 +12376,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** Target age group of the item. */
 @property(nonatomic, copy, nullable) NSString *ageGroup;
 
+/**
+ *  A safeguard in the [Automated
+ *  Discounts](//support.google.com/merchants/answer/10295759) and [Dynamic
+ *  Promotions](//support.google.com/merchants/answer/13949249) projects,
+ *  ensuring that discounts on merchants' offers do not fall below this value,
+ *  thereby preserving the offer's value and profitability.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *autoPricingMinPrice;
+
 /** Availability status of the item. */
 @property(nonatomic, copy, nullable) NSString *availability;
 
@@ -11939,9 +12494,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *energyEfficiencyClass;
 
 /**
- *  The list of destinations to exclude for this target (corresponds to cleared
- *  check boxes in Merchant Center). Products that are excluded from all
- *  destinations for more than 7 days are automatically deleted.
+ *  The list of [destinations to
+ *  exclude](//support.google.com/merchants/answer/6324486) for this target
+ *  (corresponds to cleared check boxes in Merchant Center). Products that are
+ *  excluded from all destinations for more than 7 days are automatically
+ *  deleted.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestinations;
 
@@ -12005,9 +12562,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *imageLink;
 
 /**
- *  The list of destinations to include for this target (corresponds to checked
- *  check boxes in Merchant Center). Default destinations are always included
- *  unless provided in `excludedDestinations`.
+ *  The list of [destinations to
+ *  include](//support.google.com/merchants/answer/7501026) for this target
+ *  (corresponds to checked check boxes in Merchant Center). Default
+ *  destinations are always included unless provided in `excludedDestinations`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestinations;
 
@@ -12045,9 +12603,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *linkTemplate;
 
 /**
- *  Loyalty points that users receive after purchasing the item. Japan only.
+ *  Loyalty program information that is used to surface loyalty benefits ( for
+ *  example pricing, points, etc) to the user for this item.
  */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_LoyaltyPoints *loyaltyPoints;
+@property(nonatomic, strong, nullable) GTLRShoppingContent_LoyaltyProgram *loyaltyProgram;
 
 /** The material of which the item is made. */
 @property(nonatomic, copy, nullable) NSString *material;
@@ -12224,6 +12783,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  values are: - "`api`" - "`crawl`" - "`feed`"
  */
 @property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Structured description, for algorithmically (AI)-generated descriptions.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductStructuredDescription *structuredDescription;
+
+/** Structured title, for algorithmically (AI)-generated titles. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductStructuredTitle *structuredTitle;
 
 /**
  *  Number of periods (months or years) and amount of payment per period for an
@@ -13170,6 +13737,44 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Structured description, for algorithmically (AI)-generated descriptions. See
+ *  [description](https://support.google.com/merchants/answer/6324468#When_to_use)
+ *  for more information.
+ */
+@interface GTLRShoppingContent_ProductStructuredDescription : GTLRObject
+
+/** Required. The description text. Maximum length is 5000 characters. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Optional. The digital source type. Acceptable values are: -
+ *  "`trained_algorithmic_media`" - "`default`"
+ */
+@property(nonatomic, copy, nullable) NSString *digitalSourceType;
+
+@end
+
+
+/**
+ *  Structured title, for algorithmically (AI)-generated titles. See
+ *  [title](https://support.google.com/merchants/answer/6324415#Whentouse) for
+ *  more information.
+ */
+@interface GTLRShoppingContent_ProductStructuredTitle : GTLRObject
+
+/** Required. The title text. Maximum length is 150 characters. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Optional. The digital source type. Acceptable values are: -
+ *  "`trained_algorithmic_media`" - "`default`"
+ */
+@property(nonatomic, copy, nullable) NSString *digitalSourceType;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_ProductSubscriptionCost
  */
 @interface GTLRShoppingContent_ProductSubscriptionCost : GTLRObject
@@ -13347,6 +13952,35 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        channel is online. (Value: "ONLINE")
  */
 @property(nonatomic, copy, nullable) NSString *channel;
+
+/**
+ *  Estimated performance potential compared to highest performing products of
+ *  the merchant.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductView_ClickPotential_ClickPotentialUnspecified
+ *        Unknown predicted clicks impact. (Value:
+ *        "CLICK_POTENTIAL_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ProductView_ClickPotential_High Potential to
+ *        receive a similar number of clicks as the highest performing products
+ *        of the merchant. (Value: "HIGH")
+ *    @arg @c kGTLRShoppingContent_ProductView_ClickPotential_Low Potential to
+ *        receive a low number of clicks compared to the highest performing
+ *        products of the merchant. (Value: "LOW")
+ *    @arg @c kGTLRShoppingContent_ProductView_ClickPotential_Medium Potential
+ *        to receive a moderate number of clicks compared to the highest
+ *        performing products of the merchant. (Value: "MEDIUM")
+ */
+@property(nonatomic, copy, nullable) NSString *clickPotential;
+
+/**
+ *  Rank of the product based on its click potential. A product with
+ *  `click_potential_rank` 1 has the highest click potential among the
+ *  merchant's products that fulfill the search query conditions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clickPotentialRank;
 
 /** Condition of the product. */
 @property(nonatomic, copy, nullable) NSString *condition;
@@ -14430,6 +15064,29 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *contentOption;
 
+/**
+ *  Optional. How actions with user input form should be handled. If not
+ *  provided, actions will be returned as links that points merchant to Merchant
+ *  Center where they can request the action.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_BuiltInUserInputActions
+ *        Returns content and input form definition for each complex action.
+ *        Your application needs to display this content and input form to the
+ *        merchant before they can request processing of the action. To start
+ *        the action, your application needs to call the `triggeraction` method.
+ *        (Value: "BUILT_IN_USER_INPUT_ACTIONS")
+ *    @arg @c kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_RedirectToMerchantCenter
+ *        Actions that require user input are represented only as links that
+ *        points merchant to Merchant Center where they can request the action.
+ *        Provides easier to implement alternative to
+ *        `BUILT_IN_USER_INPUT_ACTIONS`. (Value: "REDIRECT_TO_MERCHANT_CENTER")
+ *    @arg @c kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_UserInputActionRenderingOptionUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "USER_INPUT_ACTION_RENDERING_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userInputActionOption;
+
 @end
 
 
@@ -14476,6 +15133,29 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        "PRE_RENDERED_HTML")
  */
 @property(nonatomic, copy, nullable) NSString *contentOption;
+
+/**
+ *  Optional. How actions with user input form should be handled. If not
+ *  provided, actions will be returned as links that points merchant to Merchant
+ *  Center where they can request the action.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_BuiltInUserInputActions
+ *        Returns content and input form definition for each complex action.
+ *        Your application needs to display this content and input form to the
+ *        merchant before they can request processing of the action. To start
+ *        the action, your application needs to call the `triggeraction` method.
+ *        (Value: "BUILT_IN_USER_INPUT_ACTIONS")
+ *    @arg @c kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_RedirectToMerchantCenter
+ *        Actions that require user input are represented only as links that
+ *        points merchant to Merchant Center where they can request the action.
+ *        Provides easier to implement alternative to
+ *        `BUILT_IN_USER_INPUT_ACTIONS`. (Value: "REDIRECT_TO_MERCHANT_CENTER")
+ *    @arg @c kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_UserInputActionRenderingOptionUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "USER_INPUT_ACTION_RENDERING_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userInputActionOption;
 
 @end
 
@@ -14607,6 +15287,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  values are only set for dimensions requested explicitly in the query.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Segments *segments;
+
+/**
+ *  [Topic trends](https://support.google.com/merchants/answer/13542370) fields
+ *  requested by the merchant in the query. Field values are only set if the
+ *  merchant queries `TopicTrendsView`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TopicTrends *topicTrends;
 
 @end
 
@@ -15409,8 +16096,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_SearchRequest : GTLRObject
 
 /**
- *  Number of ReportRows to retrieve in a single page. Defaults to the maximum
- *  of 1000. Values above 1000 are coerced to 1000.
+ *  Number of ReportRows to retrieve in a single page. Defaults to 1000. Values
+ *  above 5000 are coerced to 5000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -16782,6 +17469,36 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Block of text that may contain a tooltip with more information.
+ */
+@interface GTLRShoppingContent_TextWithTooltip : GTLRObject
+
+/** Value of the tooltip as a simple text. */
+@property(nonatomic, copy, nullable) NSString *simpleTooltipValue;
+
+/** Value of the message as a simple text. */
+@property(nonatomic, copy, nullable) NSString *simpleValue;
+
+/**
+ *  The suggested type of an icon for tooltip, if a tooltip is present.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_Info Used
+ *        when the tooltip adds additional information to the context, the 'i'
+ *        can be used as an icon. (Value: "INFO")
+ *    @arg @c kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_Question
+ *        Used when the tooltip shows helpful information, the '?' can be used
+ *        as an icon. (Value: "QUESTION")
+ *    @arg @c kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_TooltipIconStyleUnspecified
+ *        Default value. Will never be provided by the API. (Value:
+ *        "TOOLTIP_ICON_STYLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tooltipIconStyle;
+
+@end
+
+
+/**
  *  A message that represents a time period.
  */
 @interface GTLRShoppingContent_TimePeriod : GTLRObject
@@ -16810,6 +17527,88 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Optional. IANA Time Zone Database version number, e.g. "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Topic trends fields requested by the merchant in the query. Field values are
+ *  only set if the merchant queries `TopicTrendsView`. Forecast data can be
+ *  queried up to 13 weeks by passing a future date in the `date` field.
+ *  Historical data is measured daily, and forecasted data is projected weekly.
+ *  All data points are normalized based on the highest data points returned in
+ *  the response. If you make separate queries with different date ranges, you
+ *  might see different values for the same date in each response. The
+ *  recommended way to get a trend score of a topic is
+ *  `last7_days_search_interest / last{$day}_days_search_interest - 1`. You can
+ *  view trends for up to eight topics at a time.
+ */
+@interface GTLRShoppingContent_TopicTrends : GTLRObject
+
+/**
+ *  Country trends are calculated for. Must be a two-letter country code (ISO
+ *  3166-1-alpha-2 code), for example, `“US”`.
+ */
+@property(nonatomic, copy, nullable) NSString *customerCountryCode;
+
+/** Date the trend score was retrieved. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *date;
+
+/**
+ *  Search interest in the last 120 days, with the same normalization as
+ *  search_interest. This field is only present for a past date.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last120DaysSearchInterest;
+
+/**
+ *  Search interest in the last 30 days, with the same normalization as
+ *  search_interest. This field is only present for a past date.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last30DaysSearchInterest;
+
+/**
+ *  Search interest in the last 7 days, with the same normalization as
+ *  search_interest. This field is only present for a past date.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last7DaysSearchInterest;
+
+/**
+ *  Search interest in the last 90 days, with the same normalization as
+ *  search_interest. This field is only present for a past date.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last90DaysSearchInterest;
+
+/**
+ *  Estimated search interest in the next 7 days, with the same normalization as
+ *  search_interest. This field is only present for a future date.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *next7DaysSearchInterest;
+
+/**
+ *  Daily search interest, normalized to the time and country to make
+ *  comparisons easier, with 100 representing peak popularity (from 0 to 100)
+ *  for the requested time period and location.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchInterest;
+
+/**
+ *  Google-provided topic trends are calculated for. Only top eight topics are
+ *  returned. Topic is what shoppers are searching for on Google, grouped by the
+ *  same concept.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
 
 @end
 
@@ -16866,6 +17665,35 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minTransitTimeInDays;
+
+@end
+
+
+/**
+ *  The payload for the triggered action.
+ */
+@interface GTLRShoppingContent_TriggerActionPayload : GTLRObject
+
+/**
+ *  Required. The context from the selected action. The value is obtained from
+ *  rendered issues and needs to be sent back to identify the action that is
+ *  being triggered.
+ */
+@property(nonatomic, copy, nullable) NSString *actionContext;
+
+/** Required. Input provided by the merchant. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ActionInput *actionInput;
+
+@end
+
+
+/**
+ *  Response informing about the started action.
+ */
+@interface GTLRShoppingContent_TriggerActionResponse : GTLRObject
+
+/** The message for merchant. */
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
