@@ -231,6 +231,144 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 @end
 
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsCreate
+
+@dynamic discoveryClientId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_DiscoveryClient *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/discoveryClients";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.loggingName = @"migrationcenter.projects.locations.discoveryClients.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.loggingName = @"migrationcenter.projects.locations.discoveryClients.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_DiscoveryClient class];
+  query.loggingName = @"migrationcenter.projects.locations.discoveryClients.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/discoveryClients";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_ListDiscoveryClientsResponse class];
+  query.loggingName = @"migrationcenter.projects.locations.discoveryClients.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_DiscoveryClient *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.loggingName = @"migrationcenter.projects.locations.discoveryClients.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsSendHeartbeat
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_SendDiscoveryClientHeartbeatRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:sendHeartbeat";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsSendHeartbeat *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.loggingName = @"migrationcenter.projects.locations.discoveryClients.sendHeartbeat";
+  return query;
+}
+
+@end
+
 @implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsGet
 
 @dynamic name;

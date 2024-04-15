@@ -901,7 +901,8 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ManagedFoldersDelete
 
-@dynamic bucket, ifMetagenerationMatch, ifMetagenerationNotMatch, managedFolder;
+@dynamic allowNonEmpty, bucket, ifMetagenerationMatch, ifMetagenerationNotMatch,
+         managedFolder;
 
 + (instancetype)queryWithBucket:(NSString *)bucket
                   managedFolder:(NSString *)managedFolder {
@@ -1609,16 +1610,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
          ifGenerationNotMatch, ifMetagenerationMatch, ifMetagenerationNotMatch,
          object, projection, userProject;
 
-+ (instancetype)queryWithObject:(GTLRStorage_Object *)object
-                         bucket:(NSString *)bucket
++ (instancetype)queryWithBucket:(NSString *)bucket
                          object:(NSString *)object_param
                      generation:(long long)generation {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
   NSArray *pathParams = @[
     @"bucket", @"object"
   ];
@@ -1627,7 +1621,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.bucket = bucket;
   query.object = object_param;
   query.generation = generation;

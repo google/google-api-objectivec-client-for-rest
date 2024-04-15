@@ -22,12 +22,14 @@ NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_TwentyOneOrOlder = @"T
 // GTLRPeopleService_BatchCreateContactsRequest.sources
 NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeContact = @"READ_SOURCE_TYPE_CONTACT";
 NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeDomainContact = @"READ_SOURCE_TYPE_DOMAIN_CONTACT";
+NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeOtherContact = @"READ_SOURCE_TYPE_OTHER_CONTACT";
 NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeProfile = @"READ_SOURCE_TYPE_PROFILE";
 NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeUnspecified = @"READ_SOURCE_TYPE_UNSPECIFIED";
 
 // GTLRPeopleService_BatchUpdateContactsRequest.sources
 NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeContact = @"READ_SOURCE_TYPE_CONTACT";
 NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeDomainContact = @"READ_SOURCE_TYPE_DOMAIN_CONTACT";
+NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeOtherContact = @"READ_SOURCE_TYPE_OTHER_CONTACT";
 NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeProfile = @"READ_SOURCE_TYPE_PROFILE";
 NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeUnspecified = @"READ_SOURCE_TYPE_UNSPECIFIED";
 
@@ -44,6 +46,7 @@ NSString * const kGTLRPeopleService_ContactGroup_GroupType_UserContactGroup = @"
 // GTLRPeopleService_CopyOtherContactToMyContactsGroupRequest.sources
 NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeContact = @"READ_SOURCE_TYPE_CONTACT";
 NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeDomainContact = @"READ_SOURCE_TYPE_DOMAIN_CONTACT";
+NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeOtherContact = @"READ_SOURCE_TYPE_OTHER_CONTACT";
 NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeProfile = @"READ_SOURCE_TYPE_PROFILE";
 NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeUnspecified = @"READ_SOURCE_TYPE_UNSPECIFIED";
 
@@ -104,6 +107,7 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 // GTLRPeopleService_UpdateContactPhotoRequest.sources
 NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeContact = @"READ_SOURCE_TYPE_CONTACT";
 NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeDomainContact = @"READ_SOURCE_TYPE_DOMAIN_CONTACT";
+NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeOtherContact = @"READ_SOURCE_TYPE_OTHER_CONTACT";
 NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeProfile = @"READ_SOURCE_TYPE_PROFILE";
 NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeUnspecified = @"READ_SOURCE_TYPE_UNSPECIFIED";
 

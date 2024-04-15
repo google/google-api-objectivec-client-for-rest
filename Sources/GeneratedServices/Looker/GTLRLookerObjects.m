@@ -278,9 +278,10 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
 @dynamic adminSettings, consumerNetwork, createTime, customDomain,
          denyMaintenancePeriod, egressPublicIp, encryptionConfig,
          ingressPrivateIp, ingressPublicIp, lastDenyMaintenancePeriod,
-         lookerUri, lookerVersion, maintenanceSchedule, maintenanceWindow, name,
-         oauthConfig, platformEdition, privateIpEnabled, publicIpEnabled,
-         reservedRange, state, updateTime, userMetadata;
+         linkedLspProjectNumber, lookerUri, lookerVersion, maintenanceSchedule,
+         maintenanceWindow, name, oauthConfig, platformEdition,
+         privateIpEnabled, publicIpEnabled, reservedRange, state, updateTime,
+         userMetadata;
 @end
 
 

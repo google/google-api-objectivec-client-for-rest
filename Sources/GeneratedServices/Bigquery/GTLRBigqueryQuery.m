@@ -597,6 +597,33 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @end
 
+@implementation GTLRBigqueryQuery_RoutinesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:getIamPolicy";
+  GTLRBigqueryQuery_RoutinesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_Policy class];
+  query.loggingName = @"bigquery.routines.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_RoutinesInsert
 
 @dynamic datasetId, projectId;
@@ -646,6 +673,33 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   query.datasetId = datasetId;
   query.expectedObjectClass = [GTLRBigquery_ListRoutinesResponse class];
   query.loggingName = @"bigquery.routines.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RoutinesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:setIamPolicy";
+  GTLRBigqueryQuery_RoutinesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_Policy class];
+  query.loggingName = @"bigquery.routines.setIamPolicy";
   return query;
 }
 

@@ -1141,6 +1141,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  `Code.CANCELLED`.
  *
  *  Method: vault.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_OperationsCancel : GTLRVaultQuery
 
@@ -1178,6 +1181,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  `google.rpc.Code.UNIMPLEMENTED`.
  *
  *  Method: vault.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_OperationsDelete : GTLRVaultQuery
 
@@ -1236,6 +1242,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: vault.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_OperationsList : GTLRVaultQuery
 

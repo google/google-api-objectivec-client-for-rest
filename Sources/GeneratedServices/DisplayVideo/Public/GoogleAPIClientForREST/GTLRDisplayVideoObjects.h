@@ -1149,7 +1149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -1179,7 +1179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -1215,7 +1215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
@@ -1238,6 +1238,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDrax;
 /**
  *  Five.
  *
@@ -1263,7 +1269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -1545,7 +1551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -1575,7 +1581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -1842,6 +1848,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionD
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformIos;
 /**
+ *  The app platform is LG TV.
+ *
+ *  Value: "APP_PLATFORM_LG_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformLgTv;
+/**
  *  The app platform is Playstation.
  *
  *  Value: "APP_PLATFORM_PLAYSTATION"
@@ -1867,6 +1879,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionD
  *  Value: "APP_PLATFORM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformUnspecified;
+/**
+ *  The app platform is VIZIO TV.
+ *
+ *  Value: "APP_PLATFORM_VIZIO_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVizioTv;
 /**
  *  The app platform is Xbox.
  *
@@ -3731,7 +3749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *
  *  Value: "SDF_VERSION_5_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54 GTLR_DEPRECATED;
 /**
  *  SDF version 5.5
  *
@@ -3747,8 +3765,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
- *  migrating to this version. Currently in beta. Only available for use by a
- *  subset of users.
+ *  migrating to this version.
  *
  *  Value: "SDF_VERSION_7"
  */
@@ -5765,7 +5782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -5795,7 +5812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -5831,7 +5848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
@@ -5854,6 +5871,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -5879,7 +5902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -6161,7 +6184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -6191,7 +6214,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -6255,7 +6278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -6285,7 +6308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -6321,7 +6344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
@@ -6344,6 +6367,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -6369,7 +6398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -6651,7 +6680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -6681,7 +6710,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -6745,7 +6774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -6775,7 +6804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -6811,7 +6840,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
@@ -6834,6 +6863,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -6859,7 +6894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -7141,7 +7176,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -7171,7 +7206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -7263,7 +7298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -7293,7 +7328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -7329,7 +7364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
@@ -7352,6 +7387,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -7377,7 +7418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -7659,7 +7700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -7689,7 +7730,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -8809,7 +8850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -8839,7 +8880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -8875,7 +8916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
@@ -8898,6 +8939,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -8923,7 +8970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -9205,7 +9252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -9235,7 +9282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -9999,7 +10046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -10029,7 +10076,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -10065,7 +10112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
@@ -10088,6 +10135,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -10113,7 +10166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -10395,7 +10448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -10425,7 +10478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -12588,7 +12641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  *
  *  Value: "SDF_VERSION_5_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54 GTLR_DEPRECATED;
 /**
  *  SDF version 5.5
  *
@@ -12604,8 +12657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
- *  migrating to this version. Currently in beta. Only available for use by a
- *  subset of users.
+ *  migrating to this version.
  *
  *  Value: "SDF_VERSION_7"
  */
@@ -12673,7 +12725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *
  *  Value: "SDF_VERSION_5_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54 GTLR_DEPRECATED;
 /**
  *  SDF version 5.5
  *
@@ -12689,8 +12741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
- *  migrating to this version. Currently in beta. Only available for use by a
- *  subset of users.
+ *  migrating to this version.
  *
  *  Value: "SDF_VERSION_7"
  */
@@ -14030,6 +14081,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeLift;
 /**
+ *  A bidding strategy for YouTube Instant Reserve line items that pays a fixed
+ *  amount per impression.
+ *
+ *  Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_CPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeReserveCpm;
+/**
  *  A bidding strategy that automatically optimizes conversions per dollar.
  *
  *  Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA"
@@ -15111,7 +15169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdswizz
@@ -15121,7 +15179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeBidswitch
@@ -15135,13 +15193,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDax
  *        DAX. (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDrax
+ *        Drax. (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFluct
@@ -15151,7 +15211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeGoogleAdManager
@@ -15246,7 +15306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriton
@@ -15256,7 +15316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnspecified
@@ -15520,6 +15580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        elsewhere. (Value: "APP_PLATFORM_GENERIC_CTV")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformIos
  *        The app platform is iOS. (Value: "APP_PLATFORM_IOS")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformLgTv
+ *        The app platform is LG TV. (Value: "APP_PLATFORM_LG_TV")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformPlaystation
  *        The app platform is Playstation. (Value: "APP_PLATFORM_PLAYSTATION")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformRoku
@@ -15530,6 +15592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Default value when app platform is not specified in this version. This
  *        enum is a placeholder for default value and does not represent a real
  *        platform option. (Value: "APP_PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVizioTv
+ *        The app platform is VIZIO TV. (Value: "APP_PLATFORM_VIZIO_TV")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformXbox
  *        The app platform is Xbox. (Value: "APP_PLATFORM_XBOX")
  */
@@ -19015,8 +19079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7
  *        SDF version 7. Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
- *        before migrating to this version. Currently in beta. Only available
- *        for use by a subset of users. (Value: "SDF_VERSION_7")
+ *        before migrating to this version. (Value: "SDF_VERSION_7")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -21024,6 +21087,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
+/**
+ *  Input only. A list of contact information to define the members to be
+ *  removed.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContactInfoList *removedContactInfoList;
+
+/**
+ *  Input only. A list of mobile device IDs to define the members to be removed.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_MobileDeviceIdList *removedMobileDeviceIdList;
+
 @end
 
 
@@ -21255,7 +21329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdswizz
@@ -21265,7 +21339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeBidswitch
@@ -21279,13 +21353,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDax
  *        DAX. (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDrax
+ *        Drax. (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFluct
@@ -21295,7 +21371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGoogleAdManager
@@ -21390,7 +21466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriton
@@ -21400,7 +21476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnspecified
@@ -21450,7 +21526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdswizz
@@ -21460,7 +21536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeBidswitch
@@ -21474,13 +21550,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax
  *        DAX. (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDrax
+ *        Drax. (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFluct
@@ -21490,7 +21568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGoogleAdManager
@@ -21585,7 +21663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriton
@@ -21595,7 +21673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnspecified
@@ -21646,7 +21724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdswizz
@@ -21656,7 +21734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeBidswitch
@@ -21670,13 +21748,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax DAX.
  *        (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDrax Drax.
+ *        (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFluct
@@ -21686,7 +21766,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGoogleAdManager
@@ -21781,7 +21861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton
@@ -21791,7 +21871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnspecified
@@ -21845,7 +21925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdswizz
@@ -21855,7 +21935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeBidswitch
@@ -21869,13 +21949,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax
  *        DAX. (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDrax
+ *        Drax. (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFluct
@@ -21885,7 +21967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGoogleAdManager
@@ -21980,7 +22062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton
@@ -21990,7 +22072,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnspecified
@@ -23164,7 +23246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdswizz
@@ -23174,7 +23256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBidswitch
@@ -23188,13 +23270,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax DAX.
  *        (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDrax Drax.
+ *        (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFluct Fluct.
@@ -23203,8 +23287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyber Fyber.
  *        (Value: "EXCHANGE_FYBER")
- *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyberGbid Fyber
- *        using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyberGbid DT
+ *        Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGeniee Geniee.
  *        (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGoogleAdManager
@@ -23298,8 +23382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
- *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeToponGbid Topon
- *        using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeToponGbid
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriton Triton.
@@ -23309,7 +23393,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnited United.
  *        (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnityGbid Unity
- *        using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnspecified
@@ -24206,7 +24290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdswizz
@@ -24216,7 +24300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeBidswitch
@@ -24230,13 +24314,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax DAX.
  *        (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDrax Drax.
+ *        (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFluct Fluct.
@@ -24245,8 +24331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyber Fyber.
  *        (Value: "EXCHANGE_FYBER")
- *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyberGbid Fyber
- *        using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyberGbid DT
+ *        Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGeniee Geniee.
  *        (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGoogleAdManager
@@ -24340,8 +24426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
- *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeToponGbid Topon
- *        using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeToponGbid
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton Triton.
@@ -24351,7 +24437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited United.
  *        (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnityGbid Unity
- *        using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnspecified
@@ -28586,8 +28672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7 SDF version 7.
  *        Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
- *        before migrating to this version. Currently in beta. Only available
- *        for use by a subset of users. (Value: "SDF_VERSION_7")
+ *        before migrating to this version. (Value: "SDF_VERSION_7")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -28655,8 +28740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7 SDF
  *        version 7. Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
- *        before migrating to this version. Currently in beta. Only available
- *        for use by a subset of users. (Value: "SDF_VERSION_7")
+ *        before migrating to this version. (Value: "SDF_VERSION_7")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -30313,6 +30397,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeLift
  *        An automated bidding strategy that sets bids to achieve maximum lift.
  *        (Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_LIFT")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeReserveCpm
+ *        A bidding strategy for YouTube Instant Reserve line items that pays a
+ *        fixed amount per impression. (Value:
+ *        "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_CPM")
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetCpa
  *        A bidding strategy that automatically optimizes conversions per
  *        dollar. (Value:
@@ -30345,6 +30433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPV` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM` *
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_CPM` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` If not using an
  *  applicable strategy, the value of this field will be 0.
  *

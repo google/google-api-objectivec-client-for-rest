@@ -480,6 +480,26 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_LookupDiscoveredServiceResponse
+//
+
+@implementation GTLRAppHub_LookupDiscoveredServiceResponse
+@dynamic discoveredService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_LookupDiscoveredWorkloadResponse
+//
+
+@implementation GTLRAppHub_LookupDiscoveredWorkloadResponse
+@dynamic discoveredWorkload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_LookupServiceProjectAttachmentResponse
 //
 

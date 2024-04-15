@@ -456,6 +456,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsCreate : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -489,6 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsDelete : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -522,6 +524,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsGet : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -556,6 +559,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsList : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -606,6 +610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -1762,6 +1767,198 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksPatch
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Key Event.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the parent property where this Key Event will
+ *  be created. Format: properties/123
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.
+ *
+ *  Creates a Key Event.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent to include in
+ *    the query.
+ *  @param parent Required. The resource name of the parent property where this
+ *    Key Event will be created. Format: properties/123
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaKeyEvent *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Key Event.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the Key Event to delete. Format:
+ *  properties/{property}/keyEvents/{key_event} Example:
+ *  "properties/123/keyEvents/456"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes a Key Event.
+ *
+ *  @param name Required. The resource name of the Key Event to delete. Format:
+ *    properties/{property}/keyEvents/{key_event} Example:
+ *    "properties/123/keyEvents/456"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve a single Key Event.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the Key Event to retrieve. Format:
+ *  properties/{property}/keyEvents/{key_event} Example:
+ *  "properties/123/keyEvents/456"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.
+ *
+ *  Retrieve a single Key Event.
+ *
+ *  @param name Required. The resource name of the Key Event to retrieve.
+ *    Format: properties/{property}/keyEvents/{key_event} Example:
+ *    "properties/123/keyEvents/456"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of Key Events in the specified parent property. Returns an
+ *  empty list if no Key Events are found.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200; (higher values will be
+ *  coerced to the maximum)
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListKeyEvents` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListKeyEvents` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent property. Example:
+ *  'properties/123'
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListKeyEventsResponse.
+ *
+ *  Returns a list of Key Events in the specified parent property. Returns an
+ *  empty list if no Key Events are found.
+ *
+ *  @param parent Required. The resource name of the parent property. Example:
+ *    'properties/123'
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Key Event.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this key event. Format:
+ *  properties/{property}/keyEvents/{key_event}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Field names must be in snake
+ *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.
+ *
+ *  Updates a Key Event.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent to include in
+ *    the query.
+ *  @param name Output only. Resource name of this key event. Format:
+ *    properties/{property}/keyEvents/{key_event}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaKeyEvent *)object
                            name:(NSString *)name;
 
 @end

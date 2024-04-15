@@ -229,6 +229,7 @@ NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedPlatforms_Table
 NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_DeviceId = @"DEVICE_ID";
 NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_GoogleCookie = @"GOOGLE_COOKIE";
 NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_HostedMatchData = @"HOSTED_MATCH_DATA";
+NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_PublisherProvidedId = @"PUBLISHER_PROVIDED_ID";
 NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_UserIdTypeUnspecified = @"USER_ID_TYPE_UNSPECIFIED";
 
 // GTLRRealTimeBidding_PretargetingConfig.interstitialTargeting

@@ -37,6 +37,7 @@
 @class GTLRServiceControl_Peer;
 @class GTLRServiceControl_Peer_Labels;
 @class GTLRServiceControl_PolicyViolationInfo;
+@class GTLRServiceControl_ReportResponse_Extensions;
 @class GTLRServiceControl_Request;
 @class GTLRServiceControl_Request_Headers;
 @class GTLRServiceControl_RequestMetadata;
@@ -868,6 +869,26 @@ GTLR_DEPRECATED
  *  Response message for the Report method.
  */
 @interface GTLRServiceControl_ReportResponse : GTLRObject
+
+/**
+ *  The extension field to store serialized OTel responses. e.g.
+ *  ExportLogsServiceResponse, ExportMetricsServiceResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ReportResponse_Extensions *extensions;
+
+@end
+
+
+/**
+ *  The extension field to store serialized OTel responses. e.g.
+ *  ExportLogsServiceResponse, ExportMetricsServiceResponse.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_ReportResponse_Extensions : GTLRObject
 @end
 
 

@@ -319,6 +319,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_HdfsData
+//
+
+@implementation GTLRStorageTransfer_HdfsData
+@dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_HttpData
 //
 
@@ -521,6 +531,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_ReplicationSpec
+//
+
+@implementation GTLRStorageTransfer_ReplicationSpec
+@dynamic gcsDataSink, gcsDataSource, objectConditions, transferOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_ResumeTransferOperationRequest
 //
 
@@ -628,7 +648,8 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 @implementation GTLRStorageTransfer_TransferJob
 @dynamic creationTime, deletionTime, descriptionProperty, eventStream,
          lastModificationTime, latestOperationName, loggingConfig, name,
-         notificationConfig, projectId, schedule, status, transferSpec;
+         notificationConfig, projectId, replicationSpec, schedule, status,
+         transferSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -686,9 +707,9 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 @implementation GTLRStorageTransfer_TransferSpec
 @dynamic awsS3CompatibleDataSource, awsS3DataSource, azureBlobStorageDataSource,
          gcsDataSink, gcsDataSource, gcsIntermediateDataLocation,
-         httpDataSource, objectConditions, posixDataSink, posixDataSource,
-         sinkAgentPoolName, sourceAgentPoolName, transferManifest,
-         transferOptions;
+         hdfsDataSource, httpDataSource, objectConditions, posixDataSink,
+         posixDataSource, sinkAgentPoolName, sourceAgentPoolName,
+         transferManifest, transferOptions;
 @end
 
 

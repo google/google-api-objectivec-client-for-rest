@@ -609,9 +609,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch : GTLRDataCatalogQuery
 
 /**
- *  Output only. The resource name of an entry in URL format. Note: The entry
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Output only. Identifier. The resource name of an entry in URL format. Note:
+ *  The entry itself and its child resources might not be stored in the location
+ *  specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -640,9 +640,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1Entry to
  *    include in the query.
- *  @param name Output only. The resource name of an entry in URL format. Note:
- *    The entry itself and its child resources might not be stored in the
- *    location specified in its name.
+ *  @param name Output only. Identifier. The resource name of an entry in URL
+ *    format. Note: The entry itself and its child resources might not be stored
+ *    in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch
  */
@@ -818,7 +818,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsPatch : GTLRDataCatalogQuery
 
 /**
- *  The resource name of the tag in URL format where tag ID is a
+ *  Identifier. The resource name of the tag in URL format where tag ID is a
  *  system-generated identifier. Note: The tag itself might not be stored in the
  *  location specified in its name.
  */
@@ -841,9 +841,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1Tag to include
  *    in the query.
- *  @param name The resource name of the tag in URL format where tag ID is a
- *    system-generated identifier. Note: The tag itself might not be stored in
- *    the location specified in its name.
+ *  @param name Identifier. The resource name of the tag in URL format where tag
+ *    ID is a system-generated identifier. Note: The tag itself might not be
+ *    stored in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsPatch
  */
@@ -1117,9 +1117,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch : GTLRDataCatalogQuery
 
 /**
- *  The resource name of the entry group in URL format. Note: The entry group
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Identifier. The resource name of the entry group in URL format. Note: The
+ *  entry group itself and its child resources might not be stored in the
+ *  location specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1143,9 +1143,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup to
  *    include in the query.
- *  @param name The resource name of the entry group in URL format. Note: The
- *    entry group itself and its child resources might not be stored in the
- *    location specified in its name.
+ *  @param name Identifier. The resource name of the entry group in URL format.
+ *    Note: The entry group itself and its child resources might not be stored
+ *    in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch
  */
@@ -1339,7 +1339,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch : GTLRDataCatalogQuery
 
 /**
- *  The resource name of the tag in URL format where tag ID is a
+ *  Identifier. The resource name of the tag in URL format where tag ID is a
  *  system-generated identifier. Note: The tag itself might not be stored in the
  *  location specified in its name.
  */
@@ -1362,9 +1362,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1Tag to include
  *    in the query.
- *  @param name The resource name of the tag in URL format where tag ID is a
- *    system-generated identifier. Note: The tag itself might not be stored in
- *    the location specified in its name.
+ *  @param name Identifier. The resource name of the tag in URL format where tag
+ *    ID is a system-generated identifier. Note: The tag itself might not be
+ *    stored in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch
  */
@@ -1951,9 +1951,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesPatch : GTLRDataCatalogQuery
 
 /**
- *  The resource name of the tag template in URL format. Note: The tag template
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Identifier. The resource name of the tag template in URL format. Note: The
+ *  tag template itself and its child resources might not be stored in the
+ *  location specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1981,9 +1981,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate to
  *    include in the query.
- *  @param name The resource name of the tag template in URL format. Note: The
- *    tag template itself and its child resources might not be stored in the
- *    location specified in its name.
+ *  @param name Identifier. The resource name of the tag template in URL format.
+ *    Note: The tag template itself and its child resources might not be stored
+ *    in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesPatch
  */

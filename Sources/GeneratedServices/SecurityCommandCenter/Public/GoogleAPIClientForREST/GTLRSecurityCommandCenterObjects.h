@@ -4176,15 +4176,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /**
  *  The base URI that identifies the network location of the application in
- *  which the vulnerability was detected. Examples: http://11.22.33.44,
- *  http://foo.com, http://11.22.33.44:8080
+ *  which the vulnerability was detected. For example, `http://example.com`.
  */
 @property(nonatomic, copy, nullable) NSString *baseUri;
 
 /**
  *  The full URI with payload that can be used to reproduce the vulnerability.
- *  Example:
- *  http://11.22.33.44/reflected/parameter/attribute/singlequoted/js?p=aMmYgI6H
+ *  For example, `http://example.com?p=aMmYgI6H`.
  */
 @property(nonatomic, copy, nullable) NSString *fullUri;
 
@@ -4557,15 +4555,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /**
  *  The name of the Backup and DR appliance that captures, moves, and manages
- *  the lifecycle of backup data. For example, “backup-server-57137”.
+ *  the lifecycle of backup data. For example, `backup-server-57137`.
  */
 @property(nonatomic, copy, nullable) NSString *appliance;
 
 /**
  *  The names of Backup and DR applications. An application is a VM, database,
  *  or file system on a managed host monitored by a backup and recovery
- *  appliance. For example, “centos7-01-vol00”, “centos7-01-vol01”,
- *  “centos7-01-vol02”.
+ *  appliance. For example, `centos7-01-vol00`, `centos7-01-vol01`,
+ *  `centos7-01-vol02`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *applications;
 
@@ -4576,13 +4574,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  The name of a Backup and DR template which comprises one or more backup
  *  policies. See the [Backup and DR
  *  documentation](https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#temp)
- *  for more information. For example, “snap-ov”.
+ *  for more information. For example, `snap-ov`.
  */
 @property(nonatomic, copy, nullable) NSString *backupTemplate;
 
 /**
- *  The backup type of the Backup and DR image. For example, “Snapshot”, “Remote
- *  Snapshot”, “OnVault”.
+ *  The backup type of the Backup and DR image. For example, `Snapshot`, `Remote
+ *  Snapshot`, `OnVault`.
  */
 @property(nonatomic, copy, nullable) NSString *backupType;
 
@@ -4593,14 +4591,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  system, etc.), vCenter, or an ESX server. See the [Backup and DR
  *  documentation on
  *  hosts](https://cloud.google.com/backup-disaster-recovery/docs/configuration/manage-hosts-and-their-applications)
- *  for more information. For example, “centos7-01”.
+ *  for more information. For example, `centos7-01`.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
  *  The names of Backup and DR policies that are associated with a template and
  *  that define when to run a backup, how frequently to run a backup, and how
- *  long to retain the backup image. For example, “onvaults”.
+ *  long to retain the backup image. For example, `onvaults`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *policies;
 
@@ -4608,7 +4606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  The names of Backup and DR advanced policy options of a policy applying to
  *  an application. See the [Backup and DR documentation on policy
  *  options](https://cloud.google.com/backup-disaster-recovery/docs/create-plan/policy-settings).
- *  For example, “skipofflineappsincongrp, nounmap”.
+ *  For example, `skipofflineappsincongrp, nounmap`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *policyOptions;
 
@@ -4617,7 +4615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  media for backups of application and VM data. See the [Backup and DR
  *  documentation on
  *  profiles](https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#profile).
- *  For example, “GCP”.
+ *  For example, `GCP`.
  */
 @property(nonatomic, copy, nullable) NSString *profile;
 
@@ -4627,7 +4625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  Primary, Snapshot, or OnVault. See the [Backup and DR documentation on
  *  storage
  *  pools](https://cloud.google.com/backup-disaster-recovery/docs/concepts/storage-pools).
- *  For example, “DiskPoolOne”.
+ *  For example, `DiskPoolOne`.
  */
 @property(nonatomic, copy, nullable) NSString *storagePool;
 
@@ -6495,6 +6493,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /** References primary/secondary etc assignees in the external system. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assignees;
 
+/** The time when the case was closed, as reported by the external system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *caseCloseTime;
+
+/** The time when the case was created, as reported by the external system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *caseCreateTime;
+
 /**
  *  The priority of the finding's corresponding case in the external system.
  */
@@ -7347,15 +7351,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /**
  *  The base URI that identifies the network location of the application in
- *  which the vulnerability was detected. Examples: http://11.22.33.44,
- *  http://foo.com, http://11.22.33.44:8080
+ *  which the vulnerability was detected. For example, `http://example.com`.
  */
 @property(nonatomic, copy, nullable) NSString *baseUri;
 
 /**
  *  The full URI with payload that could be used to reproduce the vulnerability.
- *  Example:
- *  http://11.22.33.44/reflected/parameter/attribute/singlequoted/js?p=aMmYgI6H
+ *  For example, `http://example.com?p=aMmYgI6H`.
  */
 @property(nonatomic, copy, nullable) NSString *fullUri;
 
@@ -7434,15 +7436,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /**
  *  The name of the Backup and DR appliance that captures, moves, and manages
- *  the lifecycle of backup data. For example, “backup-server-57137”.
+ *  the lifecycle of backup data. For example, `backup-server-57137`.
  */
 @property(nonatomic, copy, nullable) NSString *appliance;
 
 /**
  *  The names of Backup and DR applications. An application is a VM, database,
  *  or file system on a managed host monitored by a backup and recovery
- *  appliance. For example, “centos7-01-vol00”, “centos7-01-vol01”,
- *  “centos7-01-vol02”.
+ *  appliance. For example, `centos7-01-vol00`, `centos7-01-vol01`,
+ *  `centos7-01-vol02`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *applications;
 
@@ -7453,13 +7455,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  The name of a Backup and DR template which comprises one or more backup
  *  policies. See the [Backup and DR
  *  documentation](https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#temp)
- *  for more information. For example, “snap-ov”.
+ *  for more information. For example, `snap-ov`.
  */
 @property(nonatomic, copy, nullable) NSString *backupTemplate;
 
 /**
- *  The backup type of the Backup and DR image. For example, “Snapshot”, “Remote
- *  Snapshot”, “OnVault”.
+ *  The backup type of the Backup and DR image. For example, `Snapshot`, `Remote
+ *  Snapshot`, `OnVault`.
  */
 @property(nonatomic, copy, nullable) NSString *backupType;
 
@@ -7470,14 +7472,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  system, etc.), vCenter, or an ESX server. See the [Backup and DR
  *  documentation on
  *  hosts](https://cloud.google.com/backup-disaster-recovery/docs/configuration/manage-hosts-and-their-applications)
- *  for more information. For example, “centos7-01”.
+ *  for more information. For example, `centos7-01`.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
  *  The names of Backup and DR policies that are associated with a template and
  *  that define when to run a backup, how frequently to run a backup, and how
- *  long to retain the backup image. For example, “onvaults”.
+ *  long to retain the backup image. For example, `onvaults`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *policies;
 
@@ -7485,7 +7487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  The names of Backup and DR advanced policy options of a policy applying to
  *  an application. See the [Backup and DR documentation on policy
  *  options](https://cloud.google.com/backup-disaster-recovery/docs/create-plan/policy-settings).
- *  For example, “skipofflineappsincongrp, nounmap”.
+ *  For example, `skipofflineappsincongrp, nounmap`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *policyOptions;
 
@@ -7494,7 +7496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  media for backups of application and VM data. See the [Backup and DR
  *  documentation on
  *  profiles](https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#profile).
- *  For example, “GCP”.
+ *  For example, `GCP`.
  */
 @property(nonatomic, copy, nullable) NSString *profile;
 
@@ -7504,7 +7506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  Primary, Snapshot, or OnVault. See the [Backup and DR documentation on
  *  storage
  *  pools](https://cloud.google.com/backup-disaster-recovery/docs/concepts/storage-pools).
- *  For example, “DiskPoolOne”.
+ *  For example, `DiskPoolOne`.
  */
 @property(nonatomic, copy, nullable) NSString *storagePool;
 
@@ -8268,6 +8270,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** References primary/secondary etc assignees in the external system. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assignees;
+
+/** The time when the case was closed, as reported by the external system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *caseCloseTime;
+
+/** The time when the case was created, as reported by the external system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *caseCreateTime;
 
 /**
  *  The priority of the finding's corresponding case in the external system.
@@ -9320,13 +9328,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /**
  *  The detected value that violates the deployed posture, for example, `false`
- *  or `allowed_values={"projects/22831892”}`.
+ *  or `allowed_values={"projects/22831892"}`.
  */
 @property(nonatomic, copy, nullable) NSString *detectedValue;
 
 /**
  *  The value of this field that was configured in a posture, for example,
- *  `true` or `allowed_values={"projects/29831892”}`.
+ *  `true` or `allowed_values={"projects/29831892"}`.
  */
 @property(nonatomic, copy, nullable) NSString *expectedValue;
 
@@ -11430,20 +11438,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
- *  The policy field that violates the deployed posture and its expected and and
+ *  The policy field that violates the deployed posture and its expected and
  *  detected values.
  */
 @interface GTLRSecurityCommandCenter_PolicyDriftDetails : GTLRObject
 
 /**
  *  The detected value that violates the deployed posture, for example, `false`
- *  or `allowed_values={"projects/22831892”}`.
+ *  or `allowed_values={"projects/22831892"}`.
  */
 @property(nonatomic, copy, nullable) NSString *detectedValue;
 
 /**
  *  The value of this field that was configured in a posture, for example,
- *  `true` or `allowed_values={"projects/29831892”}`.
+ *  `true` or `allowed_values={"projects/29831892"}`.
  */
 @property(nonatomic, copy, nullable) NSString *expectedValue;
 

@@ -21,6 +21,20 @@ NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_ActionUnspecifi
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Allow = @"ALLOW";
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Deny = @"DENY";
 
+// GTLRNetworkSecurity_FirewallEndpoint.state
+NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Inactive = @"INACTIVE";
+NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_FirewallEndpointAssociation.state
+NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive = @"INACTIVE";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRNetworkSecurity_GatewaySecurityPolicyRule.basicProfile
 NSString * const kGTLRNetworkSecurity_GatewaySecurityPolicyRule_BasicProfile_Allow = @"ALLOW";
 NSString * const kGTLRNetworkSecurity_GatewaySecurityPolicyRule_BasicProfile_BasicProfileUnspecified = @"BASIC_PROFILE_UNSPECIFIED";
@@ -36,6 +50,40 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowInvalidOrMissingClientCert = @"ALLOW_INVALID_OR_MISSING_CLIENT_CERT";
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_ClientValidationModeUnspecified = @"CLIENT_VALIDATION_MODE_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid = @"REJECT_INVALID";
+
+// GTLRNetworkSecurity_SecurityProfile.type
+NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified = @"PROFILE_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention = @"THREAT_PREVENTION";
+
+// GTLRNetworkSecurity_SeverityOverride.action
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Alert = @"ALERT";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_DefaultAction = @"DEFAULT_ACTION";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Deny = @"DENY";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_ThreatActionUnspecified = @"THREAT_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_SeverityOverride.severity
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_High = @"HIGH";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Informational = @"INFORMATIONAL";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Low = @"LOW";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLRNetworkSecurity_ThreatOverride.action
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Alert = @"ALERT";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_DefaultAction = @"DEFAULT_ACTION";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Deny = @"DENY";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_ThreatActionUnspecified = @"THREAT_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_ThreatOverride.type
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Antivirus = @"ANTIVIRUS";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Dns  = @"DNS";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Spyware = @"SPYWARE";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Unknown = @"UNKNOWN";
+NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Vulnerability = @"VULNERABILITY";
 
 // GTLRNetworkSecurity_TlsInspectionPolicy.minTlsVersion
 NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls10 = @"TLS_1_0";
@@ -250,6 +298,79 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_FirewallEndpoint
+//
+
+@implementation GTLRNetworkSecurity_FirewallEndpoint
+@dynamic associatedNetworks, associations, billingProjectId, createTime,
+         descriptionProperty, labels, name, reconciling, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"associatedNetworks" : [NSString class],
+    @"associations" : [GTLRNetworkSecurity_FirewallEndpointAssociationReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_FirewallEndpoint_Labels
+//
+
+@implementation GTLRNetworkSecurity_FirewallEndpoint_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_FirewallEndpointAssociation
+//
+
+@implementation GTLRNetworkSecurity_FirewallEndpointAssociation
+@dynamic createTime, disabled, firewallEndpoint, labels, name, network,
+         reconciling, state, tlsInspectionPolicy, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_FirewallEndpointAssociation_Labels
+//
+
+@implementation GTLRNetworkSecurity_FirewallEndpointAssociation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_FirewallEndpointAssociationReference
+//
+
+@implementation GTLRNetworkSecurity_FirewallEndpointAssociationReference
+@dynamic name, network;
 @end
 
 
@@ -538,6 +659,52 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_ListFirewallEndpointAssociationsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListFirewallEndpointAssociationsResponse
+@dynamic firewallEndpointAssociations, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"firewallEndpointAssociations" : [GTLRNetworkSecurity_FirewallEndpointAssociation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"firewallEndpointAssociations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListFirewallEndpointsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListFirewallEndpointsResponse
+@dynamic firewallEndpoints, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"firewallEndpoints" : [GTLRNetworkSecurity_FirewallEndpoint class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"firewallEndpoints";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_ListGatewaySecurityPoliciesResponse
 //
 
@@ -621,6 +788,50 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListSecurityProfileGroupsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListSecurityProfileGroupsResponse
+@dynamic nextPageToken, securityProfileGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityProfileGroups" : [GTLRNetworkSecurity_SecurityProfileGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityProfileGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListSecurityProfilesResponse
+//
+
+@implementation GTLRNetworkSecurity_ListSecurityProfilesResponse
+@dynamic nextPageToken, securityProfiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityProfiles" : [GTLRNetworkSecurity_SecurityProfile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityProfiles";
 }
 
 @end
@@ -838,6 +1049,74 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_SecurityProfile
+//
+
+@implementation GTLRNetworkSecurity_SecurityProfile
+@dynamic createTime, descriptionProperty, ETag, labels, name,
+         threatPreventionProfile, type, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SecurityProfile_Labels
+//
+
+@implementation GTLRNetworkSecurity_SecurityProfile_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SecurityProfileGroup
+//
+
+@implementation GTLRNetworkSecurity_SecurityProfileGroup
+@dynamic createTime, descriptionProperty, ETag, labels, name,
+         threatPreventionProfile, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SecurityProfileGroup_Labels
+//
+
+@implementation GTLRNetworkSecurity_SecurityProfileGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_ServerTlsPolicy
 //
 
@@ -863,6 +1142,16 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SeverityOverride
+//
+
+@implementation GTLRNetworkSecurity_SeverityOverride
+@dynamic action, severity;
 @end
 
 
@@ -912,6 +1201,35 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ThreatOverride
+//
+
+@implementation GTLRNetworkSecurity_ThreatOverride
+@dynamic action, threatId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ThreatPreventionProfile
+//
+
+@implementation GTLRNetworkSecurity_ThreatPreventionProfile
+@dynamic severityOverrides, threatOverrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"severityOverrides" : [GTLRNetworkSecurity_SeverityOverride class],
+    @"threatOverrides" : [GTLRNetworkSecurity_ThreatOverride class]
+  };
+  return map;
 }
 
 @end

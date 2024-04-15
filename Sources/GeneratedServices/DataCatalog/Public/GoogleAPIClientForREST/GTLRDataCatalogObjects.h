@@ -47,6 +47,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Labels;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue;
@@ -499,6 +500,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Explore;
 /**
+ *  Feature Group resource in Vertex AI Feature Store.
+ *
+ *  Value: "FEATURE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureGroup;
+/**
+ *  Feature Online Store resource in Vertex AI Feature Store.
+ *
+ *  Value: "FEATURE_ONLINE_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureOnlineStore;
+/**
+ *  Feature View resource in Vertex AI Feature Store.
+ *
+ *  Value: "FEATURE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureView;
+/**
  *  An entry type for a set of files or objects. For example, a Cloud Storage
  *  fileset.
  *
@@ -549,6 +568,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  *  Value: "ZONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Zone;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec.storageType
+
+/**
+ *  Underlsying storgae is Bigtable.
+ *
+ *  Value: "BIGTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_Bigtable;
+/**
+ *  Underlaying is optimized online server (Lightning).
+ *
+ *  Value: "OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_Optimized;
+/**
+ *  Should not be used.
+ *
+ *  Value: "STORAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_StorageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType.primitiveType
@@ -810,6 +851,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Seri
  *  Value: "POLICY_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate.dataplexTransferStatus
+
+/**
+ *  Default value. TagTemplate and its tags are only visible and editable in
+ *  DataCatalog.
+ *
+ *  Value: "DATAPLEX_TRANSFER_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_DataplexTransferStatusUnspecified;
+/**
+ *  TagTemplate and its tags are auto-copied to Dataplex service. Visible in
+ *  both services. Editable in DataCatalog, read-only in Dataplex.
+ *
+ *  Value: "MIGRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy.activatedPolicyTypes
@@ -1836,6 +1895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** FeatureonlineStore spec for Vertex AI Feature Store. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec *featureOnlineStoreSpec;
+
 /**
  *  Specification that applies to a fileset resource. Valid only for entries
  *  with the `FILESET` type.
@@ -1916,9 +1978,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ModelSpec *modelSpec;
 
 /**
- *  Output only. The resource name of an entry in URL format. Note: The entry
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Output only. Identifier. The resource name of an entry in URL format. Note:
+ *  The entry itself and its child resources might not be stored in the location
+ *  specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1979,6 +2041,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *        Looker Explore. For more information, see [Looker Explore API]
  *        (https://developers.looker.com/api/explorer/4.0/methods/LookmlModel/lookml_model_explore).
  *        (Value: "EXPLORE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureGroup
+ *        Feature Group resource in Vertex AI Feature Store. (Value:
+ *        "FEATURE_GROUP")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureOnlineStore
+ *        Feature Online Store resource in Vertex AI Feature Store. (Value:
+ *        "FEATURE_ONLINE_STORE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureView
+ *        Feature View resource in Vertex AI Feature Store. (Value:
+ *        "FEATURE_VIEW")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset An
  *        entry type for a set of files or objects. For example, a Cloud Storage
  *        fileset. (Value: "FILESET")
@@ -2069,9 +2140,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the entry group in URL format. Note: The entry group
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Identifier. The resource name of the entry group in URL format. Note: The
+ *  entry group itself and its child resources might not be stored in the
+ *  location specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2101,6 +2172,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 /** List of taxonomies and policy tags as nested protocol buffers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy *> *taxonomies;
+
+@end
+
+
+/**
+ *  Detail description of the source information of a Vertex Feature Online
+ *  Store.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec : GTLRObject
+
+/**
+ *  Output only. Type of underelaying storage for the FeatureOnlineStore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_Bigtable
+ *        Underlsying storgae is Bigtable. (Value: "BIGTABLE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_Optimized
+ *        Underlaying is optimized online server (Lightning). (Value:
+ *        "OPTIMIZED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FeatureOnlineStoreSpec_StorageType_StorageTypeUnspecified
+ *        Should not be used. (Value: "STORAGE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storageType;
 
 @end
 
@@ -3416,7 +3510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Tag_Fields *fields;
 
 /**
- *  The resource name of the tag in URL format where tag ID is a
+ *  Identifier. The resource name of the tag in URL format where tag ID is a
  *  system-generated identifier. Note: The tag itself might not be stored in the
  *  location specified in its name.
  */
@@ -3557,6 +3651,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate : GTLRObject
 
 /**
+ *  Optional. Transfer status of the TagTemplate
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_DataplexTransferStatusUnspecified
+ *        Default value. TagTemplate and its tags are only visible and editable
+ *        in DataCatalog. (Value: "DATAPLEX_TRANSFER_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated
+ *        TagTemplate and its tags are auto-copied to Dataplex service. Visible
+ *        in both services. Editable in DataCatalog, read-only in Dataplex.
+ *        (Value: "MIGRATED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataplexTransferStatus;
+
+/**
  *  Display name for this template. Defaults to an empty string. The name must
  *  contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
  *  spaces ( ), and can't start or end with spaces. The maximum length is 200
@@ -3586,9 +3694,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @property(nonatomic, strong, nullable) NSNumber *isPubliclyReadable;
 
 /**
- *  The resource name of the tag template in URL format. Note: The tag template
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Identifier. The resource name of the tag template in URL format. Note: The
+ *  tag template itself and its child resources might not be stored in the
+ *  location specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3642,7 +3750,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 @property(nonatomic, strong, nullable) NSNumber *isRequired;
 
 /**
- *  Output only. The resource name of the tag template field in URL format.
+ *  Identifier. The resource name of the tag template field in URL format.
  *  Example:
  *  `projects/{PROJECT_ID}/locations/{LOCATION}/tagTemplates/{TAG_TEMPLATE}/fields/{FIELD}`
  *  Note: The tag template field itself might not be stored in the location

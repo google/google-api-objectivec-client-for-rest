@@ -1296,6 +1296,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *pscConnectionId;
 
 /**
+ *  Output only. The URI of the selected subnetwork selected to allocate IP
+ *  address for this connection.
+ */
+@property(nonatomic, copy, nullable) NSString *selectedSubnetwork;
+
+/**
  *  The URI of a service attachment which is the target of the PSC connection.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAttachmentUri;
@@ -2889,6 +2895,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *pscConnectionId;
 
 /**
+ *  Output only. The URI of the subnetwork selected to allocate IP address for
+ *  this connection.
+ */
+@property(nonatomic, copy, nullable) NSString *selectedSubnetwork;
+
+/**
  *  State of the PSC Connection
  *
  *  Likely values:
@@ -2976,7 +2988,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Route_Labels *labels;
 
 /**
- *  Output only. The location of the route. Uses the following form:
+ *  Output only. The origin location of the route. Uses the following form:
  *  "projects/{project}/locations/{location}" Example:
  *  projects/1234/locations/us-central1
  */

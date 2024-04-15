@@ -60,6 +60,12 @@ NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_End
 NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc = @"GRPC";
 NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift = @"THRIFT";
 
+// GTLRDataprocMetastore_LatestBackup.state
+NSString * const kGTLRDataprocMetastore_LatestBackup_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_LatestBackup_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDataprocMetastore_LatestBackup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_LatestBackup_State_Succeeded = @"SUCCEEDED";
+
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Friday = @"FRIDAY";
@@ -505,6 +511,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_LatestBackup
+//
+
+@implementation GTLRDataprocMetastore_LatestBackup
+@dynamic backupId, duration, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_ListBackupsResponse
 //
 
@@ -913,7 +929,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_Restore
-@dynamic backup, details, endTime, startTime, state, type;
+@dynamic backup, backupLocation, details, endTime, startTime, state, type;
 @end
 
 
@@ -923,7 +939,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_RestoreServiceRequest
-@dynamic backup, requestId, restoreType;
+@dynamic backup, backupLocation, requestId, restoreType;
 @end
 
 
@@ -934,6 +950,17 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 @implementation GTLRDataprocMetastore_ScalingConfig
 @dynamic instanceSize, scalingFactor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ScheduledBackup
+//
+
+@implementation GTLRDataprocMetastore_ScheduledBackup
+@dynamic backupLocation, cronSchedule, enabled, latestBackup, nextScheduledTime,
+         timeZone;
 @end
 
 
@@ -956,8 +983,8 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 @dynamic artifactGcsUri, createTime, databaseType, encryptionConfig,
          endpointUri, hiveMetastoreConfig, labels, maintenanceWindow,
          metadataIntegration, metadataManagementActivity, name, network,
-         networkConfig, port, releaseChannel, scalingConfig, state,
-         stateMessage, telemetryConfig, tier, uid, updateTime;
+         networkConfig, port, releaseChannel, scalingConfig, scheduledBackup,
+         state, stateMessage, telemetryConfig, tier, uid, updateTime;
 @end
 
 

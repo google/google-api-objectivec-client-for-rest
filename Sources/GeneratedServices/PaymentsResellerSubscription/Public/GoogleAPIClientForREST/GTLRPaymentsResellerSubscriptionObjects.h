@@ -613,7 +613,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest
+ *  Request to cancel a subscription.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest : GTLRObject
 
@@ -669,7 +669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionResponse
+ *  Response that contains the cancelled subscription resource.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionResponse : GTLRObject
 
@@ -749,7 +749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionResponse
+ *  Response that contains the entitled subscription resource.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionResponse : GTLRObject
 
@@ -784,7 +784,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionResponse
+ *  Response that contains the timestamps after the extension.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionResponse : GTLRObject
 
@@ -819,7 +819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Extension : GTLRObject
 
-/** Specifies the period of access the subscription should grant. */
+/** Required. Specifies the period of access the subscription should grant. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration *duration;
 
 /** Required. Identifier of the end-user in partner’s system. */
@@ -829,18 +829,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest
+ *  Request to find eligible promotions for the current user.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest : GTLRObject
 
 /**
  *  Optional. Specifies the filters for the promotion results. The syntax is
- *  defined in https://google.aip.dev/160 with the following caveats: - Only the
- *  following features are supported: - Logical operator `AND` - Comparison
+ *  defined in https://google.aip.dev/160 with the following caveats: 1. Only
+ *  the following features are supported: - Logical operator `AND` - Comparison
  *  operator `=` (no wildcards `*`) - Traversal operator `.` - Has operator `:`
- *  (no wildcards `*`) - Only the following fields are supported: -
+ *  (no wildcards `*`) 2. Only the following fields are supported: -
  *  `applicableProducts` - `regionCodes` - `youtubePayload.partnerEligibilityId`
- *  - `youtubePayload.postalCode` - Unless explicitly mentioned above, other
+ *  - `youtubePayload.postalCode` 3. Unless explicitly mentioned above, other
  *  features are not supported. Example:
  *  `applicableProducts:partners/partner1/products/product1 AND regionCodes:US
  *  AND youtubePayload.postalCode=94043 AND
@@ -970,7 +970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse
+ *  Response that contains the products.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "products" property. If returned as the result of a query, it
@@ -997,7 +997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListPromotionsResponse
+ *  Response that contains the promotions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "promotions" property. If returned as the result of a query, it
@@ -1055,7 +1055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails *finiteBillingCycleDetails;
 
 /**
- *  Output only. Response only. Resource name of the product. It will have the
+ *  Identifier. Response only. Resource name of the product. It will have the
  *  format of "partners/{partner_id}/products/{product_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1169,7 +1169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails *introductoryPricingDetails;
 
 /**
- *  Output only. Response only. Resource name of the subscription promotion. It
+ *  Identifier. Response only. Resource name of the subscription promotion. It
  *  will have the format of "partners/{partner_id}/promotion/{promotion_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1212,7 +1212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails : GTLRObject
 
-/** Specifies the introductory pricing periods. */
+/** Output only. Specifies the introductory pricing periods. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec *> *introductoryPricingSpecs;
 
 @end
@@ -1315,7 +1315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem *> *lineItems;
 
 /**
- *  Optional. Resource name of the subscription. It will have the format of
+ *  Identifier. Resource name of the subscription. It will have the format of
  *  "partners/{partner_id}/subscriptions/{subscription_id}". This is available
  *  for authorizeAddon, but otherwise is response only.
  */
@@ -1367,6 +1367,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *  when used as input.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec *> *promotionSpecs;
+
+/**
+ *  Optional. The timestamp when the user transaction was made with the Partner.
+ *  Specify for the case of "bundle with choice", and it must be before the
+ *  provision_time (when the user makes a selection).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *purchaseTime;
 
 /**
  *  Output only. The place where partners should redirect the end-user to after
@@ -1443,7 +1450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails : GTLRObject
 
 /**
- *  The reason of the cancellation.
+ *  Output only. The reason of the cancellation.
  *
  *  Likely values:
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonAccidentalPurchase
@@ -1531,10 +1538,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 @property(nonatomic, strong, nullable) NSNumber *lineItemIndex;
 
 /**
- *  Optional. The promotions applied on the line item. It can be: - a free trial
- *  promotion, which overrides the subscription-level free trial promotion. - an
- *  introductory pricing promotion. When used as input in Create or Provision
- *  API, specify its resource name only.
+ *  Optional. The promotions applied on the line item. It can be: - an
+ *  introductory pricing promotion. - a free trial promotion. This feature is
+ *  not enabled. If used, the request will be rejected. When used as input in
+ *  Create or Provision API, specify its resource name only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec *> *lineItemPromotionSpecs;
 
@@ -1624,7 +1631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails : GTLRObject
 
-/** The service period of the ONE_TIME line item. */
+/** Output only. The service period of the ONE_TIME line item. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ServicePeriod *servicePeriod;
 
 @end
@@ -1806,7 +1813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  */
 @interface GTLRPaymentsResellerSubscription_SubscriptionLineItemBundleDetails : GTLRObject
 
-/** The details for each element in the hard bundle. */
+/** Output only. The details for each element in the hard bundle. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemBundleDetailsBundleElementDetails *> *bundleElementDetails;
 
 @end

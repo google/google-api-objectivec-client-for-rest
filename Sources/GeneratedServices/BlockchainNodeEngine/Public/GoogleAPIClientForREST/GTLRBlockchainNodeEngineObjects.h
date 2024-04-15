@@ -176,11 +176,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Net
  */
 FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_NetworkUnspecified;
 /**
- *  The Ethereum Testnet based on Goerli protocol.
+ *  Deprecated: The Ethereum Testnet based on Goerli protocol. Holesky
+ *  (TESTNET_HOLESKY) is the recommended testnet to replace Goerli.
  *
  *  Value: "TESTNET_GOERLI_PRATER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater;
+FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater GTLR_DEPRECATED;
 /**
  *  The Ethereum Testnet based on Holesky specification. See
  *  https://github.com/eth-clients/holesky.
@@ -471,8 +472,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *        The network has not been specified, but should be. (Value:
  *        "NETWORK_UNSPECIFIED")
  *    @arg @c kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater
- *        The Ethereum Testnet based on Goerli protocol. (Value:
- *        "TESTNET_GOERLI_PRATER")
+ *        Deprecated: The Ethereum Testnet based on Goerli protocol. Holesky
+ *        (TESTNET_HOLESKY) is the recommended testnet to replace Goerli.
+ *        (Value: "TESTNET_GOERLI_PRATER")
  *    @arg @c kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetHolesky
  *        The Ethereum Testnet based on Holesky specification. See
  *        https://github.com/eth-clients/holesky. (Value: "TESTNET_HOLESKY")

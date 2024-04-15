@@ -17,6 +17,7 @@
 // GTLRNetworkManagement_AbortInfo.cause
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified = @"CAUSE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound = @"DESTINATION_ENDPOINT_NOT_FOUND";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_FirewallConfigNotFound = @"FIREWALL_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported = @"GKE_KONNECTIVITY_PROXY_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousPscEndpoint = @"GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InternalError = @"INTERNAL_ERROR";
@@ -24,20 +25,28 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument = @"INVA
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork = @"MISMATCHED_DESTINATION_NETWORK";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedIpVersion = @"MISMATCHED_IP_VERSION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedSourceNetwork = @"MISMATCHED_SOURCE_NETWORK";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NetworkConfigNotFound = @"NETWORK_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp = @"NO_EXTERNAL_IP";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NonRoutableIpAddress = @"NON_ROUTABLE_IP_ADDRESS";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation = @"NO_SOURCE_LOCATION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudNatConfigs = @"PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoNegEndpointConfigs = @"PERMISSION_DENIED_NO_NEG_ENDPOINT_CONFIGS";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound = @"RESOURCE_CONFIG_NOT_FOUND";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_RouteConfigNotFound = @"ROUTE_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound = @"SOURCE_ENDPOINT_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported = @"SOURCE_FORWARDING_RULE_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceIpAddressNotInSourceNetwork = @"SOURCE_IP_ADDRESS_NOT_IN_SOURCE_NETWORK";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported = @"SOURCE_PSC_CLOUD_SQL_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong = @"TRACE_TOO_LONG";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination = @"UNINTENDED_DESTINATION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp = @"UNKNOWN_IP";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIssueInGoogleManagedProject = @"UNKNOWN_ISSUE_IN_GOOGLE_MANAGED_PROJECT";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork = @"UNKNOWN_NETWORK";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject = @"UNKNOWN_PROJECT";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Unsupported = @"UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnsupportedGoogleManagedProjectConfig = @"UNSUPPORTED_GOOGLE_MANAGED_PROJECT_CONFIG";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_VmInstanceConfigNotFound = @"VM_INSTANCE_CONFIG_NOT_FOUND";
 
 // GTLRNetworkManagement_AuditLogConfig.logType
 NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -72,6 +81,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoRoute =
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotConfiguredForExternalTraffic = @"CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotRunning = @"CLOUD_SQL_INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthorizedAccess = @"CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlPscNegUnsupported = @"CLOUD_SQL_PSC_NEG_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService = @"DROPPED_INSIDE_CLOUD_SQL_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService = @"DROPPED_INSIDE_GKE_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer = @"DROPPED_INSIDE_PSC_SERVICE_PRODUCER";
@@ -93,6 +103,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicR
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning = @"INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet = @"LOAD_BALANCER_HAS_NO_PROXY_SUBNET";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_EXTERNAL_ADDRESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment = @"NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute = @"NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address = @"NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed = @"PRIVATE_GOOGLE_ACCESS_DISALLOWED";
@@ -113,6 +124,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopIpAddressNotR
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopResourceNotFound = @"ROUTE_NEXT_HOP_RESOURCE_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopVpnTunnelNotEstablished = @"ROUTE_NEXT_HOP_VPN_TUNNEL_NOT_ESTABLISHED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork = @"ROUTE_WRONG_NETWORK";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RoutingLoop = @"ROUTING_LOOP";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked = @"TRAFFIC_TYPE_BLOCKED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress = @"UNKNOWN_EXTERNAL_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress = @"UNKNOWN_INTERNAL_ADDRESS";
@@ -305,7 +317,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_AbortInfo
-@dynamic cause, projectsMissingPermission, resourceUri;
+@dynamic cause, ipAddress, projectsMissingPermission, resourceUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -456,9 +468,9 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_ConnectivityTest
-@dynamic createTime, descriptionProperty, destination, displayName, labels,
-         name, probingDetails, protocol, reachabilityDetails, relatedProjects,
-         source, updateTime;
+@dynamic bypassFirewallChecks, createTime, descriptionProperty, destination,
+         displayName, labels, name, probingDetails, protocol,
+         reachabilityDetails, relatedProjects, source, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -494,7 +506,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_DeliverInfo
-@dynamic resourceUri, target;
+@dynamic ipAddress, resourceUri, target;
 @end
 
 
@@ -592,7 +604,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_ForwardInfo
-@dynamic resourceUri, target;
+@dynamic ipAddress, resourceUri, target;
 @end
 
 

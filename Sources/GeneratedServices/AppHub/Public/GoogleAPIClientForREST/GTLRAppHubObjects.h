@@ -796,7 +796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 @interface GTLRAppHub_ListDiscoveredServicesResponse : GTLRCollectionObject
 
 /**
- *  List of discovered services.
+ *  List of Discovered Services.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -823,7 +823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 @interface GTLRAppHub_ListDiscoveredWorkloadsResponse : GTLRCollectionObject
 
 /**
- *  List of discovered workloads.
+ *  List of Discovered Workloads.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1026,6 +1026,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAppHub_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Response for LookupDiscoveredService.
+ */
+@interface GTLRAppHub_LookupDiscoveredServiceResponse : GTLRObject
+
+/** Discovered Service if exists, empty otherwise. */
+@property(nonatomic, strong, nullable) GTLRAppHub_DiscoveredService *discoveredService;
+
+@end
+
+
+/**
+ *  Response for LookupDiscoveredWorkload.
+ */
+@interface GTLRAppHub_LookupDiscoveredWorkloadResponse : GTLRObject
+
+/** Discovered Workload if exists, empty otherwise. */
+@property(nonatomic, strong, nullable) GTLRAppHub_DiscoveredWorkload *discoveredWorkload;
+
 @end
 
 

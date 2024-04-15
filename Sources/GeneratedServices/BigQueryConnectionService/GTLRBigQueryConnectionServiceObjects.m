@@ -177,7 +177,7 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfiguration
-@dynamic authentication, connectorId, endpoint;
+@dynamic authentication, connectorId, endpoint, network;
 @end
 
 
@@ -198,6 +198,26 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint
 @dynamic hostPort;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationNetwork
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationNetwork
+@dynamic privateServiceConnect;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect
+@dynamic networkAttachment;
 @end
 
 

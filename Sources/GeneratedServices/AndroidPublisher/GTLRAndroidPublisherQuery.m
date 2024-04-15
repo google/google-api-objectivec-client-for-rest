@@ -2858,7 +2858,8 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @implementation GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList
 
-@dynamic endTime, maxResults, packageName, startIndex, startTime, token, type;
+@dynamic endTime, includeQuantityBasedPartialRefund, maxResults, packageName,
+         startIndex, startTime, token, type;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName {
   NSArray *pathParams = @[ @"packageName" ];

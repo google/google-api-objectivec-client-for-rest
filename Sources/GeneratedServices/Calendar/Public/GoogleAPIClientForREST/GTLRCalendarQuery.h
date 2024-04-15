@@ -1435,8 +1435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 /**
  *  Event types to return. Optional. This parameter can be repeated multiple
- *  times to return events of different types. The default is ["default",
- *  "focusTime", "outOfOffice"].
+ *  times to return events of different types. If unset, returns all event
+ *  types.
  *
  *  Likely values:
  *    @arg @c kGTLRCalendarEventTypesDefault Regular events. (Value: "default")
@@ -1970,8 +1970,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 /**
  *  Event types to return. Optional. This parameter can be repeated multiple
- *  times to return events of different types. The default is ["default",
- *  "focusTime", "outOfOffice"].
+ *  times to return events of different types. If unset, returns all event
+ *  types.
  *
  *  Likely values:
  *    @arg @c kGTLRCalendarEventTypesDefault Regular events. (Value: "default")

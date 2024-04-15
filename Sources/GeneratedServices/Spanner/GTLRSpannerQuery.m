@@ -1569,6 +1569,113 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesInstancePartitionOperationsList
+
+@dynamic filter, instancePartitionDeadline, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/instancePartitionOperations";
+  GTLRSpannerQuery_ProjectsInstancesInstancePartitionOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_ListInstancePartitionOperationsResponse class];
+  query.loggingName = @"spanner.projects.instances.instancePartitionOperations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesInstancePartitionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSpanner_CreateInstancePartitionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/instancePartitions";
+  GTLRSpannerQuery_ProjectsInstancesInstancePartitionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instances.instancePartitions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesInstancePartitionsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstancesInstancePartitionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Empty class];
+  query.loggingName = @"spanner.projects.instances.instancePartitions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesInstancePartitionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstancesInstancePartitionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_InstancePartition class];
+  query.loggingName = @"spanner.projects.instances.instancePartitions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesInstancePartitionsList
+
+@dynamic instancePartitionDeadline, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/instancePartitions";
+  GTLRSpannerQuery_ProjectsInstancesInstancePartitionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_ListInstancePartitionsResponse class];
+  query.loggingName = @"spanner.projects.instances.instancePartitions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesInstancePartitionsOperationsCancel
 
 @dynamic name;
@@ -1645,6 +1752,33 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesInstancePartitionsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSpanner_UpdateInstancePartitionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstancesInstancePartitionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instances.instancePartitions.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesList
 
 @dynamic filter, instanceDeadline, pageSize, pageToken, parent;
@@ -1659,6 +1793,33 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.parent = parent;
   query.expectedObjectClass = [GTLRSpanner_ListInstancesResponse class];
   query.loggingName = @"spanner.projects.instances.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesMove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSpanner_MoveInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:move";
+  GTLRSpannerQuery_ProjectsInstancesMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instances.move";
   return query;
 }
 

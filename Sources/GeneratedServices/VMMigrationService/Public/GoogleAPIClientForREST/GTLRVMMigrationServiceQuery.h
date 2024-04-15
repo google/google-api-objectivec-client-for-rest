@@ -383,6 +383,289 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 @end
 
 /**
+ *  Creates a new ImageImport in a given project.
+ *
+ *  Method: vmmigration.projects.locations.imageImports.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsCreate : GTLRVMMigrationServiceQuery
+
+/**
+ *  Required. The image import identifier. This value maximum length is 63
+ *  characters, and valid characters are /a-z-/. It must start with an english
+ *  letter and must not end with a hyphen.
+ */
+@property(nonatomic, copy, nullable) NSString *imageImportId;
+
+/** Required. The ImageImport's parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Creates a new ImageImport in a given project.
+ *
+ *  @param object The @c GTLRVMMigrationService_ImageImport to include in the
+ *    query.
+ *  @param parent Required. The ImageImport's parent.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsCreate
+ */
++ (instancetype)queryWithObject:(GTLRVMMigrationService_ImageImport *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ImageImport.
+ *
+ *  Method: vmmigration.projects.locations.imageImports.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsDelete : GTLRVMMigrationServiceQuery
+
+/** Required. The ImageImport name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes after the first request. For example, consider a
+ *  situation where you make an initial request and t he request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Deletes a single ImageImport.
+ *
+ *  @param name Required. The ImageImport name.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ImageImport.
+ *
+ *  Method: vmmigration.projects.locations.imageImports.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsGet : GTLRVMMigrationServiceQuery
+
+/** Required. The ImageImport name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_ImageImport.
+ *
+ *  Gets details of a single ImageImport.
+ *
+ *  @param name Required. The ImageImport name.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Initiates the cancellation of a running clone job.
+ *
+ *  Method: vmmigration.projects.locations.imageImports.imageImportJobs.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsCancel : GTLRVMMigrationServiceQuery
+
+/** Required. The image import job id. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Initiates the cancellation of a running clone job.
+ *
+ *  @param object The @c GTLRVMMigrationService_CancelImageImportJobRequest to
+ *    include in the query.
+ *  @param name Required. The image import job id.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsCancel
+ */
++ (instancetype)queryWithObject:(GTLRVMMigrationService_CancelImageImportJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ImageImportJob.
+ *
+ *  Method: vmmigration.projects.locations.imageImports.imageImportJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsGet : GTLRVMMigrationServiceQuery
+
+/** Required. The ImageImportJob name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_ImageImportJob.
+ *
+ *  Gets details of a single ImageImportJob.
+ *
+ *  @param name Required. The ImageImportJob name.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ImageImportJobs in a given project.
+ *
+ *  Method: vmmigration.projects.locations.imageImports.imageImportJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsList : GTLRVMMigrationServiceQuery
+
+/** Optional. The filter request (according to https://google.aip.dev/160). */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The order by fields for the result (according to
+ *  https://google.aip.dev/132#ordering). Currently ordering is only possible by
+ *  "name" field.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of targets to return. The service may return
+ *  fewer than this value. If unspecified, at most 500 targets will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListImageImportJobs` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListImageImportJobs` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent, which owns this collection of targets. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_ListImageImportJobsResponse.
+ *
+ *  Lists ImageImportJobs in a given project.
+ *
+ *  @param parent Required. The parent, which owns this collection of targets.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists ImageImports in a given project.
+ *
+ *  Method: vmmigration.projects.locations.imageImports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsList : GTLRVMMigrationServiceQuery
+
+/** Optional. The filter request (according to https://google.aip.dev/160). */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The order by fields for the result (according to
+ *  https://google.aip.dev/132#ordering). Currently ordering is only possible by
+ *  "name" field.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of targets to return. The service may return
+ *  fewer than this value. If unspecified, at most 500 targets will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListImageImports` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListImageImports` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent, which owns this collection of targets. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_ListImageImportsResponse.
+ *
+ *  Lists ImageImports in a given project.
+ *
+ *  @param parent Required. The parent, which owns this collection of targets.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: vmmigration.projects.locations.list

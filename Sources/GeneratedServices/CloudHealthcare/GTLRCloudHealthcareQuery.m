@@ -890,6 +890,83 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dataMapperWorkspaces.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dataMapperWorkspaces.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_TestIamPermissionsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dataMapperWorkspaces.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDeidentify
 
 @dynamic sourceDataset;

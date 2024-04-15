@@ -34,6 +34,16 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_Accelerator
+//
+
+@implementation GTLRCloudWorkstations_Accelerator
+@dynamic count, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_AuditConfig
 //
 
@@ -150,6 +160,16 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_EphemeralDirectory
+//
+
+@implementation GTLRCloudWorkstations_EphemeralDirectory
+@dynamic gcePd, mountPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_Expr
 //
 
@@ -179,18 +199,30 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_GceInstance
-@dynamic bootDiskSizeGb, confidentialInstanceConfig, disablePublicIpAddresses,
-         enableNestedVirtualization, machineType, pooledInstances, poolSize,
-         serviceAccount, serviceAccountScopes, shieldedInstanceConfig, tags;
+@dynamic accelerators, bootDiskSizeGb, confidentialInstanceConfig,
+         disablePublicIpAddresses, disableSsh, enableNestedVirtualization,
+         machineType, pooledInstances, poolSize, serviceAccount,
+         serviceAccountScopes, shieldedInstanceConfig, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accelerators" : [GTLRCloudWorkstations_Accelerator class],
     @"serviceAccountScopes" : [NSString class],
     @"tags" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_GcePersistentDisk
+//
+
+@implementation GTLRCloudWorkstations_GcePersistentDisk
+@dynamic diskType, readOnly, sourceImage, sourceSnapshot;
 @end
 
 
@@ -787,9 +819,9 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 @implementation GTLRCloudWorkstations_WorkstationConfig
 @dynamic annotations, conditions, container, createTime, degraded, deleteTime,
          disableTcpConnections, displayName, enableAuditAgent, encryptionKey,
-         ETag, host, idleTimeout, labels, name, persistentDirectories,
-         readinessChecks, reconciling, replicaZones, runningTimeout, uid,
-         updateTime;
+         ephemeralDirectories, ETag, host, idleTimeout, labels, name,
+         persistentDirectories, readinessChecks, reconciling, replicaZones,
+         runningTimeout, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -798,6 +830,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"conditions" : [GTLRCloudWorkstations_Status class],
+    @"ephemeralDirectories" : [GTLRCloudWorkstations_EphemeralDirectory class],
     @"persistentDirectories" : [GTLRCloudWorkstations_PersistentDirectory class],
     @"readinessChecks" : [GTLRCloudWorkstations_ReadinessCheck class],
     @"replicaZones" : [NSString class]

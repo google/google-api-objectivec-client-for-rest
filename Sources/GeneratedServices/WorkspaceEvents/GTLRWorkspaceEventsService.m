@@ -23,6 +23,8 @@ NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactionsReadonly = @"
 NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly = @"https://www.googleapis.com/auth/chat.messages.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatSpaces       = @"https://www.googleapis.com/auth/chat.spaces";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly = @"https://www.googleapis.com/auth/chat.spaces.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated = @"https://www.googleapis.com/auth/meetings.space.created";
+NSString * const kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly = @"https://www.googleapis.com/auth/meetings.space.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRWorkspaceEventsService

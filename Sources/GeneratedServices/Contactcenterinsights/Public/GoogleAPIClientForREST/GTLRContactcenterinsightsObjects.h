@@ -210,6 +210,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel;
 /**
+ *  The CCAI baseline model, V2.0.
+ *
+ *  Value: "BASELINE_MODEL_V2_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20;
+/**
  *  Unspecified summarization model.
  *
  *  Value: "SUMMARIZATION_MODEL_UNSPECIFIED"
@@ -579,6 +585,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "BASELINE_MODEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel;
+/**
+ *  The CCAI baseline model, V2.0.
+ *
+ *  Value: "BASELINE_MODEL_V2_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20;
 /**
  *  Unspecified summarization model.
  *
@@ -1259,6 +1271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel
  *        The CCAI baseline model. (Value: "BASELINE_MODEL")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20
+ *        The CCAI baseline model, V2.0. (Value: "BASELINE_MODEL_V2_0")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified
  *        Unspecified summarization model. (Value:
  *        "SUMMARIZATION_MODEL_UNSPECIFIED")
@@ -3650,6 +3664,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel
  *        The CCAI baseline model. (Value: "BASELINE_MODEL")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20
+ *        The CCAI baseline model, V2.0. (Value: "BASELINE_MODEL_V2_0")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_SummarizationModelUnspecified
  *        Unspecified summarization model. (Value:
  *        "SUMMARIZATION_MODEL_UNSPECIFIED")
@@ -6130,8 +6146,10 @@ GTLR_DEPRECATED
  *  Notify each time any of the supported triggers occurs. * "create-analysis":
  *  Notify each time an analysis is created. * "create-conversation": Notify
  *  each time a conversation is created. * "export-insights-data": Notify each
- *  time an export is complete. * "update-conversation": Notify each time a
- *  conversation is updated via UpdateConversation. Values are Pub/Sub topics.
+ *  time an export is complete. * "ingest-conversations": Notify each time an
+ *  IngestConversations LRO completes. * "update-conversation": Notify each time
+ *  a conversation is updated via UpdateConversation. * "upload-conversation":
+ *  Notify when an UploadConversation LRO completes. Values are Pub/Sub topics.
  *  The format of each Pub/Sub topic is: projects/{project}/topics/{topic}
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings_PubsubNotificationSettings *pubsubNotificationSettings;
@@ -6160,8 +6178,10 @@ GTLR_DEPRECATED
  *  Notify each time any of the supported triggers occurs. * "create-analysis":
  *  Notify each time an analysis is created. * "create-conversation": Notify
  *  each time a conversation is created. * "export-insights-data": Notify each
- *  time an export is complete. * "update-conversation": Notify each time a
- *  conversation is updated via UpdateConversation. Values are Pub/Sub topics.
+ *  time an export is complete. * "ingest-conversations": Notify each time an
+ *  IngestConversations LRO completes. * "update-conversation": Notify each time
+ *  a conversation is updated via UpdateConversation. * "upload-conversation":
+ *  Notify when an UploadConversation LRO completes. Values are Pub/Sub topics.
  *  The format of each Pub/Sub topic is: projects/{project}/topics/{topic}
  *
  *  @note This class is documented as having more properties of NSString. Use @c

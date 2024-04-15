@@ -150,10 +150,10 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
-// GTLRLogging_Settings.analyticsMode
-NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsDisabled = @"ANALYTICS_DISABLED";
-NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsEnabled = @"ANALYTICS_ENABLED";
-NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsModeUnspecified = @"ANALYTICS_MODE_UNSPECIFIED";
+// GTLRLogging_SavedQuery.visibility
+NSString * const kGTLRLogging_SavedQuery_Visibility_Private    = @"PRIVATE";
+NSString * const kGTLRLogging_SavedQuery_Visibility_Shared     = @"SHARED";
+NSString * const kGTLRLogging_SavedQuery_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
 
 // GTLRLogging_SuppressionInfo.reason
 NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed = @"NOT_CONSUMED";
@@ -949,8 +949,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_LogSink
 @dynamic bigqueryOptions, createTime, descriptionProperty, destination,
-         disabled, exclusions, filter, includeChildren, name,
-         outputVersionFormat, updateTime, writerIdentity;
+         disabled, exclusions, filter, includeChildren, interceptChildren, name,
+         outputVersionFormat, resourceName, updateTime, writerIdentity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1216,7 +1216,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_SavedQuery
 @dynamic createTime, descriptionProperty, displayName, loggingQuery, name,
-         opsAnalyticsQuery, updateTime;
+         opsAnalyticsQuery, updateTime, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1231,8 +1231,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_Settings
-@dynamic analyticsMode, defaultSinkConfig, disableDefaultSink, kmsKeyName,
-         kmsServiceAccountId, loggingServiceAccountId, name, storageLocation;
+@dynamic defaultSinkConfig, disableDefaultSink, kmsKeyName, kmsServiceAccountId,
+         loggingServiceAccountId, name, storageLocation;
 @end
 
 

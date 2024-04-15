@@ -1045,8 +1045,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EncryptionConfiguration *encryptionConfiguration;
 
 /**
- *  The resource name of the transfer config. Transfer config names have the
- *  form either
+ *  Identifier. The resource name of the transfer config. Transfer config names
+ *  have the form either
  *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/transferConfigs/{config_id}`, where `config_id` is
  *  usually a UUID, even though it is not guaranteed or required. The name is
@@ -1202,7 +1202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Status *errorStatus;
 
 /**
- *  The resource name of the transfer run. Transfer run names have the form
+ *  Identifier. The resource name of the transfer run. Transfer run names have
+ *  the form
  *  `projects/{project_id}/locations/{location}/transferConfigs/{config_id}/runs/{run_id}`.
  *  The name is ignored when creating a transfer run.
  */

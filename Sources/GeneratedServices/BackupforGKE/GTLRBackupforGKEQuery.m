@@ -86,6 +86,25 @@
 
 @end
 
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsGetBackupIndexDownloadUrl
+
+@dynamic backup;
+
++ (instancetype)queryWithBackup:(NSString *)backup {
+  NSArray *pathParams = @[ @"backup" ];
+  NSString *pathURITemplate = @"v1/{+backup}:getBackupIndexDownloadUrl";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsGetBackupIndexDownloadUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.backup = backup;
+  query.expectedObjectClass = [GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse class];
+  query.loggingName = @"gkebackup.projects.locations.backupPlans.backups.getBackupIndexDownloadUrl";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;

@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesDelete : GTLRFirestoreQuery
 
 /**
- *  Required. The name of backup schedule. Format
+ *  Required. The name of the backup schedule. Format
  *  `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a backup schedule.
  *
- *  @param name Required. The name of backup schedule. Format
+ *  @param name Required. The name of the backup schedule. Format
  *    `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesDelete

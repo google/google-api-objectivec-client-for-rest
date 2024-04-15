@@ -1287,6 +1287,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to analyze a batch workload.
+ */
+@interface GTLRDataproc_AnalyzeBatchRequest : GTLRObject
+
+/**
+ *  Optional. A unique ID used to identify the request. If the service receives
+ *  two AnalyzeBatchRequest
+ *  (http://cloud/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.AnalyzeBatchRequest)s
+ *  with the same request_id, the second request is ignored and the Operation
+ *  that corresponds to the first request created and stored in the backend is
+ *  returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Metadata describing the Analyze operation.
  */
 @interface GTLRDataproc_AnalyzeOperationMetadata : GTLRObject
@@ -2701,12 +2722,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_ConfidentialInstanceConfig *confidentialInstanceConfig;
 
 /**
- *  Optional. If true, all instances in the cluster will only have internal IP
- *  addresses. By default, clusters are not restricted to internal IP addresses,
- *  and will have ephemeral external IP addresses assigned to each instance.
- *  This internal_ip_only restriction can only be enabled for subnetwork enabled
- *  networks, and all off-cluster dependencies must be configured to be
- *  accessible without external IP addresses.
+ *  Optional. This setting applies to subnetwork-enabled networks. It is set to
+ *  true by default in clusters created with image versions 2.2.x.When set to
+ *  true: All cluster VMs have internal IP addresses. Google Private Access
+ *  (https://cloud.google.com/vpc/docs/private-google-access) must be enabled to
+ *  access Dataproc and other Google Cloud APIs. Off-cluster dependencies must
+ *  be configured to be accessible without external IP addresses.When set to
+ *  false: Cluster VMs are not restricted to internal IP addresses. Ephemeral
+ *  external IP addresses are assigned to each cluster VM.
  *
  *  Uses NSNumber of boolValue.
  */

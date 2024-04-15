@@ -501,7 +501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Alwa
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault;
 /**
  *  The app is updated as soon as possible. No constraints are applied.The
- *  device is notified immediately about a new update after it becomes
+ *  device is notified as soon as possible about a new update after it becomes
  *  available.
  *
  *  Value: "AUTO_UPDATE_HIGH_PRIORITY"
@@ -1429,9 +1429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbFileTransfer;
 /**
- *  Unspecified. Defaults to ALLOW_USB_DATA_TRANSFER, unless
- *  usbFileTransferDisabled is set to true. If usbFileTransferDisabled is set to
- *  true, this is equivalent to DISALLOW_USB_FILE_TRANSFER.
+ *  Unspecified. Defaults to DISALLOW_USB_FILE_TRANSFER.
  *
  *  Value: "USB_DATA_ACCESS_UNSPECIFIED"
  */
@@ -1511,6 +1509,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Cellu
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceRadioState.minimumWifiSecurityLevel
 
+/**
+ *  A 192-bit enterprise network is the minimum required security level. The
+ *  device will not be able to connect to Wi-Fi network below this security
+ *  level. This is stricter than ENTERPRISE_NETWORK_SECURITY. A
+ *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Value: "ENTERPRISE_BIT192_NETWORK_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseBit192NetworkSecurity;
 /**
  *  An enterprise EAP network is the minimum required security level. The device
  *  will not be able to connect to Wi-Fi network below this security level. This
@@ -3861,6 +3869,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall;
 /**
+ *  Indicates max_devices_registration_quota_exhausted_event has been set.
+ *
+ *  Value: "MAX_DEVICES_REGISTRATION_QUOTA_EXHAUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaExhausted;
+/**
+ *  Indicates max_devices_registration_quota_warning_event has been set.
+ *
+ *  Value: "MAX_DEVICES_REGISTRATION_QUOTA_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaWarning;
+/**
  *  Indicates media_mount_event has been set.
  *
  *  Value: "MEDIA_MOUNT"
@@ -4454,8 +4474,8 @@ GTLR_DEPRECATED
  *        time the constraints above are met. (Value: "AUTO_UPDATE_DEFAULT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority
  *        The app is updated as soon as possible. No constraints are applied.The
- *        device is notified immediately about a new update after it becomes
- *        available. (Value: "AUTO_UPDATE_HIGH_PRIORITY")
+ *        device is notified as soon as possible about a new update after it
+ *        becomes available. (Value: "AUTO_UPDATE_HIGH_PRIORITY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
  *        Unspecified. Defaults to AUTO_UPDATE_DEFAULT. (Value:
  *        "AUTO_UPDATE_MODE_UNSPECIFIED")
@@ -6020,9 +6040,7 @@ GTLR_DEPRECATED
  *        usbFileTransferDisabled is ignored. (Value:
  *        "DISALLOW_USB_FILE_TRANSFER")
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_UsbDataAccessUnspecified
- *        Unspecified. Defaults to ALLOW_USB_DATA_TRANSFER, unless
- *        usbFileTransferDisabled is set to true. If usbFileTransferDisabled is
- *        set to true, this is equivalent to DISALLOW_USB_FILE_TRANSFER. (Value:
+ *        Unspecified. Defaults to DISALLOW_USB_FILE_TRANSFER. (Value:
  *        "USB_DATA_ACCESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *usbDataAccess;
@@ -6092,6 +6110,12 @@ GTLR_DEPRECATED
  *  connect to.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseBit192NetworkSecurity
+ *        A 192-bit enterprise network is the minimum required security level.
+ *        The device will not be able to connect to Wi-Fi network below this
+ *        security level. This is stricter than ENTERPRISE_NETWORK_SECURITY. A
+ *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 13. (Value: "ENTERPRISE_BIT192_NETWORK_SECURITY")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseNetworkSecurity
  *        An enterprise EAP network is the minimum required security level. The
  *        device will not be able to connect to Wi-Fi network below this
@@ -6454,13 +6478,8 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *qrCode;
 
-/**
- *  The user associated with this enrollment token. If it's specified when the
- *  enrollment token is created and the user does not exist, the user will be
- *  created. This field must not contain personally identifiable information.
- *  Only the account_identifier field needs to be set.
- */
-@property(nonatomic, strong, nullable) GTLRAndroidManagement_User *user;
+/** This field is deprecated and the value is ignored. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_User *user GTLR_DEPRECATED;
 
 /**
  *  The token value that's passed to the device and authorizes the device to
@@ -6545,9 +6564,7 @@ GTLR_DEPRECATED
  *  (https://developer.android.com/topic/performance/appstandby#restricted-bucket).
  *  Extensions apps are also protected against users clearing their data or
  *  force-closing the application, although admins can continue to use the clear
- *  app data command
- *  (https://developer.android.com/management/reference/rest/v1/enterprises.devices/issueCommand#CommandType)
- *  on extension apps if needed for Android 13 and above.
+ *  app data command on extension apps if needed for Android 13 and above.
  */
 @interface GTLRAndroidManagement_ExtensionConfig : GTLRObject
 
@@ -7638,7 +7655,9 @@ GTLR_DEPRECATED
 /**
  *  A token to initiate the migration of a device from being managed by a
  *  third-party DPC to being managed by Android Management API. A migration
- *  token is valid only for a single device.
+ *  token is valid only for a single device. See the guide
+ *  (https://developers.google.com/android/management/dpc-migration) for more
+ *  details.
  */
 @interface GTLRAndroidManagement_MigrationToken : GTLRObject
 
@@ -9954,7 +9973,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *lostOrganization;
 
-/** The phone number displayed to the user when the device is in lost mode. */
+/**
+ *  The phone number that will be called when the device is in lost mode and the
+ *  call owner button is tapped.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *lostPhoneNumber;
 
 /**
@@ -10475,6 +10497,12 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall
  *        Indicates lostModeOutgoingPhoneCallEvent has been set. (Value:
  *        "LOST_MODE_OUTGOING_PHONE_CALL")
+ *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaExhausted
+ *        Indicates max_devices_registration_quota_exhausted_event has been set.
+ *        (Value: "MAX_DEVICES_REGISTRATION_QUOTA_EXHAUSTED")
+ *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaWarning
+ *        Indicates max_devices_registration_quota_warning_event has been set.
+ *        (Value: "MAX_DEVICES_REGISTRATION_QUOTA_WARNING")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MediaMount
  *        Indicates media_mount_event has been set. (Value: "MEDIA_MOUNT")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MediaUnmount

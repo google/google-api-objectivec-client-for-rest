@@ -7,7 +7,7 @@
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.
 // Documentation:
-//   https://developers.google.com/cloud-test-lab/
+//   https://firebase.google.com/docs/test-lab/
 
 #import "GTLRTestingObjects.h"
 #import "GTLRTestingQuery.h"

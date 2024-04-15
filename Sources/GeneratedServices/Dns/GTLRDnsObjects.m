@@ -765,10 +765,11 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 @dynamic dnsKeysPerManagedZone, gkeClustersPerManagedZone, gkeClustersPerPolicy,
          gkeClustersPerResponsePolicy, itemsPerRoutingPolicy, kind,
          managedZones, managedZonesPerGkeCluster, managedZonesPerNetwork,
-         networksPerManagedZone, networksPerPolicy, networksPerResponsePolicy,
-         peeringZonesPerTargetNetwork, policies, resourceRecordsPerRrset,
-         responsePolicies, responsePolicyRulesPerResponsePolicy,
-         rrsetAdditionsPerChange, rrsetDeletionsPerChange, rrsetsPerManagedZone,
+         nameserversPerDelegation, networksPerManagedZone, networksPerPolicy,
+         networksPerResponsePolicy, peeringZonesPerTargetNetwork, policies,
+         resourceRecordsPerRrset, responsePolicies,
+         responsePolicyRulesPerResponsePolicy, rrsetAdditionsPerChange,
+         rrsetDeletionsPerChange, rrsetsPerManagedZone,
          targetNameServersPerManagedZone, targetNameServersPerPolicy,
          totalRrdataSizePerChange, whitelistedKeySpecs;
 

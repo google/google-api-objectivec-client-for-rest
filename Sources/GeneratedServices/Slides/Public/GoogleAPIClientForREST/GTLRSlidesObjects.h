@@ -102,6 +102,8 @@
 @class GTLRSlides_Size;
 @class GTLRSlides_SlideProperties;
 @class GTLRSlides_SolidFill;
+@class GTLRSlides_SpeakerSpotlight;
+@class GTLRSlides_SpeakerSpotlightProperties;
 @class GTLRSlides_StretchedPictureFill;
 @class GTLRSlides_SubstringMatchCriteria;
 @class GTLRSlides_Table;
@@ -6438,6 +6440,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** The size of the page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_Size *size;
 
+/** A Speaker Spotlight. */
+@property(nonatomic, strong, nullable) GTLRSlides_SpeakerSpotlight *speakerSpotlight;
+
 /** A table page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_Table *table;
 
@@ -8115,6 +8120,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The color value of the solid fill. */
 @property(nonatomic, strong, nullable) GTLRSlides_OpaqueColor *color;
+
+@end
+
+
+/**
+ *  A PageElement kind representing a Speaker Spotlight.
+ */
+@interface GTLRSlides_SpeakerSpotlight : GTLRObject
+
+/** The properties of the Speaker Spotlight. */
+@property(nonatomic, strong, nullable) GTLRSlides_SpeakerSpotlightProperties *speakerSpotlightProperties;
+
+@end
+
+
+/**
+ *  The properties of the SpeakerSpotlight.
+ */
+@interface GTLRSlides_SpeakerSpotlightProperties : GTLRObject
+
+/** The outline of the Speaker Spotlight. If not set, it has no outline. */
+@property(nonatomic, strong, nullable) GTLRSlides_Outline *outline;
+
+/** The shadow of the Speaker Spotlight. If not set, it has no shadow. */
+@property(nonatomic, strong, nullable) GTLRSlides_Shadow *shadow;
 
 @end
 

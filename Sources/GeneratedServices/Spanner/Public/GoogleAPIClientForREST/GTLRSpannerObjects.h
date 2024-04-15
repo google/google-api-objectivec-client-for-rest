@@ -52,6 +52,7 @@
 @class GTLRSpanner_InstanceConfig;
 @class GTLRSpanner_InstanceConfig_Labels;
 @class GTLRSpanner_InstanceOperationProgress;
+@class GTLRSpanner_InstancePartition;
 @class GTLRSpanner_KeyRange;
 @class GTLRSpanner_KeyRangeInfo;
 @class GTLRSpanner_KeyRangeInfos;
@@ -577,6 +578,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_State_Ready;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_InstancePartition.state
+
+/**
+ *  The instance partition is still being created. Resources may not be
+ *  available yet, and operations such as creating placements using this
+ *  instance partition may not work.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstancePartition_State_Creating;
+/**
+ *  The instance partition is fully created and ready to do work such as
+ *  creating placements and using in databases.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstancePartition_State_Ready;
+/**
+ *  Not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstancePartition_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Metric.aggregation
@@ -1249,6 +1275,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @interface GTLRSpanner_BatchWriteRequest : GTLRObject
 
+/**
+ *  Optional. When `exclude_txn_from_change_streams` is set to `true`: *
+ *  Mutations from all transactions in this batch write operation will not be
+ *  recorded in change streams with DDL option `allow_txn_exclusion=true` that
+ *  are tracking columns modified by these transactions. * Mutations from all
+ *  transactions in this batch write operation will be recorded in change
+ *  streams with DDL option `allow_txn_exclusion=false or not set` that are
+ *  tracking columns modified by these transactions. When
+ *  `exclude_txn_from_change_streams` is set to `false` or not set, mutations
+ *  from all transactions in this batch write operation will be recorded in all
+ *  change streams that are tracking columns modified by these transactions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludeTxnFromChangeStreams;
+
 /** Required. The groups of mutations to be applied. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_MutationGroup *> *mutationGroups;
 
@@ -1851,6 +1893,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /** The time at which the CreateInstance request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Metadata type for the operation returned by CreateInstancePartition.
+ */
+@interface GTLRSpanner_CreateInstancePartitionMetadata : GTLRObject
+
+/**
+ *  The time at which this operation was cancelled. If set, this operation is in
+ *  the process of undoing itself (which is guaranteed to succeed) and cannot be
+ *  cancelled again.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
+
+/** The time at which this operation failed or was completed successfully. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The instance partition being created. */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstancePartition *instancePartition;
+
+/** The time at which the CreateInstancePartition request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The request for CreateInstancePartition.
+ */
+@interface GTLRSpanner_CreateInstancePartitionRequest : GTLRObject
+
+/**
+ *  Required. The instance partition to create. The instance_partition.name may
+ *  be omitted, but if specified must be `/instancePartitions/`.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstancePartition *instancePartition;
+
+/**
+ *  Required. The ID of the instance partition to create. Valid identifiers are
+ *  of the form `a-z*[a-z0-9]` and must be between 2 and 64 characters in
+ *  length.
+ */
+@property(nonatomic, copy, nullable) NSString *instancePartitionId;
 
 @end
 
@@ -3096,6 +3183,112 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  An isolated set of Cloud Spanner resources that databases can define
+ *  placements on.
+ */
+@interface GTLRSpanner_InstancePartition : GTLRObject
+
+/**
+ *  Required. The name of the instance partition's configuration. Values are of
+ *  the form `projects//instanceConfigs/`. See also InstanceConfig and
+ *  ListInstanceConfigs.
+ */
+@property(nonatomic, copy, nullable) NSString *config;
+
+/** Output only. The time at which the instance partition was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The descriptive name for this instance partition as it appears in
+ *  UIs. Must be unique per project and between 4 and 30 characters in length.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a instance partition from overwriting each other. It
+ *  is strongly suggested that systems make use of the etag in the
+ *  read-modify-write cycle to perform instance partition updates in order to
+ *  avoid race conditions: An etag is returned in the response which contains
+ *  instance partitions, and systems are expected to put that etag in the
+ *  request to update instance partitions to ensure that their change will be
+ *  applied to the same version of the instance partition. If no etag is
+ *  provided in the call to update instance partition, then the existing
+ *  instance partition is overwritten blindly.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A unique identifier for the instance partition. Values are of the
+ *  form `projects//instances//instancePartitions/a-z*[a-z0-9]`. The final
+ *  segment of the name must be between 2 and 64 characters in length. An
+ *  instance partition's name cannot be changed after the instance partition is
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The number of nodes allocated to this instance partition. Users can set the
+ *  node_count field to specify the target number of nodes allocated to the
+ *  instance partition. This may be zero in API responses for instance
+ *  partitions that are not yet in state `READY`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/**
+ *  The number of processing units allocated to this instance partition. Users
+ *  can set the processing_units field to specify the target number of
+ *  processing units allocated to the instance partition. This may be zero in
+ *  API responses for instance partitions that are not yet in state `READY`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *processingUnits;
+
+/**
+ *  Output only. The names of the backups that reference this instance
+ *  partition. Referencing backups should share the parent instance. The
+ *  existence of any referencing backup prevents the instance partition from
+ *  being deleted.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referencingBackups;
+
+/**
+ *  Output only. The names of the databases that reference this instance
+ *  partition. Referencing databases should share the parent instance. The
+ *  existence of any referencing database prevents the instance partition from
+ *  being deleted.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referencingDatabases;
+
+/**
+ *  Output only. The current instance partition state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_InstancePartition_State_Creating The instance
+ *        partition is still being created. Resources may not be available yet,
+ *        and operations such as creating placements using this instance
+ *        partition may not work. (Value: "CREATING")
+ *    @arg @c kGTLRSpanner_InstancePartition_State_Ready The instance partition
+ *        is fully created and ready to do work such as creating placements and
+ *        using in databases. (Value: "READY")
+ *    @arg @c kGTLRSpanner_InstancePartition_State_StateUnspecified Not
+ *        specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The time at which the instance partition was most recently
+ *  updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  KeyRange represents a range of rows in a table or index. A range has a start
  *  key and an end key. These keys can be open or closed, indicating if the
  *  range includes rows with that key. Keys are represented by lists, where the
@@ -3481,6 +3674,77 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  The response for ListInstancePartitionOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSpanner_ListInstancePartitionOperationsResponse : GTLRCollectionObject
+
+/**
+ *  `next_page_token` can be sent in a subsequent
+ *  ListInstancePartitionOperations call to fetch more of the matching metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of matching instance partition long-running operations. Each
+ *  operation's name will be prefixed by the instance partition's name. The
+ *  operation's metadata field type `metadata.type_url` describes the type of
+ *  the metadata.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Operation *> *operations;
+
+/**
+ *  The list of unreachable instance partitions. It includes the names of
+ *  instance partitions whose operation metadata could not be retrieved within
+ *  instance_partition_deadline.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableInstancePartitions;
+
+@end
+
+
+/**
+ *  The response for ListInstancePartitions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "instancePartitions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSpanner_ListInstancePartitionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of requested instancePartitions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_InstancePartition *> *instancePartitions;
+
+/**
+ *  `next_page_token` can be sent in a subsequent ListInstancePartitions call to
+ *  fetch more of the matching instance partitions.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of unreachable instance partitions. It includes the names of
+ *  instance partitions whose metadata could not be retrieved within
+ *  instance_partition_deadline.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response for ListInstances.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3762,6 +4026,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *cols;
+
+@end
+
+
+/**
+ *  The request for MoveInstance.
+ */
+@interface GTLRSpanner_MoveInstanceRequest : GTLRObject
+
+/**
+ *  Required. The target instance config for the instance to move. Values are of
+ *  the form `projects//instanceConfigs/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetConfig;
 
 @end
 
@@ -5212,6 +5490,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Session_Labels *labels;
 
+/**
+ *  Optional. If true, specifies a multiplexed session. A multiplexed session
+ *  may be used for multiple, concurrent read-only operations but can not be
+ *  used for read-write transactions, partitioned reads, or partitioned queries.
+ *  Multiplexed sessions can be created via CreateSession but not via
+ *  BatchCreateSessions. Multiplexed sessions may not be deleted nor listed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multiplexed;
+
 /** Output only. The name of the session. This is always system-assigned. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5674,6 +5963,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_TransactionOptions : GTLRObject
 
 /**
+ *  When `exclude_txn_from_change_streams` is set to `true`: * Mutations from
+ *  this transaction will not be recorded in change streams with DDL option
+ *  `allow_txn_exclusion=true` that are tracking columns modified by these
+ *  transactions. * Mutations from this transaction will be recorded in change
+ *  streams with DDL option `allow_txn_exclusion=false or not set` that are
+ *  tracking columns modified by these transactions. When
+ *  `exclude_txn_from_change_streams` is set to `false` or not set, mutations
+ *  from this transaction will be recorded in all change streams that are
+ *  tracking columns modified by these transactions.
+ *  `exclude_txn_from_change_streams` may only be specified for read-write or
+ *  partitioned-dml transactions, otherwise the API will return an
+ *  `INVALID_ARGUMENT` error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludeTxnFromChangeStreams;
+
+/**
  *  Partitioned DML transaction. Authorization to begin a Partitioned DML
  *  transaction requires `spanner.databases.beginPartitionedDmlTransaction`
  *  permission on the `session` resource.
@@ -6062,6 +6369,55 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /** The time at which UpdateInstance request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Metadata type for the operation returned by UpdateInstancePartition.
+ */
+@interface GTLRSpanner_UpdateInstancePartitionMetadata : GTLRObject
+
+/**
+ *  The time at which this operation was cancelled. If set, this operation is in
+ *  the process of undoing itself (which is guaranteed to succeed) and cannot be
+ *  cancelled again.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
+
+/** The time at which this operation failed or was completed successfully. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The desired end state of the update. */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstancePartition *instancePartition;
+
+/** The time at which UpdateInstancePartition request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The request for UpdateInstancePartition.
+ */
+@interface GTLRSpanner_UpdateInstancePartitionRequest : GTLRObject
+
+/**
+ *  Required. A mask specifying which fields in InstancePartition should be
+ *  updated. The field mask must always be specified; this prevents any future
+ *  fields in InstancePartition from being erased accidentally by clients that
+ *  do not know about them.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldMask;
+
+/**
+ *  Required. The instance partition to update, which must always include the
+ *  instance partition name. Otherwise, only fields mentioned in field_mask need
+ *  be included.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstancePartition *instancePartition;
 
 @end
 

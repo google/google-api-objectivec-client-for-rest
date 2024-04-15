@@ -177,7 +177,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsDeleteSnapshots : GTLRDataflowQuery
 
@@ -214,7 +213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsAggregated : GTLRDataflowQuery
 
@@ -316,7 +314,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsCreate : GTLRDataflowQuery
 
@@ -387,7 +384,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsDebugGetConfig : GTLRDataflowQuery
 
@@ -424,7 +420,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsDebugSendCapture : GTLRDataflowQuery
 
@@ -466,7 +461,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsGet : GTLRDataflowQuery
 
@@ -541,7 +535,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsGetMetrics : GTLRDataflowQuery
 
@@ -599,7 +592,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsList : GTLRDataflowQuery
 
@@ -706,7 +698,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsMessagesList : GTLRDataflowQuery
 
@@ -812,7 +803,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsSnapshot : GTLRDataflowQuery
 
@@ -854,7 +844,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsUpdate : GTLRDataflowQuery
 
@@ -915,7 +904,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsWorkItemsLease : GTLRDataflowQuery
 
@@ -952,7 +940,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsJobsWorkItemsReportStatus : GTLRDataflowQuery
 
@@ -989,7 +976,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsFlexTemplatesLaunch : GTLRDataflowQuery
 
@@ -1038,7 +1024,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsCreate : GTLRDataflowQuery
 
@@ -1113,7 +1098,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsDebugGetConfig : GTLRDataflowQuery
 
@@ -1161,7 +1145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsDebugSendCapture : GTLRDataflowQuery
 
@@ -1214,7 +1197,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsGet : GTLRDataflowQuery
 
@@ -1290,7 +1272,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsGetExecutionDetails : GTLRDataflowQuery
 
@@ -1357,7 +1338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics : GTLRDataflowQuery
 
@@ -1419,7 +1399,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsList : GTLRDataflowQuery
 
@@ -1530,7 +1509,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsMessagesList : GTLRDataflowQuery
 
@@ -1640,7 +1618,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsSnapshot : GTLRDataflowQuery
 
@@ -1682,7 +1659,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsSnapshotsList : GTLRDataflowQuery
 
@@ -1722,7 +1698,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsStagesGetExecutionDetails : GTLRDataflowQuery
 
@@ -1801,7 +1776,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsUpdate : GTLRDataflowQuery
 
@@ -1866,7 +1840,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease : GTLRDataflowQuery
 
@@ -1914,7 +1887,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus : GTLRDataflowQuery
 
@@ -1962,7 +1934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsSnapshotsDelete : GTLRDataflowQuery
 
@@ -2002,7 +1973,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsSnapshotsGet : GTLRDataflowQuery
 
@@ -2042,7 +2012,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsSnapshotsList : GTLRDataflowQuery
 
@@ -2080,7 +2049,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesCreate : GTLRDataflowQuery
 
@@ -2125,7 +2093,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesGet : GTLRDataflowQuery
 
@@ -2181,13 +2148,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesLaunch : GTLRDataflowQuery
 
 /**
- *  Path to dynamic template spec file on Cloud Storage. The file must be a Json
- *  serialized DynamicTemplateFieSpec object.
+ *  Path to the dynamic template specification file on Cloud Storage. The file
+ *  must be a JSON serialized `DynamicTemplateFileSpec` object.
  */
 @property(nonatomic, copy, nullable) NSString *dynamicTemplateGcsPath;
 
@@ -2198,8 +2164,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *dynamicTemplateStagingLocation;
 
 /**
- *  A Cloud Storage path to the template from which to create the job. Must be
- *  valid Cloud Storage URL, beginning with 'gs://'.
+ *  A Cloud Storage path to the template to use to create the job. Must be valid
+ *  Cloud Storage URL, beginning with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
@@ -2249,7 +2215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsLocationsWorkerMessages : GTLRDataflowQuery
 
@@ -2292,7 +2257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsSnapshotsGet : GTLRDataflowQuery
 
@@ -2330,7 +2294,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsSnapshotsList : GTLRDataflowQuery
 
@@ -2366,7 +2329,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesCreate : GTLRDataflowQuery
 
@@ -2400,7 +2362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesGet : GTLRDataflowQuery
 
@@ -2452,13 +2413,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesLaunch : GTLRDataflowQuery
 
 /**
- *  Path to dynamic template spec file on Cloud Storage. The file must be a Json
- *  serialized DynamicTemplateFieSpec object.
+ *  Path to the dynamic template specification file on Cloud Storage. The file
+ *  must be a JSON serialized `DynamicTemplateFileSpec` object.
  */
 @property(nonatomic, copy, nullable) NSString *dynamicTemplateGcsPath;
 
@@ -2469,8 +2429,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *dynamicTemplateStagingLocation;
 
 /**
- *  A Cloud Storage path to the template from which to create the job. Must be
- *  valid Cloud Storage URL, beginning with 'gs://'.
+ *  A Cloud Storage path to the template to use to create the job. Must be valid
+ *  Cloud Storage URL, beginning with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
@@ -2516,7 +2476,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
  *    @c kGTLRAuthScopeDataflowComputeReadonly
- *    @c kGTLRAuthScopeDataflowUserinfoEmail
  */
 @interface GTLRDataflowQuery_ProjectsWorkerMessages : GTLRDataflowQuery
 

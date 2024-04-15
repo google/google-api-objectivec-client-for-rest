@@ -19,6 +19,7 @@
 @class GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewAuthor;
 @class GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkup;
 @class GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage;
+@class GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1FactCheckedClaimImageSearchResponseResult;
 @class GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1Publisher;
 
 // Generated comments include content from the discovery document; avoid them
@@ -258,6 +259,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  output-only and should not be set by the user.
  */
 @property(nonatomic, copy, nullable) NSString *versionId;
+
+@end
+
+
+/**
+ *  Response from searching fact-checked claims by image.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "results" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1FactCheckedClaimImageSearchResponse : GTLRCollectionObject
+
+/**
+ *  The next pagination token in the Search response. It should be used as the
+ *  `page_token` for the following request. An empty value means no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of claims and all of their associated information.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1FactCheckedClaimImageSearchResponseResult *> *results;
+
+@end
+
+
+/**
+ *  A claim and its associated information.
+ */
+@interface GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1FactCheckedClaimImageSearchResponseResult : GTLRObject
+
+/** A claim which matched the query. */
+@property(nonatomic, strong, nullable) GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1Claim *claim;
 
 @end
 

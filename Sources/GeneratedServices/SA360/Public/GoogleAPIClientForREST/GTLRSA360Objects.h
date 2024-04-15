@@ -76,6 +76,13 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsErrorLocationFieldPathElement;
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsQuotaErrorDetails;
 @class GTLRSA360_GoogleAdsSearchads360V0ErrorsSearchAds360Error;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyMaximizeConversions;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyMaximizeConversionValue;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetCpa;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetRoas;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetSpend;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAd;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd;
@@ -2931,6 +2938,181 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsQuota
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsQuotaErrorDetails_RateScope_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy.type
+
+/**
+ *  Commission is an automatic bidding strategy in which the advertiser pays a
+ *  certain portion of the conversion value.
+ *
+ *  Value: "COMMISSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_Commission;
+/**
+ *  Enhanced CPC is a bidding strategy that raises bids for clicks that seem
+ *  more likely to lead to a conversion and lowers them for clicks where they
+ *  seem less likely.
+ *
+ *  Value: "ENHANCED_CPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_EnhancedCpc;
+/**
+ *  Used for return value only. Indicates that a campaign does not have a
+ *  bidding strategy. This prevents the campaign from serving. For example, a
+ *  campaign may be attached to a manager bidding strategy and the serving
+ *  account is subsequently unlinked from the manager account. In this case the
+ *  campaign will automatically be detached from the now inaccessible manager
+ *  bidding strategy and transition to the INVALID bidding strategy type.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_Invalid;
+/**
+ *  Manual bidding strategy that allows advertiser to set the bid per
+ *  advertiser-specified action.
+ *
+ *  Value: "MANUAL_CPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_ManualCpa;
+/**
+ *  Manual click based bidding where user pays per click.
+ *
+ *  Value: "MANUAL_CPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_ManualCpc;
+/**
+ *  Manual impression based bidding where user pays per thousand impressions.
+ *
+ *  Value: "MANUAL_CPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_ManualCpm;
+/**
+ *  A bidding strategy that pays a configurable amount per video view.
+ *
+ *  Value: "MANUAL_CPV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_ManualCpv;
+/**
+ *  A bidding strategy that automatically maximizes number of conversions given
+ *  a daily budget.
+ *
+ *  Value: "MAXIMIZE_CONVERSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_MaximizeConversions;
+/**
+ *  An automated bidding strategy that automatically sets bids to maximize
+ *  revenue while spending your budget.
+ *
+ *  Value: "MAXIMIZE_CONVERSION_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_MaximizeConversionValue;
+/**
+ *  Page-One Promoted bidding scheme, which sets max cpc bids to target
+ *  impressions on page one or page one promoted slots on google.com. This enum
+ *  value is deprecated.
+ *
+ *  Value: "PAGE_ONE_PROMOTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_PageOnePromoted;
+/**
+ *  Percent Cpc is bidding strategy where bids are a fraction of the advertised
+ *  price for some good or service.
+ *
+ *  Value: "PERCENT_CPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_PercentCpc;
+/**
+ *  Target CPA is an automated bid strategy that sets bids to help get as many
+ *  conversions as possible at the target cost-per-acquisition (CPA) you set.
+ *
+ *  Value: "TARGET_CPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetCpa;
+/**
+ *  Target CPM is an automated bid strategy that sets bids to help get as many
+ *  impressions as possible at the target cost per one thousand impressions
+ *  (CPM) you set.
+ *
+ *  Value: "TARGET_CPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetCpm;
+/**
+ *  An automated bidding strategy that sets bids so that a certain percentage of
+ *  search ads are shown at the top of the first page (or other targeted
+ *  location).
+ *
+ *  Value: "TARGET_IMPRESSION_SHARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetImpressionShare;
+/**
+ *  Target Outrank Share is an automated bidding strategy that sets bids based
+ *  on the target fraction of auctions where the advertiser should outrank a
+ *  specific competitor. This enum value is deprecated.
+ *
+ *  Value: "TARGET_OUTRANK_SHARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetOutrankShare;
+/**
+ *  Target ROAS is an automated bidding strategy that helps you maximize revenue
+ *  while averaging a specific target Return On Average Spend (ROAS).
+ *
+ *  Value: "TARGET_ROAS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetRoas;
+/**
+ *  Target Spend is an automated bid strategy that sets your bids to help get as
+ *  many clicks as possible within your budget.
+ *
+ *  Value: "TARGET_SPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetSpend;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare.location
+
+/**
+ *  Top slot in the top box of ads.
+ *
+ *  Value: "ABSOLUTE_TOP_OF_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_AbsoluteTopOfPage;
+/**
+ *  Any location on the web page.
+ *
+ *  Value: "ANYWHERE_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_AnywhereOnPage;
+/**
+ *  Top box of ads.
+ *
+ *  Value: "TOP_OF_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_TopOfPage;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesAd.type
 
 /**
@@ -3904,6 +4086,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_Language;
 /**
+ *  Life Event
+ *
+ *  Value: "LIFE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_LifeEvent;
+/**
  *  Listing groups to target.
  *
  *  Value: "LISTING_GROUP"
@@ -4427,6 +4615,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAs
  *  Value: "DESCRIPTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Description;
+/**
+ *  The asset is linked for use as a discovery carousel card.
+ *
+ *  Value: "DISCOVERY_CAROUSEL_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_DiscoveryCarouselCard;
 /**
  *  The asset is linked for use as a headline.
  *
@@ -5501,6 +5695,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Description;
 /**
+ *  The asset is linked for use as a discovery carousel card.
+ *
+ *  Value: "DISCOVERY_CAROUSEL_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_DiscoveryCarouselCard;
+/**
  *  The asset is linked for use as a headline.
  *
  *  Value: "HEADLINE"
@@ -5990,6 +6190,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_Language;
 /**
+ *  Life Event
+ *
+ *  Value: "LIFE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_LifeEvent;
+/**
  *  Listing groups to target.
  *
  *  Value: "LISTING_GROUP"
@@ -6268,6 +6474,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  *  Value: "DESCRIPTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Description;
+/**
+ *  The asset is linked for use as a discovery carousel card.
+ *
+ *  Value: "DISCOVERY_CAROUSEL_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_DiscoveryCarouselCard;
 /**
  *  The asset is linked for use as a headline.
  *
@@ -8202,6 +8414,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Description;
 /**
+ *  The asset is linked for use as a discovery carousel card.
+ *
+ *  Value: "DISCOVERY_CAROUSEL_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_DiscoveryCarouselCard;
+/**
  *  The asset is linked for use as a headline.
  *
  *  Value: "HEADLINE"
@@ -9152,8 +9370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @interface GTLRSA360_GoogleAdsSearchads360V0CommonMetrics : GTLRObject
 
 /**
- *  The percent of your ad impressions that are shown as the very first ad above
- *  the organic search results.
+ *  Search absolute top impression share is the percentage of your Search ad
+ *  impressions that are shown in the most prominent Search position.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -9942,8 +10160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *searchAbsoluteTopImpressionShare;
 
 /**
- *  The number estimating how often your ad wasn't the very first ad above the
- *  organic search results due to a low budget. Note: Search budget lost
+ *  The number estimating how often your ad wasn't the very first ad among the
+ *  top ads in the search results due to a low budget. Note: Search budget lost
  *  absolute top impression share is reported in the range of 0 to 0.9. Any
  *  value above 0.9 is reported as 0.9001.
  *
@@ -9962,7 +10180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *searchBudgetLostImpressionShare;
 
 /**
- *  The number estimating how often your ad didn't show anywhere above the
+ *  The number estimating how often your ad didn't show adjacent to the top
  *  organic search results due to a low budget. Note: Search budget lost top
  *  impression share is reported in the range of 0 to 0.9. Any value above 0.9
  *  is reported as 0.9001.
@@ -10004,10 +10222,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *searchImpressionShare;
 
 /**
- *  The number estimating how often your ad wasn't the very first ad above the
- *  organic search results due to poor Ad Rank. Note: Search rank lost absolute
- *  top impression share is reported in the range of 0 to 0.9. Any value above
- *  0.9 is reported as 0.9001.
+ *  The number estimating how often your ad wasn't the very first ad among the
+ *  top ads in the search results due to poor Ad Rank. Note: Search rank lost
+ *  absolute top impression share is reported in the range of 0 to 0.9. Any
+ *  value above 0.9 is reported as 0.9001.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -10024,7 +10242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *searchRankLostImpressionShare;
 
 /**
- *  The number estimating how often your ad didn't show anywhere above the
+ *  The number estimating how often your ad didn't show adjacent to the top
  *  organic search results due to poor Ad Rank. Note: Search rank lost top
  *  impression share is reported in the range of 0 to 0.9. Any value above 0.9
  *  is reported as 0.9001.
@@ -10034,19 +10252,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *searchRankLostTopImpressionShare;
 
 /**
- *  The impressions you've received in the top location (anywhere above the
- *  organic search results) compared to the estimated number of impressions you
- *  were eligible to receive in the top location. Note: Search top impression
- *  share is reported in the range of 0.1 to 1. Any value below 0.1 is reported
- *  as 0.0999.
+ *  The impressions you've received among the top ads compared to the estimated
+ *  number of impressions you were eligible to receive among the top ads. Note:
+ *  Search top impression share is reported in the range of 0.1 to 1. Any value
+ *  below 0.1 is reported as 0.0999. Top ads are generally above the top organic
+ *  results, although they may show below the top organic results on certain
+ *  queries.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *searchTopImpressionShare;
 
 /**
- *  The percent of your ad impressions that are shown anywhere above the organic
- *  search results.
+ *  The percent of your ad impressions that are shown adjacent to the top
+ *  organic search results.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -12088,6 +12307,318 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  Represents a view of BiddingStrategies owned by and shared with the
+ *  customer. In contrast to BiddingStrategy, this resource includes strategies
+ *  owned by managers of the customer and shared with this customer - in
+ *  addition to strategies owned by this customer. This resource does not
+ *  provide metrics and only exposes a limited subset of the BiddingStrategy
+ *  attributes.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy : GTLRObject
+
+/**
+ *  Output only. The ID of the bidding strategy.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Output only. An automated bidding strategy to help get the most conversions
+ *  for your campaigns while spending your budget.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyMaximizeConversions *maximizeConversions;
+
+/**
+ *  Output only. An automated bidding strategy to help get the most conversion
+ *  value for your campaigns while spending your budget.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyMaximizeConversionValue *maximizeConversionValue;
+
+/** Output only. The name of the bidding strategy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The ID of the Customer which owns the bidding strategy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
+
+/**
+ *  Output only. descriptive_name of the Customer which owns the bidding
+ *  strategy.
+ */
+@property(nonatomic, copy, nullable) NSString *ownerDescriptiveName;
+
+/**
+ *  Output only. The resource name of the accessible bidding strategy.
+ *  AccessibleBiddingStrategy resource names have the form:
+ *  `customers/{customer_id}/accessibleBiddingStrategies/{bidding_strategy_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. A bidding strategy that sets bids to help get as many
+ *  conversions as possible at the target cost-per-acquisition (CPA) you set.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetCpa *targetCpa;
+
+/**
+ *  Output only. A bidding strategy that automatically optimizes towards a
+ *  chosen percentage of impressions.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare *targetImpressionShare;
+
+/**
+ *  Output only. A bidding strategy that helps you maximize revenue while
+ *  averaging a specific target Return On Ad Spend (ROAS).
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetRoas *targetRoas;
+
+/**
+ *  Output only. A bid strategy that sets your bids to help get as many clicks
+ *  as possible within your budget.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetSpend *targetSpend;
+
+/**
+ *  Output only. The type of the bidding strategy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_Commission
+ *        Commission is an automatic bidding strategy in which the advertiser
+ *        pays a certain portion of the conversion value. (Value: "COMMISSION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_EnhancedCpc
+ *        Enhanced CPC is a bidding strategy that raises bids for clicks that
+ *        seem more likely to lead to a conversion and lowers them for clicks
+ *        where they seem less likely. (Value: "ENHANCED_CPC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_Invalid
+ *        Used for return value only. Indicates that a campaign does not have a
+ *        bidding strategy. This prevents the campaign from serving. For
+ *        example, a campaign may be attached to a manager bidding strategy and
+ *        the serving account is subsequently unlinked from the manager account.
+ *        In this case the campaign will automatically be detached from the now
+ *        inaccessible manager bidding strategy and transition to the INVALID
+ *        bidding strategy type. (Value: "INVALID")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_ManualCpa
+ *        Manual bidding strategy that allows advertiser to set the bid per
+ *        advertiser-specified action. (Value: "MANUAL_CPA")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_ManualCpc
+ *        Manual click based bidding where user pays per click. (Value:
+ *        "MANUAL_CPC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_ManualCpm
+ *        Manual impression based bidding where user pays per thousand
+ *        impressions. (Value: "MANUAL_CPM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_ManualCpv
+ *        A bidding strategy that pays a configurable amount per video view.
+ *        (Value: "MANUAL_CPV")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_MaximizeConversions
+ *        A bidding strategy that automatically maximizes number of conversions
+ *        given a daily budget. (Value: "MAXIMIZE_CONVERSIONS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_MaximizeConversionValue
+ *        An automated bidding strategy that automatically sets bids to maximize
+ *        revenue while spending your budget. (Value:
+ *        "MAXIMIZE_CONVERSION_VALUE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_PageOnePromoted
+ *        Page-One Promoted bidding scheme, which sets max cpc bids to target
+ *        impressions on page one or page one promoted slots on google.com. This
+ *        enum value is deprecated. (Value: "PAGE_ONE_PROMOTED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_PercentCpc
+ *        Percent Cpc is bidding strategy where bids are a fraction of the
+ *        advertised price for some good or service. (Value: "PERCENT_CPC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetCpa
+ *        Target CPA is an automated bid strategy that sets bids to help get as
+ *        many conversions as possible at the target cost-per-acquisition (CPA)
+ *        you set. (Value: "TARGET_CPA")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetCpm
+ *        Target CPM is an automated bid strategy that sets bids to help get as
+ *        many impressions as possible at the target cost per one thousand
+ *        impressions (CPM) you set. (Value: "TARGET_CPM")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetImpressionShare
+ *        An automated bidding strategy that sets bids so that a certain
+ *        percentage of search ads are shown at the top of the first page (or
+ *        other targeted location). (Value: "TARGET_IMPRESSION_SHARE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetOutrankShare
+ *        Target Outrank Share is an automated bidding strategy that sets bids
+ *        based on the target fraction of auctions where the advertiser should
+ *        outrank a specific competitor. This enum value is deprecated. (Value:
+ *        "TARGET_OUTRANK_SHARE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetRoas
+ *        Target ROAS is an automated bidding strategy that helps you maximize
+ *        revenue while averaging a specific target Return On Average Spend
+ *        (ROAS). (Value: "TARGET_ROAS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_TargetSpend
+ *        Target Spend is an automated bid strategy that sets your bids to help
+ *        get as many clicks as possible within your budget. (Value:
+ *        "TARGET_SPEND")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy_Type_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  An automated bidding strategy to help get the most conversions for your
+ *  campaigns while spending your budget.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyMaximizeConversions : GTLRObject
+
+/**
+ *  Output only. The target cost per acquisition (CPA) option. This is the
+ *  average amount that you would like to spend per acquisition.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetCpa;
+
+/**
+ *  Output only. The target cost per acquisition (CPA) option. This is the
+ *  average amount that you would like to spend per acquisition.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetCpaMicros;
+
+@end
+
+
+/**
+ *  An automated bidding strategy to help get the most conversion value for your
+ *  campaigns while spending your budget.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyMaximizeConversionValue : GTLRObject
+
+/**
+ *  Output only. The target return on ad spend (ROAS) option. If set, the bid
+ *  strategy will maximize revenue while averaging the target return on ad
+ *  spend. If the target ROAS is high, the bid strategy may not be able to spend
+ *  the full budget. If the target ROAS is not set, the bid strategy will aim to
+ *  achieve the highest possible ROAS for the budget.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetRoas;
+
+@end
+
+
+/**
+ *  An automated bid strategy that sets bids to help get as many conversions as
+ *  possible at the target cost-per-acquisition (CPA) you set.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetCpa : GTLRObject
+
+/**
+ *  Output only. Average CPA target. This target should be greater than or equal
+ *  to minimum billable unit based on the currency for the account.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetCpaMicros;
+
+@end
+
+
+/**
+ *  An automated bidding strategy that sets bids so that a certain percentage of
+ *  search ads are shown at the top of the first page (or other targeted
+ *  location).
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare : GTLRObject
+
+/**
+ *  Output only. The highest CPC bid the automated bidding system is permitted
+ *  to specify. This is a required field entered by the advertiser that sets the
+ *  ceiling and specified in local micros.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpcBidCeilingMicros;
+
+/**
+ *  Output only. The targeted location on the search results page.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_AbsoluteTopOfPage
+ *        Top slot in the top box of ads. (Value: "ABSOLUTE_TOP_OF_PAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_AnywhereOnPage
+ *        Any location on the web page. (Value: "ANYWHERE_ON_PAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_TopOfPage
+ *        Top box of ads. (Value: "TOP_OF_PAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetImpressionShare_Location_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The chosen fraction of ads to be shown in the targeted location in micros.
+ *  For example, 1% equals 10,000.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *locationFractionMicros;
+
+@end
+
+
+/**
+ *  An automated bidding strategy that helps you maximize revenue while
+ *  averaging a specific target return on ad spend (ROAS).
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetRoas : GTLRObject
+
+/**
+ *  Output only. The chosen revenue (based on conversion data) per unit of
+ *  spend.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetRoas;
+
+@end
+
+
+/**
+ *  An automated bid strategy that sets your bids to help get as many clicks as
+ *  possible within your budget.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategyTargetSpend : GTLRObject
+
+/**
+ *  Output only. Maximum bid limit that can be set by the bid strategy. The
+ *  limit applies to all keywords managed by the strategy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpcBidCeilingMicros;
+
+/**
+ *  Output only. The spend target under which to maximize clicks. A TargetSpend
+ *  bidder will attempt to spend the smaller of this value or the natural
+ *  throttling spend amount. If not specified, the budget is used as the spend
+ *  target. This field is deprecated and should no longer be used. See
+ *  https://ads-developers.googleblog.com/2020/05/reminder-about-sunset-creation-of.html
+ *  for details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetSpendMicros GTLR_DEPRECATED;
+
+@end
+
+
+/**
  *  An ad.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAd : GTLRObject
@@ -12701,7 +13232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
- *  An ad group criterion.
+ *  An ad group criterion. The ad_group_criterion report only returns criteria
+ *  that were explicitly added to the ad group.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion : GTLRObject
 
@@ -12946,6 +13478,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Smart Campaign keyword theme (Value: "KEYWORD_THEME")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_Language
  *        Language. (Value: "LANGUAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_LifeEvent
+ *        Life Event (Value: "LIFE_EVENT")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_ListingGroup
  *        Listing groups to target. (Value: "LISTING_GROUP")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion_Type_ListingScope
@@ -12993,11 +13527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/**
- *  Immutable. User List. The Similar Audiences sunset starts May 2023. Refer to
- *  https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html
- *  for other options.
- */
+/** Immutable. User List. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo *userList;
 
 /** Immutable. Webpage */
@@ -13419,6 +13949,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        "CALL_TO_ACTION_SELECTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Description
  *        The asset is linked for use as a description. (Value: "DESCRIPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_DiscoveryCarouselCard
+ *        The asset is linked for use as a discovery carousel card. (Value:
+ *        "DISCOVERY_CAROUSEL_CARD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Headline
  *        The asset is linked for use as a headline. (Value: "HEADLINE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_HotelCallout
@@ -13958,6 +14491,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  A campaign.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign : GTLRObject
+
+/**
+ *  Output only. Resource name of AccessibleBiddingStrategy, a read-only view of
+ *  the unrestricted attributes of the attached portfolio bidding strategy
+ *  identified by 'bidding_strategy'. Empty, if the campaign does not use a
+ *  portfolio strategy. Unrestricted strategy attributes are available to all
+ *  customers with whom the strategy is shared and are read from the
+ *  AccessibleBiddingStrategy resource. In contrast, restricted attributes are
+ *  only available to the owner customer of the strategy and their managers.
+ *  Restricted attributes can only be read from the BiddingStrategy resource.
+ */
+@property(nonatomic, copy, nullable) NSString *accessibleBiddingStrategy;
 
 /**
  *  The ad serving optimization status of the campaign.
@@ -14817,6 +15362,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Smart Campaign keyword theme (Value: "KEYWORD_THEME")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_Language
  *        Language. (Value: "LANGUAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_LifeEvent
+ *        Life Event (Value: "LIFE_EVENT")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_ListingGroup
  *        Listing groups to target. (Value: "LISTING_GROUP")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion_Type_ListingScope
@@ -14864,11 +15411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/**
- *  Immutable. User List. The Similar Audiences sunset starts May 2023. Refer to
- *  https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html
- *  for other options.
- */
+/** Immutable. User List. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo *userList;
 
 /** Immutable. Webpage. */
@@ -15161,6 +15704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        "CALL_TO_ACTION_SELECTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Description
  *        The asset is linked for use as a description. (Value: "DESCRIPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_DiscoveryCarouselCard
+ *        The asset is linked for use as a discovery carousel card. (Value:
+ *        "DISCOVERY_CAROUSEL_CARD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Headline
  *        The asset is linked for use as a headline. (Value: "HEADLINE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_HotelCallout
@@ -16658,7 +17204,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
- *  A gender view.
+ *  A gender view. The gender_view resource reflects the effective serving
+ *  state, rather than what criteria were added. An ad group without gender
+ *  criteria by default shows to all genders, so all genders appear in
+ *  gender_view with stats.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesGenderView : GTLRObject
 
@@ -17071,8 +17620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
- *  A location view summarizes the performance of campaigns by Location
- *  criteria.
+ *  A location view summarizes the performance of campaigns by a Location
+ *  criterion.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesLocationView : GTLRObject
 
@@ -17455,6 +18004,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        "CALL_TO_ACTION_SELECTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Description
  *        The asset is linked for use as a description. (Value: "DESCRIPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_DiscoveryCarouselCard
+ *        The asset is linked for use as a discovery carousel card. (Value:
+ *        "DISCOVERY_CAROUSEL_CARD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Headline
  *        The asset is linked for use as a headline. (Value: "HEADLINE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_HotelCallout
@@ -17759,6 +18311,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  A returned row from the query.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row : GTLRObject
+
+/** The accessible bidding strategy referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAccessibleBiddingStrategy *accessibleBiddingStrategy;
 
 /** The ad group referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup *adGroup;

@@ -38,6 +38,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_ACMEDNS"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AddressValidation",
+            targets: ["GoogleAPIClientForREST_AddressValidation"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AdExchangeBuyerII",
             targets: ["GoogleAPIClientForREST_AdExchangeBuyerII"]
         ),
@@ -280,6 +284,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CloudComposer",
             targets: ["GoogleAPIClientForREST_CloudComposer"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_CloudControlsPartnerService",
+            targets: ["GoogleAPIClientForREST_CloudControlsPartnerService"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CloudDataplex",
@@ -662,6 +670,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_GoogleAnalyticsAdmin"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_GoogleMarketingPlatformAdminAPI",
+            targets: ["GoogleAPIClientForREST_GoogleMarketingPlatformAdminAPI"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_GroupsMigration",
             targets: ["GoogleAPIClientForREST_GroupsMigration"]
         ),
@@ -982,6 +994,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_SmartDeviceManagement"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Solar",
+            targets: ["GoogleAPIClientForREST_Solar"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Spanner",
             targets: ["GoogleAPIClientForREST_Spanner"]
         ),
@@ -1179,6 +1195,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_ACMEDNS",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/ACMEDNS",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_AddressValidation",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AddressValidation",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1545,6 +1567,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudComposer",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudComposer",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudControlsPartnerService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudControlsPartnerService",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2118,6 +2146,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_GoogleMarketingPlatformAdminAPI",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/GoogleMarketingPlatformAdminAPI",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_GroupsMigration",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/GroupsMigration",
@@ -2595,6 +2629,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_SmartDeviceManagement",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/SmartDeviceManagement",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Solar",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Solar",
             publicHeadersPath: "Public"
         ),
         .target(

@@ -545,8 +545,13 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 //
 
 @implementation GTLRAlertCenter_DeviceManagementRule
-@dynamic deviceId, deviceModel, deviceType, email, iosVendorId, resourceId,
-         serialNumber;
+@dynamic deviceId, deviceModel, deviceType, email, identifier, iosVendorId,
+         ownerId, resourceId, ruleAction, serialNumber;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

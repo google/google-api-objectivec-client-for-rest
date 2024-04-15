@@ -161,6 +161,20 @@ NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTarg
 NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeGce = @"MIGRATION_TARGET_TYPE_GCE";
 NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeUnspecified = @"MIGRATION_TARGET_TYPE_UNSPECIFIED";
 
+// GTLRVMMigrationService_ImageImportJob.state
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Failed = @"FAILED";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Pending = @"PENDING";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Running = @"RUNNING";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Succeeded = @"SUCCEEDED";
+
+// GTLRVMMigrationService_ImageImportOsAdaptationParameters.licenseType
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeByol = @"COMPUTE_ENGINE_LICENSE_TYPE_BYOL";
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeDefault = @"COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT";
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypePayg = @"COMPUTE_ENGINE_LICENSE_TYPE_PAYG";
+
 // GTLRVMMigrationService_MigratingVm.state
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Active = @"ACTIVE";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Cutover = @"CUTOVER";
@@ -180,6 +194,7 @@ NSString * const kGTLRVMMigrationService_MigrationError_Code_ApplianceUpgradeErr
 NSString * const kGTLRVMMigrationService_MigrationError_Code_CloneError = @"CLONE_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_CutoverError = @"CUTOVER_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_MigrationError_Code_ImageImportError = @"IMAGE_IMPORT_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_OsAdaptationError = @"OS_ADAPTATION_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_SourceReplicationError = @"SOURCE_REPLICATION_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_SourceValidationError = @"SOURCE_VALIDATION_ERROR";
@@ -575,6 +590,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_CancelImageImportJobRequest
+//
+
+@implementation GTLRVMMigrationService_CancelImageImportJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_CancelOperationRequest
 //
 
@@ -793,6 +817,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_CreatingImageStep
+//
+
+@implementation GTLRVMMigrationService_CreatingImageStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_CutoverForecast
 //
 
@@ -857,6 +890,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_DataDiskImageImport
+//
+
+@implementation GTLRVMMigrationService_DataDiskImageImport
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_Disk
 //
 
@@ -872,6 +914,44 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_DiskImageDefaults
 @dynamic sourceImage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DiskImageTargetDetails
+//
+
+@implementation GTLRVMMigrationService_DiskImageTargetDetails
+@dynamic additionalLicenses, dataDiskImageImport, descriptionProperty,
+         encryption, familyName, imageName, labels, osAdaptationParameters,
+         singleRegionStorage, targetProject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalLicenses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DiskImageTargetDetails_Labels
+//
+
+@implementation GTLRVMMigrationService_DiskImageTargetDetails_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1009,6 +1089,77 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_ImageImport
+//
+
+@implementation GTLRVMMigrationService_ImageImport
+@dynamic cloudStorageUri, createTime, diskImageTargetDefaults, encryption, name,
+         recentImageImportJobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recentImageImportJobs" : [GTLRVMMigrationService_ImageImportJob class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ImageImportJob
+//
+
+@implementation GTLRVMMigrationService_ImageImportJob
+@dynamic cloudStorageUri, createdResources, createTime, diskImageTargetDetails,
+         endTime, errors, name, state, steps, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"createdResources" : [NSString class],
+    @"errors" : [GTLRVMMigrationService_Status class],
+    @"steps" : [GTLRVMMigrationService_ImageImportStep class],
+    @"warnings" : [GTLRVMMigrationService_MigrationWarning class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ImageImportOsAdaptationParameters
+//
+
+@implementation GTLRVMMigrationService_ImageImportOsAdaptationParameters
+@dynamic generalize, licenseType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ImageImportStep
+//
+
+@implementation GTLRVMMigrationService_ImageImportStep
+@dynamic adaptingOs, creatingImage, endTime, initializing, loadingSourceFiles,
+         startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_InitializingImageImportStep
+//
+
+@implementation GTLRVMMigrationService_InitializingImageImportStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_InitializingReplicationStep
 //
 
@@ -1127,6 +1278,52 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 + (NSString *)collectionItemsKey {
   return @"groups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ListImageImportJobsResponse
+//
+
+@implementation GTLRVMMigrationService_ListImageImportJobsResponse
+@dynamic imageImportJobs, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"imageImportJobs" : [GTLRVMMigrationService_ImageImportJob class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"imageImportJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ListImageImportsResponse
+//
+
+@implementation GTLRVMMigrationService_ListImageImportsResponse
+@dynamic imageImports, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"imageImports" : [GTLRVMMigrationService_ImageImport class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"imageImports";
 }
 
 @end
@@ -1288,6 +1485,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return @"utilizationReports";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_LoadingImageSourceFilesStep
+//
+
+@implementation GTLRVMMigrationService_LoadingImageSourceFilesStep
 @end
 
 

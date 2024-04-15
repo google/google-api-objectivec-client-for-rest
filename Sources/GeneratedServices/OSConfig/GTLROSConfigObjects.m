@@ -201,6 +201,11 @@ NSString * const kGTLROSConfig_PatchRollout_Mode_ConcurrentZones = @"CONCURRENT_
 NSString * const kGTLROSConfig_PatchRollout_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 NSString * const kGTLROSConfig_PatchRollout_Mode_ZoneByZone    = @"ZONE_BY_ZONE";
 
+// GTLROSConfig_ProjectFeatureSettings.patchAndConfigFeatureSet
+NSString * const kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_OsconfigB = @"OSCONFIG_B";
+NSString * const kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_OsconfigC = @"OSCONFIG_C";
+NSString * const kGTLROSConfig_ProjectFeatureSettings_PatchAndConfigFeatureSet_PatchAndConfigFeatureSetUnspecified = @"PATCH_AND_CONFIG_FEATURE_SET_UNSPECIFIED";
+
 // GTLROSConfig_RecurringSchedule.frequency
 NSString * const kGTLROSConfig_RecurringSchedule_Frequency_Daily = @"DAILY";
 NSString * const kGTLROSConfig_RecurringSchedule_Frequency_FrequencyUnspecified = @"FREQUENCY_UNSPECIFIED";
@@ -1395,6 +1400,16 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 //
 
 @implementation GTLROSConfig_PausePatchDeploymentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_ProjectFeatureSettings
+//
+
+@implementation GTLROSConfig_ProjectFeatureSettings
+@dynamic name, patchAndConfigFeatureSet;
 @end
 
 

@@ -4,9 +4,11 @@
 // API:
 //   Identity and Access Management (IAM) API (iam/v2)
 // Description:
-//   Manages identity and access control for Google Cloud Platform resources,
-//   including the creation of service accounts, which you can use to
-//   authenticate to Google and make API calls.
+//   Manages identity and access control for Google Cloud resources, including
+//   the creation of service accounts, which you can use to authenticate to
+//   Google and make API calls. Enabling this API also enables the IAM Service
+//   Account Credentials API (iamcredentials.googleapis.com). However, disabling
+//   this API doesn't disable the IAM Service Account Credentials API.
 // Documentation:
 //   https://cloud.google.com/iam/
 
@@ -15,10 +17,25 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRIam_CloudControl2SharedOperationsReconciliationOperationMetadata.exclusiveAction
+NSString * const kGTLRIam_CloudControl2SharedOperationsReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
+NSString * const kGTLRIam_CloudControl2SharedOperationsReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
+NSString * const kGTLRIam_CloudControl2SharedOperationsReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
+
 // GTLRIam_GoogleIamV1BindingDelta.action
 NSString * const kGTLRIam_GoogleIamV1BindingDelta_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRIam_GoogleIamV1BindingDelta_Action_Add   = @"ADD";
 NSString * const kGTLRIam_GoogleIamV1BindingDelta_Action_Remove = @"REMOVE";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_CloudControl2SharedOperationsReconciliationOperationMetadata
+//
+
+@implementation GTLRIam_CloudControl2SharedOperationsReconciliationOperationMetadata
+@dynamic deleteResource, exclusiveAction;
+@end
+
 
 // ----------------------------------------------------------------------------
 //

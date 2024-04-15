@@ -76,7 +76,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Collection of links. This collection is read-only. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTasks_Task_Links_Item *> *links;
 
-/** Notes describing the task. Optional. */
+/**
+ *  Notes describing the task. Optional. Maximum length allowed: 8192
+ *  characters.
+ */
 @property(nonatomic, copy, nullable) NSString *notes;
 
 /**
@@ -104,11 +107,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** Status of the task. This is either "needsAction" or "completed". */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** Title of the task. */
+/** Title of the task. Maximum length allowed: 1024 characters. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /** Last modification time of the task (as a RFC 3339 timestamp). */
 @property(nonatomic, copy, nullable) NSString *updated;
+
+/**
+ *  An absolute link to the task in the Google Tasks Web UI. This field is
+ *  read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *webViewLink;
 
 @end
 
@@ -158,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** Title of the task list. */
+/** Title of the task list. Maximum length allowed: 1024 characters. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /** Last modification time of the task list (as a RFC 3339 timestamp). */

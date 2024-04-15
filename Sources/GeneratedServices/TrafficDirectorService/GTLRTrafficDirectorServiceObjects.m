@@ -117,7 +117,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_ClientConfig
-@dynamic genericXdsConfigs, node, xdsConfig;
+@dynamic clientScope, genericXdsConfigs, node, xdsConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -829,7 +829,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_StringMatcher
-@dynamic contains, exact, ignoreCase, prefix, safeRegex, suffix;
+@dynamic contains, custom, exact, ignoreCase, prefix, safeRegex, suffix;
 @end
 
 
@@ -846,6 +846,30 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
     @"path" : [GTLRTrafficDirectorService_PathSegment class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_TypedExtensionConfig
+//
+
+@implementation GTLRTrafficDirectorService_TypedExtensionConfig
+@dynamic name, typedConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig
+//
+
+@implementation GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

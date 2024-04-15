@@ -1989,7 +1989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *gitCommitish;
 
-/** Output only. The release config's name. */
+/** Identifier. The release config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2068,7 +2068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /** Optional. Repository user labels. */
 @property(nonatomic, strong, nullable) GTLRDataform_Repository_Labels *labels;
 
-/** Output only. The repository's name. */
+/** Identifier. The repository's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2398,7 +2398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /** Optional. If left unset, a default InvocationConfig will be used. */
 @property(nonatomic, strong, nullable) GTLRDataform_InvocationConfig *invocationConfig;
 
-/** Output only. The workflow config's name. */
+/** Identifier. The workflow config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2547,7 +2547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_Workspace : GTLRObject
 
-/** Output only. The workspace's name. */
+/** Identifier. The workspace's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end

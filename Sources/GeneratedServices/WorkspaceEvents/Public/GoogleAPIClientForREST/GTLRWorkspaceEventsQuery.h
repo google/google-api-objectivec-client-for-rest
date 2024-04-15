@@ -51,6 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_OperationsGet : GTLRWorkspaceEventsQuery
 
@@ -89,6 +91,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsCreate : GTLRWorkspaceEventsQuery
 
@@ -133,6 +137,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsDelete : GTLRWorkspaceEventsQuery
 
@@ -195,6 +201,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsGet : GTLRWorkspaceEventsQuery
 
@@ -239,6 +247,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsList : GTLRWorkspaceEventsQuery
 
@@ -311,6 +321,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsPatch : GTLRWorkspaceEventsQuery
 
@@ -321,10 +333,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Required. The field to update. You can update one of the following
- *  fields in a subscription: * `expire_time`: The timestamp when the
- *  subscription expires. * `ttl`: The time-to-live (TTL) or duration of the
- *  subscription.
+ *  Optional. The field to update. If omitted, updates any fields included in
+ *  the request. You can update one of the following fields in a subscription: *
+ *  `expire_time`: The timestamp when the subscription expires. * `ttl`: The
+ *  time-to-live (TTL) or duration of the subscription. To fully replace the
+ *  subscription (the equivalent of `PUT`), use `*`. Any omitted fields are
+ *  updated with empty values.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -375,6 +389,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsReactivate : GTLRWorkspaceEventsQuery
 

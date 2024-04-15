@@ -115,6 +115,11 @@
 @class GTLRDatabaseMigrationService_SourceTextFilter;
 @class GTLRDatabaseMigrationService_SqlAclEntry;
 @class GTLRDatabaseMigrationService_SqlIpConfig;
+@class GTLRDatabaseMigrationService_SqlServerBackups;
+@class GTLRDatabaseMigrationService_SqlServerConnectionProfile;
+@class GTLRDatabaseMigrationService_SqlServerDatabaseBackup;
+@class GTLRDatabaseMigrationService_SqlServerEncryptionOptions;
+@class GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig;
 @class GTLRDatabaseMigrationService_SslConfig;
 @class GTLRDatabaseMigrationService_StaticIpConnectivity;
 @class GTLRDatabaseMigrationService_StaticServiceIpConnectivity;
@@ -480,31 +485,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
 // GTLRDatabaseMigrationService_ConnectionProfile.provider
 
 /**
- *  AlloyDB.
+ *  AlloyDB for PostgreSQL is the source instance provider.
  *
  *  Value: "ALLOYDB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Alloydb;
 /**
- *  Amazon Aurora.
+ *  Amazon Aurora is the source instance provider.
  *
  *  Value: "AURORA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora;
 /**
- *  CloudSQL runs the database.
+ *  Cloud SQL is the source instance provider.
  *
  *  Value: "CLOUDSQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql;
 /**
- *  The database provider is unknown.
+ *  Use this value for on-premise source database instances.
  *
  *  Value: "DATABASE_PROVIDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified;
 /**
- *  RDS runs the database.
+ *  Amazon RDS is the source instance provider.
  *
  *  Value: "RDS"
  */
@@ -589,6 +594,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEngineI
  *  Value: "POSTGRESQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Postgresql;
+/**
+ *  The source engine is SQL Server.
+ *
+ *  Value: "SQLSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Sqlserver;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_DatabaseEntity.entityType
@@ -745,36 +756,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_En
  *  Value: "POSTGRESQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql;
+/**
+ *  The source engine is SQL Server.
+ *
+ *  Value: "SQLSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Sqlserver;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_DatabaseType.provider
 
 /**
- *  AlloyDB.
+ *  AlloyDB for PostgreSQL is the source instance provider.
  *
  *  Value: "ALLOYDB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Alloydb;
 /**
- *  Amazon Aurora.
+ *  Amazon Aurora is the source instance provider.
  *
  *  Value: "AURORA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora;
 /**
- *  CloudSQL runs the database.
+ *  Cloud SQL is the source instance provider.
  *
  *  Value: "CLOUDSQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql;
 /**
- *  The database provider is unknown.
+ *  Use this value for on-premise source database instances.
  *
  *  Value: "DATABASE_PROVIDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified;
 /**
- *  RDS runs the database.
+ *  Amazon RDS is the source instance provider.
  *
  *  Value: "RDS"
  */
@@ -1477,6 +1494,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MappingRule_Sta
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MappingRule_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_MigrationJob.dumpType
+
+/**
+ *  If not specified, defaults to LOGICAL
+ *
+ *  Value: "DUMP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_DumpType_DumpTypeUnspecified;
+/**
+ *  Logical dump.
+ *
+ *  Value: "LOGICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_DumpType_Logical;
+/**
+ *  Physical file-based dump. Supported for MySQL to CloudSQL for MySQL
+ *  migrations only.
+ *
+ *  Value: "PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_DumpType_Physical;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_MigrationJob.phase
 
 /**
@@ -1509,6 +1549,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Ph
  *  Value: "PROMOTE_IN_PROGRESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PromoteInProgress;
+/**
+ *  The migration job is ready to be promoted.
+ *
+ *  Value: "READY_FOR_PROMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_ReadyForPromote;
 /**
  *  Only RDS flow - waiting for source writes to stop
  *
@@ -1758,6 +1804,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVer
  *  Value: "SOURCE_ALREADY_SETUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceAlreadySetup;
+/**
+ *  The migration job is configured to use max number of subscriptions to
+ *  migrate data from the source to the destination.
+ *
+ *  Value: "SOURCE_MAX_SUBSCRIPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceMaxSubscriptions;
 /**
  *  The source DB size in Bytes exceeds a certain threshold. The migration might
  *  require an increase of quota, or might not be supported.
@@ -3034,18 +3087,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Alloydb
- *        AlloyDB. (Value: "ALLOYDB")
+ *        AlloyDB for PostgreSQL is the source instance provider. (Value:
+ *        "ALLOYDB")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora
- *        Amazon Aurora. (Value: "AURORA")
+ *        Amazon Aurora is the source instance provider. (Value: "AURORA")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql
- *        CloudSQL runs the database. (Value: "CLOUDSQL")
+ *        Cloud SQL is the source instance provider. (Value: "CLOUDSQL")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified
- *        The database provider is unknown. (Value:
+ *        Use this value for on-premise source database instances. (Value:
  *        "DATABASE_PROVIDER_UNSPECIFIED")
- *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Rds RDS
- *        runs the database. (Value: "RDS")
+ *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Rds
+ *        Amazon RDS is the source instance provider. (Value: "RDS")
  */
 @property(nonatomic, copy, nullable) NSString *provider;
+
+/** Connection profile for a SQL Server data source. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerConnectionProfile *sqlserver;
 
 /**
  *  The current connection profile state (e.g. DRAFT, READY, or FAILED).
@@ -3324,6 +3381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        source engine is Oracle. (Value: "ORACLE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Postgresql
  *        The source engine is PostgreSQL. (Value: "POSTGRESQL")
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseEngineInfo_Engine_Sqlserver
+ *        The source engine is SQL Server. (Value: "SQLSERVER")
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
@@ -3498,6 +3557,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        source engine is Oracle. (Value: "ORACLE")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql The
  *        source engine is PostgreSQL. (Value: "POSTGRESQL")
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Engine_Sqlserver The
+ *        source engine is SQL Server. (Value: "SQLSERVER")
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
@@ -3506,16 +3567,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Alloydb
- *        AlloyDB. (Value: "ALLOYDB")
+ *        AlloyDB for PostgreSQL is the source instance provider. (Value:
+ *        "ALLOYDB")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora Amazon
- *        Aurora. (Value: "AURORA")
- *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql
- *        CloudSQL runs the database. (Value: "CLOUDSQL")
+ *        Aurora is the source instance provider. (Value: "AURORA")
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql Cloud
+ *        SQL is the source instance provider. (Value: "CLOUDSQL")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified
- *        The database provider is unknown. (Value:
+ *        Use this value for on-premise source database instances. (Value:
  *        "DATABASE_PROVIDER_UNSPECIFIED")
- *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Rds RDS runs
- *        the database. (Value: "RDS")
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Rds Amazon RDS
+ *        is the source instance provider. (Value: "RDS")
  */
 @property(nonatomic, copy, nullable) NSString *provider;
 
@@ -4880,6 +4942,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, copy, nullable) NSString *dumpPath;
 
 /**
+ *  Optional. The type of the data dump. Supported for MySQL to CloudSQL for
+ *  MySQL migrations only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_DumpType_DumpTypeUnspecified
+ *        If not specified, defaults to LOGICAL (Value: "DUMP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_DumpType_Logical
+ *        Logical dump. (Value: "LOGICAL")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_DumpType_Physical
+ *        Physical file-based dump. Supported for MySQL to CloudSQL for MySQL
+ *        migrations only. (Value: "PHYSICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *dumpType;
+
+/**
  *  Output only. The duration of the migration job (in seconds). A duration in
  *  seconds with up to nine fractional digits, terminated by 's'. Example:
  *  "3.5s".
@@ -4940,6 +5017,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_PromoteInProgress
  *        The migration job is running the promote phase. (Value:
  *        "PROMOTE_IN_PROGRESS")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_ReadyForPromote
+ *        The migration job is ready to be promoted. (Value:
+ *        "READY_FOR_PROMOTE")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_WaitingForSourceWritesToStop
  *        Only RDS flow - waiting for source writes to stop (Value:
  *        "WAITING_FOR_SOURCE_WRITES_TO_STOP")
@@ -4957,6 +5037,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** The database engine type and provider of the source. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_DatabaseType *sourceDatabase;
+
+/** Optional. Configuration for SQL Server homogeneous migration. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig *sqlserverHomogeneousMigrationJobConfig;
 
 /**
  *  The current migration job state.
@@ -5109,6 +5192,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceAlreadySetup
  *        The source already has a replication setup. (Value:
  *        "SOURCE_ALREADY_SETUP")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceMaxSubscriptions
+ *        The migration job is configured to use max number of subscriptions to
+ *        migrate data from the source to the destination. (Value:
+ *        "SOURCE_MAX_SUBSCRIPTIONS")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_SourceSizeExceedsThreshold
  *        The source DB size in Bytes exceeds a certain threshold. The migration
  *        might require an increase of quota, or might not be supported. (Value:
@@ -5923,6 +6010,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Request message for 'ResumeMigrationJob' request.
  */
 @interface GTLRDatabaseMigrationService_ResumeMigrationJobRequest : GTLRObject
+
+/**
+ *  Optional. Resume the migration job without running prior configuration
+ *  verification. Defaults to `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipValidation;
+
 @end
 
 
@@ -6495,6 +6591,158 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireSsl;
+
+@end
+
+
+/**
+ *  Specifies the backup details in Cloud Storage for homogeneous migration to
+ *  Cloud SQL for SQL Server.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerBackups : GTLRObject
+
+/**
+ *  Required. The Cloud Storage bucket that stores backups for all replicated
+ *  databases.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsBucket;
+
+/** Optional. Cloud Storage path inside the bucket that stores backups. */
+@property(nonatomic, copy, nullable) NSString *gcsPrefix;
+
+@end
+
+
+/**
+ *  Specifies connection parameters required specifically for SQL Server
+ *  databases.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerConnectionProfile : GTLRObject
+
+/**
+ *  The backup details in Cloud Storage for homogeneous migration to Cloud SQL
+ *  for SQL Server.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerBackups *backups;
+
+/**
+ *  If the source is a Cloud SQL database, use this field to provide the Cloud
+ *  SQL instance ID of the source.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudSqlId;
+
+/** Forward SSH tunnel connectivity. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity *forwardSshConnectivity;
+
+/** Required. The IP or hostname of the source SQL Server database. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Required. Input only. The password for the user that Database Migration
+ *  Service will be using to connect to the database. This field is not returned
+ *  on request, and the value is encrypted when stored in Database Migration
+ *  Service.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Output only. Indicates whether a new password is included in the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passwordSet;
+
+/**
+ *  Required. The network port of the source SQL Server database.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/** Private connectivity. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateConnectivity *privateConnectivity;
+
+/** Private Service Connect connectivity. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateServiceConnectConnectivity *privateServiceConnectConnectivity;
+
+/**
+ *  SSL configuration for the destination to connect to the source database.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SslConfig *ssl;
+
+/** Static IP connectivity data (default, no additional details needed). */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_StaticIpConnectivity *staticIpConnectivity;
+
+/**
+ *  Required. The username that Database Migration Service will use to connect
+ *  to the database. The value is encrypted when stored in Database Migration
+ *  Service.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Specifies the backup details for a single database in Cloud Storage for
+ *  homogeneous migration to Cloud SQL for SQL Server.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerDatabaseBackup : GTLRObject
+
+/**
+ *  Required. Name of a SQL Server database for which to define backup
+ *  configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Optional. Encryption settings for the database. Required if provided
+ *  database backups are encrypted. Encryption settings include path to
+ *  certificate, path to certificate private key, and key password.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerEncryptionOptions *encryptionOptions;
+
+@end
+
+
+/**
+ *  Encryption settings for the SQL Server database.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerEncryptionOptions : GTLRObject
+
+/** Required. Path to certificate. */
+@property(nonatomic, copy, nullable) NSString *certPath;
+
+/** Required. Input only. Private key password. */
+@property(nonatomic, copy, nullable) NSString *pvkPassword;
+
+/** Required. Path to certificate private key. */
+@property(nonatomic, copy, nullable) NSString *pvkPath;
+
+@end
+
+
+/**
+ *  Configuration for homogeneous migration to Cloud SQL for SQL Server.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig : GTLRObject
+
+/**
+ *  Required. Pattern that describes the default backup naming strategy. The
+ *  specified pattern should ensure lexicographical order of backups. The
+ *  pattern must define one of the following capture group sets: Capture group
+ *  set #1 yy/yyyy - year, 2 or 4 digits mm - month number, 1-12 dd - day of
+ *  month, 1-31 hh - hour of day, 00-23 mi - minutes, 00-59 ss - seconds, 00-59
+ *  Example: For backup file TestDB_20230802_155400.trn, use pattern:
+ *  (?.*)_backup_(?\\d{4})(?\\d{2})(?\\d{2})_(?\\d{2})(?\\d{2})(?\\d{2}).trn
+ *  Capture group set #2 timestamp - unix timestamp Example: For backup file
+ *  TestDB.1691448254.trn, use pattern: (?.*)\\.(?\\d*).trn or
+ *  (?.*)\\.(?\\d*).trn
+ */
+@property(nonatomic, copy, nullable) NSString *backupFilePattern;
+
+/** Required. Backup details per database in Cloud Storage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_SqlServerDatabaseBackup *> *databaseBackups;
 
 @end
 

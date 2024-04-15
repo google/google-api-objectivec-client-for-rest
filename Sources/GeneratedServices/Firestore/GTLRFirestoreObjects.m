@@ -36,6 +36,12 @@ NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime = @"REQUEST_TIME";
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified = @"SERVER_VALUE_UNSPECIFIED";
 
+// GTLRFirestore_FindNearest.distanceMeasure
+NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Cosine = @"COSINE";
+NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified = @"DISTANCE_MEASURE_UNSPECIFIED";
+NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DotProduct = @"DOT_PRODUCT";
+NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Euclidean = @"EUCLIDEAN";
+
 // GTLRFirestore_GoogleFirestoreAdminV1Backup.state
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Creating = @"CREATING";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_NotAvailable = @"NOT_AVAILABLE";
@@ -608,11 +614,45 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_ExecutionStats
+//
+
+@implementation GTLRFirestore_ExecutionStats
+@dynamic debugStats, executionDuration, readOperations, resultsReturned;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_ExecutionStats_DebugStats
+//
+
+@implementation GTLRFirestore_ExecutionStats_DebugStats
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_ExistenceFilter
 //
 
 @implementation GTLRFirestore_ExistenceFilter
 @dynamic count, targetId, unchangedNames;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_ExplainMetrics
+//
+
+@implementation GTLRFirestore_ExplainMetrics
+@dynamic executionStats, planSummary;
 @end
 
 
@@ -664,6 +704,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_Filter
 @dynamic compositeFilter, fieldFilter, unaryFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_FindNearest
+//
+
+@implementation GTLRFirestore_FindNearest
+@dynamic distanceMeasure, limit, queryVector, vectorField;
 @end
 
 
@@ -1443,6 +1493,38 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_PlanSummary
+//
+
+@implementation GTLRFirestore_PlanSummary
+@dynamic indexesUsed;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexesUsed" : [GTLRFirestore_PlanSummary_IndexesUsed_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_PlanSummary_IndexesUsed_Item
+//
+
+@implementation GTLRFirestore_PlanSummary_IndexesUsed_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_Precondition
 //
 
@@ -1526,7 +1608,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunAggregationQueryResponse
-@dynamic readTime, result, transaction;
+@dynamic explainMetrics, readTime, result, transaction;
 @end
 
 
@@ -1546,7 +1628,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunQueryResponse
-@dynamic document, done, readTime, skippedResults, transaction;
+@dynamic document, done, explainMetrics, readTime, skippedResults, transaction;
 @end
 
 
@@ -1606,7 +1688,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_StructuredQuery
-@dynamic endAt, from, limit, offset, orderBy, select, startAt, where;
+@dynamic endAt, findNearest, from, limit, offset, orderBy, select, startAt,
+         where;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

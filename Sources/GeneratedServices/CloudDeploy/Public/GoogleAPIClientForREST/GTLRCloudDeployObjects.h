@@ -181,6 +181,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTy
 // GTLRCloudDeploy_AutomationEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -233,6 +239,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeUns
 // GTLRCloudDeploy_AutomationRun.state
 
 /**
+ *  The `AutomationRun` was aborted.
+ *
+ *  Value: "ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRun_State_Aborted;
+/**
  *  The `AutomationRun` was cancelled.
  *
  *  Value: "CANCELLED"
@@ -272,6 +284,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRun_State_Succeede
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_AutomationRunEvent.type
 
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeDeployPolicyEvaluation;
 /**
  *  A process aborted.
  *
@@ -324,6 +342,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_Type
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
 
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeDeployPolicyEvaluation;
 /**
  *  A process aborted.
  *
@@ -565,6 +589,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRun_State_Terminating;
 // GTLRCloudDeploy_JobRunNotificationEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -767,6 +797,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Release_RenderState_Succeede
 // GTLRCloudDeploy_ReleaseNotificationEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -847,6 +883,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRe
 // GTLRCloudDeploy_ReleaseRenderEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -921,6 +963,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Retry_BackoffMode_BackoffMod
 // GTLRCloudDeploy_RetryAttempt.state
 
 /**
+ *  The `repair` action was aborted.
+ *
+ *  Value: "REPAIR_STATE_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateAborted;
+/**
  *  The `repair` action was cancelled.
  *
  *  Value: "REPAIR_STATE_CANCELLED"
@@ -988,6 +1036,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RetryPhase_BackoffMode_Backo
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_RollbackAttempt.state
 
+/**
+ *  The `repair` action was aborted.
+ *
+ *  Value: "REPAIR_STATE_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateAborted;
 /**
  *  The `repair` action was cancelled.
  *
@@ -1201,6 +1255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded;
 // GTLRCloudDeploy_RolloutNotificationEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -1341,6 +1401,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUp
 // GTLRCloudDeploy_RolloutUpdateEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -1420,6 +1486,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_S
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_TargetNotificationEvent.type
 
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeDeployPolicyEvaluation;
 /**
  *  A process aborted.
  *
@@ -1970,6 +2042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeProcessAborted A process
  *        aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypePubsubNotificationFailure
@@ -2017,6 +2091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *advanceAutomationRuns;
+
+/** Output only. The current AutomationRun repairing the rollout. */
+@property(nonatomic, copy, nullable) NSString *currentRepairAutomationRun;
 
 /**
  *  Output only. The ID of the AutomationRun initiated by a promote release
@@ -2133,6 +2210,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Output only. Current state of the `AutomationRun`.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_AutomationRun_State_Aborted The `AutomationRun`
+ *        was aborted. (Value: "ABORTED")
  *    @arg @c kGTLRCloudDeploy_AutomationRun_State_Cancelled The `AutomationRun`
  *        was cancelled. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudDeploy_AutomationRun_State_Failed The `AutomationRun`
@@ -2204,6 +2283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypePubsubNotificationFailure
@@ -2963,6 +3044,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeProcessAborted
  *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure
@@ -3532,6 +3615,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure
@@ -4814,6 +4899,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeProcessAborted
  *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure
@@ -4902,6 +4989,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a release render state change event.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypePubsubNotificationFailure
@@ -5102,6 +5191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Output only. Valid state of this retry action.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateAborted The
+ *        `repair` action was aborted. (Value: "REPAIR_STATE_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateCancelled The
  *        `repair` action was cancelled. (Value: "REPAIR_STATE_CANCELLED")
  *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateFailed The `repair`
@@ -5221,6 +5312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Output only. Valid state of this rollback action.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateAborted The
+ *        `repair` action was aborted. (Value: "REPAIR_STATE_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateCancelled The
  *        `repair` action was cancelled. (Value: "REPAIR_STATE_CANCELLED")
  *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateFailed The
@@ -5565,6 +5658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeProcessAborted
  *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure
@@ -5662,6 +5757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a rollout update event.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypePubsubNotificationFailure
@@ -6237,6 +6334,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure

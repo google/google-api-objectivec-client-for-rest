@@ -823,6 +823,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wedne
 @property(nonatomic, strong, nullable) GTLRLooker_DenyMaintenancePeriod *lastDenyMaintenancePeriod;
 
 /**
+ *  Optional. Linked Google Cloud Project Number for Looker Studio Pro.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *linkedLspProjectNumber;
+
+/**
  *  Output only. Looker instance URI which can be used to access the Looker
  *  Instance UI.
  */

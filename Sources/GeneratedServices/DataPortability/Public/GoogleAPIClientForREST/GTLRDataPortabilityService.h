@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Data Portability API (dataportability/v1beta)
+//   Data Portability API (dataportability/v1)
 // Description:
 //   The Data Portability API lets you build applications that request
 //   authorization from a user to move a copy of data from Google services into
@@ -35,6 +35,78 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityBusinessmessagingConversations;
 /**
+ *  Authorization scope: Move a copy of the information you entered into online
+ *  forms in Chrome.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.chrome.autofill"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityChromeAutofill;
+/**
+ *  Authorization scope: Move a copy of pages you bookmarked in Chrome.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.chrome.bookmarks"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityChromeBookmarks;
+/**
+ *  Authorization scope: Move a copy of words you added to Chrome's dictionary.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.chrome.dictionary"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityChromeDictionary;
+/**
+ *  Authorization scope: Move a copy of extensions you installed from the Chrome
+ *  Web Store.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.chrome.extensions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityChromeExtensions;
+/**
+ *  Authorization scope: Move a copy of sites you visited in Chrome.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.chrome.history"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityChromeHistory;
+/**
+ *  Authorization scope: Move a copy of pages you added to your reading list in
+ *  Chrome.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.chrome.reading_list"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityChromeReadingList;
+/**
+ *  Authorization scope: Move a copy of your settings in Chrome.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.chrome.settings"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityChromeSettings;
+/**
+ *  Authorization scope: Move a copy of searches and sites you follow, saved by
+ *  Discover.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.discover.follows"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityDiscoverFollows;
+/**
+ *  Authorization scope: Move a copy of links to your liked documents, saved by
+ *  Discover.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.discover.likes"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityDiscoverLikes;
+/**
+ *  Authorization scope: Move a copy of content you marked as not interested,
+ *  saved by Discover.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.discover.not_interested"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityDiscoverNotInterested;
+/**
+ *  Authorization scope: Move a copy of the places you labeled on Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.aliased_places"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsAliasedPlaces;
+/**
  *  Authorization scope: Move a copy of your pinned trips on Maps.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.maps.commute_routes"
@@ -53,6 +125,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsCommuteSetti
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsEvProfile;
 /**
+ *  Authorization scope: Move a copy of the corrections you made to places or
+ *  map information on Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.factual_contributions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsFactualContributions;
+/**
  *  Authorization scope: Move a copy of your updates to places on Maps.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.maps.offering_contributions"
@@ -65,6 +144,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsOfferingCont
  *  Value "https://www.googleapis.com/auth/dataportability.maps.photos_videos"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsPhotosVideos;
+/**
+ *  Authorization scope: Move a copy of the questions and answers you posted on
+ *  Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.maps.questions_answers"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsQuestionsAnswers;
 /**
  *  Authorization scope: Move a copy of your reviews and posts on Maps.
  *
@@ -84,6 +170,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMapsStarredPlace
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityMaps;
 /**
+ *  Authorization scope: Move a copy of your My Ad Center activity.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.myactivity.myadcenter"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityMyadcenter;
+/**
+ *  Authorization scope: Move a copy of your Google Play activity.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.myactivity.play"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityPlay;
+/**
  *  Authorization scope: Move a copy of your Google Search activity.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.myactivity.search"
@@ -102,6 +200,135 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityShoppi
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityYoutube;
 /**
+ *  Authorization scope: Move a copy of the maps you created in My Maps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.mymaps.maps"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMymapsMaps;
+/**
+ *  Authorization scope: Move a copy of your food purchase and reservation
+ *  activity.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.order_reserve.purchases_reservations"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations;
+/**
+ *  Authorization scope: Move a copy of information about your devices with
+ *  Google Play Store installed.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.devices"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayDevices;
+/**
+ *  Authorization scope: Move a copy of your Google Play Store Grouping tags
+ *  created by app developers.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.grouping"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayGrouping;
+/**
+ *  Authorization scope: Move a copy of your Google Play Store app
+ *  installations.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.installs"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayInstalls;
+/**
+ *  Authorization scope: Move a copy of your Google Play Store downloads,
+ *  including books, games, and apps.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.library"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayLibrary;
+/**
+ *  Authorization scope: Move a copy of information about your Google Play Store
+ *  Points.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.playpoints"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayPlaypoints;
+/**
+ *  Authorization scope: Move a copy of information about your Google Play Store
+ *  promotions.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.promotions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayPromotions;
+/**
+ *  Authorization scope: Move a copy of your Google Play Store purchases.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.purchases"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayPurchases;
+/**
+ *  Authorization scope: Move a copy of your Google Play Store redemption
+ *  activities.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.redemptions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayRedemptions;
+/**
+ *  Authorization scope: Move a copy of your Google Play Store subscriptions.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.subscriptions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlaySubscriptions;
+/**
+ *  Authorization scope: Move a copy of your Google Play Store user settings and
+ *  preferences.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.play.usersettings"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPlayUsersettings;
+/**
+ *  Authorization scope: Move a copy of your saved links, images, places, and
+ *  collections from your use of Google services.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.saved.collections"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilitySavedCollections;
+/**
+ *  Authorization scope: Move a copy of your notification settings on the Google
+ *  Search app.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.searchnotifications.settings"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilitySearchnotificationsSettings;
+/**
+ *  Authorization scope: Move a copy of your notification subscriptions on
+ *  Google Search app.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.searchnotifications.subscriptions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilitySearchnotificationsSubscriptions;
+/**
+ *  Authorization scope: Move a copy of your media reviews on Google Search.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.search_ugc.media.reviews_and_stars"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilitySearchUgcMediaReviewsAndStars;
+/**
+ *  Authorization scope: Move a copy of your self-reported video streaming
+ *  provider preferences from Google Search and Google TV.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.search_ugc.media.streaming_video_providers"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilitySearchUgcMediaStreamingVideoProviders;
+/**
+ *  Authorization scope: Move a copy of your indicated thumbs up and thumbs down
+ *  on media in Google Search and Google TV.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.search_ugc.media.thumbs"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilitySearchUgcMediaThumbs;
+/**
+ *  Authorization scope: Move a copy of information about the movies and TV
+ *  shows you marked as watched on Google Search and Google TV.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.search_ugc.media.watched"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilitySearchUgcMediaWatched;
+/**
  *  Authorization scope: Move a copy of your shipping information on Shopping.
  *
  *  Value "https://www.googleapis.com/auth/dataportability.shopping.addresses"
@@ -114,6 +341,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityShoppingAddresse
  *  Value "https://www.googleapis.com/auth/dataportability.shopping.reviews"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityShoppingReviews;
+/**
+ *  Authorization scope: Move a copy of the images and videos you uploaded to
+ *  Street View.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.streetview.imagery"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityStreetviewImagery;
 /**
  *  Authorization scope: Move a copy of information about your YouTube channel.
  *
@@ -139,6 +373,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeLiveChat;
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.music"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeMusic;
+/**
+ *  Authorization scope: Move a copy of your YouTube playables saved game
+ *  progress files.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.youtube.playable"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubePlayable;
+/**
+ *  Authorization scope: Move a copy of your YouTube posts.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.youtube.posts"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubePosts;
 /**
  *  Authorization scope: Move a copy of your YouTube private playlists.
  *

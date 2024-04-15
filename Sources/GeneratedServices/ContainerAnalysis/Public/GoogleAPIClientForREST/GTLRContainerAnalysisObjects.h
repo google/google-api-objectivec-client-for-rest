@@ -38,6 +38,7 @@
 @class GTLRContainerAnalysis_Category;
 @class GTLRContainerAnalysis_CisBenchmark;
 @class GTLRContainerAnalysis_CloudRepoSourceContext;
+@class GTLRContainerAnalysis_CloudStorageLocation;
 @class GTLRContainerAnalysis_Command;
 @class GTLRContainerAnalysis_Completeness;
 @class GTLRContainerAnalysis_ComplianceNote;
@@ -1102,13 +1103,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
  *
  *  Value: "N1_HIGHCPU_32"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32 GTLR_DEPRECATED;
 /**
  *  Highcpu machine with 8 CPUs.
  *
  *  Value: "N1_HIGHCPU_8"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8 GTLR_DEPRECATED;
 /**
  *  Standard machine type.
  *
@@ -2216,7 +2217,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2662,6 +2667,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Empty placeholder to denote that this is a Google Cloud Storage export
+ *  request.
+ */
+@interface GTLRContainerAnalysis_CloudStorageLocation : GTLRObject
+@end
+
+
+/**
  *  Command describes a step performed as part of the build pipeline.
  */
 @interface GTLRContainerAnalysis_Command : GTLRObject
@@ -2744,6 +2757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@property(nonatomic, copy, nullable) NSString *impact;
 
 /** A rationale for the existence of this compliance check. */
 @property(nonatomic, copy, nullable) NSString *rationale;
@@ -3565,6 +3580,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *sig;
+
+@end
+
+
+/**
+ *  The request to generate and export SBOM. Target must be specified for the
+ *  request.
+ */
+@interface GTLRContainerAnalysis_ExportSBOMRequest : GTLRObject
+
+/**
+ *  Empty placeholder to denote that this is a Google Cloud Storage export
+ *  request.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CloudStorageLocation *cloudStorageLocation;
+
+@end
+
+
+/**
+ *  The response from a call to ExportSBOM.
+ */
+@interface GTLRContainerAnalysis_ExportSBOMResponse : GTLRObject
+
+/**
+ *  The name of the discovery occurrence in the form
+ *  "projects/{project_id}/occurrences/{OCCURRENCE_ID} It can be used to track
+ *  the progress of the SBOM export.
+ */
+@property(nonatomic, copy, nullable) NSString *discoveryOccurrence;
 
 @end
 

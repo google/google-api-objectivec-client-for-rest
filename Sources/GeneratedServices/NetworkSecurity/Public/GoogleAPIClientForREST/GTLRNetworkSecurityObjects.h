@@ -21,6 +21,11 @@
 @class GTLRNetworkSecurity_ClientTlsPolicy_Labels;
 @class GTLRNetworkSecurity_Destination;
 @class GTLRNetworkSecurity_Expr;
+@class GTLRNetworkSecurity_FirewallEndpoint;
+@class GTLRNetworkSecurity_FirewallEndpoint_Labels;
+@class GTLRNetworkSecurity_FirewallEndpointAssociation;
+@class GTLRNetworkSecurity_FirewallEndpointAssociation_Labels;
+@class GTLRNetworkSecurity_FirewallEndpointAssociationReference;
 @class GTLRNetworkSecurity_GatewaySecurityPolicy;
 @class GTLRNetworkSecurity_GatewaySecurityPolicyRule;
 @class GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider;
@@ -39,11 +44,18 @@
 @class GTLRNetworkSecurity_Operation_Metadata;
 @class GTLRNetworkSecurity_Operation_Response;
 @class GTLRNetworkSecurity_Rule;
+@class GTLRNetworkSecurity_SecurityProfile;
+@class GTLRNetworkSecurity_SecurityProfile_Labels;
+@class GTLRNetworkSecurity_SecurityProfileGroup;
+@class GTLRNetworkSecurity_SecurityProfileGroup_Labels;
 @class GTLRNetworkSecurity_ServerTlsPolicy;
 @class GTLRNetworkSecurity_ServerTlsPolicy_Labels;
+@class GTLRNetworkSecurity_SeverityOverride;
 @class GTLRNetworkSecurity_Source;
 @class GTLRNetworkSecurity_Status;
 @class GTLRNetworkSecurity_Status_Details_Item;
+@class GTLRNetworkSecurity_ThreatOverride;
+@class GTLRNetworkSecurity_ThreatPreventionProfile;
 @class GTLRNetworkSecurity_TlsInspectionPolicy;
 @class GTLRNetworkSecurity_UrlList;
 @class GTLRNetworkSecurity_ValidationCA;
@@ -102,6 +114,74 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Acti
  *  Value: "DENY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_FirewallEndpoint.state
+
+/**
+ *  Processing configuration updates.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Active;
+/**
+ *  Being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Creating;
+/**
+ *  Being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Deleting;
+/**
+ *  Down or in an error state.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Inactive;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_FirewallEndpointAssociation.state
+
+/**
+ *  Active and ready for traffic.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Active;
+/**
+ *  Being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Creating;
+/**
+ *  Being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Deleting;
+/**
+ *  Down or in an error state.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_GatewaySecurityPolicyRule.basicProfile
@@ -181,6 +261,192 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
  *  Value: "REJECT_INVALID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SecurityProfile.type
+
+/**
+ *  Profile type not specified.
+ *
+ *  Value: "PROFILE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified;
+/**
+ *  Profile type for threat prevention.
+ *
+ *  Value: "THREAT_PREVENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SeverityOverride.action
+
+/**
+ *  The packet matching this rule will be allowed to transmit, but a threat_log
+ *  entry will be sent to the consumer project.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Alert;
+/**
+ *  The packet matching this rule will be allowed to transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Allow;
+/**
+ *  The default action (as specified by the vendor) is taken.
+ *
+ *  Value: "DEFAULT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_DefaultAction;
+/**
+ *  The packet matching this rule will be dropped, and a threat_log entry will
+ *  be sent to the consumer project.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Deny;
+/**
+ *  Threat action not specified.
+ *
+ *  Value: "THREAT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_ThreatActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SeverityOverride.severity
+
+/**
+ *  Serious threats, such as those that affect default installations of widely
+ *  deployed software, result in root compromise of servers, and the exploit
+ *  code is widely available to attackers. The attacker usually does not need
+ *  any special authentication credentials or knowledge about the individual
+ *  victims and the target does not need to be manipulated into performing any
+ *  special functions.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Critical;
+/**
+ *  Threats that have the ability to become critical but have mitigating
+ *  factors; for example, they may be difficult to exploit, do not result in
+ *  elevated privileges, or do not have a large victim pool.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_High;
+/**
+ *  Suspicious events that do not pose an immediate threat, but that are
+ *  reported to call attention to deeper problems that could possibly exist.
+ *
+ *  Value: "INFORMATIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Informational;
+/**
+ *  Warning-level threats that have very little impact on an organization's
+ *  infrastructure. They usually require local or physical system access and may
+ *  often result in victim privacy issues and information leakage.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Low;
+/**
+ *  Minor threats in which impact is minimized, that do not compromise the
+ *  target or exploits that require an attacker to reside on the same local
+ *  network as the victim, affect only non-standard configurations or obscure
+ *  applications, or provide very limited access.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Medium;
+/**
+ *  Severity level not specified.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_ThreatOverride.action
+
+/**
+ *  The packet matching this rule will be allowed to transmit, but a threat_log
+ *  entry will be sent to the consumer project.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Alert;
+/**
+ *  The packet matching this rule will be allowed to transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Allow;
+/**
+ *  The default action (as specified by the vendor) is taken.
+ *
+ *  Value: "DEFAULT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_DefaultAction;
+/**
+ *  The packet matching this rule will be dropped, and a threat_log entry will
+ *  be sent to the consumer project.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Deny;
+/**
+ *  Threat action not specified.
+ *
+ *  Value: "THREAT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_ThreatActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_ThreatOverride.type
+
+/**
+ *  Threats related to viruses and malware found in executables and file types.
+ *
+ *  Value: "ANTIVIRUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Antivirus;
+/**
+ *  Threats related to DNS.
+ *
+ *  Value: "DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Dns;
+/**
+ *  Threats related to command-and-control (C2) activity, where spyware on an
+ *  infected client is collecting data without the user's consent and/or
+ *  communicating with a remote attacker.
+ *
+ *  Value: "SPYWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Spyware;
+/**
+ *  Type of threat not specified.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_ThreatTypeUnspecified;
+/**
+ *  Type of threat is not derivable from threat ID. An override will be created
+ *  for all types. Firewall will ignore overridden signature ID's that don't
+ *  exist in the specific type.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Unknown;
+/**
+ *  Threats related to system flaws that an attacker might otherwise attempt to
+ *  exploit.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Vulnerability;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_TlsInspectionPolicy.minTlsVersion
@@ -635,6 +901,184 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Message describing Endpoint object
+ */
+@interface GTLRNetworkSecurity_FirewallEndpoint : GTLRObject
+
+/**
+ *  Output only. List of networks that are associated with this endpoint in the
+ *  local zone. This is a projection of the FirewallEndpointAssociations
+ *  pointing at this endpoint. A network will only appear in this list after
+ *  traffic routing is fully configured. Format:
+ *  projects/{project}/global/networks/{name}.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *associatedNetworks GTLR_DEPRECATED;
+
+/**
+ *  Output only. List of FirewallEndpointAssociations that are associated to
+ *  this endpoint. An association will only appear in this list after traffic
+ *  routing is fully configured.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_FirewallEndpointAssociationReference *> *associations;
+
+/** Required. Project to bill on endpoint uptime usage. */
+@property(nonatomic, copy, nullable) NSString *billingProjectId;
+
+/** Output only. Create time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the firewall endpoint. Max length 2048 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpoint_Labels *labels;
+
+/** Immutable. Identifier. name of resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether reconciling is in progress, recommended per
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Current state of the endpoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_Active Processing
+ *        configuration updates. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_Creating Being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_Deleting Being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_Inactive Down or in an
+ *        error state. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_StateUnspecified Not
+ *        set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpoint_Labels : GTLRObject
+@end
+
+
+/**
+ *  Message describing Association object
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointAssociation : GTLRObject
+
+/** Output only. Create time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Whether the association is disabled. True indicates that traffic
+ *  won't be intercepted
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** Required. The URL of the FirewallEndpoint that is being associated. */
+@property(nonatomic, copy, nullable) NSString *firewallEndpoint;
+
+/** Optional. Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpointAssociation_Labels *labels;
+
+/** Immutable. Identifier. name of resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The URL of the network that is being associated. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. Whether reconciling is in progress, recommended per
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Current state of the association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Active
+ *        Active and ready for traffic. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Creating
+ *        Being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Deleting
+ *        Being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive
+ *        Down or in an error state. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. The URL of the TlsInspectionPolicy that is being associated. */
+@property(nonatomic, copy, nullable) NSString *tlsInspectionPolicy;
+
+/** Output only. Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointAssociation_Labels : GTLRObject
+@end
+
+
+/**
+ *  This is a subset of the FirewallEndpointAssociation message, containing
+ *  fields to be used by the consumer.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointAssociationReference : GTLRObject
+
+/**
+ *  Output only. The resource name of the FirewallEndpointAssociation. Format:
+ *  projects/{project}/locations/{location}/firewallEndpointAssociations/{id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The VPC network associated. Format:
+ *  projects/{project}/global/networks/{name}.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 @end
 
@@ -1237,6 +1681,60 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  Message for response to listing Associations
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "firewallEndpointAssociations" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListFirewallEndpointAssociationsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Association
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_FirewallEndpointAssociation *> *firewallEndpointAssociations;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing Endpoints
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "firewallEndpoints" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListFirewallEndpointsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Endpoint
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_FirewallEndpoint *> *firewallEndpoints;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response returned by the ListGatewaySecurityPolicies method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1342,6 +1840,62 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response returned by the ListSecurityProfileGroups method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityProfileGroups" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListSecurityProfileGroupsResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of SecurityProfileGroups resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_SecurityProfileGroup *> *securityProfileGroups;
+
+@end
+
+
+/**
+ *  Response returned by the ListSecurityProfiles method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityProfiles" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkSecurity_ListSecurityProfilesResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of SecurityProfile resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_SecurityProfile *> *securityProfiles;
 
 @end
 
@@ -1716,6 +2270,130 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  SecurityProfile is a resource that defines the behavior for one of many
+ *  ProfileTypes. Next ID: 9
+ */
+@interface GTLRNetworkSecurity_SecurityProfile : GTLRObject
+
+/** Output only. Resource creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. An optional description of the profile. Max length 512 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. Labels as key value pairs. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_SecurityProfile_Labels *labels;
+
+/**
+ *  Immutable. Identifier. Name of the SecurityProfile resource. It matches
+ *  pattern `projects|organizations/ *
+ *  /locations/{location}/securityProfiles/{security_profile}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The threat prevention configuration for the SecurityProfile. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_ThreatPreventionProfile *threatPreventionProfile;
+
+/**
+ *  Immutable. The single ProfileType that the SecurityProfile resource
+ *  configures.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified
+ *        Profile type not specified. (Value: "PROFILE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention Profile
+ *        type for threat prevention. (Value: "THREAT_PREVENTION")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Last resource update timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_SecurityProfile_Labels : GTLRObject
+@end
+
+
+/**
+ *  SecurityProfileGroup is a resource that defines the behavior for various
+ *  ProfileTypes. Next ID: 8
+ */
+@interface GTLRNetworkSecurity_SecurityProfileGroup : GTLRObject
+
+/** Output only. Resource creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. An optional description of the profile group. Max length 2048
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. Labels as key value pairs. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_SecurityProfileGroup_Labels *labels;
+
+/**
+ *  Immutable. Identifier. Name of the SecurityProfileGroup resource. It matches
+ *  pattern `projects|organizations/ *
+ *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Reference to a SecurityProfile with the threat prevention
+ *  configuration for the SecurityProfileGroup.
+ */
+@property(nonatomic, copy, nullable) NSString *threatPreventionProfile;
+
+/** Output only. Last resource update timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_SecurityProfileGroup_Labels : GTLRObject
+@end
+
+
+/**
  *  ServerTlsPolicy is a resource that specifies how a server should
  *  authenticate incoming requests. This resource itself does not affect
  *  configuration unless it is attached to a target HTTPS proxy or endpoint
@@ -1800,6 +2478,69 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  Defines what action to take for a specific severity match.
+ */
+@interface GTLRNetworkSecurity_SeverityOverride : GTLRObject
+
+/**
+ *  Required. Threat action override.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_Alert The packet
+ *        matching this rule will be allowed to transmit, but a threat_log entry
+ *        will be sent to the consumer project. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_Allow The packet
+ *        matching this rule will be allowed to transmit. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_DefaultAction The
+ *        default action (as specified by the vendor) is taken. (Value:
+ *        "DEFAULT_ACTION")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_Deny The packet
+ *        matching this rule will be dropped, and a threat_log entry will be
+ *        sent to the consumer project. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_ThreatActionUnspecified
+ *        Threat action not specified. (Value: "THREAT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Severity level to match.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_Critical Serious
+ *        threats, such as those that affect default installations of widely
+ *        deployed software, result in root compromise of servers, and the
+ *        exploit code is widely available to attackers. The attacker usually
+ *        does not need any special authentication credentials or knowledge
+ *        about the individual victims and the target does not need to be
+ *        manipulated into performing any special functions. (Value: "CRITICAL")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_High Threats that
+ *        have the ability to become critical but have mitigating factors; for
+ *        example, they may be difficult to exploit, do not result in elevated
+ *        privileges, or do not have a large victim pool. (Value: "HIGH")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_Informational
+ *        Suspicious events that do not pose an immediate threat, but that are
+ *        reported to call attention to deeper problems that could possibly
+ *        exist. (Value: "INFORMATIONAL")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_Low Warning-level
+ *        threats that have very little impact on an organization's
+ *        infrastructure. They usually require local or physical system access
+ *        and may often result in victim privacy issues and information leakage.
+ *        (Value: "LOW")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_Medium Minor
+ *        threats in which impact is minimized, that do not compromise the
+ *        target or exploits that require an attacker to reside on the same
+ *        local network as the victim, affect only non-standard configurations
+ *        or obscure applications, or provide very limited access. (Value:
+ *        "MEDIUM")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_SeverityUnspecified
+ *        Severity level not specified. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
  *  Specification of traffic source attributes.
  */
 @interface GTLRNetworkSecurity_Source : GTLRObject
@@ -1868,6 +2609,84 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRNetworkSecurity_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Defines what action to take for a specific threat_id match.
+ */
+@interface GTLRNetworkSecurity_ThreatOverride : GTLRObject
+
+/**
+ *  Required. Threat action override. For some threat types, only a subset of
+ *  actions applies.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_Alert The packet
+ *        matching this rule will be allowed to transmit, but a threat_log entry
+ *        will be sent to the consumer project. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_Allow The packet
+ *        matching this rule will be allowed to transmit. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_DefaultAction The
+ *        default action (as specified by the vendor) is taken. (Value:
+ *        "DEFAULT_ACTION")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_Deny The packet
+ *        matching this rule will be dropped, and a threat_log entry will be
+ *        sent to the consumer project. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_ThreatActionUnspecified
+ *        Threat action not specified. (Value: "THREAT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Required. Vendor-specific ID of a threat to override. */
+@property(nonatomic, copy, nullable) NSString *threatId;
+
+/**
+ *  Output only. Type of the threat (read only).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Antivirus Threats related
+ *        to viruses and malware found in executables and file types. (Value:
+ *        "ANTIVIRUS")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Dns Threats related to
+ *        DNS. (Value: "DNS")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Spyware Threats related
+ *        to command-and-control (C2) activity, where spyware on an infected
+ *        client is collecting data without the user's consent and/or
+ *        communicating with a remote attacker. (Value: "SPYWARE")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_ThreatTypeUnspecified
+ *        Type of threat not specified. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Unknown Type of threat is
+ *        not derivable from threat ID. An override will be created for all
+ *        types. Firewall will ignore overridden signature ID's that don't exist
+ *        in the specific type. (Value: "UNKNOWN")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Vulnerability Threats
+ *        related to system flaws that an attacker might otherwise attempt to
+ *        exploit. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  ThreatPreventionProfile defines an action for specific threat signatures or
+ *  severity levels.
+ */
+@interface GTLRNetworkSecurity_ThreatPreventionProfile : GTLRObject
+
+/**
+ *  Optional. Configuration for overriding threats actions by severity match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_SeverityOverride *> *severityOverrides;
+
+/**
+ *  Optional. Configuration for overriding threats actions by threat_id match.
+ *  If a threat is matched both by configuration provided in severity_overrides
+ *  and threat_overrides, the threat_overrides action is applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_ThreatOverride *> *threatOverrides;
+
 @end
 
 

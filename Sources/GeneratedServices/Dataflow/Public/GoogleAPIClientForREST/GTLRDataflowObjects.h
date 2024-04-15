@@ -185,6 +185,7 @@
 @class GTLRDataflow_StreamingConfigTask;
 @class GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap;
 @class GTLRDataflow_StreamingScalingReport;
+@class GTLRDataflow_StreamingScalingReportResponse;
 @class GTLRDataflow_StreamingSetupTask;
 @class GTLRDataflow_StreamingSideInputLocation;
 @class GTLRDataflow_StreamingStageLocation;
@@ -3081,7 +3082,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Reduces cost and latency but might result in duplicate messages committed to
  *  storage. Designed to run simple mapping streaming ETL jobs at the lowest
  *  cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use
- *  case.
+ *  case. For more information, see [Set the pipeline streaming
+ *  mode](https://cloud.google.com/dataflow/docs/guides/streaming-modes).
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_Environment_StreamingMode_StreamingModeAtLeastOnce
@@ -3396,7 +3398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  The environment values to be set at runtime for flex template.
+ *  The environment values to be set at runtime for flex template. LINT.IfChange
  */
 @interface GTLRDataflow_FlexTemplateRuntimeEnvironment : GTLRObject
 
@@ -3553,7 +3555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Reduces cost and latency but might result in duplicate messages committed to
  *  storage. Designed to run simple mapping streaming ETL jobs at the lowest
  *  cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use
- *  case.
+ *  case. For more information, see [Set the pipeline streaming
+ *  mode](https://cloud.google.com/dataflow/docs/guides/streaming-modes).
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_StreamingMode_StreamingModeAtLeastOnce
@@ -6052,7 +6055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  The environment values to set at runtime.
+ *  The environment values to set at runtime. LINT.IfChange
  */
 @interface GTLRDataflow_RuntimeEnvironment : GTLRObject
 
@@ -6151,7 +6154,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Reduces cost and latency but might result in duplicate messages committed to
  *  storage. Designed to run simple mapping streaming ETL jobs at the lowest
  *  cost. For example, Change Data Capture (CDC) to BigQuery is a canonical use
- *  case.
+ *  case. For more information, see [Set the pipeline streaming
+ *  mode](https://cloud.google.com/dataflow/docs/guides/streaming-modes).
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_RuntimeEnvironment_StreamingMode_StreamingModeAtLeastOnce
@@ -6272,7 +6276,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /**
  *  Target worker utilization, compared against the aggregate utilization of the
  *  worker pool by autoscaler, to determine upscaling and downscaling when
- *  absent other constraints such as backlog.
+ *  absent other constraints such as backlog. For more information, see [Update
+ *  an existing
+ *  pipeline](https://cloud.google.com/dataflow/docs/guides/updating-a-pipeline).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -7657,6 +7663,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Contains per-user-worker streaming scaling recommendation from the backend.
+ */
+@interface GTLRDataflow_StreamingScalingReportResponse : GTLRObject
+
+/**
+ *  Maximum thread count limit;
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumThreadCount;
+
+@end
+
+
+/**
  *  A task which initializes part of a streaming Dataflow job.
  */
 @interface GTLRDataflow_StreamingSetupTask : GTLRObject
@@ -8334,6 +8355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  sender.
  */
 @interface GTLRDataflow_WorkerMessageResponse : GTLRObject
+
+/** Service's streaming scaling response for workers. */
+@property(nonatomic, strong, nullable) GTLRDataflow_StreamingScalingReportResponse *streamingScalingReportResponse;
 
 /** The service's response to a worker's health report. */
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerHealthReportResponse *workerHealthReportResponse;

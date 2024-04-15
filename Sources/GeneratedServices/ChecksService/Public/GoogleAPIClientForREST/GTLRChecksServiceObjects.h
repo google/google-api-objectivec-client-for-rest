@@ -863,11 +863,35 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaC
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_GooglePlayPolicy;
 /**
+ *  India: The Digital Personal Data Protection Act, 2023.
+ *
+ *  Value: "INDIA_DPDPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_IndiaDpdpa;
+/**
+ *  Japan Act on the Protection of Personal Information.
+ *
+ *  Value: "JAPAN_APPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_JapanAppi;
+/**
  *  Lei Geral de Proteção de Dados.
  *
  *  Value: "LGPD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Lgpd;
+/**
+ *  Montana Consumer Data Privacy Act.
+ *
+ *  Value: "MCDPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Mcdpa;
+/**
+ *  Oregon Consumer Privacy Act.
+ *
+ *  Value: "OCPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Ocpa;
 /**
  *  Personal Information Protection and Electronic Documents Act.
  *
@@ -894,6 +918,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaC
  *  Value: "SOPIPA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Sopipa;
+/**
+ *  South Africa Protection of Personal Information Act.
+ *
+ *  Value: "SOUTH_AFRICA_POPIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_SouthAfricaPopia;
+/**
+ *  South Korea Personal Information Protection Act.
+ *
+ *  Value: "SOUTH_KOREA_PIPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_SouthKoreaPipa;
+/**
+ *  Texas Data Privacy and Security Act.
+ *
+ *  Value: "TDPSA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Tdpsa;
 /**
  *  Utah Consumer Privacy Act.
  *
@@ -2130,8 +2172,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *        General Data Protection Regulation. (Value: "GDPR")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_GooglePlayPolicy
  *        Google Play Policy. (Value: "GOOGLE_PLAY_POLICY")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_IndiaDpdpa
+ *        India: The Digital Personal Data Protection Act, 2023. (Value:
+ *        "INDIA_DPDPA")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_JapanAppi
+ *        Japan Act on the Protection of Personal Information. (Value:
+ *        "JAPAN_APPI")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Lgpd
  *        Lei Geral de Proteção de Dados. (Value: "LGPD")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Mcdpa
+ *        Montana Consumer Data Privacy Act. (Value: "MCDPA")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Ocpa
+ *        Oregon Consumer Privacy Act. (Value: "OCPA")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Pipeda
  *        Personal Information Protection and Electronic Documents Act. (Value:
  *        "PIPEDA")
@@ -2143,6 +2195,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *        the Protection of Personal Information. (Value: "QUEBEC_BILL_64")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Sopipa
  *        Student Online Personal Information Protection Act. (Value: "SOPIPA")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_SouthAfricaPopia
+ *        South Africa Protection of Personal Information Act. (Value:
+ *        "SOUTH_AFRICA_POPIA")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_SouthKoreaPipa
+ *        South Korea Personal Information Protection Act. (Value:
+ *        "SOUTH_KOREA_PIPA")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Tdpsa
+ *        Texas Data Privacy and Security Act. (Value: "TDPSA")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Ucpa
  *        Utah Consumer Privacy Act. (Value: "UCPA")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckCitation_Type_Vcdpa

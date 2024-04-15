@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Data Portability API (dataportability/v1beta)
+//   Data Portability API (dataportability/v1)
 // Description:
 //   The Data Portability API lets you build applications that request
 //   authorization from a user to move a copy of data from Google services into

@@ -205,6 +205,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestHeaders;
 /**
  *  If included in `supported_events`, the extension is called when the HTTP
+ *  request trailers arrives.
+ *
+ *  Value: "REQUEST_TRAILERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestTrailers;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
  *  response body arrives.
  *
  *  Value: "RESPONSE_BODY"
@@ -217,6 +224,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_
  *  Value: "RESPONSE_HEADERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseHeaders;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  response trailers arrives.
+ *
+ *  Value: "RESPONSE_TRAILERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseTrailers;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_Gateway.envoyHeaders
@@ -912,7 +926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Optional. The `:authority` header in the gRPC request sent from Envoy to the
- *  extension service.
+ *  extension service. Required for Callout extensions.
  */
 @property(nonatomic, copy, nullable) NSString *authority;
 
@@ -920,11 +934,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Optional. Determines how the proxy behaves if the call to the extension
  *  fails or times out. When set to `TRUE`, request or response processing
  *  continues without error. Any subsequent extensions in the extension chain
- *  are also executed. When set to `FALSE`: * If response headers have not been
+ *  are also executed. When set to `FALSE` or the default setting of `FALSE` is
+ *  used, one of the following happens: * If response headers have not been
  *  delivered to the downstream client, a generic 500 error is returned to the
  *  client. The error response can be tailored by configuring a custom error
  *  response in the load balancer. * If response headers have been delivered,
- *  then the HTTP stream to the downstream client is reset. Default is `FALSE`.
+ *  then the HTTP stream to the downstream client is reset.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -948,7 +963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Required. The reference to the service that runs the extension. Currently
- *  only Callout extensions are supported here. To configure a Callout
+ *  only callout extensions are supported here. To configure a callout
  *  extension, `service` must be a fully-qualified reference to a [backend
  *  service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices)
  *  in the format:
@@ -967,8 +982,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
 
 /**
- *  Required. Specifies the timeout for each individual message on the stream.
- *  The timeout must be between 10-1000 milliseconds.
+ *  Optional. Specifies the timeout for each individual message on the stream.
+ *  The timeout must be between 10-1000 milliseconds. Required for Callout
+ *  extensions.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -2361,8 +2377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Optional. Set of labels associated with the `LbRouteExtension` resource. The
- *  format must comply with [the following
- *  requirements](/compute/docs/labeling-resources#requirements).
+ *  format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_LbRouteExtension_Labels *labels;
 
@@ -2401,8 +2418,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Optional. Set of labels associated with the `LbRouteExtension` resource. The
- *  format must comply with [the following
- *  requirements](/compute/docs/labeling-resources#requirements).
+ *  format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2450,8 +2468,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Optional. Set of labels associated with the `LbTrafficExtension` resource.
- *  The format must comply with [the following
- *  requirements](/compute/docs/labeling-resources#requirements).
+ *  The format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_LbTrafficExtension_Labels *labels;
 
@@ -2490,8 +2509,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Optional. Set of labels associated with the `LbTrafficExtension` resource.
- *  The format must comply with [the following
- *  requirements](/compute/docs/labeling-resources#requirements).
+ *  The format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

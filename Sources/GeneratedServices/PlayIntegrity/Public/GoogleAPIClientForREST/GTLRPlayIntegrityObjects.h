@@ -557,7 +557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
 
 
 /**
- *  Contains the device attestation information.
+ *  Contains the device attestation information. Next tag: 4
  */
 @interface GTLRPlayIntegrity_DeviceIntegrity : GTLRObject
 

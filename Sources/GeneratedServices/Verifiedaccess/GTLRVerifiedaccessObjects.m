@@ -117,8 +117,9 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTru
          diskEncryption, displayName, hostname, imei, macAddresses, meid,
          operatingSystem, osFirewall, osVersion,
          passwordProtectionWarningTrigger, profileAffiliationIds,
-         realtimeUrlCheckMode, safeBrowsingProtectionLevel, screenLockSecured,
-         secureBootMode, serialNumber, siteIsolationEnabled, systemDnsServers,
+         profileEnrollmentDomain, realtimeUrlCheckMode,
+         safeBrowsingProtectionLevel, screenLockSecured, secureBootMode,
+         serialNumber, siteIsolationEnabled, systemDnsServers,
          thirdPartyBlockingEnabled, trigger, windowsMachineDomain,
          windowsUserDomain;
 

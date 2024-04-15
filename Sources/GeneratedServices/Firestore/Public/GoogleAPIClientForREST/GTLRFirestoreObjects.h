@@ -35,12 +35,16 @@
 @class GTLRFirestore_DocumentRemove;
 @class GTLRFirestore_DocumentsTarget;
 @class GTLRFirestore_DocumentTransform;
+@class GTLRFirestore_ExecutionStats;
+@class GTLRFirestore_ExecutionStats_DebugStats;
 @class GTLRFirestore_ExistenceFilter;
+@class GTLRFirestore_ExplainMetrics;
 @class GTLRFirestore_ExplainOptions;
 @class GTLRFirestore_FieldFilter;
 @class GTLRFirestore_FieldReference;
 @class GTLRFirestore_FieldTransform;
 @class GTLRFirestore_Filter;
+@class GTLRFirestore_FindNearest;
 @class GTLRFirestore_GoogleFirestoreAdminV1Backup;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
 @class GTLRFirestore_GoogleFirestoreAdminV1CmekConfig;
@@ -70,6 +74,8 @@
 @class GTLRFirestore_MapValue;
 @class GTLRFirestore_MapValue_Fields;
 @class GTLRFirestore_Order;
+@class GTLRFirestore_PlanSummary;
+@class GTLRFirestore_PlanSummary_IndexesUsed_Item;
 @class GTLRFirestore_Precondition;
 @class GTLRFirestore_Projection;
 @class GTLRFirestore_QueryTarget;
@@ -222,6 +228,40 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValu
  *  Value: "SERVER_VALUE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_FindNearest.distanceMeasure
+
+/**
+ *  Compares vectors based on the angle between them, which allows you to
+ *  measure similarity that isn't based on the vectors magnitude. We recommend
+ *  using DOT_PRODUCT with unit normalized vectors instead of COSINE distance,
+ *  which is mathematically equivalent with better performance. See [Cosine
+ *  Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to learn more.
+ *
+ *  Value: "COSINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Cosine;
+/**
+ *  Should not be set.
+ *
+ *  Value: "DISTANCE_MEASURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified;
+/**
+ *  Similar to cosine but is affected by the magnitude of the vectors. See [Dot
+ *  Product](https://en.wikipedia.org/wiki/Dot_product) to learn more.
+ *
+ *  Value: "DOT_PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DotProduct;
+/**
+ *  Measures the EUCLIDEAN distance between the vectors. See
+ *  [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn more
+ *
+ *  Value: "EUCLIDEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Euclidean;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Backup.state
@@ -1668,6 +1708,57 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Execution statistics for the query.
+ */
+@interface GTLRFirestore_ExecutionStats : GTLRObject
+
+/**
+ *  Debugging statistics from the execution of the query. Note that the
+ *  debugging stats are subject to change as Firestore evolves. It could
+ *  include: { "indexes_entries_scanned": "1000", "documents_scanned": "20",
+ *  "billing_details" : { "documents_billable": "20", "index_entries_billable":
+ *  "1000", "min_query_cost": "0" } }
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExecutionStats_DebugStats *debugStats;
+
+/** Total time to execute the query in the backend. */
+@property(nonatomic, strong, nullable) GTLRDuration *executionDuration;
+
+/**
+ *  Total billable read operations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOperations;
+
+/**
+ *  Total number of results returned, including documents, projections,
+ *  aggregation results, keys.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultsReturned;
+
+@end
+
+
+/**
+ *  Debugging statistics from the execution of the query. Note that the
+ *  debugging stats are subject to change as Firestore evolves. It could
+ *  include: { "indexes_entries_scanned": "1000", "documents_scanned": "20",
+ *  "billing_details" : { "documents_billable": "20", "index_entries_billable":
+ *  "1000", "min_query_cost": "0" } }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_ExecutionStats_DebugStats : GTLRObject
+@end
+
+
+/**
  *  A digest of all the documents that match a given target.
  */
 @interface GTLRFirestore_ExistenceFilter : GTLRObject
@@ -1703,6 +1794,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  out which documents in the client's cache are out of sync.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_BloomFilter *unchangedNames;
+
+@end
+
+
+/**
+ *  Explain metrics for the query.
+ */
+@interface GTLRFirestore_ExplainMetrics : GTLRObject
+
+/**
+ *  Aggregated stats from the execution of the query. Only present when
+ *  ExplainOptions.analyze is set to true.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExecutionStats *executionStats;
+
+/** Planning phase information for the query. */
+@property(nonatomic, strong, nullable) GTLRFirestore_PlanSummary *planSummary;
 
 @end
 
@@ -1908,6 +2016,59 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Nearest Neighbors search config.
+ */
+@interface GTLRFirestore_FindNearest : GTLRObject
+
+/**
+ *  Required. The Distance Measure to use, required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_Cosine Compares vectors
+ *        based on the angle between them, which allows you to measure
+ *        similarity that isn't based on the vectors magnitude. We recommend
+ *        using DOT_PRODUCT with unit normalized vectors instead of COSINE
+ *        distance, which is mathematically equivalent with better performance.
+ *        See [Cosine
+ *        Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to learn
+ *        more. (Value: "COSINE")
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified
+ *        Should not be set. (Value: "DISTANCE_MEASURE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_DotProduct Similar to
+ *        cosine but is affected by the magnitude of the vectors. See [Dot
+ *        Product](https://en.wikipedia.org/wiki/Dot_product) to learn more.
+ *        (Value: "DOT_PRODUCT")
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_Euclidean Measures the
+ *        EUCLIDEAN distance between the vectors. See
+ *        [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn
+ *        more (Value: "EUCLIDEAN")
+ */
+@property(nonatomic, copy, nullable) NSString *distanceMeasure;
+
+/**
+ *  Required. The number of nearest neighbors to return. Must be a positive
+ *  integer of no more than 1000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/**
+ *  Required. The query vector that we are searching on. Must be a vector of no
+ *  more than 2048 dimensions.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_Value *queryVector;
+
+/**
+ *  Required. An indexed vector field to search upon. Only documents which
+ *  contain vectors whose dimensionality match the query_vector can be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_FieldReference *vectorField;
+
+@end
+
+
+/**
  *  A Backup of a Cloud Firestore Database. The backup contains all documents
  *  and index configurations for the given database at a specific point in time.
  */
@@ -2046,7 +2207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Represent a recurring schedule that runs at a specific time every day. The
+ *  Represents a recurring schedule that runs at a specific time every day. The
  *  time zone is UTC.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence : GTLRObject
@@ -2857,10 +3018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ListBackupsResponse : GTLRObject
 
-/**
- *  List of all backups for the project. Ordered by `location ASC, create_time
- *  DESC, name ASC`.
- */
+/** List of all backups for the project. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1Backup *> *backups;
 
 /**
@@ -3716,6 +3874,33 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Planning phase information for the query.
+ */
+@interface GTLRFirestore_PlanSummary : GTLRObject
+
+/**
+ *  The indexes selected for the query. For example: [ {"query_scope":
+ *  "Collection", "properties": "(foo ASC, __name__ ASC)"}, {"query_scope":
+ *  "Collection", "properties": "(bar ASC, __name__ ASC)"} ]
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_PlanSummary_IndexesUsed_Item *> *indexesUsed;
+
+@end
+
+
+/**
+ *  GTLRFirestore_PlanSummary_IndexesUsed_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_PlanSummary_IndexesUsed_Item : GTLRObject
+@end
+
+
+/**
  *  A precondition on a document, used for conditional operations.
  */
 @interface GTLRFirestore_Precondition : GTLRObject
@@ -3866,6 +4051,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_RunAggregationQueryResponse : GTLRObject
 
 /**
+ *  Query explain metrics. This is only present when the
+ *  RunAggregationQueryRequest.explain_options is provided, and it is sent only
+ *  once with the last response in the stream.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExplainMetrics *explainMetrics;
+
+/**
  *  The time at which the aggregate result was computed. This is always
  *  monotonically increasing; in this case, the previous AggregationResult in
  *  the result stream are guaranteed not to have changed between their
@@ -3948,6 +4140,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *done;
+
+/**
+ *  Query explain metrics. This is only present when the
+ *  RunQueryRequest.explain_options is provided, and it is sent only once with
+ *  the last response in the stream.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExplainMetrics *explainMetrics;
 
 /**
  *  The time at which the document was read. This may be monotonically
@@ -4055,6 +4254,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  than the number of fields specified in the `ORDER BY` clause.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_Cursor *endAt;
+
+/**
+ *  Optional. A potential Nearest Neighbors Search. Applies after all other
+ *  filters and ordering. Finds the closest vector embeddings to the given query
+ *  vector.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_FindNearest *findNearest;
 
 /** The collections to query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_CollectionSelector *> *from;

@@ -6730,6 +6730,163 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsSitesApidocsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiDoc *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/apidocs";
+  GTLRApigeeQuery_OrganizationsSitesApidocsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiDocResponse class];
+  query.loggingName = @"apigee.organizations.sites.apidocs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSitesApidocsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsSitesApidocsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeleteResponse class];
+  query.loggingName = @"apigee.organizations.sites.apidocs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSitesApidocsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsSitesApidocsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiDocResponse class];
+  query.loggingName = @"apigee.organizations.sites.apidocs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSitesApidocsGetDocumentation
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsSitesApidocsGetDocumentation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentationResponse class];
+  query.loggingName = @"apigee.organizations.sites.apidocs.getDocumentation";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSitesApidocsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/apidocs";
+  GTLRApigeeQuery_OrganizationsSitesApidocsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListApiDocsResponse class];
+  query.loggingName = @"apigee.organizations.sites.apidocs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSitesApidocsUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiDoc *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsSitesApidocsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiDocResponse class];
+  query.loggingName = @"apigee.organizations.sites.apidocs.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSitesApidocsUpdateDocumentation
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsSitesApidocsUpdateDocumentation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentationResponse class];
+  query.loggingName = @"apigee.organizations.sites.apidocs.updateDocumentation";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsUpdate
 
 @dynamic name;

@@ -6093,7 +6093,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRMonitoring_MeshIstio *meshIstio;
 
 /**
- *  Resource name for this Service. The format is:
+ *  Identifier. Resource name for this Service. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6212,7 +6212,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *goal;
 
 /**
- *  Resource name for this ServiceLevelObjective. The format is:
+ *  Identifier. Resource name for this ServiceLevelObjective. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  */
 @property(nonatomic, copy, nullable) NSString *name;

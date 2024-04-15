@@ -22,6 +22,7 @@
 @class GTLRApigee_GoogleApiHttpBody_Extensions_Item;
 @class GTLRApigee_GoogleCloudApigeeV1Access;
 @class GTLRApigee_GoogleCloudApigeeV1AccessGet;
+@class GTLRApigee_GoogleCloudApigeeV1AccessLoggingConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AccessRemove;
 @class GTLRApigee_GoogleCloudApigeeV1AccessSet;
 @class GTLRApigee_GoogleCloudApigeeV1AddonsConfig;
@@ -29,6 +30,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategory;
+@class GTLRApigee_GoogleCloudApigeeV1ApiDoc;
+@class GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1APIProductAssociation;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProductRef;
@@ -75,6 +78,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1DimensionMetric;
+@class GTLRApigee_GoogleCloudApigeeV1DocumentationFile;
 @class GTLRApigee_GoogleCloudApigeeV1EndpointAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule;
 @class GTLRApigee_GoogleCloudApigeeV1EntityMetadata;
@@ -85,6 +89,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1Export;
 @class GTLRApigee_GoogleCloudApigeeV1FlowHookConfig;
 @class GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponseURLInfo;
+@class GTLRApigee_GoogleCloudApigeeV1GraphqlDocumentation;
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperation;
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup;
@@ -105,6 +110,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1MonetizationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1NatAddress;
 @class GTLRApigee_GoogleCloudApigeeV1NodeConfig;
+@class GTLRApigee_GoogleCloudApigeeV1OASDocumentation;
 @class GTLRApigee_GoogleCloudApigeeV1Operation;
 @class GTLRApigee_GoogleCloudApigeeV1OperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1OperationGroup;
@@ -999,6 +1005,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_Sta
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1OASDocumentation.format
+
+/**
+ *  The format is not available.
+ *
+ *  Value: "FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_FormatUnspecified;
+/**
+ *  JSON format.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_Json;
+/**
+ *  YAML format.
+ *
+ *  Value: "YAML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_Yaml;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.operationType
@@ -1939,6 +1967,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Access logging configuration enables customers to ship the access logs from
+ *  the tenant projects to their own project's cloud logging. The feature is at
+ *  the instance level ad disabled by default. It can be enabled during
+ *  CreateInstance or UpdateInstance.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AccessLoggingConfig : GTLRObject
+
+/**
+ *  Optional. Boolean flag that specifies whether the customer access log
+ *  feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. Ship the access log entries that match the status_code defined in
+ *  the filter. The status_code is the only expected/supported filter field.
+ *  (Ex: status_code) The filter will parse it to the Common Expression Language
+ *  semantics for expression evaluation to build the filter condition. (Ex:
+ *  "filter": status_code >= 200 && status_code < 300 )
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
  *  Remove action. For example, "Remove" : { "name" : "target.name", "success" :
  *  true }
  */
@@ -2182,6 +2238,208 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** The API category resource. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiCategory *data;
+
+/** Unique error code for the request, if any. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Unique ID of the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  `ApiDoc` represents an API catalog item. Catalog items are used in two ways
+ *  in a portal: - Users can browse and interact with a visual representation of
+ *  the API documentation - The `api_product_name` field provides a link to a
+ *  backing [API product]
+ *  (/apigee/docs/reference/apis/apigee/rest/v1/organizations.apiproducts).
+ *  Through this link, portal users can create and manage developer apps linked
+ *  to one or more API products.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDoc : GTLRObject
+
+/**
+ *  Optional. Boolean flag that manages user access to the catalog item. When
+ *  true, the catalog item has public visibility and can be viewed anonymously;
+ *  otherwise, only registered users may view it. Note: when the parent portal
+ *  is enrolled in the [audience management
+ *  feature](https://cloud.google.com/apigee/docs/api-platform/publish/portal/portal-audience#enrolling_in_the_beta_release_of_the_audience_management_feature),
+ *  and this flag is set to false, visibility is set to an indeterminate state
+ *  and must be explicitly specified in the management UI (see [Manage the
+ *  visibility of an API in your
+ *  portal](https://cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis#visibility)).
+ *  Additionally, when enrolled in the audience management feature, updates to
+ *  this flag will be ignored as visibility permissions must be updated in the
+ *  management UI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *anonAllowed;
+
+/**
+ *  Required. Immutable. The `name` field of the associated [API
+ *  product](/apigee/docs/reference/apis/apigee/rest/v1/organizations.apiproducts).
+ *  A portal may have only one catalog item associated with a given API product.
+ */
+@property(nonatomic, copy, nullable) NSString *apiProductName;
+
+/**
+ *  Optional. The IDs of the API categories to which this catalog item belongs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categoryIds;
+
+/**
+ *  Optional. Description of the catalog item. Max length is 10,000 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Immutable. DEPRECATED: use the `apiProductName` field instead */
+@property(nonatomic, copy, nullable) NSString *edgeAPIProductName;
+
+/**
+ *  Optional. DEPRECATED: manage documentation through the `getDocumentation`
+ *  and `updateDocumentation` methods
+ */
+@property(nonatomic, copy, nullable) NSString *graphqlEndpointUrl GTLR_DEPRECATED;
+
+/**
+ *  Optional. DEPRECATED: manage documentation through the `getDocumentation`
+ *  and `updateDocumentation` methods
+ */
+@property(nonatomic, copy, nullable) NSString *graphqlSchema GTLR_DEPRECATED;
+
+/**
+ *  Optional. DEPRECATED: manage documentation through the `getDocumentation`
+ *  and `updateDocumentation` methods
+ */
+@property(nonatomic, copy, nullable) NSString *graphqlSchemaDisplayName GTLR_DEPRECATED;
+
+/**
+ *  Output only. The ID of the catalog item.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Optional. Location of the image used for the catalog item in the catalog.
+ *  For portal files, this can have the format `/files/{filename}`. Max length
+ *  is 2,083 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+
+/**
+ *  Output only. Time the catalog item was last modified in milliseconds since
+ *  epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modified;
+
+/**
+ *  Optional. Denotes whether the catalog item is published to the portal or is
+ *  in a draft state. When the parent portal is enrolled in the [audience
+ *  management
+ *  feature](https://cloud.google.com/apigee/docs/api-platform/publish/portal/portal-audience#enrolling_in_the_beta_release_of_the_audience_management_feature),
+ *  the visibility can be set to public on creation by setting the anonAllowed
+ *  flag to true or further managed in the management UI (see [Manage the
+ *  visibility of an API in your
+ *  portal](https://cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis#visibility))
+ *  before it can be visible to any users. If not enrolled in the audience
+ *  management feature, the visibility is managed by the `anonAllowed` flag.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *published;
+
+/**
+ *  Optional. Whether a callback URL is required when this catalog item's API
+ *  product is enabled in a developer app. When true, a portal user will be
+ *  required to input a URL when managing the app (this is typically used for
+ *  the app's OAuth flow).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireCallbackUrl;
+
+/** Output only. The ID of the parent portal. */
+@property(nonatomic, copy, nullable) NSString *siteId;
+
+/** Optional. DEPRECATED: DO NOT USE */
+@property(nonatomic, copy, nullable) NSString *specId GTLR_DEPRECATED;
+
+/**
+ *  Required. The user-facing name of the catalog item. `title` must be a
+ *  non-empty string with a max length of 255 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  Optional. DEPRECATED: use the `published` field instead
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visibility;
+
+@end
+
+
+/**
+ *  The documentation for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation : GTLRObject
+
+/** Optional. GraphQL documentation. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1GraphqlDocumentation *graphqlDocumentation;
+
+/** Optional. OpenAPI Specification documentation. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1OASDocumentation *oasDocumentation;
+
+@end
+
+
+/**
+ *  The catalog item documentation wrapped with response status, error_code,
+ *  etc.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentationResponse : GTLRObject
+
+/** Output only. The documentation resource. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation *data;
+
+/** Output only. Unique error code for the request, if any. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Output only. Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Output only. Unique ID of the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Output only. Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  The catalog item resource wrapped with response status, error_code, etc.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDocResponse : GTLRObject
+
+/** The catalog item resource. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiDoc *data;
 
 /** Unique error code for the request, if any. */
 @property(nonatomic, copy, nullable) NSString *errorCode;
@@ -4698,6 +4956,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Documentation file contents for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DocumentationFile : GTLRObject
+
+/**
+ *  Required. The file contents. The max size is 4 MB.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *contents;
+
+/**
+ *  Required. A display name for the file, shown in the management UI. Max
+ *  length is 255 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
  *  Message to enable a disabled SecurityAction.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EnableSecurityActionRequest : GTLRObject
@@ -5500,6 +5780,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  GraphQL documentation for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GraphqlDocumentation : GTLRObject
+
+/**
+ *  Required. The GraphQL endpoint URI to be queried by API consumers. Max
+ *  length is 2,083 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointUri;
+
+/** Required. The documentation file contents for the GraphQL schema. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DocumentationFile *schema;
+
+@end
+
+
+/**
  *  Represents the pairing of GraphQL operation types and the GraphQL operation
  *  name.
  */
@@ -5673,6 +5970,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Apigee runtime instance.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Instance : GTLRObject
+
+/**
+ *  Optional. Access logging configuration enables the access logging feature at
+ *  the instance. Apigee customers can enable access logging to ship the access
+ *  logs to their own project's cloud logging.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AccessLoggingConfig *accessLoggingConfig;
 
 /**
  *  Optional. Customer accept list represents the list of projects (id/number)
@@ -6015,6 +6319,45 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Description of the operation. */
 @property(nonatomic, copy, nullable) NSString *message;
+
+/** Unique ID of the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  GTLRApigee_GoogleCloudApigeeV1ListApiDocsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "data" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListApiDocsResponse : GTLRCollectionObject
+
+/**
+ *  The catalog item resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiDoc *> *data;
+
+/** Unique error code for the request, if any. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Unique ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -6905,6 +7248,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+@end
+
+
+/**
+ *  OpenAPI Specification documentation for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1OASDocumentation : GTLRObject
+
+/**
+ *  Output only. The format of the input specification file contents.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_FormatUnspecified
+ *        The format is not available. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_Json JSON
+ *        format. (Value: "JSON")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_Yaml YAML
+ *        format. (Value: "YAML")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Required. The documentation file contents for the OpenAPI Specification.
+ *  JSON and YAML file formats are supported.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DocumentationFile *spec;
 
 @end
 
@@ -9126,12 +9496,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  The following are a list of conditions. A valid SecurityAction must contain
  *  at least one condition. Within a condition, each element is ORed. Across
  *  conditions elements are ANDed. For example if a SecurityAction has the
- *  following: api_keys: ["key1", "key2"] and developers: ["dev1", "dev2"] then
- *  this is interpreted as: enforce the action if the incoming request has
- *  ((api_key = "key1" OR api_key="key") AND (developer="dev1" OR
- *  developer="dev2")).
+ *  following: ip_address_ranges: ["ip1", "ip2"] and bot_reasons: ["Flooder",
+ *  "Robot Abuser"] then this is interpreted as: enforce the action if the
+ *  incoming request has ((ip_address_ranges = "ip1" OR ip_address_ranges =
+ *  "ip2") AND (bot_reasons="Flooder" OR bot_reasons="Robot Abuser")).
+ *  Conditions other than ip_address_ranges and bot_reasons cannot be ANDed.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig : GTLRObject
+
+/** Optional. A list of access_tokens. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessTokens;
+
+/** Optional. A list of API keys. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiKeys;
+
+/** Optional. A list of API Products. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiProducts;
 
 /**
  *  Optional. A list of Bot Reasons. Current options: Flooder, Brute Guessor,
@@ -9141,11 +9521,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *botReasons;
 
+/** Optional. A list of developer apps. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *developerApps;
+
+/** Optional. A list of developers. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *developers;
+
 /**
  *  Optional. A list of IP addresses. This could be either IPv4 or IPv6. Limited
  *  to 100 per action.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddressRanges;
+
+/**
+ *  Optional. A list of user agents to deny. We look for exact matches. Limit 50
+ *  per action.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userAgents;
 
 @end
 

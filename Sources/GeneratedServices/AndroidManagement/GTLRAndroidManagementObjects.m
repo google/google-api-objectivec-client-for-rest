@@ -262,6 +262,7 @@ NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_Cellu
 NSString * const kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGUserChoice = @"CELLULAR_TWO_G_USER_CHOICE";
 
 // GTLRAndroidManagement_DeviceRadioState.minimumWifiSecurityLevel
+NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseBit192NetworkSecurity = @"ENTERPRISE_BIT192_NETWORK_SECURITY";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseNetworkSecurity = @"ENTERPRISE_NETWORK_SECURITY";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_MinimumWifiSecurityLevelUnspecified = @"MINIMUM_WIFI_SECURITY_LEVEL_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_OpenNetworkSecurity = @"OPEN_NETWORK_SECURITY";
@@ -695,6 +696,8 @@ NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LoggingStarted =
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LoggingStopped = @"LOGGING_STOPPED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeLocation = @"LOST_MODE_LOCATION";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall = @"LOST_MODE_OUTGOING_PHONE_CALL";
+NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaExhausted = @"MAX_DEVICES_REGISTRATION_QUOTA_EXHAUSTED";
+NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaWarning = @"MAX_DEVICES_REGISTRATION_QUOTA_WARNING";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MediaMount = @"MEDIA_MOUNT";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MediaUnmount = @"MEDIA_UNMOUNT";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_OsShutdown = @"OS_SHUTDOWN";

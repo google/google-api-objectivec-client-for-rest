@@ -5976,7 +5976,7 @@ GTLR_DEPRECATED
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *moderateComments;
+@property(nonatomic, strong, nullable) NSNumber *moderateComments GTLR_DEPRECATED;
 
 /** A prominent color that can be rendered on this channel page. */
 @property(nonatomic, copy, nullable) NSString *profileColor GTLR_DEPRECATED;
@@ -9328,6 +9328,9 @@ GTLR_DEPRECATED
  *        enabled).
  */
 @interface GTLRYouTube_LiveChatMessageListResponse : GTLRCollectionObject
+
+/** Set when there is an active poll. */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessage *activePollItem;
 
 /** Etag of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;

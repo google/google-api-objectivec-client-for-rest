@@ -325,6 +325,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
  */
 @property(nonatomic, copy, nullable) NSString *profileType;
 
+/**
+ *  Output only. Start time for the profile. This output is only present in
+ *  response from the ListProfiles method.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 

@@ -844,31 +844,27 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
-// GTLRLogging_Settings.analyticsMode
+// GTLRLogging_SavedQuery.visibility
 
 /**
- *  By default, analytics will be disabled for new project-level buckets unless
- *  explicitly specified otherwise at bucket creation time.
+ *  The saved query is only visible to the user that created it.
  *
- *  Value: "ANALYTICS_DISABLED"
+ *  Value: "PRIVATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SavedQuery_Visibility_Private;
 /**
- *  By default, analytics will be enabled for all new project-level buckets
- *  unless explicitly specified otherwise at bucket creation time.
+ *  The saved query is visible to anyone in the project.
  *
- *  Value: "ANALYTICS_ENABLED"
+ *  Value: "SHARED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SavedQuery_Visibility_Shared;
 /**
- *  No default analytics mode defined at this resource level, it will inherit
- *  from the closest ancester which has a defined analytics mode. If there is no
- *  specified analytics mode across the resource hierarchy, analytics will be
- *  disabled by default.
+ *  The saved query visibility is unspecified. A CreateSavedQuery request with
+ *  an unspecified visibility will be rejected.
  *
- *  Value: "ANALYTICS_MODE_UNSPECIFIED"
+ *  Value: "VISIBILITY_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SavedQuery_Visibility_VisibilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_SuppressionInfo.reason
@@ -1117,8 +1113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @property(nonatomic, strong, nullable) NSNumber *progress;
 
-/** CopyLogEntries RPC request. */
-@property(nonatomic, strong, nullable) GTLRLogging_CopyLogEntriesRequest *request;
+/** CopyLogEntries RPC request. This field is deprecated and not used. */
+@property(nonatomic, strong, nullable) GTLRLogging_CopyLogEntriesRequest *request GTLR_DEPRECATED;
 
 /**
  *  Source from which to copy log entries.For example, a log
@@ -1222,7 +1218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -2245,8 +2242,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_LogBucket : GTLRObject
 
 /**
- *  Optional. Whether log analytics is enabled for this bucket.Once enabled, log
- *  analytics features cannot be disabled.
+ *  Whether log analytics is enabled for this bucket.Once enabled, log analytics
+ *  features cannot be disabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3043,6 +3040,20 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSNumber *includeChildren;
 
 /**
+ *  Optional. This field applies only to sinks owned by organizations and
+ *  folders.When the value of 'intercept_children' is true, the following
+ *  restrictions apply: The sink must have the include_children flag set to
+ *  true. The sink destination must be a Cloud project.Also, the following
+ *  behaviors apply: Any logs matched by the sink won't be included by
+ *  non-_Required sinks owned by child resources. The sink appears in the
+ *  results of a ListSinks call from a child resource if the value of the filter
+ *  field in its request is either 'in_scope("ALL")' or 'in_scope("ANCESTOR")'.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interceptChildren;
+
+/**
  *  Output only. The client-assigned sink identifier, unique within the
  *  project.For example: "my-syslog-errors-to-pubsub".Sink identifiers are
  *  limited to 100 characters and can include only the following characters:
@@ -3064,6 +3075,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        "VERSION_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *outputVersionFormat GTLR_DEPRECATED;
+
+/**
+ *  Output only. The resource name of the sink.
+ *  "projects/[PROJECT_ID]/sinks/[SINK_NAME]
+ *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_NAME]
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_NAME]
+ *  "folders/[FOLDER_ID]/sinks/[SINK_NAME] For example:
+ *  projects/my_project/sinks/SINK_NAME
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  Output only. The last update timestamp of the sink.This field may not be
@@ -3978,7 +3999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Optional. The user specified title for the SavedQuery. */
+/** Required. The user specified title for the SavedQuery. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Logging query that can be executed in Logs Explorer or via Logging API. */
@@ -4000,6 +4021,22 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /** Output only. The timestamp when the saved query was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Required. The visibility status of this query, which determines its
+ *  ownership.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_SavedQuery_Visibility_Private The saved query is only
+ *        visible to the user that created it. (Value: "PRIVATE")
+ *    @arg @c kGTLRLogging_SavedQuery_Visibility_Shared The saved query is
+ *        visible to anyone in the project. (Value: "SHARED")
+ *    @arg @c kGTLRLogging_SavedQuery_Visibility_VisibilityUnspecified The saved
+ *        query visibility is unspecified. A CreateSavedQuery request with an
+ *        unspecified visibility will be rejected. (Value:
+ *        "VISIBILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
+
 @end
 
 
@@ -4008,28 +4045,6 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  billing account.
  */
 @interface GTLRLogging_Settings : GTLRObject
-
-/**
- *  Optional. The default analytics mode of an org or folder which is inherited
- *  by all newly created child project buckets.
- *
- *  Likely values:
- *    @arg @c kGTLRLogging_Settings_AnalyticsMode_AnalyticsDisabled By default,
- *        analytics will be disabled for new project-level buckets unless
- *        explicitly specified otherwise at bucket creation time. (Value:
- *        "ANALYTICS_DISABLED")
- *    @arg @c kGTLRLogging_Settings_AnalyticsMode_AnalyticsEnabled By default,
- *        analytics will be enabled for all new project-level buckets unless
- *        explicitly specified otherwise at bucket creation time. (Value:
- *        "ANALYTICS_ENABLED")
- *    @arg @c kGTLRLogging_Settings_AnalyticsMode_AnalyticsModeUnspecified No
- *        default analytics mode defined at this resource level, it will inherit
- *        from the closest ancester which has a defined analytics mode. If there
- *        is no specified analytics mode across the resource hierarchy,
- *        analytics will be disabled by default. (Value:
- *        "ANALYTICS_MODE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *analyticsMode;
 
 /** Optional. Overrides the built-in configuration for _Default sink. */
 @property(nonatomic, strong, nullable) GTLRLogging_DefaultSinkConfig *defaultSinkConfig;

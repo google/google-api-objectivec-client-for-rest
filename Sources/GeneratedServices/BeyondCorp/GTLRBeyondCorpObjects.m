@@ -679,6 +679,17 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1alphaSecurityGatewayOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1alphaSecurityGatewayOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBeyondCorp_GoogleCloudLocationListLocationsResponse
 //
 

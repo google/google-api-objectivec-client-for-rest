@@ -38,6 +38,8 @@ NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyT
 NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusActive = @"RECOVERY_STATUS_ACTIVE";
 NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusCanceled = @"RECOVERY_STATUS_CANCELED";
 NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusDraft = @"RECOVERY_STATUS_DRAFT";
+NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusGenerationFailed = @"RECOVERY_STATUS_GENERATION_FAILED";
+NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusGenerationInProgress = @"RECOVERY_STATUS_GENERATION_IN_PROGRESS";
 NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusUnspecified = @"RECOVERY_STATUS_UNSPECIFIED";
 
 // GTLRAndroidPublisher_AssetModuleMetadata.deliveryType
@@ -99,12 +101,15 @@ NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_Tran
 NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusActive = @"RECOVERY_STATUS_ACTIVE";
 NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusCanceled = @"RECOVERY_STATUS_CANCELED";
 NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusDraft = @"RECOVERY_STATUS_DRAFT";
+NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusGenerationFailed = @"RECOVERY_STATUS_GENERATION_FAILED";
+NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusGenerationInProgress = @"RECOVERY_STATUS_GENERATION_IN_PROGRESS";
 NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusUnspecified = @"RECOVERY_STATUS_UNSPECIFIED";
 
 // GTLRAndroidPublisher_Grant.appLevelPermissions
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified = @"APP_LEVEL_PERMISSION_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp = @"CAN_ACCESS_APP";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent = @"CAN_MANAGE_APP_CONTENT";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDeeplinks = @"CAN_MANAGE_DEEPLINKS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDraftApps = @"CAN_MANAGE_DRAFT_APPS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageOrders = @"CAN_MANAGE_ORDERS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePermissions = @"CAN_MANAGE_PERMISSIONS";
@@ -163,7 +168,7 @@ NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExt
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified = @"TIME_EXTENSION_UNSPECIFIED";
 
 // GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
-NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AltertnativeBillingOnly = @"ALTERTNATIVE_BILLING_ONLY";
+NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AlternativeBillingOnly = @"ALTERNATIVE_BILLING_ONLY";
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_ExternalTransactionProgramUnspecified = @"EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_UserChoiceBilling = @"USER_CHOICE_BILLING";
 
@@ -290,6 +295,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChang
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal = @"CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal = @"CAN_EDIT_GAMES_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal = @"CAN_MANAGE_APP_CONTENT_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDeeplinksGlobal = @"CAN_MANAGE_DEEPLINKS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDraftAppsGlobal = @"CAN_MANAGE_DRAFT_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageOrdersGlobal = @"CAN_MANAGE_ORDERS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePermissionsGlobal = @"CAN_MANAGE_PERMISSIONS_GLOBAL";
@@ -2254,7 +2260,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @dynamic acknowledgementState, consumptionState, developerPayload, kind,
          obfuscatedExternalAccountId, obfuscatedExternalProfileId, orderId,
          productId, purchaseState, purchaseTimeMillis, purchaseToken,
-         purchaseType, quantity, regionCode;
+         purchaseType, quantity, refundableQuantity, regionCode;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -2989,7 +2995,25 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_TargetingRuleScope
-@dynamic specificSubscriptionInApp;
+@dynamic anySubscriptionInApp, specificSubscriptionInApp, thisSubscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TargetingRuleScopeAnySubscriptionInApp
+//
+
+@implementation GTLRAndroidPublisher_TargetingRuleScopeAnySubscriptionInApp
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TargetingRuleScopeThisSubscription
+//
+
+@implementation GTLRAndroidPublisher_TargetingRuleScopeThisSubscription
 @end
 
 
@@ -3346,8 +3370,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_VoidedPurchase
-@dynamic kind, orderId, purchaseTimeMillis, purchaseToken, voidedReason,
-         voidedSource, voidedTimeMillis;
+@dynamic kind, orderId, purchaseTimeMillis, purchaseToken, voidedQuantity,
+         voidedReason, voidedSource, voidedTimeMillis;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

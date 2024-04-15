@@ -19,6 +19,71 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_ProjectsLocationsExportImage
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2ExportImageRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:exportImage";
+  GTLRCloudRunQuery_ProjectsLocationsExportImage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ExportImageResponse class];
+  query.loggingName = @"run.projects.locations.exportImage";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsExportImageMetadata
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:exportImageMetadata";
+  GTLRCloudRunQuery_ProjectsLocationsExportImageMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Metadata class];
+  query.loggingName = @"run.projects.locations.exportImageMetadata";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsExportMetadata
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:exportMetadata";
+  GTLRCloudRunQuery_ProjectsLocationsExportMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Metadata class];
+  query.loggingName = @"run.projects.locations.exportMetadata";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsLocationsJobsCreate
 
 @dynamic jobId, parent, validateOnly;
@@ -114,6 +179,29 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
   query.loggingName = @"run.projects.locations.jobs.executions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsExportStatus
+
+@dynamic name, operationId;
+
++ (instancetype)queryWithName:(NSString *)name
+                  operationId:(NSString *)operationId {
+  NSArray *pathParams = @[
+    @"name", @"operationId"
+  ];
+  NSString *pathURITemplate = @"v2/{+name}/{+operationId}:exportStatus";
+  GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsExportStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.operationId = operationId;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ExportStatusResponse class];
+  query.loggingName = @"run.projects.locations.jobs.executions.exportStatus";
   return query;
 }
 
@@ -561,7 +649,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsServicesPatch
 
-@dynamic allowMissing, name, validateOnly;
+@dynamic allowMissing, name, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Service *)object
                            name:(NSString *)name {
@@ -604,6 +692,29 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
   query.loggingName = @"run.projects.locations.services.revisions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsServicesRevisionsExportStatus
+
+@dynamic name, operationId;
+
++ (instancetype)queryWithName:(NSString *)name
+                  operationId:(NSString *)operationId {
+  NSArray *pathParams = @[
+    @"name", @"operationId"
+  ];
+  NSString *pathURITemplate = @"v2/{+name}/{+operationId}:exportStatus";
+  GTLRCloudRunQuery_ProjectsLocationsServicesRevisionsExportStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.operationId = operationId;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ExportStatusResponse class];
+  query.loggingName = @"run.projects.locations.services.revisions.exportStatus";
   return query;
 }
 

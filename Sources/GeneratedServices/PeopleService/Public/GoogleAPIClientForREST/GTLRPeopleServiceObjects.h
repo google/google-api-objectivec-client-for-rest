@@ -123,6 +123,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchCreateContactsRequest
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeDomainContact;
 /**
+ *  Returns SourceType.OTHER_CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_OTHER_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeOtherContact;
+/**
  *  Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and
  *  SourceType.PROFILE.
  *
@@ -151,6 +157,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchUpdateContactsRequest
  *  Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeDomainContact;
+/**
+ *  Returns SourceType.OTHER_CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_OTHER_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeOtherContact;
 /**
  *  Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and
  *  SourceType.PROFILE.
@@ -224,6 +236,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_CopyOtherContactToMyContac
  *  Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeDomainContact;
+/**
+ *  Returns SourceType.OTHER_CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_OTHER_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeOtherContact;
 /**
  *  Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and
  *  SourceType.PROFILE.
@@ -528,6 +546,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeDomainContact;
+/**
+ *  Returns SourceType.OTHER_CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_OTHER_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeOtherContact;
 /**
  *  Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and
  *  SourceType.PROFILE.

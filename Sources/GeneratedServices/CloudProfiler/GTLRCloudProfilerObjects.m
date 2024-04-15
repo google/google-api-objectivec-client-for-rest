@@ -103,7 +103,8 @@ NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall   = @"WALL";
 //
 
 @implementation GTLRCloudProfiler_Profile
-@dynamic deployment, duration, labels, name, profileBytes, profileType;
+@dynamic deployment, duration, labels, name, profileBytes, profileType,
+         startTime;
 @end
 
 

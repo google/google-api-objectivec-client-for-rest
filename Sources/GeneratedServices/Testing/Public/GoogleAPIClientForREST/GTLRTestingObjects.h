@@ -7,7 +7,7 @@
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.
 // Documentation:
-//   https://developers.google.com/cloud-test-lab/
+//   https://firebase.google.com/docs/test-lab/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -1894,7 +1894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  Optional. The amount of time that a device will be initially allocated for.
  *  This can eventually be extended with the UpdateDeviceSession RPC. Default:
- *  30 minutes.
+ *  15 minutes.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 

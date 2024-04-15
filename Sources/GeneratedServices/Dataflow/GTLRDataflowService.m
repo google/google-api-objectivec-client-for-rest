@@ -16,7 +16,6 @@
 NSString * const kGTLRAuthScopeDataflowCloudPlatform   = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeDataflowCompute         = @"https://www.googleapis.com/auth/compute";
 NSString * const kGTLRAuthScopeDataflowComputeReadonly = @"https://www.googleapis.com/auth/compute.readonly";
-NSString * const kGTLRAuthScopeDataflowUserinfoEmail   = @"https://www.googleapis.com/auth/userinfo.email";
 
 // ----------------------------------------------------------------------------
 //   GTLRDataflowService

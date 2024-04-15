@@ -284,6 +284,7 @@ NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteValues = @"PASTE_VAL
 
 // GTLRSheets_DataExecutionStatus.errorCode
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_ConcurrentQuery = @"CONCURRENT_QUERY";
+NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_DataExecutionCancelled = @"DATA_EXECUTION_CANCELLED";
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_DataExecutionErrorCodeUnspecified = @"DATA_EXECUTION_ERROR_CODE_UNSPECIFIED";
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_DataNotFound = @"DATA_NOT_FOUND";
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_DuplicateColumnNames = @"DUPLICATE_COLUMN_NAMES";
@@ -304,6 +305,7 @@ NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyRows = @"TOO_M
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_UnsupportedDataType = @"UNSUPPORTED_DATA_TYPE";
 
 // GTLRSheets_DataExecutionStatus.state
+NSString * const kGTLRSheets_DataExecutionStatus_State_Cancelling = @"CANCELLING";
 NSString * const kGTLRSheets_DataExecutionStatus_State_DataExecutionStateUnspecified = @"DATA_EXECUTION_STATE_UNSPECIFIED";
 NSString * const kGTLRSheets_DataExecutionStatus_State_Failed  = @"FAILED";
 NSString * const kGTLRSheets_DataExecutionStatus_State_NotStarted = @"NOT_STARTED";
@@ -517,6 +519,7 @@ NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Custom = @"CUSTOM";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Max  = @"MAX";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Median = @"MEDIAN";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Min  = @"MIN";
+NSString * const kGTLRSheets_PivotValue_SummarizeFunction_None = @"NONE";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_PivotStandardValueFunctionUnspecified = @"PIVOT_STANDARD_VALUE_FUNCTION_UNSPECIFIED";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Product = @"PRODUCT";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Stdev = @"STDEV";
@@ -3266,8 +3269,9 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_SpreadsheetProperties
-@dynamic autoRecalc, defaultFormat, iterativeCalculationSettings, locale,
-         spreadsheetTheme, timeZone, title;
+@dynamic autoRecalc, defaultFormat, importFunctionsExternalUrlAccessAllowed,
+         iterativeCalculationSettings, locale, spreadsheetTheme, timeZone,
+         title;
 @end
 
 

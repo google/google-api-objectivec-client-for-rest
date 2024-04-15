@@ -1502,7 +1502,8 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
   return map;
 }
 
-+ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object {
++ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -1515,6 +1516,7 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
+  query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRYouTube_PlaylistImage class];
   query.loggingName = @"youtube.playlistImages.insert";
   return query;
@@ -1558,7 +1560,8 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
   return map;
 }
 
-+ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object {
++ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -1571,6 +1574,7 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
                                HTTPMethod:@"PUT"
                        pathParameterNames:nil];
   query.bodyObject = object;
+  query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRYouTube_PlaylistImage class];
   query.loggingName = @"youtube.playlistImages.update";
   return query;

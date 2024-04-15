@@ -101,6 +101,11 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_DataStreamTypeU
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_IosAppDataStream = @"IOS_APP_DATA_STREAM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_WebDataStream = @"WEB_DATA_STREAM";
 
+// GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.countingMethod
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_CountingMethodUnspecified = @"COUNTING_METHOD_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerEvent = @"ONCE_PER_EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerSession = @"ONCE_PER_SESSION";
+
 // GTLRGoogleAnalyticsAdmin_V1betaProperty.industryCategory
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_ArtsAndEntertainment = @"ARTS_AND_ENTERTAINMENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_Automotive = @"AUTOMOTIVE";
@@ -409,7 +414,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1betaAccount
-@dynamic createTime, deleted, displayName, name, regionCode, updateTime;
+@dynamic createTime, deleted, displayName, gmpOrganization, name, regionCode,
+         updateTime;
 @end
 
 
@@ -659,6 +665,27 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleAnalyticsAdmin_V1betaKeyEvent
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1betaKeyEvent
+@dynamic countingMethod, createTime, custom, defaultValue, deletable, eventName,
+         name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue
+@dynamic currencyCode, numericValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleAnalyticsAdmin_V1betaListAccountsResponse
 //
 
@@ -828,6 +855,28 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 
 + (NSString *)collectionItemsKey {
   return @"googleAdsLinks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1betaListKeyEventsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListKeyEventsResponse
+@dynamic keyEvents, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keyEvents" : [GTLRGoogleAnalyticsAdmin_V1betaKeyEvent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"keyEvents";
 }
 
 @end

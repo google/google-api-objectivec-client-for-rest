@@ -1156,6 +1156,46 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: bigquery.routines.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RoutinesGetIamPolicy : GTLRBigqueryQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigquery_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRBigquery_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigqueryQuery_RoutinesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a new routine in the dataset.
  *
  *  Method: bigquery.routines.insert
@@ -1254,6 +1294,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: bigquery.routines.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_RoutinesSetIamPolicy : GTLRBigqueryQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigquery_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRBigquery_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigqueryQuery_RoutinesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

@@ -702,6 +702,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_Purge;
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_Unhide;
 
 // ----------------------------------------------------------------------------
+// GTLRAppengine_Reasons.serviceActivation
+
+/**
+ *  Service is disabled in the project recently i.e., within last 24 hours.
+ *
+ *  Value: "SERVICE_ACTIVATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationDisabled;
+/**
+ *  Service has been disabled for configured grace_period (default 30 days).
+ *
+ *  Value: "SERVICE_ACTIVATION_DISABLED_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationDisabledFull;
+/**
+ *  Service is active in the project.
+ *
+ *  Value: "SERVICE_ACTIVATION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationEnabled;
+/**
+ *  Default Unspecified status
+ *
+ *  Value: "SERVICE_ACTIVATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationStatusUnspecified;
+/**
+ *  Happens when PSM cannot determine the status of service in a project Could
+ *  happen due to variety of reasons like PERMISSION_DENIED or Project got
+ *  deleted etc.
+ *
+ *  Value: "SERVICE_ACTIVATION_UNKNOWN_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationUnknownReason;
+
+// ----------------------------------------------------------------------------
 // GTLRAppengine_Reasons.serviceManagement
 
 /**
@@ -1676,7 +1712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @interface GTLRAppengine_ContainerState : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *currentReasons GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *currentReasons;
 
 /**
  *  The previous and current reasons for a container state will be sent for a
@@ -1687,12 +1723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  this is a CCFE-triggered event used for reconciliation then the current
  *  reasons will be set to their *_CONTROL_PLANE_SYNC state. The previous
  *  reasons will contain the last known set of non-unknown
- *  non-control_plane_sync reasons for the state.Reasons fields are deprecated.
- *  New tenants should only use the state field. If you must know the reason(s)
- *  behind a specific state, please consult with CCFE team first
- *  (cloud-ccfe-discuss\@google.com).
+ *  non-control_plane_sync reasons for the state.
  */
-@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *previousReasons GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *previousReasons;
 
 /**
  *  The current state of the container. This state is the culmination of all of
@@ -3411,7 +3444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  various systems. CCFE will provide the CLH with reasons for the current
  *  state per system.The current systems that CCFE supports are: Service
  *  Management (Inception) Data Governance (Wipeout) Abuse (Ares) Billing
- *  (Internal Cloud Billing API)
+ *  (Internal Cloud Billing API) Service Activation (Service Controller)
  */
 @interface GTLRAppengine_Reasons : GTLRObject
 
@@ -3494,6 +3527,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *        container in an ON state. (Value: "UNHIDE")
  */
 @property(nonatomic, copy, nullable) NSString *dataGovernance;
+
+/**
+ *  Consumer Container denotes if the service is active within a project or not.
+ *  This information could be used to clean up resources in case service in
+ *  DISABLED_FULL i.e. Service is inactive > 30 days.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationDisabled
+ *        Service is disabled in the project recently i.e., within last 24
+ *        hours. (Value: "SERVICE_ACTIVATION_DISABLED")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationDisabledFull
+ *        Service has been disabled for configured grace_period (default 30
+ *        days). (Value: "SERVICE_ACTIVATION_DISABLED_FULL")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationEnabled
+ *        Service is active in the project. (Value:
+ *        "SERVICE_ACTIVATION_ENABLED")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationStatusUnspecified
+ *        Default Unspecified status (Value:
+ *        "SERVICE_ACTIVATION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationUnknownReason
+ *        Happens when PSM cannot determine the status of service in a project
+ *        Could happen due to variety of reasons like PERMISSION_DENIED or
+ *        Project got deleted etc. (Value: "SERVICE_ACTIVATION_UNKNOWN_REASON")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceActivation;
 
 /**
  *  serviceManagement
@@ -3644,6 +3702,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 /** Date when Runtime is deprecated. */
 @property(nonatomic, strong, nullable) GTLRAppengine_Date *deprecationDate;
+
+/** User-friendly display name, e.g. 'Node.js 12', etc. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Date when Runtime is end of support. */
 @property(nonatomic, strong, nullable) GTLRAppengine_Date *endOfSupportDate;

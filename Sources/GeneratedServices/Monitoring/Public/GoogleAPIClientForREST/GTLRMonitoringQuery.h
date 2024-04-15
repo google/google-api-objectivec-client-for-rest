@@ -4618,7 +4618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ServicesPatch : GTLRMonitoringQuery
 
 /**
- *  Resource name for this Service. The format is:
+ *  Identifier. Resource name for this Service. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4636,7 +4636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Update this Service.
  *
  *  @param object The @c GTLRMonitoring_Service to include in the query.
- *  @param name Resource name for this Service. The format is:
+ *  @param name Identifier. Resource name for this Service. The format is:
  *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  *
  *  @return GTLRMonitoringQuery_ServicesPatch
@@ -4863,7 +4863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesPatch : GTLRMonitoringQuery
 
 /**
- *  Resource name for this ServiceLevelObjective. The format is:
+ *  Identifier. Resource name for this ServiceLevelObjective. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4882,7 +4882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_ServiceLevelObjective to include in the
  *    query.
- *  @param name Resource name for this ServiceLevelObjective. The format is:
+ *  @param name Identifier. Resource name for this ServiceLevelObjective. The
+ *    format is:
  *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  *
  *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesPatch

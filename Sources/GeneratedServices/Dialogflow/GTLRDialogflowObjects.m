@@ -86,6 +86,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWeb
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Post = @"POST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_HttpMethod_Put = @"PUT";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService.serviceAgentAuth
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ServiceAgentAuth_AccessToken = @"ACCESS_TOKEN";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ServiceAgentAuth_IdToken = @"ID_TOKEN";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ServiceAgentAuth_None = @"NONE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_ServiceAgentAuth_ServiceAgentAuthUnspecified = @"SERVICE_AGENT_AUTH_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService.webhookType
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_WebhookType_Flexible = @"FLEXIBLE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_WebhookType_Standard = @"STANDARD";
@@ -106,6 +112,30 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_Da
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_PublicWeb = @"PUBLIC_WEB";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_Structured = @"STRUCTURED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection_DataStoreType_Unstructured = @"UNSTRUCTURED";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals.decision
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Decision_AcceptedByGrounding = @"ACCEPTED_BY_GROUNDING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Decision_GroundingDecisionUnspecified = @"GROUNDING_DECISION_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Decision_RejectedByGrounding = @"REJECTED_BY_GROUNDING";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals.score
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Score_GroundingScoreBucketUnspecified = @"GROUNDING_SCORE_BUCKET_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Score_High = @"HIGH";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Score_Low = @"LOW";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Score_Medium = @"MEDIUM";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Score_VeryHigh = @"VERY_HIGH";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals_Score_VeryLow = @"VERY_LOW";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals.bannedPhraseMatch
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals_BannedPhraseMatch_BannedPhraseMatchNone = @"BANNED_PHRASE_MATCH_NONE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals_BannedPhraseMatch_BannedPhraseMatchQuery = @"BANNED_PHRASE_MATCH_QUERY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals_BannedPhraseMatch_BannedPhraseMatchResponse = @"BANNED_PHRASE_MATCH_RESPONSE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals_BannedPhraseMatch_BannedPhraseMatchUnspecified = @"BANNED_PHRASE_MATCH_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals.decision
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals_Decision_AcceptedBySafetyCheck = @"ACCEPTED_BY_SAFETY_CHECK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals_Decision_RejectedBySafetyCheck = @"REJECTED_BY_SAFETY_CHECK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals_Decision_SafetyDecisionUnspecified = @"SAFETY_DECISION_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment.state
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Failed = @"FAILED";
@@ -355,6 +385,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServi
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Patch = @"PATCH";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Post = @"POST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_HttpMethod_Put = @"PUT";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService.serviceAgentAuth
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ServiceAgentAuth_AccessToken = @"ACCESS_TOKEN";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ServiceAgentAuth_IdToken = @"ID_TOKEN";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ServiceAgentAuth_None = @"NONE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_ServiceAgentAuth_ServiceAgentAuthUnspecified = @"SERVICE_AGENT_AUTH_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService.webhookType
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_WebhookType_Flexible = @"FLEXIBLE";
@@ -688,7 +724,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings
-@dynamic audioExportGcsDestination, dtmfSettings, loggingSettings;
+@dynamic audioExportGcsDestination, dtmfSettings, loggingSettings,
+         speechSettings;
 @end
 
 
@@ -714,16 +751,42 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings
+@dynamic endpointerSensitivity, models, noSpeechTimeout,
+         useTimeoutBasedEndpointing;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings_Models
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings_Models
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3Agent
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Agent
 @dynamic advancedSettings, answerFeedbackSettings, avatarUri,
          defaultLanguageCode, descriptionProperty, displayName,
-         enableSpellCorrection, enableStackdriverLogging, genAppBuilderSettings,
-         gitIntegrationSettings, locked, name, securitySettings,
-         speechToTextSettings, startFlow, supportedLanguageCodes,
-         textToSpeechSettings, timeZone;
+         enableMultiLanguageTraining, enableSpellCorrection,
+         enableStackdriverLogging, genAppBuilderSettings,
+         gitIntegrationSettings, locked, name, personalizationSettings,
+         securitySettings, speechToTextSettings, startFlow,
+         supportedLanguageCodes, textToSpeechSettings, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -782,6 +845,30 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
     @"branches" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AgentPersonalizationSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AgentPersonalizationSettings
+@dynamic defaultEndUserMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AgentPersonalizationSettings_DefaultEndUserMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AgentPersonalizationSettings_DefaultEndUserMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -931,7 +1018,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings
-@dynamic audioExportGcsDestination, dtmfSettings, loggingSettings;
+@dynamic audioExportGcsDestination, dtmfSettings, loggingSettings,
+         speechSettings;
 @end
 
 
@@ -952,6 +1040,31 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsLoggingSettings
 @dynamic enableInteractionLogging, enableStackdriverLogging;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsSpeechSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsSpeechSettings
+@dynamic endpointerSensitivity, models, noSpeechTimeout,
+         useTimeoutBasedEndpointing;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsSpeechSettings_Models
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsSpeechSettings_Models
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2307,8 +2420,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService
-@dynamic allowedCaCerts, httpMethod, parameterMapping, password, requestBody,
-         requestHeaders, uri, username, webhookType;
+@dynamic allowedCaCerts, httpMethod, oauthConfig, parameterMapping, password,
+         requestBody, requestHeaders, serviceAgentAuth, uri, username,
+         webhookType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2343,6 +2457,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceOAuthConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceOAuthConfig
+@dynamic clientId, clientSecret, scopes, tokenEndpoint;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -2552,7 +2684,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog
-@dynamic action, createTime, displayName, name, resource, type, userEmail;
+@dynamic action, createTime, displayName, languageCode, name, resource, type,
+         userEmail;
 @end
 
 
@@ -2713,6 +2846,106 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnection
 @dynamic dataStore, dataStoreType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignals
+@dynamic answer, answerGenerationModelCallSignals, answerParts, citedSnippets,
+         groundingSignals, rewriterModelCallSignals, rewrittenQuery,
+         safetySignals, searchSnippets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"answerParts" : [GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsAnswerPart class],
+    @"citedSnippets" : [GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsCitedSnippet class],
+    @"searchSnippets" : [GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSearchSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsAnswerGenerationModelCallSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsAnswerGenerationModelCallSignals
+@dynamic modelOutput, renderedPrompt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsAnswerPart
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsAnswerPart
+@dynamic supportingIndices, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportingIndices" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsCitedSnippet
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsCitedSnippet
+@dynamic searchSnippet, snippetIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsGroundingSignals
+@dynamic decision, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsRewriterModelCallSignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsRewriterModelCallSignals
+@dynamic modelOutput, renderedPrompt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSafetySignals
+@dynamic bannedPhraseMatch, decision, matchedBannedPhrase;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSearchSnippet
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsSearchSnippet
+@dynamic documentTitle, documentUri, text;
 @end
 
 
@@ -3236,8 +3469,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Flow
 @dynamic advancedSettings, descriptionProperty, displayName, eventHandlers,
-         knowledgeConnectorSettings, name, nluSettings, transitionRouteGroups,
-         transitionRoutes;
+         knowledgeConnectorSettings, multiLanguageSettings, name, nluSettings,
+         transitionRouteGroups, transitionRoutes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3262,6 +3495,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy
 @dynamic globalImportStrategy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3FlowMultiLanguageSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3FlowMultiLanguageSettings
+@dynamic enableMultiLanguageDetection, supportedResponseLanguageCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedResponseLanguageCodes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -4510,7 +4761,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters
 @dynamic analyzeQueryTextSentiment, channel, currentPage, disableWebhook,
          endUserMetadata, flowVersions, geoLocation, parameters, payload,
-         searchConfig, sessionEntityTypes, sessionTtl, timeZone, webhookHeaders;
+         populateDataStoreConnectionSignals, searchConfig, sessionEntityTypes,
+         sessionTtl, timeZone, webhookHeaders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4585,11 +4837,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryResult
-@dynamic advancedSettings, allowAnswerFeedback, currentPage, diagnosticInfo,
-         dtmf, intent, intentDetectionConfidence, languageCode, match,
-         parameters, responseMessages, sentimentAnalysisResult, text,
-         transcript, triggerEvent, triggerIntent, webhookPayloads,
-         webhookStatuses;
+@dynamic advancedSettings, allowAnswerFeedback, currentPage,
+         dataStoreConnectionSignals, diagnosticInfo, dtmf, intent,
+         intentDetectionConfidence, languageCode, match, parameters,
+         responseMessages, sentimentAnalysisResult, text, transcript,
+         triggerEvent, triggerIntent, webhookPayloads, webhookStatuses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5555,8 +5807,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService
-@dynamic allowedCaCerts, httpMethod, parameterMapping, password, requestBody,
-         requestHeaders, uri, username, webhookType;
+@dynamic allowedCaCerts, httpMethod, oauthConfig, parameterMapping, password,
+         requestBody, requestHeaders, serviceAgentAuth, uri, username,
+         webhookType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5591,6 +5844,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig
+@dynamic clientId, clientSecret, scopes, tokenEndpoint;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
 }
 
 @end

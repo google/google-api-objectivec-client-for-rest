@@ -93,7 +93,15 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_BigQueryDatasetSource
-@dynamic dataset;
+@dynamic dataset, selectedResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"selectedResources" : [GTLRAnalyticsHub_SelectedResource class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -147,6 +155,8 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_DcrExchangeConfig
+@dynamic singleLinkedDatasetPerCleanroom,
+         singleSelectedResourceSharingRestriction;
 @end
 
 
@@ -512,6 +522,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_RevokeSubscriptionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_SelectedResource
+//
+
+@implementation GTLRAnalyticsHub_SelectedResource
+@dynamic table;
 @end
 
 

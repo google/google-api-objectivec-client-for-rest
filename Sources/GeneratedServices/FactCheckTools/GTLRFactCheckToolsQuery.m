@@ -14,6 +14,23 @@
 
 @end
 
+@implementation GTLRFactCheckToolsQuery_ClaimsImageSearch
+
+@dynamic imageUri, languageCode, offset, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1alpha1/claims:imageSearch";
+  GTLRFactCheckToolsQuery_ClaimsImageSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1FactCheckedClaimImageSearchResponse class];
+  query.loggingName = @"factchecktools.claims.imageSearch";
+  return query;
+}
+
+@end
+
 @implementation GTLRFactCheckToolsQuery_ClaimsSearch
 
 @dynamic languageCode, maxAgeDays, offset, pageSize, pageToken, query,

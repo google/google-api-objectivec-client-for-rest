@@ -140,15 +140,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudProfilerQuery_ProjectsProfilesList : GTLRCloudProfilerQuery
 
 /**
- *  The maximum number of items to return. Default page_size is 1000. Max limit
- *  is 1000.
+ *  Optional. The maximum number of items to return. Default page_size is 1000.
+ *  Max limit is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The token to continue pagination and get profiles from a particular page.
- *  When paginating, all other parameters provided to `ListProfiles` must match
- *  the call that provided the page token.
+ *  Optional. The token to continue pagination and get profiles from a
+ *  particular page. When paginating, all other parameters provided to
+ *  `ListProfiles` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

@@ -239,6 +239,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_AnalyzeBatchRequest
+//
+
+@implementation GTLRDataproc_AnalyzeBatchRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_AnalyzeOperationMetadata
 //
 

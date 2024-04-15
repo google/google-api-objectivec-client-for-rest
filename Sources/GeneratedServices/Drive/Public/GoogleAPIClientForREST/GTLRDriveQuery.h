@@ -934,7 +934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates the metadate for a shared drive.
+ *  Updates the metadata for a shared drive.
  *
  *  Method: drive.drives.update
  *
@@ -958,7 +958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Drive.
  *
- *  Updates the metadate for a shared drive.
+ *  Updates the metadata for a shared drive.
  *
  *  @param object The @c GTLRDrive_Drive to include in the query.
  *  @param driveId The ID of the shared drive.

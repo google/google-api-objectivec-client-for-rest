@@ -3482,10 +3482,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Inserts a new resource into this collection.
  *
  *  @param object The @c GTLRYouTube_PlaylistImage to include in the query.
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    2097152. Accepted MIME types: image/jpeg, image/png,
+ *    application/octet-stream
  *
  *  @return GTLRYouTubeQuery_PlaylistImagesInsert
  */
-+ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object;
++ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 
@@ -3615,10 +3619,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Updates an existing resource.
  *
  *  @param object The @c GTLRYouTube_PlaylistImage to include in the query.
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    2097152. Accepted MIME types: image/jpeg, image/png,
+ *    application/octet-stream
  *
  *  @return GTLRYouTubeQuery_PlaylistImagesUpdate
  */
-+ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object;
++ (instancetype)queryWithObject:(GTLRYouTube_PlaylistImage *)object
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 

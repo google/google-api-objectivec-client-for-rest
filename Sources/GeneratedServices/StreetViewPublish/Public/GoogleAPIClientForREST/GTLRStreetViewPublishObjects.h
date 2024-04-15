@@ -131,6 +131,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 // GTLRStreetViewPublish_PhotoSequence.failureReason
 
 /**
+ *  Camera is covered.
+ *
+ *  Value: "CAMERA_COVERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_CameraCovered;
+/**
  *  The video file was corrupt or could not be decoded.
  *
  *  Value: "CORRUPT_VIDEO"
@@ -940,6 +946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
  *  value, this field will be unset.
  *
  *  Likely values:
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_CameraCovered
+ *        Camera is covered. (Value: "CAMERA_COVERED")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_CorruptVideo
  *        The video file was corrupt or could not be decoded. (Value:
  *        "CORRUPT_VIDEO")

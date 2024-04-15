@@ -89,6 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new task list and adds it to the authenticated user's task lists.
+ *  A user can have up to 2000 lists at a time.
  *
  *  Method: tasks.tasklists.insert
  *
@@ -101,6 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRTasks_TaskList.
  *
  *  Creates a new task list and adds it to the authenticated user's task lists.
+ *  A user can have up to 2000 lists at a time.
  *
  *  @param object The @c GTLRTasks_TaskList to include in the query.
  *
@@ -111,7 +113,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all the authenticated user's task lists.
+ *  Returns all the authenticated user's task lists. A user can have up to 2000
+ *  lists at a time.
  *
  *  Method: tasks.tasklists.list
  *
@@ -133,7 +136,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_TaskLists.
  *
- *  Returns all the authenticated user's task lists.
+ *  Returns all the authenticated user's task lists. A user can have up to 2000
+ *  lists at a time.
  *
  *  @return GTLRTasksQuery_TasklistsList
  *
@@ -299,7 +303,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new task on the specified task list.
+ *  Creates a new task on the specified task list. A user can have up to 20,000
+ *  uncompleted tasks per list and up to 100,000 tasks in total at a time.
  *
  *  Method: tasks.tasks.insert
  *
@@ -326,7 +331,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_Task.
  *
- *  Creates a new task on the specified task list.
+ *  Creates a new task on the specified task list. A user can have up to 20,000
+ *  uncompleted tasks per list and up to 100,000 tasks in total at a time.
  *
  *  @param object The @c GTLRTasks_Task to include in the query.
  *  @param tasklist Task list identifier.
@@ -339,7 +345,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all tasks in the specified task list.
+ *  Returns all tasks in the specified task list. A user can have up to 20,000
+ *  uncompleted tasks per list and up to 100,000 tasks in total at a time.
  *
  *  Method: tasks.tasks.list
  *
@@ -374,8 +381,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *dueMin;
 
 /**
- *  Maximum number of task lists returned on one page. Optional. The default is
- *  20 (max allowed: 100).
+ *  Maximum number of tasks returned on one page. Optional. The default is 20
+ *  (max allowed: 100).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -414,7 +421,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_Tasks.
  *
- *  Returns all tasks in the specified task list.
+ *  Returns all tasks in the specified task list. A user can have up to 20,000
+ *  uncompleted tasks per list and up to 100,000 tasks in total at a time.
  *
  *  @param tasklist Task list identifier.
  *
@@ -431,7 +439,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Moves the specified task to another position in the task list. This can
  *  include putting it as a child task under a new parent and/or move it to a
- *  different position among its sibling tasks.
+ *  different position among its sibling tasks. A user can have up to 2,000
+ *  subtasks per task.
  *
  *  Method: tasks.tasks.move
  *
@@ -463,7 +472,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Moves the specified task to another position in the task list. This can
  *  include putting it as a child task under a new parent and/or move it to a
- *  different position among its sibling tasks.
+ *  different position among its sibling tasks. A user can have up to 2,000
+ *  subtasks per task.
  *
  *  @param tasklist Task list identifier.
  *  @param task Task identifier.

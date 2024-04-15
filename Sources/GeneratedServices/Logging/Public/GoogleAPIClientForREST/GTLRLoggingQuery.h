@@ -387,7 +387,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -432,7 +433,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -1949,6 +1951,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsSinksList : GTLRLoggingQuery
 
 /**
+ *  Optional. A filter expression to constrain the sinks returned. Today, this
+ *  only supports the following strings: '' 'in_scope("ALL")',
+ *  'in_scope("ANCESTOR")', 'in_scope("DEFAULT")'.Description of scopes below.
+ *  ALL: Includes all of the sinks which can be returned in any other scope.
+ *  ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT:
+ *  Includes sinks owned by parent.When the empty string is provided, then the
+ *  filter 'in_scope("DEFAULT")' is applied.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this request.
  *  Non-positive values are ignored. The presence of nextPageToken in the
  *  response indicates that more results might be available.
@@ -2864,7 +2877,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -2909,7 +2923,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -4426,6 +4441,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersSinksList : GTLRLoggingQuery
 
 /**
+ *  Optional. A filter expression to constrain the sinks returned. Today, this
+ *  only supports the following strings: '' 'in_scope("ALL")',
+ *  'in_scope("ANCESTOR")', 'in_scope("DEFAULT")'.Description of scopes below.
+ *  ALL: Includes all of the sinks which can be returned in any other scope.
+ *  ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT:
+ *  Includes sinks owned by parent.When the empty string is provided, then the
+ *  filter 'in_scope("DEFAULT")' is applied.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this request.
  *  Non-positive values are ignored. The presence of nextPageToken in the
  *  response indicates that more results might be available.
@@ -4716,7 +4742,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -4761,7 +4788,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -6221,7 +6249,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -6266,7 +6295,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -7783,6 +7813,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsSinksList : GTLRLoggingQuery
 
 /**
+ *  Optional. A filter expression to constrain the sinks returned. Today, this
+ *  only supports the following strings: '' 'in_scope("ALL")',
+ *  'in_scope("ANCESTOR")', 'in_scope("DEFAULT")'.Description of scopes below.
+ *  ALL: Includes all of the sinks which can be returned in any other scope.
+ *  ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT:
+ *  Includes sinks owned by parent.When the empty string is provided, then the
+ *  filter 'in_scope("DEFAULT")' is applied.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this request.
  *  Non-positive values are ignored. The presence of nextPageToken in the
  *  response indicates that more results might be available.
@@ -8487,7 +8528,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -8532,7 +8574,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
  *  limited to 100 characters and can include only letters, digits, underscores,
- *  hyphens, and periods.
+ *  hyphens, and periods. Bucket identifiers must start with an alphanumeric
+ *  character.
  */
 @property(nonatomic, copy, nullable) NSString *bucketId;
 
@@ -10240,6 +10283,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsSinksList : GTLRLoggingQuery
 
 /**
+ *  Optional. A filter expression to constrain the sinks returned. Today, this
+ *  only supports the following strings: '' 'in_scope("ALL")',
+ *  'in_scope("ANCESTOR")', 'in_scope("DEFAULT")'.Description of scopes below.
+ *  ALL: Includes all of the sinks which can be returned in any other scope.
+ *  ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT:
+ *  Includes sinks owned by parent.When the empty string is provided, then the
+ *  filter 'in_scope("DEFAULT")' is applied.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this request.
  *  Non-positive values are ignored. The presence of nextPageToken in the
  *  response indicates that more results might be available.
@@ -10612,6 +10666,17 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_SinksList : GTLRLoggingQuery
+
+/**
+ *  Optional. A filter expression to constrain the sinks returned. Today, this
+ *  only supports the following strings: '' 'in_scope("ALL")',
+ *  'in_scope("ANCESTOR")', 'in_scope("DEFAULT")'.Description of scopes below.
+ *  ALL: Includes all of the sinks which can be returned in any other scope.
+ *  ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT:
+ *  Includes sinks owned by parent.When the empty string is provided, then the
+ *  filter 'in_scope("DEFAULT")' is applied.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of results to return from this request.

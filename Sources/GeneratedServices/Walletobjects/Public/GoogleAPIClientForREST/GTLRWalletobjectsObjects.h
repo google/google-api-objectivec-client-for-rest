@@ -2513,14 +2513,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  URL for the merchant endpoint that would be called to request updates. The
  *  URL should be hosted on HTTPS and robots.txt should allow the URL path to be
- *  accessible by UserAgent:Google-Valuables. Deprecated.
+ *  accessible by UserAgent:Googlebot. Deprecated.
  */
 @property(nonatomic, copy, nullable) NSString *updateRequestUrl GTLR_DEPRECATED;
 
 /**
  *  The HTTPS url configured by the merchant. The URL should be hosted on HTTPS
  *  and robots.txt should allow the URL path to be accessible by
- *  UserAgent:Google-Valuables.
+ *  UserAgent:Googlebot.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -7074,7 +7074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_LocalizedString *localizedHeader;
 
 /**
- *  The type of the message. Currently, this can only be set for offers.
+ *  The message type.
  *
  *  Likely values:
  *    @arg @c kGTLRWalletobjects_Message_MessageType_ExpirationNotification

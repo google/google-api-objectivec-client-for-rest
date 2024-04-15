@@ -1758,6 +1758,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteVa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_ConcurrentQuery;
 /**
+ *  The data execution has been cancelled.
+ *
+ *  Value: "DATA_EXECUTION_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_DataExecutionCancelled;
+/**
  *  Default value, do not use.
  *
  *  Value: "DATA_EXECUTION_ERROR_CODE_UNSPECIFIED"
@@ -1872,6 +1878,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_Uns
 // ----------------------------------------------------------------------------
 // GTLRSheets_DataExecutionStatus.state
 
+/**
+ *  The data execution is currently being cancelled.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataExecutionStatus_State_Cancelling;
 /**
  *  Default value, do not use.
  *
@@ -2961,6 +2973,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Medi
  *  Value: "MIN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Min;
+/**
+ *  Indicates that the value is already summarized, and the summarization
+ *  function is not explicitly specified. Used for Looker data source pivot
+ *  tables where the value is already summarized.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_None;
 /**
  *  The default, do not use.
  *
@@ -6376,6 +6396,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRSheets_DataExecutionStatus_ErrorCode_ConcurrentQuery The data
  *        execution is currently in progress, can not be refreshed until it
  *        completes. (Value: "CONCURRENT_QUERY")
+ *    @arg @c kGTLRSheets_DataExecutionStatus_ErrorCode_DataExecutionCancelled
+ *        The data execution has been cancelled. (Value:
+ *        "DATA_EXECUTION_CANCELLED")
  *    @arg @c kGTLRSheets_DataExecutionStatus_ErrorCode_DataExecutionErrorCodeUnspecified
  *        Default value, do not use. (Value:
  *        "DATA_EXECUTION_ERROR_CODE_UNSPECIFIED")
@@ -6437,6 +6460,8 @@ GTLR_DEPRECATED
  *  The state of the data execution.
  *
  *  Likely values:
+ *    @arg @c kGTLRSheets_DataExecutionStatus_State_Cancelling The data
+ *        execution is currently being cancelled. (Value: "CANCELLING")
  *    @arg @c kGTLRSheets_DataExecutionStatus_State_DataExecutionStateUnspecified
  *        Default value, do not use. (Value: "DATA_EXECUTION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRSheets_DataExecutionStatus_State_Failed The data execution
@@ -9518,6 +9543,10 @@ GTLR_DEPRECATED
  *        `MEDIAN` function. (Value: "MEDIAN")
  *    @arg @c kGTLRSheets_PivotValue_SummarizeFunction_Min Corresponds to the
  *        `MIN` function. (Value: "MIN")
+ *    @arg @c kGTLRSheets_PivotValue_SummarizeFunction_None Indicates that the
+ *        value is already summarized, and the summarization function is not
+ *        explicitly specified. Used for Looker data source pivot tables where
+ *        the value is already summarized. (Value: "NONE")
  *    @arg @c kGTLRSheets_PivotValue_SummarizeFunction_PivotStandardValueFunctionUnspecified
  *        The default, do not use. (Value:
  *        "PIVOT_STANDARD_VALUE_FUNCTION_UNSPECIFIED")
@@ -10603,6 +10632,14 @@ GTLR_DEPRECATED
  *  field is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_CellFormat *defaultFormat;
+
+/**
+ *  Whether to allow external url access for image and import functions. Read
+ *  only when true. When false, you can set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importFunctionsExternalUrlAccessAllowed;
 
 /**
  *  Determines whether and how circular references are resolved with iterative

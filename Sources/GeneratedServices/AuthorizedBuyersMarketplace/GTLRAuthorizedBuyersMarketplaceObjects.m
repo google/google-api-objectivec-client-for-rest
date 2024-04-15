@@ -450,13 +450,21 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 
 @implementation GTLRAuthorizedBuyersMarketplace_Deal
 @dynamic billedBuyer, buyer, client, createTime, creativeRequirements, dealType,
-         deliveryControl, descriptionProperty, displayName, estimatedGrossSpend,
-         flightEndTime, flightStartTime, name, preferredDealTerms,
-         privateAuctionTerms, programmaticGuaranteedTerms, proposalRevision,
-         publisherProfile, sellerTimeZone, targeting, updateTime;
+         deliveryControl, descriptionProperty, displayName, eligibleSeatIds,
+         estimatedGrossSpend, flightEndTime, flightStartTime, mediaPlanner,
+         name, preferredDealTerms, privateAuctionTerms,
+         programmaticGuaranteedTerms, proposalRevision, publisherProfile,
+         sellerTimeZone, targeting, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eligibleSeatIds" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -740,6 +748,16 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 @dynamic daypartTargeting, geoTargeting, inventorySizeTargeting,
          inventoryTypeTargeting, placementTargeting, technologyTargeting,
          userListTargeting, videoTargeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAuthorizedBuyersMarketplace_MediaPlanner
+//
+
+@implementation GTLRAuthorizedBuyersMarketplace_MediaPlanner
+@dynamic accountId;
 @end
 
 
