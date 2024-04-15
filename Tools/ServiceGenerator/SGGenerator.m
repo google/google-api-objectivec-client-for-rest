@@ -3727,6 +3727,12 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       // This seems to have been removed in Ventura: @"CKUnredactedDescription",
       // -------------------- New as of Ventura --------------------
       // None
+      // -------------------- New as of Sonoma --------------------
+      @"doubleValueSafe",
+      @"stringValueSafe",
+      @"boolValueSafe",
+      @"int64ValueSafe",
+      @"utf8ValueSafe",
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
