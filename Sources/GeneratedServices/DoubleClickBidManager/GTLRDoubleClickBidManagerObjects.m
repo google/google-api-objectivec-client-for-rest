@@ -38,29 +38,14 @@ NSString * const kGTLRDoubleClickBidManager_DataRange_Range_YearToDate = @"YEAR_
 // GTLRDoubleClickBidManager_Parameters.type
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_AudienceComposition = @"AUDIENCE_COMPOSITION";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Floodlight = @"FLOODLIGHT";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Type_FullPath = @"FULL_PATH";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Grp = @"GRP";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability = @"INVENTORY_AVAILABILITY";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution = @"PATH_ATTRIBUTION";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Reach = @"REACH";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_ReportTypeUnspecified = @"REPORT_TYPE_UNSPECIFIED";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Standard = @"STANDARD";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_UniqueReachAudience = @"UNIQUE_REACH_AUDIENCE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Youtube = @"YOUTUBE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_YoutubeProgrammaticGuaranteed = @"YOUTUBE_PROGRAMMATIC_GUARANTEED";
-
-// GTLRDoubleClickBidManager_PathFilter.pathMatchPosition
-NSString * const kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_Any = @"ANY";
-NSString * const kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_First = @"FIRST";
-NSString * const kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_Last = @"LAST";
-NSString * const kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_PathMatchPositionUnspecified = @"PATH_MATCH_POSITION_UNSPECIFIED";
-
-// GTLRDoubleClickBidManager_PathQueryOptionsFilter.match
-NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_BeginsWith = @"BEGINS_WITH";
-NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Exact = @"EXACT";
-NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Partial = @"PARTIAL";
-NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Unknown = @"UNKNOWN";
-NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_WildcardExpression = @"WILDCARD_EXPRESSION";
 
 // GTLRDoubleClickBidManager_QueryMetadata.format
 NSString * const kGTLRDoubleClickBidManager_QueryMetadata_Format_Csv = @"CSV";
@@ -91,24 +76,6 @@ NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_StateUnspecified 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDoubleClickBidManager_ChannelGrouping
-//
-
-@implementation GTLRDoubleClickBidManager_ChannelGrouping
-@dynamic fallbackName, name, rules;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rules" : [GTLRDoubleClickBidManager_Rule class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDoubleClickBidManager_DataRange
 //
 
@@ -124,34 +91,6 @@ NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_StateUnspecified 
 
 @implementation GTLRDoubleClickBidManager_Date
 @dynamic day, month, year;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDoubleClickBidManager_DisjunctiveMatchStatement
-//
-
-@implementation GTLRDoubleClickBidManager_DisjunctiveMatchStatement
-@dynamic eventFilters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"eventFilters" : [GTLRDoubleClickBidManager_EventFilter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDoubleClickBidManager_EventFilter
-//
-
-@implementation GTLRDoubleClickBidManager_EventFilter
-@dynamic dimensionFilter;
 @end
 
 
@@ -215,7 +154,7 @@ NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_StateUnspecified 
 //
 
 @implementation GTLRDoubleClickBidManager_Options
-@dynamic includeOnlyTargetedUserLists, pathQueryOptions;
+@dynamic includeOnlyTargetedUserLists;
 @end
 
 
@@ -232,60 +171,6 @@ NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_StateUnspecified 
     @"filters" : [GTLRDoubleClickBidManager_FilterPair class],
     @"groupBys" : [NSString class],
     @"metrics" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDoubleClickBidManager_PathFilter
-//
-
-@implementation GTLRDoubleClickBidManager_PathFilter
-@dynamic eventFilters, pathMatchPosition;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"eventFilters" : [GTLRDoubleClickBidManager_EventFilter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDoubleClickBidManager_PathQueryOptions
-//
-
-@implementation GTLRDoubleClickBidManager_PathQueryOptions
-@dynamic channelGrouping, pathFilters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"pathFilters" : [GTLRDoubleClickBidManager_PathFilter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDoubleClickBidManager_PathQueryOptionsFilter
-//
-
-@implementation GTLRDoubleClickBidManager_PathQueryOptionsFilter
-@dynamic filter, match, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
   };
   return map;
 }
@@ -368,24 +253,6 @@ NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_StateUnspecified 
 
 @implementation GTLRDoubleClickBidManager_ReportStatus
 @dynamic finishTime, format, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDoubleClickBidManager_Rule
-//
-
-@implementation GTLRDoubleClickBidManager_Rule
-@dynamic disjunctiveMatchStatements, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"disjunctiveMatchStatements" : [GTLRDoubleClickBidManager_DisjunctiveMatchStatement class]
-  };
-  return map;
-}
-
 @end
 
 

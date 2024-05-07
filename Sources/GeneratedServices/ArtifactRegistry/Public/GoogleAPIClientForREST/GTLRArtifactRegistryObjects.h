@@ -395,6 +395,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Docke
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified;
 /**
+ *  Generic package format.
+ *
+ *  Value: "GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Generic;
+/**
  *  Go package format.
  *
  *  Value: "GO"
@@ -956,6 +962,31 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  GenericArtifact represents a generic artifact
+ */
+@interface GTLRArtifactRegistry_GenericArtifact : GTLRObject
+
+/** Output only. The time when the Generic module is created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Resource name of the generic artifact. project, location, repository,
+ *  package_id and version_id create a unique generic artifact. i.e.
+ *  "projects/test-project/locations/us-west4/repositories/test-repo/
+ *  genericArtifacts/package_id:version_id"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time when the Generic module is updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The version of the generic artifact. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -2319,6 +2350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
  *        Unspecified package format. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Generic Generic package
+ *        format. (Value: "GENERIC")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Go Go package format.
  *        (Value: "GO")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Googet GooGet package
@@ -2588,6 +2621,68 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** The Apt artifacts updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_AptArtifact *> *aptArtifacts;
+
+@end
+
+
+/**
+ *  The response to upload a generic artifact.
+ */
+@interface GTLRArtifactRegistry_UploadGenericArtifactMediaResponse : GTLRObject
+
+/** Operation that will be returned to the user. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Operation *operation;
+
+@end
+
+
+/**
+ *  The operation metadata for uploading generic artifacts.
+ */
+@interface GTLRArtifactRegistry_UploadGenericArtifactMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request to upload a generic artifact. The created GenericArtifact will
+ *  have the resource name {parent}/genericArtifacts/package_id:version_id. The
+ *  created file will have the resource name
+ *  {parent}/files/package_id:version_id:filename.
+ */
+@interface GTLRArtifactRegistry_UploadGenericArtifactRequest : GTLRObject
+
+/**
+ *  The name of the file of the generic artifact to be uploaded. E.g.
+ *  "example-file.zip" The filename should only include letters, numbers, and
+ *  url safe characters, i.e. [a-zA-Z0-9-_.~\@].
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  Deprecated. Use package_id, version_id and filename instead. The resource
+ *  name of the generic artifact. E.g.
+ *  "projects/math/locations/us/repositories/operations/genericArtifacts/addition/1.0.0/add.py"
+ */
+@property(nonatomic, copy, nullable) NSString *name GTLR_DEPRECATED;
+
+/**
+ *  The ID of the package of the generic artifact. If the package does not
+ *  exist, a new package will be created. E.g. "pkg-1" The package_id must start
+ *  with a letter, end with a letter or number, only contain letters, numbers,
+ *  hyphens and periods i.e. [a-z0-9-.], and cannot exceed 256 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *packageId;
+
+/**
+ *  The ID of the version of the generic artifact. If the version does not
+ *  exist, a new version will be created. E.g."1.0.0" The version_id must start
+ *  and end with a letter or number, can only contain lowercase letters,
+ *  numbers, hyphens and periods, i.e. [a-z0-9-.] and cannot exceed a total of
+ *  128 characters. While "latest" is a well-known name for the latest version
+ *  of a package, it is not yet supported and is reserved for future use.
+ *  Creating a version called "latest" is not allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *versionId;
 
 @end
 

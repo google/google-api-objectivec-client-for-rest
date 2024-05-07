@@ -256,6 +256,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_Model
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_DirectIntent = @"DIRECT_INTENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Event = @"EVENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Intent = @"INTENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Llm = @"LLM";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_NoInput = @"NO_INPUT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_NoMatch = @"NO_MATCH";
@@ -1934,6 +1935,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1LanguageInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1LanguageInfo
+@dynamic confidenceScore, inputLanguageCode, resolvedLanguageCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Page
 //
 
@@ -2487,8 +2498,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest
 @dynamic detectIntentResponseId, dtmfDigits, fulfillmentInfo, intentInfo,
-         languageCode, messages, pageInfo, payload, sentimentAnalysisResult,
-         sessionInfo, text, transcript, triggerEvent, triggerIntent;
+         languageCode, languageInfo, messages, pageInfo, payload,
+         sentimentAnalysisResult, sessionInfo, text, transcript, triggerEvent,
+         triggerIntent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4166,6 +4178,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3LanguageInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3LanguageInfo
+@dynamic confidenceScore, inputLanguageCode, resolvedLanguageCode;
 @end
 
 
@@ -5874,8 +5896,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest
 @dynamic detectIntentResponseId, dtmfDigits, fulfillmentInfo, intentInfo,
-         languageCode, messages, pageInfo, payload, sentimentAnalysisResult,
-         sessionInfo, text, transcript, triggerEvent, triggerIntent;
+         languageCode, languageInfo, messages, pageInfo, payload,
+         sentimentAnalysisResult, sessionInfo, text, transcript, triggerEvent,
+         triggerIntent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

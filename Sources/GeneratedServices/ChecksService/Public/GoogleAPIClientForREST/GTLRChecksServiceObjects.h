@@ -414,6 +414,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaC
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypePreciseLocation;
 /**
+ *  Checks if the Sensitive Information data type declaration matches usage.
+ *
+ *  Value: "PRIVACY_POLICY_DATA_TYPE_SENSITIVE_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeSensitiveInfo;
+/**
  *  Checks if the Text Messages data type declaration in your privacy policy
  *  matches usage.
  *
@@ -1925,6 +1931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *        Checks if the Precise Location data type declaration in your privacy
  *        policy matches usage. (Value:
  *        "PRIVACY_POLICY_DATA_TYPE_PRECISE_LOCATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeSensitiveInfo
+ *        Checks if the Sensitive Information data type declaration matches
+ *        usage. (Value: "PRIVACY_POLICY_DATA_TYPE_SENSITIVE_INFO")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_PrivacyPolicyDataTypeTextMessages
  *        Checks if the Text Messages data type declaration in your privacy
  *        policy matches usage. (Value:

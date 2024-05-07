@@ -13,6 +13,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudIAP_AccessSettings.identitySources
+NSString * const kGTLRCloudIAP_AccessSettings_IdentitySources_IdentitySourceUnspecified = @"IDENTITY_SOURCE_UNSPECIFIED";
+NSString * const kGTLRCloudIAP_AccessSettings_IdentitySources_WorkforceIdentityFederation = @"WORKFORCE_IDENTITY_FEDERATION";
+
 // GTLRCloudIAP_AttributePropagationSettings.outputCredentials
 NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Header = @"HEADER";
 NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Jwt = @"JWT";
@@ -48,8 +52,17 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_AccessSettings
-@dynamic allowedDomainsSettings, corsSettings, gcipSettings, oauthSettings,
-         policyDelegationSettings, reauthSettings;
+@dynamic allowedDomainsSettings, corsSettings, gcipSettings, identitySources,
+         oauthSettings, policyDelegationSettings, reauthSettings,
+         workforceIdentitySettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identitySources" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -294,6 +307,16 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_OAuth2
+//
+
+@implementation GTLRCloudIAP_OAuth2
+@dynamic clientId, clientSecret, clientSecretSha256;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_OAuthSettings
 //
 
@@ -485,4 +508,22 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_ValidateIapAttributeExpressionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_WorkforceIdentitySettings
+//
+
+@implementation GTLRCloudIAP_WorkforceIdentitySettings
+@dynamic oauth2, workforcePools;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workforcePools" : [NSString class]
+  };
+  return map;
+}
+
 @end

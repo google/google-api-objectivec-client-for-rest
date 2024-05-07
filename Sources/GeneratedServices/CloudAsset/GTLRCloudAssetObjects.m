@@ -2266,7 +2266,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_Tag
-@dynamic tagKey, tagValue, tagValueId;
+@dynamic tagKey, tagKeyId, tagValue, tagValueId;
 @end
 
 

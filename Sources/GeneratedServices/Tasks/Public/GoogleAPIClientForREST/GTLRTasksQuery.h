@@ -304,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new task on the specified task list. A user can have up to 20,000
- *  uncompleted tasks per list and up to 100,000 tasks in total at a time.
+ *  non-hidden tasks per list and up to 100,000 tasks in total at a time.
  *
  *  Method: tasks.tasks.insert
  *
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRTasks_Task.
  *
  *  Creates a new task on the specified task list. A user can have up to 20,000
- *  uncompleted tasks per list and up to 100,000 tasks in total at a time.
+ *  non-hidden tasks per list and up to 100,000 tasks in total at a time.
  *
  *  @param object The @c GTLRTasks_Task to include in the query.
  *  @param tasklist Task list identifier.
@@ -346,7 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns all tasks in the specified task list. A user can have up to 20,000
- *  uncompleted tasks per list and up to 100,000 tasks in total at a time.
+ *  non-hidden tasks per list and up to 100,000 tasks in total at a time.
  *
  *  Method: tasks.tasks.list
  *
@@ -422,7 +422,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRTasks_Tasks.
  *
  *  Returns all tasks in the specified task list. A user can have up to 20,000
- *  uncompleted tasks per list and up to 100,000 tasks in total at a time.
+ *  non-hidden tasks per list and up to 100,000 tasks in total at a time.
  *
  *  @param tasklist Task list identifier.
  *

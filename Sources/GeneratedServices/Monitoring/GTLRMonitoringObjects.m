@@ -237,6 +237,10 @@ NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass5xx =
 NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassAny = @"STATUS_CLASS_ANY";
 NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassUnspecified = @"STATUS_CLASS_UNSPECIFIED";
 
+// GTLRMonitoring_ServiceAgentAuthentication.type
+NSString * const kGTLRMonitoring_ServiceAgentAuthentication_Type_OidcToken = @"OIDC_TOKEN";
+NSString * const kGTLRMonitoring_ServiceAgentAuthentication_Type_ServiceAgentAuthenticationTypeUnspecified = @"SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED";
+
 // GTLRMonitoring_ServiceLevelObjective.calendarPeriod
 NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified = @"CALENDAR_PERIOD_UNSPECIFIED";
 NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Day = @"DAY";
@@ -954,7 +958,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 @implementation GTLRMonitoring_HttpCheck
 @dynamic acceptedResponseStatusCodes, authInfo, body, contentType,
          customContentType, headers, maskHeaders, path, pingConfig, port,
-         requestMethod, useSsl, validateSsl;
+         requestMethod, serviceAgentAuthentication, useSsl, validateSsl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1893,6 +1897,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ServiceAgentAuthentication
+//
+
+@implementation GTLRMonitoring_ServiceAgentAuthentication
+@dynamic type;
 @end
 
 

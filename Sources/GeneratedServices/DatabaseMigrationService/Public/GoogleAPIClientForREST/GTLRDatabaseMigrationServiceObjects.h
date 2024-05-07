@@ -389,6 +389,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8035;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 36.
+ *
+ *  Value: "MYSQL_8_0_36"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8036;
+/**
  *  PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -2709,6 +2715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8035
  *        The database major version is MySQL 8.0 and the minor version is 35.
  *        (Value: "MYSQL_8_0_35")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8036
+ *        The database major version is MySQL 8.0 and the minor version is 36.
+ *        (Value: "MYSQL_8_0_36")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10
  *        PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11
@@ -4341,6 +4350,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tableColumns;
 
+/**
+ *  For each table_column, mark whether it's sorting order is ascending (false)
+ *  or descending (true). If no value is defined, assume all columns are sorted
+ *  in ascending order. Otherwise, the number of items must match that of
+ *  table_columns with each value specifying the direction of the matched column
+ *  by its index.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *tableColumnsDescending;
+
 /** Type of index, for example B-TREE. */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4994,10 +5014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Optional. Data dump parallelism settings used by the migration. Currently
- *  applicable only for MySQL to Cloud SQL for MySQL migrations only.
- */
+/** Optional. Data dump parallelism settings used by the migration. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PerformanceConfig *performanceConfig;
 
 /**

@@ -3300,7 +3300,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 /**
  *  Definition of a managed Google Play store page, made of a localized name and
  *  links to other pages. A page also contains clusters defined as a
- *  subcollection.
+ *  subcollection. *Deprecated* The managed Google Play Store homepage shows all
+ *  apps listed in the Devices policy. If IT admins want to customize the
+ *  homepage layout, they can organize apps into collections in the managed
+ *  Google Play iframe.
  */
 @interface GTLRAndroidEnterprise_StorePage : GTLRObject
 

@@ -293,6 +293,33 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesMembersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Membership *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesMembersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Membership class];
+  query.loggingName = @"chat.spaces.members.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet
 
 @dynamic name;
@@ -597,6 +624,71 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
   query.parent = parent;
   query.expectedObjectClass = [GTLRHangoutsChat_ListSpaceEventsResponse class];
   query.loggingName = @"chat.spaces.spaceEvents.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesGetSpaceReadState
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesGetSpaceReadState *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceReadState class];
+  query.loggingName = @"chat.users.spaces.getSpaceReadState";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesThreadsGetThreadReadState
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesThreadsGetThreadReadState *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_ThreadReadState class];
+  query.loggingName = @"chat.users.spaces.threads.getThreadReadState";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesUpdateSpaceReadState
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SpaceReadState *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesUpdateSpaceReadState *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceReadState class];
+  query.loggingName = @"chat.users.spaces.updateSpaceReadState";
   return query;
 }
 

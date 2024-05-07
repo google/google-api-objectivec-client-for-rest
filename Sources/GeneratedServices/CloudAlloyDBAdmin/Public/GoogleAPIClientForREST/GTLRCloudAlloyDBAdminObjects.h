@@ -51,6 +51,9 @@
 @class GTLRCloudAlloyDBAdmin_InstanceNetworkConfig;
 @class GTLRCloudAlloyDBAdmin_IntegerRestrictions;
 @class GTLRCloudAlloyDBAdmin_MachineConfig;
+@class GTLRCloudAlloyDBAdmin_MaintenanceSchedule;
+@class GTLRCloudAlloyDBAdmin_MaintenanceUpdatePolicy;
+@class GTLRCloudAlloyDBAdmin_MaintenanceWindow;
 @class GTLRCloudAlloyDBAdmin_MigrationSource;
 @class GTLRCloudAlloyDBAdmin_NetworkConfig;
 @class GTLRCloudAlloyDBAdmin_Node;
@@ -58,6 +61,8 @@
 @class GTLRCloudAlloyDBAdmin_Operation_Metadata;
 @class GTLRCloudAlloyDBAdmin_Operation_Response;
 @class GTLRCloudAlloyDBAdmin_PrimaryConfig;
+@class GTLRCloudAlloyDBAdmin_PscConfig;
+@class GTLRCloudAlloyDBAdmin_PscInstanceConfig;
 @class GTLRCloudAlloyDBAdmin_QuantityBasedExpiry;
 @class GTLRCloudAlloyDBAdmin_QuantityBasedRetention;
 @class GTLRCloudAlloyDBAdmin_QueryInsightsInstanceConfig;
@@ -553,6 +558,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_StateUn
  *  Value: "STOPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Stopped;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_MaintenanceWindow.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_MigrationSource.sourceType
@@ -1953,12 +2010,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement.type
 
-/**
- *  The root entitlement representing Duet AI package ownership.
- *
- *  Value: "DUET_AI"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_DuetAi GTLR_DEPRECATED;
 /** Value: "ENTITLEMENT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_EntitlementTypeUnspecified;
 /**
@@ -2159,6 +2210,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "PRODUCT_TYPE_ALLOYDB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeAlloydb;
+/**
+ *  Bigtable product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_BIGTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeBigtable;
 /**
  *  Cloud SQL product area in GCP
  *
@@ -2785,6 +2842,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /** Labels as key value pairs */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_Cluster_Labels *labels;
 
+/**
+ *  Output only. The maintenance schedule for the cluster, generated for a
+ *  specific rollout if a maintenance window is set.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_MaintenanceSchedule *maintenanceSchedule;
+
+/**
+ *  Optional. The maintenance update policy determines when to allow or deny
+ *  updates.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_MaintenanceUpdatePolicy *maintenanceUpdatePolicy;
+
 /** Output only. Cluster created via DMS migration. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_MigrationSource *migrationSource;
 
@@ -2813,6 +2882,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Output only. Cross Region replication config specific to PRIMARY cluster.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_PrimaryConfig *primaryConfig;
+
+/**
+ *  Optional. The configuration for Private Service Connect (PSC) for the
+ *  cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_PscConfig *pscConfig;
 
 /**
  *  Output only. Reconciling (https://google.aip.dev/128#reconciliation). Set to
@@ -3409,6 +3484,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_Node *> *nodes;
 
 /**
+ *  Optional. The configuration for Private Service Connect (PSC) for the
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_PscInstanceConfig *pscInstanceConfig;
+
+/**
  *  Output only. The public IP addresses for the Instance. This is available
  *  ONLY when enable_public_ip is set. This is the connection endpoint for an
  *  end-user application.
@@ -3751,6 +3832,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  MaintenanceSchedule stores the maintenance schedule generated from the
+ *  MaintenanceUpdatePolicy, once a maintenance rollout is triggered, if
+ *  MaintenanceWindow is set, and if there is no conflicting DenyPeriod. The
+ *  schedule is cleared once the update takes place. This field cannot be
+ *  manually changed; modify the MaintenanceUpdatePolicy instead.
+ */
+@interface GTLRCloudAlloyDBAdmin_MaintenanceSchedule : GTLRObject
+
+/** Output only. The scheduled start time for the maintenance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  MaintenanceUpdatePolicy defines the policy for system updates.
+ */
+@interface GTLRCloudAlloyDBAdmin_MaintenanceUpdatePolicy : GTLRObject
+
+/** Preferred windows to perform maintenance. Currently limited to 1. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_MaintenanceWindow *> *maintenanceWindows;
+
+@end
+
+
+/**
+ *  MaintenanceWindow specifies a preferred day and time for maintenance.
+ */
+@interface GTLRCloudAlloyDBAdmin_MaintenanceWindow : GTLRObject
+
+/**
+ *  Preferred day of the week for maintenance, e.g. MONDAY, TUESDAY, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Friday Friday (Value:
+ *        "FRIDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Monday Monday (Value:
+ *        "MONDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Sunday Sunday (Value:
+ *        "SUNDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Wednesday Wednesday
+ *        (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/**
+ *  Preferred time to start the maintenance operation on the specified day.
+ *  Maintenance will start within 1 hour of this time.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeTimeOfDay *startTime;
+
+@end
+
+
+/**
  *  Subset of the source instance configuration that is available when reading
  *  the cluster resource.
  */
@@ -4008,6 +4152,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  PscConfig contains PSC related configuration at a cluster level.
+ */
+@interface GTLRCloudAlloyDBAdmin_PscConfig : GTLRObject
+
+/**
+ *  Optional. Create an instance that allows connections from Private Service
+ *  Connect endpoints to the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscEnabled;
+
+@end
+
+
+/**
+ *  PscInstanceConfig contains PSC related configuration at an instance level.
+ */
+@interface GTLRCloudAlloyDBAdmin_PscInstanceConfig : GTLRObject
+
+/**
+ *  Optional. List of consumer projects that are allowed to create PSC endpoints
+ *  to service-attachments to this instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjects;
+
+/**
+ *  Output only. The DNS name of the instance for PSC connectivity. Name
+ *  convention: ...alloydb-psc.goog
+ */
+@property(nonatomic, copy, nullable) NSString *pscDnsName;
+
+/**
+ *  Output only. The service attachment created when Private Service Connect
+ *  (PSC) is enabled for the instance. The name of the resource will be in the
+ *  format of `projects//regions//serviceAttachments/`
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAttachmentLink;
 
 @end
 
@@ -4328,6 +4515,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Zonal available instance. (Value: "ZONAL")
  */
 @property(nonatomic, copy, nullable) NSString *availabilityType;
+
+/**
+ *  Checks for resources that are configured to have redundancy, and ongoing
+ *  replication across regions
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crossRegionReplicaConfigured;
 
 /**
  *  externalReplicaConfigured
@@ -5459,9 +5654,6 @@ GTLR_DEPRECATED
  *  An enum that represents the type of this entitlement.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_DuetAi
- *        The root entitlement representing Duet AI package ownership. (Value:
- *        "DUET_AI")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_EntitlementTypeUnspecified
  *        Value "ENTITLEMENT_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Gemini
@@ -5636,6 +5828,8 @@ GTLR_DEPRECATED
  *        On premises database product. (Value: "ON_PREM")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeAlloydb
  *        AlloyDB product area in GCP (Value: "PRODUCT_TYPE_ALLOYDB")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeBigtable
+ *        Bigtable product area in GCP (Value: "PRODUCT_TYPE_BIGTABLE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeCloudSql
  *        Cloud SQL product area in GCP (Value: "PRODUCT_TYPE_CLOUD_SQL")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeMemorystore

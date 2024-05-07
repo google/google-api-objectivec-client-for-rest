@@ -1211,6 +1211,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pemCaCertificates;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The State for this CertificateAuthority.
  *
  *  Likely values:
@@ -1320,8 +1334,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 /**
  *  Optional. When specified this provides a custom SKI to be used in the
  *  certificate. This should only be used to maintain a SKI of an existing CA
- *  originally created outside CAS, which was not generated using method (1)
- *  described in RFC 5280 section 4.2.1.2.
+ *  originally created outside CA service, which was not generated using method
+ *  (1) described in RFC 5280 section 4.2.1.2.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateConfigKeyId *subjectKeyId;
 
@@ -1571,7 +1585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  Optional. The maximum lifetime allowed for issued Certificates that use this
- *  template. If the issuing CaPool's IssuancePolicy specifies a
+ *  template. If the issuing CaPool resource's IssuancePolicy specifies a
  *  maximum_lifetime the minimum of the two durations will be the maximum
  *  lifetime for issued Certificates. Note that if the issuing
  *  CertificateAuthority expires before a Certificate's requested
@@ -1634,7 +1648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 /**
  *  Optional. This field allows this CA to be disabled even if it's being
  *  depended on by another resource. However, doing so may result in unintended
- *  and unrecoverable effects on any dependent resource(s) since the CA will no
+ *  and unrecoverable effects on any dependent resources since the CA will no
  *  longer be able to issue certificates.
  *
  *  Uses NSNumber of boolValue.
@@ -1853,7 +1867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_FetchCaCertsResponse : GTLRObject
 
 /**
- *  The PEM encoded CA certificate chains of all Certificate Authorities in this
+ *  The PEM encoded CA certificate chains of all certificate authorities in this
  *  CaPool in the ENABLED, DISABLED, or STAGED states.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_CertChain *> *caCerts;
@@ -1935,9 +1949,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  Optional. The maximum lifetime allowed for issued Certificates. Note that if
- *  the issuing CertificateAuthority expires before a Certificate's requested
- *  maximum_lifetime, the effective lifetime will be explicitly truncated to
- *  match it.
+ *  the issuing CertificateAuthority expires before a Certificate resource's
+ *  requested maximum_lifetime, the effective lifetime will be explicitly
+ *  truncated to match it.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maximumLifetime;
 
@@ -2734,9 +2748,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_PublishingOptions : GTLRObject
 
 /**
- *  Optional. Specifies the encoding format of each CertificateAuthority's CA
- *  certificate and CRLs. If this is omitted, CA certificates and CRLs will be
- *  published in PEM.
+ *  Optional. Specifies the encoding format of each CertificateAuthority
+ *  resource's CA certificate and CRLs. If this is omitted, CA certificates and
+ *  CRLs will be published in PEM.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Der

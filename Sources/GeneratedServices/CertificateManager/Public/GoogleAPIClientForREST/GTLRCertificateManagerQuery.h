@@ -145,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of Certificate Config field names used to specify the order of the
  *  returned results. The default sorting order is ascending. To specify
- *  descending order for a field, add a suffix " desc".
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -300,7 +300,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of Certificate Map Entry field names used to specify the order of the
  *  returned results. The default sorting order is ascending. To specify
- *  descending order for a field, add a suffix " desc".
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -505,7 +505,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of Certificate Map field names used to specify the order of the
  *  returned results. The default sorting order is ascending. To specify
- *  descending order for a field, add a suffix " desc".
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -700,7 +700,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of Certificate field names used to specify the order of the returned
  *  results. The default sorting order is ascending. To specify descending order
- *  for a field, add a suffix " desc".
+ *  for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -893,7 +893,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of Dns Authorization field names used to specify the order of the
  *  returned results. The default sorting order is ascending. To specify
- *  descending order for a field, add a suffix " desc".
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1321,7 +1321,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of TrustConfig field names used to specify the order of the returned
  *  results. The default sorting order is ascending. To specify descending order
- *  for a field, add a suffix " desc".
+ *  for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

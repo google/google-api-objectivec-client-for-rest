@@ -111,6 +111,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Ready   = @"READY";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Stopped = @"STOPPED";
 
+// GTLRCloudAlloyDBAdmin_MaintenanceWindow.day
+NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Friday = @"FRIDAY";
+NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Monday = @"MONDAY";
+NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Saturday = @"SATURDAY";
+NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Sunday = @"SUNDAY";
+NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Thursday = @"THURSDAY";
+NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Tuesday = @"TUESDAY";
+NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Wednesday = @"WEDNESDAY";
+
 // GTLRCloudAlloyDBAdmin_MigrationSource.sourceType
 NSString * const kGTLRCloudAlloyDBAdmin_MigrationSource_SourceType_Dms = @"DMS";
 NSString * const kGTLRCloudAlloyDBAdmin_MigrationSource_SourceType_MigrationSourceTypeUnspecified = @"MIGRATION_SOURCE_TYPE_UNSPECIFIED";
@@ -358,7 +368,6 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEnt
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_EntitlementState_Revoked = @"REVOKED";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement.type
-NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_DuetAi = @"DUET_AI";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_EntitlementTypeUnspecified = @"ENTITLEMENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Gemini = @"GEMINI";
 
@@ -398,6 +407,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_CloudSql = @"CLOUD_SQL";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_OnPrem = @"ON_PREM";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeAlloydb = @"PRODUCT_TYPE_ALLOYDB";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeBigtable = @"PRODUCT_TYPE_BIGTABLE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeCloudSql = @"PRODUCT_TYPE_CLOUD_SQL";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeMemorystore = @"PRODUCT_TYPE_MEMORYSTORE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeOnPrem = @"PRODUCT_TYPE_ON_PREM";
@@ -570,9 +580,10 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @dynamic annotations, automatedBackupPolicy, backupSource, clusterType,
          continuousBackupConfig, continuousBackupInfo, createTime,
          databaseVersion, deleteTime, displayName, encryptionConfig,
-         encryptionInfo, ETag, initialUser, labels, migrationSource, name,
-         network, networkConfig, primaryConfig, reconciling, satisfiesPzs,
-         secondaryConfig, sslConfig, state, uid, updateTime;
+         encryptionInfo, ETag, initialUser, labels, maintenanceSchedule,
+         maintenanceUpdatePolicy, migrationSource, name, network, networkConfig,
+         primaryConfig, pscConfig, reconciling, satisfiesPzs, secondaryConfig,
+         sslConfig, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -793,8 +804,9 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @dynamic annotations, availabilityType, clientConnectionConfig, createTime,
          databaseFlags, deleteTime, displayName, ETag, gceZone, instanceType,
          ipAddress, labels, machineConfig, name, networkConfig, nodes,
-         publicIpAddress, queryInsightsConfig, readPoolConfig, reconciling,
-         satisfiesPzs, state, uid, updateTime, writableNode;
+         pscInstanceConfig, publicIpAddress, queryInsightsConfig,
+         readPoolConfig, reconciling, satisfiesPzs, state, uid, updateTime,
+         writableNode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1028,6 +1040,44 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_MaintenanceSchedule
+//
+
+@implementation GTLRCloudAlloyDBAdmin_MaintenanceSchedule
+@dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_MaintenanceUpdatePolicy
+//
+
+@implementation GTLRCloudAlloyDBAdmin_MaintenanceUpdatePolicy
+@dynamic maintenanceWindows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"maintenanceWindows" : [GTLRCloudAlloyDBAdmin_MaintenanceWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_MaintenanceWindow
+//
+
+@implementation GTLRCloudAlloyDBAdmin_MaintenanceWindow
+@dynamic day, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_MigrationSource
 //
 
@@ -1138,6 +1188,34 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_PscConfig
+//
+
+@implementation GTLRCloudAlloyDBAdmin_PscConfig
+@dynamic pscEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_PscInstanceConfig
+//
+
+@implementation GTLRCloudAlloyDBAdmin_PscInstanceConfig
+@dynamic allowedConsumerProjects, pscDnsName, serviceAttachmentLink;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedConsumerProjects" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -1263,8 +1341,8 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration
-@dynamic availabilityType, externalReplicaConfigured,
-         promotableReplicaConfigured;
+@dynamic availabilityType, crossRegionReplicaConfigured,
+         externalReplicaConfigured, promotableReplicaConfigured;
 @end
 
 

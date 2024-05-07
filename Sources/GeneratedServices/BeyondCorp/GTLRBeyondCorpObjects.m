@@ -86,7 +86,7 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 @implementation GTLRBeyondCorp_AppGateway
 @dynamic allocatedConnections, createTime, displayName, hostType, labels, name,
-         state, type, uid, updateTime, uri;
+         satisfiesPzi, satisfiesPzs, state, type, uid, updateTime, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -202,7 +202,7 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection
 @dynamic applicationEndpoint, connectors, createTime, displayName, gateway,
-         labels, name, state, type, uid, updateTime;
+         labels, name, satisfiesPzi, satisfiesPzs, state, type, uid, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

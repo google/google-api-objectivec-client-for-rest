@@ -139,6 +139,8 @@
 @class GTLRAndroidManagement_UserFacingMessage_LocalizedMessages;
 @class GTLRAndroidManagement_WebApp;
 @class GTLRAndroidManagement_WebAppIcon;
+@class GTLRAndroidManagement_WifiSsid;
+@class GTLRAndroidManagement_WifiSsidPolicy;
 @class GTLRAndroidManagement_WipeAction;
 @class GTLRAndroidManagement_WipeFailureEvent;
 
@@ -3869,18 +3871,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall;
 /**
- *  Indicates max_devices_registration_quota_exhausted_event has been set.
- *
- *  Value: "MAX_DEVICES_REGISTRATION_QUOTA_EXHAUSTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaExhausted;
-/**
- *  Indicates max_devices_registration_quota_warning_event has been set.
- *
- *  Value: "MAX_DEVICES_REGISTRATION_QUOTA_WARNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaWarning;
-/**
  *  Indicates media_mount_event has been set.
  *
  *  Value: "MEDIA_MOUNT"
@@ -4023,6 +4013,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_A
  *  Value: "WEB_TOKEN_PERMISSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_WifiSsidPolicy.wifiSsidPolicyType
+
+/**
+ *  The device can make Wi-Fi connections only to the SSIDs in wifiSsids.
+ *  wifiSsids must not be empty. The device will not be able to connect to any
+ *  other Wi-Fi network.
+ *
+ *  Value: "WIFI_SSID_ALLOWLIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidAllowlist;
+/**
+ *  The device cannot connect to any Wi-Fi network whose SSID is in wifiSsids,
+ *  but can connect to other networks.
+ *
+ *  Value: "WIFI_SSID_DENYLIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidDenylist;
+/**
+ *  Defaults to WIFI_SSID_DENYLIST. wifiSsids must not be set. There are no
+ *  restrictions on which SSID the device can connect to.
+ *
+ *  Value: "WIFI_SSID_POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidPolicyTypeUnspecified;
 
 /**
  *  A shell command was issued over ADB via “adb shell command”.
@@ -6061,6 +6077,13 @@ GTLR_DEPRECATED
  *        "WIFI_DIRECT_SETTINGS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *wifiDirectSettings;
+
+/**
+ *  Restrictions on which Wi-Fi SSIDs the device can connect to. Note that this
+ *  does not affect which networks can be configured on the device. Supported on
+ *  company-owned devices running Android 13 and above.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_WifiSsidPolicy *wifiSsidPolicy;
 
 @end
 
@@ -9397,7 +9420,12 @@ GTLR_DEPRECATED
 /**
  *  The system update policy, which controls how OS updates are applied. If the
  *  update type is WINDOWED, the update window will automatically apply to Play
- *  app updates as well.
+ *  app updates as well.Note: Google Play system updates
+ *  (https://source.android.com/docs/core/ota/modular-system) (also called
+ *  Mainline updates) are automatically downloaded and require a device reboot
+ *  to be installed. Refer to the mainline section in Manage system updates
+ *  (https://developer.android.com/work/dpc/system-updates#mainline) for further
+ *  details.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_SystemUpdate *systemUpdate;
 
@@ -9633,6 +9661,9 @@ GTLR_DEPRECATED
 /** The name of the enterprise in the form enterprises/{enterprise}. */
 @property(nonatomic, copy, nullable) NSString *enterprise;
 
+/** IMEI number of the GSM device. For example, A1000031212. */
+@property(nonatomic, copy, nullable) NSString *imei;
+
 /**
  *  The management mode of the device or profile.
  *
@@ -9647,6 +9678,9 @@ GTLR_DEPRECATED
  *        profile on the device. (Value: "PROFILE_OWNER")
  */
 @property(nonatomic, copy, nullable) NSString *managementMode;
+
+/** MEID number of the CDMA device. For example, A00000292788E1. */
+@property(nonatomic, copy, nullable) NSString *meid;
 
 /** The model of the device. For example, Asus Nexus 7. */
 @property(nonatomic, copy, nullable) NSString *model;
@@ -9668,6 +9702,9 @@ GTLR_DEPRECATED
  *        Device is personally-owned. (Value: "PERSONALLY_OWNED")
  */
 @property(nonatomic, copy, nullable) NSString *ownership;
+
+/** The device serial number. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
 
 @end
 
@@ -10199,7 +10236,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  Configuration for managing system updates
+ *  Configuration for managing system updatesNote: Google Play system updates
+ *  (https://source.android.com/docs/core/ota/modular-system) (also called
+ *  Mainline updates) are automatically downloaded but require a device reboot
+ *  to be installed. Refer to the mainline section in Manage system updates
+ *  (https://developer.android.com/work/dpc/system-updates#mainline) for further
+ *  details.
  */
 @interface GTLRAndroidManagement_SystemUpdate : GTLRObject
 
@@ -10497,12 +10539,6 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall
  *        Indicates lostModeOutgoingPhoneCallEvent has been set. (Value:
  *        "LOST_MODE_OUTGOING_PHONE_CALL")
- *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaExhausted
- *        Indicates max_devices_registration_quota_exhausted_event has been set.
- *        (Value: "MAX_DEVICES_REGISTRATION_QUOTA_EXHAUSTED")
- *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaWarning
- *        Indicates max_devices_registration_quota_warning_event has been set.
- *        (Value: "MAX_DEVICES_REGISTRATION_QUOTA_WARNING")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MediaMount
  *        Indicates media_mount_event has been set. (Value: "MEDIA_MOUNT")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_MediaUnmount
@@ -10781,6 +10817,56 @@ GTLR_DEPRECATED
  *  with the embedded UI. This is a read-only field generated by the server.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Represents a Wi-Fi SSID.
+ */
+@interface GTLRAndroidManagement_WifiSsid : GTLRObject
+
+/** Required. Wi-Fi SSID represented as a string. */
+@property(nonatomic, copy, nullable) NSString *wifiSsid;
+
+@end
+
+
+/**
+ *  Restrictions on which Wi-Fi SSIDs the device can connect to. Note that this
+ *  does not affect which networks can be configured on the device. Supported on
+ *  company-owned devices running Android 13 and above.
+ */
+@interface GTLRAndroidManagement_WifiSsidPolicy : GTLRObject
+
+/**
+ *  Type of the Wi-Fi SSID policy to be applied.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidAllowlist
+ *        The device can make Wi-Fi connections only to the SSIDs in wifiSsids.
+ *        wifiSsids must not be empty. The device will not be able to connect to
+ *        any other Wi-Fi network. (Value: "WIFI_SSID_ALLOWLIST")
+ *    @arg @c kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidDenylist
+ *        The device cannot connect to any Wi-Fi network whose SSID is in
+ *        wifiSsids, but can connect to other networks. (Value:
+ *        "WIFI_SSID_DENYLIST")
+ *    @arg @c kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidPolicyTypeUnspecified
+ *        Defaults to WIFI_SSID_DENYLIST. wifiSsids must not be set. There are
+ *        no restrictions on which SSID the device can connect to. (Value:
+ *        "WIFI_SSID_POLICY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wifiSsidPolicyType;
+
+/**
+ *  Optional. List of Wi-Fi SSIDs that should be applied in the policy. This
+ *  field must be non-empty when WifiSsidPolicyType is set to
+ *  WIFI_SSID_ALLOWLIST. If this is set to a non-empty list, then a
+ *  nonComplianceDetail detail with API_LEVEL is reported if the Android version
+ *  is less than 13 and a nonComplianceDetail with MANAGEMENT_MODE is reported
+ *  for non-company-owned devices.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_WifiSsid *> *wifiSsids;
 
 @end
 

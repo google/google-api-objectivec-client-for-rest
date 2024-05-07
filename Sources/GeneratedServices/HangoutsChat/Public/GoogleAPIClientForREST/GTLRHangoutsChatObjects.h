@@ -386,11 +386,23 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Attachment.source
 
-/** Value: "DRIVE_FILE" */
+/**
+ *  The file is a Google Drive file.
+ *
+ *  Value: "DRIVE_FILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Attachment_Source_DriveFile;
-/** Value: "SOURCE_UNSPECIFIED" */
+/**
+ *  Reserved.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Attachment_Source_SourceUnspecified;
-/** Value: "UPLOADED_CONTENT" */
+/**
+ *  The file is uploaded to Chat.
+ *
+ *  Value: "UPLOADED_CONTENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Attachment_Source_UploadedContent;
 
 // ----------------------------------------------------------------------------
@@ -1422,7 +1434,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Dm;
  *  Value: "ROOM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Room;
-/** Value: "TYPE_UNSPECIFIED" */
+/**
+ *  Reserved.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -1779,11 +1795,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Output only. The source of the attachment.
  *
  *  Likely values:
- *    @arg @c kGTLRHangoutsChat_Attachment_Source_DriveFile Value "DRIVE_FILE"
- *    @arg @c kGTLRHangoutsChat_Attachment_Source_SourceUnspecified Value
- *        "SOURCE_UNSPECIFIED"
- *    @arg @c kGTLRHangoutsChat_Attachment_Source_UploadedContent Value
- *        "UPLOADED_CONTENT"
+ *    @arg @c kGTLRHangoutsChat_Attachment_Source_DriveFile The file is a Google
+ *        Drive file. (Value: "DRIVE_FILE")
+ *    @arg @c kGTLRHangoutsChat_Attachment_Source_SourceUnspecified Reserved.
+ *        (Value: "SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_Attachment_Source_UploadedContent The file is
+ *        uploaded to Chat. (Value: "UPLOADED_CONTENT")
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -1798,7 +1815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_AttachmentDataRef
+ *  A reference to the attachment data.
  */
 @interface GTLRHangoutsChat_AttachmentDataRef : GTLRObject
 
@@ -2181,7 +2198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_CompleteImportSpaceResponse
+ *  Response message for completing the import process for a space.
  */
 @interface GTLRHangoutsChat_CompleteImportSpaceResponse : GTLRObject
 
@@ -2196,7 +2213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_CustomEmoji : GTLRObject
 
-/** Unique key for the custom emoji resource. */
+/** Output only. Unique key for the custom emoji resource. */
 @property(nonatomic, copy, nullable) NSString *uid;
 
 @end
@@ -2341,7 +2358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
- *  For `CARD_CLICKED` interaction events, whether the user interacted with a
+ *  For `CARD_CLICKED` and `MESSAGE` interaction events, whether the user is
+ *  interacting with or about to interact with a
  *  [dialog](https://developers.google.com/workspace/chat/dialogs).
  *
  *  Uses NSNumber of boolValue.
@@ -2549,7 +2567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A custom function to invoke when the containing element is clicked or
- *  othrwise activated. For example usage, see [Read form
+ *  otherwise activated. For example usage, see [Read form
  *  data](https://developers.google.com/workspace/chat/read-form-data).
  */
 @property(nonatomic, copy, nullable) NSString *function;
@@ -4477,7 +4495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_ListMembershipsResponse
+ *  Response to list memberships of the space.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "memberships" property. If returned as the result of a query, it
@@ -4504,7 +4522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_ListMessagesResponse
+ *  Response message for listing messages.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "messages" property. If returned as the result of a query, it
@@ -4531,7 +4549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_ListReactionsResponse
+ *  Response to a list reactions request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "reactions" property. If returned as the result of a query, it
@@ -4585,7 +4603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_ListSpacesResponse
+ *  The response for a list spaces request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "spaces" property. If returned as the result of a query, it should
@@ -4680,9 +4698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Optional. User's role within a Chat space, which determines their permitted
- *  actions in the space. [Developer
- *  Preview](https://developers.google.com/workspace/preview): This field can
- *  only be used as input in `UpdateMembership`.
+ *  actions in the space. This field can only be used as input in
+ *  `UpdateMembership`.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Membership_Role_MembershipRoleUnspecified
@@ -5265,7 +5282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_SetUpSpaceRequest
+ *  Request to create a space and add specified users to it.
  */
 @interface GTLRHangoutsChat_SetUpSpaceRequest : GTLRObject
 
@@ -5422,9 +5439,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  user uses a consumer account (unmanaged user account). By default, a space
  *  created by a consumer account permits any Google Chat user. * The space is
  *  used to [import data to Google Chat]
- *  (https://developers.google.com/workspace/chat/import-data). Import mode
- *  spaces must only permit members from the same Google Workspace organization.
- *  For existing spaces, this field is output only.
+ *  (https://developers.google.com/chat/api/guides/import-data-overview) because
+ *  import mode spaces must only permit members from the same Google Workspace
+ *  organization. However, as part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), import mode
+ *  spaces can permit any Google Chat user so this field can then be set for
+ *  import mode spaces. For existing spaces, this field is output only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5524,8 +5544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        include direct messages between two humans. (Value: "DM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_Room Conversations between two or
  *        more humans. (Value: "ROOM")
- *    @arg @c kGTLRHangoutsChat_Space_Type_TypeUnspecified Value
- *        "TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRHangoutsChat_Space_Type_TypeUnspecified Reserved. (Value:
+ *        "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type GTLR_DEPRECATED;
 
@@ -5746,6 +5766,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  A user's read state within a space, used to identify read and unread
+ *  messages.
+ */
+@interface GTLRHangoutsChat_SpaceReadState : GTLRObject
+
+/**
+ *  Optional. The time when the user's space read state was updated. Usually
+ *  this corresponds with either the timestamp of the last read message, or a
+ *  timestamp specified by the user to mark the last read position in a space.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastReadTime;
+
+/**
+ *  Resource name of the space read state. Format:
+ *  `users/{user}/spaces/{space}/spaceReadState`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Event payload for an updated space. Event type:
  *  `google.workspace.chat.space.v1.updated`
  */
@@ -5873,6 +5915,27 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  A user's read state within a thread, used to identify read and unread
+ *  messages.
+ */
+@interface GTLRHangoutsChat_ThreadReadState : GTLRObject
+
+/**
+ *  The time when the user's thread read state was updated. Usually this
+ *  corresponds with the timestamp of the last read message in a thread.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastReadTime;
+
+/**
+ *  Resource name of the thread read state. Format:
+ *  `users/{user}/spaces/{space}/threads/{thread}/threadReadState`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Time input values.
  */
 @interface GTLRHangoutsChat_TimeInput : GTLRObject
@@ -5941,7 +6004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_UploadAttachmentRequest
+ *  Request to upload an attachment.
  */
 @interface GTLRHangoutsChat_UploadAttachmentRequest : GTLRObject
 
@@ -5952,7 +6015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  GTLRHangoutsChat_UploadAttachmentResponse
+ *  Response of uploading an attachment.
  */
 @interface GTLRHangoutsChat_UploadAttachmentResponse : GTLRObject
 

@@ -1177,7 +1177,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 /**
  *  Imports an event. This operation is used to add a private copy of an
- *  existing event to a calendar.
+ *  existing event to a calendar. Only events with an eventType of default may
+ *  be imported.
+ *  Deprecated behavior: If a non-default event is imported, its type will be
+ *  changed to default and any event-type-specific properties it may have will
+ *  be dropped.
  *
  *  Method: calendar.events.import
  *
@@ -1215,7 +1219,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  Fetches a @c GTLRCalendar_Event.
  *
  *  Imports an event. This operation is used to add a private copy of an
- *  existing event to a calendar.
+ *  existing event to a calendar. Only events with an eventType of default may
+ *  be imported.
+ *  Deprecated behavior: If a non-default event is imported, its type will be
+ *  changed to default and any event-type-specific properties it may have will
+ *  be dropped.
  *
  *  @param object The @c GTLRCalendar_Event to include in the query.
  *  @param calendarId Calendar identifier. To retrieve calendar IDs call the

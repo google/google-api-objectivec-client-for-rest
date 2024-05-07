@@ -1094,8 +1094,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Promotes the read replica instance to be a stand-alone Cloud SQL instance.
- *  Using this operation might cause your instance to restart.
+ *  Promotes the read replica instance to be an independent Cloud SQL primary
+ *  instance. Using this operation might cause your instance to restart.
  *
  *  Method: sql.instances.promoteReplica
  *
@@ -1106,9 +1106,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdminQuery_InstancesPromoteReplica : GTLRSQLAdminQuery
 
 /**
- *  Set to true if the promote operation should attempt to re-add the original
- *  primary as a replica when it comes back online. Otherwise, if this value is
- *  false or not set, the original primary will be a standalone instance.
+ *  Set to true to invoke a replica failover to the designated DR replica. As
+ *  part of replica failover, the promote operation attempts to add the original
+ *  primary instance as a replica of the promoted DR replica when the original
+ *  primary instance comes back online. If set to false or not specified, then
+ *  the original primary instance becomes an independent Cloud SQL primary
+ *  instance. Only applicable to MySQL.
  */
 @property(nonatomic, assign) BOOL failover;
 
@@ -1121,8 +1124,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Promotes the read replica instance to be a stand-alone Cloud SQL instance.
- *  Using this operation might cause your instance to restart.
+ *  Promotes the read replica instance to be an independent Cloud SQL primary
+ *  instance. Using this operation might cause your instance to restart.
  *
  *  @param project ID of the project that contains the read replica.
  *  @param instance Cloud SQL read replica instance name.
@@ -1415,7 +1418,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Switches over from the primary instance to the replica instance.
+ *  Switches over from the primary instance to the designated DR replica
+ *  instance.
  *
  *  Method: sql.instances.switchover
  *
@@ -1441,7 +1445,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Switches over from the primary instance to the replica instance.
+ *  Switches over from the primary instance to the designated DR replica
+ *  instance.
  *
  *  @param project ID of the project that contains the replica.
  *  @param instance Cloud SQL read replica instance name.

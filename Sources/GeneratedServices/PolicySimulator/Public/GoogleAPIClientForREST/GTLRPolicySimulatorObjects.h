@@ -119,6 +119,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2Cu
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_MethodTypeUnspecified;
 /**
+ *  Constraint applied when removing an IAM grant.
+ *
+ *  Value: "REMOVE_GRANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_RemoveGrant;
+/**
  *  Constraint applied when updating the resource.
  *
  *  Value: "UPDATE"

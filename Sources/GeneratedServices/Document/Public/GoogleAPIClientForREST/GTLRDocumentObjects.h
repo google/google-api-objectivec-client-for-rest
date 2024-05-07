@@ -3759,28 +3759,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *pixelFontSize;
 
 /**
- *  Whether the text is in small caps.
+ *  Whether the text is in small caps. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *smallcaps;
 
 /**
- *  Whether the text is strikethrough.
+ *  Whether the text is strikethrough. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *strikeout;
 
 /**
- *  Whether the text is a subscript.
+ *  Whether the text is a subscript. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *subscript;
 
 /**
- *  Whether the text is a superscript.
+ *  Whether the text is a superscript. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5297,28 +5297,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *pixelFontSize;
 
 /**
- *  Whether the text is in small caps.
+ *  Whether the text is in small caps. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *smallcaps;
 
 /**
- *  Whether the text is strikethrough.
+ *  Whether the text is strikethrough. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *strikeout;
 
 /**
- *  Whether the text is a subscript.
+ *  Whether the text is a subscript. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *subscript;
 
 /**
- *  Whether the text is a superscript.
+ *  Whether the text is a superscript. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7723,28 +7723,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *pixelFontSize;
 
 /**
- *  Whether the text is in small caps.
+ *  Whether the text is in small caps. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *smallcaps;
 
 /**
- *  Whether the text is strikethrough.
+ *  Whether the text is strikethrough. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *strikeout;
 
 /**
- *  Whether the text is a subscript.
+ *  Whether the text is a subscript. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *subscript;
 
 /**
- *  Whether the text is a superscript.
+ *  Whether the text is a superscript. This feature is not supported yet.
  *
  *  Uses NSNumber of boolValue.
  */

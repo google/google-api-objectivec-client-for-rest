@@ -95,6 +95,7 @@
 @class GTLRGKEHub_IdentityServiceAzureADConfig;
 @class GTLRGKEHub_IdentityServiceGoogleConfig;
 @class GTLRGKEHub_IdentityServiceGroupConfig;
+@class GTLRGKEHub_IdentityServiceIdentityServiceOptions;
 @class GTLRGKEHub_IdentityServiceLdapConfig;
 @class GTLRGKEHub_IdentityServiceMembershipSpec;
 @class GTLRGKEHub_IdentityServiceMembershipState;
@@ -1761,6 +1762,25 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniPodU
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CodeUnspecified;
 /**
+ *  Configuration (Istio/k8s resources) failed to apply due to internal error.
+ *
+ *  Value: "CONFIG_APPLY_INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigApplyInternalError;
+/**
+ *  Configuration failed to be applied due to being invalid.
+ *
+ *  Value: "CONFIG_VALIDATION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationError;
+/**
+ *  Encountered configuration(s) with possible unintended behavior or invalid
+ *  configuration. These configs may not have been applied.
+ *
+ *  Value: "CONFIG_VALIDATION_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationWarning;
+/**
  *  GKE sandbox unsupported error code
  *
  *  Value: "GKE_SANDBOX_UNSUPPORTED"
@@ -1779,11 +1799,107 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIam
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired;
 /**
+ *  BackendService quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_BACKEND_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededBackendServices;
+/**
+ *  ClientTLSPolicy quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_CLIENT_TLS_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededClientTlsPolicies;
+/**
+ *  EndpointPolicy quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_ENDPOINT_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededEndpointPolicies;
+/**
+ *  Gateway quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_GATEWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededGateways;
+/**
+ *  HealthCheck quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_HEALTH_CHECKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHealthChecks;
+/**
+ *  HTTPFilter quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_HTTP_FILTERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHttpFilters;
+/**
+ *  HTTPRoute quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_HTTP_ROUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHttpRoutes;
+/**
+ *  Mesh quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_MESHES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededMeshes;
+/**
+ *  NetworkEndpointGroup quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_NETWORK_ENDPOINT_GROUPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededNetworkEndpointGroups;
+/**
+ *  ServerTLSPolicy quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_SERVER_TLS_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededServerTlsPolicies;
+/**
+ *  ServiceLBPolicy quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_SERVICE_LB_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededServiceLbPolicies;
+/**
+ *  TCPFilter quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_TCP_FILTERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpFilters;
+/**
+ *  TCPRoute quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_TCP_ROUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpRoutes;
+/**
+ *  TLS routes quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_TLS_ROUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTlsRoutes;
+/**
+ *  TrafficPolicy quota exceeded error code.
+ *
+ *  Value: "QUOTA_EXCEEDED_TRAFFIC_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies;
+/**
  *  Multiple control planes unsupported error code
  *
  *  Value: "UNSUPPORTED_MULTIPLE_CONTROL_PLANES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedMultipleControlPlanes;
+/**
+ *  VPC-SC GA is supported for this control plane.
+ *
+ *  Value: "VPCSC_GA_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_VpcscGaSupported;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ServiceMeshCondition.severity
@@ -1812,6 +1928,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Severity_Sev
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ServiceMeshControlPlaneManagement.implementation
+
+/**
+ *  Unspecified
+ *
+ *  Value: "IMPLEMENTATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_ImplementationUnspecified;
+/**
+ *  A Google build of istiod is used for the managed control plane.
+ *
+ *  Value: "ISTIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_Istiod;
+/**
+ *  Traffic director is used for the managed control plane.
+ *
+ *  Value: "TRAFFIC_DIRECTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_TrafficDirector;
+/**
+ *  The control plane implementation is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ServiceMeshControlPlaneManagement.state
@@ -4383,6 +4527,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Holds non-protocol-related configuration options.
+ */
+@interface GTLRGKEHub_IdentityServiceIdentityServiceOptions : GTLRObject
+
+/**
+ *  Optional. Determines the lifespan of STS tokens issued by Anthos Identity
+ *  Service.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *sessionDuration;
+
+@end
+
+
+/**
  *  Configuration for the LDAP Auth flow.
  */
 @interface GTLRGKEHub_IdentityServiceLdapConfig : GTLRObject
@@ -4417,6 +4575,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** A member may support multiple auth methods. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_IdentityServiceAuthMethod *> *authMethods;
+
+/** Optional. non-protocol-related configuration options. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_IdentityServiceIdentityServiceOptions *identityServiceOptions;
 
 @end
 
@@ -6791,6 +6952,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        unschedulable error code (Value: "CNI_POD_UNSCHEDULABLE")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_CodeUnspecified Default
  *        Unspecified code (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ConfigApplyInternalError
+ *        Configuration (Istio/k8s resources) failed to apply due to internal
+ *        error. (Value: "CONFIG_APPLY_INTERNAL_ERROR")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationError
+ *        Configuration failed to be applied due to being invalid. (Value:
+ *        "CONFIG_VALIDATION_ERROR")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationWarning
+ *        Encountered configuration(s) with possible unintended behavior or
+ *        invalid configuration. These configs may not have been applied.
+ *        (Value: "CONFIG_VALIDATION_WARNING")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_GkeSandboxUnsupported GKE
  *        sandbox unsupported error code (Value: "GKE_SANDBOX_UNSUPPORTED")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamPermissionDenied Mesh
@@ -6798,9 +6969,53 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_NodepoolWorkloadIdentityFederationRequired
  *        Nodepool workload identity federation required error code (Value:
  *        "NODEPOOL_WORKLOAD_IDENTITY_FEDERATION_REQUIRED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededBackendServices
+ *        BackendService quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_BACKEND_SERVICES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededClientTlsPolicies
+ *        ClientTLSPolicy quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_CLIENT_TLS_POLICIES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededEndpointPolicies
+ *        EndpointPolicy quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_ENDPOINT_POLICIES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededGateways
+ *        Gateway quota exceeded error code. (Value: "QUOTA_EXCEEDED_GATEWAYS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHealthChecks
+ *        HealthCheck quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_HEALTH_CHECKS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHttpFilters
+ *        HTTPFilter quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_HTTP_FILTERS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededHttpRoutes
+ *        HTTPRoute quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_HTTP_ROUTES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededMeshes Mesh
+ *        quota exceeded error code. (Value: "QUOTA_EXCEEDED_MESHES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededNetworkEndpointGroups
+ *        NetworkEndpointGroup quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_NETWORK_ENDPOINT_GROUPS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededServerTlsPolicies
+ *        ServerTLSPolicy quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_SERVER_TLS_POLICIES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededServiceLbPolicies
+ *        ServiceLBPolicy quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_SERVICE_LB_POLICIES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpFilters
+ *        TCPFilter quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_TCP_FILTERS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTcpRoutes
+ *        TCPRoute quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_TCP_ROUTES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTlsRoutes TLS
+ *        routes quota exceeded error code. (Value: "QUOTA_EXCEEDED_TLS_ROUTES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies
+ *        TrafficPolicy quota exceeded error code. (Value:
+ *        "QUOTA_EXCEEDED_TRAFFIC_POLICIES")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedMultipleControlPlanes
  *        Multiple control planes unsupported error code (Value:
  *        "UNSUPPORTED_MULTIPLE_CONTROL_PLANES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_VpcscGaSupported VPC-SC GA
+ *        is supported for this control plane. (Value: "VPCSC_GA_SUPPORTED")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -6836,6 +7051,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Explanation of state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ServiceMeshStatusDetails *> *details;
+
+/**
+ *  Output only. Implementation of managed control plane.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_ImplementationUnspecified
+ *        Unspecified (Value: "IMPLEMENTATION_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_Istiod
+ *        A Google build of istiod is used for the managed control plane.
+ *        (Value: "ISTIOD")
+ *    @arg @c kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_TrafficDirector
+ *        Traffic director is used for the managed control plane. (Value:
+ *        "TRAFFIC_DIRECTOR")
+ *    @arg @c kGTLRGKEHub_ServiceMeshControlPlaneManagement_Implementation_Updating
+ *        The control plane implementation is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *implementation;
 
 /**
  *  LifecycleState of control plane management.
@@ -6956,7 +7188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @interface GTLRGKEHub_ServiceMeshMembershipState : GTLRObject
 
-/** Output only. List of condition reporting membership statues */
+/** Output only. List of conditions reported for this membership. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ServiceMeshCondition *> *conditions;
 
 /** Output only. Status of control plane management */

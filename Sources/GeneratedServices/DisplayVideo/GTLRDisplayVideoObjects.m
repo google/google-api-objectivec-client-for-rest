@@ -1877,12 +1877,18 @@ NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeAudioCompletionRate = @"KP
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeClickCvr = @"KPI_TYPE_CLICK_CVR";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpa      = @"KPI_TYPE_CPA";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpc      = @"KPI_TYPE_CPC";
+NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcl     = @"KPI_TYPE_CPCL";
+NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcv     = @"KPI_TYPE_CPCV";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpe      = @"KPI_TYPE_CPE";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpiavc   = @"KPI_TYPE_CPIAVC";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpm      = @"KPI_TYPE_CPM";
+NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpv      = @"KPI_TYPE_CPV";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCtr      = @"KPI_TYPE_CTR";
+NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCustomImpressionValueOverCost = @"KPI_TYPE_CUSTOM_IMPRESSION_VALUE_OVER_COST";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeImpressionCvr = @"KPI_TYPE_IMPRESSION_CVR";
+NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeMaximizePacing = @"KPI_TYPE_MAXIMIZE_PACING";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeOther    = @"KPI_TYPE_OTHER";
+NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeTos10    = @"KPI_TYPE_TOS10";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeUnspecified = @"KPI_TYPE_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeVcpm     = @"KPI_TYPE_VCPM";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeVideoCompletionRate = @"KPI_TYPE_VIDEO_COMPLETION_RATE";
@@ -5144,7 +5150,8 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_Kpi
-@dynamic kpiAmountMicros, kpiPercentageMicros, kpiString, kpiType;
+@dynamic kpiAlgorithmId, kpiAmountMicros, kpiPercentageMicros, kpiString,
+         kpiType;
 @end
 
 

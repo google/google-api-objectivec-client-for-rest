@@ -107,15 +107,7 @@
 //
 
 @implementation GTLRCloudSecurityToken_GoogleIdentityStsV1betaOptions
-@dynamic accessBoundary, audiences, userProject;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"audiences" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic accessBoundary, userProject;
 @end
 
 
@@ -157,15 +149,7 @@
 //
 
 @implementation GTLRCloudSecurityToken_GoogleIdentityStsV1Options
-@dynamic accessBoundary, audiences, userProject;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"audiences" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic accessBoundary, userProject;
 @end
 
 

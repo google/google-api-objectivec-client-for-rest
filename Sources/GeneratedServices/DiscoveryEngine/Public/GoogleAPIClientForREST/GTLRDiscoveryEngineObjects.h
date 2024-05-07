@@ -38,6 +38,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultChunkInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultSnippetInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionSearchAction;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfig_ParsingConfigOverrides;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigChunkingConfig;
@@ -59,6 +60,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfigExternalIdpConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportErrorConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProject_ServiceTermsMap;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaQuery;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason;
@@ -70,6 +73,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReason;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSiteFailureReasonQuotaFailure;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelResponse_Metrics;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfig_ParsingConfigOverrides;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfig;
@@ -309,6 +313,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel.modelState
+
+/** Value: "MODEL_STATE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_ModelStateUnspecified;
+/**
+ *  The model is ready for serving.
+ *
+ *  Value: "READY_FOR_SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_ReadyForServing;
+/**
+ *  The model is currently training.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_Training;
+/**
+ *  The model has successfully completed training.
+ *
+ *  Value: "TRAINING_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_TrainingComplete;
+/**
+ *  The model training failed.
+ *
+ *  Value: "TRAINING_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_TrainingFailed;
+/**
+ *  The model is in a paused training state.
+ *
+ *  Value: "TRAINING_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_TrainingPaused;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.contentConfig
@@ -580,6 +620,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineSearchEngineConfig_SearchTier_SearchTierUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig.advancedSiteSearchDataSources
+
+/**
+ *  Value used when unset.
+ *
+ *  Value: "ADVANCED_SITE_SEARCH_DATA_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_AdvancedSiteSearchDataSources_AdvancedSiteSearchDataSourceUnspecified;
+/**
+ *  Retrieve value from meta tag.
+ *
+ *  Value: "METATAGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_AdvancedSiteSearchDataSources_Metatags;
+/**
+ *  Retrieve value from page map.
+ *
+ *  Value: "PAGEMAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_AdvancedSiteSearchDataSources_Pagemap;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig.completableOption
 
 /**
@@ -633,7 +695,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Boolean;
 /**
- *  Field value type is Datetime.
+ *  Field value type is Datetime. Datetime can be expressed as either: * a
+ *  number representing milliseconds-since-the-epoch * a string representing
+ *  milliseconds-since-the-epoch. e.g. `"1420070400001"` * a string representing
+ *  the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date or date and
+ *  time. e.g. `"2015-01-01"` or `"2015-01-01T12:10:30Z"`
  *
  *  Value: "DATETIME"
  */
@@ -645,7 +711,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_FieldTypeUnspecified;
 /**
- *  Field value type is Geolocation.
+ *  Field value type is Geolocation. Geolocation is expressed as an object with
+ *  the following keys: * `id`: a string representing the location id *
+ *  `longitude`: a number representing the longitude coordinate of the location
+ *  * `latitude`: a number repesenting the latitude coordinate of the location *
+ *  `address`: a string representing the full address of the location `latitude`
+ *  and `longitude` must always be provided together. At least one of a)
+ *  `address` or b) `latitude`-`longitude` pair must be provided.
  *
  *  Value: "GEOLOCATION"
  */
@@ -786,6 +858,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig_IdpType_ThirdParty;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms.state
+
+/**
+ *  The default value of the enum. This value is not actually used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms_State_StateUnspecified;
+/**
+ *  The project has given consent to the terms of service.
+ *
+ *  Value: "TERMS_ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms_State_TermsAccepted;
+/**
+ *  The project has declined or revoked the agreement to terms of service.
+ *
+ *  Value: "TERMS_DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms_State_TermsDeclined;
+/**
+ *  The project is pending to review and accept the terms of service.
+ *
+ *  Value: "TERMS_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms_State_TermsPending;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaRecrawlUrisResponseFailureInfoFailureReason.corpusType
 
 /**
@@ -911,6 +1011,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTargetSite_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel.modelState
+
+/** Value: "MODEL_STATE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_ModelStateUnspecified;
+/**
+ *  The model is ready for serving.
+ *
+ *  Value: "READY_FOR_SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_ReadyForServing;
+/**
+ *  The model is currently training.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_Training;
+/**
+ *  The model has successfully completed training.
+ *
+ *  Value: "TRAINING_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_TrainingComplete;
+/**
+ *  The model training failed.
+ *
+ *  Value: "TRAINING_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_TrainingFailed;
+/**
+ *  The model is in a paused training state.
+ *
+ *  Value: "TRAINING_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_TrainingPaused;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.contentConfig
@@ -2060,9 +2196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Immutable. Fully qualified name `project/ *
- *  /locations/global/collections/{collection}/engines/{engine}/sessions/ *
- *  /answers/ *`
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/global/collections/{collection}/engines/{engine}/sessions/
+ *  * /answers/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2508,6 +2644,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 
 /**
+ *  Metadata that describes a custom tuned model.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel : GTLRObject
+
+/** Timestamp the Model was created at. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The display name of the model. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The state that the model is in (e.g.`TRAINING` or `TRAINING_FAILED`).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_ModelStateUnspecified
+ *        Value "MODEL_STATE_UNSPECIFIED"
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_ReadyForServing
+ *        The model is ready for serving. (Value: "READY_FOR_SERVING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_Training
+ *        The model is currently training. (Value: "TRAINING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_TrainingComplete
+ *        The model has successfully completed training. (Value:
+ *        "TRAINING_COMPLETE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_TrainingFailed
+ *        The model training failed. (Value: "TRAINING_FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel_ModelState_TrainingPaused
+ *        The model is in a paused training state. (Value: "TRAINING_PAUSED")
+ */
+@property(nonatomic, copy, nullable) NSString *modelState;
+
+/**
+ *  modelVersion
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modelVersion;
+
+/**
+ *  Required. The fully qualified resource name of the model. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/customTuningModels/{custom_tuning_model}`
+ *  model must be an alpha-numerical string with limit of 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Timestamp the model training was initiated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *trainingStartTime;
+
+@end
+
+
+/**
  *  DataStore captures global settings and configs at the DataStore level.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore : GTLRObject
@@ -2842,10 +3029,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDocumentProcessingConfigParsingConfigOcrParsingConfig : GTLRObject
 
 /**
- *  Apply additional enhanced OCR processing to a list of document elements.
- *  Supported values: * `table`: advanced table parsing model.
+ *  [DEPRECATED] This field is deprecated. To use the additional enhanced
+ *  document elements processing, please switch to `layout_parsing_config`.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *enhancedDocumentElements;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enhancedDocumentElements GTLR_DEPRECATED;
 
 /**
  *  If true, will use native text instead of OCR text on pages containing native
@@ -3022,8 +3209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  `projects//locations//agents/`. Note that the `dialogflow_agent_to_link` are
  *  one-time consumed by and passed to Dialogflow service. It means they cannot
  *  be retrieved using EngineService.GetEngine or EngineService.ListEngines API
- *  after engine creation. Please use ChatEngineMetadata.dialogflow_agent for
- *  actual agent association after Engine is created.
+ *  after engine creation. Use ChatEngineMetadata.dialogflow_agent for actual
+ *  agent association after Engine is created.
  */
 @property(nonatomic, copy, nullable) NSString *dialogflowAgentToLink;
 
@@ -3242,7 +3429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  The search feature tier of this engine. Different tiers might have different
- *  pricing. To learn more, please check the pricing documentation. Defaults to
+ *  pricing. To learn more, check the pricing documentation. Defaults to
  *  SearchTier.SEARCH_TIER_STANDARD if not specified.
  *
  *  Likely values:
@@ -3310,6 +3497,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig : GTLRObject
 
 /**
+ *  If this field is set, only the corresponding source will be indexed for this
+ *  field. Otherwise, the values from different sources are merged. Assuming a
+ *  page with `` in meta tag, and `` in page map: if this enum is set to
+ *  METATAGS, we will only index ``; if this enum is not set, we will merge them
+ *  and index ``.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *advancedSiteSearchDataSources;
+
+/**
  *  If completable_option is COMPLETABLE_ENABLED, field values are directly used
  *  and returned as suggestions for Autocomplete in
  *  CompletionService.CompleteQuery. If completable_option is unset, the server
@@ -3368,11 +3564,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Boolean
  *        Field value type is Boolean. (Value: "BOOLEAN")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Datetime
- *        Field value type is Datetime. (Value: "DATETIME")
+ *        Field value type is Datetime. Datetime can be expressed as either: * a
+ *        number representing milliseconds-since-the-epoch * a string
+ *        representing milliseconds-since-the-epoch. e.g. `"1420070400001"` * a
+ *        string representing the [ISO
+ *        8601](https://en.wikipedia.org/wiki/ISO_8601) date or date and time.
+ *        e.g. `"2015-01-01"` or `"2015-01-01T12:10:30Z"` (Value: "DATETIME")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_FieldTypeUnspecified
  *        Field type is unspecified. (Value: "FIELD_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Geolocation
- *        Field value type is Geolocation. (Value: "GEOLOCATION")
+ *        Field value type is Geolocation. Geolocation is expressed as an object
+ *        with the following keys: * `id`: a string representing the location id
+ *        * `longitude`: a number representing the longitude coordinate of the
+ *        location * `latitude`: a number repesenting the latitude coordinate of
+ *        the location * `address`: a string representing the full address of
+ *        the location `latitude` and `longitude` must always be provided
+ *        together. At least one of a) `address` or b) `latitude`-`longitude`
+ *        pair must be provided. (Value: "GEOLOCATION")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Integer
  *        Field value type is Integer. (Value: "INTEGER")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaFieldConfig_FieldType_Number
@@ -3516,52 +3724,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /** Workforce pool name. Example: "locations/global/workforcePools/pool_id" */
 @property(nonatomic, copy, nullable) NSString *workforcePoolName;
-
-@end
-
-
-/**
- *  Metadata related to the progress of the ImportCompletionSuggestions
- *  operation. This will be returned by the
- *  google.longrunning.Operation.metadata field.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportCompletionSuggestionsMetadata : GTLRObject
-
-/** Operation create time. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Operation last update time. If the operation is done, this is also the
- *  finish time.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Response of the CompletionService.ImportCompletionSuggestions method. If the
- *  long running operation is done, this message is returned by the
- *  google.longrunning.Operations.response field if the operation is successful.
- */
-@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaImportCompletionSuggestionsResponse : GTLRObject
-
-/** A sample of errors encountered while processing the request. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errorSamples;
-
-/**
- *  Count of CompletionSuggestions that failed to be imported.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *failureCount;
-
-/**
- *  Count of CompletionSuggestions successfully imported.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successCount;
 
 @end
 
@@ -3746,6 +3908,123 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @property(nonatomic, strong, nullable) NSNumber *unjoinedEventsCount;
 
+@end
+
+
+/**
+ *  Response message for SearchTuningService.ListCustomModels method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaListCustomModelsResponse : GTLRObject
+
+/** List of custom tuning models. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCustomTuningModel *> *models;
+
+@end
+
+
+/**
+ *  Metadata and configurations for a Google Cloud project in the service.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProject : GTLRObject
+
+/** Output only. The timestamp when this project is created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Full resource name of the project, for example
+ *  `projects/{project_number}`. Note that when making requests, project number
+ *  and project id are both acceptable, but the server will always respond in
+ *  project number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The timestamp when this project is successfully provisioned.
+ *  Empty value means this project is still provisioning and is not ready for
+ *  use.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *provisionCompletionTime;
+
+/**
+ *  Output only. A map of terms of services. The key is the `id` of
+ *  ServiceTerms.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProject_ServiceTermsMap *serviceTermsMap;
+
+@end
+
+
+/**
+ *  Output only. A map of terms of services. The key is the `id` of
+ *  ServiceTerms.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProject_ServiceTermsMap : GTLRObject
+@end
+
+
+/**
+ *  Metadata about the terms of service.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms : GTLRObject
+
+/** The last time when the project agreed to the terms of service. */
+@property(nonatomic, strong, nullable) GTLRDateTime *acceptTime;
+
+/**
+ *  The last time when the project declined or revoked the agreement to terms of
+ *  service.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *declineTime;
+
+/**
+ *  The unique identifier of this terms of service. Available terms: *
+ *  `GA_DATA_USE_TERMS`: [Terms for data
+ *  use](https://cloud.google.com/retail/data-use-terms). When using this as
+ *  `id`, the acceptable version to provide is `2022-11-23`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Whether the project has accepted/rejected the service terms or it is still
+ *  pending.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms_State_StateUnspecified
+ *        The default value of the enum. This value is not actually used.
+ *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms_State_TermsAccepted
+ *        The project has given consent to the terms of service. (Value:
+ *        "TERMS_ACCEPTED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms_State_TermsDeclined
+ *        The project has declined or revoked the agreement to terms of service.
+ *        (Value: "TERMS_DECLINED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms_State_TermsPending
+ *        The project is pending to review and accept the terms of service.
+ *        (Value: "TERMS_PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The version string of the terms of service. For acceptable values, see the
+ *  comments for id above.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Metadata associated with a project provision operation.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProvisionProjectMetadata : GTLRObject
 @end
 
 
@@ -4070,8 +4349,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Immutable. Fully qualified name `project/ *
- *  /locations/global/collections/{collection}/engines/{engine}/sessions/ *`
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/global/collections/{collection}/engines/{engine}/sessions/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4200,6 +4480,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @property(nonatomic, copy, nullable) NSString *providedUriPattern;
 
+/** Output only. Root domain of the provided_uri_pattern. */
+@property(nonatomic, copy, nullable) NSString *rootDomainUri;
+
 /** Output only. Site ownership and validity verification status. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSiteVerificationInfo *siteVerificationInfo;
 
@@ -4283,6 +4566,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /** The metrics of the trained model. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTrainCustomModelResponse_Metrics *metrics;
+
+/** Fully qualified name of the CustomTuningModel. */
+@property(nonatomic, copy, nullable) NSString *modelName;
 
 /**
  *  The trained model status. Possible values are: * **bad-data**: The training
@@ -4517,6 +4803,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  finish time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Metadata that describes a custom tuned model.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel : GTLRObject
+
+/** Timestamp the Model was created at. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The display name of the model. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The state that the model is in (e.g.`TRAINING` or `TRAINING_FAILED`).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_ModelStateUnspecified
+ *        Value "MODEL_STATE_UNSPECIFIED"
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_ReadyForServing
+ *        The model is ready for serving. (Value: "READY_FOR_SERVING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_Training
+ *        The model is currently training. (Value: "TRAINING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_TrainingComplete
+ *        The model has successfully completed training. (Value:
+ *        "TRAINING_COMPLETE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_TrainingFailed
+ *        The model training failed. (Value: "TRAINING_FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel_ModelState_TrainingPaused
+ *        The model is in a paused training state. (Value: "TRAINING_PAUSED")
+ */
+@property(nonatomic, copy, nullable) NSString *modelState;
+
+/**
+ *  modelVersion
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modelVersion;
+
+/**
+ *  Required. The fully qualified resource name of the model. Format:
+ *  `projects/{project_number}/locations/{location}/collections/{collection}/dataStores/{data_store}/customTuningModels/{custom_tuning_model}`
+ *  model must be an alpha-numerical string with limit of 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Timestamp the model training was initiated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *trainingStartTime;
 
 @end
 
@@ -4792,10 +5129,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDocumentProcessingConfigParsingConfigOcrParsingConfig : GTLRObject
 
 /**
- *  Apply additional enhanced OCR processing to a list of document elements.
- *  Supported values: * `table`: advanced table parsing model.
+ *  [DEPRECATED] This field is deprecated. To use the additional enhanced
+ *  document elements processing, please switch to `layout_parsing_config`.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *enhancedDocumentElements;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enhancedDocumentElements GTLR_DEPRECATED;
 
 /**
  *  If true, will use native text instead of OCR text on pages containing native
@@ -4956,8 +5293,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  `projects//locations//agents/`. Note that the `dialogflow_agent_to_link` are
  *  one-time consumed by and passed to Dialogflow service. It means they cannot
  *  be retrieved using EngineService.GetEngine or EngineService.ListEngines API
- *  after engine creation. Please use ChatEngineMetadata.dialogflow_agent for
- *  actual agent association after Engine is created.
+ *  after engine creation. Use ChatEngineMetadata.dialogflow_agent for actual
+ *  agent association after Engine is created.
  */
 @property(nonatomic, copy, nullable) NSString *dialogflowAgentToLink;
 
@@ -5041,7 +5378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  The search feature tier of this engine. Different tiers might have different
- *  pricing. To learn more, please check the pricing documentation. Defaults to
+ *  pricing. To learn more, check the pricing documentation. Defaults to
  *  SearchTier.SEARCH_TIER_STANDARD if not specified.
  *
  *  Likely values:
@@ -5237,6 +5574,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unjoinedEventsCount;
+
+@end
+
+
+/**
+ *  Response message for SearchTuningService.ListCustomModels method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaListCustomModelsResponse : GTLRObject
+
+/** List of custom tuning models. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCustomTuningModel *> *models;
 
 @end
 
@@ -5463,6 +5811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @property(nonatomic, copy, nullable) NSString *providedUriPattern;
 
+/** Output only. Root domain of the provided_uri_pattern. */
+@property(nonatomic, copy, nullable) NSString *rootDomainUri;
+
 /** Output only. Site ownership and validity verification status. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSiteVerificationInfo *siteVerificationInfo;
 
@@ -5547,6 +5898,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /** The metrics of the trained model. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTrainCustomModelResponse_Metrics *metrics;
 
+/** Fully qualified name of the CustomTuningModel. */
+@property(nonatomic, copy, nullable) NSString *modelName;
+
 /**
  *  The trained model status. Possible values are: * **bad-data**: The training
  *  data quality is bad. * **no-improvement**: Tuning didn't improve
@@ -5583,6 +5937,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
+@end
+
+
+/**
+ *  Response associated with a tune operation.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaTuneEngineResponse : GTLRObject
 @end
 
 
@@ -5882,9 +6243,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Intermediate Cloud Storage directory used for the import with a length limit
  *  of 2,000 characters. Can be specified if one wants to have the Cloud SQL
- *  export to a specific Cloud Storage directory. Please ensure that the Cloud
- *  SQL service account has the necessary Cloud Storage Admin permissions to
- *  access the specified Cloud Storage directory.
+ *  export to a specific Cloud Storage directory. Ensure that the Cloud SQL
+ *  service account has the necessary Cloud Storage Admin permissions to access
+ *  the specified Cloud Storage directory.
  */
 @property(nonatomic, copy, nullable) NSString *gcsStagingDir;
 
@@ -5992,9 +6353,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConversationMessage *> *messages;
 
 /**
- *  Immutable. Fully qualified name `project/ *
- *  /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
- *  or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/global/collections/{collection}/dataStore/ *
+ *  /conversations/ *` or
+ *  `projects/{project}/locations/global/collections/{collection}/engines/ *
  *  /conversations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6744,10 +7106,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DocumentProcessingConfigParsingConfigOcrParsingConfig : GTLRObject
 
 /**
- *  Apply additional enhanced OCR processing to a list of document elements.
- *  Supported values: * `table`: advanced table parsing model.
+ *  [DEPRECATED] This field is deprecated. To use the additional enhanced
+ *  document elements processing, please switch to `layout_parsing_config`.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *enhancedDocumentElements;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enhancedDocumentElements GTLR_DEPRECATED;
 
 /**
  *  If true, will use native text instead of OCR text on pages containing native
@@ -6915,8 +7277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  `projects//locations//agents/`. Note that the `dialogflow_agent_to_link` are
  *  one-time consumed by and passed to Dialogflow service. It means they cannot
  *  be retrieved using EngineService.GetEngine or EngineService.ListEngines API
- *  after engine creation. Please use ChatEngineMetadata.dialogflow_agent for
- *  actual agent association after Engine is created.
+ *  after engine creation. Use ChatEngineMetadata.dialogflow_agent for actual
+ *  agent association after Engine is created.
  */
 @property(nonatomic, copy, nullable) NSString *dialogflowAgentToLink;
 
@@ -7000,7 +7362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  The search feature tier of this engine. Different tiers might have different
- *  pricing. To learn more, please check the pricing documentation. Defaults to
+ *  pricing. To learn more, check the pricing documentation. Defaults to
  *  SearchTier.SEARCH_TIER_STANDARD if not specified.
  *
  *  Likely values:
@@ -7095,9 +7457,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Intermediate Cloud Storage directory used for the import with a length limit
  *  of 2,000 characters. Can be specified if one wants to have the Firestore
- *  export to a specific Cloud Storage directory. Please ensure that the
- *  Firestore service account has the necessary Cloud Storage Admin permissions
- *  to access the specified Cloud Storage directory.
+ *  export to a specific Cloud Storage directory. Ensure that the Firestore
+ *  service account has the necessary Cloud Storage Admin permissions to access
+ *  the specified Cloud Storage directory.
  */
 @property(nonatomic, copy, nullable) NSString *gcsStagingDir;
 
@@ -7742,7 +8104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  The most specific category associated with a category page. To represent
  *  full path of category, use '>' sign to separate different hierarchies. If
- *  '>' is part of the category name, please replace it with other character(s).
+ *  '>' is part of the category name, replace it with other character(s).
  *  Category pages include special pages such as sales or promotions. For
  *  instance, a special sale page may have the category hierarchy:
  *  `"pageCategory" : "Sales > 2017 Black Friday Deals"`. Required for
@@ -8335,9 +8697,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  The order in which documents are returned. Documents can be ordered by a
  *  field in an Document object. Leave it unset if ordered by relevance.
- *  `order_by` expression is case-sensitive. For more information on ordering,
- *  see [Ordering](https://cloud.google.com/retail/docs/filter-and-order#order)
- *  If this field is unrecognizable, an `INVALID_ARGUMENT` is returned.
+ *  `order_by` expression is case-sensitive. For more information on ordering
+ *  for retail search, see
+ *  [Ordering](https://cloud.google.com/retail/docs/filter-and-order#order) If
+ *  this field is unrecognizable, an `INVALID_ARGUMENT` is returned.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -8604,8 +8967,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  Specifies whether to return the confidence score from the extractive
  *  segments in each search result. This feature is available only for new or
- *  allowlisted data stores. To allowlist your data store, please contact your
- *  Customer Engineer. The default value is `false`.
+ *  allowlisted data stores. To allowlist your data store, contact your Customer
+ *  Engineer. The default value is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8720,8 +9083,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 /**
  *  The number of top results to generate the summary from. If the number of
  *  results returned is less than `summaryResultCount`, the summary is generated
- *  from all of the results. At most 10 results can be used to generate a
- *  summary.
+ *  from all of the results. At most 10 results for documents mode, or 50 for
+ *  chunks mode, can be used to generate a summary. The chunks mode is used when
+ *  SearchRequest.ContentSearchSpec.search_result_mode is set to CHUNKS.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8729,10 +9093,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 
 /**
  *  If true, answer will be generated from most relevant chunks from top search
- *  results. This feature will improve summary quality. Please note that with
- *  this feature enabled, not all top search results will be referenced and
- *  included in the reference list, so the citation source index only points to
- *  the search results listed in the reference list.
+ *  results. This feature will improve summary quality. Note that with this
+ *  feature enabled, not all top search results will be referenced and included
+ *  in the reference list, so the citation source index only points to the
+ *  search results listed in the reference list.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9470,6 +9834,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  `generated_uri_pattern` is generated.
  */
 @property(nonatomic, copy, nullable) NSString *providedUriPattern;
+
+/** Output only. Root domain of the provided_uri_pattern. */
+@property(nonatomic, copy, nullable) NSString *rootDomainUri;
 
 /** Output only. Site ownership and validity verification status. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SiteVerificationInfo *siteVerificationInfo;

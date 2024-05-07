@@ -70,8 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_AgentPool_State_Created;
 /**
- *  This is an initialization state. During this stage, the resources such as
- *  Pub/Sub topics are allocated for the AgentPool.
+ *  This is an initialization state. During this stage, resources are allocated
+ *  for the AgentPool.
  *
  *  Value: "CREATING"
  */
@@ -799,7 +799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhenUnspecified;
 
 /**
- *  Represents an On-Premises Agent pool.
+ *  Represents an agent pool.
  */
 @interface GTLRStorageTransfer_AgentPool : GTLRObject
 
@@ -827,8 +827,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *        AgentPool and participate in the transfer jobs in that pool. (Value:
  *        "CREATED")
  *    @arg @c kGTLRStorageTransfer_AgentPool_State_Creating This is an
- *        initialization state. During this stage, the resources such as Pub/Sub
- *        topics are allocated for the AgentPool. (Value: "CREATING")
+ *        initialization state. During this stage, resources are allocated for
+ *        the AgentPool. (Value: "CREATING")
  *    @arg @c kGTLRStorageTransfer_AgentPool_State_Deleting Determines that the
  *        AgentPool deletion has been initiated, and all the resources are
  *        scheduled to be cleaned up and freed. (Value: "DELETING")
@@ -932,6 +932,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *  `projects/{project_number}/secrets/{secret_name}`
  */
 @property(nonatomic, copy, nullable) NSString *credentialsSecret;
+
+/**
+ *  Egress bytes over a Google-managed private network. This network is shared
+ *  between other users of Storage Transfer Service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *managedPrivateNetwork;
 
 /**
  *  Root path to transfer objects. Must be an empty string or full path name
@@ -1618,7 +1626,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 /**
  *  Specifies how each object's `timeCreated` metadata is preserved for
  *  transfers. If unspecified, the default behavior is the same as
- *  TIME_CREATED_SKIP.
+ *  TIME_CREATED_SKIP. This behavior is supported for transfers to GCS buckets
+ *  from GCS, S3, Azure, S3 Compatible, and Azure sources.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedPreserveAsCustomTime
@@ -2385,10 +2394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Notification configuration. This is not supported for transfers involving
- *  PosixFilesystem.
- */
+/** Notification configuration. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_NotificationConfig *notificationConfig;
 
 /** The ID of the Google Cloud project that owns the job. */

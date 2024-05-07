@@ -601,7 +601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Placeholder for admin API work while we work out the internals.
+ *  An Authorized View of a Cloud Bigtable Table.
  */
 @interface GTLRBigtableAdmin_AuthorizedView : GTLRObject
 
@@ -1258,7 +1258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
 
 /**
- *  The request that prompted the initiation of this CreateInstance operation.
+ *  The request that prompted the initiation of this CreateAuthorizedView
+ *  operation.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateAuthorizedViewRequest *originalRequest;
 
@@ -1488,15 +1489,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Data Boost is a serverless compute capability that lets you run
- *  high-throughput read jobs on your Bigtable data, without impacting the
- *  performance of the clusters that handle your application traffic. Currently,
- *  Data Boost exclusively supports read-only use-cases with single-cluster
- *  routing. Data Boost reads are only guaranteed to see the results of writes
- *  that were written at least 30 minutes ago. This means newly written values
- *  may not become visible for up to 30m, and also means that old values may
- *  remain visible for up to 30m after being deleted or overwritten. To mitigate
- *  the staleness of the data, users may either wait 30m, or use
- *  CheckConsistency.
+ *  high-throughput read jobs and queries on your Bigtable data, without
+ *  impacting the performance of the clusters that handle your application
+ *  traffic. Data Boost supports read-only use cases with single-cluster
+ *  routing.
  */
 @interface GTLRBigtableAdmin_DataBoostIsolationReadOnly : GTLRObject
 
@@ -2008,6 +2004,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  `projects/{project}/instances/a-z+[a-z0-9]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  Output only. Reserved for future use.
@@ -3334,8 +3337,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Required. The AuthorizedView to update. The `name` in `authorized_view` is
- *  used to identify the AuthorizedView. AuthorizedView name must in this format
- *  projects//instances//tables//authorizedViews/
+ *  used to identify the AuthorizedView. AuthorizedView name must in this
+ *  format:
+ *  `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_AuthorizedView *authorizedView;
 

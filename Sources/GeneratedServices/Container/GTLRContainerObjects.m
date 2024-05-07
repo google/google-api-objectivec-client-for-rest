@@ -301,6 +301,7 @@ NSString * const kGTLRContainer_SecondaryBootDisk_Mode_ModeUnspecified = @"MODE_
 // GTLRContainer_SecurityPostureConfig.mode
 NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Basic = @"BASIC";
 NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Disabled = @"DISABLED";
+NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Enterprise = @"ENTERPRISE";
 NSString * const kGTLRContainer_SecurityPostureConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
 // GTLRContainer_SecurityPostureConfig.vulnerabilityMode
@@ -455,7 +456,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AdvancedMachineFeatures
-@dynamic threadsPerCore;
+@dynamic enableNestedVirtualization, threadsPerCore;
 @end
 
 

@@ -152,7 +152,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_CommitRepositoryChangesResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.commit";
   return query;
 }
@@ -207,7 +207,7 @@
 
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

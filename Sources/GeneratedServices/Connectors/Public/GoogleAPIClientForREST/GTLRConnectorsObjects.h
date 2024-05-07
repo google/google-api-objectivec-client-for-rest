@@ -107,6 +107,46 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_CheckStatusResponse_State_Err
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_CheckStatusResponse_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRConnectors_EntityType.operations
+
+/**
+ *  This operation means entity type supports CREATE method.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Create;
+/**
+ *  This operation means entity type supports DELETE method.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Delete;
+/**
+ *  This operation means entity type supports GET method.
+ *
+ *  Value: "GET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Get;
+/**
+ *  This operation means entity type supports LIST method.
+ *
+ *  Value: "LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_List;
+/**
+ *  Operation unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_OperationUnspecified;
+/**
+ *  This operation means entity type supports UPDATE method.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Update;
+
+// ----------------------------------------------------------------------------
 // GTLRConnectors_Field.dataType
 
 /**
@@ -1888,6 +1928,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 /** The name of the entity type. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *operations;
 
 @end
 

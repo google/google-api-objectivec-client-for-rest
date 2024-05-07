@@ -105,7 +105,7 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 @implementation GTLREventarc_Channel
 @dynamic activationToken, createTime, cryptoKeyName, name, provider,
-         pubsubTopic, state, uid, updateTime;
+         pubsubTopic, satisfiesPzs, state, uid, updateTime;
 @end
 
 
@@ -648,8 +648,8 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 @implementation GTLREventarc_Trigger
 @dynamic channel, conditions, createTime, destination, ETag,
-         eventDataContentType, eventFilters, labels, name, serviceAccount,
-         transport, uid, updateTime;
+         eventDataContentType, eventFilters, labels, name, satisfiesPzs,
+         serviceAccount, transport, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -370,12 +370,20 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 @implementation GTLRSpannerQuery_ProjectsInstancesBackupsCreate
 
 @dynamic backupId, encryptionConfigEncryptionType, encryptionConfigKmsKeyName,
-         parent;
+         encryptionConfigKmsKeyNames, parent;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"encryptionConfigEncryptionType" : @"encryptionConfig.encryptionType",
-    @"encryptionConfigKmsKeyName" : @"encryptionConfig.kmsKeyName"
+    @"encryptionConfigKmsKeyName" : @"encryptionConfig.kmsKeyName",
+    @"encryptionConfigKmsKeyNames" : @"encryptionConfig.kmsKeyNames"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"encryptionConfig.kmsKeyNames" : [NSString class]
   };
   return map;
 }

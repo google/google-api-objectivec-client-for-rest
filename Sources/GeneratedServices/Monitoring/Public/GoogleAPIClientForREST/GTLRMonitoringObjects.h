@@ -102,6 +102,7 @@
 @class GTLRMonitoring_ResponseStatusCode;
 @class GTLRMonitoring_Service;
 @class GTLRMonitoring_Service_UserLabels;
+@class GTLRMonitoring_ServiceAgentAuthentication;
 @class GTLRMonitoring_ServiceLevelIndicator;
 @class GTLRMonitoring_ServiceLevelObjective;
 @class GTLRMonitoring_ServiceLevelObjective_UserLabels;
@@ -1513,6 +1514,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClas
  *  Value: "STATUS_CLASS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_ServiceAgentAuthentication.type
+
+/**
+ *  OIDC Authentication
+ *
+ *  Value: "OIDC_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceAgentAuthentication_Type_OidcToken;
+/**
+ *  Default value, will result in OIDC Authentication.
+ *
+ *  Value: "SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceAgentAuthentication_Type_ServiceAgentAuthenticationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ServiceLevelObjective.calendarPeriod
@@ -3101,7 +3118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  A content string and a MIME type that describes the content string's format.
+ *  Documentation that is included in the notifications and incidents pertaining
+ *  to this policy.
  */
 @interface GTLRMonitoring_Documentation : GTLRObject
 
@@ -3656,7 +3674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The authentication information. Optional when creating an HTTP check;
- *  defaults to empty.
+ *  defaults to empty. Do not set both auth_method and auth_info.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_BasicAuthentication *authInfo;
 
@@ -3761,6 +3779,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        "POST")
  */
 @property(nonatomic, copy, nullable) NSString *requestMethod;
+
+/**
+ *  If specified, Uptime will generate and attach an OIDC JWT token for the
+ *  Monitoring service agent service account as an Authorization header in the
+ *  HTTP request when probing.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_ServiceAgentAuthentication *serviceAgentAuthentication;
 
 /**
  *  If true, use HTTPS instead of HTTP to run the check.
@@ -6128,6 +6153,29 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRMonitoring_Service_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  Contains information needed for generating either an OpenID Connect token
+ *  (https://developers.google.com/identity/protocols/OpenIDConnect) or OAuth
+ *  token (https://developers.google.com/identity/protocols/oauth2). The token
+ *  will be generated for the Monitoring service agent service account.
+ */
+@interface GTLRMonitoring_ServiceAgentAuthentication : GTLRObject
+
+/**
+ *  Type of authentication.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_ServiceAgentAuthentication_Type_OidcToken OIDC
+ *        Authentication (Value: "OIDC_TOKEN")
+ *    @arg @c kGTLRMonitoring_ServiceAgentAuthentication_Type_ServiceAgentAuthenticationTypeUnspecified
+ *        Default value, will result in OIDC Authentication. (Value:
+ *        "SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 

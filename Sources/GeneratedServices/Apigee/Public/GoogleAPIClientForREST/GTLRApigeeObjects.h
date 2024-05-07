@@ -48,6 +48,9 @@
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQuery;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQueryResult;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
+@class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll;
+@class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray;
+@class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource;
 @class GTLRApigee_GoogleCloudApigeeV1CanaryEvaluationMetricLabels;
 @class GTLRApigee_GoogleCloudApigeeV1Certificate;
 @class GTLRApigee_GoogleCloudApigeeV1CertInfo;
@@ -167,6 +170,14 @@
 @class GTLRApigee_GoogleCloudApigeeV1SecurityActionDeny;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityActionFlag;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityActionHttpHeader;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResult;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_AssessmentRecommendations;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_FailedAssessmentPerWeight;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendation;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityIncident;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfile;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment;
@@ -347,6 +358,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiPr
  *  Value: "PROGRAMMABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiProxyType_Programmable;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource.type
+
+/**
+ *  Resource is an Apigee Proxy.
+ *
+ *  Value: "API_PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ApiProxy;
+/**
+ *  ResourceType not specified.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CanaryEvaluation.state
@@ -1485,6 +1512,106 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource.type
+
+/**
+ *  Resource is an Apigee Proxy.
+ *
+ *  Value: "API_PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiProxy;
+/**
+ *  ResourceType not specified.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult.severity
+
+/**
+ *  Severity is high.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_High;
+/**
+ *  Severity is low.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Low;
+/**
+ *  Severity is medium.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Medium;
+/**
+ *  Severity is minimal
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Minimal;
+/**
+ *  Severity is not defined.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation.verdict
+
+/**
+ *  The assessment has failed.
+ *
+ *  Value: "FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Fail;
+/**
+ *  The assessment has passed.
+ *
+ *  Value: "PASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Pass;
+/**
+ *  The verdict is unspecified.
+ *
+ *  Value: "VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_VerdictUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation.weight
+
+/**
+ *  The weight is major.
+ *
+ *  Value: "MAJOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Major;
+/**
+ *  The weight is minor.
+ *
+ *  Value: "MINOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Minor;
+/**
+ *  The weight is moderate.
+ *
+ *  Value: "MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Moderate;
+/**
+ *  The weight is unspecified.
+ *
+ *  Value: "WEIGHT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_WeightUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityIncident.observability
 
 /**
@@ -2334,8 +2461,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Optional. Location of the image used for the catalog item in the catalog.
- *  For portal files, this can have the format `/files/{filename}`. Max length
- *  is 2,083 characters.
+ *  This can be either an image with an external URL or a file path for [image
+ *  files stored in the
+ *  portal](/apigee/docs/api-platform/publish/portal/portal-files"), for
+ *  example, `/files/book-tree.jpg`. When specifying the URL of an external
+ *  image, the image won't be uploaded to your assets; additionally, loading the
+ *  image in the integrated portal will be subject to its availability, which
+ *  may be blocked or restricted by [content security
+ *  policies](/apigee/docs/api-platform/publish/portal/csp). Max length of file
+ *  path is 2,083 characters.
  */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
@@ -3435,6 +3569,116 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Request for BatchComputeSecurityAssessmentResults.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequest : GTLRObject
+
+/** Include only these resources. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray *include;
+
+/** Include all resources under the scope. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll *includeAllResources;
+
+/**
+ *  Optional. The maximum number of results to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 results will be returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `BatchComputeSecurityAssessmentResults` call. Provide this to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Name of the profile that is used for computation. */
+@property(nonatomic, copy, nullable) NSString *profile;
+
+/**
+ *  Required. Scope of the resources for the computation. For Apigee, the
+ *  environment is the scope of the resources.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  Message for include_all option.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll : GTLRObject
+@end
+
+
+/**
+ *  An array of resource messages.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray : GTLRObject
+
+/**
+ *  Required. The array of resources. For Apigee, the proxies are resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource *> *resources;
+
+@end
+
+
+/**
+ *  Resource for which we are computing security assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource : GTLRObject
+
+/** Required. Name of this resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Type of this resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ApiProxy
+ *        Resource is an Apigee Proxy. (Value: "API_PROXY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ResourceTypeUnspecified
+ *        ResourceType not specified. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Response for BatchComputeSecurityAssessmentResults.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityAssessmentResults" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsResponse : GTLRCollectionObject
+
+/** The time of the assessment api call. */
+@property(nonatomic, strong, nullable) GTLRDateTime *assessmentTime;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is blank, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Default sort order is by resource name in alphabetic order.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResult *> *securityAssessmentResults;
+
+@end
+
+
+/**
  *  Request for BatchUpdateSecurityIncident.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsRequest : GTLRObject
@@ -3659,7 +3903,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Required. Time range for score calculation. At most 14 days of scores will
- *  be returned.
+ *  be returned, and both the start and end dates must be within the last 90
+ *  days.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeInterval *timeRange;
 
@@ -6003,7 +6248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Customer Managed Encryption Key (CMEK) used for disk and volume encryption.
- *  Required for Apigee paid subscriptions only. Use the following format:
+ *  If not specified, a Google-Managed encryption key will be used. Use the
+ *  following format:
  *  `projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)`
  */
 @property(nonatomic, copy, nullable) NSString *diskEncryptionKeyName;
@@ -7546,19 +7792,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *analyticsRegion GTLR_DEPRECATED;
 
 /**
- *  Cloud KMS key name used for encrypting API consumer data. Required for US/EU
- *  regions when [BillingType](#BillingType) is `SUBSCRIPTION`. When
- *  [BillingType](#BillingType) is `EVALUATION` or the region is not US/EU, a
- *  Google-Managed encryption key will be used. Format: `projects/ * /locations/
- *  * /keyRings/ * /cryptoKeys/ *`
+ *  Cloud KMS key name used for encrypting API consumer data. If not specified
+ *  or [BillingType](#BillingType) is `EVALUATION`, a Google-Managed encryption
+ *  key will be used. Format: `projects/ * /locations/ * /keyRings/ *
+ *  /cryptoKeys/ *`
  */
 @property(nonatomic, copy, nullable) NSString *apiConsumerDataEncryptionKeyName;
 
 /**
- *  This field is needed only for customers with control plane in US or EU.
- *  Apigee stores some control plane data only in single region. This field
- *  determines which single region Apigee should use. For example: "us-west1"
- *  when control plane is in US or "europe-west2" when control plane is in EU.
+ *  This field is needed only for customers using non-default data residency
+ *  regions. Apigee stores some control plane data only in single region. This
+ *  field determines which single region Apigee should use. For example:
+ *  "us-west1" when control plane is in US or "europe-west2" when control plane
+ *  is in EU.
  */
 @property(nonatomic, copy, nullable) NSString *apiConsumerDataLocation;
 
@@ -7617,8 +7863,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Cloud KMS key name used for encrypting control plane data that is stored in
- *  a multi region. Required when [BillingType](#BillingType) is `SUBSCRIPTION`.
- *  When [BillingType](#BillingType) is `EVALUATION`, a Google-Managed
+ *  a multi region. Only used for the data residency region "US" or "EU". If not
+ *  specified or [BillingType](#BillingType) is `EVALUATION`, a Google-Managed
  *  encryption key will be used. Format: `projects/ * /locations/ * /keyRings/ *
  *  /cryptoKeys/ *`
  */
@@ -7701,9 +7947,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Cloud KMS key name used for encrypting the data that is stored and
  *  replicated across runtime instances. Update is not allowed after the
- *  organization is created. Required when [RuntimeType](#RuntimeType) is
- *  `CLOUD`. If not specified when [RuntimeType](#RuntimeType) is `TRIAL`, a
- *  Google-Managed encryption key will be used. For example:
+ *  organization is created. If not specified or [RuntimeType](#RuntimeType) is
+ *  `TRIAL`, a Google-Managed encryption key will be used. For example:
  *  "projects/foo/locations/us/keyRings/bar/cryptoKeys/baz". **Note:** Not
  *  supported for Apigee hybrid.
  */
@@ -9514,6 +9759,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *apiProducts;
 
 /**
+ *  Optional. A list of ASN numbers to act on, e.g. 23.
+ *  https://en.wikipedia.org/wiki/Autonomous_system_(Internet) This uses int64
+ *  instead of uint32 because of https://linter.aip.dev/141/forbidden-types.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *asns;
+
+/**
  *  Optional. A list of Bot Reasons. Current options: Flooder, Brute Guessor,
  *  Static Content Scraper, OAuth Abuser, Robot Abuser, TorListRule, Advanced
  *  Anomaly Detection, Advanced API Scraper, Search Engine Crawlers, Public
@@ -9532,6 +9786,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  to 100 per action.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddressRanges;
+
+/**
+ *  Optional. A list of countries/region codes to act on, e.g. US. This follows
+ *  https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
 
 /**
  *  Optional. A list of user agents to deny. We look for exact matches. Limit 50
@@ -9610,6 +9870,217 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Output only. The update time for configuration. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The security assessment result for one resource.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResult : GTLRObject
+
+/**
+ *  The time of the assessment of this resource. This could lag behind
+ *  `assessment_time` due to caching within the backend.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The error status if scoring fails. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleRpcStatus *error;
+
+/** The assessed resource. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource *resource;
+
+/** The result of the assessment. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult *scoringResult;
+
+@end
+
+
+/**
+ *  Resource for which we are computing security assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource : GTLRObject
+
+/** Required. Name of this resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The revision id for the resource. In case of Apigee, this is proxy revision
+ *  id.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceRevisionId;
+
+/**
+ *  Required. Type of this resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiProxy
+ *        Resource is an Apigee Proxy. (Value: "API_PROXY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ResourceTypeUnspecified
+ *        ResourceType not specified. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The result of the assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult : GTLRObject
+
+/**
+ *  The recommendations of the assessment. The key is the "name" of the
+ *  assessment (not display_name), and the value are the recommendations.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_AssessmentRecommendations *assessmentRecommendations;
+
+/**
+ *  The time when resource data was last fetched for this resource. This time
+ *  may be different than when the resource was actually updated due to lag in
+ *  data collection.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *dataUpdateTime;
+
+/**
+ *  The number of failed assessments grouped by its weight. Keys are one of the
+ *  following: "MAJOR", "MODERATE", "MINOR".
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_FailedAssessmentPerWeight *failedAssessmentPerWeight;
+
+/**
+ *  The security score of the assessment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  The severity of the assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_High
+ *        Severity is high. (Value: "HIGH")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Low
+ *        Severity is low. (Value: "LOW")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Medium
+ *        Severity is medium. (Value: "MEDIUM")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Minimal
+ *        Severity is minimal (Value: "MINIMAL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_SeverityUnspecified
+ *        Severity is not defined. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  The recommendations of the assessment. The key is the "name" of the
+ *  assessment (not display_name), and the value are the recommendations.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_AssessmentRecommendations : GTLRObject
+@end
+
+
+/**
+ *  The number of failed assessments grouped by its weight. Keys are one of the
+ *  following: "MAJOR", "MODERATE", "MINOR".
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_FailedAssessmentPerWeight : GTLRObject
+@end
+
+
+/**
+ *  The message format of a recommendation from the assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation : GTLRObject
+
+/** The display name of the assessment. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The recommended steps of the assessment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendation *> *recommendations;
+
+/**
+ *  Score impact indicates the impact on the overall score if the assessment
+ *  were to pass.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scoreImpact;
+
+/**
+ *  Verdict indicates the assessment result.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Fail
+ *        The assessment has failed. (Value: "FAIL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Pass
+ *        The assessment has passed. (Value: "PASS")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_VerdictUnspecified
+ *        The verdict is unspecified. (Value: "VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+/**
+ *  The weight of the assessment which was set in the profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Major
+ *        The weight is major. (Value: "MAJOR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Minor
+ *        The weight is minor. (Value: "MINOR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Moderate
+ *        The weight is moderate. (Value: "MODERATE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_WeightUnspecified
+ *        The weight is unspecified. (Value: "WEIGHT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *weight;
+
+@end
+
+
+/**
+ *  The format of the assessment recommendation.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendation : GTLRObject
+
+/**
+ *  The description of the recommendation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The link for the recommendation. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink *link;
+
+@end
+
+
+/**
+ *  The format for a link in the recommendation.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink : GTLRObject
+
+/** The text of the url. (ie: "Learn more") */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** The link itself. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -10593,6 +11064,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
+ *  TLS is strictly enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforce;
+
+/**
  *  If true, Edge ignores TLS certificate errors. Valid when configuring TLS for
  *  target servers and target endpoints, and when configuring virtual hosts that
  *  use 2-way TLS. When used with a target endpoint/target server, if the
@@ -10668,6 +11146,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Flag that enforces TLS settings
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforce;
 
 /**
  *  Flag that specifies whether to ignore TLS certificate validation errors. Set

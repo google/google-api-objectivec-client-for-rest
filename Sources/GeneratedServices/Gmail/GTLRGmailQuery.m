@@ -209,7 +209,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersGetProfile
 
-@dynamic userId;
+@dynamic temporaryEeccBypass, userId;
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
@@ -423,7 +423,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersMessagesAttachmentsGet
 
-@dynamic identifier, messageId, userId;
+@dynamic identifier, messageId, temporaryEeccBypass, userId;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };
@@ -530,7 +530,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersMessagesGet
 
-@dynamic format, identifier, metadataHeaders, userId;
+@dynamic format, identifier, metadataHeaders, temporaryEeccBypass, userId;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };
@@ -622,7 +622,8 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersMessagesList
 
-@dynamic includeSpamTrash, labelIds, maxResults, pageToken, q, userId;
+@dynamic includeSpamTrash, labelIds, maxResults, pageToken, q,
+         temporaryEeccBypass, userId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1918,7 +1919,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersThreadsGet
 
-@dynamic format, identifier, metadataHeaders, userId;
+@dynamic format, identifier, metadataHeaders, temporaryEeccBypass, userId;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };
@@ -1952,7 +1953,8 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersThreadsList
 
-@dynamic includeSpamTrash, labelIds, maxResults, pageToken, q, userId;
+@dynamic includeSpamTrash, labelIds, maxResults, pageToken, q,
+         temporaryEeccBypass, userId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

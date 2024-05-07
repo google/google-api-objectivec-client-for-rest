@@ -1564,7 +1564,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  A Document has changed. May be the result of multiple writes, including
  *  deletes, that ultimately resulted in a new value for the Document. Multiple
  *  DocumentChange messages may be returned for the same logical change, if
- *  multiple targets are affected.
+ *  multiple targets are affected. For PipelineQueryTargets, `document` will be
+ *  in the new pipeline format, For a Listen stream with both QueryTargets and
+ *  PipelineQueryTargets present, if a document matches both types of queries,
+ *  then a separate DocumentChange messages will be sent out one for each set.
  */
 @interface GTLRFirestore_DocumentChange : GTLRObject
 
@@ -2021,7 +2024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_FindNearest : GTLRObject
 
 /**
- *  Required. The Distance Measure to use, required.
+ *  Required. The distance measure to use, required.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_Cosine Compares vectors
@@ -2141,7 +2144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** For a schedule that runs daily at a specified time. */
+/** For a schedule that runs daily. */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence *dailyRecurrence;
 
 /**
@@ -2164,7 +2167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** For a schedule that runs weekly on a specific day and time. */
+/** For a schedule that runs weekly on a specific day. */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence *weeklyRecurrence;
 
 @end
@@ -2207,8 +2210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Represents a recurring schedule that runs at a specific time every day. The
- *  time zone is UTC.
+ *  Represents a recurring schedule that runs every day. The time zone is UTC.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence : GTLRObject
 @end
@@ -2936,7 +2938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *order;
 
 /**
- *  Indicates that this field supports nearest neighbors and distance operations
+ *  Indicates that this field supports nearest neighbor and distance operations
  *  on vector.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1VectorConfig *vectorConfig;
@@ -4256,7 +4258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_Cursor *endAt;
 
 /**
- *  Optional. A potential Nearest Neighbors Search. Applies after all other
+ *  Optional. A potential nearest neighbors search. Applies after all other
  *  filters and ordering. Finds the closest vector embeddings to the given query
  *  vector.
  */
@@ -4538,7 +4540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  An array value. Cannot directly contain another array value, though can
- *  contain an map which contains another array.
+ *  contain a map which contains another array.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *arrayValue;
 

@@ -74,6 +74,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1IntentTrainingPhrasePart;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1KnowledgeConnectorSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1LanguageInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Page;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfo;
@@ -191,6 +192,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3IntentTrainingPhrasePart;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3KnowledgeConnectorSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3LanguageInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Match;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Match_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3MatchIntentRequest;
@@ -1685,6 +1687,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Matc
  *  Value: "INTENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Intent;
+/**
+ *  The query was handled by an LLM.
+ *
+ *  Value: "LLM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Llm;
 /**
  *  Not specified. Should never be used.
  *
@@ -6206,6 +6214,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents the language information of the request.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1LanguageInfo : GTLRObject
+
+/**
+ *  The confidence score of the detected language between 0 and 1.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidenceScore;
+
+/** The language code specified in the original request. */
+@property(nonatomic, copy, nullable) NSString *inputLanguageCode;
+
+/**
+ *  The language code detected for this request based on the user conversation.
+ */
+@property(nonatomic, copy, nullable) NSString *resolvedLanguageCode;
+
+@end
+
+
+/**
  *  A Dialogflow CX conversation (session) can be described and visualized as a
  *  state machine. The states of a CX session are represented by pages. For each
  *  flow, you define many pages, where your combined pages can handle a complete
@@ -7428,6 +7459,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The language code specified in the original request. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Information about the language of the request. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1LanguageInfo *languageInfo;
 
 /**
  *  The list of rich message responses to present to the user. Webhook can
@@ -10935,6 +10969,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents the language information of the request.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3LanguageInfo : GTLRObject
+
+/**
+ *  The confidence score of the detected language between 0 and 1.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidenceScore;
+
+/** The language code specified in the original request. */
+@property(nonatomic, copy, nullable) NSString *inputLanguageCode;
+
+/**
+ *  The language code detected for this request based on the user conversation.
+ */
+@property(nonatomic, copy, nullable) NSString *resolvedLanguageCode;
+
+@end
+
+
+/**
  *  The response message for Agents.ListAgents.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -11530,6 +11587,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        query directly triggered an event. (Value: "EVENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Intent
  *        The query was matched to an intent. (Value: "INTENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Llm The
+ *        query was handled by an LLM. (Value: "LLM")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_MatchTypeUnspecified
  *        Not specified. Should never be used. (Value: "MATCH_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_NoInput
@@ -14443,6 +14502,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The language code specified in the original request. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Information about the language of the request. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3LanguageInfo *languageInfo;
 
 /**
  *  The list of rich message responses to present to the user. Webhook can

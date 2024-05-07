@@ -177,7 +177,17 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfiguration
-@dynamic authentication, connectorId, endpoint, network;
+@dynamic asset, authentication, connectorId, endpoint, network;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationAsset
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationAsset
+@dynamic database, googleCloudResource;
 @end
 
 

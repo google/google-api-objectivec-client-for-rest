@@ -2882,7 +2882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Optional. Immutable. The encryption to apply to the image. */
+/** Immutable. The encryption to apply to the image. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
 
 /** Optional. The name of the image family to which the new image belongs. */

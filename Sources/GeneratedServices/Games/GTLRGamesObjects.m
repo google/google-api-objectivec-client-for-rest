@@ -1330,6 +1330,16 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse
+//
+
+@implementation GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse
+@dynamic token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_RetrievePlayerTokensResponse
 //
 

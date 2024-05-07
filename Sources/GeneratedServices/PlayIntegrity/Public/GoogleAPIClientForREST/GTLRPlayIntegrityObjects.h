@@ -428,9 +428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
 @interface GTLRPlayIntegrity_AppAccessRiskVerdict : GTLRObject
 
 /**
- *  Required. App access risk verdict related to apps that are not installed by
- *  Google Play, and are not preloaded on the system image by the device
- *  manufacturer.
+ *  App access risk verdict related to apps that are not installed by Google
+ *  Play, and are not preloaded on the system image by the device manufacturer.
  *
  *  Likely values:
  *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing Apps
@@ -456,9 +455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
 @property(nonatomic, copy, nullable) NSString *otherApps;
 
 /**
- *  Required. App access risk verdict related to apps that are not installed by
- *  the Google Play Store, and are not preloaded on the system image by the
- *  device manufacturer.
+ *  App access risk verdict related to apps that are not installed by the Google
+ *  Play Store, and are not preloaded on the system image by the device
+ *  manufacturer.
  *
  *  Likely values:
  *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Capturing

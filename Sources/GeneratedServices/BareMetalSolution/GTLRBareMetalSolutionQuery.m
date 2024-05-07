@@ -63,6 +63,33 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableHyperthreading
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_DisableHyperthreadingRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:disableHyperthreading";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableHyperthreading *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.disableHyperthreading";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableInteractiveSerialConsole
 
 @dynamic name;
@@ -85,6 +112,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
   query.loggingName = @"baremetalsolution.projects.locations.instances.disableInteractiveSerialConsole";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesEnableHyperthreading
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_EnableHyperthreadingRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:enableHyperthreading";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesEnableHyperthreading *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.enableHyperthreading";
   return query;
 }
 
@@ -196,6 +250,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
   query.loggingName = @"baremetalsolution.projects.locations.instances.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesReimage
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_ReimageInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:reimage";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesReimage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.reimage";
   return query;
 }
 

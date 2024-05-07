@@ -155,6 +155,16 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_Application
+//
+
+@implementation GTLRAccessContextManager_Application
+@dynamic clientId, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_AuditConfig
 //
 
@@ -429,12 +439,14 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_GcpUserAccessBinding
-@dynamic accessLevels, dryRunAccessLevels, groupKey, name;
+@dynamic accessLevels, dryRunAccessLevels, groupKey, name,
+         restrictedClientApplications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class],
-    @"dryRunAccessLevels" : [NSString class]
+    @"dryRunAccessLevels" : [NSString class],
+    @"restrictedClientApplications" : [GTLRAccessContextManager_Application class]
   };
   return map;
 }

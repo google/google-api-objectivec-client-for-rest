@@ -115,6 +115,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKon
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousPscEndpoint;
 /**
+ *  Aborted because no endpoint with the packet's destination IP is found in the
+ *  Google-managed project.
+ *
+ *  Value: "GOOGLE_MANAGED_SERVICE_UNKNOWN_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceUnknownIp;
+/**
  *  Aborted due to internal server error.
  *
  *  Value: "INTERNAL_ERROR"
@@ -813,6 +820,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Unknown
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress;
 /**
+ *  Packet could be dropped because the health check traffic to the VPC
+ *  connector is not allowed.
+ *
+ *  Value: "VPC_CONNECTOR_HEALTH_CHECK_TRAFFIC_BLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorHealthCheckTrafficBlocked;
+/**
  *  Packet could be dropped because the VPC connector is not in a running state.
  *
  *  Value: "VPC_CONNECTOR_NOT_RUNNING"
@@ -824,6 +838,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConn
  *  Value: "VPC_CONNECTOR_NOT_SET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotSet;
+/**
+ *  Packet could be dropped because the traffic from the serverless service to
+ *  the VPC connector is not allowed.
+ *
+ *  Value: "VPC_CONNECTOR_SERVERLESS_TRAFFIC_BLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorServerlessTrafficBlocked;
 /**
  *  The packet does not match a policy-based VPN tunnel local selector.
  *
@@ -1855,6 +1876,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Aborted because a PSC endpoint selection for the Google-managed
  *        service is ambiguous (several PSC endpoints satisfy test input).
  *        (Value: "GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceUnknownIp
+ *        Aborted because no endpoint with the packet's destination IP is found
+ *        in the Google-managed project. (Value:
+ *        "GOOGLE_MANAGED_SERVICE_UNKNOWN_IP")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InternalError Aborted due
  *        to internal server error. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument Aborted
@@ -2303,7 +2328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_ConnectivityTest_Labels *labels;
 
 /**
- *  Required. Unique name of the resource using the form:
+ *  Identifier. Unique name of the resource using the form:
  *  `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2643,12 +2668,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        this is a shared VPC scenario, verify if the service project ID is
  *        provided as test input. Otherwise, verify if the IP address is being
  *        used in the project. (Value: "UNKNOWN_INTERNAL_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorHealthCheckTrafficBlocked
+ *        Packet could be dropped because the health check traffic to the VPC
+ *        connector is not allowed. (Value:
+ *        "VPC_CONNECTOR_HEALTH_CHECK_TRAFFIC_BLOCKED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotRunning
  *        Packet could be dropped because the VPC connector is not in a running
  *        state. (Value: "VPC_CONNECTOR_NOT_RUNNING")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotSet Packet
  *        could be dropped because no VPC connector is set. (Value:
  *        "VPC_CONNECTOR_NOT_SET")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorServerlessTrafficBlocked
+ *        Packet could be dropped because the traffic from the serverless
+ *        service to the VPC connector is not allowed. (Value:
+ *        "VPC_CONNECTOR_SERVERLESS_TRAFFIC_BLOCKED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_VpnTunnelLocalSelectorMismatch
  *        The packet does not match a policy-based VPN tunnel local selector.
  *        (Value: "VPN_TUNNEL_LOCAL_SELECTOR_MISMATCH")

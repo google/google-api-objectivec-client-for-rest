@@ -630,8 +630,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
          createTime, creator, deleteTime, ETag, executionCount, expireTime,
          generation, labels, lastModifier, latestCreatedExecution, launchStage,
-         name, observedGeneration, reconciling, satisfiesPzs, templateProperty,
-         terminalCondition, uid, updateTime;
+         name, observedGeneration, reconciling, satisfiesPzs,
+         startExecutionToken, templateProperty, terminalCondition, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -829,6 +830,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2NodeSelector
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2NodeSelector
+@dynamic accelerator;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2Overrides
 //
 
@@ -890,9 +901,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          encryptionKey, encryptionKeyRevocationAction,
          encryptionKeyShutdownDuration, ETag, executionEnvironment, expireTime,
          generation, labels, launchStage, logUri, maxInstanceRequestConcurrency,
-         name, observedGeneration, reconciling, satisfiesPzs, scaling,
-         scalingStatus, service, serviceAccount, sessionAffinity, timeout, uid,
-         updateTime, volumes, vpcAccess;
+         name, nodeSelector, observedGeneration, reconciling, satisfiesPzs,
+         scaling, scalingStatus, service, serviceAccount, sessionAffinity,
+         timeout, uid, updateTime, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -965,8 +976,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate
 @dynamic annotations, containers, encryptionKey, executionEnvironment,
-         healthCheckDisabled, labels, maxInstanceRequestConcurrency, revision,
-         scaling, serviceAccount, sessionAffinity, timeout, volumes, vpcAccess;
+         healthCheckDisabled, labels, maxInstanceRequestConcurrency,
+         nodeSelector, revision, scaling, serviceAccount, sessionAffinity,
+         timeout, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1355,10 +1367,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build
 @dynamic approval, artifacts, availableSecrets, buildTriggerId, createTime,
-         failureInfo, finishTime, identifier, images, logsBucket, logUrl, name,
-         options, projectId, queueTtl, results, secrets, serviceAccount, source,
-         sourceProvenance, startTime, status, statusDetail, steps,
-         substitutions, tags, timeout, timing, warnings;
+         failureInfo, finishTime, gitConfig, identifier, images, logsBucket,
+         logUrl, name, options, projectId, queueTtl, results, secrets,
+         serviceAccount, source, sourceProvenance, startTime, status,
+         statusDetail, steps, substitutions, tags, timeout, timing, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1501,6 +1513,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig
+@dynamic dir, gitRepositoryLink, revision;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo
 //
 
@@ -1529,6 +1551,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig
+@dynamic http;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource
 //
 
@@ -1544,6 +1576,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash
 @dynamic type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig
+@dynamic proxySecretVersionName;
 @end
 
 
@@ -1731,8 +1773,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1Source
-@dynamic connectedRepository, gitSource, repoSource, storageSource,
-         storageSourceManifest;
+@dynamic connectedRepository, developerConnectConfig, gitSource, repoSource,
+         storageSource, storageSourceManifest;
 @end
 
 

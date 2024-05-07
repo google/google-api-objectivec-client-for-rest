@@ -1572,12 +1572,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_EntitlementState_
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Entitlement.type
 
-/**
- *  The root entitlement representing Duet AI package ownership.
- *
- *  Value: "DUET_AI"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_Type_DuetAi GTLR_DEPRECATED;
 /** Value: "ENTITLEMENT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Entitlement_Type_EntitlementTypeUnspecified;
 /**
@@ -2000,6 +1994,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_OnPrem GTLR_DEPR
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeAlloydb;
 /**
+ *  Bigtable product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_BIGTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeBigtable;
+/**
  *  Cloud SQL product area in GCP
  *
  *  Value: "PRODUCT_TYPE_CLOUD_SQL"
@@ -2259,6 +2259,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, copy, nullable) NSString *availabilityType;
 
 /**
+ *  Checks for resources that are configured to have redundancy, and ongoing
+ *  replication across regions
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crossRegionReplicaConfigured;
+
+/**
  *  externalReplicaConfigured
  *
  *  Uses NSNumber of boolValue.
@@ -2386,6 +2394,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  Output only. The timestamp associated with the cluster creation request.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The delete operation will fail when the value is set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtectionEnabled;
 
 /**
  *  Output only. Endpoints created on each given network, for Redis clients to
@@ -3648,8 +3663,6 @@ GTLR_DEPRECATED
  *  An enum that represents the type of this entitlement.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRedis_Entitlement_Type_DuetAi The root entitlement
- *        representing Duet AI package ownership. (Value: "DUET_AI")
  *    @arg @c kGTLRCloudRedis_Entitlement_Type_EntitlementTypeUnspecified Value
  *        "ENTITLEMENT_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudRedis_Entitlement_Type_Gemini The root entitlement
@@ -4755,6 +4768,8 @@ GTLR_DEPRECATED
  *        (Value: "ON_PREM")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeAlloydb AlloyDB product
  *        area in GCP (Value: "PRODUCT_TYPE_ALLOYDB")
+ *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeBigtable Bigtable product
+ *        area in GCP (Value: "PRODUCT_TYPE_BIGTABLE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeCloudSql Cloud SQL product
  *        area in GCP (Value: "PRODUCT_TYPE_CLOUD_SQL")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeMemorystore Memorystore

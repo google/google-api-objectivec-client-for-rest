@@ -1587,7 +1587,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Query DPMS metadata.
+ *  Query Dataproc Metastore metadata.
  *
  *  Method: metastore.projects.locations.services.queryMetadata
  *
@@ -1606,7 +1606,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
- *  Query DPMS metadata.
+ *  Query Dataproc Metastore metadata.
  *
  *  @param object The @c GTLRDataprocMetastore_QueryMetadataRequest to include
  *    in the query.

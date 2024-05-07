@@ -34,6 +34,7 @@
 @class GTLRAnalyticsHub_Policy;
 @class GTLRAnalyticsHub_Publisher;
 @class GTLRAnalyticsHub_RestrictedExportConfig;
+@class GTLRAnalyticsHub_RestrictedExportPolicy;
 @class GTLRAnalyticsHub_SelectedResource;
 @class GTLRAnalyticsHub_SharingEnvironmentConfig;
 @class GTLRAnalyticsHub_Status;
@@ -251,6 +252,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  `projects/myproject/datasets/123`
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  Optional. If set, restricted export policy will be propagated and enforced
+ *  on the linked dataset.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_RestrictedExportPolicy *restrictedExportPolicy;
 
 /**
  *  Optional. Resources in this dataset that are selectively shared. If this
@@ -1140,6 +1147,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Restricted export policy used to configure restricted export on linked
+ *  dataset.
+ */
+@interface GTLRAnalyticsHub_RestrictedExportPolicy : GTLRObject
+
+/**
+ *  Optional. If true, enable restricted export.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. If true, restrict direct table access (read api/tabledata.list) on
+ *  linked table.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictDirectTableAccess;
+
+/**
+ *  Optional. If true, restrict export of query result derived from restricted
+ *  linked dataset table.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictQueryResult;
+
+@end
+
+
+/**
  *  Message for revoking a subscription.
  */
 @interface GTLRAnalyticsHub_RevokeSubscriptionRequest : GTLRObject
@@ -1288,7 +1327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @interface GTLRAnalyticsHub_SubscribeListingRequest : GTLRObject
 
-/** BigQuery destination dataset to create for the subscriber. */
+/** Input only. BigQuery destination dataset to create for the subscriber. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_DestinationDataset *destinationDataset;
 
 @end

@@ -621,7 +621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Required. Resource name of the membership to retrieve. To get the app's own
- *  membership, you can optionally use `spaces/{space}/members/app`. Format:
+ *  membership [by using user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
+ *  you can optionally use `spaces/{space}/members/app`. Format:
  *  `spaces/{space}/members/{member}` or `spaces/{space}/members/app` When
  *  [authenticated as a
  *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
@@ -645,9 +647,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param name Required. Resource name of the membership to retrieve. To get
- *    the app's own membership, you can optionally use
- *    `spaces/{space}/members/app`. Format: `spaces/{space}/members/{member}` or
- *    `spaces/{space}/members/app` When [authenticated as a
+ *    the app's own membership [by using user
+ *    authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
+ *    you can optionally use `spaces/{space}/members/app`. Format:
+ *    `spaces/{space}/members/{member}` or `spaces/{space}/members/app` When
+ *    [authenticated as a
  *    user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
  *    you can use the user's email as an alias for `{member}`. For example,
  *    `spaces/{space}/members/example\@gmail.com` where `example\@gmail.com` is
@@ -674,7 +678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Supports [app
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  and [user
- *  authentication](hhttps://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: chat.spaces.members.list
  *
@@ -760,7 +764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Supports [app
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  and [user
- *  authentication](hhttps://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param parent Required. The resource name of the space for which to fetch a
  *    membership list. Format: spaces/{space}
@@ -772,6 +776,49 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a membership. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.spaces.members.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatImport
+ *    @c kGTLRAuthScopeHangoutsChatMemberships
+ */
+@interface GTLRHangoutsChatQuery_SpacesMembersPatch : GTLRHangoutsChatQuery
+
+/**
+ *  Resource name of the membership, assigned by the server. Format:
+ *  `spaces/{space}/members/{member}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The field paths to update. Separate multiple values with commas or
+ *  use `*` to update all field paths. Currently supported field paths: - `role`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Membership.
+ *
+ *  Updates a membership. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param object The @c GTLRHangoutsChat_Membership to include in the query.
+ *  @param name Resource name of the membership, assigned by the server. Format:
+ *    `spaces/{space}/members/{member}`
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesMembersPatch
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Membership *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -818,7 +865,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Creates a message in a Google Chat space. For an example, see [Send a
+ *  Creates a message in a Google Chat space. The maximum message size,
+ *  including text and cards, is 32,000 bytes. For an example, see [Send a
  *  message](https://developers.google.com/workspace/chat/create-messages).
  *  Calling this method requires
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize)
@@ -896,7 +944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Message.
  *
- *  Creates a message in a Google Chat space. For an example, see [Send a
+ *  Creates a message in a Google Chat space. The maximum message size,
+ *  including text and cards, is 32,000 bytes. For an example, see [Send a
  *  message](https://developers.google.com/workspace/chat/create-messages).
  *  Calling this method requires
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize)
@@ -1227,8 +1276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Creates a reaction and adds it to a message. Only unicode emojis are
- *  supported.For an example, see [Add a reaction to a
- *  reaction](https://developers.google.com/workspace/chat/create-reactions).
+ *  supported. For an example, see [Add a reaction to a
+ *  message](https://developers.google.com/workspace/chat/create-reactions).
  *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
@@ -1252,8 +1301,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Fetches a @c GTLRHangoutsChat_Reaction.
  *
  *  Creates a reaction and adds it to a message. Only unicode emojis are
- *  supported.For an example, see [Add a reaction to a
- *  reaction](https://developers.google.com/workspace/chat/create-reactions).
+ *  supported. For an example, see [Add a reaction to a
+ *  message](https://developers.google.com/workspace/chat/create-reactions).
  *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
@@ -1649,7 +1698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  if you request an event about a new message but the message was later
  *  updated, the server returns the updated `Message` resource in the event
  *  payload. Requires [user
- *  authentication](hhttps://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *  To get an event, the authenticated user must be a member of the space. For
  *  an example, see [Get details about an event from a Google Chat
  *  space](https://developers.google.com/workspace/chat/get-space-event).
@@ -1683,7 +1732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  if you request an event about a new message but the message was later
  *  updated, the server returns the updated `Message` resource in the event
  *  payload. Requires [user
- *  authentication](hhttps://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *  To get an event, the authenticated user must be a member of the space. For
  *  an example, see [Get details about an event from a Google Chat
  *  space](https://developers.google.com/workspace/chat/get-space-event).
@@ -1805,6 +1854,153 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns details about a user's read state within a space, used to identify
+ *  read and unread messages. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.users.spaces.getSpaceReadState
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstateReadonly
+ */
+@interface GTLRHangoutsChatQuery_UsersSpacesGetSpaceReadState : GTLRHangoutsChatQuery
+
+/**
+ *  Required. Resource name of the space read state to retrieve. Only supports
+ *  getting read state for the calling user. To refer to the calling user, set
+ *  one of the following: - The `me` alias. For example,
+ *  `users/me/spaces/{space}/spaceReadState`. - Their Workspace email address.
+ *  For example, `users/user\@example.com/spaces/{space}/spaceReadState`. -
+ *  Their user id. For example, `users/123456789/spaces/{space}/spaceReadState`.
+ *  Format: users/{user}/spaces/{space}/spaceReadState
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_SpaceReadState.
+ *
+ *  Returns details about a user's read state within a space, used to identify
+ *  read and unread messages. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param name Required. Resource name of the space read state to retrieve.
+ *    Only supports getting read state for the calling user. To refer to the
+ *    calling user, set one of the following: - The `me` alias. For example,
+ *    `users/me/spaces/{space}/spaceReadState`. - Their Workspace email address.
+ *    For example, `users/user\@example.com/spaces/{space}/spaceReadState`. -
+ *    Their user id. For example,
+ *    `users/123456789/spaces/{space}/spaceReadState`. Format:
+ *    users/{user}/spaces/{space}/spaceReadState
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSpacesGetSpaceReadState
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns details about a user's read state within a thread, used to identify
+ *  read and unread messages. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.users.spaces.threads.getThreadReadState
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstateReadonly
+ */
+@interface GTLRHangoutsChatQuery_UsersSpacesThreadsGetThreadReadState : GTLRHangoutsChatQuery
+
+/**
+ *  Required. Resource name of the thread read state to retrieve. Only supports
+ *  getting read state for the calling user. To refer to the calling user, set
+ *  one of the following: - The `me` alias. For example,
+ *  `users/me/spaces/{space}/threads/{thread}/threadReadState`. - Their
+ *  Workspace email address. For example,
+ *  `users/user\@example.com/spaces/{space}/threads/{thread}/threadReadState`. -
+ *  Their user id. For example,
+ *  `users/123456789/spaces/{space}/threads/{thread}/threadReadState`. Format:
+ *  users/{user}/spaces/{space}/threads/{thread}/threadReadState
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_ThreadReadState.
+ *
+ *  Returns details about a user's read state within a thread, used to identify
+ *  read and unread messages. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param name Required. Resource name of the thread read state to retrieve.
+ *    Only supports getting read state for the calling user. To refer to the
+ *    calling user, set one of the following: - The `me` alias. For example,
+ *    `users/me/spaces/{space}/threads/{thread}/threadReadState`. - Their
+ *    Workspace email address. For example,
+ *    `users/user\@example.com/spaces/{space}/threads/{thread}/threadReadState`.
+ *    - Their user id. For example,
+ *    `users/123456789/spaces/{space}/threads/{thread}/threadReadState`. Format:
+ *    users/{user}/spaces/{space}/threads/{thread}/threadReadState
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSpacesThreadsGetThreadReadState
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a user's read state within a space, used to identify read and unread
+ *  messages. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  Method: chat.users.spaces.updateSpaceReadState
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
+ */
+@interface GTLRHangoutsChatQuery_UsersSpacesUpdateSpaceReadState : GTLRHangoutsChatQuery
+
+/**
+ *  Resource name of the space read state. Format:
+ *  `users/{user}/spaces/{space}/spaceReadState`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The field paths to update. Currently supported field paths: -
+ *  `last_read_time` When the `last_read_time` is before the latest message
+ *  create time, the space appears as unread in the UI. To mark the space as
+ *  read, set `last_read_time` to any value later (larger) than the latest
+ *  message create time. The `last_read_time` is coerced to match the latest
+ *  message create time. Note that the space read state only affects the read
+ *  state of messages that are visible in the space's top-level conversation.
+ *  Replies in threads are unaffected by this timestamp, and instead rely on the
+ *  thread read state.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_SpaceReadState.
+ *
+ *  Updates a user's read state within a space, used to identify read and unread
+ *  messages. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *
+ *  @param object The @c GTLRHangoutsChat_SpaceReadState to include in the
+ *    query.
+ *  @param name Resource name of the space read state. Format:
+ *    `users/{user}/spaces/{space}/spaceReadState`
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSpacesUpdateSpaceReadState
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SpaceReadState *)object
+                           name:(NSString *)name;
 
 @end
 

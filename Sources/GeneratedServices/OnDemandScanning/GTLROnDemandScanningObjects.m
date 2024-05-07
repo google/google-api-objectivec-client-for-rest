@@ -520,7 +520,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_ComplianceOccurrence
-@dynamic nonComplianceReason, nonCompliantFiles;
+@dynamic nonComplianceReason, nonCompliantFiles, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -529,6 +529,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_ComplianceVersion
+//
+
+@implementation GTLROnDemandScanning_ComplianceVersion
+@dynamic benchmarkDocument, cpeUri, version;
 @end
 
 

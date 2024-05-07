@@ -216,6 +216,15 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_DisableHyperthreadingRequest
+//
+
+@implementation GTLRBareMetalSolution_DisableHyperthreadingRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_DisableInteractiveSerialConsoleRequest
 //
 
@@ -238,6 +247,15 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_EnableHyperthreadingRequest
+//
+
+@implementation GTLRBareMetalSolution_EnableHyperthreadingRequest
 @end
 
 
@@ -1022,6 +1040,24 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_QosPolicy
 @dynamic bandwidthGbps;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ReimageInstanceRequest
+//
+
+@implementation GTLRBareMetalSolution_ReimageInstanceRequest
+@dynamic kmsKeyVersion, osImage, sshKeys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sshKeys" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

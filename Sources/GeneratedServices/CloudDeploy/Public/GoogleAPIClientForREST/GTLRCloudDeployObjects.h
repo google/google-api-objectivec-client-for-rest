@@ -115,6 +115,7 @@
 @class GTLRCloudDeploy_RuntimeConfig;
 @class GTLRCloudDeploy_SerialPipeline;
 @class GTLRCloudDeploy_ServiceNetworking;
+@class GTLRCloudDeploy_SkaffoldGCBRepoSource;
 @class GTLRCloudDeploy_SkaffoldGCSSource;
 @class GTLRCloudDeploy_SkaffoldGitSource;
 @class GTLRCloudDeploy_SkaffoldModules;
@@ -1788,8 +1789,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_AnthosCluster : GTLRObject
 
 /**
- *  Membership of the GKE Hub-registered cluster to which to apply the Skaffold
- *  configuration. Format is
+ *  Optional. Membership of the GKE Hub-registered cluster to which to apply the
+ *  Skaffold configuration. Format is
  *  `projects/{project}/locations/{location}/memberships/{membership_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *membership;
@@ -3388,7 +3389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_GkeCluster : GTLRObject
 
 /**
- *  Information specifying a GKE Cluster. Format is
+ *  Optional. Information specifying a GKE Cluster. Format is
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
@@ -5864,6 +5865,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Cloud Build V2 Repository containing Skaffold Configs.
+ */
+@interface GTLRCloudDeploy_SkaffoldGCBRepoSource : GTLRObject
+
+/**
+ *  Optional. Relative path from the repository root to the Skaffold Config
+ *  file.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Optional. Branch or tag to use when cloning the repository. */
+@property(nonatomic, copy, nullable) NSString *ref;
+
+/**
+ *  Required. Name of the Cloud Build V2 Repository. Format is
+ *  projects/{project}/locations/{location}/connections/{connection}/repositories/{repository}.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  Cloud Storage bucket containing Skaffold Config modules.
  */
 @interface GTLRCloudDeploy_SkaffoldGCSSource : GTLRObject
@@ -5889,7 +5913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Optional. Relative path from the repository root to the Skaffold file. */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/** Optional. Git ref the package should be cloned from. */
+/** Optional. Git branch or tag to use when cloning the repository. */
 @property(nonatomic, copy, nullable) NSString *ref;
 
 /** Required. Git repository the package should be cloned from. */
@@ -5908,6 +5932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Remote git repository containing the Skaffold Config modules. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGitSource *git;
+
+/** Cloud Build V2 repository containing the Skaffold Config modules. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGCBRepoSource *googleCloudBuildRepo;
 
 /** Cloud Storage bucket containing the Skaffold Config modules. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGCSSource *googleCloudStorage;

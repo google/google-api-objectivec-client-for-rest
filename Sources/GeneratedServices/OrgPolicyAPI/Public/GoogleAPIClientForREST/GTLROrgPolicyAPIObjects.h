@@ -18,7 +18,7 @@
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2AlternatePolicySpec;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintBooleanConstraint;
-@class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint;
+@class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintListConstraint;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint;
 @class GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy;
@@ -62,54 +62,54 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_Deny;
 
 // ----------------------------------------------------------------------------
-// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint.actionType
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint.actionType
 
 /**
  *  Unspecified. Results in an error.
  *
  *  Value: "ACTION_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_ActionType_ActionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_ActionTypeUnspecified;
 /**
  *  Allowed action type.
  *
  *  Value: "ALLOW"
  */
-FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_ActionType_Allow;
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_Allow;
 /**
  *  Deny action type.
  *
  *  Value: "DENY"
  */
-FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_ActionType_Deny;
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_Deny;
 
 // ----------------------------------------------------------------------------
-// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint.methodTypes
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint.methodTypes
 
 /**
  *  Constraint applied when creating the resource.
  *
  *  Value: "CREATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_MethodTypes_Create;
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_MethodTypes_Create;
 /**
  *  Constraint applied when deleting the resource. Not supported yet.
  *
  *  Value: "DELETE"
  */
-FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_MethodTypes_Delete;
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_MethodTypes_Delete;
 /**
  *  Unspecified. Results in an error.
  *
  *  Value: "METHOD_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_MethodTypes_MethodTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_MethodTypes_MethodTypeUnspecified;
 /**
  *  Constraint applied when updating the resource.
  *
  *  Value: "UPDATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_MethodTypes_Update;
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_MethodTypes_Update;
 
 // ----------------------------------------------------------------------------
 // GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.actionType
@@ -154,6 +154,12 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *  Value: "METHOD_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_MethodTypeUnspecified;
+/**
+ *  Constraint applied when removing an IAM grant.
+ *
+ *  Value: "REMOVE_GRANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_RemoveGrant;
 /**
  *  Constraint applied when updating the resource.
  *
@@ -215,9 +221,6 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  */
 @property(nonatomic, copy, nullable) NSString *constraintDefault;
 
-/** Defines this constraint as being a CustomConstraint. */
-@property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint *customConstraint;
-
 /**
  *  Detailed description of what this constraint controls as well as how and
  *  where it is enforced. Mutable.
@@ -228,6 +231,9 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 /** The human readable name. Mutable. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Defines this constraint as being a GoogleManagedConstraint. */
+@property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint *googleManagedConstraint;
 
 /** Defines this constraint as being a ListConstraint. */
 @property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintListConstraint *listConstraint;
@@ -261,20 +267,20 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 
 /**
- *  A Google defined custom constraint. This represents a subset of fields
- *  missing from Constraint proto that are required to describe CustomConstraint
+ *  A Google managed constraint. This represents a subset of fields missing from
+ *  Constraint proto that are required to describe CustomConstraint
  */
-@interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint : GTLRObject
+@interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint : GTLRObject
 
 /**
  *  Allow or deny type.
  *
  *  Likely values:
- *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_ActionType_ActionTypeUnspecified
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_ActionTypeUnspecified
  *        Unspecified. Results in an error. (Value: "ACTION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_ActionType_Allow
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_Allow
  *        Allowed action type. (Value: "ALLOW")
- *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleDefinedCustomConstraint_ActionType_Deny
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_Deny
  *        Deny action type. (Value: "DENY")
  */
 @property(nonatomic, copy, nullable) NSString *actionType;

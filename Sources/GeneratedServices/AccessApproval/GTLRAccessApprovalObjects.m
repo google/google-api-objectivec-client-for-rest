@@ -34,6 +34,7 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Cbc 
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Ctr = @"AES_256_CTR";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Gcm = @"AES_256_GCM";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignEd25519 = @"EC_SIGN_ED25519";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignSecp256k1Sha256 = @"EC_SIGN_SECP256K1_SHA256";
@@ -213,7 +214,7 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 @dynamic activeKeyVersion, ancestorHasActiveKeyVersion, enrolledAncestor,
          enrolledServices, invalidKeyVersion, name, notificationEmails,
          notificationPubsubTopic, preferNoBroadApprovalRequests,
-         preferredRequestExpirationDays;
+         preferredRequestExpirationDays, requireCustomerVisibleJustification;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

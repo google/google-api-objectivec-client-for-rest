@@ -1637,6 +1637,33 @@
 
 @end
 
+@implementation GTLRLoggingQuery_FoldersLocationsBucketsViewsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRLoggingQuery_FoldersLocationsBucketsViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_Policy class];
+  query.loggingName = @"logging.folders.locations.buckets.views.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_FoldersLocationsBucketsViewsList
 
 @dynamic pageSize, pageToken, parent;
@@ -1704,6 +1731,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogView class];
   query.loggingName = @"logging.folders.locations.buckets.views.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsBucketsViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRLoggingQuery_FoldersLocationsBucketsViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_Policy class];
+  query.loggingName = @"logging.folders.locations.buckets.views.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsBucketsViewsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRLoggingQuery_FoldersLocationsBucketsViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_TestIamPermissionsResponse class];
+  query.loggingName = @"logging.folders.locations.buckets.views.testIamPermissions";
   return query;
 }
 
@@ -2447,6 +2528,33 @@
 
 @end
 
+@implementation GTLRLoggingQuery_LocationsBucketsViewsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRLoggingQuery_LocationsBucketsViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_Policy class];
+  query.loggingName = @"logging.locations.buckets.views.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_LocationsBucketsViewsList
 
 @dynamic pageSize, pageToken, parent;
@@ -2488,6 +2596,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogView class];
   query.loggingName = @"logging.locations.buckets.views.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_LocationsBucketsViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRLoggingQuery_LocationsBucketsViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_Policy class];
+  query.loggingName = @"logging.locations.buckets.views.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_LocationsBucketsViewsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRLoggingQuery_LocationsBucketsViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_TestIamPermissionsResponse class];
+  query.loggingName = @"logging.locations.buckets.views.testIamPermissions";
   return query;
 }
 
@@ -3148,6 +3310,33 @@
 
 @end
 
+@implementation GTLRLoggingQuery_OrganizationsLocationsBucketsViewsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRLoggingQuery_OrganizationsLocationsBucketsViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_Policy class];
+  query.loggingName = @"logging.organizations.locations.buckets.views.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_OrganizationsLocationsBucketsViewsList
 
 @dynamic pageSize, pageToken, parent;
@@ -3215,6 +3404,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogView class];
   query.loggingName = @"logging.organizations.locations.buckets.views.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsBucketsViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRLoggingQuery_OrganizationsLocationsBucketsViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_Policy class];
+  query.loggingName = @"logging.organizations.locations.buckets.views.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsBucketsViewsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRLoggingQuery_OrganizationsLocationsBucketsViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_TestIamPermissionsResponse class];
+  query.loggingName = @"logging.organizations.locations.buckets.views.testIamPermissions";
   return query;
 }
 
@@ -4134,6 +4377,33 @@
 
 @end
 
+@implementation GTLRLoggingQuery_ProjectsLocationsBucketsViewsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRLoggingQuery_ProjectsLocationsBucketsViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_Policy class];
+  query.loggingName = @"logging.projects.locations.buckets.views.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_ProjectsLocationsBucketsViewsList
 
 @dynamic pageSize, pageToken, parent;
@@ -4201,6 +4471,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogView class];
   query.loggingName = @"logging.projects.locations.buckets.views.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsBucketsViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRLoggingQuery_ProjectsLocationsBucketsViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_Policy class];
+  query.loggingName = @"logging.projects.locations.buckets.views.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsBucketsViewsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRLogging_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRLoggingQuery_ProjectsLocationsBucketsViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRLogging_TestIamPermissionsResponse class];
+  query.loggingName = @"logging.projects.locations.buckets.views.testIamPermissions";
   return query;
 }
 

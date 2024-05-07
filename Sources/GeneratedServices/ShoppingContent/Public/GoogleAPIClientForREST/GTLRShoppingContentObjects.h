@@ -105,6 +105,7 @@
 @class GTLRShoppingContent_ExternalAction;
 @class GTLRShoppingContent_FreeListingsProgramStatusRegionStatus;
 @class GTLRShoppingContent_FreeListingsProgramStatusReviewIneligibilityReasonDetails;
+@class GTLRShoppingContent_FreeShippingThreshold;
 @class GTLRShoppingContent_GmbAccounts;
 @class GTLRShoppingContent_GmbAccountsGmbAccount;
 @class GTLRShoppingContent_GoogleAnalyticsLink;
@@ -6755,6 +6756,27 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Conditions to be met for a product to have free shipping.
+ */
+@interface GTLRShoppingContent_FreeShippingThreshold : GTLRObject
+
+/**
+ *  Required. The [CLDR territory
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml) of
+ *  the country to which an item will ship.
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/**
+ *  Required. The minimum product price for the shipping cost to become free.
+ *  Represented as a number.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceThreshold;
+
+@end
+
+
+/**
  *  Response containing generated recommendations.
  */
 @interface GTLRShoppingContent_GenerateRecommendationsResponse : GTLRObject
@@ -7212,12 +7234,23 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  GTLRShoppingContent_Installment
+ *  Details of a monthly installment payment offering. [Learn
+ *  more](https://support.google.com/merchants/answer/6324474) about
+ *  installments.
  */
 @interface GTLRShoppingContent_Installment : GTLRObject
 
 /** The amount the buyer has to pay per month. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
+
+/**
+ *  Optional. Type of installment payments. Supported values are: - "`finance`"
+ *  - "`lease`"
+ */
+@property(nonatomic, copy, nullable) NSString *creditType;
+
+/** Optional. The initial down payment amount the buyer has to pay. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *downpayment;
 
 /**
  *  The number of installments the buyer has to pay.
@@ -7281,7 +7314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_LiaAboutPageSettings : GTLRObject
 
 /**
- *  The status of the verification process for the About page. Acceptable values
+ *  The status of the verification process for the About page. Supported values
  *  are: - "`active`" - "`inactive`" - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
@@ -12524,6 +12557,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *feedLabel;
 
+/** Optional. Conditions to be met for a product to have free shipping. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_FreeShippingThreshold *> *freeShippingThreshold;
+
 /** Target gender of the item. */
 @property(nonatomic, copy, nullable) NSString *gender;
 
@@ -13782,7 +13818,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** The amount the buyer has to pay per subscription period. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *amount;
 
-/** The type of subscription period. */
+/** The type of subscription period. - "`month`" - "`year`" */
 @property(nonatomic, copy, nullable) NSString *period;
 
 /**

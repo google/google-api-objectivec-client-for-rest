@@ -4935,7 +4935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 
 /**
- *  Generic Object Next ID: 121
+ *  Generic Object
  */
 @interface GTLRWalletobjects_GenericObject : GTLRObject
 

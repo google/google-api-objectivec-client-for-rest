@@ -211,6 +211,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1FileData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FilterSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQuery;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQueryRRF;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsResponseNearestNeighbors;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsResponseNeighbor;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FractionSplit;
@@ -226,9 +227,6 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenieSource;
-@class GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval;
-@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution;
-@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttributionWeb;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob_Labels;
@@ -243,6 +241,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointCrowdingTag;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointRestriction;
+@class GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointSparseEmbedding;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexEndpoint;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexEndpoint_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexPrivateEndpoints;
@@ -501,8 +500,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaTrainingjobDefinitionTftForecastingMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaTrainingjobDefinitionWindowConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaVertex;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SearchEntryPoint;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequestStatsAnomaliesObjective;
-@class GTLRAiplatform_GoogleCloudAiplatformV1Segment;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ServiceAccountSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ShieldedVmConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SmoothGradConfig;
@@ -606,8 +605,13 @@
 @class GTLRAiplatform_LearningGenaiRootCodeyChatMetadata;
 @class GTLRAiplatform_LearningGenaiRootCodeyCheckpoint;
 @class GTLRAiplatform_LearningGenaiRootCodeyCompletionMetadata;
+@class GTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata;
 @class GTLRAiplatform_LearningGenaiRootCodeyOutput;
 @class GTLRAiplatform_LearningGenaiRootCodeyTruncatorMetadata;
+@class GTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold;
+@class GTLRAiplatform_LearningGenaiRootControlDecodingRecord;
+@class GTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore;
+@class GTLRAiplatform_LearningGenaiRootControlDecodingRecords;
 @class GTLRAiplatform_LearningGenaiRootDataProviderOutput;
 @class GTLRAiplatform_LearningGenaiRootFilterMetadata;
 @class GTLRAiplatform_LearningGenaiRootFilterMetadataFilterDebugInfo;
@@ -647,6 +651,7 @@
 @class GTLRAiplatform_LearningGenaiRootToxicityResult;
 @class GTLRAiplatform_LearningGenaiRootToxicitySignal;
 @class GTLRAiplatform_LearningGenaiRootTranslationRequestInfo;
+@class GTLRAiplatform_LearningServingLlmAtlasOutputMetadata;
 @class GTLRAiplatform_LearningServingLlmMessageMetadata;
 @class GTLRAiplatform_NlpSaftLangIdLocalesResult;
 @class GTLRAiplatform_NlpSaftLangIdLocalesResultLocale;
@@ -760,6 +765,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilte
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_WarConflict;
 /** Value: "WATERMARK_IMG" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_WatermarkImg;
+/**
+ *  Error message when user attempts to remove watermark from editing image
+ *
+ *  Value: "WATERMARK_IMG_REMOVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_WatermarkImgRemoval;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_CloudAiLargeModelsVisionFilteredText.confidence
@@ -790,14 +801,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandi
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonMaxTokens;
 /**
- *  All other reasons that stopped the token generation.
+ *  All other reasons that stopped the token generation (currently only language
+ *  filter).
  *
  *  Value: "FINISH_REASON_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonOther;
 /**
  *  The token generation was stopped as the response was flagged for the
- *  prohibited contents.
+ *  prohibited contents (currently only CSAM).
  *
  *  Value: "FINISH_REASON_PROHIBITED_CONTENT"
  */
@@ -854,13 +866,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServicePromp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_Blocklist;
 /**
- *  Candidates blocked due to other reason.
+ *  Candidates blocked due to other reason (currently only language filter).
  *
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_Other;
 /**
- *  Candidates blocked due to prohibited content.
+ *  Candidates blocked due to prohibited content (currently only CSAM).
  *
  *  Value: "PROHIBITED_CONTENT"
  */
@@ -2372,6 +2384,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Machin
  *  Value: "TPU_V4_POD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV4Pod;
+/**
+ *  TPU v5.
+ *
+ *  Value: "TPU_V5_LITEPOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV5Litepod;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1MetadataSchema.schemaType
@@ -2896,7 +2914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTri
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateNamespace;
 /**
- *  The size of the embedding vectors does not match with the specified
+ *  The size of the dense embedding vectors does not match with the specified
  *  dimension.
  *
  *  Value: "EMBEDDING_SIZE_MISMATCH"
@@ -2956,6 +2974,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Neares
  *  Value: "INVALID_SPARSE_DIMENSIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidSparseDimensions;
+/**
+ *  Invalid sparse embedding.
+ *
+ *  Value: "INVALID_SPARSE_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidSparseEmbedding;
+/**
+ *  Token restrict value is invalid.
+ *
+ *  Value: "INVALID_TOKEN_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidTokenValue;
 /**
  *  Numeric restrict has multiple values specified.
  *
@@ -5359,12 +5389,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1SimplifiedHtmlV2Gcc;
 /** Value: "GEMINI_V1_STEM_BOOKS_650K_TEXT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1StemBooks650kText;
+/** Value: "GEMINI_V1_TAIL_PATCH_BIRD_SQL_LITE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchBirdSqlLite;
+/**
+ *  Gemini V1 and V2 shared tail patch.
+ *
+ *  Value: "GEMINI_V1_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchCcaiDialogSumHuman;
 /**
  *  Gemini V1 tail patch others.
  *
  *  Value: "GEMINI_V1_TAIL_PATCH_GOALDMINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchGoaldmine;
+/** Value: "GEMINI_V1_TAIL_PATCH_JSON_TABLE_EXTRACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchJsonTableExtraction;
+/** Value: "GEMINI_V1_TAIL_PATCH_MATH_REASONING_NON_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchMathReasoningNonPunting;
+/** Value: "GEMINI_V1_TAIL_PATCH_MATH_REASONING_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchMathReasoningPunting;
+/** Value: "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchOpenBooksQaAnswerable;
+/** Value: "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchOpenBooksQaUnanswerable;
 /** Value: "GEMINI_V1_TAIL_PATCH_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchPhotomathIm2solProblemAndSolution;
 /** Value: "GEMINI_V1_TAIL_PATCH_TRANSLATION_2021_INCR" */
@@ -5571,6 +5619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsWikipediaLangFilteredGccPii;
 /** Value: "GEMINI_V2_CODE_CONTESTS_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeContestsCompliant;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_GITHUB_COMMITS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeTransformGithubCommits;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_GITHUB_PR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeTransformGithubPr;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_SYNTHETIC_ERROR_FIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeTransformSyntheticErrorFix;
 /** Value: "GEMINI_V2_CODEWEB_V1_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodewebV1Compliant;
 /** Value: "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2" */
@@ -5645,6 +5699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant;
 /** Value: "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2;
+/** Value: "GEMINI_V2_JSON_MODE_SYS_INSTRUCTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2JsonModeSysInstruction;
 /** Value: "GEMINI_V2_LEETCODE_GCC_PII" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2LeetcodeGccPii;
 /** Value: "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2" */
@@ -5683,12 +5739,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SciencewebV0GccPii;
 /** Value: "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant;
+/** Value: "GEMINI_V2_SQL_REPAIR_SFT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SqlRepairSft;
+/**
+ *  Gemini V2 rev10
+ *
+ *  Value: "GEMINI_V2_SSFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Ssfs;
 /** Value: "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant;
 /**
  *  Value: "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant;
+/** Value: "GEMINI_V2_TAIL_PATCH_BIRD_SQL_LITE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchBirdSqlLite;
+/** Value: "GEMINI_V2_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchCcaiDialogSumHuman;
+/** Value: "GEMINI_V2_TAIL_PATCH_FLEURS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchFleurs;
+/** Value: "GEMINI_V2_TAIL_PATCH_JSON_TABLE_EXTRACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchJsonTableExtraction;
+/** Value: "GEMINI_V2_TAIL_PATCH_MATH_REASONING_NON_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchMathReasoningNonPunting;
+/** Value: "GEMINI_V2_TAIL_PATCH_MATH_REASONING_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchMathReasoningPunting;
+/** Value: "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchOpenBooksQaAnswerable;
+/** Value: "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchOpenBooksQaUnanswerable;
+/**
+ *  Gemini V2 only tail patch.
+ *
+ *  Value: "GEMINI_V2_TAIL_PATCH_PMC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchPmc;
+/** Value: "GEMINI_V2_TAIL_PATCH_VOXPOPULI" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchVoxpopuli;
 /**
  *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
  */
@@ -5926,6 +6014,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Wikipedia;
 /** Value: "WORLD_QUERY_GENERATOR" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WorldQueryGenerator;
+/**
+ *  Youtube Content Inpsiration.
+ *
+ *  Value: "YT_CONTENT_INSPIRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_YtContentInspiration;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult.recitationAction
@@ -6321,12 +6415,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1SimplifiedHtmlV2Gcc;
 /** Value: "GEMINI_V1_STEM_BOOKS_650K_TEXT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1StemBooks650kText;
+/** Value: "GEMINI_V1_TAIL_PATCH_BIRD_SQL_LITE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchBirdSqlLite;
+/**
+ *  Gemini V1 and V2 shared tail patch.
+ *
+ *  Value: "GEMINI_V1_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchCcaiDialogSumHuman;
 /**
  *  Gemini V1 tail patch others.
  *
  *  Value: "GEMINI_V1_TAIL_PATCH_GOALDMINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchGoaldmine;
+/** Value: "GEMINI_V1_TAIL_PATCH_JSON_TABLE_EXTRACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchJsonTableExtraction;
+/** Value: "GEMINI_V1_TAIL_PATCH_MATH_REASONING_NON_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchMathReasoningNonPunting;
+/** Value: "GEMINI_V1_TAIL_PATCH_MATH_REASONING_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchMathReasoningPunting;
+/** Value: "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchOpenBooksQaAnswerable;
+/** Value: "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchOpenBooksQaUnanswerable;
 /** Value: "GEMINI_V1_TAIL_PATCH_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchPhotomathIm2solProblemAndSolution;
 /** Value: "GEMINI_V1_TAIL_PATCH_TRANSLATION_2021_INCR" */
@@ -6533,6 +6645,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsWikipediaLangFilteredGccPii;
 /** Value: "GEMINI_V2_CODE_CONTESTS_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_GITHUB_COMMITS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeTransformGithubCommits;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_GITHUB_PR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeTransformGithubPr;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_SYNTHETIC_ERROR_FIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeTransformSyntheticErrorFix;
 /** Value: "GEMINI_V2_CODEWEB_V1_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant;
 /** Value: "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2" */
@@ -6607,6 +6725,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant;
 /** Value: "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2;
+/** Value: "GEMINI_V2_JSON_MODE_SYS_INSTRUCTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2JsonModeSysInstruction;
 /** Value: "GEMINI_V2_LEETCODE_GCC_PII" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii;
 /** Value: "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2" */
@@ -6645,12 +6765,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SciencewebV0GccPii;
 /** Value: "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant;
+/** Value: "GEMINI_V2_SQL_REPAIR_SFT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SqlRepairSft;
+/**
+ *  Gemini V2 rev10
+ *
+ *  Value: "GEMINI_V2_SSFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Ssfs;
 /** Value: "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant;
 /**
  *  Value: "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant;
+/** Value: "GEMINI_V2_TAIL_PATCH_BIRD_SQL_LITE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchBirdSqlLite;
+/** Value: "GEMINI_V2_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchCcaiDialogSumHuman;
+/** Value: "GEMINI_V2_TAIL_PATCH_FLEURS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchFleurs;
+/** Value: "GEMINI_V2_TAIL_PATCH_JSON_TABLE_EXTRACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchJsonTableExtraction;
+/** Value: "GEMINI_V2_TAIL_PATCH_MATH_REASONING_NON_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchMathReasoningNonPunting;
+/** Value: "GEMINI_V2_TAIL_PATCH_MATH_REASONING_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchMathReasoningPunting;
+/** Value: "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchOpenBooksQaAnswerable;
+/** Value: "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchOpenBooksQaUnanswerable;
+/**
+ *  Gemini V2 only tail patch.
+ *
+ *  Value: "GEMINI_V2_TAIL_PATCH_PMC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchPmc;
+/** Value: "GEMINI_V2_TAIL_PATCH_VOXPOPULI" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchVoxpopuli;
 /**
  *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
  */
@@ -6888,6 +7040,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Wikipedia;
 /** Value: "WORLD_QUERY_GENERATOR" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WorldQueryGenerator;
+/**
+ *  Youtube Content Inpsiration.
+ *
+ *  Value: "YT_CONTENT_INSPIRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_YtContentInspiration;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult.segmentRecitationAction
@@ -6918,6 +7076,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitati
  *  Value: "NO_ACTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_NoAction;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult.sourceCategory
+
+/** Value: "SOURCE_CATEGORY_ARXIV" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryArxiv;
+/** Value: "SOURCE_CATEGORY_GITHUB" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryGithub;
+/** Value: "SOURCE_CATEGORY_GNEWS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryGnews;
+/** Value: "SOURCE_CATEGORY_OTHERS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryOthers;
+/** Value: "SOURCE_CATEGORY_PRIVATE_BOOKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryPrivateBooks;
+/** Value: "SOURCE_CATEGORY_PUBLIC_BOOKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryPublicBooks;
+/** Value: "SOURCE_CATEGORY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryUnspecified;
+/** Value: "SOURCE_CATEGORY_WEBDOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryWebdocs;
+/** Value: "SOURCE_CATEGORY_WIKIPEDIA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryWikipedia;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult.recitationAction
@@ -7313,12 +7493,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAtt
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1SimplifiedHtmlV2Gcc;
 /** Value: "GEMINI_V1_STEM_BOOKS_650K_TEXT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1StemBooks650kText;
+/** Value: "GEMINI_V1_TAIL_PATCH_BIRD_SQL_LITE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchBirdSqlLite;
+/**
+ *  Gemini V1 and V2 shared tail patch.
+ *
+ *  Value: "GEMINI_V1_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchCcaiDialogSumHuman;
 /**
  *  Gemini V1 tail patch others.
  *
  *  Value: "GEMINI_V1_TAIL_PATCH_GOALDMINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchGoaldmine;
+/** Value: "GEMINI_V1_TAIL_PATCH_JSON_TABLE_EXTRACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchJsonTableExtraction;
+/** Value: "GEMINI_V1_TAIL_PATCH_MATH_REASONING_NON_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchMathReasoningNonPunting;
+/** Value: "GEMINI_V1_TAIL_PATCH_MATH_REASONING_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchMathReasoningPunting;
+/** Value: "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchOpenBooksQaAnswerable;
+/** Value: "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchOpenBooksQaUnanswerable;
 /** Value: "GEMINI_V1_TAIL_PATCH_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchPhotomathIm2solProblemAndSolution;
 /** Value: "GEMINI_V1_TAIL_PATCH_TRANSLATION_2021_INCR" */
@@ -7525,6 +7723,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAtt
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsWikipediaLangFilteredGccPii;
 /** Value: "GEMINI_V2_CODE_CONTESTS_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeContestsCompliant;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_GITHUB_COMMITS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeTransformGithubCommits;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_GITHUB_PR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeTransformGithubPr;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_SYNTHETIC_ERROR_FIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeTransformSyntheticErrorFix;
 /** Value: "GEMINI_V2_CODEWEB_V1_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodewebV1Compliant;
 /** Value: "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2" */
@@ -7599,6 +7803,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAtt
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant;
 /** Value: "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2;
+/** Value: "GEMINI_V2_JSON_MODE_SYS_INSTRUCTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2JsonModeSysInstruction;
 /** Value: "GEMINI_V2_LEETCODE_GCC_PII" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2LeetcodeGccPii;
 /** Value: "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2" */
@@ -7637,12 +7843,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAtt
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SciencewebV0GccPii;
 /** Value: "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant;
+/** Value: "GEMINI_V2_SQL_REPAIR_SFT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SqlRepairSft;
+/**
+ *  Gemini V2 rev10
+ *
+ *  Value: "GEMINI_V2_SSFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Ssfs;
 /** Value: "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant;
 /**
  *  Value: "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant;
+/** Value: "GEMINI_V2_TAIL_PATCH_BIRD_SQL_LITE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchBirdSqlLite;
+/** Value: "GEMINI_V2_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchCcaiDialogSumHuman;
+/** Value: "GEMINI_V2_TAIL_PATCH_FLEURS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchFleurs;
+/** Value: "GEMINI_V2_TAIL_PATCH_JSON_TABLE_EXTRACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchJsonTableExtraction;
+/** Value: "GEMINI_V2_TAIL_PATCH_MATH_REASONING_NON_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchMathReasoningNonPunting;
+/** Value: "GEMINI_V2_TAIL_PATCH_MATH_REASONING_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchMathReasoningPunting;
+/** Value: "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchOpenBooksQaAnswerable;
+/** Value: "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchOpenBooksQaUnanswerable;
+/**
+ *  Gemini V2 only tail patch.
+ *
+ *  Value: "GEMINI_V2_TAIL_PATCH_PMC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchPmc;
+/** Value: "GEMINI_V2_TAIL_PATCH_VOXPOPULI" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchVoxpopuli;
 /**
  *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
  */
@@ -7880,6 +8118,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAtt
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Wikipedia;
 /** Value: "WORLD_QUERY_GENERATOR" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WorldQueryGenerator;
+/**
+ *  Youtube Content Inspiration FT datasets.
+ *
+ *  Value: "YT_CONTENT_INSPIRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_YtContentInspiration;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_LearningGenaiRecitationRecitationResult.recitationAction
@@ -8275,12 +8519,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1SimplifiedHtmlV2Gcc;
 /** Value: "GEMINI_V1_STEM_BOOKS_650K_TEXT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1StemBooks650kText;
+/** Value: "GEMINI_V1_TAIL_PATCH_BIRD_SQL_LITE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchBirdSqlLite;
+/**
+ *  Gemini V1 and V2 shared tail patch.
+ *
+ *  Value: "GEMINI_V1_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchCcaiDialogSumHuman;
 /**
  *  Gemini V1 tail patch others.
  *
  *  Value: "GEMINI_V1_TAIL_PATCH_GOALDMINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchGoaldmine;
+/** Value: "GEMINI_V1_TAIL_PATCH_JSON_TABLE_EXTRACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchJsonTableExtraction;
+/** Value: "GEMINI_V1_TAIL_PATCH_MATH_REASONING_NON_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchMathReasoningNonPunting;
+/** Value: "GEMINI_V1_TAIL_PATCH_MATH_REASONING_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchMathReasoningPunting;
+/** Value: "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchOpenBooksQaAnswerable;
+/** Value: "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchOpenBooksQaUnanswerable;
 /** Value: "GEMINI_V1_TAIL_PATCH_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchPhotomathIm2solProblemAndSolution;
 /** Value: "GEMINI_V1_TAIL_PATCH_TRANSLATION_2021_INCR" */
@@ -8487,6 +8749,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsWikipediaLangFilteredGccPii;
 /** Value: "GEMINI_V2_CODE_CONTESTS_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_GITHUB_COMMITS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeTransformGithubCommits;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_GITHUB_PR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeTransformGithubPr;
+/** Value: "GEMINI_V2_CODE_TRANSFORM_SYNTHETIC_ERROR_FIX" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeTransformSyntheticErrorFix;
 /** Value: "GEMINI_V2_CODEWEB_V1_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant;
 /** Value: "GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2" */
@@ -8561,6 +8829,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant;
 /** Value: "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2;
+/** Value: "GEMINI_V2_JSON_MODE_SYS_INSTRUCTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2JsonModeSysInstruction;
 /** Value: "GEMINI_V2_LEETCODE_GCC_PII" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii;
 /** Value: "GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2" */
@@ -8599,12 +8869,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SciencewebV0GccPii;
 /** Value: "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant;
+/** Value: "GEMINI_V2_SQL_REPAIR_SFT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SqlRepairSft;
+/**
+ *  Gemini V2 rev10
+ *
+ *  Value: "GEMINI_V2_SSFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Ssfs;
 /** Value: "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant;
 /**
  *  Value: "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant;
+/** Value: "GEMINI_V2_TAIL_PATCH_BIRD_SQL_LITE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchBirdSqlLite;
+/** Value: "GEMINI_V2_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchCcaiDialogSumHuman;
+/** Value: "GEMINI_V2_TAIL_PATCH_FLEURS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchFleurs;
+/** Value: "GEMINI_V2_TAIL_PATCH_JSON_TABLE_EXTRACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchJsonTableExtraction;
+/** Value: "GEMINI_V2_TAIL_PATCH_MATH_REASONING_NON_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchMathReasoningNonPunting;
+/** Value: "GEMINI_V2_TAIL_PATCH_MATH_REASONING_PUNTING" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchMathReasoningPunting;
+/** Value: "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchOpenBooksQaAnswerable;
+/** Value: "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchOpenBooksQaUnanswerable;
+/**
+ *  Gemini V2 only tail patch.
+ *
+ *  Value: "GEMINI_V2_TAIL_PATCH_PMC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchPmc;
+/** Value: "GEMINI_V2_TAIL_PATCH_VOXPOPULI" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchVoxpopuli;
 /**
  *  Value: "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
  */
@@ -8842,6 +9144,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Wikipedia;
 /** Value: "WORLD_QUERY_GENERATOR" */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WorldQueryGenerator;
+/**
+ *  Youtube Content Inspiration FT datasets.
+ *
+ *  Value: "YT_CONTENT_INSPIRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_YtContentInspiration;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_LearningGenaiRecitationSegmentResult.segmentRecitationAction
@@ -8872,6 +9180,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmen
  *  Value: "NO_ACTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_NoAction;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRecitationSegmentResult.sourceCategory
+
+/** Value: "SOURCE_CATEGORY_ARXIV" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryArxiv;
+/** Value: "SOURCE_CATEGORY_GITHUB" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryGithub;
+/** Value: "SOURCE_CATEGORY_GNEWS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryGnews;
+/** Value: "SOURCE_CATEGORY_OTHERS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryOthers;
+/** Value: "SOURCE_CATEGORY_PRIVATE_BOOKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryPrivateBooks;
+/** Value: "SOURCE_CATEGORY_PUBLIC_BOOKS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryPublicBooks;
+/** Value: "SOURCE_CATEGORY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryUnspecified;
+/** Value: "SOURCE_CATEGORY_WEBDOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryWebdocs;
+/** Value: "SOURCE_CATEGORY_WIKIPEDIA" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryWikipedia;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_LearningGenaiRootCalculationType.scoreType
@@ -9165,6 +9495,137 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyCheckpo
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyCheckpoint_PostInferenceStep_StepWhitespaceTruncation;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata.postInferenceStep
+
+/**
+ *  StopSequencePostProcessor.
+ *
+ *  Value: "STEP_CUSTOM_STOP_SEQUENCE_TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepCustomStopSequenceTruncation;
+/**
+ *  Drop extra number of samples that exceeds expected_samples.
+ *
+ *  Value: "STEP_EXPECTED_SAMPLE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepExpectedSampleSize;
+/**
+ *  Deduplicate after all truncations.
+ *
+ *  Value: "STEP_FINAL_DEDUPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepFinalDeduplication;
+/**
+ *  Heuristic SuffixTruncator step.
+ *
+ *  Value: "STEP_HEURISTIC_TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepHeuristicTruncation;
+/**
+ *  StopSequencePostProcessor.
+ *
+ *  Value: "STEP_MODEL_CONFIG_STOP_SEQUENCE_TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepModelConfigStopSequenceTruncation;
+/**
+ *  Original model outputs after deduplication.
+ *
+ *  Value: "STEP_MODEL_OUTPUT_DEDUPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepModelOutputDeduplication;
+/**
+ *  Original model outputs as-is.
+ *
+ *  Value: "STEP_ORIGINAL_MODEL_OUTPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepOriginalModelOutput;
+/** Value: "STEP_POST_PROCESSING_STEP_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepPostProcessingStepUnspecified;
+/**
+ *  Recitation causes BLOCK.
+ *
+ *  Value: "STEP_RECITATION_CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepRecitationCheck;
+/**
+ *  Return the response to the API.
+ *
+ *  Value: "STEP_RETURNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepReturned;
+/**
+ *  Thresholding samples based on a minimum score.
+ *
+ *  Value: "STEP_SCORE_THRESHOLDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepScoreThresholding;
+/**
+ *  StopSequencePostProcessor.
+ *
+ *  Value: "STEP_STOP_SEQUENCE_TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepStopSequenceTruncation GTLR_DEPRECATED;
+/**
+ *  Toxicity returns true.
+ *
+ *  Value: "STEP_TOXICITY_CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepToxicityCheck;
+/**
+ *  Truncated by highest end token score.
+ *
+ *  Value: "STEP_TREE_TRIM_TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepTreeTrimTruncation;
+/**
+ *  Go service post-processor.
+ *
+ *  Value: "STEP_WALD_TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepWaldTruncation;
+/**
+ *  Correcting walkback constraint (samples are dropped if they don't match the
+ *  prefix constraint).
+ *
+ *  Value: "STEP_WALKBACK_CORRECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepWalkbackCorrection;
+/**
+ *  Truncate trailing whitespace and filter whitespace-only completions.
+ *
+ *  Value: "STEP_WHITESPACE_TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepWhitespaceTruncation;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold.policy
+
+/** Value: "DANGEROUS_CONTENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_DangerousContent;
+/** Value: "HARASSMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_Harassment;
+/** Value: "HATE_SPEECH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_HateSpeech;
+/** Value: "SEXUALLY_EXPLICIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_SexuallyExplicit;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore.policy
+
+/** Value: "DANGEROUS_CONTENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_DangerousContent;
+/** Value: "HARASSMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_Harassment;
+/** Value: "HATE_SPEECH" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_HateSpeech;
+/** Value: "SEXUALLY_EXPLICIT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_SexuallyExplicit;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_LearningGenaiRootFilterMetadata.confidence
 
 /** Value: "FILTER_CONFIDENCE_HIGH" */
@@ -9183,6 +9644,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetada
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_LearningGenaiRootFilterMetadata.reason
 
+/**
+ *  The response are filtered because it could not pass the control decoding
+ *  thresholds and the maximum rewind attempts is reached.
+ *
+ *  Value: "FILTER_CONTROL_DECODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterControlDecoding;
 /**
  *  Atlas specific topic filter
  *
@@ -9771,6 +10239,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySign
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_WarConflict;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_LearningServingLlmAtlasOutputMetadata.source
+
+/** Value: "FACTUALITY" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmAtlasOutputMetadata_Source_Factuality;
+/** Value: "INFOBOT" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmAtlasOutputMetadata_Source_Infobot;
+/** Value: "LLM" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmAtlasOutputMetadata_Source_Llm;
+/** Value: "UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_LearningServingLlmAtlasOutputMetadata_Source_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_LearningServingLlmMessageMetadata.finishReason
 
 /**
@@ -9919,6 +10399,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        Value "WAR_CONFLICT"
  *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_WatermarkImg
  *        Value "WATERMARK_IMG"
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_WatermarkImgRemoval
+ *        Error message when user attempts to remove watermark from editing
+ *        image (Value: "WATERMARK_IMG_REMOVAL")
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
@@ -9957,6 +10440,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 /** The generates samples. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiLargeModelsVisionMedia *> *generatedSamples;
+
+/** Returns rai error message for filtered videos. */
+@property(nonatomic, copy, nullable) NSString *raiErrorMessage;
 
 /**
  *  Returns if any videos were filtered due to RAI policies.
@@ -10232,11 +10718,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        The maximum number of tokens as specified in the request was reached.
  *        (Value: "FINISH_REASON_MAX_TOKENS")
  *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonOther
- *        All other reasons that stopped the token generation. (Value:
- *        "FINISH_REASON_OTHER")
+ *        All other reasons that stopped the token generation (currently only
+ *        language filter). (Value: "FINISH_REASON_OTHER")
  *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonProhibitedContent
  *        The token generation was stopped as the response was flagged for the
- *        prohibited contents. (Value: "FINISH_REASON_PROHIBITED_CONTENT")
+ *        prohibited contents (currently only CSAM). (Value:
+ *        "FINISH_REASON_PROHIBITED_CONTENT")
  *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonRecitation
  *        The token generation was stopped as the response was flagged for
  *        unauthorized citations. (Value: "FINISH_REASON_RECITATION")
@@ -10604,10 +11091,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        Candidates blocked due to the terms which are included from the
  *        terminology blocklist. (Value: "BLOCKLIST")
  *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_Other
- *        Candidates blocked due to other reason. (Value: "OTHER")
+ *        Candidates blocked due to other reason (currently only language
+ *        filter). (Value: "OTHER")
  *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_ProhibitedContent
- *        Candidates blocked due to prohibited content. (Value:
- *        "PROHIBITED_CONTENT")
+ *        Candidates blocked due to prohibited content (currently only CSAM).
+ *        (Value: "PROHIBITED_CONTENT")
  *    @arg @c kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_Safety
  *        Candidates blocked due to safety. (Value: "SAFETY")
  */
@@ -15080,6 +15568,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PredictRequestResponseLoggingConfig *predictRequestResponseLoggingConfig;
 
 /**
+ *  Optional. Configuration for private service connect. network and
+ *  private_service_connect_config are mutually exclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig *privateServiceConnectConfig;
+
+/**
  *  A map from a DeployedModel's ID to the percentage of this Endpoint's traffic
  *  that should be forwarded to that DeployedModel. If a DeployedModel's ID is
  *  not listed in this map, then it receives no traffic. The traffic percentage
@@ -18394,6 +18888,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  */
 @property(nonatomic, strong, nullable) NSNumber *perCrowdingAttributeNeighborCount;
 
+/** Optional. Represents RRF algorithm that combines search results. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQueryRRF *rrf;
+
+@end
+
+
+/**
+ *  Parameters for RRF algorithm that combines search results.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQueryRRF : GTLRObject
+
+/**
+ *  Required. Users can provide an alpha value to give more weight to dense vs
+ *  sparse results. For example, if the alpha is 0, we only return sparse and if
+ *  the alpha is 1, we only return dense.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alpha;
+
 @end
 
 
@@ -18439,11 +18953,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint *datapoint;
 
 /**
- *  The distance between the neighbor and the query vector.
+ *  The distance between the neighbor and the dense embedding query.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *distance;
+
+/**
+ *  The distance between the neighbor and the query sparse_embedding.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sparseDistance;
 
 @end
 
@@ -18776,10 +19297,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 /**
  *  Optional. Output response mimetype of the generated candidate text.
- *  Supported mimetype: `text/plain`: (default) Text output. `application/json`:
- *  JSON response in the candidates. The model needs to be prompted to output
- *  the appropriate response type, otherwise the behavior is undefined. This is
- *  a preview feature.
+ *  Supported mimetype: - `text/plain`: (default) Text output. -
+ *  `application/json`: JSON response in the candidates. The model needs to be
+ *  prompted to output the appropriate response type, otherwise the behavior is
+ *  undefined. This is a preview feature.
  */
 @property(nonatomic, copy, nullable) NSString *responseMimeType;
 
@@ -18847,65 +19368,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 
 
 /**
- *  Tool to retrieve public web data for grounding, powered by Google.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval : GTLRObject
-
-/**
- *  Optional. Disable using the result from this tool in detecting grounding
- *  attribution. This does not affect how the result is given to the model for
- *  generation.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disableAttribution;
-
-@end
-
-
-/**
- *  Grounding attribution.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution : GTLRObject
-
-/**
- *  Optional. Output only. Confidence score of the attribution. Ranges from 0 to
- *  1. 1 is the most confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *confidenceScore;
-
-/** Output only. Segment of the content this attribution belongs to. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Segment *segment;
-
-/** Optional. Attribution from the web. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttributionWeb *web;
-
-@end
-
-
-/**
- *  Attribution from the web.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttributionWeb : GTLRObject
-
-/** Output only. Title of the attribution. */
-@property(nonatomic, copy, nullable) NSString *title;
-
-/** Output only. URI reference of the attribution. */
-@property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
  *  Metadata returned to client when grounding is enabled.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata : GTLRObject
 
-/** Optional. List of grounding attributions. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution *> *groundingAttributions;
+/** Optional. Google search entry for the following-up web searches. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SearchEntryPoint *searchEntryPoint;
 
 /** Optional. Web search queries for the following-up web search. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *webSearchQueries;
@@ -19525,8 +19993,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @property(nonatomic, copy, nullable) NSString *datapointId;
 
 /**
- *  Required. Feature embedding vector. An array of numbers with the length of
- *  [NearestNeighborSearchConfig.dimensions].
+ *  Required. Feature embedding vector for dense index. An array of numbers with
+ *  the length of [NearestNeighborSearchConfig.dimensions].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -19546,6 +20014,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  https://cloud.google.com/vertex-ai/docs/matching-engine/filtering
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointRestriction *> *restricts;
+
+/** Optional. Feature embedding vector for sparse index. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointSparseEmbedding *sparseEmbedding;
 
 @end
 
@@ -19651,6 +20122,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
  */
 @property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+@end
+
+
+/**
+ *  Feature embedding vector for sparse index. An array of numbers whose values
+ *  are located in the specified dimensions.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointSparseEmbedding : GTLRObject
+
+/**
+ *  Optional. The list of indexes for the embedding values of the sparse vector.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *dimensions;
+
+/**
+ *  Optional. The list of embedding values of the sparse vector.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *values;
 
 @end
 
@@ -19813,7 +20307,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
 @property(nonatomic, strong, nullable) NSNumber *shardsCount;
 
 /**
- *  Output only. The number of vectors in the Index.
+ *  Output only. The number of sparse vectors in the Index.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sparseVectorsCount;
+
+/**
+ *  Output only. The number of dense vectors in the Index.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -21334,6 +21835,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        TPU v3. (Value: "TPU_V3")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV4Pod
  *        TPU v4. (Value: "TPU_V4_POD")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV5Litepod
+ *        TPU v5. (Value: "TPU_V5_LITEPOD")
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
@@ -24087,8 +24590,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *        There are multiple restricts with the same `namespace` value. (Value:
  *        "DUPLICATE_NAMESPACE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmbeddingSizeMismatch
- *        The size of the embedding vectors does not match with the specified
- *        dimension. (Value: "EMBEDDING_SIZE_MISMATCH")
+ *        The size of the dense embedding vectors does not match with the
+ *        specified dimension. (Value: "EMBEDDING_SIZE_MISMATCH")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmptyLine
  *        The record is empty. (Value: "EMPTY_LINE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_ErrorTypeUnspecified
@@ -24109,6 +24612,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidSparseDimensions
  *        Error parsing sparse dimensions field. (Value:
  *        "INVALID_SPARSE_DIMENSIONS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidSparseEmbedding
+ *        Invalid sparse embedding. (Value: "INVALID_SPARSE_EMBEDDING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidTokenValue
+ *        Token restrict value is invalid. (Value: "INVALID_TOKEN_VALUE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_MultipleValues
  *        Numeric restrict has multiple values specified. (Value:
  *        "MULTIPLE_VALUES")
@@ -24564,7 +25071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVers
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec *machineSpec;
 
-/** Output only. The resource name of the NotebookRuntimeTemplate. */
+/** The resource name of the NotebookRuntimeTemplate. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Optional. Network spec. */
@@ -25912,6 +26419,11 @@ GTLR_DEPRECATED
 /** Optional. Deploy PublisherModel to Google Kubernetes Engine. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployGke *deployGke;
 
+/**
+ *  Optional. Fine tune the PublisherModel with the third-party model tuning UI.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *fineTune;
+
 /** Optional. Open evaluation pipeline of the PublisherModel. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *openEvaluationPipeline;
 
@@ -25974,6 +26486,11 @@ GTLR_DEPRECATED
  *  need a higher degree of manual configuration.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DedicatedResources *dedicatedResources;
+
+/**
+ *  Optional. The name of the deploy task (e.g., "text to image generation").
+ */
+@property(nonatomic, copy, nullable) NSString *deployTaskName;
 
 /**
  *  Optional. Large model reference. When this is set, model_artifact_spec is
@@ -30081,6 +30598,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *stopSequences;
 
 /**
+ *  The Google Cloud Storage URI that stores the system instruction, starting
+ *  with gs://.
+ */
+@property(nonatomic, copy, nullable) NSString *systemInstructionGcsUri;
+
+/**
  *  Temperature value used for sampling set when the dataset was saved. This
  *  value is used to tune the degree of randomness.
  *
@@ -32661,6 +33184,28 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Google search entry point.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SearchEntryPoint : GTLRObject
+
+/**
+ *  Optional. Web content snippet that can be embedded in a web page or an app
+ *  webview.
+ */
+@property(nonatomic, copy, nullable) NSString *renderedContent;
+
+/**
+ *  Optional. Base64 encoded JSON representing array of tuple.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sdkBlob;
+
+@end
+
+
+/**
  *  Response message for FeaturestoreService.SearchFeatures.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -32899,37 +33444,6 @@ GTLR_DEPRECATED
 
 /** The nearest neighbors of the query entity. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighbors *nearestNeighbors;
-
-@end
-
-
-/**
- *  Segment of the content.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1Segment : GTLRObject
-
-/**
- *  Output only. End index in the given Part, measured in bytes. Offset from the
- *  start of the Part, exclusive, starting at zero.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *endIndex;
-
-/**
- *  Output only. The index of a Part object within its parent Content object.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *partIndex;
-
-/**
- *  Output only. Start index in the given Part, measured in bytes. Offset from
- *  the start of the Part, inclusive, starting at zero.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -33984,14 +34498,15 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *adapterSize;
 
 /**
- *  Optional. Number of training epoches for this tuning job.
+ *  Optional. Number of complete passes the model makes over the entire training
+ *  dataset during training.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *epochCount;
 
 /**
- *  Optional. Learning rate multiplier for tuning.
+ *  Optional. Multiplier for adjusting the default learning rate.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -34148,12 +34663,13 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Cloud Storage path to file containing training dataset for tuning.
+ *  The dataset must be formatted as a JSONL file.
  */
 @property(nonatomic, copy, nullable) NSString *trainingDatasetUri;
 
 /**
  *  Optional. Cloud Storage path to file containing validation dataset for
- *  tuning.
+ *  tuning. The dataset must be formatted as a JSONL file.
  */
 @property(nonatomic, copy, nullable) NSString *validationDatasetUri;
 
@@ -34935,12 +35451,6 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration *> *functionDeclarations;
 
 /**
- *  Optional. GoogleSearchRetrieval tool type. Specialized retrieval tool that
- *  is powered by Google search.
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval *googleSearchRetrieval;
-
-/**
  *  Optional. Retrieval tool type. System will always execute the provided
  *  retrieval tool(s) to get external knowledge to answer the prompt. Retrieval
  *  results are presented to the model for generation.
@@ -35358,7 +35868,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1TuningJob : GTLRObject
 
-/** Model name for tuning, e.g., "gemini-1.0-pro-002". */
+/** The base model that is being tuned, e.g., "gemini-1.0-pro-002". */
 @property(nonatomic, copy, nullable) NSString *baseModel;
 
 /** Output only. Time when the TuningJob was created. */
@@ -35942,7 +36452,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Fully-qualified Vertex AI Search's datastore resource ID. Format:
- *  projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore}`
  */
 @property(nonatomic, copy, nullable) NSString *datastore;
 
@@ -37232,8 +37742,23 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1StemBooks650kText
  *        Value "GEMINI_V1_STEM_BOOKS_650K_TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchBirdSqlLite
+ *        Value "GEMINI_V1_TAIL_PATCH_BIRD_SQL_LITE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchCcaiDialogSumHuman
+ *        Gemini V1 and V2 shared tail patch. (Value:
+ *        "GEMINI_V1_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchGoaldmine
  *        Gemini V1 tail patch others. (Value: "GEMINI_V1_TAIL_PATCH_GOALDMINE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchJsonTableExtraction
+ *        Value "GEMINI_V1_TAIL_PATCH_JSON_TABLE_EXTRACTION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchMathReasoningNonPunting
+ *        Value "GEMINI_V1_TAIL_PATCH_MATH_REASONING_NON_PUNTING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchMathReasoningPunting
+ *        Value "GEMINI_V1_TAIL_PATCH_MATH_REASONING_PUNTING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchOpenBooksQaAnswerable
+ *        Value "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchOpenBooksQaUnanswerable
+ *        Value "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchPhotomathIm2solProblemAndSolution
  *        Value "GEMINI_V1_TAIL_PATCH_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TailPatchTranslation2021Incr
@@ -37390,6 +37915,12 @@ GTLR_DEPRECATED
  *        "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeContestsCompliant
  *        Value "GEMINI_V2_CODE_CONTESTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeTransformGithubCommits
+ *        Value "GEMINI_V2_CODE_TRANSFORM_GITHUB_COMMITS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeTransformGithubPr
+ *        Value "GEMINI_V2_CODE_TRANSFORM_GITHUB_PR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeTransformSyntheticErrorFix
+ *        Value "GEMINI_V2_CODE_TRANSFORM_SYNTHETIC_ERROR_FIX"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodewebV1Compliant
  *        Value "GEMINI_V2_CODEWEB_V1_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EconomicsV2TargetedDataCompliant2
@@ -37457,6 +37988,8 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2
  *        Value "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2JsonModeSysInstruction
+ *        Value "GEMINI_V2_JSON_MODE_SYS_INSTRUCTION"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2LeetcodeGccPii
  *        Value "GEMINI_V2_LEETCODE_GCC_PII"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MachineLearningTargetedDataCompliant2
@@ -37494,11 +38027,35 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V2_SCIENCEWEB_V0_GCC_PII"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant
  *        Value "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SqlRepairSft
+ *        Value "GEMINI_V2_SQL_REPAIR_SFT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Ssfs
+ *        Gemini V2 rev10 (Value: "GEMINI_V2_SSFS")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant
  *        Value "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant
  *        Value
  *        "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchBirdSqlLite
+ *        Value "GEMINI_V2_TAIL_PATCH_BIRD_SQL_LITE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchCcaiDialogSumHuman
+ *        Value "GEMINI_V2_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchFleurs
+ *        Value "GEMINI_V2_TAIL_PATCH_FLEURS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchJsonTableExtraction
+ *        Value "GEMINI_V2_TAIL_PATCH_JSON_TABLE_EXTRACTION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchMathReasoningNonPunting
+ *        Value "GEMINI_V2_TAIL_PATCH_MATH_REASONING_NON_PUNTING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchMathReasoningPunting
+ *        Value "GEMINI_V2_TAIL_PATCH_MATH_REASONING_PUNTING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchOpenBooksQaAnswerable
+ *        Value "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchOpenBooksQaUnanswerable
+ *        Value "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchPmc
+ *        Gemini V2 only tail patch. (Value: "GEMINI_V2_TAIL_PATCH_PMC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2TailPatchVoxpopuli
+ *        Value "GEMINI_V2_TAIL_PATCH_VOXPOPULI"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant
  *        Value
  *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
@@ -37685,6 +38242,8 @@ GTLR_DEPRECATED
  *        TFDS team. (Value: "WIKIPEDIA")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WorldQueryGenerator
  *        Value "WORLD_QUERY_GENERATOR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_YtContentInspiration
+ *        Youtube Content Inpsiration. (Value: "YT_CONTENT_INSPIRATION")
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
@@ -37803,7 +38362,8 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult : GTLRObject
 
 /**
- *  The dataset the segment came from.
+ *  The dataset the segment came from. Datasets change often as model evolves.
+ *  Treat this field as informational only and avoid depending on it directly.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AmpsKhan
@@ -38098,8 +38658,23 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1StemBooks650kText
  *        Value "GEMINI_V1_STEM_BOOKS_650K_TEXT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchBirdSqlLite
+ *        Value "GEMINI_V1_TAIL_PATCH_BIRD_SQL_LITE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchCcaiDialogSumHuman
+ *        Gemini V1 and V2 shared tail patch. (Value:
+ *        "GEMINI_V1_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchGoaldmine
  *        Gemini V1 tail patch others. (Value: "GEMINI_V1_TAIL_PATCH_GOALDMINE")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchJsonTableExtraction
+ *        Value "GEMINI_V1_TAIL_PATCH_JSON_TABLE_EXTRACTION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchMathReasoningNonPunting
+ *        Value "GEMINI_V1_TAIL_PATCH_MATH_REASONING_NON_PUNTING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchMathReasoningPunting
+ *        Value "GEMINI_V1_TAIL_PATCH_MATH_REASONING_PUNTING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchOpenBooksQaAnswerable
+ *        Value "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchOpenBooksQaUnanswerable
+ *        Value "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchPhotomathIm2solProblemAndSolution
  *        Value "GEMINI_V1_TAIL_PATCH_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TailPatchTranslation2021Incr
@@ -38256,6 +38831,12 @@ GTLR_DEPRECATED
  *        "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant
  *        Value "GEMINI_V2_CODE_CONTESTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeTransformGithubCommits
+ *        Value "GEMINI_V2_CODE_TRANSFORM_GITHUB_COMMITS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeTransformGithubPr
+ *        Value "GEMINI_V2_CODE_TRANSFORM_GITHUB_PR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeTransformSyntheticErrorFix
+ *        Value "GEMINI_V2_CODE_TRANSFORM_SYNTHETIC_ERROR_FIX"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant
  *        Value "GEMINI_V2_CODEWEB_V1_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EconomicsV2TargetedDataCompliant2
@@ -38323,6 +38904,8 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2
  *        Value "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2JsonModeSysInstruction
+ *        Value "GEMINI_V2_JSON_MODE_SYS_INSTRUCTION"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii
  *        Value "GEMINI_V2_LEETCODE_GCC_PII"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MachineLearningTargetedDataCompliant2
@@ -38360,11 +38943,35 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V2_SCIENCEWEB_V0_GCC_PII"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant
  *        Value "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SqlRepairSft
+ *        Value "GEMINI_V2_SQL_REPAIR_SFT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Ssfs
+ *        Gemini V2 rev10 (Value: "GEMINI_V2_SSFS")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant
  *        Value "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant
  *        Value
  *        "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchBirdSqlLite
+ *        Value "GEMINI_V2_TAIL_PATCH_BIRD_SQL_LITE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchCcaiDialogSumHuman
+ *        Value "GEMINI_V2_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchFleurs
+ *        Value "GEMINI_V2_TAIL_PATCH_FLEURS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchJsonTableExtraction
+ *        Value "GEMINI_V2_TAIL_PATCH_JSON_TABLE_EXTRACTION"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchMathReasoningNonPunting
+ *        Value "GEMINI_V2_TAIL_PATCH_MATH_REASONING_NON_PUNTING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchMathReasoningPunting
+ *        Value "GEMINI_V2_TAIL_PATCH_MATH_REASONING_PUNTING"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchOpenBooksQaAnswerable
+ *        Value "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchOpenBooksQaUnanswerable
+ *        Value "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchPmc
+ *        Gemini V2 only tail patch. (Value: "GEMINI_V2_TAIL_PATCH_PMC")
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2TailPatchVoxpopuli
+ *        Value "GEMINI_V2_TAIL_PATCH_VOXPOPULI"
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant
  *        Value
  *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
@@ -38551,6 +39158,8 @@ GTLR_DEPRECATED
  *        TFDS team. (Value: "WIKIPEDIA")
  *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WorldQueryGenerator
  *        Value "WORLD_QUERY_GENERATOR"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_YtContentInspiration
+ *        Youtube Content Inpsiration. (Value: "YT_CONTENT_INSPIRATION")
  */
 @property(nonatomic, copy, nullable) NSString *attributionDataset;
 
@@ -38560,7 +39169,6 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *displayAttributionMessage;
 
-/** populated when recitation_action == CITE */
 @property(nonatomic, strong, nullable) GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution *docAttribution;
 
 /**
@@ -38602,6 +39210,32 @@ GTLR_DEPRECATED
  *        for tagging high-frequency code snippets (Value: "NO_ACTION")
  */
 @property(nonatomic, copy, nullable) NSString *segmentRecitationAction;
+
+/**
+ *  The category of the source dataset where the segment came from. This is more
+ *  stable than Dataset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryArxiv
+ *        Value "SOURCE_CATEGORY_ARXIV"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryGithub
+ *        Value "SOURCE_CATEGORY_GITHUB"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryGnews
+ *        Value "SOURCE_CATEGORY_GNEWS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryOthers
+ *        Value "SOURCE_CATEGORY_OTHERS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryPrivateBooks
+ *        Value "SOURCE_CATEGORY_PRIVATE_BOOKS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryPublicBooks
+ *        Value "SOURCE_CATEGORY_PUBLIC_BOOKS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryUnspecified
+ *        Value "SOURCE_CATEGORY_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryWebdocs
+ *        Value "SOURCE_CATEGORY_WEBDOCS"
+ *    @arg @c kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SourceCategory_SourceCategoryWikipedia
+ *        Value "SOURCE_CATEGORY_WIKIPEDIA"
+ */
+@property(nonatomic, copy, nullable) NSString *sourceCategory;
 
 /**
  *  The segment boundary start (inclusive) and end index (exclusive) in the
@@ -38990,8 +39624,23 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1StemBooks650kText
  *        Value "GEMINI_V1_STEM_BOOKS_650K_TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchBirdSqlLite
+ *        Value "GEMINI_V1_TAIL_PATCH_BIRD_SQL_LITE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchCcaiDialogSumHuman
+ *        Gemini V1 and V2 shared tail patch. (Value:
+ *        "GEMINI_V1_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchGoaldmine
  *        Gemini V1 tail patch others. (Value: "GEMINI_V1_TAIL_PATCH_GOALDMINE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchJsonTableExtraction
+ *        Value "GEMINI_V1_TAIL_PATCH_JSON_TABLE_EXTRACTION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchMathReasoningNonPunting
+ *        Value "GEMINI_V1_TAIL_PATCH_MATH_REASONING_NON_PUNTING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchMathReasoningPunting
+ *        Value "GEMINI_V1_TAIL_PATCH_MATH_REASONING_PUNTING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchOpenBooksQaAnswerable
+ *        Value "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchOpenBooksQaUnanswerable
+ *        Value "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchPhotomathIm2solProblemAndSolution
  *        Value "GEMINI_V1_TAIL_PATCH_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TailPatchTranslation2021Incr
@@ -39148,6 +39797,12 @@ GTLR_DEPRECATED
  *        "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeContestsCompliant
  *        Value "GEMINI_V2_CODE_CONTESTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeTransformGithubCommits
+ *        Value "GEMINI_V2_CODE_TRANSFORM_GITHUB_COMMITS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeTransformGithubPr
+ *        Value "GEMINI_V2_CODE_TRANSFORM_GITHUB_PR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeTransformSyntheticErrorFix
+ *        Value "GEMINI_V2_CODE_TRANSFORM_SYNTHETIC_ERROR_FIX"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodewebV1Compliant
  *        Value "GEMINI_V2_CODEWEB_V1_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EconomicsV2TargetedDataCompliant2
@@ -39215,6 +39870,8 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2
  *        Value "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2JsonModeSysInstruction
+ *        Value "GEMINI_V2_JSON_MODE_SYS_INSTRUCTION"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2LeetcodeGccPii
  *        Value "GEMINI_V2_LEETCODE_GCC_PII"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MachineLearningTargetedDataCompliant2
@@ -39252,11 +39909,35 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V2_SCIENCEWEB_V0_GCC_PII"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant
  *        Value "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SqlRepairSft
+ *        Value "GEMINI_V2_SQL_REPAIR_SFT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Ssfs
+ *        Gemini V2 rev10 (Value: "GEMINI_V2_SSFS")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant
  *        Value "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant
  *        Value
  *        "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchBirdSqlLite
+ *        Value "GEMINI_V2_TAIL_PATCH_BIRD_SQL_LITE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchCcaiDialogSumHuman
+ *        Value "GEMINI_V2_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchFleurs
+ *        Value "GEMINI_V2_TAIL_PATCH_FLEURS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchJsonTableExtraction
+ *        Value "GEMINI_V2_TAIL_PATCH_JSON_TABLE_EXTRACTION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchMathReasoningNonPunting
+ *        Value "GEMINI_V2_TAIL_PATCH_MATH_REASONING_NON_PUNTING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchMathReasoningPunting
+ *        Value "GEMINI_V2_TAIL_PATCH_MATH_REASONING_PUNTING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchOpenBooksQaAnswerable
+ *        Value "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchOpenBooksQaUnanswerable
+ *        Value "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchPmc
+ *        Gemini V2 only tail patch. (Value: "GEMINI_V2_TAIL_PATCH_PMC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2TailPatchVoxpopuli
+ *        Value "GEMINI_V2_TAIL_PATCH_VOXPOPULI"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant
  *        Value
  *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
@@ -39443,6 +40124,9 @@ GTLR_DEPRECATED
  *        TFDS team. (Value: "WIKIPEDIA")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WorldQueryGenerator
  *        Value "WORLD_QUERY_GENERATOR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_YtContentInspiration
+ *        Youtube Content Inspiration FT datasets. (Value:
+ *        "YT_CONTENT_INSPIRATION")
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
@@ -39560,7 +40244,8 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_LearningGenaiRecitationSegmentResult : GTLRObject
 
 /**
- *  The dataset the segment came from.
+ *  The dataset the segment came from. Datasets change often as model evolves.
+ *  Treat this field as informational only and avoid depending on it directly.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AmpsKhan
@@ -39855,8 +40540,23 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V1_SIMPLIFIED_HTML_V2_GCC"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1StemBooks650kText
  *        Value "GEMINI_V1_STEM_BOOKS_650K_TEXT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchBirdSqlLite
+ *        Value "GEMINI_V1_TAIL_PATCH_BIRD_SQL_LITE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchCcaiDialogSumHuman
+ *        Gemini V1 and V2 shared tail patch. (Value:
+ *        "GEMINI_V1_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchGoaldmine
  *        Gemini V1 tail patch others. (Value: "GEMINI_V1_TAIL_PATCH_GOALDMINE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchJsonTableExtraction
+ *        Value "GEMINI_V1_TAIL_PATCH_JSON_TABLE_EXTRACTION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchMathReasoningNonPunting
+ *        Value "GEMINI_V1_TAIL_PATCH_MATH_REASONING_NON_PUNTING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchMathReasoningPunting
+ *        Value "GEMINI_V1_TAIL_PATCH_MATH_REASONING_PUNTING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchOpenBooksQaAnswerable
+ *        Value "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchOpenBooksQaUnanswerable
+ *        Value "GEMINI_V1_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchPhotomathIm2solProblemAndSolution
  *        Value "GEMINI_V1_TAIL_PATCH_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TailPatchTranslation2021Incr
@@ -40013,6 +40713,12 @@ GTLR_DEPRECATED
  *        "GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant
  *        Value "GEMINI_V2_CODE_CONTESTS_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeTransformGithubCommits
+ *        Value "GEMINI_V2_CODE_TRANSFORM_GITHUB_COMMITS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeTransformGithubPr
+ *        Value "GEMINI_V2_CODE_TRANSFORM_GITHUB_PR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeTransformSyntheticErrorFix
+ *        Value "GEMINI_V2_CODE_TRANSFORM_SYNTHETIC_ERROR_FIX"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant
  *        Value "GEMINI_V2_CODEWEB_V1_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EconomicsV2TargetedDataCompliant2
@@ -40080,6 +40786,8 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2
  *        Value "GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2JsonModeSysInstruction
+ *        Value "GEMINI_V2_JSON_MODE_SYS_INSTRUCTION"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii
  *        Value "GEMINI_V2_LEETCODE_GCC_PII"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MachineLearningTargetedDataCompliant2
@@ -40117,11 +40825,35 @@ GTLR_DEPRECATED
  *        Value "GEMINI_V2_SCIENCEWEB_V0_GCC_PII"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant
  *        Value "GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SqlRepairSft
+ *        Value "GEMINI_V2_SQL_REPAIR_SFT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Ssfs
+ *        Gemini V2 rev10 (Value: "GEMINI_V2_SSFS")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant
  *        Value "GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant
  *        Value
  *        "GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchBirdSqlLite
+ *        Value "GEMINI_V2_TAIL_PATCH_BIRD_SQL_LITE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchCcaiDialogSumHuman
+ *        Value "GEMINI_V2_TAIL_PATCH_CCAI_DIALOG_SUM_HUMAN"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchFleurs
+ *        Value "GEMINI_V2_TAIL_PATCH_FLEURS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchJsonTableExtraction
+ *        Value "GEMINI_V2_TAIL_PATCH_JSON_TABLE_EXTRACTION"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchMathReasoningNonPunting
+ *        Value "GEMINI_V2_TAIL_PATCH_MATH_REASONING_NON_PUNTING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchMathReasoningPunting
+ *        Value "GEMINI_V2_TAIL_PATCH_MATH_REASONING_PUNTING"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchOpenBooksQaAnswerable
+ *        Value "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_ANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchOpenBooksQaUnanswerable
+ *        Value "GEMINI_V2_TAIL_PATCH_OPEN_BOOKS_QA_UNANSWERABLE"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchPmc
+ *        Gemini V2 only tail patch. (Value: "GEMINI_V2_TAIL_PATCH_PMC")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2TailPatchVoxpopuli
+ *        Value "GEMINI_V2_TAIL_PATCH_VOXPOPULI"
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant
  *        Value
  *        "GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT"
@@ -40308,6 +41040,9 @@ GTLR_DEPRECATED
  *        TFDS team. (Value: "WIKIPEDIA")
  *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WorldQueryGenerator
  *        Value "WORLD_QUERY_GENERATOR"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_YtContentInspiration
+ *        Youtube Content Inspiration FT datasets. (Value:
+ *        "YT_CONTENT_INSPIRATION")
  */
 @property(nonatomic, copy, nullable) NSString *attributionDataset;
 
@@ -40317,7 +41052,6 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *displayAttributionMessage;
 
-/** populated when recitation_action == CITE */
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRecitationDocAttribution *docAttribution;
 
 /**
@@ -40359,6 +41093,32 @@ GTLR_DEPRECATED
  *        for tagging high-frequency code snippets (Value: "NO_ACTION")
  */
 @property(nonatomic, copy, nullable) NSString *segmentRecitationAction;
+
+/**
+ *  The category of the source dataset where the segment came from. This is more
+ *  stable than Dataset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryArxiv
+ *        Value "SOURCE_CATEGORY_ARXIV"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryGithub
+ *        Value "SOURCE_CATEGORY_GITHUB"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryGnews
+ *        Value "SOURCE_CATEGORY_GNEWS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryOthers
+ *        Value "SOURCE_CATEGORY_OTHERS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryPrivateBooks
+ *        Value "SOURCE_CATEGORY_PRIVATE_BOOKS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryPublicBooks
+ *        Value "SOURCE_CATEGORY_PUBLIC_BOOKS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryUnspecified
+ *        Value "SOURCE_CATEGORY_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryWebdocs
+ *        Value "SOURCE_CATEGORY_WEBDOCS"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SourceCategory_SourceCategoryWikipedia
+ *        Value "SOURCE_CATEGORY_WIKIPEDIA"
+ */
+@property(nonatomic, copy, nullable) NSString *sourceCategory;
 
 /**
  *  The segment boundary start (inclusive) and end index (exclusive) in the
@@ -40594,12 +41354,74 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Stores all metadata relating to GenerateCode.
+ */
+@interface GTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata : GTLRObject
+
+/** Last state of the sample before getting dropped/returned. */
+@property(nonatomic, copy, nullable) NSString *output;
+
+/**
+ *  Last Codey postprocessing step for this sample before getting
+ *  dropped/returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepCustomStopSequenceTruncation
+ *        StopSequencePostProcessor. (Value:
+ *        "STEP_CUSTOM_STOP_SEQUENCE_TRUNCATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepExpectedSampleSize
+ *        Drop extra number of samples that exceeds expected_samples. (Value:
+ *        "STEP_EXPECTED_SAMPLE_SIZE")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepFinalDeduplication
+ *        Deduplicate after all truncations. (Value: "STEP_FINAL_DEDUPLICATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepHeuristicTruncation
+ *        Heuristic SuffixTruncator step. (Value: "STEP_HEURISTIC_TRUNCATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepModelConfigStopSequenceTruncation
+ *        StopSequencePostProcessor. (Value:
+ *        "STEP_MODEL_CONFIG_STOP_SEQUENCE_TRUNCATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepModelOutputDeduplication
+ *        Original model outputs after deduplication. (Value:
+ *        "STEP_MODEL_OUTPUT_DEDUPLICATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepOriginalModelOutput
+ *        Original model outputs as-is. (Value: "STEP_ORIGINAL_MODEL_OUTPUT")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepPostProcessingStepUnspecified
+ *        Value "STEP_POST_PROCESSING_STEP_UNSPECIFIED"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepRecitationCheck
+ *        Recitation causes BLOCK. (Value: "STEP_RECITATION_CHECK")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepReturned
+ *        Return the response to the API. (Value: "STEP_RETURNED")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepScoreThresholding
+ *        Thresholding samples based on a minimum score. (Value:
+ *        "STEP_SCORE_THRESHOLDING")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepStopSequenceTruncation
+ *        StopSequencePostProcessor. (Value: "STEP_STOP_SEQUENCE_TRUNCATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepToxicityCheck
+ *        Toxicity returns true. (Value: "STEP_TOXICITY_CHECK")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepTreeTrimTruncation
+ *        Truncated by highest end token score. (Value:
+ *        "STEP_TREE_TRIM_TRUNCATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepWaldTruncation
+ *        Go service post-processor. (Value: "STEP_WALD_TRUNCATION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepWalkbackCorrection
+ *        Correcting walkback constraint (samples are dropped if they don't
+ *        match the prefix constraint). (Value: "STEP_WALKBACK_CORRECTION")
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata_PostInferenceStep_StepWhitespaceTruncation
+ *        Truncate trailing whitespace and filter whitespace-only completions.
+ *        (Value: "STEP_WHITESPACE_TRUNCATION")
+ */
+@property(nonatomic, copy, nullable) NSString *postInferenceStep;
+
+@end
+
+
+/**
  *  Top-level wrapper used to store all things codey-related.
  */
 @interface GTLRAiplatform_LearningGenaiRootCodeyOutput : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootCodeyChatMetadata *codeyChatMetadata;
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootCodeyCompletionMetadata *codeyCompletionMetadata;
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootCodeyGenerationMetadata *codeyGenerationMetadata;
 
 @end
 
@@ -40618,6 +41440,104 @@ GTLR_DEPRECATED
 
 /** Text that was truncated at a specific checkpoint. */
 @property(nonatomic, copy, nullable) NSString *truncatedText;
+
+@end
+
+
+/**
+ *  Score threshold for a category.
+ */
+@interface GTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold : GTLRObject
+
+/**
+ *  policy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_DangerousContent
+ *        Value "DANGEROUS_CONTENT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_Harassment
+ *        Value "HARASSMENT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_HateSpeech
+ *        Value "HATE_SPEECH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_SexuallyExplicit
+ *        Value "SEXUALLY_EXPLICIT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold_Policy_Unspecified
+ *        Value "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  scoreMax
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scoreMax;
+
+@end
+
+
+/**
+ *  Holds one control decoding record.
+ */
+@interface GTLRAiplatform_LearningGenaiRootControlDecodingRecord : GTLRObject
+
+/** Prefixes feeded into scorer. */
+@property(nonatomic, copy, nullable) NSString *prefixes;
+
+/**
+ *  Per policy scores returned from Scorer. Expect to have the same number of
+ *  scores as in `thresholds`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore *> *scores;
+
+/** Suffixes feeded into scorer. */
+@property(nonatomic, copy, nullable) NSString *suffiexes;
+
+/** Per policy thresholds from user config. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootControlDecodingConfigThreshold *> *thresholds;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore
+ */
+@interface GTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore : GTLRObject
+
+/**
+ *  policy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_DangerousContent
+ *        Value "DANGEROUS_CONTENT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_Harassment
+ *        Value "HARASSMENT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_HateSpeech
+ *        Value "HATE_SPEECH"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_SexuallyExplicit
+ *        Value "SEXUALLY_EXPLICIT"
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootControlDecodingRecordPolicyScore_Policy_Unspecified
+ *        Value "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  score
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_LearningGenaiRootControlDecodingRecords
+ */
+@interface GTLRAiplatform_LearningGenaiRootControlDecodingRecords : GTLRObject
+
+/** One ControlDecodingRecord record maps to one rewind. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_LearningGenaiRootControlDecodingRecord *> *records;
 
 @end
 
@@ -40675,6 +41595,10 @@ GTLR_DEPRECATED
  *  Filter reason.
  *
  *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterControlDecoding
+ *        The response are filtered because it could not pass the control
+ *        decoding thresholds and the maximum rewind attempts is reached.
+ *        (Value: "FILTER_CONTROL_DECODING")
  *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlas
  *        Atlas specific topic filter (Value: "FILTER_REASON_ATLAS")
  *    @arg @c kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasAwsAzureRelated
@@ -40790,6 +41714,10 @@ GTLR_DEPRECATED
 
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult *raiResult;
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal *raiSignal GTLR_DEPRECATED;
+
+/** Number of rewinds by controlled decoding. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootControlDecodingRecords *records;
+
 @property(nonatomic, strong, nullable) GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult *streamRecitationResult GTLR_DEPRECATED;
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootTakedownResult *takedownResult;
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRootToxicityResult *toxicityResult;
@@ -41693,10 +42621,37 @@ GTLR_DEPRECATED
 
 
 /**
+ *  GTLRAiplatform_LearningServingLlmAtlasOutputMetadata
+ */
+@interface GTLRAiplatform_LearningServingLlmAtlasOutputMetadata : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *requestTopic;
+
+/**
+ *  source
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_LearningServingLlmAtlasOutputMetadata_Source_Factuality
+ *        Value "FACTUALITY"
+ *    @arg @c kGTLRAiplatform_LearningServingLlmAtlasOutputMetadata_Source_Infobot
+ *        Value "INFOBOT"
+ *    @arg @c kGTLRAiplatform_LearningServingLlmAtlasOutputMetadata_Source_Llm
+ *        Value "LLM"
+ *    @arg @c kGTLRAiplatform_LearningServingLlmAtlasOutputMetadata_Source_Unknown
+ *        Value "UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
  *  LINT.IfChange This metadata contains additional information required for
- *  debugging.
+ *  debugging. Next ID: 28
  */
 @interface GTLRAiplatform_LearningServingLlmMessageMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAiplatform_LearningServingLlmAtlasOutputMetadata *atlasMetadata;
 
 /**
  *  Summary of classifier output. We attach this to all messages regardless of
@@ -41789,14 +42744,22 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *originalText;
 
 /**
- *  NOT YET IMPLEMENTED. Applies to streaming only. Number of tokens decoded /
- *  emitted by the model as part of this stream. This may be different from
- *  token_count, which contains number of tokens returned in this response after
- *  any response rewriting / truncation.
+ *  Number of tokens decoded by the model as part of a stream. This count may be
+ *  different from `per_stream_returned_token_count` which, is counted after any
+ *  response rewriting or truncation. Applies to streaming response only.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *perStreamDecodedTokenCount;
+
+/**
+ *  Number of tokens returned per stream in a response candidate after any
+ *  response rewriting or truncation. Applies to streaming response only.
+ *  Applies to Gemini models only.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *perStreamReturnedTokenCount;
 
 /**
  *  Results of running RAI on the query or this response candidate. One output
@@ -41812,7 +42775,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAiplatform_LearningGenaiRecitationRecitationResult *recitationResult;
 
 /**
- *  NOT YET IMPLEMENTED. Number of tokens returned as part of this candidate.
+ *  NOT IMPLEMENTED TODO (b/334187574) Remove this field after Labs migrates to
+ *  per_stream_returned_token_count and total_returned_token_count.
  *
  *  Uses NSNumber of intValue.
  */
@@ -41830,13 +42794,21 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *streamTerminated;
 
 /**
- *  NOT YET IMPLEMENTED. Aggregated number of total tokens decoded so far. For
- *  streaming, this is sum of all the tokens decoded so far i.e. aggregated
- *  count.
+ *  Total tokens decoded so far per response_candidate. For streaming: Count of
+ *  all the tokens decoded so far (aggregated count). For unary: Count of all
+ *  the tokens decoded per response_candidate.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalDecodedTokenCount;
+
+/**
+ *  Total number of tokens returned in a response candidate. For streaming, it
+ *  is the aggregated count (i.e. total so far) Applies to Gemini models only.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalReturnedTokenCount;
 
 /**
  *  Translated user-prompt used for RAI post processing. This is for internal

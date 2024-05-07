@@ -90,6 +90,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Perform disable hyperthreading operation on a single server.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.disableHyperthreading
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableHyperthreading : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The `name` field is used to identify the instance. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Perform disable hyperthreading operation on a single server.
+ *
+ *  @param object The @c GTLRBareMetalSolution_DisableHyperthreadingRequest to
+ *    include in the query.
+ *  @param name Required. The `name` field is used to identify the instance.
+ *    Format: projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableHyperthreading
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_DisableHyperthreadingRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Disable the interactive serial console feature on an instance.
  *
  *  Method: baremetalsolution.projects.locations.instances.disableInteractiveSerialConsole
@@ -115,6 +148,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableInteractiveSerialConsole
  */
 + (instancetype)queryWithObject:(GTLRBareMetalSolution_DisableInteractiveSerialConsoleRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Perform enable hyperthreading operation on a single server.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.enableHyperthreading
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesEnableHyperthreading : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The `name` field is used to identify the instance. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Perform enable hyperthreading operation on a single server.
+ *
+ *  @param object The @c GTLRBareMetalSolution_EnableHyperthreadingRequest to
+ *    include in the query.
+ *  @param name Required. The `name` field is used to identify the instance.
+ *    Format: projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesEnableHyperthreading
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_EnableHyperthreadingRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -283,6 +349,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesPatch
  */
 + (instancetype)queryWithObject:(GTLRBareMetalSolution_Instance *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Perform reimage operation on a single server.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.reimage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesReimage : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The `name` field is used to identify the instance. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Perform reimage operation on a single server.
+ *
+ *  @param object The @c GTLRBareMetalSolution_ReimageInstanceRequest to include
+ *    in the query.
+ *  @param name Required. The `name` field is used to identify the instance.
+ *    Format: projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesReimage
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_ReimageInstanceRequest *)object
                            name:(NSString *)name;
 
 @end

@@ -477,6 +477,25 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @end
 
+@implementation GTLRGamesQuery_RecallLastTokenFromAllDeveloperGames
+
+@dynamic sessionId;
+
++ (instancetype)queryWithSessionId:(NSString *)sessionId {
+  NSArray *pathParams = @[ @"sessionId" ];
+  NSString *pathURITemplate = @"games/v1/recall/developerGamesLastPlayerToken/{sessionId}";
+  GTLRGamesQuery_RecallLastTokenFromAllDeveloperGames *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.sessionId = sessionId;
+  query.expectedObjectClass = [GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse class];
+  query.loggingName = @"games.recall.lastTokenFromAllDeveloperGames";
+  return query;
+}
+
+@end
+
 @implementation GTLRGamesQuery_RecallLinkPersona
 
 + (instancetype)queryWithObject:(GTLRGames_LinkPersonaRequest *)object {

@@ -27,6 +27,7 @@
 @class GTLRCloudIAP_GcipSettings;
 @class GTLRCloudIAP_GetPolicyOptions;
 @class GTLRCloudIAP_IdentityAwareProxyClient;
+@class GTLRCloudIAP_OAuth2;
 @class GTLRCloudIAP_OAuthSettings;
 @class GTLRCloudIAP_Policy;
 @class GTLRCloudIAP_PolicyDelegationSettings;
@@ -36,6 +37,7 @@
 @class GTLRCloudIAP_Resource_ExpectedNextState;
 @class GTLRCloudIAP_Resource_Labels;
 @class GTLRCloudIAP_TunnelDestGroup;
+@class GTLRCloudIAP_WorkforceIdentitySettings;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -46,6 +48,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIAP_AccessSettings.identitySources
+
+/**
+ *  IdentitySource Unspecified. When selected, IAP relies on which identity
+ *  settings are fully configured to redirect the traffic to. The precedence
+ *  order is WorkforceIdentitySettings > GcipSettings. If none is set, default
+ *  to use Google identity.
+ *
+ *  Value: "IDENTITY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_AccessSettings_IdentitySources_IdentitySourceUnspecified;
+/**
+ *  Use external identities set up on Google Cloud Workforce Identity
+ *  Federation.
+ *
+ *  Value: "WORKFORCE_IDENTITY_FEDERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_AccessSettings_IdentitySources_WorkforceIdentityFederation;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIAP_AttributePropagationSettings.outputCredentials
@@ -174,6 +196,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 /** GCIP claims and endpoint configurations for 3p identity providers. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_GcipSettings *gcipSettings;
 
+/**
+ *  Optional. Identity sources that IAP can use to authenticate the end user.
+ *  Only one identity source can be configured.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *identitySources;
+
 /** Settings to configure IAP's OAuth behavior. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_OAuthSettings *oauthSettings;
 
@@ -185,6 +213,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 /** Settings to configure reauthentication policies in IAP. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_ReauthSettings *reauthSettings;
+
+/**
+ *  Optional. Settings to configure the workforce identity federation, including
+ *  workforce pools and OAuth 2.0 settings.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_WorkforceIdentitySettings *workforceIdentitySettings;
 
 @end
 
@@ -644,6 +678,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
+ *  The OAuth 2.0 Settings
+ */
+@interface GTLRCloudIAP_OAuth2 : GTLRObject
+
+/**
+ *  The OAuth 2.0 client ID registered in the workforce identity federation
+ *  OAuth 2.0 Server.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Input only. The OAuth 2.0 client secret created while registering the client
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/**
+ *  Output only. SHA256 hash value for the client secret. This field is returned
+ *  by IAP when the settings are retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *clientSecretSha256;
+
+@end
+
+
+/**
  *  Configuration for OAuth login&consent flow behavior as well as for OAuth
  *  Credentials.
  */
@@ -905,15 +965,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Resource_Labels *labels;
 
 /**
- *  Name of the resource on which conditions will be evaluated. Must use the
- *  Relative Resource Name of the resource, which is the URI path of the
- *  resource without the leading "/". Examples are
- *  "projects/_/buckets/[BUCKET-ID]" for storage buckets or
- *  "projects/[PROJECT-ID]/global/firewalls/[FIREWALL-ID]" for a firewall. This
- *  field is required for evaluating conditions with rules on resource names.
- *  For a `list` permission check, the resource.name value must be set to the
- *  parent resource. If the parent resource is a project, this field should be
- *  left unset.
+ *  The **relative** name of the resource, which is the URI path of the resource
+ *  without the leading "/". See
+ *  https://cloud.google.com/iam/docs/conditions-resource-attributes#resource-name
+ *  for examples used by other GCP Services. This field is **required** for
+ *  services integrated with resource-attribute-based IAM conditions and/or
+ *  CustomOrgPolicy. This field requires special handling for parents-only
+ *  permissions such as `create` and `list`. See the document linked below for
+ *  further details. See go/iam-conditions-sig-g3#populate-resource-attributes
+ *  for specific details on populating this field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -923,18 +983,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  under //configs/cloud/resourcetypes. For example, the official_service_name
  *  of cloud resource manager service is set as
  *  'cloudresourcemanager.googleapis.com' according to
- *  //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml
+ *  //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml This
+ *  field is **required** for services integrated with resource-attribute-based
+ *  IAM conditions and/or CustomOrgPolicy. This field requires special handling
+ *  for parents-only permissions such as `create` and `list`. See the document
+ *  linked below for further details. See
+ *  go/iam-conditions-sig-g3#populate-resource-attributes for specific details
+ *  on populating this field.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  The public resource type name of the resource on which conditions will be
- *  evaluated. It is configured using the official_name of the ResourceType as
- *  defined in service configurations under //configs/cloud/resourcetypes. For
- *  example, the official_name for GCP projects is set as
- *  'cloudresourcemanager.googleapis.com/Project' according to
- *  //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml For
- *  details see go/iam-conditions-integration-guide.
+ *  The public resource type name of the resource. It is configured using the
+ *  official_name of the ResourceType as defined in service configurations under
+ *  //configs/cloud/resourcetypes. For example, the official_name for GCP
+ *  projects is set as 'cloudresourcemanager.googleapis.com/Project' according
+ *  to //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml This
+ *  field is **required** for services integrated with resource-attribute-based
+ *  IAM conditions and/or CustomOrgPolicy. This field requires special handling
+ *  for parents-only permissions such as `create` and `list`. See the document
+ *  linked below for further details. See
+ *  go/iam-conditions-sig-g3#populate-resource-attributes for specific details
+ *  on populating this field.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1055,6 +1125,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  validation info.
  */
 @interface GTLRCloudIAP_ValidateIapAttributeExpressionResponse : GTLRObject
+@end
+
+
+/**
+ *  WorkforceIdentitySettings allows customers to configure workforce pools and
+ *  OAuth 2.0 settings to gate their applications using a third-party IdP with
+ *  access control.
+ */
+@interface GTLRCloudIAP_WorkforceIdentitySettings : GTLRObject
+
+/**
+ *  OAuth 2.0 settings for IAP to perform OIDC flow with workforce identity
+ *  federation services.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_OAuth2 *oauth2;
+
+/** The workforce pool resources. Only one workforce pool is accepted. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *workforcePools;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -679,6 +679,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQ
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SetExpectation;
 /**
  *  Please see
+ *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#sqlAssertion.
+ *
+ *  Value: "SQL_ASSERTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SqlAssertion;
+/**
+ *  Please see
  *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#statisticrangeexpectation.
  *
  *  Value: "STATISTIC_RANGE_EXPECTATION"
@@ -4355,6 +4362,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult : GTLRObject
 
+/**
+ *  The number of rows returned by the sql statement in the SqlAssertion rule.
+ *  This field is only valid for SqlAssertion rules.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assertionRowCount;
+
 /** The column which this rule is evaluated against. */
 @property(nonatomic, copy, nullable) NSString *column;
 
@@ -4446,6 +4461,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        Please see
  *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#setexpectation.
  *        (Value: "SET_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SqlAssertion
+ *        Please see
+ *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#sqlAssertion.
+ *        (Value: "SQL_ASSERTION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_StatisticRangeExpectation
  *        Please see
  *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#statisticrangeexpectation.
@@ -5576,9 +5595,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Entry : GTLRObject
 
 /**
- *  Optional. The Aspects attached to the Entry. The key is either the resource
- *  name of the aspect type (if the aspect is attached directly to the entry) or
- *  "aspectType\@path" if the aspect is attached to an entry's path.
+ *  Optional. The Aspects attached to the Entry. The format for the key can be
+ *  one of the following: 1. {projectId}.{locationId}.{aspectTypeId} (if the
+ *  aspect is attached directly to the entry) 2.
+ *  {projectId}.{locationId}.{aspectTypeId}\@{path} (if the aspect is attached
+ *  to an entry's path)
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry_Aspects *aspects;
 
@@ -5616,9 +5637,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Optional. The Aspects attached to the Entry. The key is either the resource
- *  name of the aspect type (if the aspect is attached directly to the entry) or
- *  "aspectType\@path" if the aspect is attached to an entry's path.
+ *  Optional. The Aspects attached to the Entry. The format for the key can be
+ *  one of the following: 1. {projectId}.{locationId}.{aspectTypeId} (if the
+ *  aspect is attached directly to the entry) 2.
+ *  {projectId}.{locationId}.{aspectTypeId}\@{path} (if the aspect is attached
+ *  to an entry's path)
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudDataplex_GoogleCloudDataplexV1Aspect. Use @c
@@ -7607,33 +7630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** Entry format of the result. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *dataplexEntry;
 
-/**
- *  Entry description.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty GTLR_DEPRECATED;
-
-/** Display name. */
-@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
-
-/** Resource name of the entry. */
-@property(nonatomic, copy, nullable) NSString *entry GTLR_DEPRECATED;
-
-/** The entry type. */
-@property(nonatomic, copy, nullable) NSString *entryType GTLR_DEPRECATED;
-
-/** Fully qualified name. */
-@property(nonatomic, copy, nullable) NSString *fullyQualifiedName GTLR_DEPRECATED;
-
 /** Linked resource name. */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
-
-/** The last modification timestamp. */
-@property(nonatomic, strong, nullable) GTLRDateTime *modifyTime GTLR_DEPRECATED;
-
-/** Relative resource name. */
-@property(nonatomic, copy, nullable) NSString *relativeResource GTLR_DEPRECATED;
 
 /** Snippets. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResultSnippets *snippets;

@@ -2296,6 +2296,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_SkaffoldGCBRepoSource
+//
+
+@implementation GTLRCloudDeploy_SkaffoldGCBRepoSource
+@dynamic path, ref, repository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_SkaffoldGCSSource
 //
 
@@ -2320,7 +2330,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_SkaffoldModules
-@dynamic configs, git, googleCloudStorage;
+@dynamic configs, git, googleCloudBuildRepo, googleCloudStorage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

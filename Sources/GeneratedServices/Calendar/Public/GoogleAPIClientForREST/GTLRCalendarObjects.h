@@ -973,9 +973,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "default" - A regular event or not further specified.
  *  - "outOfOffice" - An out-of-office event.
  *  - "focusTime" - A focus-time event.
- *  - "workingLocation" - A working location event. Currently, only "default "
- *  and "workingLocation" events can be created using the API. Extended support
- *  for other event types will be made available in later releases.
+ *  - "workingLocation" - A working location event.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 

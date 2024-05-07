@@ -678,9 +678,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsPatch : GTLRCloudRunQuery
 
 /**
- *  If set to true, and if the Job does not exist, it will create a new one.
- *  Caller must have both create and update permissions for this call if this is
- *  set to true.
+ *  Optional. If set to true, and if the Job does not exist, it will create a
+ *  new one. Caller must have both create and update permissions for this call
+ *  if this is set to true.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
@@ -1223,9 +1223,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesPatch : GTLRCloudRunQuery
 
 /**
- *  If set to true, and if the Service does not exist, it will create a new one.
- *  The caller must have 'run.services.create' permissions if this is set to
- *  true and the Service does not exist.
+ *  Optional. If set to true, and if the Service does not exist, it will create
+ *  a new one. The caller must have 'run.services.create' permissions if this is
+ *  set to true and the Service does not exist.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 

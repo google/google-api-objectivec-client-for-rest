@@ -167,7 +167,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPatch
 
-@dynamic allowMissing, name;
+@dynamic allowMissing, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document *)object
                            name:(NSString *)name {
@@ -1783,7 +1783,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsPatch
 
-@dynamic allowMissing, name;
+@dynamic allowMissing, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document *)object
                            name:(NSString *)name {
@@ -2780,6 +2780,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse class];
   query.loggingName = @"discoveryengine.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsWrite
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userEvents:write";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsWrite *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent class];
+  query.loggingName = @"discoveryengine.projects.locations.userEvents.write";
   return query;
 }
 

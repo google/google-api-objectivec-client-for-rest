@@ -1672,7 +1672,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Used to specify the fields to be overwritten in the
+ *  Optional. Used to specify the fields to be overwritten in the
  *  `LbRouteExtension` resource by the update. The fields specified in the
  *  update_mask are relative to the resource, not the full request. A field is
  *  overwritten if it is in the mask. If the user does not specify a mask, then
@@ -1916,7 +1916,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Used to specify the fields to be overwritten in the
+ *  Optional. Used to specify the fields to be overwritten in the
  *  `LbTrafficExtension` resource by the update. The fields specified in the
  *  update_mask are relative to the resource, not the full request. A field is
  *  overwritten if it is in the mask. If the user does not specify a mask, then

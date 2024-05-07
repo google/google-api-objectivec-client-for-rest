@@ -1762,6 +1762,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_SpaceReadState
+//
+
+@implementation GTLRHangoutsChat_SpaceReadState
+@dynamic lastReadTime, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_SpaceUpdatedEventData
 //
 
@@ -1847,6 +1857,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Thread
 @dynamic name, threadKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ThreadReadState
+//
+
+@implementation GTLRHangoutsChat_ThreadReadState
+@dynamic lastReadTime, name;
 @end
 
 

@@ -1014,6 +1014,41 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
+ *  Retrieve the last Recall token from all developer games that is associated
+ *  with the PGS Player principal encoded in the provided recall session id. The
+ *  API is only available for users that have active PGS Player profile.
+ *
+ *  Method: games.recall.lastTokenFromAllDeveloperGames
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGamesAndroidpublisher
+ */
+@interface GTLRGamesQuery_RecallLastTokenFromAllDeveloperGames : GTLRGamesQuery
+
+/**
+ *  Required. Opaque server-generated string that encodes all the necessary
+ *  information to identify the PGS player / Google user and application.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Fetches a @c GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse.
+ *
+ *  Retrieve the last Recall token from all developer games that is associated
+ *  with the PGS Player principal encoded in the provided recall session id. The
+ *  API is only available for users that have active PGS Player profile.
+ *
+ *  @param sessionId Required. Opaque server-generated string that encodes all
+ *    the necessary information to identify the PGS player / Google user and
+ *    application.
+ *
+ *  @return GTLRGamesQuery_RecallLastTokenFromAllDeveloperGames
+ */
++ (instancetype)queryWithSessionId:(NSString *)sessionId;
+
+@end
+
+/**
  *  Associate the PGS Player principal encoded in the provided recall session id
  *  with an in-game account
  *

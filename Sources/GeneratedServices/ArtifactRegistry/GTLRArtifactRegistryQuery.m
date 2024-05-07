@@ -330,6 +330,35 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGenericArtifactsUpload
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadGenericArtifactRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/genericArtifacts:create";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGenericArtifactsUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRArtifactRegistry_UploadGenericArtifactMediaResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.genericArtifacts.upload";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGet
 
 @dynamic name;

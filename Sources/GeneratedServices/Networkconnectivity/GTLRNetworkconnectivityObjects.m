@@ -102,6 +102,11 @@ NSString * const kGTLRNetworkconnectivity_PscConnection_State_Deleting = @"DELET
 NSString * const kGTLRNetworkconnectivity_PscConnection_State_Failed = @"FAILED";
 NSString * const kGTLRNetworkconnectivity_PscConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRNetworkconnectivity_RegionalEndpoint.accessType
+NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Global = @"GLOBAL";
+NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Regional = @"REGIONAL";
+
 // GTLRNetworkconnectivity_Route.state
 NSString * const kGTLRNetworkconnectivity_Route_State_Accepting = @"ACCEPTING";
 NSString * const kGTLRNetworkconnectivity_Route_State_Active   = @"ACTIVE";
@@ -272,7 +277,7 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConfig
-@dynamic disableGlobalAccess, network, project, state;
+@dynamic disableGlobalAccess, network, producerInstanceId, project, state;
 @end
 
 
@@ -283,8 +288,8 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConnection
 @dynamic error, errorInfo, errorType, forwardingRule, gceOperation, ip, network,
-         project, pscConnectionId, selectedSubnetwork, serviceAttachmentUri,
-         state;
+         producerInstanceId, project, pscConnectionId, selectedSubnetwork,
+         serviceAttachmentUri, state;
 @end
 
 
@@ -775,6 +780,29 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_ListRegionalEndpointsResponse
+//
+
+@implementation GTLRNetworkconnectivity_ListRegionalEndpointsResponse
+@dynamic nextPageToken, regionalEndpoints, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionalEndpoints" : [GTLRNetworkconnectivity_RegionalEndpoint class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"regionalEndpoints";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_ListRoutesResponse
 //
 
@@ -1113,8 +1141,39 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_PscConnection
 @dynamic consumerAddress, consumerForwardingRule, consumerTargetProject, error,
-         errorInfo, errorType, gceOperation, pscConnectionId,
-         selectedSubnetwork, state;
+         errorInfo, errorType, gceOperation, producerInstanceId,
+         pscConnectionId, selectedSubnetwork, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_RegionalEndpoint
+//
+
+@implementation GTLRNetworkconnectivity_RegionalEndpoint
+@dynamic accessType, address, createTime, descriptionProperty, ipAddress,
+         labels, name, network, pscForwardingRule, subnetwork, targetGoogleApi,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_RegionalEndpoint_Labels
+//
+
+@implementation GTLRNetworkconnectivity_RegionalEndpoint_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

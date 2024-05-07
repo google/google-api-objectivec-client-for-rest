@@ -8065,7 +8065,7 @@ GTLR_DEPRECATED
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *repeatIntervalSecs;
+@property(nonatomic, strong, nullable) NSNumber *repeatIntervalSecs GTLR_DEPRECATED;
 
 /**
  *  The strategy to use when scheduling cuepoints.
@@ -8081,7 +8081,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRYouTube_CuepointSchedule_ScheduleStrategy_ScheduleStrategyUnspecified
  *        Value "scheduleStrategyUnspecified"
  */
-@property(nonatomic, copy, nullable) NSString *scheduleStrategy;
+@property(nonatomic, copy, nullable) NSString *scheduleStrategy GTLR_DEPRECATED;
 
 @end
 
@@ -8780,7 +8780,7 @@ GTLR_DEPRECATED
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *startWithSlate;
+@property(nonatomic, strong, nullable) NSNumber *startWithSlate GTLR_DEPRECATED;
 
 /**
  *  The 3D stereo layout of this broadcast. This defaults to mono.

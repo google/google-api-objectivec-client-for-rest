@@ -139,27 +139,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCo
 // GTLRSQLAdmin_BackupConfiguration.transactionalLogStorageState
 
 /**
- *  The transaction logs for the instance are stored in Cloud Storage.
+ *  The transaction logs used for PITR for the instance are stored in Cloud
+ *  Storage. Only applicable to MySQL and PostgreSQL.
  *
  *  Value: "CLOUD_STORAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_CloudStorage;
 /**
- *  The transaction logs for the instance are stored on a data disk.
+ *  The transaction logs used for PITR for the instance are stored on a data
+ *  disk.
  *
  *  Value: "DISK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_Disk;
 /**
- *  The transaction logs for the instance are now stored in Cloud Storage.
- *  Previously, they were stored on a data disk.
+ *  The transaction logs used for PITR for the instance are now stored in Cloud
+ *  Storage. Previously, they were stored on a data disk. Only applicable to
+ *  MySQL.
  *
  *  Value: "SWITCHED_TO_CLOUD_STORAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_SwitchedToCloudStorage;
 /**
- *  The transaction logs for the instance are switching from being stored on a
- *  data disk to being stored in Cloud Storage.
+ *  The transaction logs used for PITR for the instance are switching from being
+ *  stored on a data disk to being stored in Cloud Storage. Only applicable to
+ *  MySQL.
  *
  *  Value: "SWITCHING_TO_CLOUD_STORAGE"
  */
@@ -1424,18 +1428,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_
 // GTLRSQLAdmin_IpConfiguration.sslMode
 
 /**
- *  Allow non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS connections, the
- *  client certificate won't be verified. When this value is used, the legacy
- *  `require_ssl` flag must be false or cleared to avoid the conflict between
- *  values of two flags.
+ *  Allow non-SSL/non-TLS and SSL/TLS connections. For SSL connections to MySQL
+ *  and PostgreSQL, the client certificate isn't verified. When this value is
+ *  used, the legacy `require_ssl` flag must be false or cleared to avoid a
+ *  conflict between the values of the two flags.
  *
  *  Value: "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted;
 /**
- *  Only allow connections encrypted with SSL/TLS. When this value is used, the
- *  legacy `require_ssl` flag must be false or cleared to avoid the conflict
- *  between values of two flags.
+ *  Only allow connections encrypted with SSL/TLS. For SSL connections to MySQL
+ *  and PostgreSQL, the client certificate isn't verified. When this value is
+ *  used, the legacy `require_ssl` flag must be false or cleared to avoid a
+ *  conflict between the values of the two flags.
  *
  *  Value: "ENCRYPTED_ONLY"
  */
@@ -1455,7 +1460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_SslMode
  *  Proxy](https://cloud.google.com/sql/docs/postgres/connect-auth-proxy) or
  *  [Cloud SQL
  *  Connectors](https://cloud.google.com/sql/docs/postgres/connect-connectors)
- *  to enforce client identity verification.
+ *  to enforce client identity verification. Only applicable to MySQL and
+ *  PostgreSQL. Not applicable to SQL Server.
  *
  *  Value: "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
  */
@@ -2293,19 +2299,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.migrationType
 
 /**
- *  Logical Migrations
+ *  Logical dump file-based migration
  *
  *  Value: "LOGICAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Logical;
 /**
- *  Default value is logical migration
+ *  Default value is a logical dump file-based migration
  *
  *  Value: "MIGRATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_MigrationTypeUnspecified;
 /**
- *  Physical file based Migrations
+ *  Physical file-based migration
  *
  *  Value: "PHYSICAL"
  */
@@ -2367,19 +2373,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRe
 // GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest.migrationType
 
 /**
- *  Logical Migrations
+ *  Logical dump file-based migration
  *
  *  Value: "LOGICAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_Logical;
 /**
- *  Default value is logical migration
+ *  Default value is a logical dump file-based migration
  *
  *  Value: "MIGRATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_MigrationTypeUnspecified;
 /**
- *  Physical file based Migrations
+ *  Physical file-based migration
  *
  *  Value: "PHYSICAL"
  */
@@ -2680,23 +2686,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Output only. This value contains the storage location of transactional logs
- *  for the database for point-in-time recovery.
+ *  used to perform point-in-time recovery (PITR) for the database.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_CloudStorage
- *        The transaction logs for the instance are stored in Cloud Storage.
- *        (Value: "CLOUD_STORAGE")
+ *        The transaction logs used for PITR for the instance are stored in
+ *        Cloud Storage. Only applicable to MySQL and PostgreSQL. (Value:
+ *        "CLOUD_STORAGE")
  *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_Disk
- *        The transaction logs for the instance are stored on a data disk.
- *        (Value: "DISK")
+ *        The transaction logs used for PITR for the instance are stored on a
+ *        data disk. (Value: "DISK")
  *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_SwitchedToCloudStorage
- *        The transaction logs for the instance are now stored in Cloud Storage.
- *        Previously, they were stored on a data disk. (Value:
- *        "SWITCHED_TO_CLOUD_STORAGE")
+ *        The transaction logs used for PITR for the instance are now stored in
+ *        Cloud Storage. Previously, they were stored on a data disk. Only
+ *        applicable to MySQL. (Value: "SWITCHED_TO_CLOUD_STORAGE")
  *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_SwitchingToCloudStorage
- *        The transaction logs for the instance are switching from being stored
- *        on a data disk to being stored in Cloud Storage. (Value:
- *        "SWITCHING_TO_CLOUD_STORAGE")
+ *        The transaction logs used for PITR for the instance are switching from
+ *        being stored on a data disk to being stored in Cloud Storage. Only
+ *        applicable to MySQL. (Value: "SWITCHING_TO_CLOUD_STORAGE")
  *    @arg @c kGTLRSQLAdmin_BackupConfiguration_TransactionalLogStorageState_TransactionalLogStorageStateUnspecified
  *        Unspecified. (Value: "TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED")
  */
@@ -3481,7 +3488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *gceZone;
 
-/** Gemini configuration. */
+/** Gemini instance configuration. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_GeminiInstanceConfig *geminiConfig;
 
 /**
@@ -3570,9 +3577,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *replicaNames;
 
 /**
- *  Optional. The pair of a primary instance and disaster recovery (DR) replica.
- *  A DR replica is a cross-region replica that you designate for failover in
- *  the event that the primary instance has regional failure.
+ *  Optional. A primary instance and disaster recovery (DR) replica pair. A DR
+ *  replica is a cross-region replica that you designate for failover in the
+ *  event that the primary instance experiences regional failure. Only
+ *  applicable to MySQL.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ReplicationCluster *replicationCluster;
 
@@ -4253,47 +4261,47 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Gemini configuration.
+ *  Gemini instance configuration.
  */
 @interface GTLRSQLAdmin_GeminiInstanceConfig : GTLRObject
 
 /**
- *  Output only. Whether active query is enabled.
+ *  Output only. Whether the active query is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *activeQueryEnabled;
 
 /**
- *  Output only. Whether gemini is enabled.
+ *  Output only. Whether Gemini is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *entitled;
 
 /**
- *  Output only. Whether flag recommender is enabled.
+ *  Output only. Whether the flag recommender is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *flagRecommenderEnabled;
 
 /**
- *  Output only. Whether vacuum management is enabled.
+ *  Output only. Whether the vacuum management is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *googleVacuumMgmtEnabled;
 
 /**
- *  Output only. Whether index advisor is enabled.
+ *  Output only. Whether the index advisor is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *indexAdvisorEnabled;
 
 /**
- *  Output only. Whether oom session cancel is enabled.
+ *  Output only. Whether canceling the out-of-memory (OOM) session is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4855,24 +4863,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  `ssl_mode=TRUSTED_CLIENT_CERTIFICATE_REQUIRED` and `require_ssl=true` For
  *  SQL Server: * `ssl_mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED` and
  *  `require_ssl=false` * `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=true` The
- *  value of `ssl_mode` gets priority over the value of `require_ssl`. For
- *  example, for the pair `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false`, the
- *  `ssl_mode=ENCRYPTED_ONLY` means only accept SSL connections, while the
- *  `require_ssl=false` means accept both non-SSL and SSL connections. MySQL and
- *  PostgreSQL databases respect `ssl_mode` in this case and accept only SSL
+ *  value of `ssl_mode` has priority over the value of `require_ssl`. For
+ *  example, for the pair `ssl_mode=ENCRYPTED_ONLY` and `require_ssl=false`,
+ *  `ssl_mode=ENCRYPTED_ONLY` means accept only SSL connections, while
+ *  `require_ssl=false` means accept both non-SSL and SSL connections. In this
+ *  case, MySQL and PostgreSQL databases respect `ssl_mode` and accepts only SSL
  *  connections.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted
- *        Allow non-SSL/non-TLS and SSL/TLS connections. For SSL/TLS
- *        connections, the client certificate won't be verified. When this value
- *        is used, the legacy `require_ssl` flag must be false or cleared to
- *        avoid the conflict between values of two flags. (Value:
+ *        Allow non-SSL/non-TLS and SSL/TLS connections. For SSL connections to
+ *        MySQL and PostgreSQL, the client certificate isn't verified. When this
+ *        value is used, the legacy `require_ssl` flag must be false or cleared
+ *        to avoid a conflict between the values of the two flags. (Value:
  *        "ALLOW_UNENCRYPTED_AND_ENCRYPTED")
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_EncryptedOnly Only allow
- *        connections encrypted with SSL/TLS. When this value is used, the
- *        legacy `require_ssl` flag must be false or cleared to avoid the
- *        conflict between values of two flags. (Value: "ENCRYPTED_ONLY")
+ *        connections encrypted with SSL/TLS. For SSL connections to MySQL and
+ *        PostgreSQL, the client certificate isn't verified. When this value is
+ *        used, the legacy `require_ssl` flag must be false or cleared to avoid
+ *        a conflict between the values of the two flags. (Value:
+ *        "ENCRYPTED_ONLY")
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_SslModeUnspecified The SSL
  *        mode is unknown. (Value: "SSL_MODE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_SslMode_TrustedClientCertificateRequired
@@ -4884,7 +4894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Proxy](https://cloud.google.com/sql/docs/postgres/connect-auth-proxy)
  *        or [Cloud SQL
  *        Connectors](https://cloud.google.com/sql/docs/postgres/connect-connectors)
- *        to enforce client identity verification. (Value:
+ *        to enforce client identity verification. Only applicable to MySQL and
+ *        PostgreSQL. Not applicable to SQL Server. (Value:
  *        "TRUSTED_CLIENT_CERTIFICATE_REQUIRED")
  */
 @property(nonatomic, copy, nullable) NSString *sslMode;
@@ -5590,13 +5601,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Primary-DR replica pair
+ *  A primary instance and disaster recovery (DR) replica pair. A DR replica is
+ *  a cross-region replica that you designate for failover in the event that the
+ *  primary instance experiences regional failure. Only applicable to MySQL.
  */
 @interface GTLRSQLAdmin_ReplicationCluster : GTLRObject
 
 /**
- *  Output only. read-only field that indicates if the replica is a dr_replica;
- *  not set for a primary.
+ *  Output only. Read-only field that indicates whether the replica is a DR
+ *  replica. This field is not set if the instance is a primary instance.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5606,9 +5619,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Optional. If the instance is a primary instance, then this field identifies
  *  the disaster recovery (DR) replica. A DR replica is an optional
  *  configuration for Enterprise Plus edition instances. If the instance is a
- *  read replica, then the field is not set. Users can set this field to set a
- *  designated DR replica for a primary. Removing this field removes the DR
- *  replica.
+ *  read replica, then the field is not set. Set this field to a replica name to
+ *  designate a DR replica for a primary instance. Remove the replica name to
+ *  remove the DR replica designation.
  */
 @property(nonatomic, copy, nullable) NSString *failoverDrReplicaName;
 
@@ -6237,17 +6250,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest : GTLRObject
 
 /**
- *  Optional. MigrationType decides if the migration is a physical file based
- *  migration or logical migration.
+ *  Optional. MigrationType configures the migration to use physical files or
+ *  logical dump files. If not set, then the logical dump file configuration is
+ *  used. Valid values are `LOGICAL` or `PHYSICAL`. Only applicable to MySQL.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Logical
- *        Logical Migrations (Value: "LOGICAL")
+ *        Logical dump file-based migration (Value: "LOGICAL")
  *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_MigrationTypeUnspecified
- *        Default value is logical migration (Value:
+ *        Default value is a logical dump file-based migration (Value:
  *        "MIGRATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Physical
- *        Physical file based Migrations (Value: "PHYSICAL")
+ *        Physical file-based migration (Value: "PHYSICAL")
  */
 @property(nonatomic, copy, nullable) NSString *migrationType;
 
@@ -6303,17 +6317,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest : GTLRObject
 
 /**
- *  Optional. MigrationType decides if the migration is a physical file based
- *  migration or logical migration
+ *  Optional. MigrationType configures the migration to use physical files or
+ *  logical dump files. If not set, then the logical dump file configuration is
+ *  used. Valid values are `LOGICAL` or `PHYSICAL`. Only applicable to MySQL.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_Logical
- *        Logical Migrations (Value: "LOGICAL")
+ *        Logical dump file-based migration (Value: "LOGICAL")
  *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_MigrationTypeUnspecified
- *        Default value is logical migration (Value:
+ *        Default value is a logical dump file-based migration (Value:
  *        "MIGRATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_MigrationType_Physical
- *        Physical file based Migrations (Value: "PHYSICAL")
+ *        Physical file-based migration (Value: "PHYSICAL")
  */
 @property(nonatomic, copy, nullable) NSString *migrationType;
 
@@ -6337,8 +6352,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *syncMode;
 
 /**
- *  Optional. Parallel level for initial data sync. Currently only applicable
- *  for PostgreSQL.
+ *  Optional. Parallel level for initial data sync. Only applicable for
+ *  PostgreSQL.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncParallelLevel_ExternalSyncParallelLevelUnspecified

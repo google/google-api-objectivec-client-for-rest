@@ -30,6 +30,8 @@ NSString * const kGTLRAuthScopeHangoutsChatMessagesReadonly    = @"https://www.g
 NSString * const kGTLRAuthScopeHangoutsChatSpaces              = @"https://www.googleapis.com/auth/chat.spaces";
 NSString * const kGTLRAuthScopeHangoutsChatSpacesCreate        = @"https://www.googleapis.com/auth/chat.spaces.create";
 NSString * const kGTLRAuthScopeHangoutsChatSpacesReadonly      = @"https://www.googleapis.com/auth/chat.spaces.readonly";
+NSString * const kGTLRAuthScopeHangoutsChatUsersReadstate      = @"https://www.googleapis.com/auth/chat.users.readstate";
+NSString * const kGTLRAuthScopeHangoutsChatUsersReadstateReadonly = @"https://www.googleapis.com/auth/chat.users.readstate.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRHangoutsChatService

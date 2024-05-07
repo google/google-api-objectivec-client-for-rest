@@ -274,8 +274,9 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 //
 
 @implementation GTLRAuthorizedBuyersMarketplace_AuctionPackage
-@dynamic createTime, creator, descriptionProperty, displayName, name,
-         subscribedClients, updateTime;
+@dynamic createTime, creator, descriptionProperty, displayName, eligibleSeatIds,
+         name, subscribedBuyers, subscribedClients, subscribedMediaPlanners,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -283,7 +284,10 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"subscribedClients" : [NSString class]
+    @"eligibleSeatIds" : [NSString class],
+    @"subscribedBuyers" : [NSString class],
+    @"subscribedClients" : [NSString class],
+    @"subscribedMediaPlanners" : [GTLRAuthorizedBuyersMarketplace_MediaPlanner class]
   };
   return map;
 }

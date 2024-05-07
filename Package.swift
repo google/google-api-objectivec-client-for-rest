@@ -422,6 +422,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Compute"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Config",
+            targets: ["GoogleAPIClientForREST_Config"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Connectors",
             targets: ["GoogleAPIClientForREST_Connectors"]
         ),
@@ -1771,6 +1775,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Compute",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Compute",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Config",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Config",
             publicHeadersPath: "Public"
         ),
         .target(

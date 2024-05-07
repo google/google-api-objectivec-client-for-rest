@@ -1993,11 +1993,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  can be a region or a zone. Only one region or multiple zones in one region
  *  is supported now. For example, ["regions/us-central1"] allow VMs in any
  *  zones in region us-central1. ["zones/us-central1-a", "zones/us-central1-c"]
- *  only allow VMs in zones us-central1-a and us-central1-c. All locations end
- *  up in different regions would cause errors. For example,
+ *  only allow VMs in zones us-central1-a and us-central1-c. Mixing locations
+ *  from different regions would cause errors. For example,
  *  ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
- *  "zones/us-west1-a"] contains 2 regions "us-central1" and "us-west1". An
- *  error is expected in this case.
+ *  "zones/us-west1-a"] contains locations from two distinct regions:
+ *  us-central1 and us-west1. This combination will trigger an error.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedLocations;
 
@@ -2600,8 +2600,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @interface GTLRCloudBatch_TaskExecution : GTLRObject
 
 /**
- *  When task is completed as the status of FAILED or SUCCEEDED, exit code is
- *  for one task execution result, default is 0 as success.
+ *  The exit code of a finished task. If the task succeeded, the exit code will
+ *  be 0. If the task failed but not due to the following reasons, the exit code
+ *  will be 50000. Otherwise, it can be from different sources: - Batch known
+ *  failures as
+ *  https://cloud.google.com/batch/docs/troubleshooting#reserved-exit-codes. -
+ *  Batch runnable execution failures: You can rely on Batch logs for further
+ *  diagnose: https://cloud.google.com/batch/docs/analyze-job-using-logs. If
+ *  there are multiple runnables failures, Batch only exposes the first error
+ *  caught for now.
  *
  *  Uses NSNumber of intValue.
  */

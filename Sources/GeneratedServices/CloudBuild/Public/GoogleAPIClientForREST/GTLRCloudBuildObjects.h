@@ -70,6 +70,7 @@
 @class GTLRCloudBuild_Status;
 @class GTLRCloudBuild_Status_Details_Item;
 @class GTLRCloudBuild_Step;
+@class GTLRCloudBuild_StepRef;
 @class GTLRCloudBuild_StepTemplate;
 @class GTLRCloudBuild_TaskRef;
 @class GTLRCloudBuild_TaskResult;
@@ -271,6 +272,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamValue_Type_TypeUnspecifi
  *  Value: "BUNDLES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Bundles;
+/**
+ *  Developer Connect resolver.
+ *
+ *  Value: "DEVELOPER_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_DeveloperConnect;
 /**
  *  GCB repo resolver.
  *
@@ -477,6 +484,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Privil
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_StepRef.resolver
+
+/**
+ *  Bundles resolver. https://tekton.dev/docs/pipelines/bundle-resolver/
+ *
+ *  Value: "BUNDLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_Bundles;
+/**
+ *  Developer Connect resolver.
+ *
+ *  Value: "DEVELOPER_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_DeveloperConnect;
+/**
+ *  GCB repo resolver.
+ *
+ *  Value: "GCB_REPO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_GcbRepo;
+/**
+ *  Simple Git resolver. https://tekton.dev/docs/pipelines/git-resolver/
+ *
+ *  Value: "GIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_Git;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "RESOLVER_NAME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_ResolverNameUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_TaskRef.resolver
 
 /**
@@ -485,6 +526,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unpriv
  *  Value: "BUNDLES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_TaskRef_Resolver_Bundles;
+/**
+ *  Developer Connect resolver.
+ *
+ *  Value: "DEVELOPER_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_TaskRef_Resolver_DeveloperConnect;
 /**
  *  GCB repo resolver.
  *
@@ -1890,6 +1937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_Bundles Bundles resolver.
  *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_DeveloperConnect Developer
+ *        Connect resolver. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_GcbRepo GCB repo resolver.
  *        (Value: "GCB_REPO")
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_Git Simple Git resolver.
@@ -2809,6 +2858,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Name of the container specified as a DNS_LABEL. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Optional. Optional parameters passed to the StepAction. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Param *> *params;
+
+/** Optional. Optional reference to a remote StepAction. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_StepRef *ref;
+
 /** The contents of an executable file to execute. */
 @property(nonatomic, copy, nullable) NSString *script;
 
@@ -2829,6 +2884,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** Container's working directory. */
 @property(nonatomic, copy, nullable) NSString *workingDir;
+
+@end
+
+
+/**
+ *  A reference to a remote Step, i.e. a StepAction.
+ */
+@interface GTLRCloudBuild_StepRef : GTLRObject
+
+/** Optional. Name of the step. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Parameters used to control the resolution. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Param *> *params;
+
+/**
+ *  Optional. Type of the resolver.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_Bundles Bundles resolver.
+ *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_DeveloperConnect Developer
+ *        Connect resolver. (Value: "DEVELOPER_CONNECT")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_GcbRepo GCB repo resolver.
+ *        (Value: "GCB_REPO")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_Git Simple Git resolver.
+ *        https://tekton.dev/docs/pipelines/git-resolver/ (Value: "GIT")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_ResolverNameUnspecified Default
+ *        enum type; should not be used. (Value: "RESOLVER_NAME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resolver;
 
 @end
 
@@ -2874,6 +2960,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_Bundles Bundles resolver.
  *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_DeveloperConnect Developer
+ *        Connect resolver. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_GcbRepo GCB repo resolver.
  *        (Value: "GCB_REPO")
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_Git Simple Git resolver.
@@ -2919,6 +3007,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *        should not be used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Optional. Optionally used to initialize a Task's result with a Step's
+ *  result.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ParamValue *value;
 
 @end
 

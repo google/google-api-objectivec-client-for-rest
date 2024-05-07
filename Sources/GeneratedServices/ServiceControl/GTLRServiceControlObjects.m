@@ -14,6 +14,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRServiceControl_AuthorizationInfo.permissionType
+NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminWrite = @"ADMIN_WRITE";
+NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_DataRead = @"DATA_READ";
+NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_PermissionTypeUnspecified = @"PERMISSION_TYPE_UNSPECIFIED";
+
 // GTLRServiceControl_V2LogEntry.severity
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Alert = @"ALERT";
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Critical = @"CRITICAL";
@@ -24,6 +31,18 @@ NSString * const kGTLRServiceControl_V2LogEntry_Severity_Error = @"ERROR";
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Info  = @"INFO";
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Notice = @"NOTICE";
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning = @"WARNING";
+
+// GTLRServiceControl_V2ResourceEvent.path
+NSString * const kGTLRServiceControl_V2ResourceEvent_Path_ApiPathUnspecified = @"API_PATH_UNSPECIFIED";
+NSString * const kGTLRServiceControl_V2ResourceEvent_Path_Request = @"REQUEST";
+NSString * const kGTLRServiceControl_V2ResourceEvent_Path_Response = @"RESPONSE";
+
+// GTLRServiceControl_V2ResourceEvent.type
+NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Create = @"CREATE";
+NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Delete = @"DELETE";
+NSString * const kGTLRServiceControl_V2ResourceEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Undelete = @"UNDELETE";
+NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Update = @"UPDATE";
 
 // GTLRServiceControl_ViolationInfo.policyType
 NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_BooleanConstraint = @"BOOLEAN_CONSTRAINT";
@@ -175,7 +194,7 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_Auth
-@dynamic accessLevels, audiences, claims, presenter, principal;
+@dynamic accessLevels, audiences, claims, credentialId, presenter, principal;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -242,7 +261,7 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_AuthorizationInfo
-@dynamic granted, permission, resource, resourceAttributes;
+@dynamic granted, permission, permissionType, resource, resourceAttributes;
 @end
 
 
@@ -792,6 +811,30 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 
 @implementation GTLRServiceControl_V2LogEntrySourceLocation
 @dynamic file, function, line;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2ResourceEvent
+//
+
+@implementation GTLRServiceControl_V2ResourceEvent
+@dynamic destinations, parent, path, payload, resource, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2ResourceEvent_Payload
+//
+
+@implementation GTLRServiceControl_V2ResourceEvent_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

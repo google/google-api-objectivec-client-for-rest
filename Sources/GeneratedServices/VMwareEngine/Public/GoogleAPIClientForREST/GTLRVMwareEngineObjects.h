@@ -305,11 +305,29 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LocationMetadata_Capabiliti
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_ProtocolUnspecified;
 /**
+ *  RELP
+ *
+ *  Value: "RELP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Relp;
+/**
+ *  SSL
+ *
+ *  Value: "SSL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Ssl;
+/**
  *  TCP
  *
  *  Value: "TCP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Tcp;
+/**
+ *  TLS
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Tls;
 /**
  *  UDP
  *
@@ -2363,7 +2381,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_ProtocolUnspecified
  *        Unspecified communications protocol. This is the default value.
  *        (Value: "PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_Relp RELP (Value: "RELP")
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_Ssl SSL (Value: "SSL")
  *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_Tcp TCP (Value: "TCP")
+ *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_Tls TLS (Value: "TLS")
  *    @arg @c kGTLRVMwareEngine_LoggingServer_Protocol_Udp UDP (Value: "UDP")
  */
 @property(nonatomic, copy, nullable) NSString *protocol;
