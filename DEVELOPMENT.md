@@ -32,6 +32,28 @@ develop/test for those platforms.
 
 ---
 
+## Updating `Sources/GeneratedServices`
+
+To support CocoaPods and SwiftPM, `Sources/GeneratedServices` gets updated with
+the current state of the services from time to time. This is done by running:
+
+```sh
+Tools/GenerateCheckedInServices
+```
+
+On occasion, the service public definitions have hiccups (something in directory
+but the actual referenced discovery document hasn't rolled out, etc); this can
+be worked around by using `--skip [name]` argument(s) to tell the script to
+ignore something that might be bad in the directory return from discovery.
+
+If a service is generating new warnings/info messages (or stops generating
+some), then `Tools/GenerateCheckedInServices-message_filter.json` will need to
+also be updated. The goal is that normal generation shouldn't produce any
+info/warning messages, that way it is more obvious when something might need
+attention.
+
+---
+
 ## Releasing
 
 To update the version number and push a release:
