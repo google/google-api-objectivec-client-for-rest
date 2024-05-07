@@ -169,7 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A comma-separated list of names of fields in the AppAttestConfig
- *  Gets to update. Example: `token_ttl`.
+ *  to update. Example: `token_ttl`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -518,7 +518,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A comma-separated list of names of fields in the DeviceCheckConfig
- *  Gets to update. Example: `key_id,private_key`.
+ *  to update. Example: `key_id,private_key`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1159,7 +1159,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A comma-separated list of names of fields in the
- *  PlayIntegrityConfig Gets to update. Example: `token_ttl`.
+ *  PlayIntegrityConfig to update. Example: `token_ttl`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1552,7 +1552,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A comma-separated list of names of fields in the SafetyNetConfig
- *  Gets to update. Example: `token_ttl`.
+ *  to update. Example: `token_ttl`.
  *
  *  String format is a comma-separated list of fields.
  */

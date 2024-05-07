@@ -88,7 +88,7 @@ NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearchFilterUndefined =
          filter, gl, googlehost, highRange, hl, hq, imgColorType,
          imgDominantColor, imgSize, imgType, linkSite, lowRange, lr, num,
          orTerms, q, relatedSite, rights, safe, searchType, siteSearch,
-         siteSearchFilter, sort, start;
+         siteSearchFilter, snippetLength, sort, start;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"customsearch/v1";
@@ -109,7 +109,7 @@ NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearchFilterUndefined =
          filter, gl, googlehost, highRange, hl, hq, imgColorType,
          imgDominantColor, imgSize, imgType, linkSite, lowRange, lr, num,
          orTerms, q, relatedSite, rights, safe, searchType, siteSearch,
-         siteSearchFilter, sort, start;
+         siteSearchFilter, snippetLength, sort, start;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"customsearch/v1/siterestrict";

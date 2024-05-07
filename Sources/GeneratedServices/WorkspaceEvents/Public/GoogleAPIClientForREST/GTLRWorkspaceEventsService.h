@@ -33,8 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatBot;
 /**
- *  Authorization scope: View, add, and remove members from conversations in
- *  Google Chat
+ *  Authorization scope: View, add, update, and remove members from
+ *  conversations in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.memberships"
  */

@@ -466,7 +466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Returns a unique token to access an embeddable UI. To generate a web UI,
  *  pass the generated token into the managed Google Play javascript API. Each
- *  token may only be used to start one UI session. See the javascript API
+ *  token may only be used to start one UI session. See the JavaScript API
  *  documentation for further information.
  *
  *  Method: androidenterprise.enterprises.createWebToken
@@ -484,7 +484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *
  *  Returns a unique token to access an embeddable UI. To generate a web UI,
  *  pass the generated token into the managed Google Play javascript API. Each
- *  token may only be used to start one UI session. See the javascript API
+ *  token may only be used to start one UI session. See the JavaScript API
  *  documentation for further information.
  *
  *  @param object The @c GTLRAndroidEnterprise_AdministratorWebTokenSpec to

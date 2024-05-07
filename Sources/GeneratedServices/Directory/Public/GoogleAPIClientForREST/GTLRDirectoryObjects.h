@@ -1740,11 +1740,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  (Read-only) The timestamp after which the device will stop receiving Chrome
- *  updates or support
+ *  updates or support. Please use "autoUpdateThrough" instead.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *autoUpdateExpiration;
+@property(nonatomic, strong, nullable) NSNumber *autoUpdateExpiration GTLR_DEPRECATED;
+
+/**
+ *  Output only. The timestamp after which the device will stop receiving Chrome
+ *  updates or support.
+ */
+@property(nonatomic, copy, nullable) NSString *autoUpdateThrough;
 
 /** Output only. Contains backlight information for the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_BacklightInfo *> *backlightInfo;
@@ -1865,6 +1871,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  relevant for some devices.
  */
 @property(nonatomic, copy, nullable) NSString *ethernetMacAddress0;
+
+/**
+ *  Output only. Whether or not the device requires the extended support opt in.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extendedSupportEligible;
+
+/**
+ *  Output only. Whether extended support policy is enabled on the device.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extendedSupportEnabled;
+
+/**
+ *  Output only. Date of the device when extended support policy for automatic
+ *  updates starts.
+ */
+@property(nonatomic, copy, nullable) NSString *extendedSupportStart;
 
 /** The Chrome device's firmware version. */
 @property(nonatomic, copy, nullable) NSString *firmwareVersion;

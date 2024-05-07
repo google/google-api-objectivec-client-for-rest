@@ -15,10 +15,12 @@
 @class GTLRCCAIPlatform_AdminUser;
 @class GTLRCCAIPlatform_ContactCenter;
 @class GTLRCCAIPlatform_ContactCenter_Labels;
+@class GTLRCCAIPlatform_Early;
 @class GTLRCCAIPlatform_InstanceConfig;
 @class GTLRCCAIPlatform_Location;
 @class GTLRCCAIPlatform_Location_Labels;
 @class GTLRCCAIPlatform_Location_Metadata;
+@class GTLRCCAIPlatform_Normal;
 @class GTLRCCAIPlatform_Operation;
 @class GTLRCCAIPlatform_Operation_Metadata;
 @class GTLRCCAIPlatform_Operation_Response;
@@ -216,7 +218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
- *  Message describing ContactCenter object Next ID: 20
+ *  Message describing ContactCenter object Next ID: 22
  */
 @interface GTLRCCAIPlatform_ContactCenter : GTLRObject
 
@@ -246,6 +248,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 /** Required. A user friendly name for the ContactCenter. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Optional. Early release channel. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_Early *early;
+
 /**
  *  The configuration of this instance, it is currently immutable once created.
  */
@@ -261,6 +266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 /** name of resource */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Normal release channel. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_Normal *normal;
 
 /**
  *  Output only. A list of UJET components that should be privately accessed.
@@ -347,6 +355,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 /** Quota details per contact center instance type. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_Quota *> *quotas;
 
+@end
+
+
+/**
+ *  First Channel to receive the updates. Meant to dev/test instances
+ */
+@interface GTLRCCAIPlatform_Early : GTLRObject
 @end
 
 
@@ -563,6 +578,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCCAIPlatform_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Instances in this Channel will receive updates after all instances in
+ *  `Early` were updated + 2 days.
+ */
+@interface GTLRCCAIPlatform_Normal : GTLRObject
 @end
 
 

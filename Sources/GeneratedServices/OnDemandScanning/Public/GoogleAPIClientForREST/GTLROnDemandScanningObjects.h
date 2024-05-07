@@ -32,6 +32,7 @@
 @class GTLROnDemandScanning_Command;
 @class GTLROnDemandScanning_Completeness;
 @class GTLROnDemandScanning_ComplianceOccurrence;
+@class GTLROnDemandScanning_ComplianceVersion;
 @class GTLROnDemandScanning_CVSS;
 @class GTLROnDemandScanning_DeploymentOccurrence;
 @class GTLROnDemandScanning_DiscoveryOccurrence;
@@ -1357,6 +1358,36 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 @property(nonatomic, copy, nullable) NSString *nonComplianceReason;
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_NonCompliantFile *> *nonCompliantFiles;
+
+/** The OS and config version the benchmark was run on. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ComplianceVersion *version;
+
+@end
+
+
+/**
+ *  Describes the CIS benchmark version that is applicable to a given OS and os
+ *  version.
+ */
+@interface GTLROnDemandScanning_ComplianceVersion : GTLRObject
+
+/**
+ *  The name of the document that defines this benchmark, e.g. "CIS
+ *  Container-Optimized OS".
+ */
+@property(nonatomic, copy, nullable) NSString *benchmarkDocument;
+
+/**
+ *  The CPE URI (https://cpe.mitre.org/specification/) this benchmark is
+ *  applicable to.
+ */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/**
+ *  The version of the benchmark. This is set to the version of the OS-specific
+ *  CIS document the benchmark is defined in.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

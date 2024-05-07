@@ -423,9 +423,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL ignoreActiveCertificates;
 
 /**
- *  Optional. This field allows this ca to be deleted even if it's being
+ *  Optional. This field allows this CA to be deleted even if it's being
  *  depended on by another resource. However, doing so may result in unintended
- *  and unrecoverable effects on any dependent resource(s) since the CA will no
+ *  and unrecoverable effects on any dependent resources since the CA will no
  *  longer be able to issue certificates.
  */
 @property(nonatomic, assign) BOOL ignoreDependentResources;
@@ -1074,8 +1074,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. This field allows this pool to be deleted even if it's being
  *  depended on by another resource. However, doing so may result in unintended
- *  and unrecoverable effects on any dependent resource(s) since the pool will
- *  no longer be able to issue certificates.
+ *  and unrecoverable effects on any dependent resources since the pool will no
+ *  longer be able to issue certificates.
  */
 @property(nonatomic, assign) BOOL ignoreDependentResources;
 
@@ -1115,7 +1115,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  FetchCaCerts returns the current trust anchor for the CaPool. This will
- *  include CA certificate chains for all Certificate Authorities in the
+ *  include CA certificate chains for all certificate authorities in the
  *  ENABLED, DISABLED, or STAGED states.
  *
  *  Method: privateca.projects.locations.caPools.fetchCaCerts
@@ -1135,7 +1135,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCertificateAuthorityService_FetchCaCertsResponse.
  *
  *  FetchCaCerts returns the current trust anchor for the CaPool. This will
- *  include CA certificate chains for all Certificate Authorities in the
+ *  include CA certificate chains for all certificate authorities in the
  *  ENABLED, DISABLED, or STAGED states.
  *
  *  @param object The @c GTLRCertificateAuthorityService_FetchCaCertsRequest to

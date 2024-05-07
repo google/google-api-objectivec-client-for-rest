@@ -257,7 +257,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_CommitRepositoryChangesResponse.
  *
  *  Applies a Git commit to a Repository. The Repository must not have a value
  *  for `git_remote_settings.url`.
@@ -344,6 +344,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Optional. Filter for the returned list. */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. This field only supports ordering by `name` and `create_time`. If
+ *  unspecified, the server will choose the ordering. If specified, the default
+ *  order is ascending for the `name` field.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. Maximum number of compilation results to return. The server may

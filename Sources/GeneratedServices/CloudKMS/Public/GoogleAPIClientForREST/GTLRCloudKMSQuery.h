@@ -76,6 +76,84 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Returns the AutokeyConfig for a folder.
+ *
+ *  Method: cloudkms.folders.getAutokeyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersGetAutokeyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. Name of the AutokeyConfig resource, e.g.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_AutokeyConfig.
+ *
+ *  Returns the AutokeyConfig for a folder.
+ *
+ *  @param name Required. Name of the AutokeyConfig resource, e.g.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ *
+ *  @return GTLRCloudKMSQuery_FoldersGetAutokeyConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the AutokeyConfig for a folder. The caller must have both
+ *  `cloudkms.autokeyConfigs.update` permission on the parent folder and
+ *  `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project.
+ *  An empty key project may be provided to clear the configuration.
+ *
+ *  Method: cloudkms.folders.updateAutokeyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Identifier. Name of the AutokeyConfig resource, e.g.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Masks which fields of the AutokeyConfig to update, e.g.
+ *  `keyProject`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_AutokeyConfig.
+ *
+ *  Updates the AutokeyConfig for a folder. The caller must have both
+ *  `cloudkms.autokeyConfigs.update` permission on the parent folder and
+ *  `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project.
+ *  An empty key project may be provided to clear the configuration.
+ *
+ *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
+ *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ *
+ *  @return GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_AutokeyConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -639,6 +717,119 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @return GTLRCloudKMSQuery_ProjectsLocationsGetEkmConfig
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new KeyHandle, triggering the provisioning of a new CryptoKey for
+ *  CMEK use with the given resource type in the configured key project and the
+ *  same location. GetOperation should be used to resolve the resulting
+ *  long-running operation and get the resulting KeyHandle and CryptoKey.
+ *
+ *  Method: cloudkms.projects.locations.keyHandles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesCreate : GTLRCloudKMSQuery
+
+/**
+ *  Optional. Id of the KeyHandle. Must be unique to the resource project and
+ *  location. If not provided by the caller, a new UUID is used.
+ */
+@property(nonatomic, copy, nullable) NSString *keyHandleId;
+
+/**
+ *  Required. Name of the resource project and location to create the KeyHandle
+ *  in, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Creates a new KeyHandle, triggering the provisioning of a new CryptoKey for
+ *  CMEK use with the given resource type in the configured key project and the
+ *  same location. GetOperation should be used to resolve the resulting
+ *  long-running operation and get the resulting KeyHandle and CryptoKey.
+ *
+ *  @param object The @c GTLRCloudKMS_KeyHandle to include in the query.
+ *  @param parent Required. Name of the resource project and location to create
+ *    the KeyHandle in, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyHandle *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the KeyHandle.
+ *
+ *  Method: cloudkms.projects.locations.keyHandles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesGet : GTLRCloudKMSQuery
+
+/**
+ *  Required. Name of the KeyHandle resource, e.g.
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/keyHandles/{KEY_HANDLE_ID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyHandle.
+ *
+ *  Returns the KeyHandle.
+ *
+ *  @param name Required. Name of the KeyHandle resource, e.g.
+ *    `projects/{PROJECT_ID}/locations/{LOCATION}/keyHandles/{KEY_HANDLE_ID}`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists KeyHandles.
+ *
+ *  Method: cloudkms.projects.locations.keyHandles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesList : GTLRCloudKMSQuery
+
+/**
+ *  Optional. Filter to apply when listing KeyHandles, e.g.
+ *  `resource_type_selector="{SERVICE}.googleapis.com/{TYPE}"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. Name of the resource project and location from which to list
+ *  KeyHandles, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ListKeyHandlesResponse.
+ *
+ *  Lists KeyHandles.
+ *
+ *  @param parent Required. Name of the resource project and location from which
+ *    to list KeyHandles, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -2194,6 +2385,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: cloudkms.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsOperationsGet : GTLRCloudKMSQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Updates the EkmConfig singleton resource for a given project and location.
  *
  *  Method: cloudkms.projects.locations.updateEkmConfig
@@ -2230,6 +2452,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_EkmConfig *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the effective Cloud KMS Autokey configuration for a given project.
+ *
+ *  Method: cloudkms.projects.showEffectiveAutokeyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsShowEffectiveAutokeyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. Name of the resource project to the show effective Cloud KMS
+ *  Autokey configuration for. This may be helpful for interrogating the effect
+ *  of nested folder configurations on a given resource project.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse.
+ *
+ *  Returns the effective Cloud KMS Autokey configuration for a given project.
+ *
+ *  @param parent Required. Name of the resource project to the show effective
+ *    Cloud KMS Autokey configuration for. This may be helpful for interrogating
+ *    the effect of nested folder configurations on a given resource project.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveAutokeyConfig
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

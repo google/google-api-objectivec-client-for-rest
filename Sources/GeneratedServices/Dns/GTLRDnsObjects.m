@@ -1023,7 +1023,7 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_RRSetRoutingPolicy
-@dynamic geo, healthCheck, kind, primaryBackup, wrr;
+@dynamic geo, kind, primaryBackup, wrr;
 @end
 
 
@@ -1070,11 +1070,10 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_RRSetRoutingPolicyHealthCheckTargets
-@dynamic externalEndpoints, internalLoadBalancers;
+@dynamic internalLoadBalancers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"externalEndpoints" : [NSString class],
     @"internalLoadBalancers" : [GTLRDns_RRSetRoutingPolicyLoadBalancerTarget class]
   };
   return map;

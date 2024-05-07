@@ -5545,7 +5545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Output only. Identifier. Resource name of the FHIR store, of the form
- *  `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *  `projects/{project_id}/locations/{location}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5566,7 +5566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param object The @c GTLRCloudHealthcare_FhirStore to include in the query.
  *  @param name Output only. Identifier. Resource name of the FHIR store, of the
  *    form
- *    `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *    `projects/{project_id}/locations/{location}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresPatch
  */

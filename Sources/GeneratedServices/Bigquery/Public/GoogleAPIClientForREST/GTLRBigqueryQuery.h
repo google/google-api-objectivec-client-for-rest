@@ -288,8 +288,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  is \\"labels.<name>[:<value>]\\". Multiple filters can be ANDed together by
  *  connecting with a space. Example: \\"labels.department:receiving
  *  labels.active\\". See [Filtering datasets using
- *  labels](/bigquery/docs/labeling-datasets#filtering_datasets_using_labels)
- *  for details.
+ *  labels](/bigquery/docs/filtering-labels#filtering_datasets_using_labels) for
+ *  details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

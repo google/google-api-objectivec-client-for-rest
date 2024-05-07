@@ -49,6 +49,8 @@
 @class GTLRNetworkconnectivity_ProducerPscConfig;
 @class GTLRNetworkconnectivity_PscConfig;
 @class GTLRNetworkconnectivity_PscConnection;
+@class GTLRNetworkconnectivity_RegionalEndpoint;
+@class GTLRNetworkconnectivity_RegionalEndpoint_Labels;
 @class GTLRNetworkconnectivity_Route;
 @class GTLRNetworkconnectivity_Route_Labels;
 @class GTLRNetworkconnectivity_RouterApplianceInstance;
@@ -534,6 +536,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_RegionalEndpoint.accessType
+
+/**
+ *  An invalid type as the default case.
+ *
+ *  Value: "ACCESS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_AccessTypeUnspecified;
+/**
+ *  This regional endpoint is accessible from all regions.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Global;
+/**
+ *  This regional endpoint is only accessible from the same region where it
+ *  resides.
+ *
+ *  Value: "REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Regional;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Route.state
@@ -1197,6 +1222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
+/** Immutable. An immutable identifier for the producer instance. */
+@property(nonatomic, copy, nullable) NSString *producerInstanceId;
+
 /**
  *  The consumer project where PSC connections are allowed to be created in.
  */
@@ -1282,6 +1310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  on a different project (shared VPC).
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/** Immutable. An immutable identifier for the producer instance. */
+@property(nonatomic, copy, nullable) NSString *producerInstanceId;
 
 /**
  *  The consumer project whose PSC forwarding rule is connected to the service
@@ -1560,13 +1591,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Additional structured details about this error. Keys should match
- *  /[a-zA-Z0-9-_]/ and be limited to 64 characters in length. When identifying
- *  the current value of an exceeded limit, the units should be contained in the
- *  key, not the value. For example, rather than {"instanceLimit":
- *  "100/request"}, should be returned as, {"instanceLimitPerRequest": "100"},
- *  if the client exceeds the number of instances that can be created in a
- *  single (batch) request.
+ *  Additional structured details about this error. Keys must match /a-z+/ but
+ *  should ideally be lowerCamelCase. Also they must be limited to 64 characters
+ *  in length. When identifying the current value of an exceeded limit, the
+ *  units should be contained in the key, not the value. For example, rather
+ *  than {"instanceLimit": "100/request"}, should be returned as,
+ *  {"instanceLimitPerRequest": "100"}, if the client exceeds the number of
+ *  instances that can be created in a single (batch) request.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcErrorInfo_Metadata *metadata;
 
@@ -1582,13 +1613,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Additional structured details about this error. Keys should match
- *  /[a-zA-Z0-9-_]/ and be limited to 64 characters in length. When identifying
- *  the current value of an exceeded limit, the units should be contained in the
- *  key, not the value. For example, rather than {"instanceLimit":
- *  "100/request"}, should be returned as, {"instanceLimitPerRequest": "100"},
- *  if the client exceeds the number of instances that can be created in a
- *  single (batch) request.
+ *  Additional structured details about this error. Keys must match /a-z+/ but
+ *  should ideally be lowerCamelCase. Also they must be limited to 64 characters
+ *  in length. When identifying the current value of an exceeded limit, the
+ *  units should be contained in the key, not the value. For example, rather
+ *  than {"instanceLimit": "100/request"}, should be returned as,
+ *  {"instanceLimitPerRequest": "100"}, if the client exceeds the number of
+ *  instances that can be created in a single (batch) request.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1884,9 +1915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /**
  *  The URL or resource ID of the network in which to reserve the internal
  *  range. The network cannot be deleted if there are any reserved internal
- *  ranges referring to it. Legacy networks are not supported. This can only be
- *  specified for a global internal address. Example: - URL:
- *  /compute/v1/projects/{project}/global/networks/{resourceId} - ID: network123
+ *  ranges referring to it. Legacy networks are not supported. For example:
+ *  https://www.googleapis.com/compute/v1/projects/{project}/locations/global/networks/{network}
+ *  projects/{project}/locations/global/networks/{network} {network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -2264,6 +2295,36 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_PolicyBasedRoute *> *policyBasedRoutes;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for ListRegionalEndpoints.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "regionalEndpoints" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListRegionalEndpointsResponse : GTLRCollectionObject
+
+/**
+ *  The next pagination token in the List response. It should be used as
+ *  page_token for the following request. An empty value means no more result.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Regional endpoints to be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RegionalEndpoint *> *regionalEndpoints;
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
@@ -2891,6 +2952,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** The last Compute Engine operation to setup PSC connection. */
 @property(nonatomic, copy, nullable) NSString *gceOperation;
 
+/** Immutable. An immutable identifier for the producer instance. */
+@property(nonatomic, copy, nullable) NSString *producerInstanceId;
+
 /** The PSC connection id of the PSC forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *pscConnectionId;
 
@@ -2918,6 +2982,104 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  The RegionalEndpoint resource.
+ */
+@interface GTLRNetworkconnectivity_RegionalEndpoint : GTLRObject
+
+/**
+ *  Required. The access type of this regional endpoint. This field is reflected
+ *  in the PSC Forwarding Rule configuration to enable global access.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_AccessTypeUnspecified
+ *        An invalid type as the default case. (Value:
+ *        "ACCESS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Global This
+ *        regional endpoint is accessible from all regions. (Value: "GLOBAL")
+ *    @arg @c kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Regional This
+ *        regional endpoint is only accessible from the same region where it
+ *        resides. (Value: "REGIONAL")
+ */
+@property(nonatomic, copy, nullable) NSString *accessType;
+
+/**
+ *  Optional. The IP Address of the Regional Endpoint. When no address is
+ *  provided, an IP from the subnetwork is allocated. Use one of the following
+ *  formats: * IPv4 address as in `10.0.0.1` * Address resource URI as in
+ *  `projects/{project}/regions/{region}/addresses/{address_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/** Output only. Time when the RegionalEndpoint was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A description of this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The literal IP address of the PSC Forwarding Rule created on
+ *  behalf of the customer. This field is deprecated. Use address instead.
+ */
+@property(nonatomic, copy, nullable) NSString *ipAddress GTLR_DEPRECATED;
+
+/** User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_RegionalEndpoint_Labels *labels;
+
+/**
+ *  Output only. The name of a RegionalEndpoint. Format:
+ *  `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The name of the VPC network for this private regional endpoint. Format:
+ *  `projects/{project}/global/networks/{network}`
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The resource reference of the PSC Forwarding Rule created on
+ *  behalf of the customer. Format:
+ *  `//compute.googleapis.com/projects/{project}/regions/{region}/forwardingRules/{forwarding_rule_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *pscForwardingRule;
+
+/**
+ *  The name of the subnetwork from which the IP address will be allocated.
+ *  Format: `projects/{project}/regions/{region}/subnetworks/{subnetwork}`
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/**
+ *  Required. The service endpoint this private regional endpoint connects to.
+ *  Format: `{apiname}.{region}.p.rep.googleapis.com` Example:
+ *  "cloudkms.us-central1.p.rep.googleapis.com".
+ */
+@property(nonatomic, copy, nullable) NSString *targetGoogleApi;
+
+/** Output only. Time when the RegionalEndpoint was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_RegionalEndpoint_Labels : GTLRObject
 @end
 
 

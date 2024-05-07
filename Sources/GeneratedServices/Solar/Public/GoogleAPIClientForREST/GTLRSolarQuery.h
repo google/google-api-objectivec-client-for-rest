@@ -165,6 +165,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  */
 @interface GTLRSolarQuery_DataLayersGet : GTLRSolarQuery
 
+/**
+ *  Optional. Whether to require exact quality of the imagery. If set to false,
+ *  the `required_quality` field is interpreted as the minimum required quality,
+ *  such that HIGH quality imagery may be returned when `required_quality` is
+ *  set to MEDIUM. If set to true, `required_quality` is interpreted as the
+ *  exact required quality and only `MEDIUM` quality imagery is returned if
+ *  `required_quality` is set to `MEDIUM`.
+ */
+@property(nonatomic, assign) BOOL exactQualityRequired;
+
 /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */
 @property(nonatomic, assign) double locationLatitude;
 

@@ -1437,7 +1437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 /**
  *  Optional. A certificate matching an allowlisted certificate is always
  *  considered valid as long as the certificate is parseable, proof of private
- *  key possession is established, and constraints on the certificate’s SAN
+ *  key possession is established, and constraints on the certificate's SAN
  *  field are met.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_AllowlistedCertificate *> *allowlistedCertificates;

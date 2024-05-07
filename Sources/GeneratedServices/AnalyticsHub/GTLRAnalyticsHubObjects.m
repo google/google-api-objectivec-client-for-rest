@@ -93,7 +93,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_BigQueryDatasetSource
-@dynamic dataset, selectedResources;
+@dynamic dataset, restrictedExportPolicy, selectedResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -503,6 +503,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_RestrictedExportConfig
+@dynamic enabled, restrictDirectTableAccess, restrictQueryResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_RestrictedExportPolicy
+//
+
+@implementation GTLRAnalyticsHub_RestrictedExportPolicy
 @dynamic enabled, restrictDirectTableAccess, restrictQueryResult;
 @end
 

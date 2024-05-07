@@ -87,6 +87,12 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_MediumUnspecified = @"MEDIUM_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall = @"PHONE_CALL";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswer.answerType
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswer_AnswerType_AnswerTypeUnspecified = @"ANSWER_TYPE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswer_AnswerType_Faq = @"FAQ";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswer_AnswerType_Generative = @"GENERATIVE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswer_AnswerType_Intent = @"INTENT";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig.summarizationModel
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel = @"BASELINE_MODEL";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20 = @"BASELINE_MODEL_V2_0";
@@ -180,9 +186,197 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_AnyOf = @"ANY_OF";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_PhraseMatchRuleGroupTypeUnspecified = @"PHRASE_MATCH_RULE_GROUP_TYPE_UNSPECIFIED";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswer.answerType
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswer_AnswerType_AnswerTypeUnspecified = @"ANSWER_TYPE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswer_AnswerType_Faq = @"FAQ";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswer_AnswerType_Generative = @"GENERATIVE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswer_AnswerType_Intent = @"INTENT";
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingInstruction
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingInstruction
+@dynamic agentAction, condition, descriptionProperty, displayName, metadata,
+         systemAction;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingInstruction_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingInstruction_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestion
+@dynamic agentActionSuggestions, applicableInstructions, sampleResponses,
+         suggestionEval, suggestionReasoning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentActionSuggestions" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionAgentActionSuggestion class],
+    @"applicableInstructions" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingInstruction class],
+    @"sampleResponses" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionSampleResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionAgentActionSuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionAgentActionSuggestion
+@dynamic agentAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionAgentCoachingSuggestionEval
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionAgentCoachingSuggestionEval
+@dynamic actionActionSuggestionEval, sampleResponseEval;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionAgentCoachingSuggestionReasoning
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionAgentCoachingSuggestionReasoning
+@dynamic agentActionTaken, issueSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionSampleResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AgentCoachingSuggestionSampleResponse
+@dynamic responseText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingInstruction
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingInstruction
+@dynamic agentAction, condition, descriptionProperty, displayName, metadata,
+         systemAction;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingInstruction_Metadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingInstruction_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestion
+@dynamic agentActionSuggestions, applicableInstructions, sampleResponses,
+         suggestionEval, suggestionReasoning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentActionSuggestions" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionAgentActionSuggestion class],
+    @"applicableInstructions" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingInstruction class],
+    @"sampleResponses" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionSampleResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionAgentActionSuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionAgentActionSuggestion
+@dynamic agentAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionAgentCoachingSuggestionEval
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionAgentCoachingSuggestionEval
+@dynamic actionActionSuggestionEval, sampleResponseEval;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionAgentCoachingSuggestionReasoning
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionAgentCoachingSuggestionReasoning
+@dynamic agentActionTaken, issueSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionSampleResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AgentCoachingSuggestionSampleResponse
+@dynamic responseText;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -211,7 +405,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnalysisResultCallAnalysisMetadata
 @dynamic annotations, entities, intents, issueModelResult, phraseMatchers,
-         sentiments;
+         sentiments, silence;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -506,6 +700,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment
 @dynamic channelTag, sentimentData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSilence
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSilence
+@dynamic silenceDuration, silencePercentage;
 @end
 
 
@@ -899,11 +1103,128 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FreeFormSuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FreeFormSuggestion
+@dynamic labels, response;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource
 @dynamic audioUri, transcriptUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GeneratorSuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GeneratorSuggestion
+@dynamic agentCoachingSuggestion, freeFormSuggestion, summarySuggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetGeneratorSuggestionResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetGeneratorSuggestionResponse
+@dynamic generatorSuggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponse
+@dynamic suggestedQuery, suggestedQueryAnswer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswer
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswer
+@dynamic answerText, faqSource, generativeSource, intentMatchingSource,
+         matchConfidence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerFaqSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerFaqSource
+@dynamic document, question;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSource
+@dynamic snippets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snippets" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSourceSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSourceSnippet
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSourceSnippet
+@dynamic document, text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerIntentMatchingSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseKnowledgeAnswerIntentMatchingSource
+@dynamic title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseSuggestedQuery
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GetKnowledgeAssistResponseSuggestedQuery
+@dynamic queryText, score;
 @end
 
 
@@ -1197,8 +1518,37 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation
 @dynamic annotationId, answerFeedback, articleSuggestion,
          conversationSummarizationSuggestion, createTime, dialogflowInteraction,
-         endBoundary, faqAnswer, smartComposeSuggestion, smartReply,
-         startBoundary;
+         endBoundary, faqAnswer, generatorSuggestionResult,
+         knowledgeAssistResult, knowledgeSearchResult, smartComposeSuggestion,
+         smartReply, startBoundary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswer
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswer
+@dynamic answer, answerRecord, answerSources, answerType, confidenceScore;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"answerSources" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswerAnswerSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswerAnswerSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SearchKnowledgeAnswerAnswerSource
+@dynamic document, snippet, title, uri;
 @end
 
 
@@ -1281,6 +1631,34 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SummarySuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SummarySuggestion
+@dynamic summarySections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"summarySections" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SummarySuggestionSummarySection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SummarySuggestionSummarySection
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SummarySuggestionSummarySection
+@dynamic section, summary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelMetadata
 //
 
@@ -1356,7 +1734,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisResultCallAnalysisMetadata
 @dynamic annotations, entities, intents, issueModelResult, phraseMatchers,
-         sentiments;
+         sentiments, silence;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1762,6 +2140,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSilence
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSilence
+@dynamic silenceDuration, silencePercentage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant
 //
 
@@ -2160,11 +2548,128 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FreeFormSuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FreeFormSuggestion
+@dynamic labels, response;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource
 @dynamic audioUri, transcriptUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GeneratorSuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GeneratorSuggestion
+@dynamic agentCoachingSuggestion, freeFormSuggestion, summarySuggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetGeneratorSuggestionResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetGeneratorSuggestionResponse
+@dynamic generatorSuggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponse
+@dynamic suggestedQuery, suggestedQueryAnswer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswer
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswer
+@dynamic answerText, faqSource, generativeSource, intentMatchingSource,
+         matchConfidence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerFaqSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerFaqSource
+@dynamic document, question;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSource
+@dynamic snippets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snippets" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSourceSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSourceSnippet
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerGenerativeSourceSnippet
+@dynamic document, text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerIntentMatchingSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseKnowledgeAnswerIntentMatchingSource
+@dynamic title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseSuggestedQuery
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GetKnowledgeAssistResponseSuggestedQuery
+@dynamic queryText, score;
 @end
 
 
@@ -2658,8 +3163,37 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation
 @dynamic annotationId, answerFeedback, articleSuggestion,
          conversationSummarizationSuggestion, createTime, dialogflowInteraction,
-         endBoundary, faqAnswer, smartComposeSuggestion, smartReply,
-         startBoundary;
+         endBoundary, faqAnswer, generatorSuggestionResult,
+         knowledgeAssistResult, knowledgeSearchResult, smartComposeSuggestion,
+         smartReply, startBoundary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswer
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswer
+@dynamic answer, answerRecord, answerSources, answerType, confidenceScore;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"answerSources" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswerAnswerSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswerAnswerSource
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SearchKnowledgeAnswerAnswerSource
+@dynamic document, snippet, title, uri;
 @end
 
 
@@ -2773,6 +3307,34 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig
 @dynamic speechRecognizer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SummarySuggestion
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SummarySuggestion
+@dynamic summarySections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"summarySections" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SummarySuggestionSummarySection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SummarySuggestionSummarySection
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SummarySuggestionSummarySection
+@dynamic section, summary;
 @end
 
 

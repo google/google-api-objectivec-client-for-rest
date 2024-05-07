@@ -193,7 +193,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken
-@dynamic displayName, name, token;
+@dynamic displayName, name, token, updateTime;
 @end
 
 

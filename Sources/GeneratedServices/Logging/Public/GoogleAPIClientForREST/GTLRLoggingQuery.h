@@ -3561,6 +3561,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: logging.folders.locations.buckets.views.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsGetIamPolicy : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRLogging_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRLogging_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists views on a log bucket.
  *
  *  Method: logging.folders.locations.buckets.views.list
@@ -3731,6 +3772,94 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogView *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: logging.folders.locations.buckets.views.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsSetIamPolicy : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRLogging_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: logging.folders.locations.buckets.views.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsTestIamPermissions : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRLogging_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRLogging_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -5426,6 +5555,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: logging.locations.buckets.views.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_LocationsBucketsViewsGetIamPolicy : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRLogging_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsViewsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRLogging_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists views on a log bucket.
  *
  *  Method: logging.locations.buckets.views.list
@@ -5531,6 +5701,94 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogView *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: logging.locations.buckets.views.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_LocationsBucketsViewsSetIamPolicy : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRLogging_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: logging.locations.buckets.views.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_LocationsBucketsViewsTestIamPermissions : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRLogging_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsViewsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRLogging_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -6933,6 +7191,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: logging.organizations.locations.buckets.views.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsGetIamPolicy : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRLogging_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRLogging_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists views on a log bucket.
  *
  *  Method: logging.organizations.locations.buckets.views.list
@@ -7103,6 +7402,94 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogView *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: logging.organizations.locations.buckets.views.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsSetIamPolicy : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRLogging_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: logging.organizations.locations.buckets.views.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsTestIamPermissions : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRLogging_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRLogging_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -9212,6 +9599,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: logging.projects.locations.buckets.views.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsGetIamPolicy : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRLogging_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRLogging_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists views on a log bucket.
  *
  *  Method: logging.projects.locations.buckets.views.list
@@ -9382,6 +9810,94 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogView *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: logging.projects.locations.buckets.views.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsSetIamPolicy : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRLogging_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: logging.projects.locations.buckets.views.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsTestIamPermissions : GTLRLoggingQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRLogging_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRLogging_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRLogging_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

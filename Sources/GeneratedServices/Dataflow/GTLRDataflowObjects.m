@@ -201,6 +201,7 @@ NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket = @"GC
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile = @"GCS_WRITE_FILE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder = @"GCS_WRITE_FOLDER";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile = @"JAVASCRIPT_UDF_FILE";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaTopic = @"KAFKA_TOPIC";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KmsKeyName = @"KMS_KEY_NAME";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_MachineType = @"MACHINE_TYPE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Number = @"NUMBER";
@@ -3002,7 +3003,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_StreamingConfigTask
 @dynamic commitStreamChunkSizeBytes, getDataStreamChunkSizeBytes,
-         maxWorkItemCommitBytes, streamingComputationConfigs,
+         maxWorkItemCommitBytes, operationalLimits, streamingComputationConfigs,
          userStepToStateFamilyNameMap, windmillServiceEndpoint,
          windmillServicePort;
 
@@ -3027,6 +3028,18 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StreamingOperationalLimits
+//
+
+@implementation GTLRDataflow_StreamingOperationalLimits
+@dynamic maxBagElementBytes, maxGlobalDataBytes, maxKeyBytes,
+         maxProductionOutputBytes, maxSortedListElementBytes,
+         maxSourceStateBytes, maxTagBytes, maxValueBytes;
 @end
 
 
@@ -3168,8 +3181,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_TemplateMetadata
-@dynamic descriptionProperty, name, parameters, streaming, supportsAtLeastOnce,
-         supportsExactlyOnce;
+@dynamic defaultStreamingMode, descriptionProperty, name, parameters, streaming,
+         supportsAtLeastOnce, supportsExactlyOnce;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -66,8 +66,8 @@ NSString * const kGTLRSolarViewImageryLayers              = @"IMAGERY_LAYERS";
 
 @implementation GTLRSolarQuery_DataLayersGet
 
-@dynamic locationLatitude, locationLongitude, pixelSizeMeters, radiusMeters,
-         requiredQuality, view;
+@dynamic exactQualityRequired, locationLatitude, locationLongitude,
+         pixelSizeMeters, radiusMeters, requiredQuality, view;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{

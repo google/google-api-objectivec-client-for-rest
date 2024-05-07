@@ -20,6 +20,7 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFo
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_FirewallConfigNotFound = @"FIREWALL_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported = @"GKE_KONNECTIVITY_PROXY_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousPscEndpoint = @"GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceUnknownIp = @"GOOGLE_MANAGED_SERVICE_UNKNOWN_IP";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument = @"INVALID_ARGUMENT";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork = @"MISMATCHED_DESTINATION_NETWORK";
@@ -128,8 +129,10 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_RoutingLoop = @"ROUTING_L
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked = @"TRAFFIC_TYPE_BLOCKED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress = @"UNKNOWN_EXTERNAL_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress = @"UNKNOWN_INTERNAL_ADDRESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorHealthCheckTrafficBlocked = @"VPC_CONNECTOR_HEALTH_CHECK_TRAFFIC_BLOCKED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotRunning = @"VPC_CONNECTOR_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotSet = @"VPC_CONNECTOR_NOT_SET";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorServerlessTrafficBlocked = @"VPC_CONNECTOR_SERVERLESS_TRAFFIC_BLOCKED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpnTunnelLocalSelectorMismatch = @"VPN_TUNNEL_LOCAL_SELECTOR_MISMATCH";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpnTunnelRemoteSelectorMismatch = @"VPN_TUNNEL_REMOTE_SELECTOR_MISMATCH";
 

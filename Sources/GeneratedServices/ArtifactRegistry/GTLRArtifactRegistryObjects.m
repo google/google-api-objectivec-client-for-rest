@@ -82,6 +82,7 @@ NSString * const kGTLRArtifactRegistry_PythonRepository_PublicRepository_Pypi = 
 NSString * const kGTLRArtifactRegistry_Repository_Format_Apt   = @"APT";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Generic = @"GENERIC";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Go    = @"GO";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Googet = @"GOOGET";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Kfp   = @"KFP";
@@ -304,6 +305,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GenericArtifact
+//
+
+@implementation GTLRArtifactRegistry_GenericArtifact
+@dynamic createTime, name, updateTime, version;
 @end
 
 
@@ -1276,6 +1287,35 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadGenericArtifactMediaResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadGenericArtifactMediaResponse
+@dynamic operation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadGenericArtifactMetadata
+//
+
+@implementation GTLRArtifactRegistry_UploadGenericArtifactMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadGenericArtifactRequest
+//
+
+@implementation GTLRArtifactRegistry_UploadGenericArtifactRequest
+@dynamic filename, name, packageId, versionId;
 @end
 
 

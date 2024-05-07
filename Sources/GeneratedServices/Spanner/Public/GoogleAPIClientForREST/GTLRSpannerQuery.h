@@ -968,6 +968,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *encryptionConfigKmsKeyName;
 
 /**
+ *  Optional. Specifies the KMS configuration for the one or more keys used to
+ *  protect the backup. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`. The keys referenced by
+ *  kms_key_names must fully cover all regions of the backup's instance
+ *  configuration. Some examples: * For single region instance configs, specify
+ *  a single regional location KMS key. * For multi-regional instance configs of
+ *  type GOOGLE_MANAGED, either specify a multi-regional location KMS key or
+ *  multiple regional location KMS keys that cover all regions in the instance
+ *  config. * For an instance config of type USER_MANAGED, please specify only
+ *  regional location KMS keys to cover each region in the instance config.
+ *  Multi-regional location KMS keys are not supported for USER_MANAGED instance
+ *  configs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *encryptionConfigKmsKeyNames;
+
+/**
  *  Required. The name of the instance in which the backup will be created. This
  *  must be the same instance that contains the database the backup will be
  *  created from. The backup will be stored in the location(s) specified in the

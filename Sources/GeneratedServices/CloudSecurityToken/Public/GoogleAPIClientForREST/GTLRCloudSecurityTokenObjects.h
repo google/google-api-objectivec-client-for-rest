@@ -252,15 +252,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCloudSecurityToken_GoogleIdentityStsV1betaAccessBoundary *accessBoundary;
 
 /**
- *  The intended audience(s) of the credential. The audience value(s) should be
- *  the name(s) of services intended to receive the credential. Example:
- *  `["https://pubsub.googleapis.com/", "https://storage.googleapis.com/"]`. A
- *  maximum of 5 audiences can be included. For each provided audience, the
- *  maximum length is 262 characters.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *audiences;
-
-/**
  *  A Google project used for quota and billing purposes when the credential is
  *  used to access Google APIs. The provided project overrides the project bound
  *  to the credential. The value must be a project number or a project ID.
@@ -384,7 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "https://sts.amazonaws.com?Action=GetCallerIdentity&Version=2011-06-15" }
  *  ``` If the token is a SAML 2.0 assertion, it must use the format defined in
  *  [the SAML 2.0
- *  spec](https://www.oasis-open.org/committees/download.php/56776/sstc-saml-core-errata-2.0-wd-07.pdf),
+ *  spec](https://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.pdf),
  *  and the `subject_token_type` must be
  *  `urn:ietf:params:oauth:token-type:saml2`. See [Verification of external
  *  credentials](https://cloud.google.com/iam/docs/using-workload-identity-federation#verification_of_external_credentials)
@@ -462,15 +453,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  value should not exceed 2048 characters.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSecurityToken_GoogleIdentityStsV1AccessBoundary *accessBoundary;
-
-/**
- *  The intended audience(s) of the credential. The audience value(s) should be
- *  the name(s) of services intended to receive the credential. Example:
- *  `["https://pubsub.googleapis.com/", "https://storage.googleapis.com/"]`. A
- *  maximum of 5 audiences can be included. For each provided audience, the
- *  maximum length is 262 characters.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *audiences;
 
 /**
  *  A Google project used for quota and billing purposes when the credential is

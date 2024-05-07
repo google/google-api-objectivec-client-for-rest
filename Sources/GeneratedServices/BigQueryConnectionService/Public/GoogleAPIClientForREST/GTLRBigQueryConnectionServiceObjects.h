@@ -26,6 +26,7 @@
 @class GTLRBigQueryConnectionService_CloudSqlProperties;
 @class GTLRBigQueryConnectionService_Connection;
 @class GTLRBigQueryConnectionService_ConnectorConfiguration;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationAsset;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationNetwork;
@@ -549,6 +550,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
  */
 @interface GTLRBigQueryConnectionService_ConnectorConfiguration : GTLRObject
 
+/** Optional. Data asset. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationAsset *asset;
+
 /** Client authentication. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication *authentication;
 
@@ -565,6 +569,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 
 /** Networking configuration. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationNetwork *network;
+
+@end
+
+
+/**
+ *  Data Asset - a resource within instance of the system, reachable under
+ *  specified endpoint. For example a database name in a SQL DB.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationAsset : GTLRObject
+
+/** Optional. Name of the database. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Full Google Cloud resource name -
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name.
+ *  Example: `//library.googleapis.com/shelves/shelf1/books/book2`
+ */
+@property(nonatomic, copy, nullable) NSString *googleCloudResource;
 
 @end
 

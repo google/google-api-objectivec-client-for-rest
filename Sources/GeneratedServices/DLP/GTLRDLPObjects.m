@@ -295,6 +295,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ir
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Israel = @"ISRAEL";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Italy = @"ITALY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Japan = @"JAPAN";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Kazakhstan = @"KAZAKHSTAN";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Korea = @"KOREA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_LocationUnspecified = @"LOCATION_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Mexico = @"MEXICO";
@@ -304,6 +305,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Pa
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Peru = @"PERU";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Poland = @"POLAND";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Portugal = @"PORTUGAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Russia = @"RUSSIA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Singapore = @"SINGAPORE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_SouthAfrica = @"SOUTH_AFRICA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Spain = @"SPAIN";
@@ -313,9 +315,11 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ta
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Thailand = @"THAILAND";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_TheNetherlands = @"THE_NETHERLANDS";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Turkey = @"TURKEY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ukraine = @"UKRAINE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedKingdom = @"UNITED_KINGDOM";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedStates = @"UNITED_STATES";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uruguay = @"URUGUAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uzbekistan = @"UZBEKISTAN";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Venezuela = @"VENEZUELA";
 
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.typeCategory
@@ -3458,7 +3462,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Result
-@dynamic hybridStats, infoTypeStats, processedBytes, totalEstimatedBytes;
+@dynamic hybridStats, infoTypeStats, numRowsProcessed, processedBytes,
+         totalEstimatedBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

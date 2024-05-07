@@ -67,8 +67,8 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 @implementation GTLRCCAIPlatform_ContactCenter
 @dynamic adminUser, ccaipManagedUsers, createTime, customerDomainPrefix,
-         displayName, instanceConfig, kmsKey, labels, name, privateComponents,
-         samlParams, state, updateTime, uris, userEmail;
+         displayName, early, instanceConfig, kmsKey, labels, name, normal,
+         privateComponents, samlParams, state, updateTime, uris, userEmail;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -109,6 +109,15 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_Early
+//
+
+@implementation GTLRCCAIPlatform_Early
 @end
 
 
@@ -244,6 +253,15 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_Normal
+//
+
+@implementation GTLRCCAIPlatform_Normal
 @end
 
 

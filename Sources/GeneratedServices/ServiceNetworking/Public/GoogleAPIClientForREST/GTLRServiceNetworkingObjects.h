@@ -2458,12 +2458,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_Endpoint : GTLRObject
 
 /**
- *  Unimplemented. Dot not use. DEPRECATED: This field is no longer supported.
- *  Instead of using aliases, please specify multiple google.api.Endpoint for
- *  each of the intended aliases. Additional names that this endpoint will be
- *  hosted on.
+ *  Aliases for this endpoint, these will be served by the same UrlMap as the
+ *  parent endpoint, and will be provisioned in the GCP stack for the Regional
+ *  Endpoints.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Allowing

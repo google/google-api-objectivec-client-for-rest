@@ -564,6 +564,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Compute/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Compute/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'Config' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Config/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Config/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Connectors' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Connectors/**/*.{h,m}'

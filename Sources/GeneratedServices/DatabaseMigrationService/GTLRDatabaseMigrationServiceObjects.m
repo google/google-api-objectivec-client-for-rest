@@ -60,6 +60,7 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8033 = @"MYSQL_8_0_33";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8034 = @"MYSQL_8_0_34";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -1222,11 +1223,13 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_IndexEntity
-@dynamic customFeatures, name, tableColumns, type, unique;
+@dynamic customFeatures, name, tableColumns, tableColumnsDescending, type,
+         unique;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tableColumns" : [NSString class]
+    @"tableColumns" : [NSString class],
+    @"tableColumnsDescending" : [NSNumber class]
   };
   return map;
 }

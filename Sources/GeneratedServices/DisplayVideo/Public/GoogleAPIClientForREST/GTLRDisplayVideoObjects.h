@@ -10767,6 +10767,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpa;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpc;
 /**
+ *  The KPI is set in CPCL (cost per complete audio listen).
+ *
+ *  Value: "KPI_TYPE_CPCL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcl;
+/**
+ *  The KPI is set in CPCV (cost per complete video view).
+ *
+ *  Value: "KPI_TYPE_CPCV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcv;
+/**
  *  The KPI is CPE (cost per engagement).
  *
  *  Value: "KPI_TYPE_CPE"
@@ -10785,11 +10797,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpiavc;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpm;
 /**
+ *  The KPI is set in CPV (cost per view).
+ *
+ *  Value: "KPI_TYPE_CPV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpv;
+/**
  *  The KPI is CTR (click-through rate) percentage.
  *
  *  Value: "KPI_TYPE_CTR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCtr;
+/**
+ *  The KPI is set in custom impression value divided by cost.
+ *
+ *  Value: "KPI_TYPE_CUSTOM_IMPRESSION_VALUE_OVER_COST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCustomImpressionValueOverCost;
 /**
  *  The KPI is impression conversion rate (conversions per impression)
  *  percentage.
@@ -10798,11 +10822,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCtr;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeImpressionCvr;
 /**
+ *  The KPI is set to maximize brand impact while prioritizing spending the full
+ *  budget.
+ *
+ *  Value: "KPI_TYPE_MAXIMIZE_PACING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeMaximizePacing;
+/**
  *  The KPI is some other value.
  *
  *  Value: "KPI_TYPE_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeOther;
+/**
+ *  The KPI is set in rate of time on screen 10+ seconds (Percentage of
+ *  measurable, non-skippable impressions that were on the screen for at least
+ *  10 seconds).
+ *
+ *  Value: "KPI_TYPE_TOS10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeTos10;
 /**
  *  KPI type is not specified or is unknown in this version.
  *
@@ -16916,7 +16955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The assigned targeting options to create in batch, specified as a list of
  *  `CreateAssignedTargetingOptionsRequest`. Supported targeting types: *
  *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
- *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_KEYWORD`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest *> *createRequests;
 
@@ -16924,7 +16964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The assigned targeting options to delete in batch, specified as a list of
  *  `DeleteAssignedTargetingOptionsRequest`. Supported targeting types: *
  *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
- *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_KEYWORD`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest *> *deleteRequests;
 
@@ -24996,6 +25037,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_Kpi : GTLRObject
 
 /**
+ *  Optional. Custom Bidding Algorithm ID associated with
+ *  KPI_CUSTOM_IMPRESSION_VALUE_OVER_COST. This field is ignored if the proper
+ *  KPI is not selected.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *kpiAlgorithmId;
+
+/**
  *  The goal amount, in micros of the advertiser's currency. Applicable when
  *  kpi_type is one of: * `KPI_TYPE_CPM` * `KPI_TYPE_CPC` * `KPI_TYPE_CPA` *
  *  `KPI_TYPE_CPIAVC` * `KPI_TYPE_VCPM` For example: 1500000 represents 1.5
@@ -25036,6 +25086,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        action). (Value: "KPI_TYPE_CPA")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpc The KPI is CPC (cost per
  *        click). (Value: "KPI_TYPE_CPC")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcl The KPI is set in CPCL
+ *        (cost per complete audio listen). (Value: "KPI_TYPE_CPCL")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcv The KPI is set in CPCV
+ *        (cost per complete video view). (Value: "KPI_TYPE_CPCV")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpe The KPI is CPE (cost per
  *        engagement). (Value: "KPI_TYPE_CPE")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpiavc The KPI is CPIAVC
@@ -25043,13 +25097,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "KPI_TYPE_CPIAVC")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpm The KPI is CPM (cost per
  *        mille). (Value: "KPI_TYPE_CPM")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpv The KPI is set in CPV
+ *        (cost per view). (Value: "KPI_TYPE_CPV")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCtr The KPI is CTR
  *        (click-through rate) percentage. (Value: "KPI_TYPE_CTR")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCustomImpressionValueOverCost
+ *        The KPI is set in custom impression value divided by cost. (Value:
+ *        "KPI_TYPE_CUSTOM_IMPRESSION_VALUE_OVER_COST")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeImpressionCvr The KPI is
  *        impression conversion rate (conversions per impression) percentage.
  *        (Value: "KPI_TYPE_IMPRESSION_CVR")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeMaximizePacing The KPI is set
+ *        to maximize brand impact while prioritizing spending the full budget.
+ *        (Value: "KPI_TYPE_MAXIMIZE_PACING")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeOther The KPI is some other
  *        value. (Value: "KPI_TYPE_OTHER")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeTos10 The KPI is set in rate
+ *        of time on screen 10+ seconds (Percentage of measurable, non-skippable
+ *        impressions that were on the screen for at least 10 seconds). (Value:
+ *        "KPI_TYPE_TOS10")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeUnspecified KPI type is not
  *        specified or is unknown in this version. (Value:
  *        "KPI_TYPE_UNSPECIFIED")

@@ -1742,6 +1742,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Japan;
 /**
+ *  The infoType is typically used in Kazakhstan.
+ *
+ *  Value: "KAZAKHSTAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Kazakhstan;
+/**
  *  The infoType is typically used in Korea.
  *
  *  Value: "KOREA"
@@ -1795,6 +1801,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  *  Value: "PORTUGAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Portugal;
+/**
+ *  The infoType is typically used in Russia.
+ *
+ *  Value: "RUSSIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Russia;
 /**
  *  The infoType is typically used in Singapore.
  *
@@ -1850,6 +1862,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Turkey;
 /**
+ *  The infoType is typically used in Ukraine.
+ *
+ *  Value: "UKRAINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ukraine;
+/**
  *  The infoType is typically used in the United Kingdom.
  *
  *  Value: "UNITED_KINGDOM"
@@ -1867,6 +1885,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  *  Value: "URUGUAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uruguay;
+/**
+ *  The infoType is typically used in Uzbekistan.
+ *
+ *  Value: "UZBEKISTAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uzbekistan;
 /**
  *  The infoType is typically used in Venezuela.
  *
@@ -5923,8 +5947,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Store all table and column profiles in an existing table or a new table in
- *  an existing dataset. Each re-generation will result in a new row in
- *  BigQuery.
+ *  an existing dataset. Each re-generation will result in new rows in BigQuery.
+ *  Data is inserted using [streaming
+ *  insert](https://cloud.google.com/blog/products/bigquery/life-of-a-bigquery-streaming-insert)
+ *  and so data may be in the buffer for a period of time after the profile has
+ *  finished. The Pub/Sub notification is sent before the streaming buffer is
+ *  guaranteed to be written, so data may not be instantly visible to queries by
+ *  the time your topic receives the Pub/Sub notification.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *profileTable;
 
@@ -6572,7 +6601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Classification of infoTypes to organize them according to geographic
- *  location, industry, and data type.
+ *  location, industry, and data type. NEXT_ID: 48
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory : GTLRObject
 
@@ -6645,6 +6674,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        The infoType is typically used in Italy. (Value: "ITALY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Japan
  *        The infoType is typically used in Japan. (Value: "JAPAN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Kazakhstan
+ *        The infoType is typically used in Kazakhstan. (Value: "KAZAKHSTAN")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Korea
  *        The infoType is typically used in Korea. (Value: "KOREA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_LocationUnspecified
@@ -6663,6 +6694,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        The infoType is typically used in Poland. (Value: "POLAND")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Portugal
  *        The infoType is typically used in Portugal. (Value: "PORTUGAL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Russia
+ *        The infoType is typically used in Russia. (Value: "RUSSIA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Singapore
  *        The infoType is typically used in Singapore. (Value: "SINGAPORE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_SouthAfrica
@@ -6683,6 +6716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        "THE_NETHERLANDS")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Turkey
  *        The infoType is typically used in Turkey. (Value: "TURKEY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ukraine
+ *        The infoType is typically used in Ukraine. (Value: "UKRAINE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedKingdom
  *        The infoType is typically used in the United Kingdom. (Value:
  *        "UNITED_KINGDOM")
@@ -6691,6 +6726,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        "UNITED_STATES")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uruguay
  *        The infoType is typically used in Uruguay. (Value: "URUGUAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uzbekistan
+ *        The infoType is typically used in Uzbekistan. (Value: "UZBEKISTAN")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Venezuela
  *        The infoType is typically used in Venezuela. (Value: "VENEZUELA")
  */
@@ -9048,6 +9085,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeStats *> *infoTypeStats;
 
 /**
+ *  Number of rows scanned post sampling and time filtering (Applicable for row
+ *  based stores such as BigQuery).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRowsProcessed;
+
+/**
  *  Total size in bytes that were processed.
  *
  *  Uses NSNumber of longLongValue.
@@ -9789,7 +9834,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  valid start_time to avoid scanning files that have not been modified since
  *  the last time the JobTrigger executed. This will be based on the time of the
  *  execution of the last run of the JobTrigger or the timespan end_time used in
- *  the last run of the JobTrigger.
+ *  the last run of the JobTrigger. *For BigQuery* Inspect jobs triggered by
+ *  automatic population will scan data that is at least three hours old when
+ *  the job starts. This is because streaming buffer rows are not read during
+ *  inspection and reading up to the current timestamp will result in skipped
+ *  rows. See the [known
+ *  issue](https://cloud.google.com/sensitive-data-protection/docs/known-issues#recently-streamed-data)
+ *  related to this operation.
  *
  *  Uses NSNumber of boolValue.
  */

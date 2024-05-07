@@ -226,12 +226,14 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Backup
-@dynamic createTime, database, databaseDialect, encryptionInfo, expireTime,
-         maxExpireTime, name, referencingBackups, referencingDatabases,
-         sizeBytes, state, versionTime;
+@dynamic createTime, database, databaseDialect, encryptionInfo,
+         encryptionInformation, expireTime, maxExpireTime, name,
+         referencingBackups, referencingDatabases, sizeBytes, state,
+         versionTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"encryptionInformation" : [GTLRSpanner_EncryptionInfo class],
     @"referencingBackups" : [NSString class],
     @"referencingDatabases" : [NSString class]
   };
@@ -408,7 +410,15 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CopyBackupEncryptionConfig
-@dynamic encryptionType, kmsKeyName;
+@dynamic encryptionType, kmsKeyName, kmsKeyNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"kmsKeyNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -644,7 +654,15 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_EncryptionConfig
-@dynamic kmsKeyName;
+@dynamic kmsKeyName, kmsKeyNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"kmsKeyNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1912,7 +1930,15 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_RestoreDatabaseEncryptionConfig
-@dynamic encryptionType, kmsKeyName;
+@dynamic encryptionType, kmsKeyName, kmsKeyNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"kmsKeyNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

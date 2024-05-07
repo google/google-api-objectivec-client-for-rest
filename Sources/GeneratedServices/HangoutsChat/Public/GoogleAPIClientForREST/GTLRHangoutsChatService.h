@@ -123,6 +123,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesCreate;
  *  Value "https://www.googleapis.com/auth/chat.spaces.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesReadonly;
+/**
+ *  Authorization scope: View and modify last read time for Google Chat
+ *  conversations
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.readstate"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersReadstate;
+/**
+ *  Authorization scope: View last read time for Google Chat conversations
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.readstate.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersReadstateReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRHangoutsChatService

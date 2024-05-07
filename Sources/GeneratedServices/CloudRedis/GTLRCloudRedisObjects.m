@@ -280,7 +280,6 @@ NSString * const kGTLRCloudRedis_Entitlement_EntitlementState_EntitlementStateUn
 NSString * const kGTLRCloudRedis_Entitlement_EntitlementState_Revoked = @"REVOKED";
 
 // GTLRCloudRedis_Entitlement.type
-NSString * const kGTLRCloudRedis_Entitlement_Type_DuetAi       = @"DUET_AI";
 NSString * const kGTLRCloudRedis_Entitlement_Type_EntitlementTypeUnspecified = @"ENTITLEMENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_Entitlement_Type_Gemini       = @"GEMINI";
 
@@ -366,6 +365,7 @@ NSString * const kGTLRCloudRedis_Product_Type_Alloydb          = @"ALLOYDB";
 NSString * const kGTLRCloudRedis_Product_Type_CloudSql         = @"CLOUD_SQL";
 NSString * const kGTLRCloudRedis_Product_Type_OnPrem           = @"ON_PREM";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeAlloydb = @"PRODUCT_TYPE_ALLOYDB";
+NSString * const kGTLRCloudRedis_Product_Type_ProductTypeBigtable = @"PRODUCT_TYPE_BIGTABLE";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeCloudSql = @"PRODUCT_TYPE_CLOUD_SQL";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeMemorystore = @"PRODUCT_TYPE_MEMORYSTORE";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOnPrem = @"PRODUCT_TYPE_ON_PREM";
@@ -427,8 +427,8 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 //
 
 @implementation GTLRCloudRedis_AvailabilityConfiguration
-@dynamic availabilityType, externalReplicaConfigured,
-         promotableReplicaConfigured;
+@dynamic availabilityType, crossRegionReplicaConfigured,
+         externalReplicaConfigured, promotableReplicaConfigured;
 @end
 
 
@@ -487,10 +487,10 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 //
 
 @implementation GTLRCloudRedis_Cluster
-@dynamic authorizationMode, createTime, discoveryEndpoints, name, nodeType,
-         persistenceConfig, preciseSizeGb, pscConfigs, pscConnections,
-         redisConfigs, replicaCount, shardCount, sizeGb, state, stateInfo,
-         transitEncryptionMode, uid;
+@dynamic authorizationMode, createTime, deletionProtectionEnabled,
+         discoveryEndpoints, name, nodeType, persistenceConfig, preciseSizeGb,
+         pscConfigs, pscConnections, redisConfigs, replicaCount, shardCount,
+         sizeGb, state, stateInfo, transitEncryptionMode, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

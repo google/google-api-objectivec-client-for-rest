@@ -64,7 +64,10 @@ NSString * const kGTLRVMwareEngine_LocationMetadata_Capabilities_StretchedCluste
 
 // GTLRVMwareEngine_LoggingServer.protocol
 NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Relp = @"RELP";
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Ssl  = @"SSL";
 NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Tcp  = @"TCP";
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Tls  = @"TLS";
 NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Udp  = @"UDP";
 
 // GTLRVMwareEngine_LoggingServer.sourceType

@@ -69,6 +69,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_AppendOnly
+//
+
+@implementation GTLRDatastream_AppendOnly
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_AvroFileFormat
 //
 
@@ -120,7 +129,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_BigQueryDestinationConfig
-@dynamic dataFreshness, singleTargetDataset, sourceHierarchyDatasets;
+@dynamic appendOnly, dataFreshness, merge, singleTargetDataset,
+         sourceHierarchyDatasets;
 @end
 
 
@@ -526,6 +536,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_LookupStreamObjectRequest
 @dynamic sourceObjectIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_Merge
+//
+
+@implementation GTLRDatastream_Merge
 @end
 
 

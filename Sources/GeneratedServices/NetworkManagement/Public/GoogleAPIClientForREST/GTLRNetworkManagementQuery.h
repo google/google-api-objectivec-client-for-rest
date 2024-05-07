@@ -294,7 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  then the reachability result returns a value of UNKNOWN. If the endpoint
  *  specifications in `ConnectivityTest` are incomplete, the reachability result
  *  returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest`
- *  for for more details.
+ *  for more details.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.patch
  *
@@ -304,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsPatch : GTLRNetworkManagementQuery
 
 /**
- *  Required. Unique name of the resource using the form:
+ *  Identifier. Unique name of the resource using the form:
  *  `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -330,11 +330,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  then the reachability result returns a value of UNKNOWN. If the endpoint
  *  specifications in `ConnectivityTest` are incomplete, the reachability result
  *  returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest`
- *  for for more details.
+ *  for more details.
  *
  *  @param object The @c GTLRNetworkManagement_ConnectivityTest to include in
  *    the query.
- *  @param name Required. Unique name of the resource using the form:
+ *  @param name Identifier. Unique name of the resource using the form:
  *    `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsPatch

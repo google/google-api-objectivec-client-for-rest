@@ -112,6 +112,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResu
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RowConditionExpectation = @"ROW_CONDITION_EXPECTATION";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RuleTypeUnspecified = @"RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SetExpectation = @"SET_EXPECTATION";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SqlAssertion = @"SQL_ASSERTION";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_StatisticRangeExpectation = @"STATISTIC_RANGE_EXPECTATION";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TableConditionExpectation = @"TABLE_CONDITION_EXPECTATION";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_UniquenessExpectation = @"UNIQUENESS_EXPECTATION";
@@ -1370,9 +1371,9 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult
-@dynamic column, dataSource, evaluatedRowCount, evalutionType, jobId,
-         nullRowCount, passedRowCount, result, ruleDimension, ruleName,
-         ruleType, thresholdPercent;
+@dynamic assertionRowCount, column, dataSource, evaluatedRowCount,
+         evalutionType, jobId, nullRowCount, passedRowCount, result,
+         ruleDimension, ruleName, ruleType, thresholdPercent;
 @end
 
 
@@ -2893,14 +2894,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResult
-@dynamic dataplexEntry, descriptionProperty, displayName, entry, entryType,
-         fullyQualifiedName, linkedResource, modifyTime, relativeResource,
-         snippets;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
+@dynamic dataplexEntry, linkedResource, snippets;
 @end
 
 

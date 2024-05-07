@@ -36,8 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a backup schedule on a database. At most two backup schedules can be
- *  configured on a database, one daily backup schedule with retention up to 7
- *  days and one weekly backup schedule with retention up to 14 weeks.
+ *  configured on a database, one daily backup schedule and one weekly backup
+ *  schedule.
  *
  *  Method: firestore.projects.databases.backupSchedules.create
  *
@@ -57,8 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule.
  *
  *  Creates a backup schedule on a database. At most two backup schedules can be
- *  configured on a database, one daily backup schedule with retention up to 7
- *  days and one weekly backup schedule with retention up to 14 weeks.
+ *  configured on a database, one daily backup schedule and one weekly backup
+ *  schedule.
  *
  *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule to
  *    include in the query.
@@ -260,7 +260,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The filter to apply to list results. Currently, FirestoreAdmin.ListFields
  *  only supports listing fields that have been explicitly overridden. To issue
  *  this query, call FirestoreAdmin.ListFields with a filter that includes
- *  `indexConfig.usesAncestorConfig:false` .
+ *  `indexConfig.usesAncestorConfig:false` or `ttlConfig:*`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

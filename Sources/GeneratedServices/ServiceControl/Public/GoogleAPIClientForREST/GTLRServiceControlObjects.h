@@ -63,6 +63,7 @@
 @class GTLRServiceControl_V2LogEntry_StructPayload;
 @class GTLRServiceControl_V2LogEntryOperation;
 @class GTLRServiceControl_V2LogEntrySourceLocation;
+@class GTLRServiceControl_V2ResourceEvent_Payload;
 @class GTLRServiceControl_ViolationInfo;
 
 // Generated comments include content from the discovery document; avoid them
@@ -75,6 +76,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_AuthorizationInfo.permissionType
+
+/**
+ *  Permissions that gate reading resource configuration or metadata.
+ *
+ *  Value: "ADMIN_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminRead;
+/**
+ *  Permissions that gate modification of resource configuration or metadata.
+ *
+ *  Value: "ADMIN_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminWrite;
+/**
+ *  Permissions that gate reading user-provided data.
+ *
+ *  Value: "DATA_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_DataRead;
+/**
+ *  Permissions that gate writing user-provided data.
+ *
+ *  Value: "DATA_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_DataWrite;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "PERMISSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_PermissionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_V2LogEntry.severity
@@ -134,6 +169,63 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Notic
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_V2ResourceEvent.path
+
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "API_PATH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Path_ApiPathUnspecified;
+/**
+ *  The request path.
+ *
+ *  Value: "REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Path_Request;
+/**
+ *  The response path.
+ *
+ *  Value: "RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Path_Response;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_V2ResourceEvent.type
+
+/**
+ *  The resource is created/inserted.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Create;
+/**
+ *  The resource is deleted.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Delete;
+/**
+ *  The resource event type is unclear. We do not expect any events to fall into
+ *  this category.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_TypeUnspecified;
+/**
+ *  The resource is un-deleted.
+ *
+ *  Value: "UNDELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Undelete;
+/**
+ *  The resource is updated.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_ViolationInfo.policyType
@@ -492,6 +584,14 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRServiceControl_Auth_Claims *claims;
 
 /**
+ *  Identifies the client credential id used for authentication. credential_id
+ *  is in the format of AUTH_METHOD:IDENTIFIER, e.g. "serviceaccount:XXXXX,
+ *  apikey:XXXXX" where the format of the IDENTIFIER can vary for different
+ *  AUTH_METHODs.
+ */
+@property(nonatomic, copy, nullable) NSString *credentialId;
+
+/**
  *  The authorized presenter of the credential. Reflects the optional Authorized
  *  Presenter (`azp`) claim within a JWT or the OAuth client id. For example, a
  *  Google Cloud Platform client id looks as follows:
@@ -616,6 +716,28 @@ GTLR_DEPRECATED
 
 /** The required IAM permission. */
 @property(nonatomic, copy, nullable) NSString *permission;
+
+/**
+ *  The type of the permission that was checked. For data access audit logs this
+ *  corresponds with the permission type that must be enabled in the
+ *  project/folder/organization IAM policy in order for the log to be written.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminRead
+ *        Permissions that gate reading resource configuration or metadata.
+ *        (Value: "ADMIN_READ")
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminWrite
+ *        Permissions that gate modification of resource configuration or
+ *        metadata. (Value: "ADMIN_WRITE")
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_DataRead
+ *        Permissions that gate reading user-provided data. (Value: "DATA_READ")
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_DataWrite
+ *        Permissions that gate writing user-provided data. (Value:
+ *        "DATA_WRITE")
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_PermissionTypeUnspecified
+ *        Default. Should not be used. (Value: "PERMISSION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *permissionType;
 
 /**
  *  The resource being accessed, as a REST-style or cloud resource string. For
@@ -1802,6 +1924,84 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *line;
 
+@end
+
+
+/**
+ *  Report v2 extension proto for passing the resource metadata associated with
+ *  a resource create/update/delete/undelete event from ESF to Chemist.
+ *  ResourceEvent proto should be serialized into the
+ *  ReportRequest.operations.extensions.
+ */
+@interface GTLRServiceControl_V2ResourceEvent : GTLRObject
+
+/**
+ *  The destinations field determines which backend services should handle the
+ *  event. This should be specified as a comma-delimited string.
+ */
+@property(nonatomic, copy, nullable) NSString *destinations;
+
+/** The parent resource for the resource. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Resource *parent;
+
+/**
+ *  The api path the resource event was created in. This should match the source
+ *  of the `payload` field. For direct integrations with Chemist, this should
+ *  generally be the RESPONSE. go/resource-event-pipeline-type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Path_ApiPathUnspecified
+ *        Default value. Do not use. (Value: "API_PATH_UNSPECIFIED")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Path_Request The request path.
+ *        (Value: "REQUEST")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Path_Response The response
+ *        path. (Value: "RESPONSE")
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  The payload contains metadata associated with the resource event. A
+ *  ResourceEventPayloadStatus is provided instead if the original payload
+ *  cannot be returned due to a limitation (e.g. size limit).
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2ResourceEvent_Payload *payload;
+
+/** The resource associated with the event. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Resource *resource;
+
+/**
+ *  The resource event type determines how the backend service should process
+ *  the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_Create The resource is
+ *        created/inserted. (Value: "CREATE")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_Delete The resource is
+ *        deleted. (Value: "DELETE")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_TypeUnspecified The
+ *        resource event type is unclear. We do not expect any events to fall
+ *        into this category. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_Undelete The resource is
+ *        un-deleted. (Value: "UNDELETE")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_Update The resource is
+ *        updated. (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The payload contains metadata associated with the resource event. A
+ *  ResourceEventPayloadStatus is provided instead if the original payload
+ *  cannot be returned due to a limitation (e.g. size limit).
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_V2ResourceEvent_Payload : GTLRObject
 @end
 
 

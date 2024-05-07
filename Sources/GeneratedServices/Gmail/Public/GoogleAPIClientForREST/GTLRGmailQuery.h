@@ -417,6 +417,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @interface GTLRGmailQuery_UsersGetProfile : GTLRGmailQuery
 
 /**
+ *  temporaryEeccBypass
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL temporaryEeccBypass;
+
+/**
  *  The user's email address. The special value `me` can be used to indicate the
  *  authenticated user.
  *
@@ -797,6 +804,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *messageId;
 
 /**
+ *  temporaryEeccBypass
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL temporaryEeccBypass;
+
+/**
  *  The user's email address. The special value `me` can be used to indicate the
  *  authenticated user.
  *
@@ -991,6 +1005,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /** When given and format is `METADATA`, only include headers specified. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metadataHeaders;
+
+/**
+ *  temporaryEeccBypass
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL temporaryEeccBypass;
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -1215,6 +1236,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  using the gmail.metadata scope.
  */
 @property(nonatomic, copy, nullable) NSString *q;
+
+/**
+ *  temporaryEeccBypass
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL temporaryEeccBypass;
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -3464,6 +3492,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metadataHeaders;
 
 /**
+ *  temporaryEeccBypass
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL temporaryEeccBypass;
+
+/**
  *  The user's email address. The special value `me` can be used to indicate the
  *  authenticated user.
  *
@@ -3530,6 +3565,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  using the gmail.metadata scope.
  */
 @property(nonatomic, copy, nullable) NSString *q;
+
+/**
+ *  temporaryEeccBypass
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL temporaryEeccBypass;
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the

@@ -20,6 +20,14 @@ NSString * const kGTLRConnectors_CheckStatusResponse_State_AuthError = @"AUTH_ER
 NSString * const kGTLRConnectors_CheckStatusResponse_State_Error = @"ERROR";
 NSString * const kGTLRConnectors_CheckStatusResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRConnectors_EntityType.operations
+NSString * const kGTLRConnectors_EntityType_Operations_Create  = @"CREATE";
+NSString * const kGTLRConnectors_EntityType_Operations_Delete  = @"DELETE";
+NSString * const kGTLRConnectors_EntityType_Operations_Get     = @"GET";
+NSString * const kGTLRConnectors_EntityType_Operations_List    = @"LIST";
+NSString * const kGTLRConnectors_EntityType_Operations_OperationUnspecified = @"OPERATION_UNSPECIFIED";
+NSString * const kGTLRConnectors_EntityType_Operations_Update  = @"UPDATE";
+
 // GTLRConnectors_Field.dataType
 NSString * const kGTLRConnectors_Field_DataType_Array          = @"ARRAY";
 NSString * const kGTLRConnectors_Field_DataType_Bigint         = @"BIGINT";
@@ -415,11 +423,12 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_EntityType
-@dynamic fields, jsonSchema, name;
+@dynamic fields, jsonSchema, name, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [GTLRConnectors_Field class]
+    @"fields" : [GTLRConnectors_Field class],
+    @"operations" : [NSString class]
   };
   return map;
 }

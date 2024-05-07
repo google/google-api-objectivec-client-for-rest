@@ -243,7 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesUpdateConfig : GTLRRecommenderQuery
 
 /**
- *  Name of insight type config. Eg,
+ *  Identifier. Name of insight type config. Eg,
  *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -270,7 +270,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig to include in
  *    the query.
- *  @param name Name of insight type config. Eg,
+ *  @param name Identifier. Name of insight type config. Eg,
  *    projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
  *
  *  @return GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesUpdateConfig
@@ -614,7 +614,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersUpdateConfig : GTLRRecommenderQuery
 
 /**
- *  Name of recommender config. Eg,
+ *  Identifier. Name of recommender config. Eg,
  *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -640,7 +640,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig to include in
  *    the query.
- *  @param name Name of recommender config. Eg,
+ *  @param name Identifier. Name of recommender config. Eg,
  *    projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
  *
  *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersUpdateConfig
@@ -1295,7 +1295,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommenderQuery_OrganizationsLocationsInsightTypesUpdateConfig : GTLRRecommenderQuery
 
 /**
- *  Name of insight type config. Eg,
+ *  Identifier. Name of insight type config. Eg,
  *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1322,7 +1322,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig to include in
  *    the query.
- *  @param name Name of insight type config. Eg,
+ *  @param name Identifier. Name of insight type config. Eg,
  *    projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
  *
  *  @return GTLRRecommenderQuery_OrganizationsLocationsInsightTypesUpdateConfig
@@ -1666,7 +1666,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersUpdateConfig : GTLRRecommenderQuery
 
 /**
- *  Name of recommender config. Eg,
+ *  Identifier. Name of recommender config. Eg,
  *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1692,7 +1692,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig to include in
  *    the query.
- *  @param name Name of recommender config. Eg,
+ *  @param name Identifier. Name of recommender config. Eg,
  *    projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
  *
  *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersUpdateConfig
@@ -1914,7 +1914,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommenderQuery_ProjectsLocationsInsightTypesUpdateConfig : GTLRRecommenderQuery
 
 /**
- *  Name of insight type config. Eg,
+ *  Identifier. Name of insight type config. Eg,
  *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1941,7 +1941,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig to include in
  *    the query.
- *  @param name Name of insight type config. Eg,
+ *  @param name Identifier. Name of insight type config. Eg,
  *    projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsInsightTypesUpdateConfig
@@ -2285,7 +2285,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommenderQuery_ProjectsLocationsRecommendersUpdateConfig : GTLRRecommenderQuery
 
 /**
- *  Name of recommender config. Eg,
+ *  Identifier. Name of recommender config. Eg,
  *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2311,7 +2311,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig to include in
  *    the query.
- *  @param name Name of recommender config. Eg,
+ *  @param name Identifier. Name of recommender config. Eg,
  *    projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersUpdateConfig

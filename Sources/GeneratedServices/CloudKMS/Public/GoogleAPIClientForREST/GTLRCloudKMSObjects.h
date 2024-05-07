@@ -29,13 +29,18 @@
 @class GTLRCloudKMS_Expr;
 @class GTLRCloudKMS_ExternalProtectionLevelOptions;
 @class GTLRCloudKMS_ImportJob;
+@class GTLRCloudKMS_KeyHandle;
 @class GTLRCloudKMS_KeyOperationAttestation;
 @class GTLRCloudKMS_KeyRing;
 @class GTLRCloudKMS_Location;
 @class GTLRCloudKMS_Location_Labels;
 @class GTLRCloudKMS_Location_Metadata;
+@class GTLRCloudKMS_Operation_Metadata;
+@class GTLRCloudKMS_Operation_Response;
 @class GTLRCloudKMS_Policy;
 @class GTLRCloudKMS_ServiceResolver;
+@class GTLRCloudKMS_Status;
+@class GTLRCloudKMS_Status_Details_Item;
 @class GTLRCloudKMS_WrappingPublicKey;
 
 // Generated comments include content from the discovery document; avoid them
@@ -233,6 +238,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes2
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignEd25519;
 /**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
@@ -575,6 +586,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignEd25519;
 /**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
@@ -967,6 +984,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignEd25519;
 /**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
@@ -1412,6 +1435,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes256Gcm;
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignEd25519;
 /**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
@@ -1999,6 +2028,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
+ *  Cloud KMS Autokey configuration for a folder.
+ */
+@interface GTLRCloudKMS_AutokeyConfig : GTLRObject
+
+/**
+ *  Optional. Name of the key project, e.g. `projects/{PROJECT_ID}` or
+ *  `projects/{PROJECT_NUMBER}`, where Cloud KMS Autokey will provision new
+ *  CryptoKeys. On UpdateAutokeyConfig, the caller will require
+ *  `cloudkms.cryptoKeys.setIamPolicy` permission on this key project. Once
+ *  configured, for Cloud KMS Autokey to function properly, this key project
+ *  must have the Cloud KMS API activated and the Cloud KMS Service Agent for
+ *  this key project must be granted the `cloudkms.admin` role (or pertinent
+ *  permissions).
+ */
+@property(nonatomic, copy, nullable) NSString *keyProject;
+
+/**
+ *  Identifier. Name of the AutokeyConfig resource, e.g.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudKMS_Binding : GTLRObject
@@ -2321,6 +2376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignEd25519 EdDSA on
+ *        the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP256Sha256 ECDSA on
  *        the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *        also be used:
@@ -2598,6 +2656,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        (Galois Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:
@@ -3278,6 +3339,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:
@@ -3569,6 +3633,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
+ *  Resource-oriented representation of a request to Cloud KMS Autokey and the
+ *  resulting provisioning of a CryptoKey.
+ */
+@interface GTLRCloudKMS_KeyHandle : GTLRObject
+
+/**
+ *  Output only. Name of a CryptoKey that has been provisioned for Customer
+ *  Managed Encryption Key (CMEK) use in the KeyHandle's project and location
+ *  for the requested resource type.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Output only. Identifier. Name of the [KeyHandle] resource, e.g.
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/keyHandles/{KEY_HANDLE_ID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Indicates the resource type that the resulting CryptoKey is meant
+ *  to protect, e.g. `{SERVICE}.googleapis.com/{TYPE}`. See documentation for
+ *  supported resource types.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceTypeSelector;
+
+@end
+
+
+/**
  *  Contains an HSM-generated attestation about a key operation. For more
  *  information, see [Verifying attestations]
  *  (https://cloud.google.com/kms/docs/attest-key).
@@ -3757,6 +3850,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response message for Autokey.ListKeyHandles.
+ */
+@interface GTLRCloudKMS_ListKeyHandlesResponse : GTLRObject
+
+/** Resulting KeyHandles. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_KeyHandle *> *keyHandles;
 
 @end
 
@@ -4145,6 +4249,86 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRCloudKMS_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudKMS_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudKMS_Operation_Response : GTLRObject
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -4258,6 +4442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignEd25519 EdDSA on the
+ *        Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256Sha256 ECDSA on the
  *        NIST P-256 curve with a SHA256 digest. Other hash functions can also
  *        be used:
@@ -4881,6 +5068,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
+@end
+
+
+/**
+ *  Response message for ShowEffectiveAutokeyConfig.
+ */
+@interface GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse : GTLRObject
+
+/**
+ *  Name of the key project configured in the resource project's folder
+ *  ancestry.
+ */
+@property(nonatomic, copy, nullable) NSString *keyProject;
+
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRCloudKMS_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCloudKMS_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudKMS_Status_Details_Item : GTLRObject
 @end
 
 

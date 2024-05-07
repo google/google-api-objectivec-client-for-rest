@@ -2153,6 +2153,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OtherRecurringProduct
+//
+
+@implementation GTLRAndroidPublisher_OtherRecurringProduct
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_OtherRegionsBasePlanConfig
 //
 
@@ -2177,7 +2186,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseConfig
-@dynamic absoluteDiscounts, otherRegionsPrices, relativeDiscount;
+@dynamic absoluteDiscounts, free, otherRegionsPrices, relativeDiscount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride
+//
+
+@implementation GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride
 @end
 
 
@@ -2288,7 +2306,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_RecurringExternalTransaction
 @dynamic externalSubscription, externalTransactionToken,
-         initialExternalTransactionId, migratedTransactionProgram;
+         initialExternalTransactionId, migratedTransactionProgram,
+         otherRecurringProduct;
 @end
 
 
@@ -2338,7 +2357,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig
-@dynamic absoluteDiscount, price, regionCode, relativeDiscount;
+@dynamic absoluteDiscount, free, price, regionCode, relativeDiscount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride
+//
+
+@implementation GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride
 @end
 
 

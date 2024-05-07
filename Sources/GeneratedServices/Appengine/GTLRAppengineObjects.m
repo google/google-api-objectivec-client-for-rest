@@ -102,7 +102,7 @@ NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTra
 // GTLRAppengine_ProjectEvent.phase
 NSString * const kGTLRAppengine_ProjectEvent_Phase_AfterResourceHandling = @"AFTER_RESOURCE_HANDLING";
 NSString * const kGTLRAppengine_ProjectEvent_Phase_BeforeResourceHandling = @"BEFORE_RESOURCE_HANDLING";
-NSString * const kGTLRAppengine_ProjectEvent_Phase_Unknown     = @"UNKNOWN";
+NSString * const kGTLRAppengine_ProjectEvent_Phase_ContainerEventPhaseUnspecified = @"CONTAINER_EVENT_PHASE_UNSPECIFIED";
 
 // GTLRAppengine_ProjectsMetadata.consumerProjectState
 NSString * const kGTLRAppengine_ProjectsMetadata_ConsumerProjectState_Deleted = @"DELETED";

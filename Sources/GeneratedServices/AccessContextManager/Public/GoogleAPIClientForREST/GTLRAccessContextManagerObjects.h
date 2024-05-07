@@ -26,6 +26,7 @@
 @class GTLRAccessContextManager_AccessLevel;
 @class GTLRAccessContextManager_AccessPolicy;
 @class GTLRAccessContextManager_ApiOperation;
+@class GTLRAccessContextManager_Application;
 @class GTLRAccessContextManager_AuditConfig;
 @class GTLRAccessContextManager_AuditLogConfig;
 @class GTLRAccessContextManager_AuthorizedOrgsDesc;
@@ -559,6 +560,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 
 /**
+ *  An application that accesses Google Cloud APIs.
+ */
+@interface GTLRAccessContextManager_Application : GTLRObject
+
+/** The OAuth client ID of the application. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** The name of the application. Example: "Cloud Console" */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -995,8 +1010,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @interface GTLRAccessContextManager_EgressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this [EgressPolicy], in
- *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
+ *  A list of identities that are allowed access through [EgressPolicy].
+ *  Identities can be an individual user, service account, Google group, or
+ *  third-party identity. The `v1` identities that have the prefix `user`,
+ *  `group`, `serviceAccount`, `principal`, and `principalSet` in
+ *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -1117,8 +1135,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 /**
  *  A list of external resources that are allowed to be accessed. Only AWS and
- *  Azure resources are supported. For Amazon S3, the supported format is
- *  s3://BUCKET_NAME. For Azure Storage, the supported format is
+ *  Azure resources are supported. For Amazon S3, the supported formats are
+ *  s3://BUCKET_NAME, s3a://BUCKET_NAME, and s3n://BUCKET_NAME. For Azure
+ *  Storage, the supported format is
  *  azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches if
  *  it contains an external resource in this list (Example: s3://bucket/path).
  *  Currently '*' is not allowed.
@@ -1245,6 +1264,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. A list of applications that are subject to this binding's
+ *  restrictions. If the list is empty, the binding restrictions will
+ *  universally apply to all applications.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Application *> *restrictedClientApplications;
+
 @end
 
 
@@ -1302,8 +1328,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @interface GTLRAccessContextManager_IngressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this ingress policy, in
- *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
+ *  A list of identities that are allowed access through [IngressPolicy].
+ *  Identities can be an individual user, service account, Google group, or
+ *  third-party identity. The `v1` identities that have the prefix `user`,
+ *  `group`, `serviceAccount`, `principal`, and `principalSet` in
+ *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 

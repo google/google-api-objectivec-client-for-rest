@@ -8898,7 +8898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Required. Identifies the type of this assigned targeting option. Supported
  *  targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -9072,7 +9072,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param targetingType Required. Identifies the type of this assigned
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -9260,7 +9260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Required. Identifies the type of this assigned targeting option. Supported
  *  targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -9431,7 +9431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  @param targetingType Required. Identifies the type of this assigned
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD`
  *  @param assignedTargetingOptionId Required. The ID of the assigned targeting
  *    option to delete.
  *

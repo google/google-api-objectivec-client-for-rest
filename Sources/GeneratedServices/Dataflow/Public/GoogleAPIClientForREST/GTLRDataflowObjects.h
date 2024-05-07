@@ -184,6 +184,7 @@
 @class GTLRDataflow_StreamingComputationTask;
 @class GTLRDataflow_StreamingConfigTask;
 @class GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap;
+@class GTLRDataflow_StreamingOperationalLimits;
 @class GTLRDataflow_StreamingScalingReport;
 @class GTLRDataflow_StreamingScalingReportResponse;
 @class GTLRDataflow_StreamingSetupTask;
@@ -1295,6 +1296,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Gcs
  *  Value: "JAVASCRIPT_UDF_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile;
+/**
+ *  The parameter specifies the fully-qualified name of an Apache Kafka topic.
+ *  This can be either a Google Managed Kafka topic or a non-managed Kafka
+ *  topic.
+ *
+ *  Value: "KAFKA_TOPIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaTopic;
 /**
  *  The parameter specifies a KMS Key name.
  *
@@ -3057,9 +3066,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *serviceKmsKeyName;
 
 /**
- *  The list of service options to enable. This field should be used for service
- *  related experiments only. These experiments, when graduating to GA, should
- *  be replaced by dedicated fields or become default (i.e. always on).
+ *  Optional. The list of service options to enable. This field should be used
+ *  for service related experiments only. These experiments, when graduating to
+ *  GA, should be replaced by dedicated fields or become default (i.e. always
+ *  on).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceOptions;
 
@@ -4101,7 +4111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** The timestamp associated with the current state. */
 @property(nonatomic, strong, nullable) GTLRDateTime *currentStateTime;
 
-/** The environment for the job. */
+/** Optional. The environment for the job. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment *environment;
 
 /** Deprecated. */
@@ -4139,10 +4149,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  The user-specified Dataflow job name. Only one active job with a given name
- *  can exist in a project within one region at any given time. Jobs in
- *  different regions can have the same name. If a caller attempts to create a
- *  job with the same name as an active job that already exists, the attempt
+ *  Optional. The user-specified Dataflow job name. Only one active job with a
+ *  given name can exist in a project within one region at any given time. Jobs
+ *  in different regions can have the same name. If a caller attempts to create
+ *  a job with the same name as an active job that already exists, the attempt
  *  returns the existing job. The name must match the regular expression
  *  `[a-z]([-a-z0-9]{0,1022}[a-z0-9])?`
  */
@@ -4315,7 +4325,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_Job_TransformNameMapping *transformNameMapping;
 
 /**
- *  The type of Dataflow job.
+ *  Optional. The type of Dataflow job.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_Job_Type_JobTypeBatch A batch job with a
@@ -5498,6 +5508,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile The
  *        parameter specifies a JavaScript UDF in Cloud Storage. (Value:
  *        "JAVASCRIPT_UDF_FILE")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_KafkaTopic The parameter
+ *        specifies the fully-qualified name of an Apache Kafka topic. This can
+ *        be either a Google Managed Kafka topic or a non-managed Kafka topic.
+ *        (Value: "KAFKA_TOPIC")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_KmsKeyName The parameter
  *        specifies a KMS Key name. (Value: "KMS_KEY_NAME")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_MachineType The
@@ -7554,6 +7568,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) NSNumber *maxWorkItemCommitBytes;
 
+/**
+ *  Operational limits for the streaming job. Can be used by the worker to
+ *  validate outputs sent to the backend.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_StreamingOperationalLimits *operationalLimits;
+
 /** Set of computation configuration information. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StreamingComputationConfig *> *streamingComputationConfigs;
 
@@ -7588,6 +7608,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        fetch them all at once.
  */
 @interface GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap : GTLRObject
+@end
+
+
+/**
+ *  Operational limits imposed on streaming jobs by the backend.
+ */
+@interface GTLRDataflow_StreamingOperationalLimits : GTLRObject
+
+/**
+ *  The maximum size for an element in bag state.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxBagElementBytes;
+
+/**
+ *  The maximum size for an element in global data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxGlobalDataBytes;
+
+/**
+ *  The maximum size allowed for a key.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxKeyBytes;
+
+/**
+ *  The maximum size for a single output element.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxProductionOutputBytes;
+
+/**
+ *  The maximum size for an element in sorted list state.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSortedListElementBytes;
+
+/**
+ *  The maximum size for a source state update.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSourceStateBytes;
+
+/**
+ *  The maximum size for a state tag.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTagBytes;
+
+/**
+ *  The maximum size for a value state field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxValueBytes;
+
 @end
 
 
@@ -7928,6 +8012,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Metadata describing a template.
  */
 @interface GTLRDataflow_TemplateMetadata : GTLRObject
+
+/**
+ *  Optional. Indicates the default streaming mode for a streaming template.
+ *  Only valid if both supports_at_least_once and supports_exactly_once are
+ *  true. Possible values: UNSPECIFIED, EXACTLY_ONCE and AT_LEAST_ONCE
+ */
+@property(nonatomic, copy, nullable) NSString *defaultStreamingMode;
 
 /**
  *  Optional. A description of the template.

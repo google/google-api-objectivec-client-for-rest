@@ -421,8 +421,8 @@
 
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsCompleteQuery
 
-@dynamic catalog, dataset, deviceType, entity, languageCodes, maxSuggestions,
-         query, visitorId;
+@dynamic catalog, dataset, deviceType, enableAttributeSuggestions, entity,
+         languageCodes, maxSuggestions, query, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

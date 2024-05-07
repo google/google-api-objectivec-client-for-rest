@@ -125,6 +125,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignEd25519;
+/**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
  *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
@@ -466,6 +472,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignEd25519;
 /**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
@@ -1059,6 +1071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        "AES_256_GCM")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:
@@ -1343,6 +1358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        "AES_256_GCM")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:

@@ -597,10 +597,11 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         autoUpdateExpiration, backlightInfo, bootMode, cpuInfo,
-         cpuStatusReports, deprovisionReason, deviceFiles, deviceId,
+         autoUpdateExpiration, autoUpdateThrough, backlightInfo, bootMode,
+         cpuInfo, cpuStatusReports, deprovisionReason, deviceFiles, deviceId,
          deviceLicenseType, diskVolumeReports, dockMacAddress, ETag,
-         ethernetMacAddress, ethernetMacAddress0, firmwareVersion,
+         ethernetMacAddress, ethernetMacAddress0, extendedSupportEligible,
+         extendedSupportEnabled, extendedSupportStart, firmwareVersion,
          firstEnrollmentTime, kind, lastDeprovisionTimestamp,
          lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
          manufactureDate, meid, model, notes, orderNumber, orgUnitId,

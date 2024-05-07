@@ -35,6 +35,70 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  List the auction packages. Buyers can use the URL path
+ *  "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the
+ *  current buyer and its clients. Bidders can use the URL path
+ *  "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the
+ *  bidder, its media planners, its buyers, and all their clients.
+ *
+ *  Method: authorizedbuyersmarketplace.bidders.auctionPackages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAuthorizedBuyersMarketplaceAuthorizedBuyersMarketplace
+ */
+@interface GTLRAuthorizedBuyersMarketplaceQuery_BiddersAuctionPackagesList : GTLRAuthorizedBuyersMarketplaceQuery
+
+/**
+ *  Optional. Optional query string using the [Cloud API list filtering
+ *  syntax](/authorized-buyers/apis/guides/list-filters). Only supported when
+ *  parent is bidder. Supported columns for filtering are: * displayName *
+ *  createTime * updateTime * eligibleSeatIds
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Requested page size. The server may return fewer results than requested. Max
+ *  allowed page size is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token as returned. ListAuctionPackagesResponse.nextPageToken */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent buyer that can access the auction package.
+ *  Format: `buyers/{accountId}`. When used with a bidder account, the auction
+ *  packages that the bidder, its media planners, its buyers and clients are
+ *  subscribed to will be listed, in the format `bidders/{accountId}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAuthorizedBuyersMarketplace_ListAuctionPackagesResponse.
+ *
+ *  List the auction packages. Buyers can use the URL path
+ *  "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the
+ *  current buyer and its clients. Bidders can use the URL path
+ *  "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the
+ *  bidder, its media planners, its buyers, and all their clients.
+ *
+ *  @param parent Required. Name of the parent buyer that can access the auction
+ *    package. Format: `buyers/{accountId}`. When used with a bidder account,
+ *    the auction packages that the bidder, its media planners, its buyers and
+ *    clients are subscribed to will be listed, in the format
+ *    `bidders/{accountId}`.
+ *
+ *  @return GTLRAuthorizedBuyersMarketplaceQuery_BiddersAuctionPackagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists finalized deals. Use the URL path
  *  "/v1/buyers/{accountId}/finalizedDeals" to list finalized deals for the
  *  current buyer and its clients. Bidders can use the URL path
@@ -142,7 +206,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List the auction packages subscribed by a buyer and its clients.
+ *  List the auction packages. Buyers can use the URL path
+ *  "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the
+ *  current buyer and its clients. Bidders can use the URL path
+ *  "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the
+ *  bidder, its media planners, its buyers, and all their clients.
  *
  *  Method: authorizedbuyersmarketplace.buyers.auctionPackages.list
  *
@@ -150,6 +218,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAuthorizedBuyersMarketplaceAuthorizedBuyersMarketplace
  */
 @interface GTLRAuthorizedBuyersMarketplaceQuery_BuyersAuctionPackagesList : GTLRAuthorizedBuyersMarketplaceQuery
+
+/**
+ *  Optional. Optional query string using the [Cloud API list filtering
+ *  syntax](/authorized-buyers/apis/guides/list-filters). Only supported when
+ *  parent is bidder. Supported columns for filtering are: * displayName *
+ *  createTime * updateTime * eligibleSeatIds
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Requested page size. The server may return fewer results than requested. Max
@@ -162,17 +238,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the parent buyer that can access the auction package.
- *  Format: `buyers/{accountId}`
+ *  Format: `buyers/{accountId}`. When used with a bidder account, the auction
+ *  packages that the bidder, its media planners, its buyers and clients are
+ *  subscribed to will be listed, in the format `bidders/{accountId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAuthorizedBuyersMarketplace_ListAuctionPackagesResponse.
  *
- *  List the auction packages subscribed by a buyer and its clients.
+ *  List the auction packages. Buyers can use the URL path
+ *  "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the
+ *  current buyer and its clients. Bidders can use the URL path
+ *  "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the
+ *  bidder, its media planners, its buyers, and all their clients.
  *
  *  @param parent Required. Name of the parent buyer that can access the auction
- *    package. Format: `buyers/{accountId}`
+ *    package. Format: `buyers/{accountId}`. When used with a bidder account,
+ *    the auction packages that the bidder, its media planners, its buyers and
+ *    clients are subscribed to will be listed, in the format
+ *    `bidders/{accountId}`.
  *
  *  @return GTLRAuthorizedBuyersMarketplaceQuery_BuyersAuctionPackagesList
  *

@@ -87,6 +87,10 @@ NSString * const kGTLRYouTubeSafeSearchNone                    = @"none";
 NSString * const kGTLRYouTubeSafeSearchSafeSearchSettingUnspecified = @"safeSearchSettingUnspecified";
 NSString * const kGTLRYouTubeSafeSearchStrict                  = @"strict";
 
+// status
+NSString * const kGTLRYouTubeStatusClosed            = @"closed";
+NSString * const kGTLRYouTubeStatusStatusUnspecified = @"statusUnspecified";
+
 // textFormat
 NSString * const kGTLRYouTubeTextFormatHtml                  = @"html";
 NSString * const kGTLRYouTubeTextFormatPlainText             = @"plainText";
@@ -2422,6 +2426,27 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
                        pathParameterNames:nil];
   query.channelId = channelId;
   query.loggingName = @"youtube.watermarks.unset";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_YoutubeV3LiveChatMessagesTransition
+
+@dynamic identifier, status;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"youtube/v3/liveChat/messages/transition";
+  GTLRYouTubeQuery_YoutubeV3LiveChatMessagesTransition *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRYouTube_LiveChatMessage class];
+  query.loggingName = @"youtube.youtube.v3.liveChat.messages.transition";
   return query;
 }
 

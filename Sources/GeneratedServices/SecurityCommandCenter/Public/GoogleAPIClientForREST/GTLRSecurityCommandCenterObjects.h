@@ -17,10 +17,12 @@
 
 @class GTLRSecurityCommandCenter_Access;
 @class GTLRSecurityCommandCenter_AccessReview;
+@class GTLRSecurityCommandCenter_AdaptiveProtection;
 @class GTLRSecurityCommandCenter_Application;
 @class GTLRSecurityCommandCenter_Asset;
 @class GTLRSecurityCommandCenter_Asset_ResourceProperties;
 @class GTLRSecurityCommandCenter_AssetDiscoveryConfig;
+@class GTLRSecurityCommandCenter_Attack;
 @class GTLRSecurityCommandCenter_AttackExposure;
 @class GTLRSecurityCommandCenter_AttackPath;
 @class GTLRSecurityCommandCenter_AttackPathEdge;
@@ -29,8 +31,13 @@
 @class GTLRSecurityCommandCenter_AttackStepNode_Labels;
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
+@class GTLRSecurityCommandCenter_AwsAccount;
+@class GTLRSecurityCommandCenter_AwsMetadata;
+@class GTLRSecurityCommandCenter_AwsOrganization;
+@class GTLRSecurityCommandCenter_AwsOrganizationalUnit;
 @class GTLRSecurityCommandCenter_BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_Binding;
+@class GTLRSecurityCommandCenter_CloudArmor;
 @class GTLRSecurityCommandCenter_CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_CloudDlpInspection;
 @class GTLRSecurityCommandCenter_CloudLoggingEntry;
@@ -62,6 +69,7 @@
 @class GTLRSecurityCommandCenter_Finding_ExternalSystems;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_Folder;
+@class GTLRSecurityCommandCenter_GcpMetadata;
 @class GTLRSecurityCommandCenter_Geolocation;
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport;
@@ -86,10 +94,17 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Access;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AccessReview;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdaptiveProtection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsAccount;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsMetadata;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsOrganization;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsOrganizationalUnit;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Binding;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpDataProfile;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpInspection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudLoggingEntry;
@@ -112,6 +127,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_Contacts;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_ExternalSystems;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_SourceProperties;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Folder;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Geolocation;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator;
@@ -124,6 +140,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Node;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2NodePool;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Notebook;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Object;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2OrgPolicy;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Package;
@@ -132,12 +149,16 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Process;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ProcessSignature;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Reference;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Requests;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePath;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_ResourceLabelsSelector;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Role;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityBulletin;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityMarks;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityMarks_Marks;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityPolicy;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityPosture;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ServiceAccountDelegationInfo;
@@ -161,6 +182,7 @@
 @class GTLRSecurityCommandCenter_MitreAttack;
 @class GTLRSecurityCommandCenter_Node;
 @class GTLRSecurityCommandCenter_NodePool;
+@class GTLRSecurityCommandCenter_Notebook;
 @class GTLRSecurityCommandCenter_NotificationConfig;
 @class GTLRSecurityCommandCenter_Object;
 @class GTLRSecurityCommandCenter_Operation;
@@ -176,13 +198,17 @@
 @class GTLRSecurityCommandCenter_Process;
 @class GTLRSecurityCommandCenter_ProcessSignature;
 @class GTLRSecurityCommandCenter_Reference;
+@class GTLRSecurityCommandCenter_Requests;
 @class GTLRSecurityCommandCenter_Resource;
+@class GTLRSecurityCommandCenter_ResourcePath;
+@class GTLRSecurityCommandCenter_ResourcePathNode;
 @class GTLRSecurityCommandCenter_ResourceValueConfigMetadata;
 @class GTLRSecurityCommandCenter_Role;
 @class GTLRSecurityCommandCenter_SecurityBulletin;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
 @class GTLRSecurityCommandCenter_SecurityMarks_Marks;
+@class GTLRSecurityCommandCenter_SecurityPolicy;
 @class GTLRSecurityCommandCenter_SecurityPosture;
 @class GTLRSecurityCommandCenter_ServiceAccountDelegationInfo;
 @class GTLRSecurityCommandCenter_SimulatedResource;
@@ -196,6 +222,8 @@
 @class GTLRSecurityCommandCenter_TicketInfo;
 @class GTLRSecurityCommandCenter_ValuedResource;
 @class GTLRSecurityCommandCenter_Vulnerability;
+@class GTLRSecurityCommandCenter_VulnerabilityCountBySeverity;
+@class GTLRSecurityCommandCenter_VulnerabilityCountBySeverity_SeverityToFindingCount;
 @class GTLRSecurityCommandCenter_YaraRuleSignature;
 
 // Generated comments include content from the discovery document; avoid them
@@ -338,6 +366,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfil
  *  Value: "PROJECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_CloudDlpDataProfile_ParentType_Project;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_ComplianceSnapshot.cloudProvider
+
+/**
+ *  The cloud provider is Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_AmazonWebServices;
+/**
+ *  The cloud provider is unspecified.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_CloudProviderUnspecified;
+/**
+ *  The cloud provider is Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_GoogleCloudPlatform;
+/**
+ *  The cloud provider is Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Connection.protocol
@@ -1072,6 +1128,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "TERMINATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource.cloudProvider
+
+/**
+ *  The cloud provider is Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_AmazonWebServices;
+/**
+ *  The cloud provider is unspecified.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_CloudProviderUnspecified;
+/**
+ *  The cloud provider is Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_GoogleCloudPlatform;
+/**
+ *  The cloud provider is Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_MicrosoftAzure;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.cloudProvider
+
+/**
+ *  The cloud provider is Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_AmazonWebServices;
+/**
+ *  The cloud provider is unspecified.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_CloudProviderUnspecified;
+/**
+ *  The cloud provider is Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_GoogleCloudPlatform;
+/**
+ *  The cloud provider is Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.resourceValue
@@ -2181,6 +2293,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_Proxy;
 /**
+ *  T1059.006
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_Python;
+/**
  *  T1496
  *
  *  Value: "RESOURCE_HIJACKING"
@@ -2633,6 +2751,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_Proxy;
 /**
+ *  T1059.006
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_Python;
+/**
  *  T1496
  *
  *  Value: "RESOURCE_HIJACKING"
@@ -2756,6 +2880,126 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "SIGNATURE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ProcessSignature_SignatureType_SignatureTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource.cloudProvider
+
+/**
+ *  The cloud provider is Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_AmazonWebServices;
+/**
+ *  The cloud provider is unspecified.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_CloudProviderUnspecified;
+/**
+ *  The cloud provider is Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_GoogleCloudPlatform;
+/**
+ *  The cloud provider is Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_MicrosoftAzure;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode.nodeType
+
+/**
+ *  The node represents an AWS account.
+ *
+ *  Value: "AWS_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AwsAccount;
+/**
+ *  The node represents an AWS organization.
+ *
+ *  Value: "AWS_ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AwsOrganization;
+/**
+ *  The node represents an AWS organizational unit.
+ *
+ *  Value: "AWS_ORGANIZATIONAL_UNIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AwsOrganizationalUnit;
+/**
+ *  The node represents an Azure management group.
+ *
+ *  Value: "AZURE_MANAGEMENT_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AzureManagementGroup;
+/**
+ *  The node represents an Azure resource group.
+ *
+ *  Value: "AZURE_RESOURCE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AzureResourceGroup;
+/**
+ *  The node represents an Azure subscription.
+ *
+ *  Value: "AZURE_SUBSCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AzureSubscription;
+/**
+ *  The node represents a Google Cloud folder.
+ *
+ *  Value: "GCP_FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_GcpFolder;
+/**
+ *  The node represents a Google Cloud organization.
+ *
+ *  Value: "GCP_ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_GcpOrganization;
+/**
+ *  The node represents a Google Cloud project.
+ *
+ *  Value: "GCP_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_GcpProject;
+/**
+ *  Node type is unspecified.
+ *
+ *  Value: "RESOURCE_PATH_NODE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_ResourcePathNodeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig.cloudProvider
+
+/**
+ *  The cloud provider is Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_AmazonWebServices;
+/**
+ *  The cloud provider is unspecified.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_CloudProviderUnspecified;
+/**
+ *  The cloud provider is Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_GoogleCloudPlatform;
+/**
+ *  The cloud provider is Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig.resourceValue
@@ -3364,6 +3608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Proxy;
 /**
+ *  T1059.006
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Python;
+/**
  *  T1496
  *
  *  Value: "RESOURCE_HIJACKING"
@@ -3816,6 +4066,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Proxy;
 /**
+ *  T1059.006
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Python;
+/**
  *  T1496
  *
  *  Value: "RESOURCE_HIJACKING"
@@ -3923,6 +4179,98 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ProcessSignature_S
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ProcessSignature_SignatureType_SignatureTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Resource.cloudProvider
+
+/**
+ *  The cloud provider is Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Resource_CloudProvider_AmazonWebServices;
+/**
+ *  The cloud provider is unspecified.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Resource_CloudProvider_CloudProviderUnspecified;
+/**
+ *  The cloud provider is Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Resource_CloudProvider_GoogleCloudPlatform;
+/**
+ *  The cloud provider is Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Resource_CloudProvider_MicrosoftAzure;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_ResourcePathNode.nodeType
+
+/**
+ *  The node represents an AWS account.
+ *
+ *  Value: "AWS_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AwsAccount;
+/**
+ *  The node represents an AWS organization.
+ *
+ *  Value: "AWS_ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AwsOrganization;
+/**
+ *  The node represents an AWS organizational unit.
+ *
+ *  Value: "AWS_ORGANIZATIONAL_UNIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AwsOrganizationalUnit;
+/**
+ *  The node represents an Azure management group.
+ *
+ *  Value: "AZURE_MANAGEMENT_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AzureManagementGroup;
+/**
+ *  The node represents an Azure resource group.
+ *
+ *  Value: "AZURE_RESOURCE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AzureResourceGroup;
+/**
+ *  The node represents an Azure subscription.
+ *
+ *  Value: "AZURE_SUBSCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AzureSubscription;
+/**
+ *  The node represents a Google Cloud folder.
+ *
+ *  Value: "GCP_FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_GcpFolder;
+/**
+ *  The node represents a Google Cloud organization.
+ *
+ *  Value: "GCP_ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_GcpOrganization;
+/**
+ *  The node represents a Google Cloud project.
+ *
+ *  Value: "GCP_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_GcpProject;
+/**
+ *  Node type is unspecified.
+ *
+ *  Value: "RESOURCE_PATH_NODE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_ResourcePathNodeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Role.kind
 
 /**
@@ -3996,6 +4344,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Simulation.cloudProvider
+
+/**
+ *  The cloud provider is Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Simulation_CloudProvider_AmazonWebServices;
+/**
+ *  The cloud provider is unspecified.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Simulation_CloudProvider_CloudProviderUnspecified;
+/**
+ *  The cloud provider is Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Simulation_CloudProvider_GoogleCloudPlatform;
+/**
+ *  The cloud provider is Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Simulation_CloudProvider_MicrosoftAzure;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Subject.kind
 
 /**
@@ -4050,6 +4426,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  Value: "RESOURCE_VALUE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_ResourceValue_ResourceValueUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_VulnerabilitySnapshot.cloudProvider
+
+/**
+ *  The cloud provider is Amazon Web Services.
+ *
+ *  Value: "AMAZON_WEB_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_AmazonWebServices;
+/**
+ *  The cloud provider is unspecified.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_CloudProviderUnspecified;
+/**
+ *  The cloud provider is Google Cloud Platform.
+ *
+ *  Value: "GOOGLE_CLOUD_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_GoogleCloudPlatform;
+/**
+ *  The cloud provider is Microsoft Azure.
+ *
+ *  Value: "MICROSOFT_AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_MicrosoftAzure;
 
 /**
  *  Represents an access event.
@@ -4165,6 +4569,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** The API version of the resource. "*" means all. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Information about [Google Cloud Armor Adaptive
+ *  Protection](https://cloud.google.com/armor/docs/cloud-armor-overview#google-cloud-armor-adaptive-protection).
+ */
+@interface GTLRSecurityCommandCenter_AdaptiveProtection : GTLRObject
+
+/**
+ *  A score of 0 means that there is low confidence that the detected event is
+ *  an actual attack. A score of 1 means that there is high confidence that the
+ *  detected event is an attack. See the [Adaptive Protection
+ *  documentation](https://cloud.google.com/armor/docs/adaptive-protection-overview#configure-alert-tuning)
+ *  for further explanation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 @end
 
@@ -4292,6 +4716,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** The project ids to use for filtering asset discovery. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
+
+@end
+
+
+/**
+ *  Information about DDoS attack volume and classification.
+ */
+@interface GTLRSecurityCommandCenter_Attack : GTLRObject
+
+/** Type of attack, for example, 'SYN-flood', 'NTP-udp', or 'CHARGEN-udp'. */
+@property(nonatomic, copy, nullable) NSString *classification;
+
+/**
+ *  Total BPS (bytes per second) volume of attack.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumeBps;
+
+/**
+ *  Total PPS (packets per second) volume of attack.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumePps;
 
 @end
 
@@ -4549,6 +4998,88 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  An AWS account that is a member of an organization.
+ */
+@interface GTLRSecurityCommandCenter_AwsAccount : GTLRObject
+
+/**
+ *  The unique identifier (ID) of the account, containing exactly 12 digits.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The friendly name of this account. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  AWS metadata associated with the resource, only applicable if the finding's
+ *  cloud provider is Amazon Web Services.
+ */
+@interface GTLRSecurityCommandCenter_AwsMetadata : GTLRObject
+
+/** The AWS account associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AwsAccount *account;
+
+/** The AWS organization associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AwsOrganization *organization;
+
+/**
+ *  A list of AWS organizational units associated with the resource, ordered
+ *  from lowest level (closest to the account) to highest level.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AwsOrganizationalUnit *> *organizationalUnits;
+
+@end
+
+
+/**
+ *  An organization is a collection of accounts that are centrally managed
+ *  together using consolidated billing, organized hierarchically with
+ *  organizational units (OUs), and controlled with policies.
+ */
+@interface GTLRSecurityCommandCenter_AwsOrganization : GTLRObject
+
+/**
+ *  The unique identifier (ID) for the organization. The regex pattern for an
+ *  organization ID string requires "o-" followed by from 10 to 32 lowercase
+ *  letters or digits.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  An Organizational Unit (OU) is a container of AWS accounts within a root of
+ *  an organization. Policies that are attached to an OU apply to all accounts
+ *  contained in that OU and in any child OUs.
+ */
+@interface GTLRSecurityCommandCenter_AwsOrganizationalUnit : GTLRObject
+
+/**
+ *  The unique identifier (ID) associated with this OU. The regex pattern for an
+ *  organizational unit ID string requires "ou-" followed by from 4 to 32
+ *  lowercase letters or digits (the ID of the root that contains the OU). This
+ *  string is followed by a second "-" dash and from 8 to 32 additional
+ *  lowercase letters or digits. For example, "ou-ab12-cd34ef56".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The friendly name of the OU. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Information related to Google Cloud Backup and DR Service findings.
  */
 @interface GTLRSecurityCommandCenter_BackupDisasterRecovery : GTLRObject
@@ -4772,6 +5303,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Fields related to Google Cloud Armor findings.
+ */
+@interface GTLRSecurityCommandCenter_CloudArmor : GTLRObject
+
+/**
+ *  Information about potential Layer 7 DDoS attacks identified by [Google Cloud
+ *  Armor Adaptive
+ *  Protection](https://cloud.google.com/armor/docs/adaptive-protection-overview).
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AdaptiveProtection *adaptiveProtection;
+
+/** Information about DDoS attack volume and classification. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Attack *attack;
+
+/**
+ *  Duration of attack from the start until the current moment (updated every 5
+ *  minutes).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  Information about incoming requests evaluated by [Google Cloud Armor
+ *  security
+ *  policies](https://cloud.google.com/armor/docs/security-policy-overview).
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Requests *requests;
+
+/**
+ *  Information about the [Google Cloud Armor security
+ *  policy](https://cloud.google.com/armor/docs/security-policy-overview)
+ *  relevant to the finding.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityPolicy *securityPolicy;
+
+/**
+ *  Distinguish between volumetric & protocol DDoS attack and application layer
+ *  attacks. For example, "L3_4" for Layer 3 and Layer 4 DDoS attacks, or "L_7"
+ *  for Layer 7 DDoS attacks.
+ */
+@property(nonatomic, copy, nullable) NSString *threatVector;
+
+@end
+
+
+/**
  *  The [data profile](https://cloud.google.com/dlp/docs/data-profiles)
  *  associated with the finding.
  */
@@ -4895,6 +5471,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /** The category of Findings matching. */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/**
+ *  The cloud provider for the compliance snapshot.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_AmazonWebServices
+ *        The cloud provider is Amazon Web Services. (Value:
+ *        "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_CloudProviderUnspecified
+ *        The cloud provider is unspecified. (Value:
+ *        "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_GoogleCloudPlatform
+ *        The cloud provider is Google Cloud Platform. (Value:
+ *        "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_ComplianceSnapshot_CloudProvider_MicrosoftAzure
+ *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
+
 /** The compliance standard (ie CIS). */
 @property(nonatomic, copy, nullable) NSString *complianceStandard;
 
@@ -4913,12 +5507,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** The compliance snapshot name. Format: //sources//complianceSnapshots/ */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The CRM resource display name that is closest to the snapshot the Findings
- *  belong to.
- */
-@property(nonatomic, copy, nullable) NSString *projectDisplayName;
 
 /** The snapshot time of the snapshot. */
 @property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
@@ -5811,6 +6399,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/** Fields related to Cloud Armor findings. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudArmor *cloudArmor;
+
 /** Cloud DLP data profile that is associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_CloudDlpDataProfile *cloudDlpDataProfile;
 
@@ -5990,6 +6581,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** Steps to address the finding. */
 @property(nonatomic, copy, nullable) NSString *nextSteps;
+
+/** Notebook associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Notebook *notebook;
 
 /**
  *  Contains information about the org policies associated with the finding.
@@ -6176,6 +6770,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** The user defined display name for this folder. */
 @property(nonatomic, copy, nullable) NSString *resourceFolderDisplayName;
+
+@end
+
+
+/**
+ *  GCP metadata associated with the resource, only applicable if the finding's
+ *  cloud provider is Google Cloud Platform.
+ */
+@interface GTLRSecurityCommandCenter_GcpMetadata : GTLRObject
+
+/**
+ *  Output only. Contains a Folder message for each folder in the assets
+ *  ancestry. The first folder is the deepest nested folder, and the last folder
+ *  is the folder directly under the Organization.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Folder *> *folders;
+
+/** The name of the organization that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/** The full resource name of resource's parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The human readable name of resource's parent. */
+@property(nonatomic, copy, nullable) NSString *parentDisplayName;
+
+/** The full resource name of project that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The project ID that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectDisplayName;
 
 @end
 
@@ -6944,6 +7569,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource : GTLRObject
 
+/** The AWS metadata associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AwsMetadata *awsMetadata;
+
+/**
+ *  Indicates which cloud provider the resource resides in.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_AmazonWebServices
+ *        The cloud provider is Amazon Web Services. (Value:
+ *        "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_CloudProviderUnspecified
+ *        The cloud provider is unspecified. (Value:
+ *        "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_GoogleCloudPlatform
+ *        The cloud provider is Google Cloud Platform. (Value:
+ *        "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_MicrosoftAzure
+ *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
+
 /** The human readable name of the resource. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -6954,11 +7600,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Folder *> *folders;
 
+/** The region or location of the service (if applicable). */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /**
  *  The full resource name of the resource. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which organization or tenant in the cloud provider the finding
+ *  applies to.
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
 
 /** The full resource name of resource's parent. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -6971,6 +7626,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** The project ID that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectDisplayName;
+
+/** Provides the path to the resource within the resource hierarchy. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ResourcePath *resourcePath;
+
+/**
+ *  A string representation of the resource path. For Google Cloud, it has the
+ *  format of
+ *  organizations/{organization_id}/folders/{folder_id}/folders/{folder_id}/projects/{project_id}
+ *  where there can be any number of folders. For AWS, it has the format of
+ *  org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}
+ *  where there can be any number of organizational units. For Azure, it has the
+ *  format of
+ *  mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}
+ *  where there can be any number of management groups.
+ */
+@property(nonatomic, copy, nullable) NSString *resourcePathString;
+
+/**
+ *  The parent service or product from which the resource is provided, for
+ *  example, GKE or SNS.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
 
 /** The full resource type of the resource. */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -6994,6 +7671,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  to resource values. Used in Attack path simulations.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig : GTLRObject
+
+/**
+ *  Cloud provider this configuration applies to
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_AmazonWebServices
+ *        The cloud provider is Amazon Web Services. (Value:
+ *        "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_CloudProviderUnspecified
+ *        The cloud provider is unspecified. (Value:
+ *        "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_GoogleCloudPlatform
+ *        The cloud provider is Google Cloud Platform. (Value:
+ *        "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_MicrosoftAzure
+ *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
 
 /** Output only. Timestamp this resource value config was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -7345,6 +8040,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Information about [Google Cloud Armor Adaptive
+ *  Protection](https://cloud.google.com/armor/docs/cloud-armor-overview#google-cloud-armor-adaptive-protection).
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdaptiveProtection : GTLRObject
+
+/**
+ *  A score of 0 means that there is low confidence that the detected event is
+ *  an actual attack. A score of 1 means that there is high confidence that the
+ *  detected event is an attack. See the [Adaptive Protection
+ *  documentation](https://cloud.google.com/armor/docs/adaptive-protection-overview#configure-alert-tuning)
+ *  for further explanation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+@end
+
+
+/**
  *  Represents an application associated with a finding.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application : GTLRObject
@@ -7360,6 +8075,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  For example, `http://example.com?p=aMmYgI6H`.
  */
 @property(nonatomic, copy, nullable) NSString *fullUri;
+
+@end
+
+
+/**
+ *  Information about DDoS attack volume and classification.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack : GTLRObject
+
+/** Type of attack, for example, 'SYN-flood', 'NTP-udp', or 'CHARGEN-udp'. */
+@property(nonatomic, copy, nullable) NSString *classification;
+
+/**
+ *  Total BPS (bytes per second) volume of attack.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumeBps;
+
+/**
+ *  Total PPS (packets per second) volume of attack.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumePps;
 
 @end
 
@@ -7425,6 +8165,88 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *        The state is not specified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  An AWS account that is a member of an organization.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsAccount : GTLRObject
+
+/**
+ *  The unique identifier (ID) of the account, containing exactly 12 digits.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The friendly name of this account. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  AWS metadata associated with the resource, only applicable if the finding's
+ *  cloud provider is Amazon Web Services.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsMetadata : GTLRObject
+
+/** The AWS account associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsAccount *account;
+
+/** The AWS organization associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsOrganization *organization;
+
+/**
+ *  A list of AWS organizational units associated with the resource, ordered
+ *  from lowest level (closest to the account) to highest level.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsOrganizationalUnit *> *organizationalUnits;
+
+@end
+
+
+/**
+ *  An organization is a collection of accounts that are centrally managed
+ *  together using consolidated billing, organized hierarchically with
+ *  organizational units (OUs), and controlled with policies.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsOrganization : GTLRObject
+
+/**
+ *  The unique identifier (ID) for the organization. The regex pattern for an
+ *  organization ID string requires "o-" followed by from 10 to 32 lowercase
+ *  letters or digits.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  An Organizational Unit (OU) is a container of AWS accounts within a root of
+ *  an organization. Policies that are attached to an OU apply to all accounts
+ *  contained in that OU and in any child OUs.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsOrganizationalUnit : GTLRObject
+
+/**
+ *  The unique identifier (ID) associated with this OU. The regex pattern for an
+ *  organizational unit ID string requires "ou-" followed by from 4 to 32
+ *  lowercase letters or digits (the ID of the root that contains the OU). This
+ *  string is followed by a second "-" dash and from 8 to 32 additional
+ *  lowercase letters or digits. For example, "ou-ab12-cd34ef56".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The friendly name of the OU. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -7616,6 +8438,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  The response to a BulkMute request. Contains the LRO information.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2BulkMuteFindingsResponse : GTLRObject
+@end
+
+
+/**
+ *  Fields related to Google Cloud Armor findings.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor : GTLRObject
+
+/**
+ *  Information about potential Layer 7 DDoS attacks identified by [Google Cloud
+ *  Armor Adaptive
+ *  Protection](https://cloud.google.com/armor/docs/adaptive-protection-overview).
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdaptiveProtection *adaptiveProtection;
+
+/** Information about DDoS attack volume and classification. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack *attack;
+
+/**
+ *  Duration of attack from the start until the current moment (updated every 5
+ *  minutes).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  Information about incoming requests evaluated by [Google Cloud Armor
+ *  security
+ *  policies](https://cloud.google.com/armor/docs/security-policy-overview).
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Requests *requests;
+
+/**
+ *  Information about the [Google Cloud Armor security
+ *  policy](https://cloud.google.com/armor/docs/security-policy-overview)
+ *  relevant to the finding.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityPolicy *securityPolicy;
+
+/**
+ *  Distinguish between volumetric & protocol DDoS attack and application layer
+ *  attacks. For example, "L3_4" for Layer 3 and Layer 4 DDoS attacks, or "L_7"
+ *  for Layer 7 DDoS attacks.
+ */
+@property(nonatomic, copy, nullable) NSString *threatVector;
+
 @end
 
 
@@ -8418,6 +9285,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/** Fields related to Cloud Armor findings. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor *cloudArmor;
+
 /** Cloud DLP data profile that is associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudDlpDataProfile *cloudDlpDataProfile;
 
@@ -8607,6 +9477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /** Steps to address the finding. */
 @property(nonatomic, copy, nullable) NSString *nextSteps;
 
+/** Notebook associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Notebook *notebook;
+
 /**
  *  Contains information about the org policies associated with the finding.
  */
@@ -8781,6 +9654,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_SourceProperties : GTLRObject
+@end
+
+
+/**
+ *  Message that contains the resource name and display name of a folder
+ *  resource.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Folder : GTLRObject
+
+/**
+ *  Full resource name of this folder. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *resourceFolder;
+
+/** The user defined display name for this folder. */
+@property(nonatomic, copy, nullable) NSString *resourceFolderDisplayName;
+
 @end
 
 
@@ -9214,6 +10105,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Represents a Jupyter notebook IPYNB file, such as a [Colab Enterprise
+ *  notebook](https://cloud.google.com/colab/docs/introduction) file, that is
+ *  associated with a finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Notebook : GTLRObject
+
+/** The user ID of the latest author to modify the notebook. */
+@property(nonatomic, copy, nullable) NSString *lastAuthor;
+
+/** The name of the notebook. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The most recent time the notebook was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *notebookUpdateTime;
+
+/** The source notebook service, for example, "Colab Enterprise". */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
  *  Cloud SCC's Notification
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2NotificationMessage : GTLRObject
@@ -9455,12 +10368,77 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Information about the requests relevant to the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Requests : GTLRObject
+
+/**
+ *  Allowed RPS (requests per second) over the long term.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longTermAllowed;
+
+/**
+ *  Denied RPS (requests per second) over the long term.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longTermDenied;
+
+/**
+ *  For 'Increasing deny ratio', the ratio is the denied traffic divided by the
+ *  allowed traffic. For 'Allowed traffic spike', the ratio is the allowed
+ *  traffic in the short term divided by allowed traffic in the long term.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ratio;
+
+/**
+ *  Allowed RPS (requests per second) in the short term.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shortTermAllowed;
+
+@end
+
+
+/**
  *  Information related to the Google Cloud resource.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource : GTLRObject
 
+/** The AWS metadata associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsMetadata *awsMetadata;
+
+/**
+ *  Indicates which cloud provider the finding is from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_AmazonWebServices
+ *        The cloud provider is Amazon Web Services. (Value:
+ *        "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_CloudProviderUnspecified
+ *        The cloud provider is unspecified. (Value:
+ *        "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_GoogleCloudPlatform
+ *        The cloud provider is Google Cloud Platform. (Value:
+ *        "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_MicrosoftAzure
+ *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
+
 /** The human readable name of the resource. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The GCP metadata associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GcpMetadata *gcpMetadata;
+
+/** The region or location of the service (if applicable). */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The full resource name of the resource. See:
@@ -9468,8 +10446,94 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Provides the path to the resource within the resource hierarchy. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePath *resourcePath;
+
+/**
+ *  A string representation of the resource path. For Google Cloud, it has the
+ *  format of
+ *  organizations/{organization_id}/folders/{folder_id}/folders/{folder_id}/projects/{project_id}
+ *  where there can be any number of folders. For AWS, it has the format of
+ *  org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}
+ *  where there can be any number of organizational units. For Azure, it has the
+ *  format of
+ *  mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}
+ *  where there can be any number of management groups.
+ */
+@property(nonatomic, copy, nullable) NSString *resourcePathString;
+
+/** The service or resource provider associated with the resource. */
+@property(nonatomic, copy, nullable) NSString *service;
+
 /** The full resource type of the resource. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents the path of resources leading up to the resource this finding is
+ *  about.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePath : GTLRObject
+
+/**
+ *  The list of nodes that make the up resource path, ordered from lowest level
+ *  to highest level.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode *> *nodes;
+
+@end
+
+
+/**
+ *  A node within the resource path. Each node represents a resource within the
+ *  resource hierarchy.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode : GTLRObject
+
+/** The display name of the resource this node represents. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The ID of the resource this node represents.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The type of resource this node represents.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AwsAccount
+ *        The node represents an AWS account. (Value: "AWS_ACCOUNT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AwsOrganization
+ *        The node represents an AWS organization. (Value: "AWS_ORGANIZATION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AwsOrganizationalUnit
+ *        The node represents an AWS organizational unit. (Value:
+ *        "AWS_ORGANIZATIONAL_UNIT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AzureManagementGroup
+ *        The node represents an Azure management group. (Value:
+ *        "AZURE_MANAGEMENT_GROUP")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AzureResourceGroup
+ *        The node represents an Azure resource group. (Value:
+ *        "AZURE_RESOURCE_GROUP")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AzureSubscription
+ *        The node represents an Azure subscription. (Value:
+ *        "AZURE_SUBSCRIPTION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_GcpFolder
+ *        The node represents a Google Cloud folder. (Value: "GCP_FOLDER")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_GcpOrganization
+ *        The node represents a Google Cloud organization. (Value:
+ *        "GCP_ORGANIZATION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_GcpProject
+ *        The node represents a Google Cloud project. (Value: "GCP_PROJECT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_ResourcePathNodeTypeUnspecified
+ *        Node type is unspecified. (Value:
+ *        "RESOURCE_PATH_NODE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nodeType;
 
 @end
 
@@ -9479,6 +10543,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  to resource values. Used in Attack path simulations.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig : GTLRObject
+
+/**
+ *  Cloud provider this configuration applies to
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_AmazonWebServices
+ *        The cloud provider is Amazon Web Services. (Value:
+ *        "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_CloudProviderUnspecified
+ *        The cloud provider is unspecified. (Value:
+ *        "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_GoogleCloudPlatform
+ *        The cloud provider is Google Cloud Platform. (Value:
+ *        "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_CloudProvider_MicrosoftAzure
+ *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
 
 /** Output only. Timestamp this resource value config was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -9627,18 +10709,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /**
  *  The canonical name of the marks. The following list shows some examples: +
- *  `organizations/{organization_id}/assets/{asset_id}/securityMarks" +
- *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  `organizations/{organization_id}/assets/{asset_id}/securityMarks` +
+ *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks`
  *  +
- *  `organizations/{organization_id}/sources/{source_id}/locations/{location}/findings/{finding_id}/securityMarks"
- *  + `folders/{folder_id}/assets/{asset_id}/securityMarks" +
- *  `folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  `organizations/{organization_id}/sources/{source_id}/locations/{location}/findings/{finding_id}/securityMarks`
+ *  + `folders/{folder_id}/assets/{asset_id}/securityMarks` +
+ *  `folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks`
  *  +
- *  `folders/{folder_id}/sources/{source_id}/locations/{location}/findings/{finding_id}/securityMarks"
- *  + `projects/{project_number}/assets/{asset_id}/securityMarks" +
- *  `projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  `folders/{folder_id}/sources/{source_id}/locations/{location}/findings/{finding_id}/securityMarks`
+ *  + `projects/{project_number}/assets/{asset_id}/securityMarks` +
+ *  `projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks`
  *  +
- *  `projects/{project_number}/sources/{source_id}/locations/{location}/findings/{finding_id}/securityMarks"
+ *  `projects/{project_number}/sources/{source_id}/locations/{location}/findings/{finding_id}/securityMarks`
  */
 @property(nonatomic, copy, nullable) NSString *canonicalName;
 
@@ -9680,6 +10762,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *        fetch them all at once.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityMarks_Marks : GTLRObject
+@end
+
+
+/**
+ *  Information about the [Google Cloud Armor security
+ *  policy](https://cloud.google.com/armor/docs/security-policy-overview)
+ *  relevant to the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityPolicy : GTLRObject
+
+/**
+ *  The name of the Google Cloud Armor security policy, for example,
+ *  "my-security-policy".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Whether or not the associated rule or policy is in preview mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preview;
+
+/**
+ *  The type of Google Cloud Armor security policy for example, 'backend
+ *  security policy', 'edge security policy', 'network edge security policy', or
+ *  'always-on DDoS protection'.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -11088,6 +12200,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Represents a Jupyter notebook IPYNB file, such as a [Colab Enterprise
+ *  notebook](https://cloud.google.com/colab/docs/introduction) file, that is
+ *  associated with a finding.
+ */
+@interface GTLRSecurityCommandCenter_Notebook : GTLRObject
+
+/** The user ID of the latest author to modify the notebook. */
+@property(nonatomic, copy, nullable) NSString *lastAuthor;
+
+/** The name of the notebook. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The most recent time the notebook was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *notebookUpdateTime;
+
+/** The source notebook service, for example, "Colab Enterprise". */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
  *  Cloud Security Command Center (Cloud SCC) notification configs. A
  *  notification config is a Cloud SCC resource that contains the configuration
  *  to send notifications for create/update events of findings, assets and etc.
@@ -11594,10 +12728,69 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 
 /**
+ *  Information about the requests relevant to the finding.
+ */
+@interface GTLRSecurityCommandCenter_Requests : GTLRObject
+
+/**
+ *  Allowed RPS (requests per second) over the long term.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longTermAllowed;
+
+/**
+ *  Denied RPS (requests per second) over the long term.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longTermDenied;
+
+/**
+ *  For 'Increasing deny ratio', the ratio is the denied traffic divided by the
+ *  allowed traffic. For 'Allowed traffic spike', the ratio is the allowed
+ *  traffic in the short term divided by allowed traffic in the long term.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ratio;
+
+/**
+ *  Allowed RPS (requests per second) in the short term.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shortTermAllowed;
+
+@end
+
+
+/**
  *  Information related to the Google Cloud resource that is associated with
  *  this finding.
  */
 @interface GTLRSecurityCommandCenter_Resource : GTLRObject
+
+/** The AWS metadata associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AwsMetadata *awsMetadata;
+
+/**
+ *  Indicates which cloud provider the finding is from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Resource_CloudProvider_AmazonWebServices
+ *        The cloud provider is Amazon Web Services. (Value:
+ *        "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_Resource_CloudProvider_CloudProviderUnspecified
+ *        The cloud provider is unspecified. (Value:
+ *        "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Resource_CloudProvider_GoogleCloudPlatform
+ *        The cloud provider is Google Cloud Platform. (Value:
+ *        "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_Resource_CloudProvider_MicrosoftAzure
+ *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
 
 /** The human readable name of the resource. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -11609,11 +12802,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Folder *> *folders;
 
+/** The region or location of the service (if applicable). */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /**
  *  The full resource name of the resource. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Indicates which organization / tenant the finding is for. */
+@property(nonatomic, copy, nullable) NSString *organization;
 
 /** The human readable name of resource's parent. */
 @property(nonatomic, copy, nullable) NSString *parentDisplayName;
@@ -11627,8 +12826,94 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 /** The full resource name of project that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
+/** Provides the path to the resource within the resource hierarchy. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ResourcePath *resourcePath;
+
+/**
+ *  A string representation of the resource path. For Google Cloud, it has the
+ *  format of
+ *  org/{organization_id}/folder/{folder_id}/folder/{folder_id}/project/{project_id}
+ *  where there can be any number of folders. For AWS, it has the format of
+ *  org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}
+ *  where there can be any number of organizational units. For Azure, it has the
+ *  format of
+ *  mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}
+ *  where there can be any number of management groups.
+ */
+@property(nonatomic, copy, nullable) NSString *resourcePathString;
+
+/** The service or resource provider associated with the resource. */
+@property(nonatomic, copy, nullable) NSString *service;
+
 /** The full resource type of the resource. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents the path of resources leading up to the resource this finding is
+ *  about.
+ */
+@interface GTLRSecurityCommandCenter_ResourcePath : GTLRObject
+
+/**
+ *  The list of nodes that make the up resource path, ordered from lowest level
+ *  to highest level.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ResourcePathNode *> *nodes;
+
+@end
+
+
+/**
+ *  A node within the resource path. Each node represents a resource within the
+ *  resource hierarchy.
+ */
+@interface GTLRSecurityCommandCenter_ResourcePathNode : GTLRObject
+
+/** The display name of the resource this node represents. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The ID of the resource this node represents.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The type of resource this node represents.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AwsAccount
+ *        The node represents an AWS account. (Value: "AWS_ACCOUNT")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AwsOrganization
+ *        The node represents an AWS organization. (Value: "AWS_ORGANIZATION")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AwsOrganizationalUnit
+ *        The node represents an AWS organizational unit. (Value:
+ *        "AWS_ORGANIZATIONAL_UNIT")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AzureManagementGroup
+ *        The node represents an Azure management group. (Value:
+ *        "AZURE_MANAGEMENT_GROUP")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AzureResourceGroup
+ *        The node represents an Azure resource group. (Value:
+ *        "AZURE_RESOURCE_GROUP")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_AzureSubscription
+ *        The node represents an Azure subscription. (Value:
+ *        "AZURE_SUBSCRIPTION")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_GcpFolder The
+ *        node represents a Google Cloud folder. (Value: "GCP_FOLDER")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_GcpOrganization
+ *        The node represents a Google Cloud organization. (Value:
+ *        "GCP_ORGANIZATION")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_GcpProject
+ *        The node represents a Google Cloud project. (Value: "GCP_PROJECT")
+ *    @arg @c kGTLRSecurityCommandCenter_ResourcePathNode_NodeType_ResourcePathNodeTypeUnspecified
+ *        Node type is unspecified. (Value:
+ *        "RESOURCE_PATH_NODE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nodeType;
 
 @end
 
@@ -11807,6 +13092,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *        fetch them all at once.
  */
 @interface GTLRSecurityCommandCenter_SecurityMarks_Marks : GTLRObject
+@end
+
+
+/**
+ *  Information about the [Google Cloud Armor security
+ *  policy](https://cloud.google.com/armor/docs/security-policy-overview)
+ *  relevant to the finding.
+ */
+@interface GTLRSecurityCommandCenter_SecurityPolicy : GTLRObject
+
+/**
+ *  The name of the Google Cloud Armor security policy, for example,
+ *  "my-security-policy".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Whether or not the associated rule or policy is in preview mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preview;
+
+/**
+ *  The type of Google Cloud Armor security policy for example, 'backend
+ *  security policy', 'edge security policy', 'network edge security policy', or
+ *  'always-on DDoS protection'.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -12041,6 +13356,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
  *  Attack path simulation
  */
 @interface GTLRSecurityCommandCenter_Simulation : GTLRObject
+
+/**
+ *  Indicates which cloud provider was used in this simulation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Simulation_CloudProvider_AmazonWebServices
+ *        The cloud provider is Amazon Web Services. (Value:
+ *        "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_Simulation_CloudProvider_CloudProviderUnspecified
+ *        The cloud provider is unspecified. (Value:
+ *        "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Simulation_CloudProvider_GoogleCloudPlatform
+ *        The cloud provider is Google Cloud Platform. (Value:
+ *        "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_Simulation_CloudProvider_MicrosoftAzure
+ *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
 
 /** Output only. Time simulation was created */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -12377,6 +13710,68 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ValuedResource_Res
 
 /** The security bulletin is relevant to this finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityBulletin *securityBulletin;
+
+@end
+
+
+/**
+ *  Vulnerability count by severity.
+ */
+@interface GTLRSecurityCommandCenter_VulnerabilityCountBySeverity : GTLRObject
+
+/** Key is the Severity enum. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_VulnerabilityCountBySeverity_SeverityToFindingCount *severityToFindingCount;
+
+@end
+
+
+/**
+ *  Key is the Severity enum.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_VulnerabilityCountBySeverity_SeverityToFindingCount : GTLRObject
+@end
+
+
+/**
+ *  Result containing the properties and count of a VulnerabilitySnapshot
+ *  request.
+ */
+@interface GTLRSecurityCommandCenter_VulnerabilitySnapshot : GTLRObject
+
+/**
+ *  The cloud provider for the vulnerability snapshot.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_AmazonWebServices
+ *        The cloud provider is Amazon Web Services. (Value:
+ *        "AMAZON_WEB_SERVICES")
+ *    @arg @c kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_CloudProviderUnspecified
+ *        The cloud provider is unspecified. (Value:
+ *        "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_GoogleCloudPlatform
+ *        The cloud provider is Google Cloud Platform. (Value:
+ *        "GOOGLE_CLOUD_PLATFORM")
+ *    @arg @c kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_MicrosoftAzure
+ *        The cloud provider is Microsoft Azure. (Value: "MICROSOFT_AZURE")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
+
+/** The vulnerability count by severity. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_VulnerabilityCountBySeverity *findingCount;
+
+/**
+ *  Identifier. The vulnerability snapshot name. Format:
+ *  //locations//vulnerabilitySnapshots/
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time that the snapshot was taken. */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
 @end
 

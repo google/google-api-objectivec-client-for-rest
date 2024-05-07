@@ -70,11 +70,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Firebase App Check is not enforced for the service, nor are App Check
  *  metrics collected. Though the service is not protected by App Check in this
  *  mode, other applicable protections, such as user authorization, are still
- *  enforced. An unconfigured service is in this mode by default. Note that
- *  resource policies behave slightly differently as an unconfigured resource
- *  policy means that the resource will inherit the EnforcementMode configured
- *  for the service it belongs to and will not be considered as being in OFF
- *  mode by default.
+ *  enforced. An unconfigured service is in this mode by default.
  *
  *  Value: "OFF"
  */
@@ -278,6 +274,9 @@ GTLR_DEPRECATED
  *  response.
  */
 @property(nonatomic, copy, nullable) NSString *token;
+
+/** Output only. Timestamp when this debug token was most recently updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -956,10 +955,7 @@ GTLR_DEPRECATED
  *        metrics collected. Though the service is not protected by App Check in
  *        this mode, other applicable protections, such as user authorization,
  *        are still enforced. An unconfigured service is in this mode by
- *        default. Note that resource policies behave slightly differently as an
- *        unconfigured resource policy means that the resource will inherit the
- *        EnforcementMode configured for the service it belongs to and will not
- *        be considered as being in OFF mode by default. (Value: "OFF")
+ *        default. (Value: "OFF")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Unenforced
  *        Firebase App Check is not enforced for the service. App Check metrics
  *        are collected to help you decide when to turn on enforcement for the

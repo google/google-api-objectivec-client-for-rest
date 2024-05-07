@@ -11674,6 +11674,42 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Compute RAV2 security scores for a set of resources.
+ *
+ *  Method: apigee.organizations.securityAssessmentResults.batchCompute
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityAssessmentResultsBatchCompute : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the organization for which the score needs to be computed
+ *  in the following format: `organizations/{org}/securityAssessmentResults`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsResponse.
+ *
+ *  Compute RAV2 security scores for a set of resources.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequest
+ *    to include in the query.
+ *  @param name Required. Name of the organization for which the score needs to
+ *    be computed in the following format:
+ *    `organizations/{org}/securityAssessmentResults`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityAssessmentResultsBatchCompute
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  CreateSecurityProfile create a new custom security profile.
  *
  *  Method: apigee.organizations.securityProfiles.create

@@ -52,6 +52,7 @@ NSString * const kGTLRCloudBuild_ParamValue_Type_TypeUnspecified = @"TYPE_UNSPEC
 
 // GTLRCloudBuild_PipelineRef.resolver
 NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Bundles  = @"BUNDLES";
+NSString * const kGTLRCloudBuild_PipelineRef_Resolver_DeveloperConnect = @"DEVELOPER_CONNECT";
 NSString * const kGTLRCloudBuild_PipelineRef_Resolver_GcbRepo  = @"GCB_REPO";
 NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Git      = @"GIT";
 NSString * const kGTLRCloudBuild_PipelineRef_Resolver_ResolverNameUnspecified = @"RESOLVER_NAME_UNSPECIFIED";
@@ -97,8 +98,16 @@ NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Privileged = @"PRIVILEGE
 NSString * const kGTLRCloudBuild_Security_PrivilegeMode_PrivilegeModeUnspecified = @"PRIVILEGE_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged = @"UNPRIVILEGED";
 
+// GTLRCloudBuild_StepRef.resolver
+NSString * const kGTLRCloudBuild_StepRef_Resolver_Bundles      = @"BUNDLES";
+NSString * const kGTLRCloudBuild_StepRef_Resolver_DeveloperConnect = @"DEVELOPER_CONNECT";
+NSString * const kGTLRCloudBuild_StepRef_Resolver_GcbRepo      = @"GCB_REPO";
+NSString * const kGTLRCloudBuild_StepRef_Resolver_Git          = @"GIT";
+NSString * const kGTLRCloudBuild_StepRef_Resolver_ResolverNameUnspecified = @"RESOLVER_NAME_UNSPECIFIED";
+
 // GTLRCloudBuild_TaskRef.resolver
 NSString * const kGTLRCloudBuild_TaskRef_Resolver_Bundles      = @"BUNDLES";
+NSString * const kGTLRCloudBuild_TaskRef_Resolver_DeveloperConnect = @"DEVELOPER_CONNECT";
 NSString * const kGTLRCloudBuild_TaskRef_Resolver_GcbRepo      = @"GCB_REPO";
 NSString * const kGTLRCloudBuild_TaskRef_Resolver_Git          = @"GIT";
 NSString * const kGTLRCloudBuild_TaskRef_Resolver_ResolverNameUnspecified = @"RESOLVER_NAME_UNSPECIFIED";
@@ -1202,15 +1211,34 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_Step
-@dynamic args, command, env, image, name, script, securityContext, timeout,
-         volumeMounts, workingDir;
+@dynamic args, command, env, image, name, params, ref, script, securityContext,
+         timeout, volumeMounts, workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"args" : [NSString class],
     @"command" : [NSString class],
     @"env" : [GTLRCloudBuild_EnvVar class],
+    @"params" : [GTLRCloudBuild_Param class],
     @"volumeMounts" : [GTLRCloudBuild_VolumeMount class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_StepRef
+//
+
+@implementation GTLRCloudBuild_StepRef
+@dynamic name, params, resolver;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"params" : [GTLRCloudBuild_Param class]
   };
   return map;
 }
@@ -1261,7 +1289,7 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_TaskResult
-@dynamic descriptionProperty, name, properties, type;
+@dynamic descriptionProperty, name, properties, type, value;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

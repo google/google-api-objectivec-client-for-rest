@@ -153,6 +153,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignEd25519;
+/**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
  *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
@@ -751,6 +757,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 @property(nonatomic, strong, nullable) NSNumber *preferredRequestExpirationDays;
 
+/**
+ *  Optional. A setting to require approval request justifications to be
+ *  customer visible.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireCustomerVisibleJustification;
+
 @end
 
 
@@ -785,6 +799,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *        "AES_256_GCM")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:

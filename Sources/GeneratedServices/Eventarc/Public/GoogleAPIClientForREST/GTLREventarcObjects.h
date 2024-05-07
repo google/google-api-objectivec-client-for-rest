@@ -483,6 +483,14 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
+ *  Output only. Whether or not this Channel satisfies the requirements of
+ *  physical zone separation
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The state of a Channel.
  *
  *  Likely values:
@@ -1667,6 +1675,14 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  `projects/{project}/locations/{location}/triggers/{trigger}` format.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether or not this Trigger satisfies the requirements of
+ *  physical zone separation
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Optional. The IAM service account email associated with the trigger. The

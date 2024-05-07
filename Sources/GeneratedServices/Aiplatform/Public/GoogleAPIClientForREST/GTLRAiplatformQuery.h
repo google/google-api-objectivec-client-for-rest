@@ -4192,7 +4192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Required. The resource name of the Location to create FeatureGroups. Format:
- *  `projects/{project}/locations/{location}'`
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4204,7 +4204,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup to
  *    include in the query.
  *  @param parent Required. The resource name of the Location to create
- *    FeatureGroups. Format: `projects/{project}/locations/{location}'`
+ *    FeatureGroups. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsCreate
  */

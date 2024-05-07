@@ -2679,6 +2679,22 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
 
 
 /**
+ *  Recall token data returned from for the
+ *  RetrieveDeveloperGamesLastPlayerToken RPC
+ */
+@interface GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse : GTLRObject
+
+/**
+ *  The recall token associated with the requested PGS Player principal. It can
+ *  be unset if there is no recall token associated with the requested
+ *  principal.
+ */
+@property(nonatomic, strong, nullable) GTLRGames_RecallToken *token;
+
+@end
+
+
+/**
  *  Response for the RetrievePlayerTokens RPC
  */
 @interface GTLRGames_RetrievePlayerTokensResponse : GTLRObject

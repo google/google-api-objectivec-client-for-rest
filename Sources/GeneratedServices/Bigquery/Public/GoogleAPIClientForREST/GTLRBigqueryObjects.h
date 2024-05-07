@@ -84,6 +84,7 @@
 @class GTLRBigquery_ExternalDatasetReference;
 @class GTLRBigquery_ExternalServiceCost;
 @class GTLRBigquery_FeatureValue;
+@class GTLRBigquery_ForeignTypeInfo;
 @class GTLRBigquery_GetPolicyOptions;
 @class GTLRBigquery_GlobalExplanation;
 @class GTLRBigquery_GoogleSheetsOptions;
@@ -165,6 +166,7 @@
 @class GTLRBigquery_RemoteFunctionOptions;
 @class GTLRBigquery_RemoteFunctionOptions_UserDefinedContext;
 @class GTLRBigquery_RemoteModelInfo;
+@class GTLRBigquery_RestrictionConfig;
 @class GTLRBigquery_Routine;
 @class GTLRBigquery_RoutineReference;
 @class GTLRBigquery_Row;
@@ -851,6 +853,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_Objec
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ExternalDataConfiguration_ObjectMetadata_Simple;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_ForeignTypeInfo.typeSystem
+
+/**
+ *  Represents Hive data types.
+ *
+ *  Value: "HIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ForeignTypeInfo_TypeSystem_Hive;
+/**
+ *  TypeSystem not specified.
+ *
+ *  Value: "TYPE_SYSTEM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ForeignTypeInfo_TypeSystem_TypeSystemUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_HparamTuningTrial.status
 
 /**
@@ -1272,7 +1290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_MaterializedView_RejectedReason_BaseTablePartitionExpirationChange;
 /**
  *  One of the view's base tables is too stale. For example, the cached metadata
- *  of a biglake table needs to be updated.
+ *  of a BigLake external table needs to be updated.
  *
  *  Value: "BASE_TABLE_TOO_STALE"
  */
@@ -1458,6 +1476,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Tensorfl
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_TensorflowLite;
 /**
+ *  Model to capture the manual preprocessing logic in the transform clause.
+ *
+ *  Value: "TRANSFORM_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_TransformOnly;
+/**
  *  An imported XGBoost model.
  *
  *  Value: "XGBOOST"
@@ -1629,11 +1653,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Tensorflow;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_TensorflowLite;
 /**
+ *  Model to capture the manual preprocessing logic in the transform clause.
+ *
+ *  Value: "TRANSFORM_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_TransformOnly;
+/**
  *  An imported XGBoost model.
  *
  *  Value: "XGBOOST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Xgboost;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ParquetOptions.mapTargetType
+
+/**
+ *  In this mode, we omit parquet's key_value struct and represent the map as:
+ *  repeated struct map_field_name { key value }
+ *
+ *  Value: "ARRAY_OF_STRUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ParquetOptions_MapTargetType_ArrayOfStruct;
+/**
+ *  In this mode, we fall back to the default. Currently (3/24) we represent the
+ *  map as: struct map_field_name { repeated struct key_value { key value } }
+ *
+ *  Value: "MAP_TARGET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ParquetOptions_MapTargetType_MapTargetTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_QueryRequest.jobCreationMode
@@ -1698,6 +1746,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceTy
  *  Value: "REMOTE_SERVICE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_RemoteServiceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_RestrictionConfig.type
+
+/**
+ *  Restrict data egress. See [Data
+ *  egress](/bigquery/docs/analytics-hub-introduction#data_egress) for more
+ *  details.
+ *
+ *  Value: "RESTRICTED_DATA_EGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RestrictionConfig_Type_RestrictedDataEgress;
+/**
+ *  Should never be used.
+ *
+ *  Value: "RESTRICTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RestrictionConfig_Type_RestrictionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Routine.dataGovernanceType
@@ -4921,8 +4987,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
 /**
- *  [Optional] A custom string that will represent a NULL value in CSV import
- *  data.
+ *  Optional. Specifies a string that represents a null value in a CSV file. For
+ *  example, if you specify "\\N", BigQuery interprets "\\N" as a null value
+ *  when querying a CSV file. The default value is the empty string. If you set
+ *  this property to a custom value, BigQuery throws an error if an empty string
+ *  is present for all data types except for STRING and BYTE. For STRING and
+ *  BYTE columns, BigQuery interprets the empty string as an empty value.
  */
 @property(nonatomic, copy, nullable) NSString *nullMarker;
 
@@ -5197,6 +5267,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *maxTimeTravelHours;
 
 /**
+ *  Optional. Output only. Restriction config for all tables and dataset. If
+ *  set, restrict certain accesses on the dataset and all its tables based on
+ *  the config. See [Data
+ *  egress](/bigquery/docs/analytics-hub-introduction#data_egress) for more
+ *  details.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RestrictionConfig *restrictions;
+
+/**
  *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
@@ -5236,8 +5315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Output only. Same as `type` in `ListFormatDataset`. The type of the dataset,
  *  one of: * DEFAULT - only accessible by owner and authorized accounts, *
  *  PUBLIC - accessible by everyone, * LINKED - linked dataset, * EXTERNAL -
- *  dataset with definition in external metadata catalog. -- *BIGLAKE_METASTORE
- *  - dataset that references a database created in BigLakeMetastore service. --
+ *  dataset with definition in external metadata catalog.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5591,6 +5669,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *deltaBudget;
 
 /**
+ *  Output only. The delta budget remaining. If budget is exhausted, no more
+ *  queries are allowed. Note that the budget for queries that are in progress
+ *  is deducted before the query executes. If the query fails or is cancelled
+ *  then the budget is refunded. In this case the amount of budget remaining can
+ *  increase.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deltaBudgetRemaining;
+
+/**
  *  Optional. The delta value that is used per query. Delta represents the
  *  probability that any row will fail to be epsilon differentially private.
  *  Indicates the risk associated with exposing aggregate rows in the result of
@@ -5616,6 +5705,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *epsilonBudget;
+
+/**
+ *  Output only. The epsilon budget remaining. If budget is exhausted, no more
+ *  queries are allowed. Note that the budget for queries that are in progress
+ *  is deducted before the query executes. If the query fails or is cancelled
+ *  then the budget is refunded. In this case the amount of budget remaining can
+ *  increase.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *epsilonBudgetRemaining;
 
 /**
  *  Optional. The maximum epsilon value that a query can consume. If the
@@ -6555,6 +6655,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numericalValue;
+
+@end
+
+
+/**
+ *  Metadata about the foreign data type definition such as the system in which
+ *  the type is defined.
+ */
+@interface GTLRBigquery_ForeignTypeInfo : GTLRObject
+
+/**
+ *  Required. Specifies the system which defines the foreign data type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ForeignTypeInfo_TypeSystem_Hive Represents Hive data
+ *        types. (Value: "HIVE")
+ *    @arg @c kGTLRBigquery_ForeignTypeInfo_TypeSystem_TypeSystemUnspecified
+ *        TypeSystem not specified. (Value: "TYPE_SYSTEM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *typeSystem;
 
 @end
 
@@ -7534,14 +7654,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
- *  Optional. [Experimental] Configures the load job to only copy files to the
- *  destination BigLake managed table with an external storage_uri, without
- *  reading file content and writing them to new files. Copying files only is
- *  supported when: * source_uris are in the same external storage system as the
- *  destination table but they do not overlap with storage_uri of the
- *  destination table. * source_format is the same file format as the
- *  destination table. * destination_table is an existing BigLake managed table.
- *  Its schema does not have default value expression. It schema does not have
+ *  Optional. [Experimental] Configures the load job to copy files directly to
+ *  the destination BigLake managed table, bypassing file content reading and
+ *  rewriting. Copying files only is supported when all the following are true:
+ *  * `source_uris` are located in the same Cloud Storage location as the
+ *  destination table's `storage_uri` location. * `source_format` is `PARQUET`.
+ *  * `destination_table` is an existing BigLake managed table. The table's
+ *  schema does not have flexible column names. The table's columns do not have
  *  type parameters other than precision and scale. * No options other than the
  *  above are specified.
  *
@@ -8460,7 +8579,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_JobStatistics_ReservationUsage_Item : GTLRObject
 
-/** Reservation name or "unreserved" for on-demand resources usage. */
+/**
+ *  Reservation name or "unreserved" for on-demand resource usage and
+ *  multi-statement queries.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -8810,7 +8932,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_JobStatistics2_ReservationUsage_Item : GTLRObject
 
-/** Reservation name or "unreserved" for on-demand resources usage. */
+/**
+ *  Reservation name or "unreserved" for on-demand resource usage and
+ *  multi-statement queries.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -9257,7 +9382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        changed. (Value: "BASE_TABLE_PARTITION_EXPIRATION_CHANGE")
  *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableTooStale
  *        One of the view's base tables is too stale. For example, the cached
- *        metadata of a biglake table needs to be updated. (Value:
+ *        metadata of a BigLake external table needs to be updated. (Value:
  *        "BASE_TABLE_TOO_STALE")
  *    @arg @c kGTLRBigquery_MaterializedView_RejectedReason_BaseTableTruncated
  *        View has no cached data because a base table is truncated. (Value:
@@ -9291,8 +9416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_MaterializedViewDefinition : GTLRObject
 
 /**
- *  Optional. This option declares authors intention to construct a materialized
- *  view that will not be refreshed incrementally.
+ *  Optional. This option declares the intention to construct a materialized
+ *  view that isn't refreshed incrementally.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9463,6 +9588,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        TensorFlow model. (Value: "TENSORFLOW")
  *    @arg @c kGTLRBigquery_MlStatistics_ModelType_TensorflowLite An imported
  *        TensorFlow Lite model. (Value: "TENSORFLOW_LITE")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_TransformOnly Model to
+ *        capture the manual preprocessing logic in the transform clause.
+ *        (Value: "TRANSFORM_ONLY")
  *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Xgboost An imported XGBoost
  *        model. (Value: "XGBOOST")
  */
@@ -9650,6 +9778,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        model. (Value: "TENSORFLOW")
  *    @arg @c kGTLRBigquery_Model_ModelType_TensorflowLite An imported
  *        TensorFlow Lite model. (Value: "TENSORFLOW_LITE")
+ *    @arg @c kGTLRBigquery_Model_ModelType_TransformOnly Model to capture the
+ *        manual preprocessing logic in the transform clause. (Value:
+ *        "TRANSFORM_ONLY")
  *    @arg @c kGTLRBigquery_Model_ModelType_Xgboost An imported XGBoost model.
  *        (Value: "XGBOOST")
  */
@@ -9821,6 +9952,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enumAsString;
+
+/**
+ *  Optional. Will indicate how to represent a parquet map if present.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ParquetOptions_MapTargetType_ArrayOfStruct In this
+ *        mode, we omit parquet's key_value struct and represent the map as:
+ *        repeated struct map_field_name { key value } (Value:
+ *        "ARRAY_OF_STRUCT")
+ *    @arg @c kGTLRBigquery_ParquetOptions_MapTargetType_MapTargetTypeUnspecified
+ *        In this mode, we fall back to the default. Currently (3/24) we
+ *        represent the map as: struct map_field_name { repeated struct
+ *        key_value { key value } } (Value: "MAP_TARGET_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mapTargetType;
 
 @end
 
@@ -10900,6 +11046,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  [recognizers](https://cloud.google.com/speech-to-text/v2/docs/reference/rest/v2/projects.locations.recognizers)
  */
 @property(nonatomic, copy, nullable) NSString *speechRecognizer;
+
+@end
+
+
+/**
+ *  GTLRBigquery_RestrictionConfig
+ */
+@interface GTLRBigquery_RestrictionConfig : GTLRObject
+
+/**
+ *  Output only. Specifies the type of dataset/table restriction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_RestrictionConfig_Type_RestrictedDataEgress Restrict
+ *        data egress. See [Data
+ *        egress](/bigquery/docs/analytics-hub-introduction#data_egress) for
+ *        more details. (Value: "RESTRICTED_DATA_EGRESS")
+ *    @arg @c kGTLRBigquery_RestrictionConfig_Type_RestrictionTypeUnspecified
+ *        Should never be used. (Value: "RESTRICTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -12209,6 +12376,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Table_ResourceTags *resourceTags;
 
+/**
+ *  Optional. Output only. Restriction config for table. If set, restrict
+ *  certain accesses on the table based on the config. See [Data
+ *  egress](/bigquery/docs/analytics-hub-introduction#data_egress) for more
+ *  details.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RestrictionConfig *restrictions;
+
 /** Optional. Describes the schema of this table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
@@ -12551,6 +12726,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  RECORD.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableFieldSchema *> *fields;
+
+/**
+ *  Optional. Definition of the foreign data type. Only valid for top-level
+ *  schema fields (not nested fields). If the type is FOREIGN, this field is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *foreignTypeDefinition;
 
 /**
  *  Optional. Maximum length of values of this field for STRINGS or BYTES. If
@@ -12913,8 +13095,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_ErrorProto *replicationError;
 
 /**
- *  Required. Specifies the interval at which the source table is polled for
- *  updates.
+ *  Optional. Specifies the interval at which the source table is polled for
+ *  updates. It's Optional. If not specified, default replication interval would
+ *  be applied.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -12964,6 +13147,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /** Describes the fields in a table. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableFieldSchema *> *fields;
+
+/**
+ *  Optional. Specifies metadata of the foreign data type definition in field
+ *  schema (TableFieldSchema.foreign_type_definition).
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ForeignTypeInfo *foreignTypeInfo;
 
 @end
 

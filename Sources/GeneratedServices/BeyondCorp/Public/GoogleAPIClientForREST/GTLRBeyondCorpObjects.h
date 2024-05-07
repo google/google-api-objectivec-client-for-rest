@@ -374,6 +374,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The current state of the AppGateway.
  *
  *  Likely values:
@@ -675,6 +689,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *  when creating a AppConnection.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The current state of the AppConnection.

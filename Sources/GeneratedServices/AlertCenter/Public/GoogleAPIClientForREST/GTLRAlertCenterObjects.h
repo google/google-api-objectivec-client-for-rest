@@ -348,6 +348,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionTyp
 // GTLRAlertCenter_RuleViolationInfo.dataSource
 
 /**
+ *  Chat data source.
+ *
+ *  Value: "CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Chat;
+/**
+ *  Chrome data source.
+ *
+ *  Value: "CHROME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Chrome;
+/**
  *  Data source is unspecified.
  *
  *  Value: "DATA_SOURCE_UNSPECIFIED"
@@ -359,6 +371,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource
  *  Value: "DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_RuleViolationInfo.eventType
+
+/**
+ *  An access attempt was blocked.
+ *
+ *  Value: "ACCESS_BLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_EventType_AccessBlocked;
+/**
+ *  Event type wasn't set.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_EventType_EventTypeUnspecified;
+/**
+ *  A sharing attempt was blocked.
+ *
+ *  Value: "SHARING_BLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_EventType_SharingBlocked;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.suppressedActionTypes
@@ -376,17 +410,107 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert;
 /**
+ *  Chat actions. Block Chat content to be sent out.
+ *
+ *  Value: "CHAT_BLOCK_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChatBlockContent;
+/**
+ *  Warn end user about Chat content.
+ *
+ *  Value: "CHAT_WARN_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChatWarnUser;
+/**
+ *  Chrome actions. Block file download.
+ *
+ *  Value: "CHROME_BLOCK_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileDownload;
+/**
+ *  Block file upload.
+ *
+ *  Value: "CHROME_BLOCK_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileUpload;
+/**
+ *  Block page print.
+ *
+ *  Value: "CHROME_BLOCK_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockPagePrint;
+/**
+ *  Block Chrome URL visit.
+ *
+ *  Value: "CHROME_BLOCK_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockUrlVisited;
+/**
+ *  Block web content upload.
+ *
+ *  Value: "CHROME_BLOCK_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockWebContentUpload;
+/**
+ *  Store the content that violated the rule.
+ *
+ *  Value: "CHROME_STORE_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeStoreContent;
+/**
+ *  Warn user about downloaded file.
+ *
+ *  Value: "CHROME_WARN_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileDownload;
+/**
+ *  Warn user about uploaded file.
+ *
+ *  Value: "CHROME_WARN_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileUpload;
+/**
+ *  Warn user about printed page.
+ *
+ *  Value: "CHROME_WARN_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnPagePrint;
+/**
+ *  Warn user about Chrome URL visited.
+ *
+ *  Value: "CHROME_WARN_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnUrlVisited;
+/**
+ *  Warn user about uploaded web content.
+ *
+ *  Value: "CHROME_WARN_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnWebContentUpload;
+/**
  *  Delete web protect evidence file
  *
  *  Value: "DELETE_WEBPROTECT_EVIDENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DeleteWebprotectEvidence;
 /**
+ *  Apply customer specified Drive labels to the file.
+ *
+ *  Value: "DRIVE_APPLY_DRIVE_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveApplyDriveLabels;
+/**
  *  Block sharing a file externally.
  *
  *  Value: "DRIVE_BLOCK_EXTERNAL_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing;
+/**
+ *  Disable download, print, and copy for commenters and viewers in drive.
+ *
+ *  Value: "DRIVE_RESTRICT_DOWNLOAD_PRINT_COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveRestrictDownloadPrintCopy;
 /**
  *  Show a warning message when sharing a file externally.
  *
@@ -409,6 +533,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.trigger
 
+/**
+ *  A Chat attachment is uploaded.
+ *
+ *  Value: "CHAT_ATTACHMENT_UPLOADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatAttachmentUploaded;
+/**
+ *  A Chat message is sent.
+ *
+ *  Value: "CHAT_MESSAGE_SENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent;
+/**
+ *  A file being downloaded in a Chrome browser.
+ *
+ *  Value: "CHROME_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileDownload;
+/**
+ *  A file being uploaded from a Chrome browser.
+ *
+ *  Value: "CHROME_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload;
+/**
+ *  A page is being printed by Chrome.
+ *
+ *  Value: "CHROME_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromePagePrint;
+/**
+ *  A URL is visited within Chrome.
+ *
+ *  Value: "CHROME_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeUrlVisited;
+/**
+ *  Web content being uploaded from a Chrome browser.
+ *
+ *  Value: "CHROME_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeWebContentUpload;
 /**
  *  A Drive file is shared.
  *
@@ -438,17 +604,107 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert;
 /**
+ *  Chat actions. Block Chat content to be sent out.
+ *
+ *  Value: "CHAT_BLOCK_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChatBlockContent;
+/**
+ *  Warn end user about Chat content.
+ *
+ *  Value: "CHAT_WARN_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChatWarnUser;
+/**
+ *  Chrome actions. Block file download.
+ *
+ *  Value: "CHROME_BLOCK_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileDownload;
+/**
+ *  Block file upload.
+ *
+ *  Value: "CHROME_BLOCK_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileUpload;
+/**
+ *  Block page print.
+ *
+ *  Value: "CHROME_BLOCK_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockPagePrint;
+/**
+ *  Block Chrome URL visit.
+ *
+ *  Value: "CHROME_BLOCK_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockUrlVisited;
+/**
+ *  Block web content upload.
+ *
+ *  Value: "CHROME_BLOCK_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockWebContentUpload;
+/**
+ *  Store the content that violated the rule.
+ *
+ *  Value: "CHROME_STORE_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeStoreContent;
+/**
+ *  Warn user about downloaded file.
+ *
+ *  Value: "CHROME_WARN_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileDownload;
+/**
+ *  Warn user about uploaded file.
+ *
+ *  Value: "CHROME_WARN_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileUpload;
+/**
+ *  Warn user about printed page.
+ *
+ *  Value: "CHROME_WARN_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnPagePrint;
+/**
+ *  Warn user about Chrome URL visited.
+ *
+ *  Value: "CHROME_WARN_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnUrlVisited;
+/**
+ *  Warn user about uploaded web content.
+ *
+ *  Value: "CHROME_WARN_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnWebContentUpload;
+/**
  *  Delete web protect evidence file
  *
  *  Value: "DELETE_WEBPROTECT_EVIDENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DeleteWebprotectEvidence;
 /**
+ *  Apply customer specified Drive labels to the file.
+ *
+ *  Value: "DRIVE_APPLY_DRIVE_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveApplyDriveLabels;
+/**
  *  Block sharing a file externally.
  *
  *  Value: "DRIVE_BLOCK_EXTERNAL_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing;
+/**
+ *  Disable download, print, and copy for commenters and viewers in drive.
+ *
+ *  Value: "DRIVE_RESTRICT_DOWNLOAD_PRINT_COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveRestrictDownloadPrintCopy;
 /**
  *  Show a warning message when sharing a file externally.
  *
@@ -1868,6 +2124,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  */
 @interface GTLRAlertCenter_ResourceInfo : GTLRObject
 
+/** Chat attachment ID. */
+@property(nonatomic, copy, nullable) NSString *chatAttachmentId;
+
+/** Chat message ID. */
+@property(nonatomic, copy, nullable) NSString *chatMessageId;
+
+/**
+ *  Id to identify a device. For example, for Android devices, this is the
+ *  "Android Device Id" and for Chrome OS devices, it's the "Device Virtual Id".
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
 /** Drive file ID. */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
@@ -1901,12 +2169,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Source of the data.
  *
  *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Chat Chat data
+ *        source. (Value: "CHAT")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Chrome Chrome data
+ *        source. (Value: "CHROME")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_DataSourceUnspecified
  *        Data source is unspecified. (Value: "DATA_SOURCE_UNSPECIFIED")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive Drive data
  *        source. (Value: "DRIVE")
  */
 @property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Event associated with this alert after applying the rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_EventType_AccessBlocked An
+ *        access attempt was blocked. (Value: "ACCESS_BLOCKED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_EventType_EventTypeUnspecified
+ *        Event type wasn't set. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_EventType_SharingBlocked A
+ *        sharing attempt was blocked. (Value: "SHARING_BLOCKED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
 
 /** List of matches that were found in the resource content. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_MatchInfo *> *matchInfo;
@@ -1934,6 +2219,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Trigger of the rule.
  *
  *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatAttachmentUploaded
+ *        A Chat attachment is uploaded. (Value: "CHAT_ATTACHMENT_UPLOADED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent A Chat
+ *        message is sent. (Value: "CHAT_MESSAGE_SENT")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileDownload A
+ *        file being downloaded in a Chrome browser. (Value:
+ *        "CHROME_FILE_DOWNLOAD")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload A file
+ *        being uploaded from a Chrome browser. (Value: "CHROME_FILE_UPLOAD")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromePagePrint A page
+ *        is being printed by Chrome. (Value: "CHROME_PAGE_PRINT")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeUrlVisited A URL
+ *        is visited within Chrome. (Value: "CHROME_URL_VISITED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeWebContentUpload
+ *        Web content being uploaded from a Chrome browser. (Value:
+ *        "CHROME_WEB_CONTENT_UPLOAD")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare A Drive file
  *        is shared. (Value: "DRIVE_SHARE")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified

@@ -696,8 +696,6 @@ NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LoggingStarted =
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LoggingStopped = @"LOGGING_STOPPED";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeLocation = @"LOST_MODE_LOCATION";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_LostModeOutgoingPhoneCall = @"LOST_MODE_OUTGOING_PHONE_CALL";
-NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaExhausted = @"MAX_DEVICES_REGISTRATION_QUOTA_EXHAUSTED";
-NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MaxDevicesRegistrationQuotaWarning = @"MAX_DEVICES_REGISTRATION_QUOTA_WARNING";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MediaMount = @"MEDIA_MOUNT";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_MediaUnmount = @"MEDIA_UNMOUNT";
 NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_OsShutdown = @"OS_SHUTDOWN";
@@ -724,6 +722,11 @@ NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ZeroTouchCustom
 // GTLRAndroidManagement_WebToken.permissions
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps = @"APPROVE_APPS";
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified = @"WEB_TOKEN_PERMISSION_UNSPECIFIED";
+
+// GTLRAndroidManagement_WifiSsidPolicy.wifiSsidPolicyType
+NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidAllowlist = @"WIFI_SSID_ALLOWLIST";
+NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidDenylist = @"WIFI_SSID_DENYLIST";
+NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidPolicyTypeUnspecified = @"WIFI_SSID_POLICY_TYPE_UNSPECIFIED";
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -1268,7 +1271,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_DeviceConnectivityManagement
-@dynamic configureWifi, tetheringSettings, usbDataAccess, wifiDirectSettings;
+@dynamic configureWifi, tetheringSettings, usbDataAccess, wifiDirectSettings,
+         wifiSsidPolicy;
 @end
 
 
@@ -2290,7 +2294,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_ProvisioningInfo
-@dynamic apiLevel, brand, enterprise, managementMode, model, name, ownership;
+@dynamic apiLevel, brand, enterprise, imei, managementMode, meid, model, name,
+         ownership, serialNumber;
 @end
 
 
@@ -2656,6 +2661,34 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   NSDictionary<NSString *, Class> *map = @{
     @"enabledFeatures" : [NSString class],
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_WifiSsid
+//
+
+@implementation GTLRAndroidManagement_WifiSsid
+@dynamic wifiSsid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_WifiSsidPolicy
+//
+
+@implementation GTLRAndroidManagement_WifiSsidPolicy
+@dynamic wifiSsidPolicyType, wifiSsids;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"wifiSsids" : [GTLRAndroidManagement_WifiSsid class]
   };
   return map;
 }

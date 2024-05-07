@@ -2324,6 +2324,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_FreeShippingThreshold
+//
+
+@implementation GTLRShoppingContent_FreeShippingThreshold
+@dynamic country, priceThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_GenerateRecommendationsResponse
 //
 
@@ -2550,7 +2560,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_Installment
-@dynamic amount, months;
+@dynamic amount, creditType, downpayment, months;
 @end
 
 
@@ -5169,10 +5179,10 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          disclosureDate, displayAdsId, displayAdsLink, displayAdsSimilarIds,
          displayAdsTitle, displayAdsValue, energyEfficiencyClass,
          excludedDestinations, expirationDate, externalSellerId, feedLabel,
-         gender, googleProductCategory, gtin, identifier, identifierExists,
-         imageLink, includedDestinations, installment, isBundle, itemGroupId,
-         kind, lifestyleImageLinks, link, linkTemplate, loyaltyProgram,
-         material, maxEnergyEfficiencyClass, maxHandlingTime,
+         freeShippingThreshold, gender, googleProductCategory, gtin, identifier,
+         identifierExists, imageLink, includedDestinations, installment,
+         isBundle, itemGroupId, kind, lifestyleImageLinks, link, linkTemplate,
+         loyaltyProgram, material, maxEnergyEfficiencyClass, maxHandlingTime,
          minEnergyEfficiencyClass, minHandlingTime, mobileLink,
          mobileLinkTemplate, mpn, multipack, offerId, pattern, pause,
          pickupMethod, pickupSla, price, productDetails, productHeight,
@@ -5202,6 +5212,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"customAttributes" : [GTLRShoppingContent_CustomAttribute class],
     @"displayAdsSimilarIds" : [NSString class],
     @"excludedDestinations" : [NSString class],
+    @"freeShippingThreshold" : [GTLRShoppingContent_FreeShippingThreshold class],
     @"includedDestinations" : [NSString class],
     @"lifestyleImageLinks" : [NSString class],
     @"productDetails" : [GTLRShoppingContent_ProductProductDetail class],

@@ -564,6 +564,48 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Directly uploads a Generic artifact. The returned Operation will complete
+ *  once the resources are uploaded. Package, Version, and File resources are
+ *  created based on the uploaded artifact. Uploaded artifacts that conflict
+ *  with existing resources will raise an ALREADY_EXISTS error.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.genericArtifacts.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGenericArtifactsUpload : GTLRArtifactRegistryQuery
+
+/**
+ *  The resource name of the repository where the generic artifact will be
+ *  uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_UploadGenericArtifactMediaResponse.
+ *
+ *  Directly uploads a Generic artifact. The returned Operation will complete
+ *  once the resources are uploaded. Package, Version, and File resources are
+ *  created based on the uploaded artifact. Uploaded artifacts that conflict
+ *  with existing resources will raise an ALREADY_EXISTS error.
+ *
+ *  @param object The @c GTLRArtifactRegistry_UploadGenericArtifactRequest to
+ *    include in the query.
+ *  @param parent The resource name of the repository where the generic artifact
+ *    will be uploaded.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGenericArtifactsUpload
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadGenericArtifactRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
  *  Gets a repository.
  *
  *  Method: artifactregistry.projects.locations.repositories.get

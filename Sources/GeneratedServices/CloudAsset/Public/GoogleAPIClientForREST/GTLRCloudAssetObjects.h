@@ -3479,8 +3479,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this [EgressPolicy], in
- *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
+ *  A list of identities that are allowed access through [EgressPolicy].
+ *  Identities can be an individual user, service account, Google group, or
+ *  third-party identity. The `v1` identities that have the prefix `user`,
+ *  `group`, `serviceAccount`, `principal`, and `principalSet` in
+ *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -3601,8 +3604,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A list of external resources that are allowed to be accessed. Only AWS and
- *  Azure resources are supported. For Amazon S3, the supported format is
- *  s3://BUCKET_NAME. For Azure Storage, the supported format is
+ *  Azure resources are supported. For Amazon S3, the supported formats are
+ *  s3://BUCKET_NAME, s3a://BUCKET_NAME, and s3n://BUCKET_NAME. For Azure
+ *  Storage, the supported format is
  *  azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches if
  *  it contains an external resource in this list (Example: s3://bucket/path).
  *  Currently '*' is not allowed.
@@ -3637,8 +3641,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this ingress policy, in
- *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
+ *  A list of identities that are allowed access through [IngressPolicy].
+ *  Identities can be an individual user, service account, Google group, or
+ *  third-party identity. The `v1` identities that have the prefix `user`,
+ *  `group`, `serviceAccount`, `principal`, and `principalSet` in
+ *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -5464,9 +5471,10 @@ GTLR_DEPRECATED
  *  inheritance](https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
  *  To search against the `effective_tags`: * Use a field query. Example: -
  *  `effectiveTagKeys:"123456789/env*"` - `effectiveTagKeys="123456789/env"` -
- *  `effectiveTagKeys:"env"` - `effectiveTagValues:"env"` -
- *  `effectiveTagValues:"env/prod"` - `effectiveTagValues:"123456789/env/prod*"`
- *  - `effectiveTagValues="123456789/env/prod"` -
+ *  `effectiveTagKeys:"env"` - `effectiveTagKeyIds="tagKeys/123"` -
+ *  `effectiveTagValues:"env"` - `effectiveTagValues:"env/prod"` -
+ *  `effectiveTagValues:"123456789/env/prod*"` -
+ *  `effectiveTagValues="123456789/env/prod"` -
  *  `effectiveTagValueIds="tagValues/456"`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_EffectiveTagDetails *> *effectiveTags;
@@ -5630,10 +5638,10 @@ GTLR_DEPRECATED
 /**
  *  The tags directly attached to this resource. To search against the `tags`: *
  *  Use a field query. Example: - `tagKeys:"123456789/env*"` -
- *  `tagKeys="123456789/env"` - `tagKeys:"env"` - `tagValues:"env"` -
- *  `tagValues:"env/prod"` - `tagValues:"123456789/env/prod*"` -
- *  `tagValues="123456789/env/prod"` - `tagValueIds="tagValues/456"` * Use a
- *  free text query. Example: - `env/prod`
+ *  `tagKeys="123456789/env"` - `tagKeys:"env"` - `tagKeyIds="tagKeys/123"` -
+ *  `tagValues:"env"` - `tagValues:"env/prod"` -
+ *  `tagValues:"123456789/env/prod*"` - `tagValues="123456789/env/prod"` -
+ *  `tagValueIds="tagValues/456"` * Use a free text query. Example: - `env/prod`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Tag *> *tags;
 
@@ -6051,6 +6059,9 @@ GTLR_DEPRECATED
 
 /** TagKey namespaced name, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}. */
 @property(nonatomic, copy, nullable) NSString *tagKey;
+
+/** TagKey ID, in the format of tagKeys/{TAG_KEY_ID}. */
+@property(nonatomic, copy, nullable) NSString *tagKeyId;
 
 /**
  *  TagValue namespaced name, in the format of

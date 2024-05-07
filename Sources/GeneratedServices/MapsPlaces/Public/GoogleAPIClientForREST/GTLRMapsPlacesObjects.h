@@ -475,7 +475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Distance;
 /**
- *  RankPreference value not set. Will default to DISTANCE.
+ *  For a categorical query such as "Restaurants in New York City", RELEVANCE is
+ *  the default. For non-categorical queries such as "Mountain View, CA" we
+ *  recommend that you leave rankPreference unset.
  *
  *  Value: "RANK_PREFERENCE_UNSPECIFIED"
  */
@@ -2221,8 +2223,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Distance
  *        Ranks results by distance. (Value: "DISTANCE")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_RankPreferenceUnspecified
- *        RankPreference value not set. Will default to DISTANCE. (Value:
- *        "RANK_PREFERENCE_UNSPECIFIED")
+ *        For a categorical query such as "Restaurants in New York City",
+ *        RELEVANCE is the default. For non-categorical queries such as
+ *        "Mountain View, CA" we recommend that you leave rankPreference unset.
+ *        (Value: "RANK_PREFERENCE_UNSPECIFIED")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Relevance
  *        Ranks results by relevance. Sort order determined by normal ranking
  *        stack. (Value: "RELEVANCE")
@@ -2260,13 +2264,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  Optional. The list of preferred EV connector types. A place that does not
- *  support any of the listed connector types are filter out.
+ *  support any of the listed connector types is filtered out.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *connectorTypes;
 
 /**
- *  Optional. Filtering places by minimum charging rate. Any places with
- *  charging a rate less than the minimum charging rate are filtered out.
+ *  Optional. Minimum required charging rate in kilowatts. A place with a
+ *  charging rate less than the specified rate is filtered out.
  *
  *  Uses NSNumber of doubleValue.
  */

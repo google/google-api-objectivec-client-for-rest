@@ -523,6 +523,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_Priva
  */
 @interface GTLRBackupdr_ManagementServer : GTLRObject
 
+/**
+ *  Output only. The hostname or ip address of the exposed AGM endpoints, used
+ *  by BAs to connect to BA proxy.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *baProxyUri;
+
 /** Output only. The time when the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 

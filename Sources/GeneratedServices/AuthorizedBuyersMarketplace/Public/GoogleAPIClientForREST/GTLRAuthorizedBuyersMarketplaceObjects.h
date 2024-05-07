@@ -1161,6 +1161,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Output only. If set, this field contains the list of DSP specific seat ids
+ *  set by media planners that are eligible to transact on this deal. The seat
+ *  ID is in the calling DSP's namespace.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eligibleSeatIds;
+
+/**
  *  Immutable. The unique identifier for the auction package. Format:
  *  `buyers/{accountId}/auctionPackages/{auctionPackageId}` The
  *  auction_package_id part of name is sent in the BidRequest to all RTB bidders
@@ -1169,11 +1176,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The list of clients of the current buyer that are subscribed to
- *  the AuctionPackage. Format:
+ *  Output only. The list of buyers that are subscribed to the AuctionPackage.
+ *  This field is only populated when calling as a bidder. Format:
+ *  `buyers/{buyerAccountId}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subscribedBuyers;
+
+/**
+ *  Output only. When calling as a buyer, the list of clients of the current
+ *  buyer that are subscribed to the AuctionPackage. When calling as a bidder,
+ *  the list of clients that are subscribed to the AuctionPackage owned by the
+ *  bidder or its buyers. Format:
  *  `buyers/{buyerAccountId}/clients/{clientAccountId}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subscribedClients;
+
+/**
+ *  Output only. The list of media planners that are subscribed to the
+ *  AuctionPackage. This field is only populated when calling as a bidder.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAuthorizedBuyersMarketplace_MediaPlanner *> *subscribedMediaPlanners;
 
 /**
  *  Output only. Time the auction package was last updated. This value is only

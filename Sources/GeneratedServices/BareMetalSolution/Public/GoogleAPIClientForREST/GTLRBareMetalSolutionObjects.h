@@ -992,6 +992,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Message requesting to perform disable hyperthreading operation on a server.
+ */
+@interface GTLRBareMetalSolution_DisableHyperthreadingRequest : GTLRObject
+@end
+
+
+/**
  *  Message for disabling the interactive serial console on an instance.
  */
 @interface GTLRBareMetalSolution_DisableInteractiveSerialConsoleRequest : GTLRObject
@@ -1012,6 +1019,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRBareMetalSolution_Empty : GTLRObject
+@end
+
+
+/**
+ *  Message requesting to perform enable hyperthreading operation on a server.
+ */
+@interface GTLRBareMetalSolution_EnableHyperthreadingRequest : GTLRObject
 @end
 
 
@@ -2675,6 +2689,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bandwidthGbps;
+
+@end
+
+
+/**
+ *  Message requesting to perform reimage operation on a server.
+ */
+@interface GTLRBareMetalSolution_ReimageInstanceRequest : GTLRObject
+
+/**
+ *  Optional. Name of the KMS crypto key version used to encrypt the initial
+ *  passwords. The key has to have ASYMMETRIC_DECRYPT purpose. Format is
+ *  `projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}/cryptoKeyVersions/{version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
+
+/**
+ *  Required. The OS image code of the image which will be used in the reimage
+ *  operation.
+ */
+@property(nonatomic, copy, nullable) NSString *osImage;
+
+/** Optional. List of SSH Keys used during reimaging an instance. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sshKeys;
 
 @end
 

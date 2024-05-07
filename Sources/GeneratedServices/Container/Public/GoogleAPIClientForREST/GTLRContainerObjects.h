@@ -1625,6 +1625,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Bas
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Disabled;
 /**
+ *  Applies the Security Posture off cluster Enterprise level features.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Enterprise;
+/**
  *  Default value not specified.
  *
  *  Value: "MODE_UNSPECIFIED"
@@ -2257,6 +2263,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Specifies options for controlling advanced machine features.
  */
 @interface GTLRContainer_AdvancedMachineFeatures : GTLRObject
+
+/**
+ *  Whether or not to enable nested virtualization (defaults to false).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
 
 /**
  *  The number of threads per physical core. To disable simultaneous
@@ -5227,7 +5240,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_GatewayAPIConfig *gatewayApiConfig;
 
 /**
- *  Specify the details of in-transit encryption.
+ *  Specify the details of in-transit encryption. Now named inter-node
+ *  transparent encryption.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_NetworkConfig_InTransitEncryptionConfig_InTransitEncryptionConfigUnspecified
@@ -7150,6 +7164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        Posture features on the cluster. (Value: "BASIC")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Disabled Disables
  *        Security Posture features on the cluster. (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Enterprise Applies the
+ *        Security Posture off cluster Enterprise level features. (Value:
+ *        "ENTERPRISE")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_ModeUnspecified Default
  *        value not specified. (Value: "MODE_UNSPECIFIED")
  */

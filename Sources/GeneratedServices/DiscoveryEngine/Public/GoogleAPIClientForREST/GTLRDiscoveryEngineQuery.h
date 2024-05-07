@@ -346,6 +346,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Indicates which fields in the provided imported 'document' to update. If not
+ *  set, will by default update all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document.
  *
  *  Updates a Document.
@@ -769,9 +777,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsPatch : GTLRDiscoveryEngineQuery
 
 /**
- *  Immutable. Fully qualified name `project/ *
- *  /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
- *  or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/global/collections/{collection}/dataStore/ *
+ *  /conversations/ *` or
+ *  `projects/{project}/locations/global/collections/{collection}/engines/ *
  *  /conversations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -794,9 +803,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
  *    the query.
- *  @param name Immutable. Fully qualified name `project/ *
- *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
- *    or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/global/collections/{collection}/dataStore/ *
+ *    /conversations/ *` or
+ *    `projects/{project}/locations/global/collections/{collection}/engines/ *
  *    /conversations/ *`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsPatch
@@ -980,7 +990,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresList : GTLRDiscoveryEngineQuery
 
 /**
- *  Filter by solution type. For example: filter =
+ *  Filter by solution type . For example: filter =
  *  'solution_type:SOLUTION_TYPE_SEARCH'
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2346,8 +2356,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsWrite : GTLRDiscoveryEngineQuery
 
 /**
- *  Required. The parent DataStore resource name, such as
+ *  Required. The parent resource name. If the write user event action is
+ *  applied in DataStore level, the format is:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *  If the write user event action is applied in Location level, for example,
+ *  the event with Document across multiple DataStore, the format is:
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2359,8 +2373,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent to include in
  *    the query.
- *  @param parent Required. The parent DataStore resource name, such as
+ *  @param parent Required. The parent resource name. If the write user event
+ *    action is applied in DataStore level, the format is:
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *    If the write user event action is applied in Location level, for example,
+ *    the event with Document across multiple DataStore, the format is:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsWrite
  */
@@ -2584,9 +2602,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsPatch : GTLRDiscoveryEngineQuery
 
 /**
- *  Immutable. Fully qualified name `project/ *
- *  /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
- *  or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/global/collections/{collection}/dataStore/ *
+ *  /conversations/ *` or
+ *  `projects/{project}/locations/global/collections/{collection}/engines/ *
  *  /conversations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2609,9 +2628,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
  *    the query.
- *  @param name Immutable. Fully qualified name `project/ *
- *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
- *    or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/global/collections/{collection}/dataStore/ *
+ *    /conversations/ *` or
+ *    `projects/{project}/locations/global/collections/{collection}/engines/ *
  *    /conversations/ *`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsPatch
@@ -3301,6 +3321,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Indicates which fields in the provided imported 'document' to update. If not
+ *  set, will by default update all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document.
  *
  *  Updates a Document.
@@ -3724,9 +3752,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsPatch : GTLRDiscoveryEngineQuery
 
 /**
- *  Immutable. Fully qualified name `project/ *
- *  /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
- *  or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  Immutable. Fully qualified name
+ *  `projects/{project}/locations/global/collections/{collection}/dataStore/ *
+ *  /conversations/ *` or
+ *  `projects/{project}/locations/global/collections/{collection}/engines/ *
  *  /conversations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3749,9 +3778,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
  *    the query.
- *  @param name Immutable. Fully qualified name `project/ *
- *    /locations/global/collections/{collection}/dataStore/ * /conversations/ *`
- *    or `project/ * /locations/global/collections/{collection}/engines/ *
+ *  @param name Immutable. Fully qualified name
+ *    `projects/{project}/locations/global/collections/{collection}/dataStore/ *
+ *    /conversations/ *` or
+ *    `projects/{project}/locations/global/collections/{collection}/engines/ *
  *    /conversations/ *`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsPatch
@@ -3935,7 +3965,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresList : GTLRDiscoveryEngineQuery
 
 /**
- *  Filter by solution type. For example: filter =
+ *  Filter by solution type . For example: filter =
  *  'solution_type:SOLUTION_TYPE_SEARCH'
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -4994,8 +5024,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsWrite : GTLRDiscoveryEngineQuery
 
 /**
- *  Required. The parent DataStore resource name, such as
+ *  Required. The parent resource name. If the write user event action is
+ *  applied in DataStore level, the format is:
  *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *  If the write user event action is applied in Location level, for example,
+ *  the event with Document across multiple DataStore, the format is:
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5007,8 +5041,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent to include in
  *    the query.
- *  @param parent Required. The parent DataStore resource name, such as
+ *  @param parent Required. The parent resource name. If the write user event
+ *    action is applied in DataStore level, the format is:
  *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *    If the write user event action is applied in Location level, for example,
+ *    the event with Document across multiple DataStore, the format is:
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsWrite
  */
@@ -5085,6 +5123,48 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Writes a single user event.
+ *
+ *  Method: discoveryengine.projects.locations.userEvents.write
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsWrite : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent resource name. If the write user event action is
+ *  applied in DataStore level, the format is:
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *  If the write user event action is applied in Location level, for example,
+ *  the event with Document across multiple DataStore, the format is:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent.
+ *
+ *  Writes a single user event.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent to include in
+ *    the query.
+ *  @param parent Required. The parent resource name. If the write user event
+ *    action is applied in DataStore level, the format is:
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *    If the write user event action is applied in Location level, for example,
+ *    the event with Document across multiple DataStore, the format is:
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsWrite
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent *)object
+                         parent:(NSString *)parent;
 
 @end
 

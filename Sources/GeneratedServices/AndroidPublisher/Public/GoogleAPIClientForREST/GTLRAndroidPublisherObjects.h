@@ -99,9 +99,11 @@
 @class GTLRAndroidPublisher_OfferDetails;
 @class GTLRAndroidPublisher_OfferTag;
 @class GTLRAndroidPublisher_OneTimeExternalTransaction;
+@class GTLRAndroidPublisher_OtherRecurringProduct;
 @class GTLRAndroidPublisher_OtherRegionsBasePlanConfig;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferConfig;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseConfig;
+@class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices;
 @class GTLRAndroidPublisher_PageInfo;
 @class GTLRAndroidPublisher_PartialRefund;
@@ -114,6 +116,7 @@
 @class GTLRAndroidPublisher_RegionalPriceMigrationConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig;
+@class GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride;
 @class GTLRAndroidPublisher_RegionalTaxRateInfo;
 @class GTLRAndroidPublisher_Regions;
 @class GTLRAndroidPublisher_RegionsVersion;
@@ -4647,6 +4650,14 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details of a recurring external transaction product which doesn't belong to
+ *  any other more specific category.
+ */
+@interface GTLRAndroidPublisher_OtherRecurringProduct : GTLRObject
+@end
+
+
+/**
  *  Pricing information for any new locations Play may launch in.
  */
 @interface GTLRAndroidPublisher_OtherRegionsBasePlanConfig : GTLRObject
@@ -4701,6 +4712,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices *absoluteDiscounts;
 
+/** Set to specify this offer is free to obtain. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride *free;
+
 /**
  *  The absolute price the user pays for this offer phase. The price must not be
  *  smaller than the minimum price allowed for any new locations Play may launch
@@ -4723,6 +4737,14 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *relativeDiscount;
 
+@end
+
+
+/**
+ *  Represents the free price override configuration for any new locations Play
+ *  may launch for a single offer phase.
+ */
+@interface GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride : GTLRObject
 @end
 
 
@@ -5034,6 +5056,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *migratedTransactionProgram;
 
+/**
+ *  Details of a recurring external transaction product which doesn't belong to
+ *  any other specific category.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OtherRecurringProduct *otherRecurringProduct;
+
 @end
 
 
@@ -5165,6 +5193,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *absoluteDiscount;
 
+/** Set to specify this offer is free to obtain. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride *free;
+
 /**
  *  The absolute price the user pays for this offer phase. The price must not be
  *  smaller than the minimum price allowed for this region.
@@ -5189,6 +5220,14 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *relativeDiscount;
 
+@end
+
+
+/**
+ *  Represents the free price override configuration for a single phase of a
+ *  subscription offer
+ */
+@interface GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride : GTLRObject
 @end
 
 
@@ -6330,7 +6369,8 @@ GTLR_DEPRECATED
 
 /**
  *  Additional context around canceled subscriptions. Only present if the
- *  subscription currently has subscription_state SUBSCRIPTION_STATE_CANCELED.
+ *  subscription currently has subscription_state SUBSCRIPTION_STATE_CANCELED or
+ *  SUBSCRIPTION_STATE_EXPIRED.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_CanceledStateContext *canceledStateContext;
 

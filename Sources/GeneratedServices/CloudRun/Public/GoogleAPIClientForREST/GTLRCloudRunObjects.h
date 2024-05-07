@@ -43,6 +43,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2Job_Labels;
 @class GTLRCloudRun_GoogleCloudRunV2NetworkInterface;
 @class GTLRCloudRun_GoogleCloudRunV2NFSVolumeSource;
+@class GTLRCloudRun_GoogleCloudRunV2NodeSelector;
 @class GTLRCloudRun_GoogleCloudRunV2Overrides;
 @class GTLRCloudRun_GoogleCloudRunV2Probe;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements;
@@ -85,10 +86,13 @@
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ConnectedRepository;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret_EnvMap;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1MavenArtifact;
@@ -1508,22 +1512,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization : GTLRObject
 
 /**
- *  If present, indicates to use Breakglass using this justification. If
- *  use_default is False, then it must be empty. For more information on
+ *  Optional. If present, indicates to use Breakglass using this justification.
+ *  If use_default is False, then it must be empty. For more information on
  *  breakglass, see
  *  https://cloud.google.com/binary-authorization/docs/using-breakglass
  */
 @property(nonatomic, copy, nullable) NSString *breakglassJustification;
 
 /**
- *  The path to a binary authorization policy. Format:
+ *  Optional. The path to a binary authorization policy. Format:
  *  projects/{project}/platforms/cloudRun/{policy-name}
  */
 @property(nonatomic, copy, nullable) NSString *policy;
 
 /**
- *  If True, indicates to use the default project's binary authorization policy.
- *  If False, binary authorization will be disabled.
+ *  Optional. If True, indicates to use the default project's binary
+ *  authorization policy. If False, binary authorization will be disabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1580,7 +1584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2Condition : GTLRObject
 
 /**
- *  A reason for the execution condition.
+ *  Output only. A reason for the execution condition.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled
@@ -1609,7 +1613,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *message;
 
 /**
- *  A common (service-level) reason for this condition.
+ *  Output only. A common (service-level) reason for this condition.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_CommonReasonUndefined
@@ -1655,7 +1659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
- *  A reason for the revision condition.
+ *  Output only. A reason for the revision condition.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_ActiveRevisionLimitReached
@@ -2421,18 +2425,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2GRPCAction : GTLRObject
 
 /**
- *  Port number of the gRPC service. Number must be in the range 1 to 65535. If
- *  not specified, defaults to the exposed port of the container, which is the
- *  value of container.ports[0].containerPort.
+ *  Optional. Port number of the gRPC service. Number must be in the range 1 to
+ *  65535. If not specified, defaults to the exposed port of the container,
+ *  which is the value of container.ports[0].containerPort.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
- *  Service is the name of the service to place in the gRPC HealthCheckRequest
- *  (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md ). If
- *  this is not specified, the default behavior is defined by gRPC.
+ *  Optional. Service is the name of the service to place in the gRPC
+ *  HealthCheckRequest (see
+ *  https://github.com/grpc/grpc/blob/master/doc/health-checking.md ). If this
+ *  is not specified, the default behavior is defined by gRPC.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -2444,16 +2449,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleCloudRunV2HTTPGetAction : GTLRObject
 
-/** Custom headers to set in the request. HTTP allows repeated headers. */
+/**
+ *  Optional. Custom headers to set in the request. HTTP allows repeated
+ *  headers.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2HTTPHeader *> *httpHeaders;
 
-/** Path to access on the HTTP server. Defaults to '/'. */
+/** Optional. Path to access on the HTTP server. Defaults to '/'. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Port number to access on the container. Must be in the range 1 to 65535. If
- *  not specified, defaults to the exposed port of the container, which is the
- *  value of container.ports[0].containerPort.
+ *  Optional. Port number to access on the container. Must be in the range 1 to
+ *  65535. If not specified, defaults to the exposed port of the container,
+ *  which is the value of container.ports[0].containerPort.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2470,7 +2478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Required. The header field name */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The header field value */
+/** Optional. The header field value */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -2695,6 +2703,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
+ *  A unique string used as a suffix creating a new execution. The Job will
+ *  become ready when the execution is successfully started. The sum of job name
+ *  and token length must be fewer than 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *startExecutionToken;
+
+/**
  *  Required. The template used to create executions for this Job.
  *
  *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
@@ -2915,24 +2930,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2NetworkInterface : GTLRObject
 
 /**
- *  The VPC network that the Cloud Run resource will be able to send traffic to.
- *  At least one of network or subnetwork must be specified. If both network and
- *  subnetwork are specified, the given VPC subnetwork must belong to the given
- *  VPC network. If network is not specified, it will be looked up from the
- *  subnetwork.
+ *  Optional. The VPC network that the Cloud Run resource will be able to send
+ *  traffic to. At least one of network or subnetwork must be specified. If both
+ *  network and subnetwork are specified, the given VPC subnetwork must belong
+ *  to the given VPC network. If network is not specified, it will be looked up
+ *  from the subnetwork.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  The VPC subnetwork that the Cloud Run resource will get IPs from. At least
- *  one of network or subnetwork must be specified. If both network and
+ *  Optional. The VPC subnetwork that the Cloud Run resource will get IPs from.
+ *  At least one of network or subnetwork must be specified. If both network and
  *  subnetwork are specified, the given VPC subnetwork must belong to the given
  *  VPC network. If subnetwork is not specified, the subnetwork with the same
  *  name with the network will be used.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
-/** Network tags applied to this Cloud Run resource. */
+/** Optional. Network tags applied to this Cloud Run resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
@@ -2955,6 +2970,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Hostname or IP address of the NFS server */
 @property(nonatomic, copy, nullable) NSString *server;
+
+@end
+
+
+/**
+ *  Hardware constraints configuration.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2NodeSelector : GTLRObject
+
+/** Required. GPU accelerator type to attach to an instance. */
+@property(nonatomic, copy, nullable) NSString *accelerator;
 
 @end
 
@@ -2992,28 +3018,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2Probe : GTLRObject
 
 /**
- *  Minimum consecutive failures for the probe to be considered failed after
- *  having succeeded. Defaults to 3. Minimum value is 1.
+ *  Optional. Minimum consecutive failures for the probe to be considered failed
+ *  after having succeeded. Defaults to 3. Minimum value is 1.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *failureThreshold;
 
 /**
- *  GRPC specifies an action involving a gRPC port. Exactly one of httpGet,
- *  tcpSocket, or grpc must be specified.
+ *  Optional. GRPC specifies an action involving a gRPC port. Exactly one of
+ *  httpGet, tcpSocket, or grpc must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2GRPCAction *grpc;
 
 /**
- *  HTTPGet specifies the http request to perform. Exactly one of httpGet,
- *  tcpSocket, or grpc must be specified.
+ *  Optional. HTTPGet specifies the http request to perform. Exactly one of
+ *  httpGet, tcpSocket, or grpc must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2HTTPGetAction *httpGet;
 
 /**
- *  Number of seconds after the container has started before the probe is
- *  initiated. Defaults to 0 seconds. Minimum value is 0. Maximum value for
+ *  Optional. Number of seconds after the container has started before the probe
+ *  is initiated. Defaults to 0 seconds. Minimum value is 0. Maximum value for
  *  liveness probe is 3600. Maximum value for startup probe is 240.
  *
  *  Uses NSNumber of intValue.
@@ -3021,23 +3047,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *initialDelaySeconds;
 
 /**
- *  How often (in seconds) to perform the probe. Default to 10 seconds. Minimum
- *  value is 1. Maximum value for liveness probe is 3600. Maximum value for
- *  startup probe is 240. Must be greater or equal than timeout_seconds.
+ *  Optional. How often (in seconds) to perform the probe. Default to 10
+ *  seconds. Minimum value is 1. Maximum value for liveness probe is 3600.
+ *  Maximum value for startup probe is 240. Must be greater or equal than
+ *  timeout_seconds.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *periodSeconds;
 
 /**
- *  TCPSocket specifies an action involving a TCP port. Exactly one of httpGet,
- *  tcpSocket, or grpc must be specified.
+ *  Optional. TCPSocket specifies an action involving a TCP port. Exactly one of
+ *  httpGet, tcpSocket, or grpc must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2TCPSocketAction *tcpSocket;
 
 /**
- *  Number of seconds after which the probe times out. Defaults to 1 second.
- *  Minimum value is 1. Maximum value is 3600. Must be smaller than
+ *  Optional. Number of seconds after which the probe times out. Defaults to 1
+ *  second. Minimum value is 1. Maximum value is 3600. Must be smaller than
  *  period_seconds.
  *
  *  Uses NSNumber of intValue.
@@ -3274,6 +3301,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Output only. The unique name of this Revision. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The node selector for the revision. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2NodeSelector *nodeSelector;
+
 /**
  *  Output only. The generation of this Revision currently serving traffic. See
  *  comments in `reconciling` for additional information on reconciliation
@@ -3384,14 +3414,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2RevisionScaling : GTLRObject
 
 /**
- *  Maximum number of serving instances that this resource should have.
+ *  Optional. Maximum number of serving instances that this resource should
+ *  have.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
 
 /**
- *  Minimum number of serving instances that this resource should have.
+ *  Optional. Minimum number of serving instances that this resource should
+ *  have.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3422,9 +3454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2RevisionTemplate : GTLRObject
 
 /**
- *  Unstructured key value map that may be set by external tools to store and
- *  arbitrary metadata. They are not queryable and should be preserved when
- *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
  *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
  *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
  *  annotations in v1 now have a corresponding field in v2 RevisionTemplate.
@@ -3446,7 +3478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *encryptionKey;
 
 /**
- *  The sandbox environment to host this Revision.
+ *  Optional. The sandbox environment to host this Revision.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1
@@ -3468,10 +3500,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *healthCheckDisabled;
 
 /**
- *  Unstructured key value map that can be used to organize and categorize
- *  objects. User-provided labels are shared with Google's billing system, so
- *  they can be used to filter, or break down billing charges by team,
- *  component, environment, state, etc. For more information, visit
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
@@ -3482,26 +3514,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Labels *labels;
 
 /**
- *  Sets the maximum number of requests that each serving instance can receive.
+ *  Optional. Sets the maximum number of requests that each serving instance can
+ *  receive.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxInstanceRequestConcurrency;
 
+/** Optional. The node selector for the revision template. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2NodeSelector *nodeSelector;
+
 /**
- *  The unique name for the revision. If this field is omitted, it will be
- *  automatically generated based on the Service name.
+ *  Optional. The unique name for the revision. If this field is omitted, it
+ *  will be automatically generated based on the Service name.
  */
 @property(nonatomic, copy, nullable) NSString *revision;
 
-/** Scaling settings for this Revision. */
+/** Optional. Scaling settings for this Revision. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionScaling *scaling;
 
 /**
- *  Email address of the IAM service account associated with the revision of the
- *  service. The service account represents the identity of the running
- *  revision, and determines what permissions the revision has. If not provided,
- *  the revision will use the project's default service account.
+ *  Optional. Email address of the IAM service account associated with the
+ *  revision of the service. The service account represents the identity of the
+ *  running revision, and determines what permissions the revision has. If not
+ *  provided, the revision will use the project's default service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -3512,15 +3548,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSNumber *sessionAffinity;
 
-/** Max allowed time for an instance to respond to a request. */
+/** Optional. Max allowed time for an instance to respond to a request. */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
-/** A list of Volumes to make available to containers. */
+/** Optional. A list of Volumes to make available to containers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Volume *> *volumes;
 
 /**
- *  VPC Access configuration to use for this Revision. For more information,
- *  visit https://cloud.google.com/run/docs/configuring/connecting-vpc.
+ *  Optional. VPC Access configuration to use for this Revision. For more
+ *  information, visit
+ *  https://cloud.google.com/run/docs/configuring/connecting-vpc.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
 
@@ -3528,9 +3565,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Unstructured key value map that may be set by external tools to store and
- *  arbitrary metadata. They are not queryable and should be preserved when
- *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
  *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
  *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
  *  annotations in v1 now have a corresponding field in v2 RevisionTemplate.
@@ -3546,10 +3583,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Unstructured key value map that can be used to organize and categorize
- *  objects. User-provided labels are shared with Google's billing system, so
- *  they can be used to filter, or break down billing charges by team,
- *  component, environment, state, etc. For more information, visit
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
@@ -3688,7 +3725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Service_Annotations *annotations;
 
-/** Settings for the Binary Authorization feature. */
+/** Optional. Settings for the Binary Authorization feature. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization *binaryAuthorization;
 
 /** Arbitrary identifier for the API client. */
@@ -3761,9 +3798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Provides the ingress settings for this Service. On output, returns the
- *  currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if no
- *  revision is active.
+ *  Optional. Provides the ingress settings for this Service. On output, returns
+ *  the currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if
+ *  no revision is active.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficAll
@@ -3813,7 +3850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *latestReadyRevision;
 
 /**
- *  The launch stage as defined by [Google Cloud Platform Launch
+ *  Optional. The launch stage as defined by [Google Cloud Platform Launch
  *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
  *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. Set the
  *  launch stage to a preview stage on input to allow use of preview features in
@@ -3934,9 +3971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Condition *terminalCondition;
 
 /**
- *  Specifies how to distribute traffic over a collection of Revisions belonging
- *  to the Service. If traffic is empty or not provided, defaults to 100%
- *  traffic to the latest `Ready` Revision.
+ *  Optional. Specifies how to distribute traffic over a collection of Revisions
+ *  belonging to the Service. If traffic is empty or not provided, defaults to
+ *  100% traffic to the latest `Ready` Revision.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2TrafficTarget *> *traffic;
 
@@ -4010,9 +4047,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2ServiceScaling : GTLRObject
 
 /**
- *  total min instances for the service. This number of instances is divided
- *  among all revisions with specified traffic based on the percent of traffic
- *  they are receiving. (BETA)
+ *  Optional. total min instances for the service. This number of instances is
+ *  divided among all revisions with specified traffic based on the percent of
+ *  traffic they are receiving. (BETA)
  *
  *  Uses NSNumber of intValue.
  */
@@ -4302,7 +4339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *encryptionKey;
 
 /**
- *  The execution environment being used to host this Task.
+ *  Optional. The execution environment being used to host this Task.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1
@@ -4325,26 +4362,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *maxRetries;
 
 /**
- *  Email address of the IAM service account associated with the Task of a Job.
- *  The service account represents the identity of the running task, and
- *  determines what permissions the task has. If not provided, the task will use
- *  the project's default service account.
+ *  Optional. Email address of the IAM service account associated with the Task
+ *  of a Job. The service account represents the identity of the running task,
+ *  and determines what permissions the task has. If not provided, the task will
+ *  use the project's default service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
- *  Max allowed time duration the Task may be active before the system will
- *  actively try to mark it failed and kill associated containers. This applies
- *  per attempt of a task, meaning each retry can run for the full timeout.
- *  Defaults to 600 seconds.
+ *  Optional. Max allowed time duration the Task may be active before the system
+ *  will actively try to mark it failed and kill associated containers. This
+ *  applies per attempt of a task, meaning each retry can run for the full
+ *  timeout. Defaults to 600 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
-/** A list of Volumes to make available to containers. */
+/** Optional. A list of Volumes to make available to containers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Volume *> *volumes;
 
 /**
- *  VPC Access configuration to use for this Task. For more information, visit
+ *  Optional. VPC Access configuration to use for this Task. For more
+ *  information, visit
  *  https://cloud.google.com/run/docs/configuring/connecting-vpc.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
@@ -4358,9 +4396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2TCPSocketAction : GTLRObject
 
 /**
- *  Port number to access on the container. Must be in the range 1 to 65535. If
- *  not specified, defaults to the exposed port of the container, which is the
- *  value of container.ports[0].containerPort.
+ *  Optional. Port number to access on the container. Must be in the range 1 to
+ *  65535. If not specified, defaults to the exposed port of the container,
+ *  which is the value of container.ports[0].containerPort.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4556,7 +4594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *connector;
 
 /**
- *  Traffic VPC egress settings. If not provided, it defaults to
+ *  Optional. Traffic VPC egress settings. If not provided, it defaults to
  *  PRIVATE_RANGES_ONLY.
  *
  *  Likely values:
@@ -4572,8 +4610,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *egress;
 
 /**
- *  Direct VPC egress settings. Currently only single network interface is
- *  supported.
+ *  Optional. Direct VPC egress settings. Currently only single network
+ *  interface is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2NetworkInterface *> *networkInterfaces;
 
@@ -4770,6 +4808,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  execution.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
+
+/** Optional. Configuration for git operations. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig *gitConfig;
 
 /**
  *  Output only. Unique identifier of the build.
@@ -5387,6 +5428,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  This config defines the location of a source through Developer Connect.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig : GTLRObject
+
+/**
+ *  Required. Directory, relative to the source root, in which to run the build.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Required. The Developer Connect Git repository link, formatted as `projects/
+ *  * /locations/ * /connections/ * /gitRepositoryLink/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitRepositoryLink;
+
+/**
+ *  Required. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
  *  A fatal problem encountered during the execution of the build.
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo : GTLRObject
@@ -5426,6 +5492,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Collection of file hashes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash *> *fileHash;
+
+@end
+
+
+/**
+ *  GitConfig is a configuration for git operations.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig : GTLRObject
+
+/** Configuration for HTTP related git operations. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig *http;
 
 @end
 
@@ -5489,6 +5566,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  HttpConfig is a configuration for HTTP related git operations.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig : GTLRObject
+
+/**
+ *  SecretVersion resource of the HTTP proxy URL. The proxy URL should be in
+ *  format protocol://\@]proxyhost[:port].
+ */
+@property(nonatomic, copy, nullable) NSString *proxySecretVersionName;
 
 @end
 
@@ -5847,6 +5938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  repository resource.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1ConnectedRepository *connectedRepository;
+
+/** If provided, get the source from this Developer Connect config. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig *developerConnectConfig;
 
 /** If provided, get the source from this Git repository. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource *gitSource;

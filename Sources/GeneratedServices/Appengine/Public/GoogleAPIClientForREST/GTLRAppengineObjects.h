@@ -535,8 +535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_NetworkSettings_IngressTraffic
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_AfterResourceHandling;
 /** Value: "BEFORE_RESOURCE_HANDLING" */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_BeforeResourceHandling;
-/** Value: "UNKNOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_Unknown;
+/** Value: "CONTAINER_EVENT_PHASE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_ContainerEventPhaseUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ProjectsMetadata.consumerProjectState
@@ -3294,21 +3294,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
- *  phase
+ *  Phase indicates when in the container event propagation this event is being
+ *  communicated. Events are sent before and after the per-resource events are
+ *  propagated. required
  *
  *  Likely values:
  *    @arg @c kGTLRAppengine_ProjectEvent_Phase_AfterResourceHandling Value
  *        "AFTER_RESOURCE_HANDLING"
  *    @arg @c kGTLRAppengine_ProjectEvent_Phase_BeforeResourceHandling Value
  *        "BEFORE_RESOURCE_HANDLING"
- *    @arg @c kGTLRAppengine_ProjectEvent_Phase_Unknown Value "UNKNOWN"
+ *    @arg @c kGTLRAppengine_ProjectEvent_Phase_ContainerEventPhaseUnspecified
+ *        Value "CONTAINER_EVENT_PHASE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *phase;
 
 /** The projects metadata for this project. required */
 @property(nonatomic, strong, nullable) GTLRAppengine_ProjectsMetadata *projectMetadata;
 
-/** The state of the project that led to this event. */
+/** The state of the organization that led to this event. */
 @property(nonatomic, strong, nullable) GTLRAppengine_ContainerState *state;
 
 @end

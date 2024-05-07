@@ -1622,6 +1622,169 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Creates a new RegionalEndpoint in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.regionalEndpoints.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsCreate : GTLRNetworkconnectivityQuery
+
+/** Required. The parent resource's name of the RegionalEndpoint. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Unique id of the Regional Endpoint to be created. */
+@property(nonatomic, copy, nullable) NSString *regionalEndpointId;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new RegionalEndpoint in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_RegionalEndpoint to include in
+ *    the query.
+ *  @param parent Required. The parent resource's name of the RegionalEndpoint.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RegionalEndpoint *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single RegionalEndpoint.
+ *
+ *  Method: networkconnectivity.projects.locations.regionalEndpoints.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsDelete : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the RegionalEndpoint to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single RegionalEndpoint.
+ *
+ *  @param name Required. The name of the RegionalEndpoint to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single RegionalEndpoint.
+ *
+ *  Method: networkconnectivity.projects.locations.regionalEndpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsGet : GTLRNetworkconnectivityQuery
+
+/**
+ *  Required. Name of the RegionalEndpoint resource to get. Format:
+ *  `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_RegionalEndpoint.
+ *
+ *  Gets details of a single RegionalEndpoint.
+ *
+ *  @param name Required. Name of the RegionalEndpoint resource to get. Format:
+ *    `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RegionalEndpoints in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.regionalEndpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsList : GTLRNetworkconnectivityQuery
+
+/** A filter expression that filters the results listed in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name of the RegionalEndpoint. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListRegionalEndpointsResponse.
+ *
+ *  Lists RegionalEndpoints in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name of the RegionalEndpoint.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes a single ServiceClass.
  *
  *  Method: networkconnectivity.projects.locations.serviceClasses.delete

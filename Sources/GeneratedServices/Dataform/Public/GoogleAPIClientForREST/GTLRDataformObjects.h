@@ -28,6 +28,7 @@
 @class GTLRDataform_CompilationError;
 @class GTLRDataform_CompilationResult;
 @class GTLRDataform_CompilationResultAction;
+@class GTLRDataform_DataEncryptionState;
 @class GTLRDataform_Declaration;
 @class GTLRDataform_DeleteFile;
 @class GTLRDataform_DirectoryEntry;
@@ -42,6 +43,9 @@
 @class GTLRDataform_Location;
 @class GTLRDataform_Location_Labels;
 @class GTLRDataform_Location_Metadata;
+@class GTLRDataform_Notebook;
+@class GTLRDataform_NotebookAction;
+@class GTLRDataform_NotebookRuntimeOptions;
 @class GTLRDataform_Operations;
 @class GTLRDataform_Policy;
 @class GTLRDataform_Relation;
@@ -334,6 +338,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_BigQueryAction : GTLRObject
 
+/**
+ *  Output only. The ID of the BigQuery job that executed the SQL in sql_script.
+ *  Only set once the job has started to run.
+ */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
 /** Output only. The generated BigQuery SQL script that will be executed. */
 @property(nonatomic, copy, nullable) NSString *sqlScript;
 
@@ -456,6 +466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  https://cloud.google.com/bigquery/docs/locations.
  */
 @property(nonatomic, copy, nullable) NSString *defaultLocation;
+
+@property(nonatomic, strong, nullable) GTLRDataform_NotebookRuntimeOptions *defaultNotebookRuntimeOptions;
 
 /** Optional. The default schema (BigQuery dataset ID). */
 @property(nonatomic, copy, nullable) NSString *defaultSchema;
@@ -601,6 +613,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `CommitRepositoryChanges` response message.
+ */
+@interface GTLRDataform_CommitRepositoryChangesResponse : GTLRObject
+
+/** The commit SHA of the current commit. */
+@property(nonatomic, copy, nullable) NSString *commitSha;
+
+@end
+
+
+/**
  *  `CommitWorkspaceChanges` request message.
  */
 @interface GTLRDataform_CommitWorkspaceChangesRequest : GTLRObject
@@ -659,6 +682,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Output only. Errors encountered during project compilation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_CompilationError *> *compilationErrors;
+
+/** Output only. Only set if the repository has a KMS Key. */
+@property(nonatomic, strong, nullable) GTLRDataform_DataEncryptionState *dataEncryptionState;
 
 /**
  *  Output only. The version of `\@dataform/core` that was used for compilation.
@@ -719,6 +745,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
 
+/** The notebook executed by this action. */
+@property(nonatomic, strong, nullable) GTLRDataform_Notebook *notebook;
+
 /** The database operations executed by this action. */
 @property(nonatomic, strong, nullable) GTLRDataform_Operations *operations;
 
@@ -755,6 +784,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *        remote. (Value: "VALID")
  */
 @property(nonatomic, copy, nullable) NSString *tokenStatus;
+
+@end
+
+
+/**
+ *  Describes encryption state of a resource.
+ */
+@interface GTLRDataform_DataEncryptionState : GTLRObject
+
+/** The KMS key version name with which data of a resource is encrypted. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
 
 @end
 
@@ -1486,6 +1526,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  GTLRDataform_Notebook
+ */
+@interface GTLRDataform_Notebook : GTLRObject
+
+/** The contents of the notebook. */
+@property(nonatomic, copy, nullable) NSString *contents;
+
+/** A list of actions that this action depends on. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_Target *> *dependencyTargets;
+
+/**
+ *  Whether this action is disabled (i.e. should not be run).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** Arbitrary, user-defined tags on this action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  Represents a workflow action that will run against a Notebook runtime.
+ */
+@interface GTLRDataform_NotebookAction : GTLRObject
+
+/** Output only. The code contents of a Notebook to be run. */
+@property(nonatomic, copy, nullable) NSString *contents;
+
+/**
+ *  Output only. The ID of the Vertex job that executed the notebook in contents
+ *  and also the ID used for the outputs created in GCS buckets. Only set once
+ *  the job has started to run.
+ */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+@end
+
+
+/**
+ *  GTLRDataform_NotebookRuntimeOptions
+ */
+@interface GTLRDataform_NotebookRuntimeOptions : GTLRObject
+
+/**
+ *  Optional. The GCS location to upload the result to. Format:
+ *  `gs://bucket-name`.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsOutputBucket;
+
+@end
+
+
+/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRDataform_OperationMetadata : GTLRObject
@@ -2057,6 +2153,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /** Output only. The timestamp of when the repository was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Output only. A data encryption state of a Git repository if this Repository
+ *  is protected by a KMS key.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_DataEncryptionState *dataEncryptionState;
+
 /** Optional. The repository's user-friendly name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2064,6 +2166,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  Optional. If set, configures this repository to be linked to a Git remote.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_GitRemoteSettings *gitRemoteSettings;
+
+/**
+ *  Optional. The reference to a KMS encryption key. If provided, it will be
+ *  used to encrypt user data in the repository and all child resources. It is
+ *  not possible to add or update the encryption key after the repository is
+ *  created. Example:
+ *  `projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /** Optional. Repository user labels. */
 @property(nonatomic, strong, nullable) GTLRDataform_Repository_Labels *labels;
@@ -2438,6 +2549,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *compilationResult;
 
+/** Output only. Only set if the repository has a KMS Key. */
+@property(nonatomic, strong, nullable) GTLRDataform_DataEncryptionState *dataEncryptionState;
+
 /** Immutable. If left unset, a default InvocationConfig will be used. */
 @property(nonatomic, strong, nullable) GTLRDataform_InvocationConfig *invocationConfig;
 
@@ -2510,6 +2624,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, strong, nullable) GTLRDataform_Interval *invocationTiming;
 
+/** Output only. The workflow action's notebook action details. */
+@property(nonatomic, strong, nullable) GTLRDataform_NotebookAction *notebookAction;
+
 /**
  *  Output only. This action's current state.
  *
@@ -2546,6 +2663,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  Represents a Dataform Git workspace.
  */
 @interface GTLRDataform_Workspace : GTLRObject
+
+/**
+ *  Output only. A data encryption state of a Git repository if this Workspace
+ *  is protected by a KMS key.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_DataEncryptionState *dataEncryptionState;
 
 /** Identifier. The workspace's name. */
 @property(nonatomic, copy, nullable) NSString *name;
