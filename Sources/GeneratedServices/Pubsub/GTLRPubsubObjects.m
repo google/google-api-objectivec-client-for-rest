@@ -35,6 +35,7 @@ NSString * const kGTLRPubsub_CloudStorageConfig_State_Active   = @"ACTIVE";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_NotFound = @"NOT_FOUND";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRPubsub_Schema.type

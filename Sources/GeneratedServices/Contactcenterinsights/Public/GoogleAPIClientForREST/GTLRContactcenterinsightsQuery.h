@@ -297,13 +297,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
- *  Creates a conversation.
+ *  Creates a conversation. DEPRECATED: Use UploadConversation instead.
+ *  CreateConversation does not support audio transcription or DLP redaction.
  *
  *  Method: contactcenterinsights.projects.locations.conversations.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsCreate : GTLRContactcenterinsightsQuery
 
 /**
@@ -322,7 +324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  Fetches a @c
  *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation.
  *
- *  Creates a conversation.
+ *  Creates a conversation. DEPRECATED: Use UploadConversation instead.
+ *  CreateConversation does not support audio transcription or DLP redaction.
  *
  *  @param object The @c
  *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation

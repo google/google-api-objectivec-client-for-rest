@@ -101,6 +101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_Stat
  */
 FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_StateUnspecified;
 /**
+ *  The node is syncing, which is the process by which it obtains the latest
+ *  block and current global state.
+ *
+ *  Value: "SYNCING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_Syncing;
+/**
  *  The node is currently being updated.
  *
  *  Value: "UPDATING"
@@ -328,6 +335,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *        running and ready for use. (Value: "RUNNING")
  *    @arg @c kGTLRBlockchainNodeEngine_BlockchainNode_State_StateUnspecified
  *        The state has not been specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBlockchainNodeEngine_BlockchainNode_State_Syncing The node is
+ *        syncing, which is the process by which it obtains the latest block and
+ *        current global state. (Value: "SYNCING")
  *    @arg @c kGTLRBlockchainNodeEngine_BlockchainNode_State_Updating The node
  *        is currently being updated. (Value: "UPDATING")
  */

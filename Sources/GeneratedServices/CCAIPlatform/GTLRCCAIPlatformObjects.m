@@ -24,6 +24,12 @@ NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUnspecified = @"STAT
 // GTLRCCAIPlatform_InstanceConfig.instanceSize
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall = @"DEV_XSMALL";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion2xlarge = @"MULTIREGION_2XLARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion3xlarge = @"MULTIREGION_3XLARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionLarge = @"MULTIREGION_LARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionMedium = @"MULTIREGION_MEDIUM";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionSmall = @"MULTIREGION_SMALL";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionXlarge = @"MULTIREGION_XLARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge = @"STANDARD_2XLARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge = @"STANDARD_3XLARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardLarge = @"STANDARD_LARGE";
@@ -34,6 +40,12 @@ NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = 
 // GTLRCCAIPlatform_Quota.contactCenterInstanceSize
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall = @"DEV_XSMALL";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion2xlarge = @"MULTIREGION_2XLARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion3xlarge = @"MULTIREGION_3XLARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionLarge = @"MULTIREGION_LARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionMedium = @"MULTIREGION_MEDIUM";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionSmall = @"MULTIREGION_SMALL";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionXlarge = @"MULTIREGION_XLARGE";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge = @"STANDARD_2XLARGE";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge = @"STANDARD_3XLARGE";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardLarge = @"STANDARD_LARGE";

@@ -110,6 +110,77 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensin
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed;
 
 // ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_AppAccessRiskVerdict.appsDetected
+
+/**
+ *  Apps detected is unspecified.
+ *
+ *  Value: "APPS_DETECTED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_AppsDetectedUnspecified;
+/**
+ *  One or more apps installed by Google Play or preloaded on the device is
+ *  running that could be used to read or capture the requesting app, such as a
+ *  screen recording app.
+ *
+ *  Value: "KNOWN_CAPTURING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownCapturing;
+/**
+ *  One or more apps installed by Google Play or preloaded on the device is
+ *  running that could be used to control the device, such as a remote support
+ *  app.
+ *
+ *  Value: "KNOWN_CONTROLLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownControlling;
+/**
+ *  One or more apps is installed by Google Play or preloaded on the system
+ *  partition by the device manufacturer.
+ *
+ *  Value: "KNOWN_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownInstalled;
+/**
+ *  One or more apps installed by Google Play or preloaded on the device is
+ *  running that could be used to display overlays over the requesting app.
+ *
+ *  Value: "KNOWN_OVERLAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownOverlays;
+/**
+ *  One or more unknown apps, which were not installed by Google Play or
+ *  preloaded on the device, is running that could be used to read or capture
+ *  the requesting app, such as a screen recording app.
+ *
+ *  Value: "UNKNOWN_CAPTURING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownCapturing;
+/**
+ *  One or more unknown apps, which were not installed by Google Play or
+ *  preloaded on the device, is running that could be used to control the
+ *  device, such as a remote support app.
+ *
+ *  Value: "UNKNOWN_CONTROLLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownControlling;
+/**
+ *  One or more unknown apps is installed, that were not installed by Google
+ *  Play or preloaded on the system partition by the device manufacturer.
+ *
+ *  Value: "UNKNOWN_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownInstalled;
+/**
+ *  One or more unknown apps, which were not installed by Google Play or
+ *  preloaded on the device, is running that could be used to display overlays
+ *  over the requesting app.
+ *
+ *  Value: "UNKNOWN_OVERLAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownOverlays;
+
+// ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_AppAccessRiskVerdict.otherApps
 
 /**
@@ -427,7 +498,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  */
 @interface GTLRPlayIntegrity_AppAccessRiskVerdict : GTLRObject
 
+/** List of detected app types signalled for App Access Risk. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *appsDetected;
+
 /**
+ *  Deprecated: this field will be removed, please use apps_detected instead.
  *  App access risk verdict related to apps that are not installed by Google
  *  Play, and are not preloaded on the system image by the device manufacturer.
  *
@@ -452,9 +527,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unknown Risk
  *        type is unknown. (Value: "UNKNOWN")
  */
-@property(nonatomic, copy, nullable) NSString *otherApps;
+@property(nonatomic, copy, nullable) NSString *otherApps GTLR_DEPRECATED;
 
 /**
+ *  Deprecated: this field will be removed, please use apps_detected instead.
  *  App access risk verdict related to apps that are not installed by the Google
  *  Play Store, and are not preloaded on the system image by the device
  *  manufacturer.
@@ -480,7 +556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unknown
  *        Risk type is unknown. (Value: "UNKNOWN")
  */
-@property(nonatomic, copy, nullable) NSString *playOrSystemApps;
+@property(nonatomic, copy, nullable) NSString *playOrSystemApps GTLR_DEPRECATED;
 
 @end
 

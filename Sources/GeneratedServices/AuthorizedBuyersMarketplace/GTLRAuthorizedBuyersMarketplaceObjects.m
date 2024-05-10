@@ -749,9 +749,18 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 //
 
 @implementation GTLRAuthorizedBuyersMarketplace_MarketplaceTargeting
-@dynamic daypartTargeting, geoTargeting, inventorySizeTargeting,
-         inventoryTypeTargeting, placementTargeting, technologyTargeting,
-         userListTargeting, videoTargeting;
+@dynamic daypartTargeting, excludedSensitiveCategoryIds, geoTargeting,
+         inventorySizeTargeting, inventoryTypeTargeting, placementTargeting,
+         technologyTargeting, userListTargeting, verticalTargeting,
+         videoTargeting;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedSensitiveCategoryIds" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -679,7 +679,8 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
          encryptionState, endpointVerificationSpecificAttributes, hostname,
          imei, kernelVersion, lastSyncTime, managementState, manufacturer, meid,
          model, name, networkOperator, osVersion, otherAccounts, ownerType,
-         releaseVersion, securityPatchTime, serialNumber, wifiMacAddresses;
+         releaseVersion, securityPatchTime, serialNumber, unifiedDeviceId,
+         wifiMacAddresses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

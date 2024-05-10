@@ -149,6 +149,12 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Delete;
 /**
+ *  Constraint applied when enforcing forced tagging.
+ *
+ *  Value: "GOVERN_TAGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_GovernTags;
+/**
  *  Unspecified. Results in an error.
  *
  *  Value: "METHOD_TYPE_UNSPECIFIED"

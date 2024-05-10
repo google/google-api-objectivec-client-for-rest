@@ -1006,6 +1006,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion class];
+  query.loggingName = @"aiplatform.projects.locations.datasets.datasetVersions.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsRestore
 
 @dynamic name;

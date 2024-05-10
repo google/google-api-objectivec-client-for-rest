@@ -108,6 +108,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified;
 /**
+ *  Instance Size MULTIREGION_2XLARGE.
+ *
+ *  Value: "MULTIREGION_2XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion2xlarge;
+/**
+ *  Instance Size MULTIREGION_3XLARGE.
+ *
+ *  Value: "MULTIREGION_3XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion3xlarge;
+/**
+ *  Instance Size MULTIREGION_LARGE
+ *
+ *  Value: "MULTIREGION_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionLarge;
+/**
+ *  Instance Size MULTIREGION_MEDIUM
+ *
+ *  Value: "MULTIREGION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionMedium;
+/**
+ *  Instance Size MULTIREGION_SMALL
+ *
+ *  Value: "MULTIREGION_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionSmall;
+/**
+ *  Instance Size MULTIREGION_XLARGE
+ *
+ *  Value: "MULTIREGION_XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionXlarge;
+/**
  *  Instance Size STANDARD_2XLARGE.
  *
  *  Value: "STANDARD_2XLARGE"
@@ -159,6 +195,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  Value: "INSTANCE_SIZE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified;
+/**
+ *  Instance Size MULTIREGION_2XLARGE.
+ *
+ *  Value: "MULTIREGION_2XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion2xlarge;
+/**
+ *  Instance Size MULTIREGION_3XLARGE.
+ *
+ *  Value: "MULTIREGION_3XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion3xlarge;
+/**
+ *  Instance Size MULTIREGION_LARGE
+ *
+ *  Value: "MULTIREGION_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionLarge;
+/**
+ *  Instance Size MULTIREGION_MEDIUM
+ *
+ *  Value: "MULTIREGION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionMedium;
+/**
+ *  Instance Size MULTIREGION_SMALL
+ *
+ *  Value: "MULTIREGION_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionSmall;
+/**
+ *  Instance Size MULTIREGION_XLARGE
+ *
+ *  Value: "MULTIREGION_XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionXlarge;
 /**
  *  Instance Size STANDARD_2XLARGE.
  *
@@ -427,6 +499,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion2xlarge
+ *        Instance Size MULTIREGION_2XLARGE. (Value: "MULTIREGION_2XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion3xlarge
+ *        Instance Size MULTIREGION_3XLARGE. (Value: "MULTIREGION_3XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionLarge
+ *        Instance Size MULTIREGION_LARGE (Value: "MULTIREGION_LARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionMedium
+ *        Instance Size MULTIREGION_MEDIUM (Value: "MULTIREGION_MEDIUM")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionSmall
+ *        Instance Size MULTIREGION_SMALL (Value: "MULTIREGION_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionXlarge
+ *        Instance Size MULTIREGION_XLARGE (Value: "MULTIREGION_XLARGE")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge
  *        Instance Size STANDARD_2XLARGE. (Value: "STANDARD_2XLARGE")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge
@@ -738,6 +822,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion2xlarge
+ *        Instance Size MULTIREGION_2XLARGE. (Value: "MULTIREGION_2XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion3xlarge
+ *        Instance Size MULTIREGION_3XLARGE. (Value: "MULTIREGION_3XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionLarge
+ *        Instance Size MULTIREGION_LARGE (Value: "MULTIREGION_LARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionMedium
+ *        Instance Size MULTIREGION_MEDIUM (Value: "MULTIREGION_MEDIUM")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionSmall
+ *        Instance Size MULTIREGION_SMALL (Value: "MULTIREGION_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionXlarge
+ *        Instance Size MULTIREGION_XLARGE (Value: "MULTIREGION_XLARGE")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge
  *        Instance Size STANDARD_2XLARGE. (Value: "STANDARD_2XLARGE")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge

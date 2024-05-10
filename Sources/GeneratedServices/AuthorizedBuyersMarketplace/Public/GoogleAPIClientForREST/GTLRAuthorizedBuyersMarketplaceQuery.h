@@ -57,6 +57,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Optional. An optional query string to sort auction packages using the [Cloud
+ *  API sorting
+ *  syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order).
+ *  If no sort order is specified, results will be returned in an arbitrary
+ *  order. Only supported when parent is bidder. Supported columns for sorting
+ *  are: * displayName * createTime * updateTime
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Requested page size. The server may return fewer results than requested. Max
  *  allowed page size is 500.
  */
@@ -131,7 +141,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  deal.flightEndTime * rtbMetrics.bidRequests7Days * rtbMetrics.bids7Days *
  *  rtbMetrics.adImpressions7Days * rtbMetrics.bidRate7Days *
  *  rtbMetrics.filteredBidRate7Days * rtbMetrics.mustBidRateCurrentMonth
- *  Example: 'deal.displayName, deal.updateTime desc'
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -226,6 +235,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  createTime * updateTime * eligibleSeatIds
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. An optional query string to sort auction packages using the [Cloud
+ *  API sorting
+ *  syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order).
+ *  If no sort order is specified, results will be returned in an arbitrary
+ *  order. Only supported when parent is bidder. Supported columns for sorting
+ *  are: * displayName * createTime * updateTime
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Requested page size. The server may return fewer results than requested. Max
@@ -981,7 +1000,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  deal.flightEndTime * rtbMetrics.bidRequests7Days * rtbMetrics.bids7Days *
  *  rtbMetrics.adImpressions7Days * rtbMetrics.bidRate7Days *
  *  rtbMetrics.filteredBidRate7Days * rtbMetrics.mustBidRateCurrentMonth
- *  Example: 'deal.displayName, deal.updateTime desc'
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

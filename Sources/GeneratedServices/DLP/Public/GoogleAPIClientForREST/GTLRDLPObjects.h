@@ -654,19 +654,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeNumeric;
 /**
- *  Range type.
+ *  `Range` type.
  *
  *  Value: "TYPE_RANGE_DATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRangeDate;
 /**
- *  Range type.
+ *  `Range` type.
  *
  *  Value: "TYPE_RANGE_DATETIME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRangeDatetime;
 /**
- *  Range type.
+ *  `Range` type.
  *
  *  Value: "TYPE_RANGE_TIMESTAMP"
  */
@@ -980,9 +980,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Lik
 // GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage.event
 
 /**
- *  Changed one of the following profile metrics: * Table data risk score *
- *  Table sensitivity score * Table resource visibility * Table encryption type
- *  * Table predicted infoTypes * Table other infoTypes
+ *  Changed one of the following profile metrics: * Data risk score *
+ *  Sensitivity score * Resource visibility * Encryption type * Predicted
+ *  infoTypes * Other infoTypes
  *
  *  Value: "CHANGED_PROFILE"
  */
@@ -2278,7 +2278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubExpressions_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_DetailLevelUnspecified;
 /**
- *  The resource name of the table.
+ *  The name of the profiled resource.
  *
  *  Value: "RESOURCE_NAME"
  */
@@ -2294,9 +2294,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification
 // GTLRDLP_GooglePrivacyDlpV2PubSubNotification.event
 
 /**
- *  Changed one of the following profile metrics: * Table data risk score *
- *  Table sensitivity score * Table resource visibility * Table encryption type
- *  * Table predicted infoTypes * Table other infoTypes
+ *  Changed one of the following profile metrics: * Data risk score *
+ *  Sensitivity score * Resource visibility * Encryption type * Predicted
+ *  infoTypes * Other infoTypes
  *
  *  Value: "CHANGED_PROFILE"
  */
@@ -2492,6 +2492,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_E
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2TableDataProfile.resourceVisibility
 
+/**
+ *  May contain public items. For example, if a GCS bucket has uniform bucket
+ *  level access disabled, some objects inside it may be public.
+ *
+ *  Value: "RESOURCE_VISIBILITY_INCONCLUSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityInconclusive;
 /**
  *  Visible to any user.
  *
@@ -3505,8 +3512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  at creation time, and cannot be updated. It is an error to use a
  *  connection_name from different project or region than the one that holds the
  *  connection. For example, a Connection resource for Cloud SQL connection_name
- *  "project-id:us-central1:sql-instance" must be created under the parent
- *  "projects/project-id/locations/us-central1"
+ *  `project-id:us-central1:sql-instance` must be created under the parent
+ *  `projects/project-id/locations/us-central1`
  */
 @property(nonatomic, copy, nullable) NSString *connectionName;
 
@@ -3765,11 +3772,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeNumeric
  *        Encoded as a decimal string. (Value: "TYPE_NUMERIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRangeDate
- *        Range type. (Value: "TYPE_RANGE_DATE")
+ *        `Range` type. (Value: "TYPE_RANGE_DATE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRangeDatetime
- *        Range type. (Value: "TYPE_RANGE_DATETIME")
+ *        `Range` type. (Value: "TYPE_RANGE_DATETIME")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRangeTimestamp
- *        Range type. (Value: "TYPE_RANGE_TIMESTAMP")
+ *        `Range` type. (Value: "TYPE_RANGE_TIMESTAMP")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ColumnDataProfile_ColumnType_TypeRecord
  *        Container of ordered fields, each with a type and field name. (Value:
  *        "TYPE_RECORD")
@@ -3980,7 +3987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Output only. Name of the connection:
- *  projects/{project}/locations/{location}/connections/{name}.
+ *  `projects/{project}/locations/{location}/connections/{name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4779,10 +4786,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ChangedProfile
- *        Changed one of the following profile metrics: * Table data risk score
- *        * Table sensitivity score * Table resource visibility * Table
- *        encryption type * Table predicted infoTypes * Table other infoTypes
- *        (Value: "CHANGED_PROFILE")
+ *        Changed one of the following profile metrics: * Data risk score *
+ *        Sensitivity score * Resource visibility * Encryption type * Predicted
+ *        infoTypes * Other infoTypes (Value: "CHANGED_PROFILE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ErrorChanged
  *        A user (non-internal) error occurred. (Value: "ERROR_CHANGED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_EventTypeUnspecified
@@ -6601,7 +6607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Classification of infoTypes to organize them according to geographic
- *  location, industry, and data type. NEXT_ID: 48
+ *  location, industry, and data type.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory : GTLRObject
 
@@ -8593,7 +8599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_DetailLevelUnspecified
  *        Unused. (Value: "DETAIL_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_ResourceName
- *        The resource name of the table. (Value: "RESOURCE_NAME")
+ *        The name of the profiled resource. (Value: "RESOURCE_NAME")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_TableProfile
  *        The full table data profile. (Value: "TABLE_PROFILE")
  */
@@ -8605,10 +8611,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ChangedProfile
- *        Changed one of the following profile metrics: * Table data risk score
- *        * Table sensitivity score * Table resource visibility * Table
- *        encryption type * Table predicted infoTypes * Table other infoTypes
- *        (Value: "CHANGED_PROFILE")
+ *        Changed one of the following profile metrics: * Data risk score *
+ *        Sensitivity score * Resource visibility * Encryption type * Predicted
+ *        infoTypes * Other infoTypes (Value: "CHANGED_PROFILE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ErrorChanged A
  *        user (non-internal) error occurred. (Value: "ERROR_CHANGED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_EventTypeUnspecified
@@ -9240,7 +9245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Required. The name of the Secret Manager resource that stores the password,
- *  in the form "projects/project-id/secrets/secret-name/versions/version".
+ *  in the form `projects/project-id/secrets/secret-name/versions/version`.
  */
 @property(nonatomic, copy, nullable) NSString *passwordSecretVersionName;
 
@@ -9649,6 +9654,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  How broadly a resource has been shared.
  *
  *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityInconclusive
+ *        May contain public items. For example, if a GCS bucket has uniform
+ *        bucket level access disabled, some objects inside it may be public.
+ *        (Value: "RESOURCE_VISIBILITY_INCONCLUSIVE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityPublic
  *        Visible to any user. (Value: "RESOURCE_VISIBILITY_PUBLIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityRestricted
@@ -9834,7 +9843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  valid start_time to avoid scanning files that have not been modified since
  *  the last time the JobTrigger executed. This will be based on the time of the
  *  execution of the last run of the JobTrigger or the timespan end_time used in
- *  the last run of the JobTrigger. *For BigQuery* Inspect jobs triggered by
+ *  the last run of the JobTrigger. **For BigQuery** Inspect jobs triggered by
  *  automatic population will scan data that is at least three hours old when
  *  the job starts. This is because streaming buffer rows are not read during
  *  inspection and reading up to the current timestamp will result in skipped

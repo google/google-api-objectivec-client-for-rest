@@ -2284,6 +2284,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *deleteProtectionState;
 
 /**
+ *  Output only. The timestamp at which this database was soft deleted. Only set
+ *  if the database has been soft deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
  *  Output only. The earliest timestamp at which older versions of the data can
  *  be read from the database. See [version_retention_period] above; this field
  *  is populated with `now - version_retention_period`. This value is

@@ -3284,6 +3284,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig *redactionConfig;
 
 /**
+ *  Optional. If set, this fields indicates the number of objects to ingest from
+ *  the Cloud Storage bucket. If empty, the entire bucket will be ingested. Note
+ *  that conversations produced via sampling will not be ingested by subsequent
+ *  ingest requests unless they are first deleted.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleSize;
+
+/**
  *  Optional. Default Speech-to-Text configuration. Optional, will default to
  *  the config specified in Settings.
  */
@@ -3310,8 +3320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) NSNumber *agentChannel;
 
 /**
- *  An opaque, user-specified string representing the human agent who handled
- *  the conversations.
+ *  Optional. An opaque, user-specified string representing a human agent who
+ *  handled all conversations in the import. Note that this will be overridden
+ *  if per-conversation metadata is provided via the `metadata_bucket_uri`.
  */
 @property(nonatomic, copy, nullable) NSString *agentId;
 
@@ -3686,7 +3697,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  DLP resources used for redaction while ingesting conversations.
+ *  DLP resources used for redaction while ingesting conversations. DLP settings
+ *  are applied to conversations ingested from the UploadConversation and
+ *  IngestConversations endpoints, including conversation coming from CCAI
+ *  Platform. They are not applied to conversations ingested from the
+ *  CreateConversation endpoint or the Dialogflow / Agent Assist runtime
+ *  integrations. When using Dialogflow / Agent Assist runtime integrations
+ *  redaction should be performed in Dialogflow / Agent Assist.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig : GTLRObject
 
@@ -3949,7 +3966,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
- *  Speech-to-Text configuration.
+ *  Speech-to-Text configuration. Speech-to-Text settings are applied to
+ *  conversations ingested from the UploadConversation and IngestConversations
+ *  endpoints, including conversation coming from CCAI Platform. They are not
+ *  applied to conversations ingested from the CreateConversation endpoint.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig : GTLRObject
 
@@ -6162,6 +6182,16 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig *redactionConfig;
 
 /**
+ *  Optional. If set, this fields indicates the number of objects to ingest from
+ *  the Cloud Storage bucket. If empty, the entire bucket will be ingested. Note
+ *  that conversations produced via sampling will not be ingested by subsequent
+ *  ingest requests unless they are first deleted.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleSize;
+
+/**
  *  Optional. Default Speech-to-Text configuration. Optional, will default to
  *  the config specified in Settings.
  */
@@ -6188,8 +6218,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *agentChannel;
 
 /**
- *  An opaque, user-specified string representing the human agent who handled
- *  the conversations.
+ *  Optional. An opaque, user-specified string representing a human agent who
+ *  handled all conversations in the import. Note that this will be overridden
+ *  if per-conversation metadata is provided via the `metadata_bucket_uri`.
  */
 @property(nonatomic, copy, nullable) NSString *agentId;
 
@@ -6879,7 +6910,13 @@ GTLR_DEPRECATED
 
 
 /**
- *  DLP resources used for redaction while ingesting conversations.
+ *  DLP resources used for redaction while ingesting conversations. DLP settings
+ *  are applied to conversations ingested from the UploadConversation and
+ *  IngestConversations endpoints, including conversation coming from CCAI
+ *  Platform. They are not applied to conversations ingested from the
+ *  CreateConversation endpoint or the Dialogflow / Agent Assist runtime
+ *  integrations. When using Dialogflow / Agent Assist runtime integrations
+ *  redaction should be performed in Dialogflow / Agent Assist.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig : GTLRObject
 
@@ -7093,12 +7130,18 @@ GTLR_DEPRECATED
 
 /**
  *  Default DLP redaction resources to be applied while ingesting conversations.
+ *  This applies to conversations ingested from the UploadConversation and
+ *  IngestConversations endpoints, including conversations coming from CCAI
+ *  Platform.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig *redactionConfig;
 
 /**
  *  Optional. Default Speech-to-Text resources to be used while ingesting audio
- *  files. Optional, CCAI Insights will create a default if not provided.
+ *  files. Optional, CCAI Insights will create a default if not provided. This
+ *  applies to conversations ingested from the UploadConversation and
+ *  IngestConversations endpoints, including conversations coming from CCAI
+ *  Platform.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig *speechConfig;
 
@@ -7258,7 +7301,10 @@ GTLR_DEPRECATED
 
 
 /**
- *  Speech-to-Text configuration.
+ *  Speech-to-Text configuration. Speech-to-Text settings are applied to
+ *  conversations ingested from the UploadConversation and IngestConversations
+ *  endpoints, including conversation coming from CCAI Platform. They are not
+ *  applied to conversations ingested from the CreateConversation endpoint.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig : GTLRObject
 

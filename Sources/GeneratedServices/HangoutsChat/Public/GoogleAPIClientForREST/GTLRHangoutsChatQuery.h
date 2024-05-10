@@ -780,7 +780,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Updates a membership. Requires [user
+ *  Updates a membership. For an example, see [Update a user's membership in a
+ *  space](https://developers.google.com/workspace/chat/update-members).
+ *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: chat.spaces.members.patch
@@ -808,7 +810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Membership.
  *
- *  Updates a membership. Requires [user
+ *  Updates a membership. For an example, see [Update a user's membership in a
+ *  space](https://developers.google.com/workspace/chat/update-members).
+ *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param object The @c GTLRHangoutsChat_Membership to include in the query.
@@ -1859,7 +1863,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Returns details about a user's read state within a space, used to identify
- *  read and unread messages. Requires [user
+ *  read and unread messages. For an example, see [Get details about a user's
+ *  space read
+ *  state](https://developers.google.com/workspace/chat/get-space-read-state).
+ *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: chat.users.spaces.getSpaceReadState
@@ -1885,7 +1892,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Fetches a @c GTLRHangoutsChat_SpaceReadState.
  *
  *  Returns details about a user's read state within a space, used to identify
- *  read and unread messages. Requires [user
+ *  read and unread messages. For an example, see [Get details about a user's
+ *  space read
+ *  state](https://developers.google.com/workspace/chat/get-space-read-state).
+ *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param name Required. Resource name of the space read state to retrieve.
@@ -1905,7 +1915,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Returns details about a user's read state within a thread, used to identify
- *  read and unread messages. Requires [user
+ *  read and unread messages. For an example, see [Get details about a user's
+ *  thread read
+ *  state](https://developers.google.com/workspace/chat/get-thread-read-state).
+ *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: chat.users.spaces.threads.getThreadReadState
@@ -1933,7 +1946,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Fetches a @c GTLRHangoutsChat_ThreadReadState.
  *
  *  Returns details about a user's read state within a thread, used to identify
- *  read and unread messages. Requires [user
+ *  read and unread messages. For an example, see [Get details about a user's
+ *  thread read
+ *  state](https://developers.google.com/workspace/chat/get-thread-read-state).
+ *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param name Required. Resource name of the thread read state to retrieve.
@@ -1954,7 +1970,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Updates a user's read state within a space, used to identify read and unread
- *  messages. Requires [user
+ *  messages. For an example, see [Update a user's space read
+ *  state](https://developers.google.com/workspace/chat/update-space-read-state).
+ *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: chat.users.spaces.updateSpaceReadState
@@ -1989,7 +2007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Fetches a @c GTLRHangoutsChat_SpaceReadState.
  *
  *  Updates a user's read state within a space, used to identify read and unread
- *  messages. Requires [user
+ *  messages. For an example, see [Update a user's space read
+ *  state](https://developers.google.com/workspace/chat/update-space-read-state).
+ *  Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param object The @c GTLRHangoutsChat_SpaceReadState to include in the

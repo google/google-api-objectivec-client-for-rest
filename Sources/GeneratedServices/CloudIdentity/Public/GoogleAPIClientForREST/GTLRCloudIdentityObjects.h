@@ -2083,6 +2083,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /** Serial Number of device. Example: HT82V1A01076. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
+/** Output only. Unified device id of the device. */
+@property(nonatomic, copy, nullable) NSString *unifiedDeviceId;
+
 /** WiFi MAC addresses of device. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *wifiMacAddresses;
 

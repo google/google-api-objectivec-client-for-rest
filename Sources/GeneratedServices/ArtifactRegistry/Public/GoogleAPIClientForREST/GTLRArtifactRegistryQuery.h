@@ -64,44 +64,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
- *  Download a file.
- *
- *  Method: artifactregistry.media.download
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
- *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
- */
-@interface GTLRArtifactRegistryQuery_MediaDownload : GTLRArtifactRegistryQuery
-
-/** Required. The name of the file to download. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRArtifactRegistry_DownloadFileResponse.
- *
- *  Download a file.
- *
- *  @param name Required. The name of the file to download.
- *
- *  @return GTLRArtifactRegistryQuery_MediaDownload
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-/**
- *  Fetches the requested resource data as a @c GTLRDataObject.
- *
- *  Download a file.
- *
- *  @param name Required. The name of the file to download.
- *
- *  @return GTLRArtifactRegistryQuery_MediaDownload
- */
-+ (instancetype)queryForMediaWithName:(NSString *)name;
-
-@end
-
-/**
  *  Retrieves the Settings for the Project.
  *
  *  Method: artifactregistry.projects.getProjectSettings
@@ -476,6 +438,44 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Download a file.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.files.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload : GTLRArtifactRegistryQuery
+
+/** Required. The name of the file to download. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_DownloadFileResponse.
+ *
+ *  Download a file.
+ *
+ *  @param name Required. The name of the file to download.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Download a file.
+ *
+ *  @param name Required. The name of the file to download.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload
+ */
++ (instancetype)queryForMediaWithName:(NSString *)name;
 
 @end
 
@@ -1512,7 +1512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 
 /**
  *  The name of the repository, for example:
- *  `projects/p1/locations/us-central1/repositories/repo1`.
+ *  `projects/p1/locations/us-central1/repositories/repo1`. For each location in
+ *  a project, repository names must be unique.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1532,7 +1533,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param object The @c GTLRArtifactRegistry_Repository to include in the
  *    query.
  *  @param name The name of the repository, for example:
- *    `projects/p1/locations/us-central1/repositories/repo1`.
+ *    `projects/p1/locations/us-central1/repositories/repo1`. For each location
+ *    in a project, repository names must be unique.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPatch
  */

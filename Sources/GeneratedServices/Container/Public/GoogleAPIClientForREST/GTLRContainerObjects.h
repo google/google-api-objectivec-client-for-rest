@@ -3083,6 +3083,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *resourceUsageExportConfig;
 
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** Enable/Disable Security Posture API features for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecurityPostureConfig *securityPostureConfig;
 
@@ -3444,6 +3458,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired network performance config. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterNetworkPerformanceConfig *desiredNetworkPerformanceConfig;
+
+/** The desired node kubelet config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *desiredNodeKubeletConfig;
+
+/**
+ *  The desired node kubelet config for all auto-provisioned node pools in
+ *  autopilot clusters and node auto-provisioning enabled clusters.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *desiredNodePoolAutoConfigKubeletConfig;
 
 /**
  *  The desired network tags that apply to all auto-provisioned node pools in
@@ -5734,6 +5757,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Logging configuration for node pools. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolLoggingConfig *loggingConfig;
 
+/**
+ *  NodeKubeletConfig controls the defaults for new node-pools. Currently only
+ *  `insecure_kubelet_readonly_port_enabled` can be set here.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *nodeKubeletConfig;
+
 @end
 
 
@@ -6093,6 +6122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  RFC1035.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkTags *networkTags;
+
+/**
+ *  NodeKubeletConfig controls the defaults for autoprovisioned node-pools.
+ *  Currently only `insecure_kubelet_readonly_port_enabled` can be set here.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *nodeKubeletConfig;
 
 /**
  *  Resource manager tag keys and values to be attached to the nodes for

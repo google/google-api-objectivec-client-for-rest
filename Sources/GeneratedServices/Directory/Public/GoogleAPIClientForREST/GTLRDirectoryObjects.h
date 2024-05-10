@@ -48,6 +48,7 @@
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
 @class GTLRDirectory_FailureInfo;
+@class GTLRDirectory_FanInfo;
 @class GTLRDirectory_Feature;
 @class GTLRDirectory_Group;
 @class GTLRDirectory_Member;
@@ -1892,6 +1893,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  */
 @property(nonatomic, copy, nullable) NSString *extendedSupportStart;
 
+/** Output only. Fan information for the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_FanInfo *> *fanInfo;
+
 /** The Chrome device's firmware version. */
 @property(nonatomic, copy, nullable) NSString *firmwareVersion;
 
@@ -3013,6 +3017,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /** Id of a failed printer. */
 @property(nonatomic, copy, nullable) NSString *printerId;
+
+@end
+
+
+/**
+ *  Information about the device's fan.
+ */
+@interface GTLRDirectory_FanInfo : GTLRObject
+
+/**
+ *  Output only. Fan speed in RPM.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speedRpm;
 
 @end
 

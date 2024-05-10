@@ -3180,6 +3180,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. The resource name of the metric:
+ *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
  *  Output only. The last update timestamp of the metric.This field may not be
  *  present for older metrics.
  */

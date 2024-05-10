@@ -1013,8 +1013,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_LogMetric
 @dynamic bucketName, bucketOptions, createTime, descriptionProperty, disabled,
-         filter, labelExtractors, metricDescriptor, name, updateTime,
-         valueExtractor, version;
+         filter, labelExtractors, metricDescriptor, name, resourceName,
+         updateTime, valueExtractor, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

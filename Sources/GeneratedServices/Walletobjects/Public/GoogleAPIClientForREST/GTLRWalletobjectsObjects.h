@@ -2162,11 +2162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_AppLinkDataAppLinkInfo *androidAppLinkInfo;
 
-/**
- *  Optional information about the partner app link. If included, the app link
- *  link module will be rendered on the valuable details on the ios client.
- */
-@property(nonatomic, strong, nullable) GTLRWalletobjects_AppLinkDataAppLinkInfo *iosAppLinkInfo;
+/** Deprecated. Links to open iOS apps are not supported. */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_AppLinkDataAppLinkInfo *iosAppLinkInfo GTLR_DEPRECATED;
 
 /**
  *  Optional information about the partner app link. If included, the app link

@@ -700,10 +700,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig, nodePoolDefaults,
          nodePools, notificationConfig, parentProductConfig,
          privateClusterConfig, releaseChannel, resourceLabels,
-         resourceUsageExportConfig, securityPostureConfig, selfLink,
-         servicesIpv4Cidr, shieldedNodes, status, statusMessage, subnetwork,
-         tpuIpv4CidrBlock, verticalPodAutoscaling, workloadIdentityConfig,
-         zoneProperty;
+         resourceUsageExportConfig, satisfiesPzi, satisfiesPzs,
+         securityPostureConfig, selfLink, servicesIpv4Cidr, shieldedNodes,
+         status, statusMessage, subnetwork, tpuIpv4CidrBlock,
+         verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -794,6 +794,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredMasterAuthorizedNetworksConfig, desiredMasterVersion,
          desiredMeshCertificates, desiredMonitoringConfig,
          desiredMonitoringService, desiredNetworkPerformanceConfig,
+         desiredNodeKubeletConfig, desiredNodePoolAutoConfigKubeletConfig,
          desiredNodePoolAutoConfigNetworkTags,
          desiredNodePoolAutoConfigResourceManagerTags,
          desiredNodePoolAutoscaling, desiredNodePoolId,
@@ -1785,7 +1786,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfigDefaults
-@dynamic containerdConfig, gcfsConfig, loggingConfig;
+@dynamic containerdConfig, gcfsConfig, loggingConfig, nodeKubeletConfig;
 @end
 
 
@@ -1890,7 +1891,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodePoolAutoConfig
-@dynamic networkTags, resourceManagerTags;
+@dynamic networkTags, nodeKubeletConfig, resourceManagerTags;
 @end
 
 

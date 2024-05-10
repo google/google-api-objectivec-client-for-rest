@@ -1597,6 +1597,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Required. A parent name of the form `projects/{project_id}` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** If true, also returns deleted resources. */
+@property(nonatomic, assign) BOOL showDeleted;
+
 /**
  *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse.
  *

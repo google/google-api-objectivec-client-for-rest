@@ -1051,7 +1051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the file, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt".
+ *  `projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt`.
  *  If the file ID part contains slashes, they are escaped.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2413,12 +2413,20 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the repository, for example:
- *  `projects/p1/locations/us-central1/repositories/repo1`.
+ *  `projects/p1/locations/us-central1/repositories/repo1`. For each location in
+ *  a project, repository names must be unique.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Configuration specific for a Remote Repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_RemoteRepositoryConfig *remoteRepositoryConfig;
+
+/**
+ *  Output only. If set, the repository satisfies physical zone isolation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  Output only. If set, the repository satisfies physical zone separation.
@@ -2937,7 +2945,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  Virtual repository configuration.
+ *  LINT.IfChange Virtual repository configuration.
  */
 @interface GTLRArtifactRegistry_VirtualRepositoryConfig : GTLRObject
 

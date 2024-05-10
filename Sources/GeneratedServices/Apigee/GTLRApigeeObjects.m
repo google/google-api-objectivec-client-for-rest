@@ -4125,7 +4125,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig
 @dynamic accessTokens, apiKeys, apiProducts, asns, botReasons, developerApps,
-         developers, ipAddressRanges, regionCodes, userAgents;
+         developers, httpMethods, ipAddressRanges, regionCodes, userAgents;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4136,6 +4136,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
     @"botReasons" : [NSString class],
     @"developerApps" : [NSString class],
     @"developers" : [NSString class],
+    @"httpMethods" : [NSString class],
     @"ipAddressRanges" : [NSString class],
     @"regionCodes" : [NSString class],
     @"userAgents" : [NSString class]

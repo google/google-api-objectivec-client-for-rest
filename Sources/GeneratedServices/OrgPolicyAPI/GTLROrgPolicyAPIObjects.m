@@ -38,6 +38,7 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Action
 // GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.methodTypes
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Create = @"CREATE";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Delete = @"DELETE";
+NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_GovernTags = @"GOVERN_TAGS";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_MethodTypeUnspecified = @"METHOD_TYPE_UNSPECIFIED";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_RemoveGrant = @"REMOVE_GRANT";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Update = @"UPDATE";

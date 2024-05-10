@@ -17,19 +17,29 @@
 #endif
 
 @class GTLRWorkloadManager_BigQueryDestination;
+@class GTLRWorkloadManager_BlobstoreLocation;
+@class GTLRWorkloadManager_CloudAsset;
+@class GTLRWorkloadManager_CloudAssetComposition;
+@class GTLRWorkloadManager_DirectLocationAssignment;
 @class GTLRWorkloadManager_Evaluation;
 @class GTLRWorkloadManager_Evaluation_Labels;
 @class GTLRWorkloadManager_Execution;
 @class GTLRWorkloadManager_Execution_Labels;
 @class GTLRWorkloadManager_ExecutionResult;
+@class GTLRWorkloadManager_ExternalDataSources;
+@class GTLRWorkloadManager_ExtraParameter;
 @class GTLRWorkloadManager_GceInstanceFilter;
 @class GTLRWorkloadManager_Insight;
+@class GTLRWorkloadManager_IsolationExpectations;
 @class GTLRWorkloadManager_Location;
 @class GTLRWorkloadManager_Location_Labels;
 @class GTLRWorkloadManager_Location_Metadata;
+@class GTLRWorkloadManager_LocationAssignment;
+@class GTLRWorkloadManager_LocationData;
 @class GTLRWorkloadManager_Operation;
 @class GTLRWorkloadManager_Operation_Metadata;
 @class GTLRWorkloadManager_Operation_Response;
+@class GTLRWorkloadManager_RegionalMigDistributionPolicy;
 @class GTLRWorkloadManager_Resource;
 @class GTLRWorkloadManager_ResourceFilter;
 @class GTLRWorkloadManager_ResourceFilter_InclusionLabels;
@@ -42,6 +52,7 @@
 @class GTLRWorkloadManager_SapDiscoveryMetadata;
 @class GTLRWorkloadManager_SapDiscoveryResource;
 @class GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties;
+@class GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesAppInstance;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadProperties;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadPropertiesProductVersion;
 @class GTLRWorkloadManager_SapDiscoveryWorkloadPropertiesSoftwareComponentProperties;
@@ -49,14 +60,17 @@
 @class GTLRWorkloadManager_SapValidationValidationDetail;
 @class GTLRWorkloadManager_SapValidationValidationDetail_Details;
 @class GTLRWorkloadManager_ScannedResource;
+@class GTLRWorkloadManager_SpannerLocation;
 @class GTLRWorkloadManager_SqlserverValidation;
 @class GTLRWorkloadManager_SqlserverValidationDetails;
 @class GTLRWorkloadManager_SqlserverValidationDetails_Fields;
 @class GTLRWorkloadManager_SqlserverValidationValidationDetail;
 @class GTLRWorkloadManager_Status;
 @class GTLRWorkloadManager_Status_Details_Item;
+@class GTLRWorkloadManager_TenantProjectProxy;
 @class GTLRWorkloadManager_ViolationDetails;
 @class GTLRWorkloadManager_ViolationDetails_Observed;
+@class GTLRWorkloadManager_ZoneConfiguration;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -117,6 +131,170 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_StateUns
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_ExternalDataSources.type
+
+/**
+ *  BigQuery table
+ *
+ *  Value: "BIG_QUERY_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_BigQueryTable;
+/**
+ *  Unknown type
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_IsolationExpectations.ziOrgPolicy
+
+/** Value: "ZI_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiNotRequired;
+/** Value: "ZI_PREFERRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiPreferred;
+/** Value: "ZI_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiUnknown;
+/** Value: "ZI_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_IsolationExpectations.ziRegionPolicy
+
+/** Value: "ZI_REGION_POLICY_FAIL_CLOSED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed;
+/** Value: "ZI_REGION_POLICY_FAIL_OPEN" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen;
+/** Value: "ZI_REGION_POLICY_NOT_SET" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_REGION_POLICY_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown;
+/** Value: "ZI_REGION_POLICY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_IsolationExpectations.ziRegionState
+
+/** Value: "ZI_REGION_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionEnabled;
+/** Value: "ZI_REGION_NOT_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_REGION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionUnknown;
+/** Value: "ZI_REGION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_IsolationExpectations.zoneIsolation
+
+/** Value: "ZI_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiNotRequired;
+/** Value: "ZI_PREFERRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiPreferred;
+/** Value: "ZI_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiUnknown;
+/** Value: "ZI_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_IsolationExpectations.zoneSeparation
+
+/** Value: "ZS_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsNotRequired;
+/** Value: "ZS_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsUnknown;
+/** Value: "ZS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_IsolationExpectations.zsOrgPolicy
+
+/** Value: "ZS_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsNotRequired;
+/** Value: "ZS_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsUnknown;
+/** Value: "ZS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_IsolationExpectations.zsRegionState
+
+/** Value: "ZS_REGION_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionEnabled;
+/** Value: "ZS_REGION_NOT_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled;
+/**
+ *  To be used if tracking of the asset ZS-bit is not available
+ *
+ *  Value: "ZS_REGION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionUnknown;
+/** Value: "ZS_REGION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_LocationAssignment.locationType
+
+/** Value: "CLOUD_REGION" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_CloudRegion;
+/**
+ *  11-20: Logical failure domains.
+ *
+ *  Value: "CLOUD_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_CloudZone;
+/**
+ *  1-10: Physical failure domains.
+ *
+ *  Value: "CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Cluster;
+/** Value: "GLOBAL" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Global;
+/** Value: "MULTI_REGION_GEO" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_MultiRegionGeo;
+/** Value: "MULTI_REGION_JURISDICTION" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_MultiRegionJurisdiction;
+/** Value: "OTHER" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Other;
+/** Value: "POP" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Pop;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_ResourceStatus.state
@@ -318,6 +496,40 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_Res
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties.instanceRole
+
+/**
+ *  Application server.
+ *
+ *  Value: "INSTANCE_ROLE_APP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAppServer;
+/**
+ *  Application central services.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscs;
+/**
+ *  Database node.
+ *
+ *  Value: "INSTANCE_ROLE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleDatabase;
+/**
+ *  Enqueue replication server.
+ *
+ *  Value: "INSTANCE_ROLE_ERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErs;
+/**
+ *  Unspecified instance role.
+ *
+ *  Value: "INSTANCE_ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_SapValidationValidationDetail.sapValidationType
 
 /**
@@ -458,6 +670,33 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified;
 
 /**
+ *  Provides the mapping of a cloud asset to a direct physical location or to a
+ *  proxy that defines the location on its behalf.
+ */
+@interface GTLRWorkloadManager_AssetLocation : GTLRObject
+
+/**
+ *  Defines the customer expectation around ZI/ZS for this asset and ZI/ZS state
+ *  of the region at the time of asset creation.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_IsolationExpectations *expected;
+
+/** Defines extra parameters required for specific asset types. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ExtraParameter *> *extraParameters;
+
+/** Contains all kinds of physical location definitions for this asset. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_LocationData *> *locationData;
+
+/**
+ *  Defines parents assets if any in order to allow later generation of
+ *  child_asset_location data via child assets.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudAsset *> *parentAsset;
+
+@end
+
+
+/**
  *  Message describing big query destination
  */
 @interface GTLRWorkloadManager_BigQueryDestination : GTLRObject
@@ -476,9 +715,51 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
+ *  Policy ID that identified data placement in Blobstore as per
+ *  go/blobstore-user-guide#data-metadata-placement-and-failure-domains
+ */
+@interface GTLRWorkloadManager_BlobstoreLocation : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *policyId;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRWorkloadManager_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRWorkloadManager_CloudAsset
+ */
+@interface GTLRWorkloadManager_CloudAsset : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *assetName;
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+@end
+
+
+/**
+ *  GTLRWorkloadManager_CloudAssetComposition
+ */
+@interface GTLRWorkloadManager_CloudAssetComposition : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_CloudAsset *> *childAsset;
+
+@end
+
+
+/**
+ *  GTLRWorkloadManager_DirectLocationAssignment
+ */
+@interface GTLRWorkloadManager_DirectLocationAssignment : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_LocationAssignment *> *location;
+
 @end
 
 
@@ -570,6 +851,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** Output only. [Output only] Evaluation ID */
 @property(nonatomic, copy, nullable) NSString *evaluationId;
 
+/** Optional. External data sources */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ExternalDataSources *> *externalDataSources;
+
 /** Output only. [Output only] Inventory time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *inventoryTime;
 
@@ -656,6 +940,51 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
+ *  Message for external data sources
+ */
+@interface GTLRWorkloadManager_ExternalDataSources : GTLRObject
+
+/**
+ *  Required. Name of external data source. The name will be used inside the
+ *  rego/sql to refer the external data
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Type of external data source
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_ExternalDataSources_Type_BigQueryTable
+ *        BigQuery table (Value: "BIG_QUERY_TABLE")
+ *    @arg @c kGTLRWorkloadManager_ExternalDataSources_Type_TypeUnspecified
+ *        Unknown type (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Required. URI of external data source. example of bq table
+ *  {project_ID}.{dataset_ID}.{table_ID}
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Defines parameters that should only be used for specific asset types.
+ */
+@interface GTLRWorkloadManager_ExtraParameter : GTLRObject
+
+/**
+ *  Details about zones used by regional
+ *  compute.googleapis.com/InstanceGroupManager to create instances.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_RegionalMigDistributionPolicy *regionalMigDistributionPolicy;
+
+@end
+
+
+/**
  *  Message describing compute engine instance filter
  */
 @interface GTLRWorkloadManager_GceInstanceFilter : GTLRObject
@@ -688,6 +1017,129 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 /** The insights data for the sqlserver workload validation. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlserverValidation *sqlserverValidation;
+
+@end
+
+
+/**
+ *  GTLRWorkloadManager_IsolationExpectations
+ */
+@interface GTLRWorkloadManager_IsolationExpectations : GTLRObject
+
+/**
+ *  ziOrgPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiNotRequired
+ *        Value "ZI_NOT_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiPreferred
+ *        Value "ZI_PREFERRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiRequired
+ *        Value "ZI_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiUnknown
+ *        To be used if tracking is not available (Value: "ZI_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiUnspecified
+ *        Value "ZI_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziOrgPolicy;
+
+/**
+ *  ziRegionPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed
+ *        Value "ZI_REGION_POLICY_FAIL_CLOSED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen
+ *        Value "ZI_REGION_POLICY_FAIL_OPEN"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet
+ *        Value "ZI_REGION_POLICY_NOT_SET"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown
+ *        To be used if tracking is not available (Value:
+ *        "ZI_REGION_POLICY_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified
+ *        Value "ZI_REGION_POLICY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziRegionPolicy;
+
+/**
+ *  ziRegionState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionEnabled
+ *        Value "ZI_REGION_ENABLED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled
+ *        Value "ZI_REGION_NOT_ENABLED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionUnknown
+ *        To be used if tracking is not available (Value: "ZI_REGION_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionUnspecified
+ *        Value "ZI_REGION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziRegionState;
+
+/**
+ *  Deprecated: use zi_org_policy, zi_region_policy and zi_region_state instead
+ *  for setting ZI expectations as per go/zicy-publish-physical-location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiNotRequired
+ *        Value "ZI_NOT_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiPreferred
+ *        Value "ZI_PREFERRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiRequired
+ *        Value "ZI_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiUnknown
+ *        To be used if tracking is not available (Value: "ZI_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiUnspecified
+ *        Value "ZI_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zoneIsolation GTLR_DEPRECATED;
+
+/**
+ *  Deprecated: use zs_org_policy, and zs_region_stateinstead for setting Zs
+ *  expectations as per go/zicy-publish-physical-location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsNotRequired
+ *        Value "ZS_NOT_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsRequired
+ *        Value "ZS_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsUnknown
+ *        To be used if tracking is not available (Value: "ZS_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsUnspecified
+ *        Value "ZS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zoneSeparation GTLR_DEPRECATED;
+
+/**
+ *  zsOrgPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsNotRequired
+ *        Value "ZS_NOT_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsRequired
+ *        Value "ZS_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsUnknown
+ *        To be used if tracking is not available (Value: "ZS_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsUnspecified
+ *        Value "ZS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zsOrgPolicy;
+
+/**
+ *  zsRegionState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionEnabled
+ *        Value "ZS_REGION_ENABLED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled
+ *        Value "ZS_REGION_NOT_ENABLED"
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionUnknown
+ *        To be used if tracking of the asset ZS-bit is not available (Value:
+ *        "ZS_REGION_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionUnspecified
+ *        Value "ZS_REGION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zsRegionState;
 
 @end
 
@@ -934,6 +1386,55 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
+ *  GTLRWorkloadManager_LocationAssignment
+ */
+@interface GTLRWorkloadManager_LocationAssignment : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  locationType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_CloudRegion
+ *        Value "CLOUD_REGION"
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_CloudZone
+ *        11-20: Logical failure domains. (Value: "CLOUD_ZONE")
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_Cluster 1-10:
+ *        Physical failure domains. (Value: "CLUSTER")
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_Global Value
+ *        "GLOBAL"
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_MultiRegionGeo
+ *        Value "MULTI_REGION_GEO"
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_MultiRegionJurisdiction
+ *        Value "MULTI_REGION_JURISDICTION"
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_Other Value
+ *        "OTHER"
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_Pop Value
+ *        "POP"
+ *    @arg @c kGTLRWorkloadManager_LocationAssignment_LocationType_Unspecified
+ *        Value "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *locationType;
+
+@end
+
+
+/**
+ *  GTLRWorkloadManager_LocationData
+ */
+@interface GTLRWorkloadManager_LocationData : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_BlobstoreLocation *blobstoreLocation;
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_CloudAssetComposition *childAssetLocation;
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_DirectLocationAssignment *directLocation;
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_TenantProjectProxy *gcpProjectProxy;
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_SpannerLocation *spannerLocation;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1047,6 +1548,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  To be used for specifying the intended distribution of regional
+ *  compute.googleapis.com/InstanceGroupManager instances
+ */
+@interface GTLRWorkloadManager_RegionalMigDistributionPolicy : GTLRObject
+
+/**
+ *  The shape in which the group converges around distribution of resources.
+ *  Instance of proto2 enum
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetShape;
+
+/** Cloud zones used by regional MIG to create instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ZoneConfiguration *> *zones;
 
 @end
 
@@ -1315,6 +1836,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 /** Optional. Resource URI of the recognized ASCS host of the application. */
 @property(nonatomic, copy, nullable) NSString *ascsUri;
 
+/** Optional. Instance number of the ERS instance. */
+@property(nonatomic, copy, nullable) NSString *ersInstanceNumber;
+
 /** Optional. Kernel version for Netweaver running in the system. */
 @property(nonatomic, copy, nullable) NSString *kernelVersion;
 
@@ -1469,6 +1993,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @interface GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties : GTLRObject
 
+/** Optional. App server instances on the host */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesAppInstance *> *appInstances;
+
 /**
  *  Optional. A list of instance URIs that are part of a cluster with this one.
  */
@@ -1481,8 +2008,40 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @property(nonatomic, strong, nullable) NSNumber *instanceNumber;
 
+/**
+ *  Optional. Bitmask of instance role, a resource may have multiple roles at
+ *  once.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAppServer
+ *        Application server. (Value: "INSTANCE_ROLE_APP_SERVER")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscs
+ *        Application central services. (Value: "INSTANCE_ROLE_ASCS")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleDatabase
+ *        Database node. (Value: "INSTANCE_ROLE_DATABASE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErs
+ *        Enqueue replication server. (Value: "INSTANCE_ROLE_ERS")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleUnspecified
+ *        Unspecified instance role. (Value: "INSTANCE_ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *instanceRole;
+
 /** Optional. A virtual hostname of the instance if it has one. */
 @property(nonatomic, copy, nullable) NSString *virtualHostname;
+
+@end
+
+
+/**
+ *  Fields to describe an SAP application server instance.
+ */
+@interface GTLRWorkloadManager_SapDiscoveryResourceInstancePropertiesAppInstance : GTLRObject
+
+/** Optional. Instance name of the SAP application instance. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Instance number of the SAP application instance. */
+@property(nonatomic, copy, nullable) NSString *number;
 
 @end
 
@@ -1645,6 +2204,16 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
+ *  GTLRWorkloadManager_SpannerLocation
+ */
+@interface GTLRWorkloadManager_SpannerLocation : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dbName;
+
+@end
+
+
+/**
  *  A presentation of SQLServer workload insight. The schema of SqlServer
  *  workloads validation related data.
  */
@@ -1790,6 +2359,16 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
+ *  GTLRWorkloadManager_TenantProjectProxy
+ */
+@interface GTLRWorkloadManager_TenantProjectProxy : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projectNumbers;
+
+@end
+
+
+/**
  *  Message describing the violdation in execution result
  */
 @interface GTLRWorkloadManager_ViolationDetails : GTLRObject
@@ -1851,6 +2430,21 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  The response for write insights request.
  */
 @interface GTLRWorkloadManager_WriteInsightResponse : GTLRObject
+@end
+
+
+/**
+ *  GTLRWorkloadManager_ZoneConfiguration
+ */
+@interface GTLRWorkloadManager_ZoneConfiguration : GTLRObject
+
+/**
+ *  zoneProperty
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 NS_ASSUME_NONNULL_END

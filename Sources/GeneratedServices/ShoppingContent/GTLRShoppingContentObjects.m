@@ -202,6 +202,12 @@ NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingSt
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Shipped = @"SHIPPED";
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified = @"SHIPPING_STATE_UNSPECIFIED";
 
+// GTLRShoppingContent_PriceInsights.effectiveness
+NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_EffectivenessUnspecified = @"EFFECTIVENESS_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_High = @"HIGH";
+NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_Low = @"LOW";
+NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_Medium = @"MEDIUM";
+
 // GTLRShoppingContent_ProductCluster.brandInventoryStatus
 NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InStock = @"IN_STOCK";
 NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InventoryStatusUnspecified = @"INVENTORY_STATUS_UNSPECIFIED";
@@ -5156,8 +5162,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_PriceInsights
-@dynamic predictedClicksChangeFraction, predictedConversionsChangeFraction,
-         predictedGrossProfitChangeFraction, predictedImpressionsChangeFraction,
+@dynamic effectiveness, predictedClicksChangeFraction,
+         predictedConversionsChangeFraction, predictedGrossProfitChangeFraction,
+         predictedImpressionsChangeFraction,
          predictedMonthlyGrossProfitChangeCurrencyCode,
          predictedMonthlyGrossProfitChangeMicros, suggestedPriceCurrencyCode,
          suggestedPriceMicros;

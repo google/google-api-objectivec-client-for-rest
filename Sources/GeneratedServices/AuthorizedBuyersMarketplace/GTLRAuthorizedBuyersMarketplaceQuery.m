@@ -19,7 +19,7 @@
 
 @implementation GTLRAuthorizedBuyersMarketplaceQuery_BiddersAuctionPackagesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -76,7 +76,7 @@
 
 @implementation GTLRAuthorizedBuyersMarketplaceQuery_BuyersAuctionPackagesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
