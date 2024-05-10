@@ -2571,7 +2571,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  Information specific to a subscription in canceled state.
+ *  Information specific to a subscription in the SUBSCRIPTION_STATE_CANCELED or
+ *  SUBSCRIPTION_STATE_EXPIRED state.
  */
 @interface GTLRAndroidPublisher_CanceledStateContext : GTLRObject
 

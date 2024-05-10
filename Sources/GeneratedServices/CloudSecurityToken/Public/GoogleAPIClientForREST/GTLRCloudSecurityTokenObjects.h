@@ -292,8 +292,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *options;
 
 /**
- *  Required. An identifier for the type of requested security token. Must be
- *  `urn:ietf:params:oauth:token-type:access_token`.
+ *  Required. An identifier for the type of requested security token. Can be
+ *  `urn:ietf:params:oauth:token-type:access_token` or
+ *  `urn:ietf:params:oauth:token-type:access_boundary_intermediate_token`.
  */
 @property(nonatomic, copy, nullable) NSString *requestedTokenType;
 

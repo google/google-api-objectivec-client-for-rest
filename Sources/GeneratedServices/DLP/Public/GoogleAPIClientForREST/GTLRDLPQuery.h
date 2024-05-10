@@ -823,7 +823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Parent name, typically an organization, without location. For
- *  example: "organizations/12345678".
+ *  example: `organizations/12345678`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -833,7 +833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Searches for Connections in a parent.
  *
  *  @param parent Required. Parent name, typically an organization, without
- *    location. For example: "organizations/12345678".
+ *    location. For example: `organizations/12345678`.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsConnectionsSearch
  *
@@ -4160,7 +4160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Parent resource name in the format:
- *  "projects/{project}/locations/{location}".
+ *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4172,7 +4172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateConnectionRequest to
  *    include in the query.
  *  @param parent Required. Parent resource name in the format:
- *    "projects/{project}/locations/{location}".
+ *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsConnectionsCreate
  */
@@ -4193,7 +4193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the Connection to be deleted, in the format:
- *  "projects/{project}/locations/{location}/connections/{connection}".
+ *  `projects/{project}/locations/{location}/connections/{connection}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4204,7 +4204,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param name Required. Resource name of the Connection to be deleted, in the
  *    format:
- *    "projects/{project}/locations/{location}/connections/{connection}".
+ *    `projects/{project}/locations/{location}/connections/{connection}`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsConnectionsDelete
  */
@@ -4224,7 +4224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name in the format:
- *  "projects/{project}/locations/{location}/connections/{connection}".
+ *  `projects/{project}/locations/{location}/connections/{connection}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4234,7 +4234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Get a Connection by name.
  *
  *  @param name Required. Resource name in the format:
- *    "projects/{project}/locations/{location}/connections/{connection}".
+ *    `projects/{project}/locations/{location}/connections/{connection}`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsConnectionsGet
  */
@@ -4265,7 +4265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent name, for example: "projects/project-id/locations/global".
+ *  Required. Parent name, for example: `projects/project-id/locations/global`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4275,7 +4275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Lists Connections in a parent.
  *
  *  @param parent Required. Parent name, for example:
- *    "projects/project-id/locations/global".
+ *    `projects/project-id/locations/global`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsConnectionsList
  *
@@ -4299,7 +4299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name in the format:
- *  "projects/{project}/locations/{location}/connections/{connection}".
+ *  `projects/{project}/locations/{location}/connections/{connection}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4311,7 +4311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateConnectionRequest to
  *    include in the query.
  *  @param name Required. Resource name in the format:
- *    "projects/{project}/locations/{location}/connections/{connection}".
+ *    `projects/{project}/locations/{location}/connections/{connection}`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsConnectionsPatch
  */
@@ -4344,7 +4344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Parent name, typically an organization, without location. For
- *  example: "organizations/12345678".
+ *  example: `organizations/12345678`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4354,7 +4354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Searches for Connections in a parent.
  *
  *  @param parent Required. Parent name, typically an organization, without
- *    location. For example: "organizations/12345678".
+ *    location. For example: `organizations/12345678`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsConnectionsSearch
  *

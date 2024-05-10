@@ -1701,7 +1701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Output only. Name of the `ChildRollout`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *rollout;
 
@@ -1762,7 +1762,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Required. ID of the rule. This id must be unique in the `Automation`
- *  resource to which this rule belongs. The format is `a-z{0,62}`.
+ *  resource to which this rule belongs. The format is
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2654,7 +2655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Output only. Name of the `ChildRollout`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *rollout;
 
@@ -2812,7 +2813,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. Name of the `CustomTargetType`. Format is
- *  `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/customTargetTypes/{customTargetType}`.
+ *  The `customTargetType` component must match
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2968,7 +2971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. Name of the `DeliveryPipeline`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`.
+ *  The `deliveryPipeline` component must match
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4643,7 +4648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Required. ID of the rule. This id must be unique in the `Automation`
- *  resource to which this rule belongs. The format is `a-z{0,62}`.
+ *  resource to which this rule belongs. The format is
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4728,7 +4734,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. Name of the `Release`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}`.
+ *  The `release` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5104,7 +5111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Required. ID of the rule. This id must be unique in the `Automation`
- *  resource to which this rule belongs. The format is `a-z{0,62}`.
+ *  resource to which this rule belongs. The format is
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5440,7 +5448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Output only. Name of the `ControllerRollout`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *controllerRollout;
 
@@ -5535,7 +5543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. Name of the `Rollout`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
+ *  The `rollout` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6200,7 +6209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. Name of the `Target`. Format is
- *  `projects/{project}/locations/{location}/targets/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/targets/{target}`. The `target`
+ *  component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

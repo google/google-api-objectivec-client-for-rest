@@ -1311,8 +1311,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Se
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest
-@dynamic conversationConfig, gcsSource, parent, redactionConfig, speechConfig,
-         transcriptObjectConfig;
+@dynamic conversationConfig, gcsSource, parent, redactionConfig, sampleSize,
+         speechConfig, transcriptObjectConfig;
 @end
 
 
@@ -2756,8 +2756,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Se
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest
-@dynamic conversationConfig, gcsSource, parent, redactionConfig, speechConfig,
-         transcriptObjectConfig;
+@dynamic conversationConfig, gcsSource, parent, redactionConfig, sampleSize,
+         speechConfig, transcriptObjectConfig;
 @end
 
 

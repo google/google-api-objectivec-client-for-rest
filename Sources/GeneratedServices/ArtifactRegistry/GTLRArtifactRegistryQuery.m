@@ -29,34 +29,6 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_MediaDownload
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:download";
-  GTLRArtifactRegistryQuery_MediaDownload *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_DownloadFileResponse class];
-  query.loggingName = @"artifactregistry.media.download";
-  return query;
-}
-
-+ (instancetype)queryForMediaWithName:(NSString *)name {
-  GTLRArtifactRegistryQuery_MediaDownload *query =
-    [self queryWithName:name];
-  query.downloadAsDataObjectType = @"media";
-  query.useMediaDownloadService = YES;
-  query.loggingName = @"Download artifactregistry.media.download";
-  return query;
-}
-
-@end
-
 @implementation GTLRArtifactRegistryQuery_ProjectsGetProjectSettings
 
 @dynamic name;
@@ -287,6 +259,34 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.parent = parent;
   query.expectedObjectClass = [GTLRArtifactRegistry_ListDockerImagesResponse class];
   query.loggingName = @"artifactregistry.projects.locations.repositories.dockerImages.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:download";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_DownloadFileResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.files.download";
+  return query;
+}
+
++ (instancetype)queryForMediaWithName:(NSString *)name {
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload *query =
+    [self queryWithName:name];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download artifactregistry.projects.locations.repositories.files.download";
   return query;
 }
 

@@ -30,6 +30,17 @@ NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluat
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
 
+// GTLRPlayIntegrity_AppAccessRiskVerdict.appsDetected
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_AppsDetectedUnspecified = @"APPS_DETECTED_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownCapturing = @"KNOWN_CAPTURING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownControlling = @"KNOWN_CONTROLLING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownInstalled = @"KNOWN_INSTALLED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownOverlays = @"KNOWN_OVERLAYS";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownCapturing = @"UNKNOWN_CAPTURING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownControlling = @"UNKNOWN_CONTROLLING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownInstalled = @"UNKNOWN_INSTALLED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownOverlays = @"UNKNOWN_OVERLAYS";
+
 // GTLRPlayIntegrity_AppAccessRiskVerdict.otherApps
 NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing = @"CAPTURING";
 NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Controlling = @"CONTROLLING";
@@ -102,7 +113,15 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 //
 
 @implementation GTLRPlayIntegrity_AppAccessRiskVerdict
-@dynamic otherApps, playOrSystemApps;
+@dynamic appsDetected, otherApps, playOrSystemApps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appsDetected" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

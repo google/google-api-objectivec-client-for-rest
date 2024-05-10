@@ -2231,15 +2231,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 
 /**
- *  Targeting represents different criteria that can be used to target
- *  inventory. For example, they can choose to target inventory only if the user
- *  is in the US. Multiple types of targeting are always applied as a logical
- *  AND, unless noted otherwise.
+ *  Targeting represents different criteria that can be used to target deals or
+ *  auction packages. For example, they can choose to target inventory only if
+ *  the user is in the US. Multiple types of targeting are always applied as a
+ *  logical AND, unless noted otherwise.
  */
 @interface GTLRAuthorizedBuyersMarketplace_MarketplaceTargeting : GTLRObject
 
 /** Daypart targeting information. */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_DayPartTargeting *daypartTargeting;
+
+/**
+ *  Output only. The sensitive content category label IDs excluded. Refer to
+ *  this file
+ *  https://storage.googleapis.com/adx-rtb-dictionaries/content-labels.txt for
+ *  category IDs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedSensitiveCategoryIds;
 
 /** Output only. Geo criteria IDs to be included/excluded. */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_CriteriaTargeting *geoTargeting;
@@ -2267,6 +2277,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *  https://developers.google.com/authorized-buyers/rtb/bulk-uploader.
  */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_CriteriaTargeting *userListTargeting;
+
+/**
+ *  Output only. The verticals included or excluded as defined in
+ *  https://developers.google.com/authorized-buyers/rtb/downloads/publisher-verticals
+ */
+@property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_CriteriaTargeting *verticalTargeting;
 
 /** Output only. Video targeting information. */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_VideoTargeting *videoTargeting;

@@ -914,7 +914,7 @@
 
 @implementation GTLRFirestoreQuery_ProjectsDatabasesList
 
-@dynamic parent;
+@dynamic parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

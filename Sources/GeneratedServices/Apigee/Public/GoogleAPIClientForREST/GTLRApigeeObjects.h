@@ -9782,6 +9782,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *developers;
 
 /**
+ *  Optional. Act only on particular HTTP methods. E.g. A read-only API can
+ *  block POST/PUT/DELETE methods. Accepted values are: GET, HEAD, POST, PUT,
+ *  DELETE, CONNECT, OPTIONS, TRACE and PATCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *httpMethods;
+
+/**
  *  Optional. A list of IP addresses. This could be either IPv4 or IPv6. Limited
  *  to 100 per action.
  */

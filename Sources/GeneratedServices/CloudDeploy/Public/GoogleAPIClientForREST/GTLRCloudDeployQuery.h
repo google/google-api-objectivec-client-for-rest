@@ -311,7 +311,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Name of the `CustomTargetType`. Format is
- *  `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/customTargetTypes/{customTargetType}`.
+ *  The `customTargetType` component must match
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -354,7 +356,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_CustomTargetType to include in the
  *    query.
  *  @param name Optional. Name of the `CustomTargetType`. Format is
- *    `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ *    `projects/{project}/locations/{location}/customTargetTypes/{customTargetType}`.
+ *    The `customTargetType` component must match
+ *    `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesPatch
  */
@@ -1093,7 +1097,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Name of the `DeliveryPipeline`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`.
+ *  The `deliveryPipeline` component must match
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1136,7 +1142,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_DeliveryPipeline to include in the
  *    query.
  *  @param name Optional. Name of the `DeliveryPipeline`. Format is
- *    `projects/{project}/locations/{location}/deliveryPipelines/a-z{0,62}`.
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`.
+ *    The `deliveryPipeline` component must match
+ *    `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesPatch
  */
@@ -2410,7 +2418,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Name of the `Target`. Format is
- *  `projects/{project}/locations/{location}/targets/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/targets/{target}`. The `target`
+ *  component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2452,7 +2461,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudDeploy_Target to include in the query.
  *  @param name Optional. Name of the `Target`. Format is
- *    `projects/{project}/locations/{location}/targets/a-z{0,62}`.
+ *    `projects/{project}/locations/{location}/targets/{target}`. The `target`
+ *    component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsPatch
  */

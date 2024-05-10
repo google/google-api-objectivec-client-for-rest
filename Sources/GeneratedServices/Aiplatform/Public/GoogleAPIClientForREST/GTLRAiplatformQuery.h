@@ -2003,6 +2003,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Updates a DatasetVersion.
+ *
+ *  Method: aiplatform.projects.locations.datasets.datasetVersions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch : GTLRAiplatformQuery
+
+/** Output only. The resource name of the DatasetVersion. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask. Updatable fields: *
+ *  `display_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion.
+ *
+ *  Updates a DatasetVersion.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
+ *    include in the query.
+ *  @param name Output only. The resource name of the DatasetVersion.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Restores a dataset version.
  *
  *  Method: aiplatform.projects.locations.datasets.datasetVersions.restore

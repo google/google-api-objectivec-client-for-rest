@@ -23,6 +23,7 @@ NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_Reconciling = @"
 NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_Repairing = @"REPAIRING";
 NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_Running = @"RUNNING";
 NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_Syncing = @"SYNCING";
 NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_Updating = @"UPDATING";
 
 // GTLRBlockchainNodeEngine_EthereumDetails.consensusClient

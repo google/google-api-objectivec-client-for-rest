@@ -601,7 +601,7 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
          cpuInfo, cpuStatusReports, deprovisionReason, deviceFiles, deviceId,
          deviceLicenseType, diskVolumeReports, dockMacAddress, ETag,
          ethernetMacAddress, ethernetMacAddress0, extendedSupportEligible,
-         extendedSupportEnabled, extendedSupportStart, firmwareVersion,
+         extendedSupportEnabled, extendedSupportStart, fanInfo, firmwareVersion,
          firstEnrollmentTime, kind, lastDeprovisionTimestamp,
          lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
          manufactureDate, meid, model, notes, orderNumber, orgUnitId,
@@ -621,6 +621,7 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
     @"cpuStatusReports" : [GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item class],
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],
     @"diskVolumeReports" : [GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item class],
+    @"fanInfo" : [GTLRDirectory_FanInfo class],
     @"lastKnownNetwork" : [GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item class],
     @"recentUsers" : [GTLRDirectory_ChromeOsDevice_RecentUsers_Item class],
     @"screenshotFiles" : [GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item class],
@@ -1059,6 +1060,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 @implementation GTLRDirectory_FailureInfo
 @dynamic errorCode, errorMessage, printer, printerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_FanInfo
+//
+
+@implementation GTLRDirectory_FanInfo
+@dynamic speedRpm;
 @end
 
 

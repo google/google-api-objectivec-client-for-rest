@@ -741,6 +741,7 @@ NSString * const kGTLRCompute_Commitment_Status_NotYetActive = @"NOT_YET_ACTIVE"
 // GTLRCompute_Commitment.type
 NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimized = @"ACCELERATOR_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimizedA3 = @"ACCELERATOR_OPTIMIZED_A3";
+NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimizedA3Mega = @"ACCELERATOR_OPTIMIZED_A3_MEGA";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimized = @"COMPUTE_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedC2d = @"COMPUTE_OPTIMIZED_C2D";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedC3 = @"COMPUTE_OPTIMIZED_C3";
@@ -4323,6 +4324,7 @@ NSString * const kGTLRCompute_Quota_Metric_TpuLiteDeviceV5     = @"TPU_LITE_DEVI
 NSString * const kGTLRCompute_Quota_Metric_TpuLitePodsliceV5   = @"TPU_LITE_PODSLICE_V5";
 NSString * const kGTLRCompute_Quota_Metric_TpuPodsliceV4       = @"TPU_PODSLICE_V4";
 NSString * const kGTLRCompute_Quota_Metric_UrlMaps             = @"URL_MAPS";
+NSString * const kGTLRCompute_Quota_Metric_VariableIpv6PublicDelegatedPrefixes = @"VARIABLE_IPV6_PUBLIC_DELEGATED_PREFIXES";
 NSString * const kGTLRCompute_Quota_Metric_VpnGateways         = @"VPN_GATEWAYS";
 NSString * const kGTLRCompute_Quota_Metric_VpnTunnels          = @"VPN_TUNNELS";
 NSString * const kGTLRCompute_Quota_Metric_XpnServiceProjects  = @"XPN_SERVICE_PROJECTS";

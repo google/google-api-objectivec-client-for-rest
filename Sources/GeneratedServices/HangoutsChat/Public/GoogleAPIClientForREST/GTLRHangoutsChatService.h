@@ -48,8 +48,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatDelete;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatImport;
 /**
- *  Authorization scope: View, add, and remove members from conversations in
- *  Google Chat
+ *  Authorization scope: View, add, update, and remove members from
+ *  conversations in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.memberships"
  */

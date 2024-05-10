@@ -20,6 +20,9 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRContactcenterinsightsQuery
 
 @dynamic fields;
@@ -1021,3 +1024,5 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 }
 
 @end
+
+#pragma clang diagnostic pop

@@ -1281,6 +1281,34 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShipp
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_PriceInsights.effectiveness
+
+/**
+ *  Effectiveness is unknown.
+ *
+ *  Value: "EFFECTIVENESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_EffectivenessUnspecified;
+/**
+ *  Effectiveness is high.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_High;
+/**
+ *  Effectiveness is low.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_Low;
+/**
+ *  Effectiveness is medium.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_Medium;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_ProductCluster.brandInventoryStatus
 
 /**
@@ -12298,6 +12326,21 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  https://support.google.com/merchants/answer/11916926
  */
 @interface GTLRShoppingContent_PriceInsights : GTLRObject
+
+/**
+ *  The predicted effectiveness of applying the price suggestion, bucketed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_PriceInsights_Effectiveness_EffectivenessUnspecified
+ *        Effectiveness is unknown. (Value: "EFFECTIVENESS_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_PriceInsights_Effectiveness_High
+ *        Effectiveness is high. (Value: "HIGH")
+ *    @arg @c kGTLRShoppingContent_PriceInsights_Effectiveness_Low Effectiveness
+ *        is low. (Value: "LOW")
+ *    @arg @c kGTLRShoppingContent_PriceInsights_Effectiveness_Medium
+ *        Effectiveness is medium. (Value: "MEDIUM")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveness;
 
 /**
  *  The predicted change in clicks as a fraction after introducing the suggested

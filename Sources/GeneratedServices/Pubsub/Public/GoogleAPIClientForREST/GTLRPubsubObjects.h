@@ -179,6 +179,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_NotFound
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_PermissionDenied;
 /**
+ *  Cannot write to the Cloud Storage bucket due to an incompatibility between
+ *  the topic schema and subscription settings.
+ *
+ *  Value: "SCHEMA_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMismatch;
+/**
  *  Default value. This value is unused.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -656,6 +663,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *    @arg @c kGTLRPubsub_CloudStorageConfig_State_PermissionDenied Cannot write
  *        to the Cloud Storage bucket because of permission denied errors.
  *        (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_CloudStorageConfig_State_SchemaMismatch Cannot write
+ *        to the Cloud Storage bucket due to an incompatibility between the
+ *        topic schema and subscription settings. (Value: "SCHEMA_MISMATCH")
  *    @arg @c kGTLRPubsub_CloudStorageConfig_State_StateUnspecified Default
  *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
  */

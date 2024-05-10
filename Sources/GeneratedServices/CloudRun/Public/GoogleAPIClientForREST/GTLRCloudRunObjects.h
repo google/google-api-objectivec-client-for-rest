@@ -5819,7 +5819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  corresponding to build step indices. [Cloud
  *  Builders](https://cloud.google.com/cloud-build/docs/cloud-builders) can
  *  produce this output by writing to `$BUILDER_OUTPUT/output`. Only the first
- *  50KB of data is stored.
+ *  50KB of data is stored. Note that the `$BUILDER_OUTPUT` variable is
+ *  read-only and can't be substituted.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

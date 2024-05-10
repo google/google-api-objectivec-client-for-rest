@@ -446,6 +446,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_EncryptionStatus_En
 NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_EncryptionStatus_EncryptionStatusUnspecified = @"ENCRYPTION_STATUS_UNSPECIFIED";
 
 // GTLRDLP_GooglePrivacyDlpV2TableDataProfile.resourceVisibility
+NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityInconclusive = @"RESOURCE_VISIBILITY_INCONCLUSIVE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityPublic = @"RESOURCE_VISIBILITY_PUBLIC";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityRestricted = @"RESOURCE_VISIBILITY_RESTRICTED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityUnspecified = @"RESOURCE_VISIBILITY_UNSPECIFIED";
