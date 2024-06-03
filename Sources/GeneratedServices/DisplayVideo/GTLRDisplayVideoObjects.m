@@ -626,6 +626,7 @@ NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersi
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55 = @"SDF_VERSION_5_5";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6 = @"SDF_VERSION_6";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7 = @"SDF_VERSION_7";
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion71 = @"SDF_VERSION_7_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_Creative.creativeAttributes
@@ -2239,6 +2240,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54 = @"SDF_VERSIO
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55 = @"SDF_VERSION_5_5";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6 = @"SDF_VERSION_6";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7 = @"SDF_VERSION_7";
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71 = @"SDF_VERSION_7_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
@@ -2254,6 +2256,7 @@ NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54 
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55 = @"SDF_VERSION_5_5";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6 = @"SDF_VERSION_6";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7 = @"SDF_VERSION_7";
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71 = @"SDF_VERSION_7_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails.excludedSensitiveCategory

@@ -12,10 +12,13 @@
 // Constants
 
 // GTLRCCAIPlatform_ContactCenter.state
+NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDegraded = @"STATE_DEGRADED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeployed = @"STATE_DEPLOYED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeploying = @"STATE_DEPLOYING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailed = @"STATE_FAILED";
+NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailingOver = @"STATE_FAILING_OVER";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateInGracePeriod = @"STATE_IN_GRACE_PERIOD";
+NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateRepairing = @"STATE_REPAIRING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminated = @"STATE_TERMINATED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminating = @"STATE_TERMINATING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminatingFailed = @"STATE_TERMINATING_FAILED";
@@ -53,6 +56,43 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardMediu
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardSmall = @"STANDARD_SMALL";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge = @"STANDARD_XLARGE";
 
+// GTLRCCAIPlatform_SAMLParams.authenticationContexts
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_AuthenticationContextUnspecified = @"AUTHENTICATION_CONTEXT_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_InternetProtocol = @"INTERNET_PROTOCOL";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_InternetProtocolPassword = @"INTERNET_PROTOCOL_PASSWORD";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Kerberos = @"KERBEROS";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileOneFactorContract = @"MOBILE_ONE_FACTOR_CONTRACT";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileOneFactorUnregistered = @"MOBILE_ONE_FACTOR_UNREGISTERED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileTwoFactorContract = @"MOBILE_TWO_FACTOR_CONTRACT";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileTwoFactorUnregistered = @"MOBILE_TWO_FACTOR_UNREGISTERED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Password = @"PASSWORD";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PasswordProtectedTransport = @"PASSWORD_PROTECTED_TRANSPORT";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PreviousSession = @"PREVIOUS_SESSION";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyPgp = @"PUBLIC_KEY_PGP";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeySpki = @"PUBLIC_KEY_SPKI";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyX509 = @"PUBLIC_KEY_X509";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyXmlDigitalSignature = @"PUBLIC_KEY_XML_DIGITAL_SIGNATURE";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SecureRemotePassword = @"SECURE_REMOTE_PASSWORD";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Smartcard = @"SMARTCARD";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SmartcardPki = @"SMARTCARD_PKI";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SoftwarePki = @"SOFTWARE_PKI";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SslTlsCertificateBased = @"SSL_TLS_CERTIFICATE_BASED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Telephony = @"TELEPHONY";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyAuthenticated = @"TELEPHONY_AUTHENTICATED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyNomadic = @"TELEPHONY_NOMADIC";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyPersonalized = @"TELEPHONY_PERSONALIZED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TimeSyncToken = @"TIME_SYNC_TOKEN";
+
+// GTLRCCAIPlatform_WeeklySchedule.days
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Friday  = @"FRIDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Monday  = @"MONDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Saturday = @"SATURDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Sunday  = @"SUNDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Thursday = @"THURSDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Tuesday = @"TUESDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCCAIPlatform_AdminUser
@@ -74,13 +114,32 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_Component
+//
+
+@implementation GTLRCCAIPlatform_Component
+@dynamic name, serviceAttachments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceAttachments" : [GTLRCCAIPlatform_ServiceAttachment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_ContactCenter
 //
 
 @implementation GTLRCCAIPlatform_ContactCenter
-@dynamic adminUser, ccaipManagedUsers, createTime, customerDomainPrefix,
-         displayName, early, instanceConfig, kmsKey, labels, name, normal,
-         privateComponents, samlParams, state, updateTime, uris, userEmail;
+@dynamic adminUser, ccaipManagedUsers, createTime, critical,
+         customerDomainPrefix, displayName, early, instanceConfig, kmsKey,
+         labels, name, normal, privateAccess, privateComponents, samlParams,
+         state, updateTime, uris, userEmail;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -117,6 +176,24 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"quotas" : [GTLRCCAIPlatform_Quota class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_Critical
+//
+
+@implementation GTLRCCAIPlatform_Critical
+@dynamic peakHours;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"peakHours" : [GTLRCCAIPlatform_WeeklySchedule class]
   };
   return map;
 }
@@ -328,6 +405,25 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_PrivateAccess
+//
+
+@implementation GTLRCCAIPlatform_PrivateAccess
+@dynamic egressSettings, ingressSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"egressSettings" : [GTLRCCAIPlatform_Component class],
+    @"ingressSettings" : [GTLRCCAIPlatform_Component class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_Quota
 //
 
@@ -343,7 +439,34 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 //
 
 @implementation GTLRCCAIPlatform_SAMLParams
-@dynamic certificate, emailMapping, entityId, ssoUri, userEmail;
+@dynamic authenticationContexts, certificate, emailMapping, entityId, ssoUri,
+         userEmail;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authenticationContexts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_ServiceAttachment
+//
+
+@implementation GTLRCCAIPlatform_ServiceAttachment
+@dynamic allowedProjectIds, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedProjectIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -381,9 +504,37 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_TimeOfDay
+//
+
+@implementation GTLRCCAIPlatform_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_URIs
 //
 
 @implementation GTLRCCAIPlatform_URIs
 @dynamic chatBotUri, mediaUri, rootUri, virtualAgentStreamingServiceUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_WeeklySchedule
+//
+
+@implementation GTLRCCAIPlatform_WeeklySchedule
+@dynamic days, duration, endTime, startTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"days" : [NSString class]
+  };
+  return map;
+}
+
 @end

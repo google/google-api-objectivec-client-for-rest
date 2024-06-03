@@ -203,6 +203,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -637,29 +638,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQ
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult.ruleType
 
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#nonnullexpectation.
+ *  See DataQualityRule.NonNullExpectation.
  *
  *  Value: "NON_NULL_EXPECTATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_NonNullExpectation;
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rangeexpectation.
+ *  See DataQualityRule.RangeExpectation.
  *
  *  Value: "RANGE_EXPECTATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RangeExpectation;
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#regexexpectation.
+ *  See DataQualityRule.RegexExpectation.
  *
  *  Value: "REGEX_EXPECTATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RegexExpectation;
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rowconditionexpectation.
+ *  See DataQualityRule.RowConditionExpectation.
  *
  *  Value: "ROW_CONDITION_EXPECTATION"
  */
@@ -671,36 +668,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQ
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RuleTypeUnspecified;
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#setexpectation.
+ *  See DataQualityRule.SetExpectation.
  *
  *  Value: "SET_EXPECTATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SetExpectation;
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#sqlAssertion.
+ *  See DataQualityRule.SqlAssertion.
  *
  *  Value: "SQL_ASSERTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SqlAssertion;
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#statisticrangeexpectation.
+ *  See DataQualityRule.StatisticRangeExpectation.
  *
  *  Value: "STATISTIC_RANGE_EXPECTATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_StatisticRangeExpectation;
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#tableconditionexpectation.
+ *  See DataQualityRule.TableConditionExpectation.
  *
  *  Value: "TABLE_CONDITION_EXPECTATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TableConditionExpectation;
 /**
- *  Please see
- *  https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#uniquenessexpectation.
+ *  See DataQualityRule.UniquenessExpectation.
  *
  *  Value: "UNIQUENESS_EXPECTATION"
  */
@@ -4089,7 +4081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Aggregate rule which evaluates the number of rows returned for the provided
- *  statement.
+ *  statement. If any rows are returned, this rule fails.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSqlAssertion *sqlAssertion;
 
@@ -4183,8 +4175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult : GTLRObject
 
 /**
- *  Output only. The number of rows returned by the sql statement in the
- *  SqlAssertion rule.This field is only valid for SqlAssertion rules.
+ *  Output only. The number of rows returned by the SQL statement in a SQL
+ *  assertion rule.This field is only valid for SQL assertion rules.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4267,12 +4259,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Queries for rows returned by the provided SQL statement. If any rows are are
- *  returned, this rule fails.The SQL statement needs to use BigQuery standard
- *  SQL syntax, and must not contain any semicolons.${data()} can be used to
- *  reference the rows being evaluated, i.e. the table after all additional
- *  filters (row filters, incremental data filters, sampling) are
- *  applied.Example: SELECT * FROM ${data()} WHERE price < 0
+ *  A SQL statement that is evaluated to return rows that match an invalid
+ *  state. If any rows are are returned, this rule fails.The SQL statement must
+ *  use BigQuery standard SQL syntax, and must not contain any semicolons.You
+ *  can use the data reference parameter ${data()} to reference the source table
+ *  with all of its precondition filters applied. Examples of precondition
+ *  filters include row filters, incremental data filters, and sampling. For
+ *  more information, see Data reference parameter
+ *  (https://cloud.google.com/dataplex/docs/auto-data-quality-overview#data-reference-parameter).Example:
+ *  SELECT * FROM ${data()} WHERE price < 0
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSqlAssertion : GTLRObject
 
@@ -4363,8 +4358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult : GTLRObject
 
 /**
- *  The number of rows returned by the sql statement in the SqlAssertion rule.
- *  This field is only valid for SqlAssertion rules.
+ *  The number of rows returned by the SQL statement in a SQL assertion rule.
+ *  This field is only valid for SQL assertion rules.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4440,43 +4435,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_NonNullExpectation
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#nonnullexpectation.
- *        (Value: "NON_NULL_EXPECTATION")
+ *        See DataQualityRule.NonNullExpectation. (Value:
+ *        "NON_NULL_EXPECTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RangeExpectation
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rangeexpectation.
- *        (Value: "RANGE_EXPECTATION")
+ *        See DataQualityRule.RangeExpectation. (Value: "RANGE_EXPECTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RegexExpectation
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#regexexpectation.
- *        (Value: "REGEX_EXPECTATION")
+ *        See DataQualityRule.RegexExpectation. (Value: "REGEX_EXPECTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RowConditionExpectation
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rowconditionexpectation.
- *        (Value: "ROW_CONDITION_EXPECTATION")
+ *        See DataQualityRule.RowConditionExpectation. (Value:
+ *        "ROW_CONDITION_EXPECTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_RuleTypeUnspecified
  *        An unspecified rule type. (Value: "RULE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SetExpectation
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#setexpectation.
- *        (Value: "SET_EXPECTATION")
+ *        See DataQualityRule.SetExpectation. (Value: "SET_EXPECTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_SqlAssertion
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#sqlAssertion.
- *        (Value: "SQL_ASSERTION")
+ *        See DataQualityRule.SqlAssertion. (Value: "SQL_ASSERTION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_StatisticRangeExpectation
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#statisticrangeexpectation.
- *        (Value: "STATISTIC_RANGE_EXPECTATION")
+ *        See DataQualityRule.StatisticRangeExpectation. (Value:
+ *        "STATISTIC_RANGE_EXPECTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TableConditionExpectation
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#tableconditionexpectation.
- *        (Value: "TABLE_CONDITION_EXPECTATION")
+ *        See DataQualityRule.TableConditionExpectation. (Value:
+ *        "TABLE_CONDITION_EXPECTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_UniquenessExpectation
- *        Please see
- *        https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#uniquenessexpectation.
- *        (Value: "UNIQUENESS_EXPECTATION")
+ *        See DataQualityRule.UniquenessExpectation. (Value:
+ *        "UNIQUENESS_EXPECTATION")
  */
 @property(nonatomic, copy, nullable) NSString *ruleType;
 
@@ -7627,14 +7609,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResult : GTLRObject
 
-/** Entry format of the result. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *dataplexEntry;
 
 /** Linked resource name. */
-@property(nonatomic, copy, nullable) NSString *linkedResource;
+@property(nonatomic, copy, nullable) NSString *linkedResource GTLR_DEPRECATED;
 
 /** Snippets. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResultSnippets *snippets;
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResultSnippets *snippets GTLR_DEPRECATED;
 
 @end
 
@@ -7643,10 +7624,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Snippets for the entry, contains HTML-style highlighting for matched tokens,
  *  will be used in UI.
  */
+GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResultSnippets : GTLRObject
 
 /** Entry */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *dataplexEntry;
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *dataplexEntry GTLR_DEPRECATED;
 
 @end
 

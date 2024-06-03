@@ -195,6 +195,9 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexDatasetSpec_Data
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Automl = @"AUTOML";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Bqml = @"BQML";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Custom = @"CUSTOM";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_CustomTextEmbedding = @"CUSTOM_TEXT_EMBEDDING";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Genie = @"GENIE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Marketplace = @"MARKETPLACE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_ModelGarden = @"MODEL_GARDEN";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_ModelSourceTypeUnspecified = @"MODEL_SOURCE_TYPE_UNSPECIFIED";
 

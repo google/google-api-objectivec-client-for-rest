@@ -457,6 +457,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 @interface GTLRWorkflows_Workflow : GTLRObject
 
 /**
+ *  Output only. A list of all KMS crypto keys used to encrypt or decrpt the
+ *  data associated with the workflow.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allKmsKeys;
+
+/**
+ *  Output only. A list of all KMS crypto keys versions used to encrypt or
+ *  decrpt the data associated with the workflow.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allKmsKeysVersions;
+
+/**
  *  Optional. Describes the level of platform logging to apply to calls and call
  *  responses during executions of this workflow. If both the workflow and the
  *  execution specify a logging level, the execution level takes precedence.
@@ -490,6 +502,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *  the workflow will not be CMEK-encrypted.
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyName;
+
+/**
+ *  Output only. The resource name of a KMS crypto key version used to encrypt
+ *  or decrypt the data associated with the workflow. Format:
+ *  projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey}/cryptoKeyVersions/{cryptoKeyVersion}
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyVersion;
 
 /**
  *  Description of the workflow provided by the user. Must be at most 1000

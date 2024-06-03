@@ -93,6 +93,7 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Yum   = @"YUM";
 
 // GTLRArtifactRegistry_Repository.mode
 NSString * const kGTLRArtifactRegistry_Repository_Mode_AossRepository = @"AOSS_REPOSITORY";
+NSString * const kGTLRArtifactRegistry_Repository_Mode_AssuredOssRepository = @"ASSURED_OSS_REPOSITORY";
 NSString * const kGTLRArtifactRegistry_Repository_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_Repository_Mode_RemoteRepository = @"REMOTE_REPOSITORY";
 NSString * const kGTLRArtifactRegistry_Repository_Mode_StandardRepository = @"STANDARD_REPOSITORY";
@@ -1315,7 +1316,7 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_UploadGenericArtifactRequest
-@dynamic filename, name, packageId, versionId;
+@dynamic filename, packageId, versionId;
 @end
 
 

@@ -16,6 +16,33 @@
 
 @end
 
+@implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCheckUpgrade
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRCloudComposer_CheckUpgradeRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:checkUpgrade";
+  GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCheckUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudComposer_Operation class];
+  query.loggingName = @"composer.projects.locations.environments.checkUpgrade";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCreate
 
 @dynamic parent;

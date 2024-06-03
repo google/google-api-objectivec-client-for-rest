@@ -86,12 +86,15 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8037 = @"MYS
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql840 = @"MYSQL_8_4_0";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13 = @"POSTGRES_13";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -135,12 +138,15 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8037 = @"MY
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql840 = @"MYSQL_8_4_0";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres13 = @"POSTGRES_13";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -218,12 +224,15 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8037        = @"MYSQL_8_0_37"
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8038        = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8039        = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040        = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql84          = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql840         = @"MYSQL_8_4_0";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres13       = @"POSTGRES_13";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres14       = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres15       = @"POSTGRES_15";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres16       = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96       = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -286,6 +295,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_AutoRestart = @"AUTO_REST
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup  = @"BACKUP";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_BackupVolume = @"BACKUP_VOLUME";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Clone   = @"CLONE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_ClusterMaintenance = @"CLUSTER_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Create  = @"CREATE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateClone = @"CREATE_CLONE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateDatabase = @"CREATE_DATABASE";
@@ -313,12 +323,14 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_ReleaseSsrsLease = @"RELE
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance = @"RESCHEDULE_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Restart = @"RESTART";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RestoreVolume = @"RESTORE_VOLUME";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_SelfServiceMaintenance = @"SELF_SERVICE_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot = @"SNAPSHOT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecified = @"SQL_OPERATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_StartExternalSync = @"START_EXTERNAL_SYNC";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_StartReplica = @"START_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_StopReplica = @"STOP_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Switchover = @"SWITCHOVER";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_SwitchoverToReplica = @"SWITCHOVER_TO_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_TruncateLog = @"TRUNCATE_LOG";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Update  = @"UPDATE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateDatabase = @"UPDATE_DATABASE";
@@ -519,6 +531,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_ApiWarning
 @dynamic code, message, region;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_AvailableDatabaseVersion
+//
+
+@implementation GTLRSQLAdmin_AvailableDatabaseVersion
+@dynamic displayName, majorVersion, name;
 @end
 
 
@@ -746,7 +768,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          replicaNames, replicationCluster, rootPassword, satisfiesPzs,
          scheduledMaintenance, secondaryGceZone, selfLink, serverCaCert,
          serviceAccountEmailAddress, settings, sqlNetworkArchitecture, state,
-         suspensionReason, writeEndpoint;
+         suspensionReason, upgradableDatabaseVersions, writeEndpoint;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -757,7 +779,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
     @"availableMaintenanceVersions" : [NSString class],
     @"ipAddresses" : [GTLRSQLAdmin_IpMapping class],
     @"replicaNames" : [NSString class],
-    @"suspensionReason" : [NSString class]
+    @"suspensionReason" : [NSString class],
+    @"upgradableDatabaseVersions" : [GTLRSQLAdmin_AvailableDatabaseVersion class]
   };
   return map;
 }
@@ -1657,7 +1680,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ReplicationCluster
-@dynamic drReplica, failoverDrReplicaName;
+@dynamic drReplica, failoverDrReplicaName, psaWriteEndpoint;
 @end
 
 

@@ -1699,6 +1699,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_Basic;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_Disabled;
 /**
+ *  Applies the Security Posture off cluster Enterprise level features.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_Enterprise;
+/**
  *  Default value not specified.
  *
  *  Value: "MODE_UNSPECIFIED"
@@ -5097,6 +5103,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** List of locations that could not be reached while fetching this list. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -6908,6 +6917,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Posture features on the cluster. (Value: "BASIC")
  *    @arg @c kGTLRGKEHub_SecurityPostureConfig_Mode_Disabled Disables Security
  *        Posture features on the cluster. (Value: "DISABLED")
+ *    @arg @c kGTLRGKEHub_SecurityPostureConfig_Mode_Enterprise Applies the
+ *        Security Posture off cluster Enterprise level features. (Value:
+ *        "ENTERPRISE")
  *    @arg @c kGTLRGKEHub_SecurityPostureConfig_Mode_ModeUnspecified Default
  *        value not specified. (Value: "MODE_UNSPECIFIED")
  */

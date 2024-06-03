@@ -1083,6 +1083,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_SqlServerChangeTables
+//
+
+@implementation GTLRDatastream_SqlServerChangeTables
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_SqlServerColumn
 //
 
@@ -1154,8 +1163,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SqlServerSourceConfig
-@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks,
-         maxConcurrentCdcTasks;
+@dynamic changeTables, excludeObjects, includeObjects,
+         maxConcurrentBackfillTasks, maxConcurrentCdcTasks, transactionLogs;
 @end
 
 
@@ -1174,6 +1183,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerTransactionLogs
+//
+
+@implementation GTLRDatastream_SqlServerTransactionLogs
 @end
 
 

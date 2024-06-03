@@ -289,13 +289,6 @@ NSString * const kGTLRCompute_AuditLogConfig_LogType_DataRead  = @"DATA_READ";
 NSString * const kGTLRCompute_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCompute_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRCompute_AuthorizationLoggingOptions.permissionType
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminWrite = @"ADMIN_WRITE";
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataRead = @"DATA_READ";
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified = @"PERMISSION_TYPE_UNSPECIFIED";
-
 // GTLRCompute_Autoscaler.status
 NSString * const kGTLRCompute_Autoscaler_Status_Active   = @"ACTIVE";
 NSString * const kGTLRCompute_Autoscaler_Status_Deleting = @"DELETING";
@@ -7834,16 +7827,6 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_AuthorizationLoggingOptions
-//
-
-@implementation GTLRCompute_AuthorizationLoggingOptions
-@dynamic permissionType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCompute_Autoscaler
 //
 
@@ -14852,7 +14835,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_LogConfigCloudAuditOptions
-@dynamic authorizationLoggingOptions, logName;
+@dynamic logName;
 @end
 
 

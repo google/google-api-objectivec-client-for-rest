@@ -16,8 +16,10 @@
 
 @class GTLRNetworkconnectivity_AuditConfig;
 @class GTLRNetworkconnectivity_AuditLogConfig;
+@class GTLRNetworkconnectivity_AutoAccept;
 @class GTLRNetworkconnectivity_Binding;
 @class GTLRNetworkconnectivity_ConsumerPscConfig;
+@class GTLRNetworkconnectivity_ConsumerPscConfig_ServiceAttachmentIpAddressMap;
 @class GTLRNetworkconnectivity_ConsumerPscConnection;
 @class GTLRNetworkconnectivity_Expr;
 @class GTLRNetworkconnectivity_Filter;
@@ -42,7 +44,10 @@
 @class GTLRNetworkconnectivity_Location;
 @class GTLRNetworkconnectivity_Location_Labels;
 @class GTLRNetworkconnectivity_Location_Metadata;
+@class GTLRNetworkconnectivity_NextHopInterconnectAttachment;
+@class GTLRNetworkconnectivity_NextHopRouterApplianceInstance;
 @class GTLRNetworkconnectivity_NextHopVpcNetwork;
+@class GTLRNetworkconnectivity_NextHopVPNTunnel;
 @class GTLRNetworkconnectivity_Policy;
 @class GTLRNetworkconnectivity_PolicyBasedRoute;
 @class GTLRNetworkconnectivity_PolicyBasedRoute_Labels;
@@ -283,6 +288,49 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_StateUns
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Group_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Hub.policyMode
+
+/**
+ *  Policy mode is unspecified. It defaults to PRESET with preset_topology =
+ *  MESH.
+ *
+ *  Value: "POLICY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_PolicyMode_PolicyModeUnspecified;
+/**
+ *  Hub uses one of the preset topologies.
+ *
+ *  Value: "PRESET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_PolicyMode_Preset;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Hub.presetTopology
+
+/**
+ *  Mesh topology is implemented. Group `default` is automatically created. All
+ *  spokes in the hub are added to group `default`.
+ *
+ *  Value: "MESH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_PresetTopology_Mesh;
+/**
+ *  Preset topology is unspecified. When policy_mode = PRESET, it defaults to
+ *  MESH.
+ *
+ *  Value: "PRESET_TOPOLOGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_PresetTopology_PresetTopologyUnspecified;
+/**
+ *  Star topology is implemented. Two groups, `center` and `edge`, are
+ *  automatically created along with hub creation. Spokes have to join one of
+ *  the groups during creation.
+ *
+ *  Value: "STAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_PresetTopology_Star;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Hub.state
 
 /**
@@ -460,9 +508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_Loc
 
 /**
  *  Use the routes from the default routing tables (system-generated routes,
- *  custom routes, peering route) to determine the next hop. This will
- *  effectively exclude matching packets being applied on other PBRs with a
- *  lower priority.
+ *  custom routes, peering route) to determine the next hop. This effectively
+ *  excludes matching packets being applied on other PBRs with a lower priority.
  *
  *  Value: "DEFAULT_ROUTING"
  */
@@ -622,6 +669,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_State_Updating
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Route.type
 
+/**
+ *  The route leads to a destination in a dynamic route. Dynamic routes are
+ *  derived from Border Gateway Protocol (BGP) advertisements received from an
+ *  NCC hybrid spoke.
+ *
+ *  Value: "DYNAMIC_ROUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Route_Type_DynamicRoute;
 /**
  *  No route type information specified
  *
@@ -999,8 +1054,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rej
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_ResourceBeingModified;
 /**
- *  The policy-based route is not active and functioning. Common causes are the
- *  dependent network was deleted or the resource project was turned off.
+ *  The policy-based route is not active and functioning. Common causes are that
+ *  the dependent network was deleted or the resource project was turned off.
  *
  *  Value: "RESOURCE_NOT_ACTIVE"
  */
@@ -1111,6 +1166,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  The auto-accept setting for a group controls whether proposed spokes are
+ *  automatically attached to the hub. If auto-accept is enabled, the spoke
+ *  immediately is attached to the hub and becomes part of the group. In this
+ *  case, the new spoke is in the ACTIVE state. If auto-accept is disabled, the
+ *  spoke goes to the INACTIVE state, and it must be reviewed and accepted by a
+ *  hub administrator.
+ */
+@interface GTLRNetworkconnectivity_AutoAccept : GTLRObject
+
+/**
+ *  A list of project ids or project numbers for which you want to enable
+ *  auto-accept. The auto-accept setting is applied to spokes being created or
+ *  updated in these projects.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoAcceptProjects;
 
 @end
 
@@ -1231,6 +1306,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Output only. A map to store mapping between customer vip and target service
+ *  attachment. Only service attachment with producer specified ip addresses are
+ *  stored here.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ConsumerPscConfig_ServiceAttachmentIpAddressMap *serviceAttachmentIpAddressMap;
+
+/**
  *  Output only. Overall state of PSC Connections management for this consumer
  *  psc config.
  *
@@ -1251,6 +1333,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  Output only. A map to store mapping between customer vip and target service
+ *  attachment. Only service attachment with producer specified ip addresses are
+ *  stored here.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_ConsumerPscConfig_ServiceAttachmentIpAddressMap : GTLRObject
 @end
 
 
@@ -1437,7 +1533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /**
  *  Required. Internet protocol versions this policy-based route applies to. For
- *  this version, only IPV4 is supported.
+ *  this version, only IPV4 is supported. IPV6 is supported in preview.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_Filter_ProtocolVersion_Ipv4 The PBR is
@@ -1680,6 +1776,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @interface GTLRNetworkconnectivity_Group : GTLRObject
 
+/** Optional. The auto-accept setting for this group. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_AutoAccept *autoAccept;
+
 /** Output only. The time the group was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1703,6 +1802,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  `projects/{project_number}/locations/global/hubs/{hub}/groups/{group_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The name of the route table that corresponds to this group.
+ *  They use the following form:
+ *  `projects/{project_number}/locations/global/hubs/{hub_id}/routeTables/{route_table_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *routeTable;
 
 /**
  *  Output only. The current lifecycle state of this group.
@@ -1778,6 +1884,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Whether Private Service Connect transitivity is enabled for the
+ *  hub. If true, Private Service Connect endpoints in VPC spokes attached to
+ *  the hub are made accessible to other VPC spokes attached to the hub. The
+ *  default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exportPsc;
+
+/**
  *  Optional labels in key-value pair format. For more information about labels,
  *  see [Requirements for
  *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
@@ -1789,6 +1905,40 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  following form: `projects/{project_number}/locations/global/hubs/{hub_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The policy mode of this hub. This field can be either PRESET or
+ *  CUSTOM. If unspecified, the policy_mode defaults to PRESET.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Hub_PolicyMode_PolicyModeUnspecified
+ *        Policy mode is unspecified. It defaults to PRESET with preset_topology
+ *        = MESH. (Value: "POLICY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_PolicyMode_Preset Hub uses one of the
+ *        preset topologies. (Value: "PRESET")
+ */
+@property(nonatomic, copy, nullable) NSString *policyMode;
+
+/**
+ *  Optional. The topology implemented in this hub. Currently, this field is
+ *  only used when policy_mode = PRESET. The available preset topologies are
+ *  MESH and STAR. If preset_topology is unspecified and policy_mode = PRESET,
+ *  the preset_topology defaults to MESH. When policy_mode = CUSTOM, the
+ *  preset_topology is set to PRESET_TOPOLOGY_UNSPECIFIED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Hub_PresetTopology_Mesh Mesh topology is
+ *        implemented. Group `default` is automatically created. All spokes in
+ *        the hub are added to group `default`. (Value: "MESH")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_PresetTopology_PresetTopologyUnspecified
+ *        Preset topology is unspecified. When policy_mode = PRESET, it defaults
+ *        to MESH. (Value: "PRESET_TOPOLOGY_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_PresetTopology_Star Star topology is
+ *        implemented. Two groups, `center` and `edge`, are automatically
+ *        created along with hub creation. Spokes have to join one of the groups
+ *        during creation. (Value: "STAR")
+ */
+@property(nonatomic, copy, nullable) NSString *presetTopology;
 
 /**
  *  Output only. The route tables that belong to this hub. They use the
@@ -2618,12 +2768,82 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  A route next hop that leads to an interconnect attachment resource.
+ */
+@interface GTLRNetworkconnectivity_NextHopInterconnectAttachment : GTLRObject
+
+/**
+ *  Indicates whether site-to-site data transfer is allowed for this
+ *  interconnect attachment resource. Data transfer is available only in
+ *  [supported
+ *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteToSiteDataTransfer;
+
+/** The URI of the interconnect attachment resource. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/** The VPC network where this interconnect attachment is located. */
+@property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
+@end
+
+
+/**
+ *  A route next hop that leads to a Router appliance instance.
+ */
+@interface GTLRNetworkconnectivity_NextHopRouterApplianceInstance : GTLRObject
+
+/**
+ *  Indicates whether site-to-site data transfer is allowed for this Router
+ *  appliance instance resource. Data transfer is available only in [supported
+ *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteToSiteDataTransfer;
+
+/** The URI of the Router appliance instance. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/** The VPC network where this VM is located. */
+@property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
+@end
+
+
+/**
  *  GTLRNetworkconnectivity_NextHopVpcNetwork
  */
 @interface GTLRNetworkconnectivity_NextHopVpcNetwork : GTLRObject
 
 /** The URI of the VPC network resource */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A route next hop that leads to a VPN tunnel resource.
+ */
+@interface GTLRNetworkconnectivity_NextHopVPNTunnel : GTLRObject
+
+/**
+ *  Indicates whether site-to-site data transfer is allowed for this VPN tunnel
+ *  resource. Data transfer is available only in [supported
+ *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteToSiteDataTransfer;
+
+/** The URI of the VPN tunnel resource. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/** The VPC network where this VPN tunnel is located. */
+@property(nonatomic, copy, nullable) NSString *vpcNetwork;
 
 @end
 
@@ -2761,7 +2981,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  Policy-based routes route L4 network traffic based on not just destination
  *  IP address, but also source IP address, protocol, and more. If a
  *  policy-based route conflicts with other types of routes, the policy-based
- *  route always take precedence.
+ *  route always takes precedence.
  */
 @interface GTLRNetworkconnectivity_PolicyBasedRoute : GTLRObject
 
@@ -2820,8 +3040,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *    @arg @c kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_DefaultRouting
  *        Use the routes from the default routing tables (system-generated
  *        routes, custom routes, peering route) to determine the next hop. This
- *        will effectively exclude matching packets being applied on other PBRs
- *        with a lower priority. (Value: "DEFAULT_ROUTING")
+ *        effectively excludes matching packets being applied on other PBRs with
+ *        a lower priority. (Value: "DEFAULT_ROUTING")
  *    @arg @c kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_OtherRoutesUnspecified
  *        Default value. (Value: "OTHER_ROUTES_UNSPECIFIED")
  */
@@ -2844,7 +3064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** Output only. Time when the policy-based route was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Optional. VM instances to which this policy-based route applies to. */
+/** Optional. VM instances that this policy-based route applies to. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_VirtualMachine *virtualMachine;
 
 /**
@@ -3163,8 +3383,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Immutable. The next-hop VLAN attachment for packets on this route. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_NextHopInterconnectAttachment *nextHopInterconnectAttachment;
+
+/**
+ *  Immutable. The next-hop Router appliance instance for packets on this route.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_NextHopRouterApplianceInstance *nextHopRouterApplianceInstance;
+
 /** Immutable. The destination VPC network for packets on this route. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_NextHopVpcNetwork *nextHopVpcNetwork;
+
+/** Immutable. The next-hop VPN tunnel for packets on this route. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_NextHopVPNTunnel *nextHopVpnTunnel;
+
+/**
+ *  Output only. The priority of this route. Priority is used to break ties in
+ *  cases where a destination matches more than one route. In these cases the
+ *  route with the lowest-numbered priority value wins.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
 
 /**
  *  Immutable. The spoke that this route leads to. Example:
@@ -3203,6 +3443,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  its IP address range.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Route_Type_DynamicRoute The route leads
+ *        to a destination in a dynamic route. Dynamic routes are derived from
+ *        Border Gateway Protocol (BGP) advertisements received from an NCC
+ *        hybrid spoke. (Value: "DYNAMIC_ROUTE")
  *    @arg @c kGTLRNetworkconnectivity_Route_Type_RouteTypeUnspecified No route
  *        type information specified (Value: "ROUTE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_Route_Type_VpcPrimarySubnet The route
@@ -4017,13 +4261,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  VM instances to which this policy-based route applies to.
+ *  VM instances that this policy-based route applies to.
  */
 @interface GTLRNetworkconnectivity_VirtualMachine : GTLRObject
 
 /**
- *  Optional. A list of VM instance tags the this policy-based route applies to.
- *  VM instances that have ANY of tags specified here will install this PBR.
+ *  Optional. A list of VM instance tags that this policy-based route applies
+ *  to. VM instances that have ANY of tags specified here installs this PBR.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -4044,8 +4288,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        time. (Value: "RESOURCE_BEING_MODIFIED")
  *    @arg @c kGTLRNetworkconnectivity_Warnings_Code_ResourceNotActive The
  *        policy-based route is not active and functioning. Common causes are
- *        the dependent network was deleted or the resource project was turned
- *        off. (Value: "RESOURCE_NOT_ACTIVE")
+ *        that the dependent network was deleted or the resource project was
+ *        turned off. (Value: "RESOURCE_NOT_ACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified Default
  *        value. (Value: "WARNING_UNSPECIFIED")
  */

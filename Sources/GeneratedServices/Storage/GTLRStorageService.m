@@ -65,6 +65,7 @@ NSString * const kGTLRAuthScopeStorageDevstorageReadWrite   = @"https://www.goog
     @"storage#policy" : [GTLRStorage_Policy class],
     @"storage#rewriteResponse" : [GTLRStorage_RewriteResponse class],
     @"storage#serviceAccount" : [GTLRStorage_ServiceAccount class],
+    @"storage#storageLayout" : [GTLRStorage_BucketStorageLayout class],
     @"storage#testIamPermissionsResponse" : [GTLRStorage_TestIamPermissionsResponse class],
   };
 }

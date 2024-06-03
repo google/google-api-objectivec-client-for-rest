@@ -940,6 +940,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_Sc
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Apiserver;
 /**
+ *  CADVISOR
+ *
+ *  Value: "CADVISOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Cadvisor;
+/**
  *  Default value. This shouldn't be used.
  *
  *  Value: "COMPONENT_UNSPECIFIED"
@@ -969,6 +975,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_Enab
  *  Value: "HPA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Hpa;
+/**
+ *  KUBELET
+ *
+ *  Value: "KUBELET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Kubelet;
 /**
  *  Pod
  *

@@ -132,8 +132,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The Progressive-Web-App (PWA) category, containing all pwa related audits.
+ *  This is deprecated in Lighthouse's 12.0 release.
  */
-@property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *pwa;
+@property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *pwa GTLR_DEPRECATED;
 
 /**
  *  The Search-Engine-Optimization (SEO) category, containing all seo related

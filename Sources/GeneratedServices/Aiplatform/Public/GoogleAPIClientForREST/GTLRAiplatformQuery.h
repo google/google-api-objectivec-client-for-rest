@@ -3477,6 +3477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectPredict : GTLRAiplatformQuery
 
@@ -3514,6 +3515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectRawPredict : GTLRAiplatformQuery
 
@@ -3553,6 +3555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsExplain : GTLRAiplatformQuery
 
@@ -3590,6 +3593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsGenerateContent : GTLRAiplatformQuery
 
@@ -3999,6 +4003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsPredict : GTLRAiplatformQuery
 
@@ -4036,6 +4041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsRawPredict : GTLRAiplatformQuery
 
@@ -4074,6 +4080,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsServerStreamingPredict : GTLRAiplatformQuery
 
@@ -4110,6 +4117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent : GTLRAiplatformQuery
 
@@ -4145,6 +4153,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamRawPredict : GTLRAiplatformQuery
 
@@ -14519,6 +14528,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Updates a NotebookRuntimeTemplate.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesPatch : GTLRAiplatformQuery
+
+/** The resource name of the NotebookRuntimeTemplate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask. Input format: `{paths:
+ *  "${updated_filed}"}` Updatable fields: * `encryption_spec.kms_key_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate.
+ *
+ *  Updates a NotebookRuntimeTemplate.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate to include
+ *    in the query.
+ *  @param name The resource name of the NotebookRuntimeTemplate.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
@@ -15803,6 +15851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsGenerateContent : GTLRAiplatformQuery
 
@@ -15838,6 +15887,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsPredict : GTLRAiplatformQuery
 
@@ -15875,6 +15925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsRawPredict : GTLRAiplatformQuery
 
@@ -15913,6 +15964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsServerStreamingPredict : GTLRAiplatformQuery
 
@@ -15949,6 +16001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent : GTLRAiplatformQuery
 
@@ -15984,6 +16037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamRawPredict : GTLRAiplatformQuery
 

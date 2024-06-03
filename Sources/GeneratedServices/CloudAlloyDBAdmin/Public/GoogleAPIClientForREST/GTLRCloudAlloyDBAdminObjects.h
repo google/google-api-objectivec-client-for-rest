@@ -85,6 +85,8 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_AdditionalMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels;
@@ -890,6 +892,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDatabaseNamesExposed;
 /**
+ *  Detects if database instance data exported to a Cloud Storage bucket outside
+ *  of the organization.
+ *
+ *  Value: "SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket;
+/**
+ *  Detects if database instance data exported to a Cloud Storage bucket that is
+ *  owned by the organization and is publicly accessible.
+ *
+ *  Value: "SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket;
+/**
  *  Represents if the log_disconnections database flag for a Cloud SQL for
  *  PostgreSQL instance is not set to on.
  *
@@ -1188,6 +1204,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeShortBackupRetention;
 /**
+ *  Detects events where a Cloud SQL superuser (postgres for PostgreSQL servers
+ *  or root for MySQL users) writes to non-system tables.
+ *
+ *  Value: "SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeSuperuserWritingToUserTables;
+/**
  *  Performance impact of temporary tables settings
  *
  *  Value: "SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT"
@@ -1218,6 +1241,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUnspecified;
+/**
+ *  Detects events where a database user or role has been granted all privileges
+ *  to a database, or to all tables, procedures, or functions in a schema.
+ *
+ *  Value: "SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUserGrantedAllPermissions;
 /**
  *  Represents if the user options database flag for Cloud SQL SQL Server
  *  instance is configured or not.
@@ -1583,6 +1613,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDatabaseNamesExposed;
 /**
+ *  Detects if database instance data exported to a Cloud Storage bucket outside
+ *  of the organization.
+ *
+ *  Value: "SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket;
+/**
+ *  Detects if database instance data exported to a Cloud Storage bucket that is
+ *  owned by the organization and is publicly accessible.
+ *
+ *  Value: "SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket;
+/**
  *  Represents if the log_disconnections database flag for a Cloud SQL for
  *  PostgreSQL instance is not set to on.
  *
@@ -1881,6 +1925,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeShortBackupRetention;
 /**
+ *  Detects events where a Cloud SQL superuser (postgres for PostgreSQL servers
+ *  or root for MySQL users) writes to non-system tables.
+ *
+ *  Value: "SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeSuperuserWritingToUserTables;
+/**
  *  Performance impact of temporary tables settings
  *
  *  Value: "SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT"
@@ -1911,6 +1962,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUnspecified;
+/**
+ *  Detects events where a database user or role has been granted all privileges
+ *  to a database, or to all tables, procedures, or functions in a schema.
+ *
+ *  Value: "SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserGrantedAllPermissions;
 /**
  *  Represents if the user options database flag for Cloud SQL SQL Server
  *  instance is configured or not.
@@ -2018,6 +2076,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "GEMINI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Gemini;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData.metricType
+
+/**
+ *  Peak CPU utilization for a DB instance as a fraction between 0.0 and 1.0
+ *  (may momentarily exceed 1.0 in some cases) List will keep increasing, e.g.
+ *  PEAK_MEMORY_UTILISATION, NUMBER_OF_CONNECTIONS, SUCCESS_RATIO_FOR_QUERIES,
+ *  etc.
+ *
+ *  Value: "INSTANCE_PEAK_CPU_UTILISATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_InstancePeakCpuUtilisation;
+/** Value: "METRIC_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MetricTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError.errorType
@@ -4685,8 +4758,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, copy, nullable) NSString *feedType;
 
 /** More feed data would be added in subsequent CLs */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData *recommendationSignalData;
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData *observabilityMetricData;
 
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData *recommendationSignalData;
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData *resourceHealthSignalData;
 
 /**
@@ -4838,6 +4912,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the skip_show_database database flag for a Cloud SQL for
  *        MySQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket
+ *        Detects if database instance data exported to a Cloud Storage bucket
+ *        outside of the organization. (Value:
+ *        "SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket
+ *        Detects if database instance data exported to a Cloud Storage bucket
+ *        that is owned by the organization and is publicly accessible. (Value:
+ *        "SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDisconnectionsNotLogged
  *        Represents if the log_disconnections database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
@@ -4997,6 +5079,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeShortBackupRetention
  *        Represents if a resources has a short backup retention period. (Value:
  *        "SIGNAL_TYPE_SHORT_BACKUP_RETENTION")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeSuperuserWritingToUserTables
+ *        Detects events where a Cloud SQL superuser (postgres for PostgreSQL
+ *        servers or root for MySQL users) writes to non-system tables. (Value:
+ *        "SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeTmpTablesPerformanceImpact
  *        Performance impact of temporary tables settings (Value:
  *        "SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT")
@@ -5011,6 +5097,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUnspecified
  *        Unspecified. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUserGrantedAllPermissions
+ *        Detects events where a database user or role has been granted all
+ *        privileges to a database, or to all tables, procedures, or functions
+ *        in a schema. (Value: "SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUserOptionsConfigured
  *        Represents if the user options database flag for Cloud SQL SQL Server
  *        instance is configured or not. (Value:
@@ -5247,6 +5337,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /** The resource location. REQUIRED */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/** Machine configuration for this resource. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration *machineConfiguration;
+
 /**
  *  Identifier for this resource's immediate parent/primary resource if the
  *  current resource is a replica or derived form of another Database resource.
@@ -5398,6 +5491,14 @@ GTLR_DEPRECATED
  *        Represents if the skip_show_database database flag for a Cloud SQL for
  *        MySQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket
+ *        Detects if database instance data exported to a Cloud Storage bucket
+ *        outside of the organization. (Value:
+ *        "SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket
+ *        Detects if database instance data exported to a Cloud Storage bucket
+ *        that is owned by the organization and is publicly accessible. (Value:
+ *        "SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDisconnectionsNotLogged
  *        Represents if the log_disconnections database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
@@ -5557,6 +5658,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeShortBackupRetention
  *        Represents if a resources has a short backup retention period. (Value:
  *        "SIGNAL_TYPE_SHORT_BACKUP_RETENTION")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeSuperuserWritingToUserTables
+ *        Detects events where a Cloud SQL superuser (postgres for PostgreSQL
+ *        servers or root for MySQL users) writes to non-system tables. (Value:
+ *        "SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeTmpTablesPerformanceImpact
  *        Performance impact of temporary tables settings (Value:
  *        "SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT")
@@ -5571,6 +5676,10 @@ GTLR_DEPRECATED
  *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUnspecified
  *        Unspecified. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserGrantedAllPermissions
+ *        Detects events where a database user or role has been granted all
+ *        privileges to a database, or to all tables, procedures, or functions
+ *        in a schema. (Value: "SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserOptionsConfigured
  *        Represents if the user options database flag for Cloud SQL SQL Server
  *        instance is configured or not. (Value:
@@ -5661,6 +5770,68 @@ GTLR_DEPRECATED
  *        "GEMINI")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  MachineConfiguration describes the configuration of a machine specific to
+ *  Database Resource.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration : GTLRObject
+
+/**
+ *  The number of CPUs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuCount;
+
+/**
+ *  Memory size in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memorySizeInBytes;
+
+@end
+
+
+/**
+ *  GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData : GTLRObject
+
+/** Required. The timestamp of the metric value. */
+@property(nonatomic, strong, nullable) GTLRDateTime *metricTimestamp;
+
+/**
+ *  Required. Type of metric like CPU, Memory, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_InstancePeakCpuUtilisation
+ *        Peak CPU utilization for a DB instance as a fraction between 0.0 and
+ *        1.0 (may momentarily exceed 1.0 in some cases) List will keep
+ *        increasing, e.g. PEAK_MEMORY_UTILISATION, NUMBER_OF_CONNECTIONS,
+ *        SUCCESS_RATIO_FOR_QUERIES, etc. (Value:
+ *        "INSTANCE_PEAK_CPU_UTILISATION")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MetricTypeUnspecified
+ *        Value "METRIC_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *metricType;
+
+/**
+ *  Required. Database resource name associated with the signal. Resource name
+ *  to follow CAIS resource_name format as noted here go/condor-common-datamodel
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Required. Value of the metric type.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 

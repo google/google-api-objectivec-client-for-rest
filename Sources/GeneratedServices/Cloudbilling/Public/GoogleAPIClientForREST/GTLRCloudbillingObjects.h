@@ -879,10 +879,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
 /** A human readable display name for this service. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The resource name for the service. Example: "services/DA34-426B-A397" */
+/** The resource name for the service. Example: "services/6F81-5844-456A" */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The identifier for the service. Example: "DA34-426B-A397" */
+/** The identifier for the service. Example: "6F81-5844-456A" */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
 @end
@@ -913,7 +913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
 
 
 /**
- *  Encapsulates a single SKU in Google Cloud Platform
+ *  Encapsulates a single SKU in Google Cloud
  */
 @interface GTLRCloudbilling_Sku : GTLRObject
 
@@ -933,7 +933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
 
 /**
  *  The resource name for the SKU. Example:
- *  "services/DA34-426B-A397/skus/AA95-CD31-42FE"
+ *  "services/6F81-5844-456A/skus/D041-B8A1-6E0B"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -952,7 +952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceRegions;
 
-/** The identifier for the SKU. Example: "AA95-CD31-42FE" */
+/** The identifier for the SKU. Example: "D041-B8A1-6E0B" */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
 @end

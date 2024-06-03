@@ -88,6 +88,7 @@
 @class GTLRFirestore_Sum;
 @class GTLRFirestore_Target;
 @class GTLRFirestore_TargetChange;
+@class GTLRFirestore_TimeOfDay;
 @class GTLRFirestore_TransactionOptions;
 @class GTLRFirestore_UnaryFilter;
 @class GTLRFirestore_Value;
@@ -2213,6 +2214,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Represents a recurring schedule that runs every day. The time zone is UTC.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence : GTLRObject
+
+/**
+ *  Time of the day. The first run scheduled will be either on the same day if
+ *  schedule creation time precedes time_of_day or the next day otherwise.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_TimeOfDay *time;
+
 @end
 
 
@@ -2284,8 +2292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *deleteProtectionState;
 
 /**
- *  Output only. The timestamp at which this database was soft deleted. Only set
- *  if the database has been soft deleted.
+ *  Output only. The timestamp at which this database was deleted. Only set if
+ *  the database has been deleted.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
@@ -2346,6 +2354,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        Not used. (Value: "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *pointInTimeRecoveryEnablement;
+
+/**
+ *  Output only. The database resource's prior database ID. This field is only
+ *  populated for deleted databases.
+ */
+@property(nonatomic, copy, nullable) NSString *previousId;
 
 /**
  *  The type of the database. See
@@ -2484,7 +2498,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest : GTLRObject
 
-/** Which collection ids to export. Unspecified means all collections. */
+/**
+ *  Which collection ids to export. Unspecified means all collections. Each
+ *  collection id in this list must be unique.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
@@ -2724,7 +2741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Which collection ids to import. Unspecified means all collections included
- *  in the import.
+ *  in the import. Each collection id in this list must be unique.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
@@ -3375,6 +3392,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        Wednesday (Value: "WEDNESDAY")
  */
 @property(nonatomic, copy, nullable) NSString *day;
+
+/**
+ *  Time of the day. If day is today, the first run will happen today if
+ *  schedule creation time precedes time_of_day, and the next week otherwise.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_TimeOfDay *time;
 
 @end
 
@@ -4489,6 +4512,46 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *targetIds;
+
+@end
+
+
+/**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRFirestore_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
+ *  allow the value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of hour of day. Must be from 0 to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+ *  allow the value 60 if it allows leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
 
 @end
 

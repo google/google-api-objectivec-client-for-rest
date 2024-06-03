@@ -176,6 +176,7 @@
 @class GTLRCloudSearch_SearchApplicationSessionStats;
 @class GTLRCloudSearch_SearchApplicationUserStats;
 @class GTLRCloudSearch_SearchQualityMetadata;
+@class GTLRCloudSearch_SearchResponse;
 @class GTLRCloudSearch_SearchResult;
 @class GTLRCloudSearch_Snippet;
 @class GTLRCloudSearch_SortOptions;
@@ -2926,6 +2927,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableDebugging;
+
+@end
+
+
+/**
+ *  Debug Search Response.
+ */
+@interface GTLRCloudSearch_DebugResponse : GTLRObject
+
+/**
+ *  Serialized string of GenericSearchRequest.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *gsrRequest;
+
+/**
+ *  Serialized string of GenericSearchResponse.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *gsrResponse;
+
+/** Search response. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_SearchResponse *searchResponse;
 
 @end
 

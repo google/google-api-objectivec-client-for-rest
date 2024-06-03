@@ -771,6 +771,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence
+@dynamic time;
 @end
 
 
@@ -782,8 +783,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Database
 @dynamic appEngineIntegrationMode, cmekConfig, concurrencyMode, createTime,
          deleteProtectionState, deleteTime, earliestVersionTime, ETag,
-         keyPrefix, locationId, name, pointInTimeRecoveryEnablement, type, uid,
-         updateTime, versionRetentionPeriod;
+         keyPrefix, locationId, name, pointInTimeRecoveryEnablement, previousId,
+         type, uid, updateTime, versionRetentionPeriod;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1198,7 +1199,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence
-@dynamic day;
+@dynamic day, time;
 @end
 
 
@@ -1737,6 +1738,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_TimeOfDay
+//
+
+@implementation GTLRFirestore_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
 @end
 
 

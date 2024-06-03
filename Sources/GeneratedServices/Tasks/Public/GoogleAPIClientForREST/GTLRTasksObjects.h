@@ -70,10 +70,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Type of the resource. This is always "tasks#task". */
+/** Output only. Type of the resource. This is always "tasks#task". */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Collection of links. This collection is read-only. */
+/** Output only. Collection of links. This collection is read-only. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTasks_Task_Links_Item *> *links;
 
 /**
@@ -83,24 +83,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *notes;
 
 /**
- *  Parent task identifier. This field is omitted if it is a top-level task.
- *  This field is read-only. Use the "move" method to move the task under a
- *  different parent or to the top level.
+ *  Output only. Parent task identifier. This field is omitted if it is a
+ *  top-level task. This field is read-only. Use the "move" method to move the
+ *  task under a different parent or to the top level.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  String indicating the position of the task among its sibling tasks under the
- *  same parent task or at the top level. If this string is greater than another
- *  task's corresponding position string according to lexicographical ordering,
- *  the task is positioned after the other task under the same parent task (or
- *  at the top level). This field is read-only. Use the "move" method to move
+ *  Output only. String indicating the position of the task among its sibling
+ *  tasks under the same parent task or at the top level. If this string is
+ *  greater than another task's corresponding position string according to
+ *  lexicographical ordering, the task is positioned after the other task under
+ *  the same parent task (or at the top level). Use the "move" method to move
  *  the task to another position.
  */
 @property(nonatomic, copy, nullable) NSString *position;
 
 /**
- *  URL pointing to this task. Used to retrieve, update, or delete this task.
+ *  Output only. URL pointing to this task. Used to retrieve, update, or delete
+ *  this task.
  */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -110,13 +111,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Title of the task. Maximum length allowed: 1024 characters. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** Last modification time of the task (as a RFC 3339 timestamp). */
+/**
+ *  Output only. Last modification time of the task (as a RFC 3339 timestamp).
+ */
 @property(nonatomic, copy, nullable) NSString *updated;
 
-/**
- *  An absolute link to the task in the Google Tasks Web UI. This field is
- *  read-only.
- */
+/** Output only. An absolute link to the task in the Google Tasks Web UI. */
 @property(nonatomic, copy, nullable) NSString *webViewLink;
 
 @end
@@ -158,19 +158,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Type of the resource. This is always "tasks#taskList". */
+/** Output only. Type of the resource. This is always "tasks#taskList". */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  URL pointing to this task list. Used to retrieve, update, or delete this
- *  task list.
+ *  Output only. URL pointing to this task list. Used to retrieve, update, or
+ *  delete this task list.
  */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Title of the task list. Maximum length allowed: 1024 characters. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** Last modification time of the task list (as a RFC 3339 timestamp). */
+/**
+ *  Output only. Last modification time of the task list (as a RFC 3339
+ *  timestamp).
+ */
 @property(nonatomic, copy, nullable) NSString *updated;
 
 @end

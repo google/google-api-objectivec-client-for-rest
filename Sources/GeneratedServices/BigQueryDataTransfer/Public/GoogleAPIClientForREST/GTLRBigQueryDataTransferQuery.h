@@ -556,7 +556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
  *  and new credentials are needed, as indicated by `CheckValidCreds`. In order
  *  to obtain authorization_code, make a request to the following URL:
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes
+ *  https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes
  *  * The client_id is the OAuth client_id of the a data source as returned by
  *  ListDataSources method. * data_source_scopes are the scopes returned by
  *  ListDataSources method. Note that this should not be set when
@@ -588,7 +588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
  *  are needed, as indicated by `CheckValidCreds`. In order to obtain version
  *  info, make a request to the following URL:
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes
+ *  https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes
  *  * The client_id is the OAuth client_id of the a data source as returned by
  *  ListDataSources method. * data_source_scopes are the scopes returned by
  *  ListDataSources method. Note that this should not be set when
@@ -757,7 +757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
  *  and new credentials are needed, as indicated by `CheckValidCreds`. In order
  *  to obtain authorization_code, make a request to the following URL:
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes
+ *  https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes
  *  * The client_id is the OAuth client_id of the a data source as returned by
  *  ListDataSources method. * data_source_scopes are the scopes returned by
  *  ListDataSources method. Note that this should not be set when
@@ -798,7 +798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
  *  are needed, as indicated by `CheckValidCreds`. In order to obtain version
  *  info, make a request to the following URL:
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes
+ *  https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes
  *  * The client_id is the OAuth client_id of the a data source as returned by
  *  ListDataSources method. * data_source_scopes are the scopes returned by
  *  ListDataSources method. Note that this should not be set when
@@ -1188,7 +1188,7 @@ GTLR_DEPRECATED
  *  This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
  *  and new credentials are needed, as indicated by `CheckValidCreds`. In order
  *  to obtain authorization_code, make a request to the following URL:
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes
+ *  https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes
  *  * The client_id is the OAuth client_id of the a data source as returned by
  *  ListDataSources method. * data_source_scopes are the scopes returned by
  *  ListDataSources method. Note that this should not be set when
@@ -1220,7 +1220,7 @@ GTLR_DEPRECATED
  *  `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
  *  are needed, as indicated by `CheckValidCreds`. In order to obtain version
  *  info, make a request to the following URL:
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes
+ *  https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes
  *  * The client_id is the OAuth client_id of the a data source as returned by
  *  ListDataSources method. * data_source_scopes are the scopes returned by
  *  ListDataSources method. Note that this should not be set when
@@ -1389,7 +1389,7 @@ GTLR_DEPRECATED
  *  This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
  *  and new credentials are needed, as indicated by `CheckValidCreds`. In order
  *  to obtain authorization_code, make a request to the following URL:
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes
+ *  https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes
  *  * The client_id is the OAuth client_id of the a data source as returned by
  *  ListDataSources method. * data_source_scopes are the scopes returned by
  *  ListDataSources method. Note that this should not be set when
@@ -1430,7 +1430,7 @@ GTLR_DEPRECATED
  *  `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
  *  are needed, as indicated by `CheckValidCreds`. In order to obtain version
  *  info, make a request to the following URL:
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes
+ *  https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes
  *  * The client_id is the OAuth client_id of the a data source as returned by
  *  ListDataSources method. * data_source_scopes are the scopes returned by
  *  ListDataSources method. Note that this should not be set when

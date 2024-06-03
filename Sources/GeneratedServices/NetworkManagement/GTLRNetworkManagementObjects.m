@@ -62,6 +62,7 @@ NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudRunRevision = @"
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster = @"GKE_MASTER";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi = @"GOOGLE_API";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GoogleManagedService = @"GOOGLE_MANAGED_SERVICE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Instance = @"INSTANCE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet = @"INTERNET";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PrivateNetwork = @"PRIVATE_NETWORK";
@@ -85,6 +86,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthori
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlPscNegUnsupported = @"CLOUD_SQL_PSC_NEG_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService = @"DROPPED_INSIDE_CLOUD_SQL_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService = @"DROPPED_INSIDE_GKE_SERVICE";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGoogleManagedService = @"DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer = @"DROPPED_INSIDE_PSC_SERVICE_PRODUCER";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck = @"FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallRule = @"FIREWALL_RULE";
@@ -304,6 +306,7 @@ NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance = @"START_F
 NSString * const kGTLRNetworkManagement_Step_State_StartFromInternet = @"START_FROM_INTERNET";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork = @"START_FROM_PRIVATE_NETWORK";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromPscPublishedService = @"START_FROM_PSC_PUBLISHED_SERVICE";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromServerlessNeg = @"START_FROM_SERVERLESS_NEG";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromStorageBucket = @"START_FROM_STORAGE_BUCKET";
 NSString * const kGTLRNetworkManagement_Step_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionMissing = @"VIEWER_PERMISSION_MISSING";
@@ -509,7 +512,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_DeliverInfo
-@dynamic ipAddress, resourceUri, target;
+@dynamic ipAddress, pscGoogleApiTarget, resourceUri, storageBucket, target;
 @end
 
 
@@ -617,8 +620,9 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_ForwardingRuleInfo
-@dynamic displayName, matchedPortRange, matchedProtocol, networkUri, target,
-         uri, vip;
+@dynamic displayName, loadBalancerName, matchedPortRange, matchedProtocol,
+         networkUri, pscGoogleApiTarget, pscServiceAttachmentUri, region,
+         target, uri, vip;
 @end
 
 
@@ -1014,6 +1018,16 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_ServerlessNegInfo
+//
+
+@implementation GTLRNetworkManagement_ServerlessNegInfo
+@dynamic negUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_SetIamPolicyRequest
 //
 
@@ -1064,8 +1078,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
          cloudSqlInstance, deliver, descriptionProperty, drop, endpoint,
          firewall, forward, forwardingRule, gkeMaster, googleService, instance,
          loadBalancer, loadBalancerBackendInfo, nat, network, projectId,
-         proxyConnection, route, state, storageBucket, vpcConnector, vpnGateway,
-         vpnTunnel;
+         proxyConnection, route, serverlessNeg, state, storageBucket,
+         vpcConnector, vpnGateway, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

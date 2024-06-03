@@ -578,6 +578,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_Priva
 @property(nonatomic, copy, nullable) NSString *oauth2ClientId;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The ManagementServer state.
  *
  *  Likely values:

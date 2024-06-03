@@ -58,11 +58,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryCategoryUnspeci
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPerformance;
 /**
  *  Progressive Web App (PWA), category pertaining to a website's ability to be
- *  run as a PWA.
+ *  run as a PWA. This is deprecated in Lighthouse's 12.0 release.
  *
  *  Value: "PWA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPwa;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPwa GTLR_DEPRECATED;
 /**
  *  Search Engine Optimization (SEO), category pertaining to a website's ability
  *  to be indexed by search engines.
@@ -138,8 +138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspeci
  *    @arg @c kGTLRPagespeedInsightsCategoryPerformance Performance, category
  *        pertaining to a website's performance. (Value: "PERFORMANCE")
  *    @arg @c kGTLRPagespeedInsightsCategoryPwa Progressive Web App (PWA),
- *        category pertaining to a website's ability to be run as a PWA. (Value:
- *        "PWA")
+ *        category pertaining to a website's ability to be run as a PWA. This is
+ *        deprecated in Lighthouse's 12.0 release. (Value: "PWA")
  *    @arg @c kGTLRPagespeedInsightsCategorySeo Search Engine Optimization
  *        (SEO), category pertaining to a website's ability to be indexed by
  *        search engines. (Value: "SEO")

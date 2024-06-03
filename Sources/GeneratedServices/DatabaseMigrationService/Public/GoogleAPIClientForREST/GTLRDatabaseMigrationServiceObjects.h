@@ -431,6 +431,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres15;
 /**
+ *  PostgreSQL 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres16;
+/**
  *  PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -2730,6 +2736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        PostgreSQL 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres15
  *        PostgreSQL 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres16
+ *        PostgreSQL 16. (Value: "POSTGRES_16")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres96
  *        PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -6760,6 +6768,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Required. Backup details per database in Cloud Storage. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_SqlServerDatabaseBackup *> *databaseBackups;
+
+/**
+ *  Optional. Enable differential backups.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useDiffBackup;
 
 @end
 

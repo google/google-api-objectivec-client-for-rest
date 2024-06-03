@@ -59,9 +59,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  should enable enforcement immediately, since there are no outdated clients
  *  in use. Some services require certain conditions to be met before they will
  *  work with App Check, such as requiring you to upgrade to a specific service
- *  tier or requiring you to enable the service first. Until those requirements
- *  are met for a service, this `ENFORCED` setting will have no effect and App
- *  Check will not work with that service.
+ *  tier. Until those requirements are met for a service, this `ENFORCED`
+ *  setting will have no effect and App Check will not work with that service.
  *
  *  Value: "ENFORCED"
  */
@@ -946,10 +945,10 @@ GTLR_DEPRECATED
  *        launched yet, you should enable enforcement immediately, since there
  *        are no outdated clients in use. Some services require certain
  *        conditions to be met before they will work with App Check, such as
- *        requiring you to upgrade to a specific service tier or requiring you
- *        to enable the service first. Until those requirements are met for a
- *        service, this `ENFORCED` setting will have no effect and App Check
- *        will not work with that service. (Value: "ENFORCED")
+ *        requiring you to upgrade to a specific service tier. Until those
+ *        requirements are met for a service, this `ENFORCED` setting will have
+ *        no effect and App Check will not work with that service. (Value:
+ *        "ENFORCED")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Off
  *        Firebase App Check is not enforced for the service, nor are App Check
  *        metrics collected. Though the service is not protected by App Check in

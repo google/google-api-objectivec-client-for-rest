@@ -62,6 +62,9 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo;
@@ -810,8 +813,739 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallReason
+
+/**
+ *  Application installed by command line argument.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_COMMAND_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonCommandLine;
+/**
+ *  Application installed by default, but is not considered a system app.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonDefault;
+/**
+ *  Application installed by Kiosk on Chrome OS.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_KIOSK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonKiosk;
+/**
+ *  Application installed by an original equipment manufacturer (OEM).
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_OEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonOem;
+/**
+ *  Application installed by policy.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonPolicy;
+/**
+ *  Application installed bt SubApp API call.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_SUB_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSubApp;
+/**
+ *  Application installed by sync.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSync;
+/**
+ *  Application installed with the system and is considered part of the OS.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSystem;
+/**
+ *  Application install reason is unknown.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonUnspecified;
+/**
+ *  Application installed by user action.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonUser;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallSource
+
+/**
+ *  Application install source is a browser.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceBrowser;
+/**
+ *  Application install source is the Chrome web store.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_CHROME_WEB_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceChromeWebStore;
+/**
+ *  Application install source is the Play store.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_PLAY_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourcePlayStore;
+/**
+ *  Application install source is a sync.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceSync;
+/**
+ *  Application installed as part of Chrome OS.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceSystem;
+/**
+ *  Application install source is unknown.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallTime
+
+/**
+ *  Application install is initialized.
+ *
+ *  Value: "APPLICATION_INSTALL_TIME_INIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeInit;
+/**
+ *  Application install is currently running.
+ *
+ *  Value: "APPLICATION_INSTALL_TIME_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeRunning;
+/**
+ *  Application install time unknown.
+ *
+ *  Value: "APPLICATION_INSTALL_TIME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appType
+
+/**
+ *  Application type arc (Android app).
+ *
+ *  Value: "APPLICATION_TYPE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeArc;
+/**
+ *  Application type borealis.
+ *
+ *  Value: "APPLICATION_TYPE_BOREALIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBorealis;
+/**
+ *  Application type bruschetta.
+ *
+ *  Value: "APPLICATION_TYPE_BRUSCHETTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBruschetta;
+/**
+ *  Application type built-in.
+ *
+ *  Value: "APPLICATION_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBuiltIn;
+/**
+ *  Application type Chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeChromeApp;
+/**
+ *  Application type Linux (via Crostini).
+ *
+ *  Value: "APPLICATION_TYPE_CROSTINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeCrostini;
+/**
+ *  Application type extension.
+ *
+ *  Value: "APPLICATION_TYPE_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeExtension;
+/**
+ *  Application type Mac OS.
+ *
+ *  Value: "APPLICATION_TYPE_MAC_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeMacOs;
+/**
+ *  Application type Plugin VM.
+ *
+ *  Value: "APPLICATION_TYPE_PLUGIN_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypePluginVm;
+/**
+ *  Application type remote.
+ *
+ *  Value: "APPLICATION_TYPE_REMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeRemote;
+/**
+ *  Application type standalone browser (Lacros browser app).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser;
+/**
+ *  Application type standalone browser chrome app (hosted in Lacros).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp;
+/**
+ *  Application type standalone browser extension.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension;
+/**
+ *  Application type system web.
+ *
+ *  Value: "APPLICATION_TYPE_SYSTEM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeSystemWeb;
+/**
+ *  Application type web.
+ *
+ *  Value: "APPLICATION_TYPE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeWeb;
+/**
+ *  Application type unknown.
+ *
+ *  Value: "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_TelemetryApplicationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent.appLaunchSource
+
+/**
+ *  Application launched from app home (chrome://apps) page.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_HOME_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppHomePage;
+/**
+ *  Application launched from the grid of apps, not the search box.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListGrid;
+/**
+ *  Application launched from the grid of apps, off of the context menu.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID_CONTEXT_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListGridContextMenu;
+/**
+ *  Application launched from query-dependent results (larger icons).
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListQuery;
+/**
+ *  Application launched from query-dependent results, off of the context menu.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY_CONTEXT_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListQueryContextMenu;
+/**
+ *  Application launched from query-less recommendations (smaller icons).
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListRecommendation;
+/**
+ *  Application launched from Arc.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceArc;
+/**
+ *  Application launched from background mode.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_BACKGROUND_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceBackgroundMode;
+/**
+ *  Application launched from a Chrome internal call.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_CHROME_INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceChromeInternal;
+/**
+ *  Application launched from the command line.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_COMMAND_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceCommandLine;
+/**
+ *  Application launched from a discover tab notification.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_DISCOVER_TAB_NOTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceDiscoverTabNotification;
+/**
+ *  Application launched from the file manager
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_FILE_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFileManager;
+/**
+ *  Count first-run Help app launches separately so that we can understand the
+ *  number of user-triggered launches.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_FIRST_RUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFirstRun;
+/**
+ *  Applicationed launched from focus panel.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_FOCUS_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFocusMode;
+/**
+ *  Application launched from a full restore.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_FULL_RESTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFullRestore;
+/**
+ *  Application launched from the installed notification.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_INSTALLED_NOTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceInstalledNotification;
+/**
+ *  Application launched from source installer.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_INSTALLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceInstaller;
+/**
+ *  Application launched from an intent URL.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_INTENT_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceIntentUrl;
+/**
+ *  Application launched from keyboard shortcut for opening app.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_KEYBOARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceKeyboard;
+/**
+ *  Application launched from kiosk.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_KIOSK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceKiosk;
+/**
+ *  Application launched from left click on a link in the browser.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceLink;
+/**
+ *  Application launched from lock screen app launcher.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_LOCK_SCREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceLockScreen;
+/**
+ *  Application launched from the Management API.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_MANAGEMENT_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceManagementApi;
+/**
+ *  Application launched from menu.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceMenu;
+/**
+ *  Application launched from the new tab page.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_NEW_TAB_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNewTabPage;
+/**
+ *  Application launched from entering a URL in the Omnibox on the browser.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_OMNIBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOmnibox;
+/**
+ *  Application launched from OS login.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_OS_LOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOsLogin;
+/**
+ *  Application launched from clicking a link in another app or WebUI.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_OTHER_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOtherApp;
+/**
+ *  Application launched from the Parental Controls Settings section and Per App
+ *  time notification.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_PARENTAL_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceParentalControls;
+/**
+ *  Application launched from profile menu of installable
+ *  chrome://password-manager WebUI.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_PROFILE_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceProfileMenu;
+/**
+ *  Application launched from protocol handler.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_PROTOCOL_HANDLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceProtocolHandler;
+/**
+ *  Application launched from the release notes notification.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_RELEASE_NOTES_NOTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceReleaseNotesNotification;
+/**
+ *  Application launched from moving content into an app.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_REPARENTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceReparenting;
+/**
+ *  Application launched from Sharesheet.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SHARESHEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSharesheet;
+/**
+ *  Application launched from shelf.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SHELF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceShelf;
+/**
+ *  Application launched from a smart text selection context menu.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SMART_TEXT_CONTEXT_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSmartTextContextMenu;
+/**
+ *  Application launched from system tray calendar.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SYSTEM_TRAY_CALENDAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSystemTrayCalendar;
+/**
+ *  Application launched from a test.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceTest;
+/**
+ *  Application launch source unknown.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUnspecified;
+/**
+ *  Application launched from URL handler.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_URL_HANDLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUrlHandler;
+/**
+ *  Application launched from welcome tour.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_WELCOME_TOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWelcomeTour;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent.appType
+
+/**
+ *  Application type arc (Android app).
+ *
+ *  Value: "APPLICATION_TYPE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeArc;
+/**
+ *  Application type borealis.
+ *
+ *  Value: "APPLICATION_TYPE_BOREALIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBorealis;
+/**
+ *  Application type bruschetta.
+ *
+ *  Value: "APPLICATION_TYPE_BRUSCHETTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBruschetta;
+/**
+ *  Application type built-in.
+ *
+ *  Value: "APPLICATION_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBuiltIn;
+/**
+ *  Application type Chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeChromeApp;
+/**
+ *  Application type Linux (via Crostini).
+ *
+ *  Value: "APPLICATION_TYPE_CROSTINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeCrostini;
+/**
+ *  Application type extension.
+ *
+ *  Value: "APPLICATION_TYPE_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeExtension;
+/**
+ *  Application type Mac OS.
+ *
+ *  Value: "APPLICATION_TYPE_MAC_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeMacOs;
+/**
+ *  Application type Plugin VM.
+ *
+ *  Value: "APPLICATION_TYPE_PLUGIN_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypePluginVm;
+/**
+ *  Application type remote.
+ *
+ *  Value: "APPLICATION_TYPE_REMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeRemote;
+/**
+ *  Application type standalone browser (Lacros browser app).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser;
+/**
+ *  Application type standalone browser chrome app (hosted in Lacros).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp;
+/**
+ *  Application type standalone browser extension.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserExtension;
+/**
+ *  Application type system web.
+ *
+ *  Value: "APPLICATION_TYPE_SYSTEM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeSystemWeb;
+/**
+ *  Application type web.
+ *
+ *  Value: "APPLICATION_TYPE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeWeb;
+/**
+ *  Application type unknown.
+ *
+ *  Value: "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_TelemetryApplicationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent.appType
+
+/**
+ *  Application type arc (Android app).
+ *
+ *  Value: "APPLICATION_TYPE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeArc;
+/**
+ *  Application type borealis.
+ *
+ *  Value: "APPLICATION_TYPE_BOREALIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBorealis;
+/**
+ *  Application type bruschetta.
+ *
+ *  Value: "APPLICATION_TYPE_BRUSCHETTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBruschetta;
+/**
+ *  Application type built-in.
+ *
+ *  Value: "APPLICATION_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBuiltIn;
+/**
+ *  Application type Chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeChromeApp;
+/**
+ *  Application type Linux (via Crostini).
+ *
+ *  Value: "APPLICATION_TYPE_CROSTINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeCrostini;
+/**
+ *  Application type extension.
+ *
+ *  Value: "APPLICATION_TYPE_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeExtension;
+/**
+ *  Application type Mac OS.
+ *
+ *  Value: "APPLICATION_TYPE_MAC_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeMacOs;
+/**
+ *  Application type Plugin VM.
+ *
+ *  Value: "APPLICATION_TYPE_PLUGIN_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypePluginVm;
+/**
+ *  Application type remote.
+ *
+ *  Value: "APPLICATION_TYPE_REMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeRemote;
+/**
+ *  Application type standalone browser (Lacros browser app).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser;
+/**
+ *  Application type standalone browser chrome app (hosted in Lacros).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp;
+/**
+ *  Application type standalone browser extension.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension;
+/**
+ *  Application type system web.
+ *
+ *  Value: "APPLICATION_TYPE_SYSTEM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeSystemWeb;
+/**
+ *  Application type web.
+ *
+ *  Value: "APPLICATION_TYPE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeWeb;
+/**
+ *  Application type unknown.
+ *
+ *  Value: "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_TelemetryApplicationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent.appUninstallSource
+
+/**
+ *  Application uninstalled from the App List (Launcher).
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_APP_LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceAppList;
+/**
+ *  Application uninstalled from the App Managedment page.
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_APP_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceAppManagement;
+/**
+ *  Application uninstalled by app migration.
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceMigration;
+/**
+ *  Application uninstalled from the Shelf.
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_SHELF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceShelf;
+/**
+ *  Application uninstall source unknown.
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent.eventType
 
+/**
+ *  Triggered when an app is installed.
+ *
+ *  Value: "APP_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppInstalled;
+/**
+ *  Triggered when an app is launched.
+ *
+ *  Value: "APP_LAUNCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppLaunched;
+/**
+ *  Triggered when an app is uninstalled.
+ *
+ *  Value: "APP_UNINSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppUninstalled;
 /**
  *  Triggered when a audio devices run out of buffer data for more than 5
  *  seconds.
@@ -873,6 +1607,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter.eventTypes
 
+/**
+ *  Triggered when an app is installed.
+ *
+ *  Value: "APP_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AppInstalled;
+/**
+ *  Triggered when an app is launched.
+ *
+ *  Value: "APP_LAUNCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AppLaunched;
+/**
+ *  Triggered when an app is uninstalled.
+ *
+ *  Value: "APP_UNINSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AppUninstalled;
 /**
  *  Triggered when a audio devices run out of buffer data for more than 5
  *  seconds.
@@ -3653,6 +4405,413 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  App installation data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent : GTLRObject
+
+/**
+ *  App id. For PWAs this is the start URL, and for extensions this is the
+ *  extension id.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  App installation reason.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonCommandLine
+ *        Application installed by command line argument. (Value:
+ *        "APPLICATION_INSTALL_REASON_COMMAND_LINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonDefault
+ *        Application installed by default, but is not considered a system app.
+ *        (Value: "APPLICATION_INSTALL_REASON_DEFAULT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonKiosk
+ *        Application installed by Kiosk on Chrome OS. (Value:
+ *        "APPLICATION_INSTALL_REASON_KIOSK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonOem
+ *        Application installed by an original equipment manufacturer (OEM).
+ *        (Value: "APPLICATION_INSTALL_REASON_OEM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonPolicy
+ *        Application installed by policy. (Value:
+ *        "APPLICATION_INSTALL_REASON_POLICY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSubApp
+ *        Application installed bt SubApp API call. (Value:
+ *        "APPLICATION_INSTALL_REASON_SUB_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSync
+ *        Application installed by sync. (Value:
+ *        "APPLICATION_INSTALL_REASON_SYNC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSystem
+ *        Application installed with the system and is considered part of the
+ *        OS. (Value: "APPLICATION_INSTALL_REASON_SYSTEM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonUnspecified
+ *        Application install reason is unknown. (Value:
+ *        "APPLICATION_INSTALL_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonUser
+ *        Application installed by user action. (Value:
+ *        "APPLICATION_INSTALL_REASON_USER")
+ */
+@property(nonatomic, copy, nullable) NSString *appInstallReason;
+
+/**
+ *  App installation source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceBrowser
+ *        Application install source is a browser. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceChromeWebStore
+ *        Application install source is the Chrome web store. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_CHROME_WEB_STORE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourcePlayStore
+ *        Application install source is the Play store. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_PLAY_STORE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceSync
+ *        Application install source is a sync. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_SYNC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceSystem
+ *        Application installed as part of Chrome OS. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_SYSTEM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceUnspecified
+ *        Application install source is unknown. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appInstallSource;
+
+/**
+ *  App installation time depending on the app lifecycle.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeInit
+ *        Application install is initialized. (Value:
+ *        "APPLICATION_INSTALL_TIME_INIT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeRunning
+ *        Application install is currently running. (Value:
+ *        "APPLICATION_INSTALL_TIME_RUNNING")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeUnspecified
+ *        Application install time unknown. (Value:
+ *        "APPLICATION_INSTALL_TIME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appInstallTime;
+
+/**
+ *  Type of app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeArc
+ *        Application type arc (Android app). (Value: "APPLICATION_TYPE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBorealis
+ *        Application type borealis. (Value: "APPLICATION_TYPE_BOREALIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBruschetta
+ *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBuiltIn
+ *        Application type built-in. (Value: "APPLICATION_TYPE_BUILT_IN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeChromeApp
+ *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeCrostini
+ *        Application type Linux (via Crostini). (Value:
+ *        "APPLICATION_TYPE_CROSTINI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeExtension
+ *        Application type extension. (Value: "APPLICATION_TYPE_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeMacOs
+ *        Application type Mac OS. (Value: "APPLICATION_TYPE_MAC_OS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypePluginVm
+ *        Application type Plugin VM. (Value: "APPLICATION_TYPE_PLUGIN_VM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeRemote
+ *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser
+ *        Application type standalone browser (Lacros browser app). (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
+ *        Application type standalone browser chrome app (hosted in Lacros).
+ *        (Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension
+ *        Application type standalone browser extension. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeSystemWeb
+ *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeWeb
+ *        Application type web. (Value: "APPLICATION_TYPE_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_TelemetryApplicationTypeUnspecified
+ *        Application type unknown. (Value:
+ *        "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+@end
+
+
+/**
+ *  App launch data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent : GTLRObject
+
+/**
+ *  App id. For PWAs this is the start URL, and for extensions this is the
+ *  extension id.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  App launch source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppHomePage
+ *        Application launched from app home (chrome://apps) page. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_APP_HOME_PAGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListGrid
+ *        Application launched from the grid of apps, not the search box.
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListGridContextMenu
+ *        Application launched from the grid of apps, off of the context menu.
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID_CONTEXT_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListQuery
+ *        Application launched from query-dependent results (larger icons).
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListQueryContextMenu
+ *        Application launched from query-dependent results, off of the context
+ *        menu. (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY_CONTEXT_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListRecommendation
+ *        Application launched from query-less recommendations (smaller icons).
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_RECOMMENDATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceArc
+ *        Application launched from Arc. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceBackgroundMode
+ *        Application launched from background mode. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_BACKGROUND_MODE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceChromeInternal
+ *        Application launched from a Chrome internal call. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_CHROME_INTERNAL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceCommandLine
+ *        Application launched from the command line. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_COMMAND_LINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceDiscoverTabNotification
+ *        Application launched from a discover tab notification. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_DISCOVER_TAB_NOTIFICATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFileManager
+ *        Application launched from the file manager (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_FILE_MANAGER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFirstRun
+ *        Count first-run Help app launches separately so that we can understand
+ *        the number of user-triggered launches. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_FIRST_RUN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFocusMode
+ *        Applicationed launched from focus panel. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_FOCUS_MODE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFullRestore
+ *        Application launched from a full restore. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_FULL_RESTORE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceInstalledNotification
+ *        Application launched from the installed notification. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_INSTALLED_NOTIFICATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceInstaller
+ *        Application launched from source installer. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_INSTALLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceIntentUrl
+ *        Application launched from an intent URL. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_INTENT_URL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceKeyboard
+ *        Application launched from keyboard shortcut for opening app. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_KEYBOARD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceKiosk
+ *        Application launched from kiosk. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_KIOSK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceLink
+ *        Application launched from left click on a link in the browser. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_LINK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceLockScreen
+ *        Application launched from lock screen app launcher. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_LOCK_SCREEN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceManagementApi
+ *        Application launched from the Management API. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_MANAGEMENT_API")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceMenu
+ *        Application launched from menu. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNewTabPage
+ *        Application launched from the new tab page. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_NEW_TAB_PAGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOmnibox
+ *        Application launched from entering a URL in the Omnibox on the
+ *        browser. (Value: "APPLICATION_LAUNCH_SOURCE_OMNIBOX")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOsLogin
+ *        Application launched from OS login. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_OS_LOGIN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOtherApp
+ *        Application launched from clicking a link in another app or WebUI.
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_OTHER_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceParentalControls
+ *        Application launched from the Parental Controls Settings section and
+ *        Per App time notification. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_PARENTAL_CONTROLS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceProfileMenu
+ *        Application launched from profile menu of installable
+ *        chrome://password-manager WebUI. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_PROFILE_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceProtocolHandler
+ *        Application launched from protocol handler. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_PROTOCOL_HANDLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceReleaseNotesNotification
+ *        Application launched from the release notes notification. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_RELEASE_NOTES_NOTIFICATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceReparenting
+ *        Application launched from moving content into an app. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_REPARENTING")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSharesheet
+ *        Application launched from Sharesheet. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SHARESHEET")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceShelf
+ *        Application launched from shelf. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SHELF")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSmartTextContextMenu
+ *        Application launched from a smart text selection context menu. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SMART_TEXT_CONTEXT_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSystemTrayCalendar
+ *        Application launched from system tray calendar. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SYSTEM_TRAY_CALENDAR")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceTest
+ *        Application launched from a test. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_TEST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUnspecified
+ *        Application launch source unknown. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUrlHandler
+ *        Application launched from URL handler. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_URL_HANDLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWelcomeTour
+ *        Application launched from welcome tour. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_WELCOME_TOUR")
+ */
+@property(nonatomic, copy, nullable) NSString *appLaunchSource;
+
+/**
+ *  Type of app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeArc
+ *        Application type arc (Android app). (Value: "APPLICATION_TYPE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBorealis
+ *        Application type borealis. (Value: "APPLICATION_TYPE_BOREALIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBruschetta
+ *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBuiltIn
+ *        Application type built-in. (Value: "APPLICATION_TYPE_BUILT_IN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeChromeApp
+ *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeCrostini
+ *        Application type Linux (via Crostini). (Value:
+ *        "APPLICATION_TYPE_CROSTINI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeExtension
+ *        Application type extension. (Value: "APPLICATION_TYPE_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeMacOs
+ *        Application type Mac OS. (Value: "APPLICATION_TYPE_MAC_OS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypePluginVm
+ *        Application type Plugin VM. (Value: "APPLICATION_TYPE_PLUGIN_VM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeRemote
+ *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser
+ *        Application type standalone browser (Lacros browser app). (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
+ *        Application type standalone browser chrome app (hosted in Lacros).
+ *        (Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserExtension
+ *        Application type standalone browser extension. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeSystemWeb
+ *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeWeb
+ *        Application type web. (Value: "APPLICATION_TYPE_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_TelemetryApplicationTypeUnspecified
+ *        Application type unknown. (Value:
+ *        "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+@end
+
+
+/**
+ *  App uninstall data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent : GTLRObject
+
+/**
+ *  App id. For PWAs this is the start URL, and for extensions this is the
+ *  extension id.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  Type of app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeArc
+ *        Application type arc (Android app). (Value: "APPLICATION_TYPE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBorealis
+ *        Application type borealis. (Value: "APPLICATION_TYPE_BOREALIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBruschetta
+ *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBuiltIn
+ *        Application type built-in. (Value: "APPLICATION_TYPE_BUILT_IN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeChromeApp
+ *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeCrostini
+ *        Application type Linux (via Crostini). (Value:
+ *        "APPLICATION_TYPE_CROSTINI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeExtension
+ *        Application type extension. (Value: "APPLICATION_TYPE_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeMacOs
+ *        Application type Mac OS. (Value: "APPLICATION_TYPE_MAC_OS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypePluginVm
+ *        Application type Plugin VM. (Value: "APPLICATION_TYPE_PLUGIN_VM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeRemote
+ *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser
+ *        Application type standalone browser (Lacros browser app). (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
+ *        Application type standalone browser chrome app (hosted in Lacros).
+ *        (Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension
+ *        Application type standalone browser extension. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeSystemWeb
+ *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeWeb
+ *        Application type web. (Value: "APPLICATION_TYPE_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_TelemetryApplicationTypeUnspecified
+ *        Application type unknown. (Value:
+ *        "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/**
+ *  App uninstall source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceAppList
+ *        Application uninstalled from the App List (Launcher). (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_APP_LIST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceAppManagement
+ *        Application uninstalled from the App Managedment page. (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_APP_MANAGEMENT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceMigration
+ *        Application uninstalled by app migration. (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_MIGRATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceShelf
+ *        Application uninstalled from the Shelf. (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_SHELF")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceUnspecified
+ *        Application uninstall source unknown. (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appUninstallSource;
+
+@end
+
+
+/**
  *  `TelemetryAudioSevereUnderrunEvent` is triggered when a audio devices run
  *  out of buffer data for more than 5 seconds. * Granular permission needed:
  *  TELEMETRY_API_AUDIO_REPORT
@@ -3810,6 +4969,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent : GTLRObject
 
 /**
+ *  Output only. Payload for app install event. Present only when `event_type`
+ *  is `APP_INSTALLED`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent *appInstallEvent;
+
+/**
+ *  Output only. Payload for app launch event.Present only when `event_type` is
+ *  `APP_LAUNCHED`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent *appLaunchEvent;
+
+/**
+ *  Output only. Payload for app uninstall event. Present only when `event_type`
+ *  is `APP_UNINSTALLED`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent *appUninstallEvent;
+
+/**
  *  Output only. Payload for audio severe underrun event. Present only when the
  *  `event_type` field is `AUDIO_SEVERE_UNDERRUN`.
  */
@@ -3822,6 +4999,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  The event type of the current event.
  *
  *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppInstalled
+ *        Triggered when an app is installed. (Value: "APP_INSTALLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppLaunched
+ *        Triggered when an app is launched. (Value: "APP_LAUNCHED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppUninstalled
+ *        Triggered when an app is uninstalled. (Value: "APP_UNINSTALLED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AudioSevereUnderrun
  *        Triggered when a audio devices run out of buffer data for more than 5
  *        seconds. (Value: "AUDIO_SEVERE_UNDERRUN")

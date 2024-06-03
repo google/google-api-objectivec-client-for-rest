@@ -309,6 +309,7 @@ NSString * const kGTLRGKEHub_ScopeLifecycleState_Code_Updating = @"UPDATING";
 // GTLRGKEHub_SecurityPostureConfig.mode
 NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_Basic  = @"BASIC";
 NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_Disabled = @"DISABLED";
+NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_Enterprise = @"ENTERPRISE";
 NSString * const kGTLRGKEHub_SecurityPostureConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
 // GTLRGKEHub_SecurityPostureConfig.vulnerabilityMode
@@ -1722,11 +1723,12 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ListMembershipBindingsResponse
-@dynamic membershipBindings, nextPageToken;
+@dynamic membershipBindings, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"membershipBindings" : [GTLRGKEHub_MembershipBinding class]
+    @"membershipBindings" : [GTLRGKEHub_MembershipBinding class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -1017,6 +1017,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Custom;
 /**
+ *  The Model is uploaded by text embedding finetuning pipeline.
+ *
+ *  Value: "CUSTOM_TEXT_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_CustomTextEmbedding;
+/**
+ *  The Model is saved or tuned from Genie.
+ *
+ *  Value: "GENIE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Genie;
+/**
+ *  The Model is saved or tuned from Marketplace.
+ *
+ *  Value: "MARKETPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Marketplace;
+/**
  *  The Model is saved or tuned from Model Garden.
  *
  *  Value: "MODEL_GARDEN"
@@ -4060,6 +4078,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Custom
  *        The Model is uploaded by user or custom training pipeline. (Value:
  *        "CUSTOM")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_CustomTextEmbedding
+ *        The Model is uploaded by text embedding finetuning pipeline. (Value:
+ *        "CUSTOM_TEXT_EMBEDDING")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Genie
+ *        The Model is saved or tuned from Genie. (Value: "GENIE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_Marketplace
+ *        The Model is saved or tuned from Marketplace. (Value: "MARKETPLACE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_ModelGarden
  *        The Model is saved or tuned from Model Garden. (Value: "MODEL_GARDEN")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_SourceType_ModelSourceTypeUnspecified

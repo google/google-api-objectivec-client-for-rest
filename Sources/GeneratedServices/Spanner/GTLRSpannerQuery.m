@@ -698,6 +698,33 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesChangequorum
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSpanner_ChangeQuorumRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:changequorum";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesChangequorum *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instances.databases.changequorum";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesDatabasesCreate
 
 @dynamic parent;

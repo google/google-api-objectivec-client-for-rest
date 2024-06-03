@@ -2089,7 +2089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_AutomationRolloutMetadata : GTLRObject
 
 /**
- *  Output only. The IDs of the AutomationRuns initiated by an advance rollout
+ *  Output only. The names of the AutomationRuns initiated by an advance rollout
  *  rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *advanceAutomationRuns;
@@ -2098,13 +2098,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *currentRepairAutomationRun;
 
 /**
- *  Output only. The ID of the AutomationRun initiated by a promote release
+ *  Output only. The name of the AutomationRun initiated by a promote release
  *  rule.
  */
 @property(nonatomic, copy, nullable) NSString *promoteAutomationRun;
 
 /**
- *  Output only. The IDs of the AutomationRuns initiated by a repair rollout
+ *  Output only. The names of the AutomationRuns initiated by a repair rollout
  *  rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *repairAutomationRuns;
@@ -3294,6 +3294,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Required. Usages when this configuration should be applied. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usages;
+
+/**
+ *  Optional. If true, additional logging will be enabled when running builds in
+ *  this execution environment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verbose;
 
 /**
  *  Optional. The resource name of the `WorkerPool`, with the format

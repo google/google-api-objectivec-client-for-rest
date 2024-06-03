@@ -2034,13 +2034,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 /**
  *  Optional. Name of the key project, e.g. `projects/{PROJECT_ID}` or
- *  `projects/{PROJECT_NUMBER}`, where Cloud KMS Autokey will provision new
- *  CryptoKeys. On UpdateAutokeyConfig, the caller will require
- *  `cloudkms.cryptoKeys.setIamPolicy` permission on this key project. Once
- *  configured, for Cloud KMS Autokey to function properly, this key project
- *  must have the Cloud KMS API activated and the Cloud KMS Service Agent for
- *  this key project must be granted the `cloudkms.admin` role (or pertinent
- *  permissions).
+ *  `projects/{PROJECT_NUMBER}`, where Cloud KMS Autokey will provision a new
+ *  CryptoKey when a KeyHandle is created. On UpdateAutokeyConfig, the caller
+ *  will require `cloudkms.cryptoKeys.setIamPolicy` permission on this key
+ *  project. Once configured, for Cloud KMS Autokey to function properly, this
+ *  key project must have the Cloud KMS API activated and the Cloud KMS Service
+ *  Agent for this key project must be granted the `cloudkms.admin` role (or
+ *  pertinent permissions). A request with an empty key project field will clear
+ *  the configuration.
  */
 @property(nonatomic, copy, nullable) NSString *keyProject;
 
@@ -3640,13 +3641,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 /**
  *  Output only. Name of a CryptoKey that has been provisioned for Customer
- *  Managed Encryption Key (CMEK) use in the KeyHandle's project and location
- *  for the requested resource type.
+ *  Managed Encryption Key (CMEK) use in the KeyHandle project and location for
+ *  the requested resource type. The CryptoKey project will reflect the value
+ *  configured in the AutokeyConfig on the resource project's ancestor folder at
+ *  the time of the KeyHandle creation. If more than one ancestor folder has a
+ *  configured AutokeyConfig, the nearest of these configurations is used.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /**
- *  Output only. Identifier. Name of the [KeyHandle] resource, e.g.
+ *  Identifier. Name of the KeyHandle resource, e.g.
  *  `projects/{PROJECT_ID}/locations/{LOCATION}/keyHandles/{KEY_HANDLE_ID}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

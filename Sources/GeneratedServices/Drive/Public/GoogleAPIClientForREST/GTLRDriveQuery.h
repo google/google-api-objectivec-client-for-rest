@@ -167,6 +167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -218,6 +219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -354,6 +356,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -488,6 +491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -579,6 +583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_CommentsGet : GTLRDriveQuery
@@ -620,6 +625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_CommentsList : GTLRDriveQuery
@@ -1293,6 +1299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_FilesExport : GTLRDriveQuery
@@ -1385,6 +1392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -1480,6 +1488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -1621,6 +1630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDriveReadonly
@@ -1819,6 +1829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -2041,6 +2052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -2102,6 +2114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -2334,6 +2347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_RepliesGet : GTLRDriveQuery
@@ -2380,6 +2394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_RepliesList : GTLRDriveQuery
@@ -2519,6 +2534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly
@@ -2577,6 +2593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  *    @c kGTLRAuthScopeDriveAppdata
  *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
  *    @c kGTLRAuthScopeDriveMetadata
  *    @c kGTLRAuthScopeDriveMetadataReadonly
  *    @c kGTLRAuthScopeDrivePhotosReadonly

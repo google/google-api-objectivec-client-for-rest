@@ -971,6 +971,51 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Creates a mute config.
+ *
+ *  Method: securitycenter.folders.locations.muteConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Unique identifier provided by the client within the parent scope.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
+ */
+@property(nonatomic, copy, nullable) NSString *muteConfigId;
+
+/**
+ *  Required. Resource name of the new mute configs's parent. Its format is
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  "projects/[project_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Creates a mute config.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
+ *    in the query.
+ *  @param parent Required. Resource name of the new mute configs's parent. Its
+ *    format is "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes an existing mute config.
  *
  *  Method: securitycenter.folders.locations.muteConfigs.delete
@@ -1048,6 +1093,57 @@ GTLR_DEPRECATED
  *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists mute configs.
+ *
+ *  Method: securitycenter.folders.locations.muteConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of configs to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListMuteConfigs` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListMuteConfigs` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns the collection of mute configs. Its format
+ *  is "organizations/[organization_id]", "folders/[folder_id]",
+ *  "projects/[project_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListMuteConfigsResponse.
+ *
+ *  Lists mute configs.
+ *
+ *  @param parent Required. The parent, which owns the collection of mute
+ *    configs. Its format is "organizations/[organization_id]",
+ *    "folders/[folder_id]", "projects/[project_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -3456,6 +3552,51 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Creates a mute config.
+ *
+ *  Method: securitycenter.organizations.locations.muteConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Unique identifier provided by the client within the parent scope.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
+ */
+@property(nonatomic, copy, nullable) NSString *muteConfigId;
+
+/**
+ *  Required. Resource name of the new mute configs's parent. Its format is
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  "projects/[project_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Creates a mute config.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
+ *    in the query.
+ *  @param parent Required. Resource name of the new mute configs's parent. Its
+ *    format is "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes an existing mute config.
  *
  *  Method: securitycenter.organizations.locations.muteConfigs.delete
@@ -3533,6 +3674,57 @@ GTLR_DEPRECATED
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists mute configs.
+ *
+ *  Method: securitycenter.organizations.locations.muteConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of configs to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListMuteConfigs` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListMuteConfigs` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns the collection of mute configs. Its format
+ *  is "organizations/[organization_id]", "folders/[folder_id]",
+ *  "projects/[project_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListMuteConfigsResponse.
+ *
+ *  Lists mute configs.
+ *
+ *  @param parent Required. The parent, which owns the collection of mute
+ *    configs. Its format is "organizations/[organization_id]",
+ *    "folders/[folder_id]", "projects/[project_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -4331,7 +4523,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch : GTLRSecurityCommandCenterQuery
 
-/** Name for the resource value config */
+/** Name for the resource value configuration */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4351,7 +4543,7 @@ GTLR_DEPRECATED
  *  @param object The @c
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
  *    to include in the query.
- *  @param name Name for the resource value config
+ *  @param name Name for the resource value configuration
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch
  */
@@ -6883,6 +7075,51 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Creates a mute config.
+ *
+ *  Method: securitycenter.projects.locations.muteConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsCreate : GTLRSecurityCommandCenterQuery
+
+/**
+ *  Required. Unique identifier provided by the client within the parent scope.
+ *  It must consist of only lowercase letters, numbers, and hyphens, must start
+ *  with a letter, must end with either a letter or a number, and must be 63
+ *  characters or less.
+ */
+@property(nonatomic, copy, nullable) NSString *muteConfigId;
+
+/**
+ *  Required. Resource name of the new mute configs's parent. Its format is
+ *  "organizations/[organization_id]", "folders/[folder_id]", or
+ *  "projects/[project_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.
+ *
+ *  Creates a mute config.
+ *
+ *  @param object The @c
+ *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
+ *    in the query.
+ *  @param parent Required. Resource name of the new mute configs's parent. Its
+ *    format is "organizations/[organization_id]", "folders/[folder_id]", or
+ *    "projects/[project_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes an existing mute config.
  *
  *  Method: securitycenter.projects.locations.muteConfigs.delete
@@ -6960,6 +7197,57 @@ GTLR_DEPRECATED
  *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists mute configs.
+ *
+ *  Method: securitycenter.projects.locations.muteConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The maximum number of configs to return. The service may return fewer than
+ *  this value. If unspecified, at most 10 configs will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListMuteConfigs` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListMuteConfigs` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns the collection of mute configs. Its format
+ *  is "organizations/[organization_id]", "folders/[folder_id]",
+ *  "projects/[project_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListMuteConfigsResponse.
+ *
+ *  Lists mute configs.
+ *
+ *  @param parent Required. The parent, which owns the collection of mute
+ *    configs. Its format is "organizations/[organization_id]",
+ *    "folders/[folder_id]", "projects/[project_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

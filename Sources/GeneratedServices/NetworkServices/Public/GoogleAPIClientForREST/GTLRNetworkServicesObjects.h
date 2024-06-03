@@ -63,8 +63,10 @@
 @class GTLRNetworkServices_HttpRouteURLRewrite;
 @class GTLRNetworkServices_LbRouteExtension;
 @class GTLRNetworkServices_LbRouteExtension_Labels;
+@class GTLRNetworkServices_LbRouteExtension_Metadata;
 @class GTLRNetworkServices_LbTrafficExtension;
 @class GTLRNetworkServices_LbTrafficExtension_Labels;
+@class GTLRNetworkServices_LbTrafficExtension_Metadata;
 @class GTLRNetworkServices_Location;
 @class GTLRNetworkServices_Location_Labels;
 @class GTLRNetworkServices_Location_Metadata;
@@ -976,7 +978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 /**
  *  Optional. A set of events during request or response processing for which
  *  this extension is called. This field is required for the
- *  `LbTrafficExtension` resource. It's not relevant for the `LbRouteExtension`
+ *  `LbTrafficExtension` resource. It must not be set for the `LbRouteExtension`
  *  resource.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
@@ -1011,7 +1013,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Gateway represents the configuration for a proxy, typically a load balancer.
  *  It captures the ip:port over which the services are exposed by the proxy,
  *  along with any policy configurations. Routes have reference to to Gateways
- *  to dictate how requests should be routed by this Gateway. Next id: 32
+ *  to dictate how requests should be routed by this Gateway. Next id: 33
  */
 @interface GTLRNetworkServices_Gateway : GTLRObject
 
@@ -2404,6 +2406,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
 
 /**
+ *  Optional. The metadata provided here will be included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata will
+ *  be available under the namespace `com.google.lb_route_extension.`. The
+ *  following variables are supported in the metadata Struct:
+ *  `{forwarding_rule_id}` - substituted with the forwarding rule's fully
+ *  qualified resource name.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_LbRouteExtension_Metadata *metadata;
+
+/**
  *  Required. Identifier. Name of the `LbRouteExtension` resource in the
  *  following format:
  *  `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
@@ -2428,6 +2441,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        fetch them all at once.
  */
 @interface GTLRNetworkServices_LbRouteExtension_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. The metadata provided here will be included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata will
+ *  be available under the namespace `com.google.lb_route_extension.`. The
+ *  following variables are supported in the metadata Struct:
+ *  `{forwarding_rule_id}` - substituted with the forwarding rule's fully
+ *  qualified resource name.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetworkServices_LbRouteExtension_Metadata : GTLRObject
 @end
 
 
@@ -2495,6 +2526,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
 
 /**
+ *  Optional. The metadata provided here will be included in the
+ *  `ProcessingRequest.metadata_context.filter_metadata` map field. The metadata
+ *  will be available under the key `com.google.lb_traffic_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_LbTrafficExtension_Metadata *metadata;
+
+/**
  *  Required. Identifier. Name of the `LbTrafficExtension` resource in the
  *  following format:
  *  `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
@@ -2519,6 +2559,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        fetch them all at once.
  */
 @interface GTLRNetworkServices_LbTrafficExtension_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. The metadata provided here will be included in the
+ *  `ProcessingRequest.metadata_context.filter_metadata` map field. The metadata
+ *  will be available under the key `com.google.lb_traffic_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetworkServices_LbTrafficExtension_Metadata : GTLRObject
 @end
 
 

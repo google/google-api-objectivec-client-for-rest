@@ -237,6 +237,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatu
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgradeTransfer;
 
 // ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeOsDevice.chromeOsType
+
+/**
+ *  Chrome OS Type Chrome OS.
+ *
+ *  Value: "chromeOs"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOs;
+/**
+ *  Chrome OS Type Chrome OS Flex.
+ *
+ *  Value: "chromeOsFlex"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsFlex;
+/**
+ *  Chrome OS Type unspecified.
+ *
+ *  Value: "chromeOsTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeOsDevice.deprovisionReason
 
 /**
@@ -1765,6 +1787,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  information](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch).
  */
 @property(nonatomic, copy, nullable) NSString *bootMode;
+
+/**
+ *  Output only. Chrome OS type of the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOs Chrome OS Type
+ *        Chrome OS. (Value: "chromeOs")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsFlex Chrome OS
+ *        Type Chrome OS Flex. (Value: "chromeOsFlex")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsTypeUnspecified
+ *        Chrome OS Type unspecified. (Value: "chromeOsTypeUnspecified")
+ */
+@property(nonatomic, copy, nullable) NSString *chromeOsType;
 
 /** Information regarding CPU specs in the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuInfo_Item *> *cpuInfo;

@@ -24,6 +24,7 @@
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_Consumer;
+@class GTLRDataprocMetastore_CustomRegionMetadata;
 @class GTLRDataprocMetastore_DatabaseDump;
 @class GTLRDataprocMetastore_DataCatalogConfig;
 @class GTLRDataprocMetastore_EncryptionConfig;
@@ -1110,6 +1111,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Metadata about a custom region. This is only populated if the region is a
+ *  custom region. For single/multi regions, it will be empty.
+ */
+@interface GTLRDataprocMetastore_CustomRegionMetadata : GTLRObject
+
+/** The read-only regions for this custom region. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *optionalReadOnlyRegions;
+
+/** The read-write regions for this custom region. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredReadWriteRegions;
+
+/** The Spanner witness region for this custom region. */
+@property(nonatomic, copy, nullable) NSString *witnessRegion;
+
+@end
+
+
+/**
  *  A specification of the location of and metadata about a database dump from a
  *  relational database management system.
  */
@@ -1827,6 +1846,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  */
 @interface GTLRDataprocMetastore_LocationMetadata : GTLRObject
 
+/**
+ *  Possible configurations supported if the current region is a custom region.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_CustomRegionMetadata *> *customRegionMetadata;
+
 /** The multi-region metadata if the current region is a multi-region. */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_MultiRegionMetadata *multiRegionMetadata;
 
@@ -2032,8 +2056,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 /**
  *  The metadata for the multi-region that includes the constituent regions. The
- *  metadata is only populated if the region is multi-region. For single region,
- *  it will be empty.
+ *  metadata is only populated if the region is multi-region. For single region
+ *  or custom dual region, it will be empty.
  */
 @interface GTLRDataprocMetastore_MultiRegionMetadata : GTLRObject
 
@@ -2533,6 +2557,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *        used to persist the metastore data. (Value: "SPANNER")
  */
 @property(nonatomic, copy, nullable) NSString *databaseType;
+
+/**
+ *  Optional. Indicates if the dataproc metastore should be protected against
+ *  accidental deletions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtection;
 
 /**
  *  Immutable. Information used to configure the Dataproc Metastore service to

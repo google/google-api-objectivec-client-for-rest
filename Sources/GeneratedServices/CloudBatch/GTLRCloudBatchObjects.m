@@ -231,7 +231,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 @implementation GTLRCloudBatch_AgentMetadata
 @dynamic creationTime, creator, imageVersion, instance, instanceId,
-         instancePreemptionNoticeReceived, osRelease, version, zoneProperty;
+         instancePreemptionNoticeReceived, machineType, osRelease, version,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

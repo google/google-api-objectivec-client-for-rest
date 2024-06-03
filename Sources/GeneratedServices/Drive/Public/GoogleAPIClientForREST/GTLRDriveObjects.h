@@ -127,7 +127,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *maxUploadSize;
 
 /**
- *  The user's storage quota limits and usage. All fields are measured in bytes.
+ *  The user's storage quota limits and usage. For users that are part of an
+ *  organization with pooled storage, information about the limit and usage
+ *  across all services is for the organization, rather than the individual
+ *  user. All fields are measured in bytes.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_About_StorageQuota *storageQuota;
 
@@ -198,20 +201,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The user's storage quota limits and usage. All fields are measured in bytes.
+ *  The user's storage quota limits and usage. For users that are part of an
+ *  organization with pooled storage, information about the limit and usage
+ *  across all services is for the organization, rather than the individual
+ *  user. All fields are measured in bytes.
  */
 @interface GTLRDrive_About_StorageQuota : GTLRObject
 
 /**
  *  The usage limit, if applicable. This will not be present if the user has
- *  unlimited storage.
+ *  unlimited storage. For users that are part of an organization with pooled
+ *  storage, this is the limit for the organization, rather than the individual
+ *  user.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
 /**
- *  The total usage across all services.
+ *  The total usage across all services. For users that are part of an
+ *  organization with pooled storage, this is the usage across all services for
+ *  the organization, rather than the individual user.
  *
  *  Uses NSNumber of longLongValue.
  */

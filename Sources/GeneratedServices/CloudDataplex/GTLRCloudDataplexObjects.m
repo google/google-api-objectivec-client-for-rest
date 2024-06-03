@@ -416,6 +416,10 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_DataRead =
 NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudDataplex_Empty
@@ -3581,3 +3585,5 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 }
 
 @end
+
+#pragma clang diagnostic pop

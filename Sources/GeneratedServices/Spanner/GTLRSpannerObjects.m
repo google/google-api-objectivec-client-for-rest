@@ -102,6 +102,12 @@ NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_FreeInstan
 NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_QuotaExceeded = @"QUOTA_EXCEEDED";
 NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Unsupported = @"UNSUPPORTED";
 
+// GTLRSpanner_InstanceConfig.quorumType
+NSString * const kGTLRSpanner_InstanceConfig_QuorumType_DualRegion = @"DUAL_REGION";
+NSString * const kGTLRSpanner_InstanceConfig_QuorumType_MultiRegion = @"MULTI_REGION";
+NSString * const kGTLRSpanner_InstanceConfig_QuorumType_QuorumTypeUnspecified = @"QUORUM_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpanner_InstanceConfig_QuorumType_Region = @"REGION";
+
 // GTLRSpanner_InstanceConfig.state
 NSString * const kGTLRSpanner_InstanceConfig_State_Creating    = @"CREATING";
 NSString * const kGTLRSpanner_InstanceConfig_State_Ready       = @"READY";
@@ -121,6 +127,11 @@ NSString * const kGTLRSpanner_Metric_Aggregation_Sum           = @"SUM";
 NSString * const kGTLRSpanner_PlanNode_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 NSString * const kGTLRSpanner_PlanNode_Kind_Relational      = @"RELATIONAL";
 NSString * const kGTLRSpanner_PlanNode_Kind_Scalar          = @"SCALAR";
+
+// GTLRSpanner_QuorumInfo.initiator
+NSString * const kGTLRSpanner_QuorumInfo_Initiator_Google      = @"GOOGLE";
+NSString * const kGTLRSpanner_QuorumInfo_Initiator_InitiatorUnspecified = @"INITIATOR_UNSPECIFIED";
+NSString * const kGTLRSpanner_QuorumInfo_Initiator_User        = @"USER";
 
 // GTLRSpanner_ReadWrite.readLockMode
 NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Optimistic = @"OPTIMISTIC";
@@ -347,6 +358,31 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_ChangeQuorumMetadata
+//
+
+@implementation GTLRSpanner_ChangeQuorumMetadata
+@dynamic endTime, request, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ChangeQuorumRequest
+//
+
+@implementation GTLRSpanner_ChangeQuorumRequest
+@dynamic ETag, name, quorumType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_ChildLink
 //
 
@@ -559,7 +595,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 @implementation GTLRSpanner_Database
 @dynamic createTime, databaseDialect, defaultLeader, earliestVersionTime,
          enableDropProtection, encryptionConfig, encryptionInfo, name,
-         reconciling, restoreInfo, state, versionRetentionPeriod;
+         quorumInfo, reconciling, restoreInfo, state, versionRetentionPeriod;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -636,6 +672,15 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_DirectedReadOptions
 @dynamic excludeReplicas, includeReplicas;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_DualRegionQuorum
+//
+
+@implementation GTLRSpanner_DualRegionQuorum
 @end
 
 
@@ -968,8 +1013,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_InstanceConfig
 @dynamic baseConfig, configType, displayName, ETag, freeInstanceAvailability,
-         labels, leaderOptions, name, optionalReplicas, reconciling, replicas,
-         state, storageLimitPerProcessingUnit;
+         labels, leaderOptions, name, optionalReplicas, quorumType, reconciling,
+         replicas, state, storageLimitPerProcessingUnit;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1856,6 +1901,31 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_QuorumInfo
+//
+
+@implementation GTLRSpanner_QuorumInfo
+@dynamic ETag, initiator, quorumType, startTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_QuorumType
+//
+
+@implementation GTLRSpanner_QuorumType
+@dynamic dualRegion, singleRegion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_ReadOnly
 //
 
@@ -2130,6 +2200,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
   return [NSNumber class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_SingleRegionQuorum
+//
+
+@implementation GTLRSpanner_SingleRegionQuorum
+@dynamic servingLocation;
 @end
 
 

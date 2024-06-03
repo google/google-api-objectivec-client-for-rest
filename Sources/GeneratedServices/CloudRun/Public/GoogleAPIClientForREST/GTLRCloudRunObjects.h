@@ -89,6 +89,7 @@
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GCSLocation;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash;
@@ -2696,6 +2697,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 /**
+ *  A unique string used as a suffix for creating a new execution. The Job will
+ *  become ready when the execution is successfully completed. The sum of job
+ *  name and token length must be fewer than 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *runExecutionToken;
+
+/**
  *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
@@ -4877,7 +4885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
-/** The location of the source files to build. */
+/** Optional. The location of the source files to build. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Source *source;
 
 /** Output only. A permanent fixed identifier for source. */
@@ -5059,7 +5067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  "disk free"; some of the space will be used by the operating system and
  *  build utilities. Also note that this is the minimum disk size that will be
  *  allocated for the build -- the build may run with a larger disk than
- *  requested. At present, the maximum disk size is 2000GB; builds that request
+ *  requested. At present, the maximum disk size is 4000GB; builds that request
  *  more than the maximum are rejected with an error.
  *
  *  Uses NSNumber of longLongValue.
@@ -5409,7 +5417,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1ConnectedRepository : GTLRObject
 
-/** Directory, relative to the source root, in which to run the build. */
+/**
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ */
 @property(nonatomic, copy, nullable) NSString *dir;
 
 /**
@@ -5419,8 +5429,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *repository;
 
 /**
- *  The revision to fetch from the Git repository such as a branch, a tag, a
- *  commit SHA, or any Git ref.
+ *  Required. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref.
  */
 @property(nonatomic, copy, nullable) NSString *revision;
 
@@ -5497,6 +5507,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Represents a storage location in Cloud Storage
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GCSLocation : GTLRObject
+
+/**
+ *  Cloud Storage bucket. See
+ *  https://cloud.google.com/storage/docs/naming#requirements
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Cloud Storage generation for the object. If the generation is omitted, the
+ *  latest generation will be used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Cloud Storage object. See
+ *  https://cloud.google.com/storage/docs/naming#objectnames
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
  *  GitConfig is a configuration for git operations.
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig : GTLRObject
@@ -5513,15 +5551,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource : GTLRObject
 
 /**
- *  Directory, relative to the source root, in which to run the build. This must
- *  be a relative path. If a step's `dir` is specified and is an absolute path,
- *  this value is ignored for that step's execution.
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ *  This must be a relative path. If a step's `dir` is specified and is an
+ *  absolute path, this value is ignored for that step's execution.
  */
 @property(nonatomic, copy, nullable) NSString *dir;
 
 /**
- *  The revision to fetch from the Git repository such as a branch, a tag, a
- *  commit SHA, or any Git ref. Cloud Build uses `git fetch` to fetch the
+ *  Optional. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref. Cloud Build uses `git fetch` to fetch the
  *  revision from the Git repository; therefore make sure that the string you
  *  provide for `revision` is parsable by the command. For information on string
  *  values accepted by `git fetch`, see
@@ -5531,8 +5569,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *revision;
 
 /**
- *  Location of the Git repo to build. This will be used as a `git remote`, see
- *  https://git-scm.com/docs/git-remote.
+ *  Required. Location of the Git repo to build. This will be used as a `git
+ *  remote`, see https://git-scm.com/docs/git-remote.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -5580,6 +5618,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  format protocol://\@]proxyhost[:port].
  */
 @property(nonatomic, copy, nullable) NSString *proxySecretVersionName;
+
+/**
+ *  Optional. Cloud Storage object storing the certificate to use with the HTTP
+ *  proxy.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GCSLocation *proxySslCaInfo;
 
 @end
 
@@ -5742,32 +5786,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *commitSha;
 
 /**
- *  Directory, relative to the source root, in which to run the build. This must
- *  be a relative path. If a step's `dir` is specified and is an absolute path,
- *  this value is ignored for that step's execution.
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ *  This must be a relative path. If a step's `dir` is specified and is an
+ *  absolute path, this value is ignored for that step's execution.
  */
 @property(nonatomic, copy, nullable) NSString *dir;
 
 /**
- *  Only trigger a build if the revision regex does NOT match the revision
- *  regex.
+ *  Optional. Only trigger a build if the revision regex does NOT match the
+ *  revision regex.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *invertRegex;
 
 /**
- *  ID of the project that owns the Cloud Source Repository. If omitted, the
- *  project ID requesting the build is assumed.
+ *  Optional. ID of the project that owns the Cloud Source Repository. If
+ *  omitted, the project ID requesting the build is assumed.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Name of the Cloud Source Repository. */
+/** Required. Name of the Cloud Source Repository. */
 @property(nonatomic, copy, nullable) NSString *repoName;
 
 /**
- *  Substitutions to use in a triggered build. Should only be used with
- *  RunBuildTrigger
+ *  Optional. Substitutions to use in a triggered build. Should only be used
+ *  with RunBuildTrigger
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource_Substitutions *substitutions;
 
@@ -5782,8 +5826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Substitutions to use in a triggered build. Should only be used with
- *  RunBuildTrigger
+ *  Optional. Substitutions to use in a triggered build. Should only be used
+ *  with RunBuildTrigger
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6045,16 +6089,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  Cloud Storage generation for the object. If the generation is omitted, the
- *  latest generation will be used.
+ *  Optional. Cloud Storage generation for the object. If the generation is
+ *  omitted, the latest generation will be used.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Cloud Storage object containing the source. This object must be a zipped
- *  (`.zip`) or gzipped archive file (`.tar.gz`) containing source to build.
+ *  Required. Cloud Storage object containing the source. This object must be a
+ *  zipped (`.zip`) or gzipped archive file (`.tar.gz`) containing source to
+ *  build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -6083,7 +6128,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSourceManifest : GTLRObject
 
 /**
- *  Cloud Storage bucket containing the source manifest (see [Bucket Name
+ *  Required. Cloud Storage bucket containing the source manifest (see [Bucket
+ *  Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -6097,8 +6143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Cloud Storage object containing the source manifest. This object must be a
- *  JSON file.
+ *  Required. Cloud Storage object containing the source manifest. This object
+ *  must be a JSON file.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 

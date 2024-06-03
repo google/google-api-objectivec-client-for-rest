@@ -1449,36 +1449,29 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 
 
 /**
- *  Specifies the logging behavior for transfer operations. For cloud-to-cloud
- *  transfers, logs are sent to Cloud Logging. See [Read transfer
+ *  Specifies the logging behavior for transfer operations. Logs can be sent to
+ *  Cloud Logging for all transfer types. See [Read transfer
  *  logs](https://cloud.google.com/storage-transfer/docs/read-transfer-logs) for
- *  details. For transfers to or from a POSIX file system, logs are stored in
- *  the Cloud Storage bucket that is the source or sink of the transfer. See
- *  [Managing Transfer for on-premises jobs]
- *  (https://cloud.google.com/storage-transfer/docs/managing-on-prem-jobs#viewing-logs)
- *  for details.
+ *  details.
  */
 @interface GTLRStorageTransfer_LoggingConfig : GTLRObject
 
 /**
- *  For transfers with a PosixFilesystem source, this option enables the Cloud
- *  Storage transfer logs for this transfer.
+ *  For PosixFilesystem transfers, enables [file system transfer
+ *  logs](https://cloud.google.com/storage-transfer/docs/on-prem-transfer-log-format)
+ *  instead of, or in addition to, Cloud Logging. This option ignores
+ *  [LoggableAction] and [LoggableActionState]. If these are set, Cloud Logging
+ *  will also be enabled for this transfer.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableOnpremGcsTransferLogs;
 
-/**
- *  Specifies the actions to be logged. If empty, no logs are generated. Not
- *  supported for transfers with PosixFilesystem data sources; use
- *  enable_onprem_gcs_transfer_logs instead.
- */
+/** Specifies the actions to be logged. If empty, no logs are generated. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *logActions;
 
 /**
  *  States in which `log_actions` are logged. If empty, no logs are generated.
- *  Not supported for transfers with PosixFilesystem data sources; use
- *  enable_onprem_gcs_transfer_logs instead.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *logActionStates;
 

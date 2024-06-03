@@ -2900,6 +2900,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 @property(nonatomic, copy, nullable) NSString *availableMemory;
 
 /**
+ *  Optional. The binary authorization policy to be checked when deploying the
+ *  Cloud Run service.
+ */
+@property(nonatomic, copy, nullable) NSString *binaryAuthorizationPolicy;
+
+/**
  *  Environment variables that shall be available during function execution.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_ServiceConfig_EnvironmentVariables *environmentVariables;
@@ -3197,6 +3203,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  gzipped archive file (`.tar.gz`) containing source to build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  When the specified storage bucket is a 1st gen function uploard url bucket,
+ *  this field should be set as the generated upload url for 1st gen deployment.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceUploadUrl;
 
 @end
 

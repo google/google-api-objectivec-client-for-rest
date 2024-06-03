@@ -202,7 +202,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Generates an AdMob mediation report based on the provided report
+ *  Generates an AdMob Mediation report based on the provided report
  *  specification. Returns result of a server-side streaming RPC. The result is
  *  returned in a sequence of responses.
  *
@@ -223,7 +223,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAdMob_GenerateMediationReportResponse.
  *
- *  Generates an AdMob mediation report based on the provided report
+ *  Generates an AdMob Mediation report based on the provided report
  *  specification. Returns result of a server-side streaming RPC. The result is
  *  returned in a sequence of responses.
  *

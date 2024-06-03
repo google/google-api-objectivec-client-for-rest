@@ -1688,12 +1688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Matc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Intent;
 /**
- *  The query was handled by an LLM.
- *
- *  Value: "LLM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Llm;
-/**
  *  Not specified. Should never be used.
  *
  *  Value: "MATCH_TYPE_UNSPECIFIED"
@@ -1717,6 +1711,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Matc
  *  Value: "PARAMETER_FILLING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_ParameterFilling;
+/**
+ *  The query was handled by a `Playbook`.
+ *
+ *  Value: "PLAYBOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Playbook;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3NluSettings.modelTrainingMode
@@ -4059,8 +4059,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
+/** Endpoint timeout setting for matching dtmf input to regex. */
+@property(nonatomic, strong, nullable) GTLRDuration *endpointingTimeoutDuration;
+
 /** The digit that terminates a DTMF digit sequence. */
 @property(nonatomic, copy, nullable) NSString *finishDigit;
+
+/** Interdigit timeout setting for matching dtmf input to regex. */
+@property(nonatomic, strong, nullable) GTLRDuration *interdigitTimeoutDuration;
 
 /**
  *  Max length of DTMF digits.
@@ -4624,8 +4630,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
+/** Endpoint timeout setting for matching dtmf input to regex. */
+@property(nonatomic, strong, nullable) GTLRDuration *endpointingTimeoutDuration;
+
 /** The digit that terminates a DTMF digit sequence. */
 @property(nonatomic, copy, nullable) NSString *finishDigit;
+
+/** Interdigit timeout setting for matching dtmf input to regex. */
+@property(nonatomic, strong, nullable) GTLRDuration *interdigitTimeoutDuration;
 
 /**
  *  Max length of DTMF digits.
@@ -11587,8 +11599,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        query directly triggered an event. (Value: "EVENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Intent
  *        The query was matched to an intent. (Value: "INTENT")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Llm The
- *        query was handled by an LLM. (Value: "LLM")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_MatchTypeUnspecified
  *        Not specified. Should never be used. (Value: "MATCH_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_NoInput
@@ -11597,6 +11607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        No match was found for the query. (Value: "NO_MATCH")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_ParameterFilling
  *        The query was used for parameter filling. (Value: "PARAMETER_FILLING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Playbook
+ *        The query was handled by a `Playbook`. (Value: "PLAYBOOK")
  */
 @property(nonatomic, copy, nullable) NSString *matchType;
 
@@ -13217,6 +13229,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  storage.buckets.setIamPolicy.
  */
 @property(nonatomic, copy, nullable) NSString *gcsBucket;
+
+/**
+ *  Whether to store TTS audio. By default, TTS audio from the virtual agent is
+ *  not exported.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storeTtsAudio;
 
 @end
 

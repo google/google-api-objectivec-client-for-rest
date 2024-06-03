@@ -1073,6 +1073,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
+ *  Returns Debug information for Cloud Search Query API provides the search
+ *  method. **Note:** This API requires a standard end user account to execute.
+ *  A service account can't perform Query API requests directly; to use a
+ *  service account to perform queries, set up [Google Workspace domain-wide
+ *  delegation of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *
+ *  Method: cloudsearch.query.debugSearch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchQuery
+ */
+@interface GTLRCloudSearchQuery_QueryDebugSearch : GTLRCloudSearchQuery
+
+/**
+ *  Fetches a @c GTLRCloudSearch_DebugResponse.
+ *
+ *  Returns Debug information for Cloud Search Query API provides the search
+ *  method. **Note:** This API requires a standard end user account to execute.
+ *  A service account can't perform Query API requests directly; to use a
+ *  service account to perform queries, set up [Google Workspace domain-wide
+ *  delegation of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *
+ *  @param object The @c GTLRCloudSearch_SearchRequest to include in the query.
+ *
+ *  @return GTLRCloudSearchQuery_QueryDebugSearch
+ */
++ (instancetype)queryWithObject:(GTLRCloudSearch_SearchRequest *)object;
+
+@end
+
+/**
  *  Provides functionality to remove logged activity for a user. Currently to be
  *  used only for Chat 1p clients **Note:** This API requires a standard end
  *  user account to execute. A service account can't perform Remove Activity

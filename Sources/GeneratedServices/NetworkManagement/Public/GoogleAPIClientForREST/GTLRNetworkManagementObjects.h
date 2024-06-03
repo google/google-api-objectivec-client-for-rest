@@ -58,6 +58,7 @@
 @class GTLRNetworkManagement_ProxyConnectionInfo;
 @class GTLRNetworkManagement_ReachabilityDetails;
 @class GTLRNetworkManagement_RouteInfo;
+@class GTLRNetworkManagement_ServerlessNegInfo;
 @class GTLRNetworkManagement_Status;
 @class GTLRNetworkManagement_Status_Details_Item;
 @class GTLRNetworkManagement_Step;
@@ -372,6 +373,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Gke
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi;
 /**
+ *  Target is a Google-managed service. Used only for return traces.
+ *
+ *  Value: "GOOGLE_MANAGED_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GoogleManagedService;
+/**
  *  Target is a Compute Engine instance.
  *
  *  Value: "INSTANCE"
@@ -390,7 +397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Int
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PrivateNetwork;
 /**
- *  Target is all Google APIs that use [Private Service
+ *  Target is Google APIs that use [Private Service
  *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
  *
  *  Value: "PSC_GOOGLE_API"
@@ -514,6 +521,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Dropped
  *  Value: "DROPPED_INSIDE_GKE_SERVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService;
+/**
+ *  Packet is dropped due to an unspecified reason inside a Google-managed
+ *  service. Used only for return traces.
+ *
+ *  Value: "DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGoogleManagedService;
 /**
  *  Packet was dropped inside Private Service Connect service producer.
  *
@@ -1802,6 +1816,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPr
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPscPublishedService;
 /**
+ *  Initial state: packet originating from a serverless network endpoint group
+ *  backend. Used only for return traces. The serverless_neg information is
+ *  populated.
+ *
+ *  Value: "START_FROM_SERVERLESS_NEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromServerlessNeg;
+/**
  *  Initial state: packet originating from a Storage Bucket. Used only for
  *  return traces. The storage_bucket information is populated.
  *
@@ -2401,8 +2423,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** IP address of the target (if applicable). */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
+/** PSC Google API target the packet is delivered to (if applicable). */
+@property(nonatomic, copy, nullable) NSString *pscGoogleApiTarget;
+
 /** URI of the resource that the packet is delivered to. */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
+
+/**
+ *  Name of the Cloud Storage Bucket the packet is delivered to (if applicable).
+ */
+@property(nonatomic, copy, nullable) NSString *storageBucket;
 
 /**
  *  Target type where the packet is delivered to.
@@ -2423,6 +2453,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Google Kubernetes Engine cluster master. (Value: "GKE_MASTER")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi Target is a
  *        Google API. (Value: "GOOGLE_API")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GoogleManagedService
+ *        Target is a Google-managed service. Used only for return traces.
+ *        (Value: "GOOGLE_MANAGED_SERVICE")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_Instance Target is a
  *        Compute Engine instance. (Value: "INSTANCE")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_Internet Target is the
@@ -2431,7 +2464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        a private network. Used only for return traces. (Value:
  *        "PRIVATE_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi Target is
- *        all Google APIs that use [Private Service
+ *        Google APIs that use [Private Service
  *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
  *        (Value: "PSC_GOOGLE_API")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService
@@ -2505,6 +2538,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService
  *        Packet was dropped inside Google Kubernetes Engine Service. (Value:
  *        "DROPPED_INSIDE_GKE_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGoogleManagedService
+ *        Packet is dropped due to an unspecified reason inside a Google-managed
+ *        service. Used only for return traces. (Value:
+ *        "DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer
  *        Packet was dropped inside Private Service Connect service producer.
  *        (Value: "DROPPED_INSIDE_PSC_SERVICE_PRODUCER")
@@ -3124,22 +3161,40 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_ForwardingRuleInfo : GTLRObject
 
-/** Name of a Compute Engine forwarding rule. */
+/** Name of the forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Port range defined in the forwarding rule that matches the test. */
+/**
+ *  Name of the load balancer the forwarding rule belongs to. Empty for
+ *  forwarding rules not related to load balancers (like PSC forwarding rules).
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancerName;
+
+/** Port range defined in the forwarding rule that matches the packet. */
 @property(nonatomic, copy, nullable) NSString *matchedPortRange;
 
-/** Protocol defined in the forwarding rule that matches the test. */
+/** Protocol defined in the forwarding rule that matches the packet. */
 @property(nonatomic, copy, nullable) NSString *matchedProtocol;
 
-/** Network URI. Only valid for Internal Load Balancer. */
+/** Network URI. */
 @property(nonatomic, copy, nullable) NSString *networkUri;
+
+/** PSC Google API target this forwarding rule targets (if applicable). */
+@property(nonatomic, copy, nullable) NSString *pscGoogleApiTarget;
+
+/**
+ *  URI of the PSC service attachment this forwarding rule targets (if
+ *  applicable).
+ */
+@property(nonatomic, copy, nullable) NSString *pscServiceAttachmentUri;
+
+/** Region of the forwarding rule. Set only for regional forwarding rules. */
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** Target type of the forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *target;
 
-/** URI of a Compute Engine forwarding rule. */
+/** URI of the forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /** VIP of the forwarding rule. */
@@ -4255,6 +4310,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with the serverless network endpoint
+ *  group backend.
+ */
+@interface GTLRNetworkManagement_ServerlessNegInfo : GTLRObject
+
+/** URI of the serverless network endpoint group. */
+@property(nonatomic, copy, nullable) NSString *negUri;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRNetworkManagement_SetIamPolicyRequest : GTLRObject
@@ -4414,6 +4481,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_RouteInfo *route;
 
 /**
+ *  Display information of a Serverless network endpoint group backend. Used
+ *  only for return traces.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_ServerlessNegInfo *serverlessNeg;
+
+/**
  *  Each step is in one of the pre-defined states.
  *
  *  Likely values:
@@ -4503,6 +4576,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Initial state: packet originating from a published service that uses
  *        Private Service Connect. Used only for return traces. (Value:
  *        "START_FROM_PSC_PUBLISHED_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromServerlessNeg Initial
+ *        state: packet originating from a serverless network endpoint group
+ *        backend. Used only for return traces. The serverless_neg information
+ *        is populated. (Value: "START_FROM_SERVERLESS_NEG")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromStorageBucket Initial
  *        state: packet originating from a Storage Bucket. Used only for return
  *        traces. The storage_bucket information is populated. (Value:

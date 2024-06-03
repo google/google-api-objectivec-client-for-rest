@@ -325,6 +325,25 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_CustomRegionMetadata
+//
+
+@implementation GTLRDataprocMetastore_CustomRegionMetadata
+@dynamic optionalReadOnlyRegions, requiredReadWriteRegions, witnessRegion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"optionalReadOnlyRegions" : [NSString class],
+    @"requiredReadWriteRegions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_DatabaseDump
 //
 
@@ -699,10 +718,12 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_LocationMetadata
-@dynamic multiRegionMetadata, supportedHiveMetastoreVersions;
+@dynamic customRegionMetadata, multiRegionMetadata,
+         supportedHiveMetastoreVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"customRegionMetadata" : [GTLRDataprocMetastore_CustomRegionMetadata class],
     @"supportedHiveMetastoreVersions" : [GTLRDataprocMetastore_HiveMetastoreVersion class]
   };
   return map;
@@ -980,11 +1001,12 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_Service
-@dynamic artifactGcsUri, createTime, databaseType, encryptionConfig,
-         endpointUri, hiveMetastoreConfig, labels, maintenanceWindow,
-         metadataIntegration, metadataManagementActivity, name, network,
-         networkConfig, port, releaseChannel, scalingConfig, scheduledBackup,
-         state, stateMessage, telemetryConfig, tier, uid, updateTime;
+@dynamic artifactGcsUri, createTime, databaseType, deletionProtection,
+         encryptionConfig, endpointUri, hiveMetastoreConfig, labels,
+         maintenanceWindow, metadataIntegration, metadataManagementActivity,
+         name, network, networkConfig, port, releaseChannel, scalingConfig,
+         scheduledBackup, state, stateMessage, telemetryConfig, tier, uid,
+         updateTime;
 @end
 
 

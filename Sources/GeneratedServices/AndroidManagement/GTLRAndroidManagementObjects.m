@@ -123,6 +123,11 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Kiosk = @"
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled = @"PREINSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup = @"REQUIRED_FOR_SETUP";
 
+// GTLRAndroidManagement_ApplicationPolicy.userControlSettings
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlAllowed = @"USER_CONTROL_ALLOWED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlDisallowed = @"USER_CONTROL_DISALLOWED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlSettingsUnspecified = @"USER_CONTROL_SETTINGS_UNSPECIFIED";
+
 // GTLRAndroidManagement_ApplicationPolicy.workProfileWidgets
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsAllowed = @"WORK_PROFILE_WIDGETS_ALLOWED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_WorkProfileWidgetsDisallowed = @"WORK_PROFILE_WIDGETS_DISALLOWED";
@@ -202,6 +207,7 @@ NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsD
 
 // GTLRAndroidManagement_Device.appliedState
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Active = @"ACTIVE";
+NSString * const kGTLRAndroidManagement_Device_AppliedState_DeactivatedByDeviceFinance = @"DEACTIVATED_BY_DEVICE_FINANCE";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Deleted = @"DELETED";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_DeviceStateUnspecified = @"DEVICE_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Disabled = @"DISABLED";
@@ -221,6 +227,7 @@ NSString * const kGTLRAndroidManagement_Device_Ownership_PersonallyOwned = @"PER
 
 // GTLRAndroidManagement_Device.state
 NSString * const kGTLRAndroidManagement_Device_State_Active    = @"ACTIVE";
+NSString * const kGTLRAndroidManagement_Device_State_DeactivatedByDeviceFinance = @"DEACTIVATED_BY_DEVICE_FINANCE";
 NSString * const kGTLRAndroidManagement_Device_State_Deleted   = @"DELETED";
 NSString * const kGTLRAndroidManagement_Device_State_DeviceStateUnspecified = @"DEVICE_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Device_State_Disabled  = @"DISABLED";
@@ -299,6 +306,7 @@ NSString * const kGTLRAndroidManagement_Display_State_Suspended = @"SUSPENDED";
 NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_AllowPersonalUsageUnspecified = @"ALLOW_PERSONAL_USAGE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageAllowed = @"PERSONAL_USAGE_ALLOWED";
 NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed = @"PERSONAL_USAGE_DISALLOWED";
+NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowedUserless = @"PERSONAL_USAGE_DISALLOWED_USERLESS";
 
 // GTLRAndroidManagement_Enterprise.enabledNotificationTypes
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Command = @"COMMAND";
@@ -307,6 +315,11 @@ NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enro
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_NotificationTypeUnspecified = @"NOTIFICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport = @"STATUS_REPORT";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs = @"USAGE_LOGS";
+
+// GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
+NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified = @"GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired = @"NOT_REQUIRED";
+NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_Required = @"REQUIRED";
 
 // GTLRAndroidManagement_InstallConstraint.chargingConstraint
 NSString * const kGTLRAndroidManagement_InstallConstraint_ChargingConstraint_ChargingConstraintUnspecified = @"CHARGING_CONSTRAINT_UNSPECIFIED";
@@ -629,6 +642,7 @@ NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure = @
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_AllowPersonalUsageUnspecified = @"ALLOW_PERSONAL_USAGE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageAllowed = @"PERSONAL_USAGE_ALLOWED";
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed = @"PERSONAL_USAGE_DISALLOWED";
+NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowedUserless = @"PERSONAL_USAGE_DISALLOWED_USERLESS";
 
 // GTLRAndroidManagement_StartLostModeStatus.status
 NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_AlreadyInLostMode = @"ALREADY_IN_LOST_MODE";
@@ -859,7 +873,7 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
          defaultPermissionPolicy, delegatedScopes, disabled, extensionConfig,
          installConstraint, installPriority, installType, lockTaskAllowed,
          managedConfiguration, managedConfigurationTemplate, minimumVersionCode,
-         packageName, permissionGrants, workProfileWidgets;
+         packageName, permissionGrants, userControlSettings, workProfileWidgets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1372,8 +1386,8 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_Enterprise
 @dynamic appAutoApprovalEnabled, contactInfo, enabledNotificationTypes,
-         enterpriseDisplayName, logo, name, primaryColor, pubsubTopic,
-         signinDetails, termsAndConditions;
+         enterpriseDisplayName, googleAuthenticationSettings, logo, name,
+         primaryColor, pubsubTopic, signinDetails, termsAndConditions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1442,6 +1456,16 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_FreezePeriod
 @dynamic endDate, startDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_GoogleAuthenticationSettings
+//
+
+@implementation GTLRAndroidManagement_GoogleAuthenticationSettings
+@dynamic googleAuthenticationRequired;
 @end
 
 

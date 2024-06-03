@@ -2091,7 +2091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturn
 // GTLRShoppingContent_Segments.program
 
 /**
- *  Buy on Google Listing.
+ *  *Deprecated*: This value is no longer supported. Retrieving all metrics for
+ *  the `BUY_ON_GOOGLE_LISTING` program returns 0 starting from May 2024. Buy on
+ *  Google Listing.
  *
  *  Value: "BUY_ON_GOOGLE_LISTING"
  */
@@ -8436,22 +8438,25 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_Metrics : GTLRObject
 
 /**
- *  Average order size - the average number of items in an order. **This metric
- *  cannot be segmented by product dimensions and customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Average order size - the average number of items in
+ *  an order. **This metric cannot be segmented by product dimensions and
+ *  customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *aos;
 
 /**
- *  Average order value in micros (1 millionth of a standard unit, 1 USD =
- *  1000000 micros) - the average value (total price of items) of all placed
- *  orders. The currency of the returned value is stored in the currency_code
- *  segment. If this metric is selected, 'segments.currency_code' is
- *  automatically added to the SELECT clause in the search query (unless it is
- *  explicitly selected by the user) and the currency_code segment is populated
- *  in the response. **This metric cannot be segmented by product dimensions and
- *  customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Average order value in micros (1 millionth of a
+ *  standard unit, 1 USD = 1000000 micros) - the average value (total price of
+ *  items) of all placed orders. The currency of the returned value is stored in
+ *  the currency_code segment. If this metric is selected,
+ *  'segments.currency_code' is automatically added to the SELECT clause in the
+ *  search query (unless it is explicitly selected by the user) and the
+ *  currency_code segment is populated in the response. **This metric cannot be
+ *  segmented by product dimensions and customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8467,7 +8472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Number of conversions divided by the number of clicks, reported on the
  *  impression date. The metric is currently available only for the
- *  FREE_PRODUCT_LISTING program.
+ *  `FREE_PRODUCT_LISTING` program.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8478,7 +8483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  date. Depending on the attribution model, a conversion might be distributed
  *  across multiple clicks, where each click gets its own credit assigned. This
  *  metric is a sum of all such credits. The metric is currently available only
- *  for the FREE_PRODUCT_LISTING program.
+ *  for the `FREE_PRODUCT_LISTING` program.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8487,11 +8492,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Value of conversions in micros (1 millionth of a standard unit, 1 USD =
  *  1000000 micros) attributed to the product, reported on the conversion date.
- *  The metric is currently available only for the FREE_PRODUCT_LISTING program.
- *  The currency of the returned value is stored in the currency_code segment.
- *  If this metric is selected, 'segments.currency_code' is automatically added
- *  to the SELECT clause in the search query (unless it is explicitly selected
- *  by the user) and the currency_code segment is populated in the response.
+ *  The metric is currently available only for the `FREE_PRODUCT_LISTING`
+ *  program. The currency of the returned value is stored in the currency_code
+ *  segment. If this metric is selected, 'segments.currency_code' is
+ *  automatically added to the SELECT clause in the search query (unless it is
+ *  explicitly selected by the user) and the currency_code segment is populated
+ *  in the response.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8507,9 +8513,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *ctr;
 
 /**
- *  Average number of days between an order being placed and the order being
- *  fully shipped, reported on the last shipment date. **This metric cannot be
- *  segmented by product dimensions and customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Average number of days between an order being placed
+ *  and the order being fully shipped, reported on the last shipment date.
+ *  **This metric cannot be segmented by product dimensions and
+ *  customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8523,89 +8531,103 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *impressions;
 
 /**
- *  Average number of days between an item being ordered and the item being
- *  **This metric cannot be segmented by customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Average number of days between an item being ordered
+ *  and the item being **This metric cannot be segmented by
+ *  customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *itemDaysToShip;
 
 /**
- *  Percentage of shipped items in relation to all finalized items (shipped or
- *  rejected by the merchant; unshipped items are not taken into account),
- *  reported on the order date. Item fill rate is lowered by merchant
- *  rejections. **This metric cannot be segmented by customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Percentage of shipped items in relation to all
+ *  finalized items (shipped or rejected by the merchant; unshipped items are
+ *  not taken into account), reported on the order date. Item fill rate is
+ *  lowered by merchant rejections. **This metric cannot be segmented by
+ *  customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *itemFillRate;
 
 /**
- *  Number of ordered items. Excludes customer cancellations that happened
- *  within 30 minutes of placing the order. **This metric cannot be segmented by
- *  customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Number of ordered items. Excludes customer
+ *  cancellations that happened within 30 minutes of placing the order. **This
+ *  metric cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *orderedItems;
 
 /**
- *  Total price of ordered items in micros (1 millionth of a standard unit, 1
- *  USD = 1000000 micros). Excludes shipping, taxes (US only), and customer
- *  cancellations that happened within 30 minutes of placing the order. The
- *  currency of the returned value is stored in the currency_code segment. If
- *  this metric is selected, 'segments.currency_code' is automatically added to
- *  the SELECT clause in the search query (unless it is explicitly selected by
- *  the user) and the currency_code segment is populated in the response. **This
- *  metric cannot be segmented by customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Total price of ordered items in micros (1 millionth
+ *  of a standard unit, 1 USD = 1000000 micros). Excludes shipping, taxes (US
+ *  only), and customer cancellations that happened within 30 minutes of placing
+ *  the order. The currency of the returned value is stored in the currency_code
+ *  segment. If this metric is selected, 'segments.currency_code' is
+ *  automatically added to the SELECT clause in the search query (unless it is
+ *  explicitly selected by the user) and the currency_code segment is populated
+ *  in the response. **This metric cannot be segmented by
+ *  customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *orderedItemSalesMicros;
 
 /**
- *  Number of placed orders. Excludes customer cancellations that happened
- *  within 30 minutes of placing the order. **This metric cannot be segmented by
- *  product dimensions and customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Number of placed orders. Excludes customer
+ *  cancellations that happened within 30 minutes of placing the order. **This
+ *  metric cannot be segmented by product dimensions and
+ *  customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *orders;
 
 /**
- *  Number of ordered items canceled by the merchant, reported on the order
- *  date. **This metric cannot be segmented by customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Number of ordered items canceled by the merchant,
+ *  reported on the order date. **This metric cannot be segmented by
+ *  customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rejectedItems;
 
 /**
- *  Number of ordered items sent back for return, reported on the date when the
- *  merchant accepted the return. **This metric cannot be segmented by
- *  customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Number of ordered items sent back for return,
+ *  reported on the date when the merchant accepted the return. **This metric
+ *  cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *returnedItems;
 
 /**
- *  Total price of returned items divided by the total price of shipped items,
- *  reported on the order date. If this metric is selected,
- *  'segments.currency_code' is automatically added to the SELECT clause in the
- *  search query (unless it is explicitly selected by the user) and the
- *  currency_code segment is populated in the response. **This metric cannot be
- *  segmented by customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Total price of returned items divided by the total
+ *  price of shipped items, reported on the order date. If this metric is
+ *  selected, 'segments.currency_code' is automatically added to the SELECT
+ *  clause in the search query (unless it is explicitly selected by the user)
+ *  and the currency_code segment is populated in the response. **This metric
+ *  cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *returnRate;
 
 /**
- *  Total price of ordered items sent back for return in micros (1 millionth of
- *  a standard unit, 1 USD = 1000000 micros), reported on the date when the
- *  merchant accepted the return. The currency of the returned value is stored
- *  in the currency_code segment. If this metric is selected,
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Total price of ordered items sent back for return in
+ *  micros (1 millionth of a standard unit, 1 USD = 1000000 micros), reported on
+ *  the date when the merchant accepted the return. The currency of the returned
+ *  value is stored in the currency_code segment. If this metric is selected,
  *  'segments.currency_code' is automatically added to the SELECT clause in the
  *  search query (unless it is explicitly selected by the user) and the
  *  currency_code segment is populated in the response. **This metric cannot be
@@ -8616,30 +8638,33 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *returnsMicros;
 
 /**
- *  Number of shipped items, reported on the shipment date. **This metric cannot
- *  be segmented by customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Number of shipped items, reported on the shipment
+ *  date. **This metric cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shippedItems;
 
 /**
- *  Total price of shipped items in micros (1 millionth of a standard unit, 1
- *  USD = 1000000 micros), reported on the order date. Excludes shipping and
- *  taxes (US only). The currency of the returned value is stored in the
- *  currency_code segment. If this metric is selected, 'segments.currency_code'
- *  is automatically added to the SELECT clause in the search query (unless it
- *  is explicitly selected by the user) and the currency_code segment is
- *  populated in the response. **This metric cannot be segmented by
- *  customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Total price of shipped items in micros (1 millionth
+ *  of a standard unit, 1 USD = 1000000 micros), reported on the order date.
+ *  Excludes shipping and taxes (US only). The currency of the returned value is
+ *  stored in the currency_code segment. If this metric is selected,
+ *  'segments.currency_code' is automatically added to the SELECT clause in the
+ *  search query (unless it is explicitly selected by the user) and the
+ *  currency_code segment is populated in the response. **This metric cannot be
+ *  segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shippedItemSalesMicros;
 
 /**
- *  Number of fully shipped orders, reported on the last shipment date. **This
- *  metric cannot be segmented by product dimensions and
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Number of fully shipped orders, reported on the last
+ *  shipment date. **This metric cannot be segmented by product dimensions and
  *  customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
@@ -8647,21 +8672,24 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *shippedOrders;
 
 /**
- *  Number of ordered items not shipped up until the end of the queried day. If
- *  a multi-day period is specified in the search query, the returned value is
- *  the average number of unshipped items over the days in the queried period.
- *  **This metric cannot be segmented by customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Number of ordered items not shipped up until the end
+ *  of the queried day. If a multi-day period is specified in the search query,
+ *  the returned value is the average number of unshipped items over the days in
+ *  the queried period. **This metric cannot be segmented by
+ *  customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unshippedItems;
 
 /**
- *  Number of orders not shipped or partially shipped up until the end of the
- *  queried day. If a multi-day period is specified in the search query, the
- *  returned value is the average number of unshipped orders over the days in
- *  the queried period. **This metric cannot be segmented by product dimensions
- *  and customer_country_code.**
+ *  *Deprecated*: This field is no longer supported and retrieving it returns 0
+ *  starting from May 2024. Number of orders not shipped or partially shipped up
+ *  until the end of the queried day. If a multi-day period is specified in the
+ *  search query, the returned value is the average number of unshipped orders
+ *  over the days in the queried period. **This metric cannot be segmented by
+ *  product dimensions and customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -12683,9 +12711,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Loyalty program information that is used to surface loyalty benefits ( for
- *  example pricing, points, etc) to the user for this item.
+ *  example, better pricing, points, etc) to the user of this item. This
+ *  signular field points to the latest uploaded loyalty program info. This
+ *  field will be deprecated in the coming weeks and should not be used in favor
+ *  of the plural 'LoyaltyProgram' field below.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LoyaltyProgram *loyaltyProgram;
+
+/**
+ *  Optional. A list of loyalty program information that is used to surface
+ *  loyalty benefits (for example, better pricing, points, etc) to the user of
+ *  this item.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_LoyaltyProgram *> *loyaltyPrograms;
 
 /** The material of which the item is made. */
 @property(nonatomic, copy, nullable) NSString *material;
@@ -12952,6 +12990,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *certificationName;
+
+/**
+ *  The certification value (also known as class, level or grade), for example
+ *  "A+", "C", "gold". Maximum length is 2000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *certificationValue;
 
 @end
 
@@ -16349,8 +16393,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Program to which metrics apply, for example, Free Product Listing.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContent_Segments_Program_BuyOnGoogleListing Buy on
- *        Google Listing. (Value: "BUY_ON_GOOGLE_LISTING")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_BuyOnGoogleListing
+ *        *Deprecated*: This value is no longer supported. Retrieving all
+ *        metrics for the `BUY_ON_GOOGLE_LISTING` program returns 0 starting
+ *        from May 2024. Buy on Google Listing. (Value: "BUY_ON_GOOGLE_LISTING")
  *    @arg @c kGTLRShoppingContent_Segments_Program_FreeLocalProductListing Free
  *        Local Product Listing. (Value: "FREE_LOCAL_PRODUCT_LISTING")
  *    @arg @c kGTLRShoppingContent_Segments_Program_FreeProductListing Free

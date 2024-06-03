@@ -62,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The category of the font. */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/** The color format(s) available for this family. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *colorCapabilities;
+
 /** The name of the font. */
 @property(nonatomic, copy, nullable) NSString *family;
 

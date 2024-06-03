@@ -16,6 +16,7 @@
 // eventTypes
 NSString * const kGTLRCalendarEventTypesDefault         = @"default";
 NSString * const kGTLRCalendarEventTypesFocusTime       = @"focusTime";
+NSString * const kGTLRCalendarEventTypesFromGmail       = @"fromGmail";
 NSString * const kGTLRCalendarEventTypesOutOfOffice     = @"outOfOffice";
 NSString * const kGTLRCalendarEventTypesWorkingLocation = @"workingLocation";
 

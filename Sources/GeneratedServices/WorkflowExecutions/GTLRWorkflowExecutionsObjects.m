@@ -353,7 +353,7 @@ NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_Progress
 //
 
 @implementation GTLRWorkflowExecutions_StepEntryMetadata
-@dynamic progressNumber, progressType, threadId;
+@dynamic expectedIteration, progressNumber, progressType, threadId;
 @end
 
 

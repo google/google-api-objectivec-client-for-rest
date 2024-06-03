@@ -34,6 +34,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Check if an upgrade operation on the environment will succeed. In case of
+ *  problems detailed info can be found in the returned Operation.
+ *
+ *  Method: composer.projects.locations.environments.checkUpgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudComposerCloudPlatform
+ */
+@interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCheckUpgrade : GTLRCloudComposerQuery
+
+/**
+ *  Required. The resource name of the environment to check upgrade for, in the
+ *  form:
+ *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRCloudComposer_Operation.
+ *
+ *  Check if an upgrade operation on the environment will succeed. In case of
+ *  problems detailed info can be found in the returned Operation.
+ *
+ *  @param object The @c GTLRCloudComposer_CheckUpgradeRequest to include in the
+ *    query.
+ *  @param environment Required. The resource name of the environment to check
+ *    upgrade for, in the form:
+ *    "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+ *
+ *  @return GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCheckUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRCloudComposer_CheckUpgradeRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
  *  Create a new environment.
  *
  *  Method: composer.projects.locations.environments.create

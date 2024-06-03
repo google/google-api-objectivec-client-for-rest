@@ -2724,6 +2724,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
+ *  Request message for ReorderEventEditRules RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest : GTLRObject
+
+/**
+ *  Required. EventEditRule resource names for the specified data stream, in the
+ *  needed processing order. All EventEditRules for the stream must be present
+ *  in the list.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eventEditRules;
+
+@end
+
+
+/**
  *  The request for a Data Access Record Report.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest : GTLRObject

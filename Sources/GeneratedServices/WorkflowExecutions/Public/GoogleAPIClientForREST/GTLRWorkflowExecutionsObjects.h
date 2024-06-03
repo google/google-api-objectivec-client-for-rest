@@ -982,6 +982,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
 @interface GTLRWorkflowExecutions_StepEntryMetadata : GTLRObject
 
 /**
+ *  Expected iteration represents the expected number of iterations in the
+ *  step's progress.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expectedIteration;
+
+/**
  *  Progress number represents the current state of the current progress. eg: A
  *  step entry represents the 4th iteration in a progress of PROGRESS_TYPE_FOR.
  *

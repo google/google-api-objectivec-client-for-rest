@@ -521,7 +521,7 @@ GTLR_DEPRECATED
 @property(nonatomic, assign) BOOL includeChildOrgunits;
 
 /**
- *  Maximum number of results to return.
+ *  Maximum number of results to return, value should not exceed 300.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -563,7 +563,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Restrict information returned to a set of selected fields.
+ *  Determines whether the response contains the full list of properties or only
+ *  a subset.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
@@ -678,7 +679,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
- *  Restrict information returned to a set of selected fields.
+ *  Determines whether the response contains the full list of properties or only
+ *  a subset.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
@@ -742,7 +744,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
- *  Restrict information returned to a set of selected fields.
+ *  Determines whether the response contains the full list of properties or only
+ *  a subset.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
