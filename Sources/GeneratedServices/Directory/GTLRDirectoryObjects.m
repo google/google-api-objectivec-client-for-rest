@@ -40,6 +40,11 @@ NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_Deprovisi
 NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgrade = @"DEPROVISION_REASON_UPGRADE";
 NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgradeTransfer = @"DEPROVISION_REASON_UPGRADE_TRANSFER";
 
+// GTLRDirectory_ChromeOsDevice.chromeOsType
+NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOs = @"chromeOs";
+NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsFlex = @"chromeOsFlex";
+NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsTypeUnspecified = @"chromeOsTypeUnspecified";
+
 // GTLRDirectory_ChromeOsDevice.deprovisionReason
 NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDifferentModelReplacement = @"DEPROVISION_REASON_DIFFERENT_MODEL_REPLACEMENT";
 NSString * const kGTLRDirectory_ChromeOsDevice_DeprovisionReason_DeprovisionReasonDomainMove = @"DEPROVISION_REASON_DOMAIN_MOVE";
@@ -598,15 +603,15 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
          autoUpdateExpiration, autoUpdateThrough, backlightInfo, bootMode,
-         cpuInfo, cpuStatusReports, deprovisionReason, deviceFiles, deviceId,
-         deviceLicenseType, diskVolumeReports, dockMacAddress, ETag,
-         ethernetMacAddress, ethernetMacAddress0, extendedSupportEligible,
-         extendedSupportEnabled, extendedSupportStart, fanInfo, firmwareVersion,
-         firstEnrollmentTime, kind, lastDeprovisionTimestamp,
-         lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
-         manufactureDate, meid, model, notes, orderNumber, orgUnitId,
-         orgUnitPath, osUpdateStatus, osVersion, platformVersion, recentUsers,
-         screenshotFiles, serialNumber, status, supportEndDate,
+         chromeOsType, cpuInfo, cpuStatusReports, deprovisionReason,
+         deviceFiles, deviceId, deviceLicenseType, diskVolumeReports,
+         dockMacAddress, ETag, ethernetMacAddress, ethernetMacAddress0,
+         extendedSupportEligible, extendedSupportEnabled, extendedSupportStart,
+         fanInfo, firmwareVersion, firstEnrollmentTime, kind,
+         lastDeprovisionTimestamp, lastEnrollmentTime, lastKnownNetwork,
+         lastSync, macAddress, manufactureDate, meid, model, notes, orderNumber,
+         orgUnitId, orgUnitPath, osUpdateStatus, osVersion, platformVersion,
+         recentUsers, screenshotFiles, serialNumber, status, supportEndDate,
          systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

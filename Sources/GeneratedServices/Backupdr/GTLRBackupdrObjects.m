@@ -234,7 +234,8 @@ NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_PrivateServiceAccess = 
 
 @implementation GTLRBackupdr_ManagementServer
 @dynamic baProxyUri, createTime, descriptionProperty, ETag, labels,
-         managementUri, name, networks, oauth2ClientId, state, type, updateTime,
+         managementUri, name, networks, oauth2ClientId, satisfiesPzi,
+         satisfiesPzs, state, type, updateTime,
          workforceIdentityBasedManagementUri,
          workforceIdentityBasedOauth2ClientId;
 

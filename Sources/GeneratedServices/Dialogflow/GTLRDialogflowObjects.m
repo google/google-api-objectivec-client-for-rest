@@ -256,11 +256,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_Model
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_DirectIntent = @"DIRECT_INTENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Event = @"EVENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Intent = @"INTENT";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Llm = @"LLM";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_NoInput = @"NO_INPUT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_NoMatch = @"NO_MATCH";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_ParameterFilling = @"PARAMETER_FILLING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Playbook = @"PLAYBOOK";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3NluSettings.modelTrainingMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3NluSettings_ModelTrainingMode_ModelTrainingModeAutomatic = @"MODEL_TRAINING_MODE_AUTOMATIC";
@@ -736,7 +736,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsDtmfSettings
-@dynamic enabled, finishDigit, maxDigits;
+@dynamic enabled, endpointingTimeoutDuration, finishDigit,
+         interdigitTimeoutDuration, maxDigits;
 @end
 
 
@@ -1030,7 +1031,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsDtmfSettings
-@dynamic enabled, finishDigit, maxDigits;
+@dynamic enabled, endpointingTimeoutDuration, finishDigit,
+         interdigitTimeoutDuration, maxDigits;
 @end
 
 
@@ -5305,7 +5307,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings
-@dynamic audioExportPattern, audioFormat, enableAudioRedaction, gcsBucket;
+@dynamic audioExportPattern, audioFormat, enableAudioRedaction, gcsBucket,
+         storeTtsAudio;
 @end
 
 

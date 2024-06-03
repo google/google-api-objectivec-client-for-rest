@@ -503,6 +503,13 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. A unique identifier for this request. Restricted to 36 ASCII
+ *  characters. A random UUID is recommended. This request is only idempotent if
+ *  a `request_id` is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  Fetches a @c GTLROSConfig_Operation.
  *
  *  Create an OS policy assignment. This method also creates the first revision
@@ -542,6 +549,13 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 
 /** Required. The name of the OS policy assignment to be deleted */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Restricted to 36 ASCII
+ *  characters. A random UUID is recommended. This request is only idempotent if
+ *  a `request_id` is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLROSConfig_Operation.
@@ -769,11 +783,25 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 @interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsPatch : GTLROSConfigQuery
 
 /**
+ *  Optional. If set to true, and the OS policy assignment is not found, a new
+ *  OS policy assignment will be created. In this situation, `update_mask` is
+ *  ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
  *  Resource name. Format:
  *  `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}`
  *  This field is ignored when you create an OS policy assignment.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Restricted to 36 ASCII
+ *  characters. A random UUID is recommended. This request is only idempotent if
+ *  a `request_id` is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Optional. Field mask that controls which fields of the assignment should be

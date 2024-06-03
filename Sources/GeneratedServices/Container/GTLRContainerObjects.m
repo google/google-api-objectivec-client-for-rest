@@ -173,11 +173,13 @@ NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoUpgrades = @
 
 // GTLRContainer_MonitoringComponentConfig.enableComponents
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Apiserver = @"APISERVER";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Cadvisor = @"CADVISOR";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ControllerManager = @"CONTROLLER_MANAGER";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Daemonset = @"DAEMONSET";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Deployment = @"DEPLOYMENT";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Hpa = @"HPA";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Kubelet = @"KUBELET";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Pod = @"POD";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Scheduler = @"SCHEDULER";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Statefulset = @"STATEFULSET";

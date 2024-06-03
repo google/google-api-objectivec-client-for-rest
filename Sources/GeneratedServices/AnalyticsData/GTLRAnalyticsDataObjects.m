@@ -370,6 +370,31 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_Comparison
+//
+
+@implementation GTLRAnalyticsData_Comparison
+@dynamic comparison, dimensionFilter, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_ComparisonMetadata
+//
+
+@implementation GTLRAnalyticsData_ComparisonMetadata
+@dynamic apiName, descriptionProperty, uiName;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_ConcatenateExpression
 //
 
@@ -563,10 +588,11 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_Metadata
-@dynamic dimensions, metrics, name;
+@dynamic comparisons, dimensions, metrics, name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"comparisons" : [GTLRAnalyticsData_ComparisonMetadata class],
     @"dimensions" : [GTLRAnalyticsData_DimensionMetadata class],
     @"metrics" : [GTLRAnalyticsData_MetricMetadata class]
   };
@@ -906,12 +932,13 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_RunPivotReportRequest
-@dynamic cohortSpec, currencyCode, dateRanges, dimensionFilter, dimensions,
-         keepEmptyRows, metricFilter, metrics, pivots, property,
+@dynamic cohortSpec, comparisons, currencyCode, dateRanges, dimensionFilter,
+         dimensions, keepEmptyRows, metricFilter, metrics, pivots, property,
          returnPropertyQuota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"comparisons" : [GTLRAnalyticsData_Comparison class],
     @"dateRanges" : [GTLRAnalyticsData_DateRange class],
     @"dimensions" : [GTLRAnalyticsData_Dimension class],
     @"metrics" : [GTLRAnalyticsData_Metric class],
@@ -1011,12 +1038,13 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_RunReportRequest
-@dynamic cohortSpec, currencyCode, dateRanges, dimensionFilter, dimensions,
-         keepEmptyRows, limit, metricAggregations, metricFilter, metrics,
-         offset, orderBys, property, returnPropertyQuota;
+@dynamic cohortSpec, comparisons, currencyCode, dateRanges, dimensionFilter,
+         dimensions, keepEmptyRows, limit, metricAggregations, metricFilter,
+         metrics, offset, orderBys, property, returnPropertyQuota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"comparisons" : [GTLRAnalyticsData_Comparison class],
     @"dateRanges" : [GTLRAnalyticsData_DateRange class],
     @"dimensions" : [GTLRAnalyticsData_Dimension class],
     @"metricAggregations" : [NSString class],

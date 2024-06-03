@@ -275,6 +275,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Te
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.locationCategory
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Argentina = @"ARGENTINA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia = @"AUSTRALIA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Azerbaijan = @"AZERBAIJAN";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belgium = @"BELGIUM";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Brazil = @"BRAZIL";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Canada = @"CANADA";
@@ -1199,7 +1200,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DatabaseResourceReference
-@dynamic instance, projectId;
+@dynamic database, databaseResource, instance, projectId;
 @end
 
 
@@ -1578,7 +1579,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryBigQueryFilter
-@dynamic otherTables, tables;
+@dynamic otherTables, tableReference, tables;
 @end
 
 
@@ -1705,7 +1706,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryTarget
-@dynamic bigQueryTarget, cloudSqlTarget;
+@dynamic bigQueryTarget, cloudSqlTarget, secretsTarget;
 @end
 
 
@@ -3584,6 +3585,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2SecretsDiscoveryTarget
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2SecretsDiscoveryTarget
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2SelectedInfoTypes
 //
 
@@ -3823,6 +3833,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2TableReference
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2TableReference
+@dynamic datasetId, tableId;
 @end
 
 

@@ -997,10 +997,10 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 
 @implementation GTLRCloudFunctions_ServiceConfig
 @dynamic allTrafficOnLatestRevision, availableCpu, availableMemory,
-         environmentVariables, ingressSettings, maxInstanceCount,
-         maxInstanceRequestConcurrency, minInstanceCount, revision,
-         secretEnvironmentVariables, secretVolumes, securityLevel, service,
-         serviceAccountEmail, timeoutSeconds, uri, vpcConnector,
+         binaryAuthorizationPolicy, environmentVariables, ingressSettings,
+         maxInstanceCount, maxInstanceRequestConcurrency, minInstanceCount,
+         revision, secretEnvironmentVariables, secretVolumes, securityLevel,
+         service, serviceAccountEmail, timeoutSeconds, uri, vpcConnector,
          vpcConnectorEgressSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1105,7 +1105,7 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 //
 
 @implementation GTLRCloudFunctions_StorageSource
-@dynamic bucket, generation, object;
+@dynamic bucket, generation, object, sourceUploadUrl;
 @end
 
 

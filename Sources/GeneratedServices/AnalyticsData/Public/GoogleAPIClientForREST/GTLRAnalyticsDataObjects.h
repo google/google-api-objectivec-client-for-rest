@@ -28,6 +28,8 @@
 @class GTLRAnalyticsData_CohortReportSettings;
 @class GTLRAnalyticsData_CohortSpec;
 @class GTLRAnalyticsData_CohortsRange;
+@class GTLRAnalyticsData_Comparison;
+@class GTLRAnalyticsData_ComparisonMetadata;
 @class GTLRAnalyticsData_ConcatenateExpression;
 @class GTLRAnalyticsData_DateRange;
 @class GTLRAnalyticsData_Dimension;
@@ -1077,6 +1079,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  Defines an individual comparison. Most requests will include multiple
+ *  comparisons so that the report compares between the comparisons.
+ */
+@interface GTLRAnalyticsData_Comparison : GTLRObject
+
+/**
+ *  A saved comparison identified by the comparison's resource name. For
+ *  example, 'comparisons/1234'.
+ */
+@property(nonatomic, copy, nullable) NSString *comparison;
+
+/** A basic comparison. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpression *dimensionFilter;
+
+/**
+ *  Each comparison produces separate rows in the response. In the response,
+ *  this comparison is identified by this name. If name is unspecified, we will
+ *  use the saved comparisons display name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The metadata for a single comparison.
+ */
+@interface GTLRAnalyticsData_ComparisonMetadata : GTLRObject
+
+/**
+ *  This comparison's resource name. Useable in [Comparison](#Comparison)'s
+ *  `comparison` field. For example, 'comparisons/1234'.
+ */
+@property(nonatomic, copy, nullable) NSString *apiName;
+
+/**
+ *  This comparison's description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** This comparison's name within the Google Analytics user interface. */
+@property(nonatomic, copy, nullable) NSString *uiName;
+
+@end
+
+
+/**
  *  Used to combine dimension values to a single dimension.
  */
 @interface GTLRAnalyticsData_ConcatenateExpression : GTLRObject
@@ -1443,6 +1494,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  methods.
  */
 @interface GTLRAnalyticsData_Metadata : GTLRObject
+
+/** The comparison descriptions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_ComparisonMetadata *> *comparisons;
 
 /** The dimension descriptions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DimensionMetadata *> *dimensions;
@@ -2292,6 +2346,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_CohortSpec *cohortSpec;
 
 /**
+ *  Optional. The configuration of comparisons requested and displayed. The
+ *  request requires both a comparisons field and a comparisons dimension to
+ *  receive a comparison column in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Comparison *> *comparisons;
+
+/**
  *  A currency code in ISO4217 format, such as "AED", "USD", "JPY". If the field
  *  is empty, the report uses the property's default currency.
  */
@@ -2556,6 +2617,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  request the 'cohort' dimension must be present.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_CohortSpec *cohortSpec;
+
+/**
+ *  Optional. The configuration of comparisons requested and displayed. The
+ *  request only requires a comparisons field in order to receive a comparison
+ *  column in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Comparison *> *comparisons;
 
 /**
  *  A currency code in ISO4217 format, such as "AED", "USD", "JPY". If the field

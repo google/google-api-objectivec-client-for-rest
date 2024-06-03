@@ -1670,7 +1670,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Lists all the policy issues for the specified account.
+ *  Lists all the policy issues where the specified account is involved, both
+ *  directly and through any AFP child accounts.
  *
  *  Method: adsense.accounts.policyIssues.list
  *
@@ -1704,7 +1705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_ListPolicyIssuesResponse.
  *
- *  Lists all the policy issues for the specified account.
+ *  Lists all the policy issues where the specified account is involved, both
+ *  directly and through any AFP child accounts.
  *
  *  @param parent Required. The account for which policy issues are being
  *    retrieved. Format: accounts/{account}

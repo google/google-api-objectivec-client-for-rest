@@ -954,7 +954,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The name of the service. Example: "services/DA34-426B-A397" */
+/** Required. The name of the service. Example: "services/6F81-5844-456A" */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -972,7 +972,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all publicly available SKUs for a given cloud service.
  *
  *  @param parent Required. The name of the service. Example:
- *    "services/DA34-426B-A397"
+ *    "services/6F81-5844-456A"
  *
  *  @return GTLRCloudbillingQuery_ServicesSkusList
  *

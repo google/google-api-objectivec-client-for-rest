@@ -3771,6 +3771,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7;
 /**
+ *  SDF version 7.1. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_7_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion71;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -12702,6 +12710,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7;
 /**
+ *  SDF version 7.1. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_7_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -12785,6 +12801,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_7"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7;
+/**
+ *  SDF version 7.1. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_7_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -19121,6 +19145,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SDF version 7. Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_7")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion71
+ *        SDF version 7.1. Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_7_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -28650,7 +28678,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Exchange review statuses for the creative. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ExchangeReviewStatus *> *exchangeReviewStatuses;
 
-/** Publisher review statuses for the creative. */
+/**
+ *  Publisher review statuses for the creative. **Warning:** This field will be
+ *  deprecated on June 26th, 2024. After this date, this field will be empty.
+ *  Read our [feature deprecation
+ *  announcement](/display-video/api/deprecations#features.creative_publisher_review_statuses)
+ *  for more information.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PublisherReviewStatus *> *publisherReviewStatuses;
 
 @end
@@ -28739,6 +28773,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_7")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71 SDF version 7.1.
+ *        Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_7_1")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -28807,6 +28845,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        version 7. Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_7")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71 SDF
+ *        version 7.1. Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_7_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")

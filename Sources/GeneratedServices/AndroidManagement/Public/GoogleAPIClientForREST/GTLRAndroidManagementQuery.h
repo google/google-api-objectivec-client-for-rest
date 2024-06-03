@@ -1312,6 +1312,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @interface GTLRAndroidManagementQuery_SignupUrlsCreate : GTLRAndroidManagementQuery
 
 /**
+ *  Optional. Email address used to prefill the admin field of the enterprise
+ *  signup form. This value is a hint only and can be altered by the user.
+ */
+@property(nonatomic, copy, nullable) NSString *adminEmail;
+
+/**
  *  The callback URL that the admin will be redirected to after successfully
  *  creating an enterprise. Before redirecting there the system will add a query
  *  parameter to this URL named enterpriseToken which will contain an opaque

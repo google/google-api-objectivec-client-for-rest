@@ -418,11 +418,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Configuration options for a custom domain.
+ *  Configuration options for private workstation clusters.
  */
 @interface GTLRCloudWorkstations_DomainConfig : GTLRObject
 
-/** Immutable. Domain used by Workstations for HTTP ingress. */
+/** Immutable. Whether Workstations endpoint is private. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 @end
@@ -569,7 +569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  nested virtualization can only be enabled on workstation configurations that
  *  specify a machine_type in the N1 or N2 machine series. * **GPUs**: nested
  *  virtualization may not be enabled on workstation configurations with
- *  accelerators. * **Operating System**: Because [Container-Optimized
+ *  accelerators. * **Operating System**: because [Container-Optimized
  *  OS](https://cloud.google.com/compute/docs/images/os-details#container-optimized_os_cos)
  *  does not support nested virtualization, when nested virtualization is
  *  enabled, the underlying Compute Engine VM instances boot from an [Ubuntu
@@ -1313,40 +1313,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Configuration options for private workstation clusters.
+ *  GTLRCloudWorkstations_PrivateClusterConfig
  */
 @interface GTLRCloudWorkstations_PrivateClusterConfig : GTLRObject
 
-/**
- *  Optional. Additional projects that are allowed to attach to the workstation
- *  cluster's service attachment. By default, the workstation cluster's project
- *  and the VPC host project (if different) are allowed.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedProjects;
-
-/**
- *  Output only. Hostname for the workstation cluster. This field will be
- *  populated only when private endpoint is enabled. To access workstations in
- *  the workstation cluster, create a new DNS zone mapping this domain name to
- *  an internal IP address and a forwarding rule mapping that address to the
- *  service attachment.
- */
 @property(nonatomic, copy, nullable) NSString *clusterHostname;
 
 /**
- *  Immutable. Whether Workstations endpoint is private.
+ *  enablePrivateEndpoint
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePrivateEndpoint;
 
-/**
- *  Output only. Service attachment URI for the workstation cluster. The service
- *  attachemnt is created when private endpoint is enabled. To access
- *  workstations in the workstation cluster, configure access to the managed
- *  service using [Private Service
- *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services).
- */
 @property(nonatomic, copy, nullable) NSString *serviceAttachmentUri;
 
 @end

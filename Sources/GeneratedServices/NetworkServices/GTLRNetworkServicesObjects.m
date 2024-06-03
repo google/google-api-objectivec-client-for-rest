@@ -833,7 +833,7 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 @implementation GTLRNetworkServices_LbRouteExtension
 @dynamic createTime, descriptionProperty, extensionChains, forwardingRules,
-         labels, loadBalancingScheme, name, updateTime;
+         labels, loadBalancingScheme, metadata, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -866,12 +866,26 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_LbRouteExtension_Metadata
+//
+
+@implementation GTLRNetworkServices_LbRouteExtension_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_LbTrafficExtension
 //
 
 @implementation GTLRNetworkServices_LbTrafficExtension
 @dynamic createTime, descriptionProperty, extensionChains, forwardingRules,
-         labels, loadBalancingScheme, name, updateTime;
+         labels, loadBalancingScheme, metadata, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -897,6 +911,20 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_LbTrafficExtension_Metadata
+//
+
+@implementation GTLRNetworkServices_LbTrafficExtension_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

@@ -1246,14 +1246,13 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 
 /**
- *  Represents a network config to be used for destination resolution and
- *  connectivity.
+ *  Network Configuration that can be inherited by other protos.
  */
 @interface GTLREventarc_NetworkConfig : GTLRObject
 
 /**
- *  Required. Name of the NetworkAttachment that allows access to the
- *  destination VPC. Format:
+ *  Required. Name of the NetworkAttachment that allows access to the customer's
+ *  VPC. Format:
  *  `projects/{PROJECT_ID}/regions/{REGION}/networkAttachments/{NETWORK_ATTACHMENT_NAME}`
  */
 @property(nonatomic, copy, nullable) NSString *networkAttachment;

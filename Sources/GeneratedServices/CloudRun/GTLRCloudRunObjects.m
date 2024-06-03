@@ -630,7 +630,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
          createTime, creator, deleteTime, ETag, executionCount, expireTime,
          generation, labels, lastModifier, latestCreatedExecution, launchStage,
-         name, observedGeneration, reconciling, satisfiesPzs,
+         name, observedGeneration, reconciling, runExecutionToken, satisfiesPzs,
          startExecutionToken, templateProperty, terminalCondition, uid,
          updateTime;
 
@@ -1551,6 +1551,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleDevtoolsCloudbuildV1GCSLocation
+//
+
+@implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1GCSLocation
+@dynamic bucket, generation, object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig
 //
 
@@ -1585,7 +1595,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig
-@dynamic proxySecretVersionName;
+@dynamic proxySecretVersionName, proxySslCaInfo;
 @end
 
 

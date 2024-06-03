@@ -39,6 +39,114 @@
 
 @end
 
+@implementation GTLRFirebaseappcheckQuery_OauthClientsExchangeAppAttestAssertion
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAssertionRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1/{+app}:exchangeAppAttestAssertion";
+  GTLRFirebaseappcheckQuery_OauthClientsExchangeAppAttestAssertion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
+  query.loggingName = @"firebaseappcheck.oauthClients.exchangeAppAttestAssertion";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_OauthClientsExchangeAppAttestAttestation
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1/{+app}:exchangeAppAttestAttestation";
+  GTLRFirebaseappcheckQuery_OauthClientsExchangeAppAttestAttestation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationResponse class];
+  query.loggingName = @"firebaseappcheck.oauthClients.exchangeAppAttestAttestation";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_OauthClientsExchangeDebugToken
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDebugTokenRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1/{+app}:exchangeDebugToken";
+  GTLRFirebaseappcheckQuery_OauthClientsExchangeDebugToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
+  query.loggingName = @"firebaseappcheck.oauthClients.exchangeDebugToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_OauthClientsGenerateAppAttestChallenge
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1/{+app}:generateAppAttestChallenge";
+  GTLRFirebaseappcheckQuery_OauthClientsGenerateAppAttestChallenge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeResponse class];
+  query.loggingName = @"firebaseappcheck.oauthClients.generateAppAttestChallenge";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigBatchGet
 
 @dynamic names, parent;

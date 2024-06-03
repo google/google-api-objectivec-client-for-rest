@@ -403,7 +403,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Executions from a Job.
+ *  Lists Executions from a Job. Results are sorted by creation time,
+ *  descending.
  *
  *  Method: run.projects.locations.jobs.executions.list
  *
@@ -437,7 +438,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListExecutionsResponse.
  *
- *  Lists Executions from a Job.
+ *  Lists Executions from a Job. Results are sorted by creation time,
+ *  descending.
  *
  *  @param parent Required. The Execution from which the Executions should be
  *    listed. To list all Executions across Jobs, use "-" instead of Job name.
@@ -618,7 +620,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Jobs.
+ *  Lists Jobs. Results are sorted by creation time, descending.
  *
  *  Method: run.projects.locations.jobs.list
  *
@@ -651,7 +653,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListJobsResponse.
  *
- *  Lists Jobs.
+ *  Lists Jobs. Results are sorted by creation time, descending.
  *
  *  @param parent Required. The location and project to list resources on.
  *    Format: projects/{project}/locations/{location}, where {project} can be
@@ -1161,7 +1163,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Services.
+ *  Lists Services. Results are sorted by creation time, descending.
  *
  *  Method: run.projects.locations.services.list
  *
@@ -1195,7 +1197,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListServicesResponse.
  *
- *  Lists Services.
+ *  Lists Services. Results are sorted by creation time, descending.
  *
  *  @param parent Required. The location and project to list resources on.
  *    Location must be a valid Google Cloud region, and cannot be the "-"
@@ -1385,7 +1387,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Revisions from a given Service, or from a given location.
+ *  Lists Revisions from a given Service, or from a given location. Results are
+ *  sorted by creation time, descending.
  *
  *  Method: run.projects.locations.services.revisions.list
  *
@@ -1418,7 +1421,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListRevisionsResponse.
  *
- *  Lists Revisions from a given Service, or from a given location.
+ *  Lists Revisions from a given Service, or from a given location. Results are
+ *  sorted by creation time, descending.
  *
  *  @param parent Required. The Service from which the Revisions should be
  *    listed. To list all Revisions across Services, use "-" instead of Service

@@ -2850,6 +2850,46 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
+ *  Transition a durable chat event.
+ *
+ *  Method: youtube.liveChatMessages.transition
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ */
+@interface GTLRYouTubeQuery_LiveChatMessagesTransition : GTLRYouTubeQuery
+
+/**
+ *  The ID that uniquely identify the chat message event to transition.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The status to which the chat event is going to transition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTubeStatusStatusUnspecified Default unknown enum value.
+ *        (Value: "statusUnspecified")
+ *    @arg @c kGTLRYouTubeStatusClosed The durable chat event is over. (Value:
+ *        "closed")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Fetches a @c GTLRYouTube_LiveChatMessage.
+ *
+ *  Transition a durable chat event.
+ *
+ *  @return GTLRYouTubeQuery_LiveChatMessagesTransition
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Deletes a chat moderator.
  *
  *  Method: youtube.liveChatModerators.delete
@@ -5703,42 +5743,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @return GTLRYouTubeQuery_WatermarksUnset
  */
 + (instancetype)queryWithChannelId:(NSString *)channelId;
-
-@end
-
-/**
- *  Transition a durable chat event.
- *
- *  Method: youtube.youtube.v3.liveChat.messages.transition
- */
-@interface GTLRYouTubeQuery_YoutubeV3LiveChatMessagesTransition : GTLRYouTubeQuery
-
-/**
- *  The ID that uniquely identify the chat message event to transition.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  The status to which the chat event is going to transition.
- *
- *  Likely values:
- *    @arg @c kGTLRYouTubeStatusStatusUnspecified Default unknown enum value.
- *        (Value: "statusUnspecified")
- *    @arg @c kGTLRYouTubeStatusClosed The durable chat event is over. (Value:
- *        "closed")
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-/**
- *  Fetches a @c GTLRYouTube_LiveChatMessage.
- *
- *  Transition a durable chat event.
- *
- *  @return GTLRYouTubeQuery_YoutubeV3LiveChatMessagesTransition
- */
-+ (instancetype)query;
 
 @end
 

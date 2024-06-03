@@ -1141,7 +1141,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 @implementation GTLRCloudDeploy_ExecutionConfig
 @dynamic artifactStorage, defaultPool, executionTimeout, privatePool,
-         serviceAccount, usages, workerPool;
+         serviceAccount, usages, verbose, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

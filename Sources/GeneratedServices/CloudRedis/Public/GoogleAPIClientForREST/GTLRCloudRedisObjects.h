@@ -29,7 +29,6 @@
 @class GTLRCloudRedis_DatabaseResourceHealthSignalData_AdditionalMetadata;
 @class GTLRCloudRedis_DatabaseResourceId;
 @class GTLRCloudRedis_DatabaseResourceMetadata;
-@class GTLRCloudRedis_DatabaseResourceMetadata_UserLabels;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData_AdditionalMetadata;
 @class GTLRCloudRedis_DiscoveryEndpoint;
@@ -45,10 +44,12 @@
 @class GTLRCloudRedis_Location;
 @class GTLRCloudRedis_Location_Labels;
 @class GTLRCloudRedis_Location_Metadata;
+@class GTLRCloudRedis_MachineConfiguration;
 @class GTLRCloudRedis_MaintenancePolicy;
 @class GTLRCloudRedis_MaintenanceSchedule;
 @class GTLRCloudRedis_ManagedCertificateAuthority;
 @class GTLRCloudRedis_NodeInfo;
+@class GTLRCloudRedis_ObservabilityMetricData;
 @class GTLRCloudRedis_Operation;
 @class GTLRCloudRedis_Operation_Metadata;
 @class GTLRCloudRedis_Operation_Response;
@@ -65,6 +66,7 @@
 @class GTLRCloudRedis_Status_Details_Item;
 @class GTLRCloudRedis_TimeOfDay;
 @class GTLRCloudRedis_TlsCertificate;
+@class GTLRCloudRedis_TypedValue;
 @class GTLRCloudRedis_UpdateInfo;
 @class GTLRCloudRedis_UserLabels;
 @class GTLRCloudRedis_UserLabels_Labels;
@@ -74,7 +76,6 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -452,6 +453,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDatabaseNamesExposed;
 /**
+ *  Detects if database instance data exported to a Cloud Storage bucket outside
+ *  of the organization.
+ *
+ *  Value: "SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket;
+/**
+ *  Detects if database instance data exported to a Cloud Storage bucket that is
+ *  owned by the organization and is publicly accessible.
+ *
+ *  Value: "SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket;
+/**
  *  Represents if the log_disconnections database flag for a Cloud SQL for
  *  PostgreSQL instance is not set to on.
  *
@@ -750,6 +765,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeShortBackupRetention;
 /**
+ *  Detects events where a Cloud SQL superuser (postgres for PostgreSQL servers
+ *  or root for MySQL users) writes to non-system tables.
+ *
+ *  Value: "SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeSuperuserWritingToUserTables;
+/**
  *  Performance impact of temporary tables settings
  *
  *  Value: "SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT"
@@ -781,6 +803,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeUnspecified;
 /**
+ *  Detects events where a database user or role has been granted all privileges
+ *  to a database, or to all tables, procedures, or functions in a schema.
+ *
+ *  Value: "SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeUserGrantedAllPermissions;
+/**
  *  Represents if the user options database flag for Cloud SQL SQL Server
  *  instance is configured or not.
  *
@@ -800,6 +829,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp;
+/**
+ *  Represents if a resource violates CIS Controls 8.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisControlsV80;
 /**
  *  Represents if a resource violates CIS GCP Foundation 1.0.
  *
@@ -831,11 +866,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20;
 /**
+ *  Represents if a resource violates Cloud Controls Matrix v4.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4;
+/**
+ *  Represents if a resource violates HIPAA.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesHipaa;
+/**
  *  Represents if a resource violates ISO-27001.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_ISO_27001"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001;
+/**
+ *  Represents if a resource violates ISO 27001 2022.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_ISO_27001_V2022"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001V2022;
 /**
  *  Represents if a resource violates NIST 800-53.
  *
@@ -843,11 +896,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053;
 /**
+ *  Represents if a resource violates NIST 800-53 R5.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_NIST_800_53_R5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053R5;
+/**
+ *  Represents if a resource violates NIST Cybersecurity Framework 1.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10;
+/**
  *  Represents if a resource violates PCI-DSS v3.2.1.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV321;
+/**
+ *  Represents if a resource violates PCI-DSS v4.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV40;
+/**
+ *  Represents if a resource violates SOC2 v2017.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_SOC2_V2017"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesSoc2V2017;
 /**
  *  Represents if a Cloud SQL database has a weak password configured for the
  *  root account.
@@ -1144,6 +1221,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDatabaseNamesExposed;
+/**
+ *  Detects if database instance data exported to a Cloud Storage bucket outside
+ *  of the organization.
+ *
+ *  Value: "SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket;
+/**
+ *  Detects if database instance data exported to a Cloud Storage bucket that is
+ *  owned by the organization and is publicly accessible.
+ *
+ *  Value: "SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket;
 /**
  *  Represents if the log_disconnections database flag for a Cloud SQL for
  *  PostgreSQL instance is not set to on.
@@ -1443,6 +1534,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeShortBackupRetention;
 /**
+ *  Detects events where a Cloud SQL superuser (postgres for PostgreSQL servers
+ *  or root for MySQL users) writes to non-system tables.
+ *
+ *  Value: "SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeSuperuserWritingToUserTables;
+/**
  *  Performance impact of temporary tables settings
  *
  *  Value: "SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT"
@@ -1474,6 +1572,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeUnspecified;
 /**
+ *  Detects events where a database user or role has been granted all privileges
+ *  to a database, or to all tables, procedures, or functions in a schema.
+ *
+ *  Value: "SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserGrantedAllPermissions;
+/**
  *  Represents if the user options database flag for Cloud SQL SQL Server
  *  instance is configured or not.
  *
@@ -1493,6 +1598,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp;
+/**
+ *  Represents if a resource violates CIS Controls 8.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisControlsV80;
 /**
  *  Represents if a resource violates CIS GCP Foundation 1.0.
  *
@@ -1524,11 +1635,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20;
 /**
+ *  Represents if a resource violates Cloud Controls Matrix v4.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4;
+/**
+ *  Represents if a resource violates HIPAA.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesHipaa;
+/**
  *  Represents if a resource violates ISO-27001.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_ISO_27001"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001;
+/**
+ *  Represents if a resource violates ISO 27001 2022.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_ISO_27001_V2022"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001V2022;
 /**
  *  Represents if a resource violates NIST 800-53.
  *
@@ -1536,11 +1665,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053;
 /**
+ *  Represents if a resource violates NIST 800-53 R5.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_NIST_800_53_R5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053R5;
+/**
+ *  Represents if a resource violates NIST Cybersecurity Framework 1.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10;
+/**
  *  Represents if a resource violates PCI-DSS v3.2.1.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV321;
+/**
+ *  Represents if a resource violates PCI-DSS v4.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV40;
+/**
+ *  Represents if a resource violates SOC2 v2017.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_SOC2_V2017"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesSoc2V2017;
 /**
  *  Represents if a Cloud SQL database has a weak password configured for the
  *  root account.
@@ -1772,6 +1925,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
  *  Value: "TRANSIT_ENCRYPTION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_ObservabilityMetricData.aggregationType
+
+/**
+ *  Unspecified aggregation type.
+ *
+ *  Value: "AGGREGATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_AggregationTypeUnspecified;
+/**
+ *  Maximum aggregation type.
+ *
+ *  Value: "MAXIMUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Maximum;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_ObservabilityMetricData.metricType
+
+/**
+ *  CPU utilization for a resource. The value is a fraction between 0.0 and 1.0
+ *  (may momentarily exceed 1.0 in some cases).
+ *
+ *  Value: "CPU_UTILIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_CpuUtilization;
+/**
+ *  Memory utilization for a resource. The value is a fraction between 0.0 and
+ *  1.0 (may momentarily exceed 1.0 in some cases).
+ *
+ *  Value: "MEMORY_UTILIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_MemoryUtilization;
+/** Value: "METRIC_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_MetricTypeUnspecified;
+/**
+ *  Number of network connections for a resource.
+ *
+ *  Value: "NETWORK_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_NetworkConnections;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_OperationError.errorType
@@ -2659,8 +2854,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, copy, nullable) NSString *feedType;
 
 /** More feed data would be added in subsequent CLs */
-@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceRecommendationSignalData *recommendationSignalData;
+@property(nonatomic, strong, nullable) GTLRCloudRedis_ObservabilityMetricData *observabilityMetricData;
 
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceRecommendationSignalData *recommendationSignalData;
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceHealthSignalData *resourceHealthSignalData;
 
 /**
@@ -2812,6 +3008,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *        Represents if the skip_show_database database flag for a Cloud SQL for
  *        MySQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket
+ *        Detects if database instance data exported to a Cloud Storage bucket
+ *        outside of the organization. (Value:
+ *        "SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket
+ *        Detects if database instance data exported to a Cloud Storage bucket
+ *        that is owned by the organization and is publicly accessible. (Value:
+ *        "SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDisconnectionsNotLogged
  *        Represents if the log_disconnections database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
@@ -2971,6 +3175,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeShortBackupRetention
  *        Represents if a resources has a short backup retention period. (Value:
  *        "SIGNAL_TYPE_SHORT_BACKUP_RETENTION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeSuperuserWritingToUserTables
+ *        Detects events where a Cloud SQL superuser (postgres for PostgreSQL
+ *        servers or root for MySQL users) writes to non-system tables. (Value:
+ *        "SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeTmpTablesPerformanceImpact
  *        Performance impact of temporary tables settings (Value:
  *        "SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT")
@@ -2985,6 +3193,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeUnspecified
  *        Unspecified. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeUserGrantedAllPermissions
+ *        Detects events where a database user or role has been granted all
+ *        privileges to a database, or to all tables, procedures, or functions
+ *        in a schema. (Value: "SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeUserOptionsConfigured
  *        Represents if the user options database flag for Cloud SQL SQL Server
  *        instance is configured or not. (Value:
@@ -2996,6 +3208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp
  *        Represents violate org policy restrict public ip. (Value:
  *        "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisControlsV80
+ *        Represents if a resource violates CIS Controls 8.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation10
  *        Represents if a resource violates CIS GCP Foundation 1.0. (Value:
  *        "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0")
@@ -3011,15 +3226,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20
  *        Represents if a resource violates CIS GCP Foundation 2.0. (Value:
  *        "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_2_0")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4
+ *        Represents if a resource violates Cloud Controls Matrix v4.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesHipaa
+ *        Represents if a resource violates HIPAA. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_HIPAA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001
  *        Represents if a resource violates ISO-27001. (Value:
  *        "SIGNAL_TYPE_VIOLATES_ISO_27001")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001V2022
+ *        Represents if a resource violates ISO 27001 2022. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_ISO_27001_V2022")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053
  *        Represents if a resource violates NIST 800-53. (Value:
  *        "SIGNAL_TYPE_VIOLATES_NIST_800_53")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053R5
+ *        Represents if a resource violates NIST 800-53 R5. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_NIST_800_53_R5")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10
+ *        Represents if a resource violates NIST Cybersecurity Framework 1.0.
+ *        (Value: "SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV321
  *        Represents if a resource violates PCI-DSS v3.2.1. (Value:
  *        "SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV40
+ *        Represents if a resource violates PCI-DSS v4.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesSoc2V2017
+ *        Represents if a resource violates SOC2 v2017. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_SOC2_V2017")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeWeakRootPassword
  *        Represents if a Cloud SQL database has a weak password configured for
  *        the root account. (Value: "SIGNAL_TYPE_WEAK_ROOT_PASSWORD")
@@ -3220,6 +3456,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 /** The resource location. REQUIRED */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/** Machine configuration for this resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_MachineConfiguration *machineConfiguration;
+
 /**
  *  Identifier for this resource's immediate parent/primary resource if the
  *  current resource is a replica or derived form of another Database resource.
@@ -3253,29 +3492,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updationTime;
 
-/**
- *  User-provided labels, represented as a dictionary where each label is a
- *  single key value pair.
- */
-@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceMetadata_UserLabels *userLabels GTLR_DEPRECATED;
-
 /** User-provided labels associated with the resource */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_UserLabels *userLabelSet;
 
-@end
-
-
-/**
- *  User-provided labels, represented as a dictionary where each label is a
- *  single key value pair.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-GTLR_DEPRECATED
-@interface GTLRCloudRedis_DatabaseResourceMetadata_UserLabels : GTLRObject
 @end
 
 
@@ -3371,6 +3590,14 @@ GTLR_DEPRECATED
  *        Represents if the skip_show_database database flag for a Cloud SQL for
  *        MySQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket
+ *        Detects if database instance data exported to a Cloud Storage bucket
+ *        outside of the organization. (Value:
+ *        "SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket
+ *        Detects if database instance data exported to a Cloud Storage bucket
+ *        that is owned by the organization and is publicly accessible. (Value:
+ *        "SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDisconnectionsNotLogged
  *        Represents if the log_disconnections database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
@@ -3530,6 +3757,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeShortBackupRetention
  *        Represents if a resources has a short backup retention period. (Value:
  *        "SIGNAL_TYPE_SHORT_BACKUP_RETENTION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeSuperuserWritingToUserTables
+ *        Detects events where a Cloud SQL superuser (postgres for PostgreSQL
+ *        servers or root for MySQL users) writes to non-system tables. (Value:
+ *        "SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeTmpTablesPerformanceImpact
  *        Performance impact of temporary tables settings (Value:
  *        "SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT")
@@ -3544,6 +3775,10 @@ GTLR_DEPRECATED
  *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeUnspecified
  *        Unspecified. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserGrantedAllPermissions
+ *        Detects events where a database user or role has been granted all
+ *        privileges to a database, or to all tables, procedures, or functions
+ *        in a schema. (Value: "SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserOptionsConfigured
  *        Represents if the user options database flag for Cloud SQL SQL Server
  *        instance is configured or not. (Value:
@@ -3555,6 +3790,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp
  *        Represents violate org policy restrict public ip. (Value:
  *        "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisControlsV80
+ *        Represents if a resource violates CIS Controls 8.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation10
  *        Represents if a resource violates CIS GCP Foundation 1.0. (Value:
  *        "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0")
@@ -3570,15 +3808,36 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20
  *        Represents if a resource violates CIS GCP Foundation 2.0. (Value:
  *        "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_2_0")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4
+ *        Represents if a resource violates Cloud Controls Matrix v4.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesHipaa
+ *        Represents if a resource violates HIPAA. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_HIPAA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001
  *        Represents if a resource violates ISO-27001. (Value:
  *        "SIGNAL_TYPE_VIOLATES_ISO_27001")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001V2022
+ *        Represents if a resource violates ISO 27001 2022. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_ISO_27001_V2022")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053
  *        Represents if a resource violates NIST 800-53. (Value:
  *        "SIGNAL_TYPE_VIOLATES_NIST_800_53")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053R5
+ *        Represents if a resource violates NIST 800-53 R5. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_NIST_800_53_R5")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10
+ *        Represents if a resource violates NIST Cybersecurity Framework 1.0.
+ *        (Value: "SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV321
  *        Represents if a resource violates PCI-DSS v3.2.1. (Value:
  *        "SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV40
+ *        Represents if a resource violates PCI-DSS v4.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesSoc2V2017
+ *        Represents if a resource violates SOC2 v2017. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_SOC2_V2017")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakRootPassword
  *        Represents if a Cloud SQL database has a weak password configured for
  *        the root account. (Value: "SIGNAL_TYPE_WEAK_ROOT_PASSWORD")
@@ -4381,6 +4640,31 @@ GTLR_DEPRECATED
 
 
 /**
+ *  MachineConfiguration describes the configuration of a machine specific to
+ *  Database Resource.
+ */
+@interface GTLRCloudRedis_MachineConfiguration : GTLRObject
+
+/**
+ *  The number of CPUs. TODO(b/342344482, b/342346271) add proto validations
+ *  again after bug fix.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuCount;
+
+/**
+ *  Memory size in bytes. TODO(b/342344482, b/342346271) add proto validations
+ *  again after bug fix.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memorySizeInBytes;
+
+@end
+
+
+/**
  *  Maintenance policy for an instance.
  */
 @interface GTLRCloudRedis_MaintenancePolicy : GTLRObject
@@ -4475,6 +4759,57 @@ GTLR_DEPRECATED
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  GTLRCloudRedis_ObservabilityMetricData
+ */
+@interface GTLRCloudRedis_ObservabilityMetricData : GTLRObject
+
+/**
+ *  Required. Type of aggregation performed on the metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_AggregationType_AggregationTypeUnspecified
+ *        Unspecified aggregation type. (Value: "AGGREGATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Maximum
+ *        Maximum aggregation type. (Value: "MAXIMUM")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationType;
+
+/**
+ *  Required. Type of metric like CPU, Memory, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_CpuUtilization
+ *        CPU utilization for a resource. The value is a fraction between 0.0
+ *        and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
+ *        "CPU_UTILIZATION")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_MemoryUtilization
+ *        Memory utilization for a resource. The value is a fraction between 0.0
+ *        and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
+ *        "MEMORY_UTILIZATION")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_MetricTypeUnspecified
+ *        Value "METRIC_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_NetworkConnections
+ *        Number of network connections for a resource. (Value:
+ *        "NETWORK_CONNECTIONS")
+ */
+@property(nonatomic, copy, nullable) NSString *metricType;
+
+/** Required. The time the metric value was observed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *observationTime;
+
+/**
+ *  Required. Database resource name associated with the signal. Resource name
+ *  to follow CAIS resource_name format as noted here go/condor-common-datamodel
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Required. Value of the metric type. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_TypedValue *value;
 
 @end
 
@@ -5105,6 +5440,38 @@ GTLR_DEPRECATED
 
 /** Sha1 Fingerprint of the certificate. */
 @property(nonatomic, copy, nullable) NSString *sha1Fingerprint;
+
+@end
+
+
+/**
+ *  TypedValue represents the value of a metric type. It can either be a double,
+ *  an int64, a string or a bool.
+ */
+@interface GTLRCloudRedis_TypedValue : GTLRObject
+
+/**
+ *  boolValue
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  doubleValue
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
+
+/**
+ *  int64Value
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *int64Value;
+
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
 

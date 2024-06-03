@@ -21,6 +21,7 @@
 @class GTLRSpanner_Backup;
 @class GTLRSpanner_BackupInfo;
 @class GTLRSpanner_Binding;
+@class GTLRSpanner_ChangeQuorumRequest;
 @class GTLRSpanner_ChildLink;
 @class GTLRSpanner_CommitStats;
 @class GTLRSpanner_ContextValue;
@@ -32,6 +33,7 @@
 @class GTLRSpanner_DerivedMetric;
 @class GTLRSpanner_DiagnosticMessage;
 @class GTLRSpanner_DirectedReadOptions;
+@class GTLRSpanner_DualRegionQuorum;
 @class GTLRSpanner_EncryptionConfig;
 @class GTLRSpanner_EncryptionInfo;
 @class GTLRSpanner_ExcludeReplicas;
@@ -83,6 +85,8 @@
 @class GTLRSpanner_QueryAdvisorResult;
 @class GTLRSpanner_QueryOptions;
 @class GTLRSpanner_QueryPlan;
+@class GTLRSpanner_QuorumInfo;
+@class GTLRSpanner_QuorumType;
 @class GTLRSpanner_ReadOnly;
 @class GTLRSpanner_ReadWrite;
 @class GTLRSpanner_ReplicaInfo;
@@ -101,6 +105,7 @@
 @class GTLRSpanner_Session_Labels;
 @class GTLRSpanner_ShortRepresentation;
 @class GTLRSpanner_ShortRepresentation_Subqueries;
+@class GTLRSpanner_SingleRegionQuorum;
 @class GTLRSpanner_Statement;
 @class GTLRSpanner_Statement_Params;
 @class GTLRSpanner_Statement_ParamTypes;
@@ -557,6 +562,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvail
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Unsupported;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_InstanceConfig.quorumType
+
+/**
+ *  An instance configuration tagged with DUAL_REGION quorum type forms a write
+ *  quorums with exactly two read-write regions in a multi-region configuration.
+ *  This instance configurations requires reconfiguration in the event of
+ *  regional failures.
+ *
+ *  Value: "DUAL_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_QuorumType_DualRegion;
+/**
+ *  An instance configuration tagged with MULTI_REGION quorum type forms a write
+ *  quorums from replicas are spread across more than one region in a
+ *  multi-region configuration.
+ *
+ *  Value: "MULTI_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_QuorumType_MultiRegion;
+/**
+ *  Not specified.
+ *
+ *  Value: "QUORUM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_QuorumType_QuorumTypeUnspecified;
+/**
+ *  An instance configuration tagged with REGION quorum type forms a write
+ *  quorum in a single region.
+ *
+ *  Value: "REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_QuorumType_Region;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_InstanceConfig.state
 
 /**
@@ -652,6 +691,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Relational;
  *  Value: "SCALAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Scalar;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_QuorumInfo.initiator
+
+/**
+ *  ChangeQuorum initiated by Google.
+ *
+ *  Value: "GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_QuorumInfo_Initiator_Google;
+/**
+ *  Unspecified.
+ *
+ *  Value: "INITIATOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_QuorumInfo_Initiator_InitiatorUnspecified;
+/**
+ *  ChangeQuorum initiated by User.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_QuorumInfo_Initiator_User;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_ReadWrite.readLockMode
@@ -1442,6 +1503,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  Metadata type for the long-running operation returned by ChangeQuorum.
+ */
+@interface GTLRSpanner_ChangeQuorumMetadata : GTLRObject
+
+/**
+ *  If set, the time at which this operation failed or was completed
+ *  successfully.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The request for ChangeQuorum. */
+@property(nonatomic, strong, nullable) GTLRSpanner_ChangeQuorumRequest *request;
+
+/** Time the request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The request for ChangeQuorum.
+ */
+@interface GTLRSpanner_ChangeQuorumRequest : GTLRObject
+
+/**
+ *  Optional. The etag is the hash of the QuorumInfo. The ChangeQuorum operation
+ *  will only be performed if the etag matches that of the QuorumInfo in the
+ *  current database resource. Otherwise the API will return an `ABORTED` error.
+ *  The etag is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous change quorum requests that could create a race condition.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. Name of the database in which to apply the ChangeQuorum. Values
+ *  are of the form `projects//instances//databases/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The type of this Quorum. */
+@property(nonatomic, strong, nullable) GTLRSpanner_QuorumType *quorumType;
+
+@end
+
+
+/**
  *  Metadata associated with a parent-child relationship appearing in a
  *  PlanNode.
  */
@@ -2078,6 +2185,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Applicable only for databases that use dual region instance
+ *  configurations. Contains information about the quorum.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_QuorumInfo *quorumInfo;
+
+/**
  *  Output only. If true, the database is being updated. If false, there are no
  *  ongoing update operations for the database.
  *
@@ -2272,6 +2385,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_IncludeReplicas *includeReplicas;
 
+@end
+
+
+/**
+ *  Message type for a dual-region quorum. Currently this type has no options.
+ */
+@interface GTLRSpanner_DualRegionQuorum : GTLRObject
 @end
 
 
@@ -2958,8 +3078,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  The number of nodes allocated to this instance. At most one of either
  *  node_count or processing_units should be present in the message. Users can
  *  set the node_count field to specify the target number of nodes allocated to
- *  the instance. This may be zero in API responses for instances that are not
- *  yet in state `READY`. See [the
+ *  the instance. If autoscaling is enabled, node_count is treated as an
+ *  OUTPUT_ONLY field and reflects the current number of nodes allocated to the
+ *  instance. This may be zero in API responses for instances that are not yet
+ *  in state `READY`. See [the
  *  documentation](https://cloud.google.com/spanner/docs/compute-capacity) for
  *  more information about nodes and processing units.
  *
@@ -2971,8 +3093,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  The number of processing units allocated to this instance. At most one of
  *  processing_units or node_count should be present in the message. Users can
  *  set the processing_units field to specify the target number of processing
- *  units allocated to the instance. This may be zero in API responses for
- *  instances that are not yet in state `READY`. See [the
+ *  units allocated to the instance. If autoscaling is enabled, processing_units
+ *  is treated as an OUTPUT_ONLY field and reflects the current number of
+ *  processing units allocated to the instance. This may be zero in API
+ *  responses for instances that are not yet in state `READY`. See [the
  *  documentation](https://cloud.google.com/spanner/docs/compute-capacity) for
  *  more information about nodes and processing units.
  *
@@ -3133,6 +3257,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  configurations. Populated for Google managed configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaInfo *> *optionalReplicas;
+
+/**
+ *  Output only. The `QuorumType` of the instance configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_DualRegion An instance
+ *        configuration tagged with DUAL_REGION quorum type forms a write
+ *        quorums with exactly two read-write regions in a multi-region
+ *        configuration. This instance configurations requires reconfiguration
+ *        in the event of regional failures. (Value: "DUAL_REGION")
+ *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_MultiRegion An instance
+ *        configuration tagged with MULTI_REGION quorum type forms a write
+ *        quorums from replicas are spread across more than one region in a
+ *        multi-region configuration. (Value: "MULTI_REGION")
+ *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_QuorumTypeUnspecified Not
+ *        specified. (Value: "QUORUM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_Region An instance
+ *        configuration tagged with REGION quorum type forms a write quorum in a
+ *        single region. (Value: "REGION")
+ */
+@property(nonatomic, copy, nullable) NSString *quorumType;
 
 /**
  *  Output only. If true, the instance config is being created or updated. If
@@ -3778,9 +3923,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of unreachable instance partitions. It includes the names of
- *  instance partitions whose metadata could not be retrieved within
- *  instance_partition_deadline.
+ *  The list of unreachable instances or instance partitions. It includes the
+ *  names of instances or instance partitions whose metadata could not be
+ *  retrieved within instance_partition_deadline.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -4855,6 +5000,58 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  Information about the dual region quorum.
+ */
+@interface GTLRSpanner_QuorumInfo : GTLRObject
+
+/**
+ *  Output only. The etag is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous ChangeQuorum requests that could create a race
+ *  condition.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Whether this ChangeQuorum is a Google or User initiated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_QuorumInfo_Initiator_Google ChangeQuorum initiated by
+ *        Google. (Value: "GOOGLE")
+ *    @arg @c kGTLRSpanner_QuorumInfo_Initiator_InitiatorUnspecified
+ *        Unspecified. (Value: "INITIATOR_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_QuorumInfo_Initiator_User ChangeQuorum initiated by
+ *        User. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *initiator;
+
+/**
+ *  Output only. The type of this quorum. See QuorumType for more information
+ *  about quorum type specifications.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_QuorumType *quorumType;
+
+/** Output only. The timestamp when the request was triggered. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Information about the database quorum type. this applies only for dual
+ *  region instance configs.
+ */
+@interface GTLRSpanner_QuorumType : GTLRObject
+
+/** Dual region quorum type. */
+@property(nonatomic, strong, nullable) GTLRSpanner_DualRegionQuorum *dualRegion;
+
+/** Single region quorum type. */
+@property(nonatomic, strong, nullable) GTLRSpanner_SingleRegionQuorum *singleRegion;
+
+@end
+
+
+/**
  *  Message type to initiate a read-only transaction.
  */
 @interface GTLRSpanner_ReadOnly : GTLRObject
@@ -5639,6 +5836,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  Message type for a single-region quorum.
+ */
+@interface GTLRSpanner_SingleRegionQuorum : GTLRObject
+
+/**
+ *  Required. The location of the serving region, e.g. "us-central1". The
+ *  location must be one of the regions within the dual region instance
+ *  configuration of your database. The list of valid locations is available via
+ *  [GetInstanceConfig[InstanceAdmin.GetInstanceConfig] API. This should only be
+ *  used if you plan to change quorum in single-region quorum type.
+ */
+@property(nonatomic, copy, nullable) NSString *servingLocation;
+
+@end
+
+
+/**
  *  A single DML statement.
  */
 @interface GTLRSpanner_Statement : GTLRObject
@@ -5841,7 +6055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  see the effects of all transactions that have committed before the start of
  *  the read). Snapshot read-only transactions do not need to be committed.
  *  Queries on change streams must be performed with the snapshot read-only
- *  transaction mode, specifying a strong read. Please see
+ *  transaction mode, specifying a strong read. See
  *  TransactionOptions.ReadOnly.strong for more details. 3. Partitioned DML.
  *  This type of transaction is used to execute a single Partitioned DML
  *  statement. Partitioned DML partitions the key space and runs the DML

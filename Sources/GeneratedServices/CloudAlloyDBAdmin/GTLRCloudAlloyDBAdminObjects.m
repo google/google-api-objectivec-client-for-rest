@@ -179,6 +179,8 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeConnectionsPerformanceImpact = @"SIGNAL_TYPE_CONNECTIONS_PERFORMANCE_IMPACT";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDatabaseAuditingDisabled = @"SIGNAL_TYPE_DATABASE_AUDITING_DISABLED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDatabaseNamesExposed = @"SIGNAL_TYPE_DATABASE_NAMES_EXPOSED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket = @"SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket = @"SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDisconnectionsNotLogged = @"SIGNAL_TYPE_DISCONNECTIONS_NOT_LOGGED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeEncryptionKeyNotCustomerManaged = @"SIGNAL_TYPE_ENCRYPTION_KEY_NOT_CUSTOMER_MANAGED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeExcessiveLoggingOfClientHostname = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_CLIENT_HOSTNAME";
@@ -224,11 +226,13 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeServerAuthenticationNotRequired = @"SIGNAL_TYPE_SERVER_AUTHENTICATION_NOT_REQUIRED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeServerCertificateNearExpiry = @"SIGNAL_TYPE_SERVER_CERTIFICATE_NEAR_EXPIRY";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeShortBackupRetention = @"SIGNAL_TYPE_SHORT_BACKUP_RETENTION";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeSuperuserWritingToUserTables = @"SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeTmpTablesPerformanceImpact = @"SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeTransLogsPerformanceImpact = @"SIGNAL_TYPE_TRANS_LOGS_PERFORMANCE_IMPACT";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUnderprovisioned = @"SIGNAL_TYPE_UNDERPROVISIONED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUnencryptedConnections = @"SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUnspecified = @"SIGNAL_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUserGrantedAllPermissions = @"SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUserOptionsConfigured = @"SIGNAL_TYPE_USER_OPTIONS_CONFIGURED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeVerboseErrorLogging = @"SIGNAL_TYPE_VERBOSE_ERROR_LOGGING";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp = @"SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP";
@@ -299,6 +303,8 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeConnectionsPerformanceImpact = @"SIGNAL_TYPE_CONNECTIONS_PERFORMANCE_IMPACT";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDatabaseAuditingDisabled = @"SIGNAL_TYPE_DATABASE_AUDITING_DISABLED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDatabaseNamesExposed = @"SIGNAL_TYPE_DATABASE_NAMES_EXPOSED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket = @"SIGNAL_TYPE_DATA_EXPORT_TO_EXTERNAL_CLOUD_STORAGE_BUCKET";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToPublicCloudStorageBucket = @"SIGNAL_TYPE_DATA_EXPORT_TO_PUBLIC_CLOUD_STORAGE_BUCKET";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDisconnectionsNotLogged = @"SIGNAL_TYPE_DISCONNECTIONS_NOT_LOGGED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeEncryptionKeyNotCustomerManaged = @"SIGNAL_TYPE_ENCRYPTION_KEY_NOT_CUSTOMER_MANAGED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeExcessiveLoggingOfClientHostname = @"SIGNAL_TYPE_EXCESSIVE_LOGGING_OF_CLIENT_HOSTNAME";
@@ -344,11 +350,13 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeServerAuthenticationNotRequired = @"SIGNAL_TYPE_SERVER_AUTHENTICATION_NOT_REQUIRED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeServerCertificateNearExpiry = @"SIGNAL_TYPE_SERVER_CERTIFICATE_NEAR_EXPIRY";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeShortBackupRetention = @"SIGNAL_TYPE_SHORT_BACKUP_RETENTION";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeSuperuserWritingToUserTables = @"SIGNAL_TYPE_SUPERUSER_WRITING_TO_USER_TABLES";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeTmpTablesPerformanceImpact = @"SIGNAL_TYPE_TMP_TABLES_PERFORMANCE_IMPACT";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeTransLogsPerformanceImpact = @"SIGNAL_TYPE_TRANS_LOGS_PERFORMANCE_IMPACT";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUnderprovisioned = @"SIGNAL_TYPE_UNDERPROVISIONED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUnencryptedConnections = @"SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUnspecified = @"SIGNAL_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserGrantedAllPermissions = @"SIGNAL_TYPE_USER_GRANTED_ALL_PERMISSIONS";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserOptionsConfigured = @"SIGNAL_TYPE_USER_OPTIONS_CONFIGURED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeVerboseErrorLogging = @"SIGNAL_TYPE_VERBOSE_ERROR_LOGGING";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp = @"SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP";
@@ -370,6 +378,10 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEnt
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement.type
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_EntitlementTypeUnspecified = @"ENTITLEMENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Gemini = @"GEMINI";
+
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData.metricType
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_InstancePeakCpuUtilisation = @"INSTANCE_PEAK_CPU_UTILISATION";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError.errorType
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError_ErrorType_CancellationError = @"CANCELLATION_ERROR";
@@ -1411,8 +1423,9 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed
-@dynamic feedTimestamp, feedType, recommendationSignalData,
-         resourceHealthSignalData, resourceId, resourceMetadata;
+@dynamic feedTimestamp, feedType, observabilityMetricData,
+         recommendationSignalData, resourceHealthSignalData, resourceId,
+         resourceMetadata;
 @end
 
 
@@ -1472,9 +1485,9 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata
 @dynamic availabilityConfiguration, backupConfiguration, backupRun,
          creationTime, currentState, customMetadata, entitlements,
-         expectedState, identifier, instanceType, location, primaryResourceId,
-         product, resourceContainer, resourceName, updationTime, userLabels,
-         userLabelSet;
+         expectedState, identifier, instanceType, location,
+         machineConfiguration, primaryResourceId, product, resourceContainer,
+         resourceName, updationTime, userLabels, userLabelSet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1536,6 +1549,26 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement
 @dynamic entitlementState, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration
+@dynamic cpuCount, memorySizeInBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData
+@dynamic metricTimestamp, metricType, resourceName, value;
 @end
 
 

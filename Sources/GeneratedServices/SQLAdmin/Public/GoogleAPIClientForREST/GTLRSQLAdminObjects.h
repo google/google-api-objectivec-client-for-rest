@@ -18,6 +18,7 @@
 @class GTLRSQLAdmin_AcquireSsrsLeaseContext;
 @class GTLRSQLAdmin_AdvancedMachineFeatures;
 @class GTLRSQLAdmin_ApiWarning;
+@class GTLRSQLAdmin_AvailableDatabaseVersion;
 @class GTLRSQLAdmin_BackupConfiguration;
 @class GTLRSQLAdmin_BackupContext;
 @class GTLRSQLAdmin_BackupReencryptionConfig;
@@ -481,6 +482,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040;
 /**
+ *  The database version is MySQL 8.4.
+ *
+ *  Value: "MYSQL_8_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84;
+/**
+ *  The database version is MySQL 8.4 and the patch version is 0.
+ *
+ *  Value: "MYSQL_8_4_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql840;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -516,6 +529,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "POSTGRES_15"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres15;
+/**
+ *  The database version is PostgreSQL 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres16;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -759,6 +778,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040;
 /**
+ *  The database version is MySQL 8.4.
+ *
+ *  Value: "MYSQL_8_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84;
+/**
+ *  The database version is MySQL 8.4 and the patch version is 0.
+ *
+ *  Value: "MYSQL_8_4_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql840;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -794,6 +825,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "POSTGRES_15"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres15;
+/**
+ *  The database version is PostgreSQL 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres16;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -1199,6 +1236,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8039;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040;
 /**
+ *  The database version is MySQL 8.4.
+ *
+ *  Value: "MYSQL_8_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql84;
+/**
+ *  The database version is MySQL 8.4 and the patch version is 0.
+ *
+ *  Value: "MYSQL_8_4_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql840;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -1234,6 +1283,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres14;
  *  Value: "POSTGRES_15"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres15;
+/**
+ *  The database version is PostgreSQL 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres16;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -1571,6 +1626,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_BackupV
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Clone;
 /**
+ *  Indicates that the instance, its read replicas, and its cascading replicas
+ *  are in maintenance. Maintenance typically gets initiated on groups of
+ *  replicas first, followed by the primary instance. For each instance,
+ *  maintenance typically causes the instance to be unavailable for 1-3 minutes.
+ *
+ *  Value: "CLUSTER_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ClusterMaintenance;
+/**
  *  Creates a new Cloud SQL instance.
  *
  *  Value: "CREATE"
@@ -1728,6 +1792,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Restart
  *  Value: "RESTORE_VOLUME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RestoreVolume;
+/**
+ *  Indicates that the instance (and any of its replicas) are currently in
+ *  maintenance. This is initiated as a self-service request by using SSM.
+ *  Maintenance typically causes the instance to be unavailable for 1-3 minutes.
+ *
+ *  Value: "SELF_SERVICE_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SelfServiceMaintenance;
 /** Value: "SNAPSHOT" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot GTLR_DEPRECATED;
 /**
@@ -1756,11 +1828,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StartRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StopReplica;
 /**
- *  Switches over to replica instance from primary.
+ *  Switches the roles of the primary and replica pair. The target instance
+ *  should be the replica.
  *
  *  Value: "SWITCHOVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Switchover;
+/**
+ *  Switches a primary instance to a replica. This operation runs as part of a
+ *  switchover operation to the original primary instance.
+ *
+ *  Value: "SWITCHOVER_TO_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SwitchoverToReplica;
 /**
  *  Truncates a general or slow log table in MySQL.
  *
@@ -2636,6 +2716,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  An available database version. It can be a major or a minor version.
+ */
+@interface GTLRSQLAdmin_AvailableDatabaseVersion : GTLRObject
+
+/** The database version's display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The version's major version name. */
+@property(nonatomic, copy, nullable) NSString *majorVersion;
+
+/**
+ *  The database version name. For MySQL 8.0, this string provides the database
+ *  major and minor version.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Database instance backup configuration.
  */
 @interface GTLRSQLAdmin_BackupConfiguration : GTLRObject
@@ -3039,9 +3139,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRDateTime *pointInTime;
 
 /**
- *  Optional. (Point-in-time recovery for PostgreSQL only) Clone to an instance
- *  in the specified zone. If no zone is specified, clone to the same zone as
- *  the source instance.
+ *  Optional. Copy clone and point-in-time recovery clone of an instance to the
+ *  specified zone. If no zone is specified, clone to the same primary zone as
+ *  the source instance. This field applies to all DB types.
  */
 @property(nonatomic, copy, nullable) NSString *preferredZone;
 
@@ -3140,6 +3240,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040 The
  *        database major version is MySQL 8.0 and the minor version is 40.
  *        (Value: "MYSQL_8_0_40")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 The database
+ *        version is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql840 The
+ *        database version is MySQL 8.4 and the patch version is 0. (Value:
+ *        "MYSQL_8_4_0")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -3152,6 +3257,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres15 The
  *        database version is PostgreSQL 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres16 The
+ *        database version is PostgreSQL 16. (Value: "POSTGRES_16")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -3406,6 +3513,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040 The
  *        database major version is MySQL 8.0 and the minor version is 40.
  *        (Value: "MYSQL_8_0_40")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 The
+ *        database version is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql840 The
+ *        database version is MySQL 8.4 and the patch version is 0. (Value:
+ *        "MYSQL_8_4_0")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -3418,6 +3530,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres15 The
  *        database version is PostgreSQL 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres16 The
+ *        database version is PostgreSQL 16. (Value: "POSTGRES_16")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -3591,7 +3705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *rootPassword;
 
 /**
- *  The status indicating if instance satisfiesPzs. Reserved for future use.
+ *  This status indicates whether the instance satisfies PZS. The status is
+ *  reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3666,6 +3781,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** If the instance state is SUSPENDED, the reason for the suspension. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReason;
+
+/** Output only. All database versions that are available for upgrade. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AvailableDatabaseVersion *> *upgradableDatabaseVersions;
 
 /**
  *  Output only. The dns name of the primary instance in a replication group.
@@ -5215,6 +5333,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        instance backup. (Value: "BACKUP_VOLUME")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Clone Clones a Cloud SQL
  *        instance. (Value: "CLONE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ClusterMaintenance Indicates
+ *        that the instance, its read replicas, and its cascading replicas are
+ *        in maintenance. Maintenance typically gets initiated on groups of
+ *        replicas first, followed by the primary instance. For each instance,
+ *        maintenance typically causes the instance to be unavailable for 1-3
+ *        minutes. (Value: "CLUSTER_MAINTENANCE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Create Creates a new Cloud
  *        SQL instance. (Value: "CREATE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_CreateClone Creates clone
@@ -5277,6 +5401,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        SQL instance. (Value: "RESTART")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_RestoreVolume Restores an
  *        instance backup. (Value: "RESTORE_VOLUME")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_SelfServiceMaintenance
+ *        Indicates that the instance (and any of its replicas) are currently in
+ *        maintenance. This is initiated as a self-service request by using SSM.
+ *        Maintenance typically causes the instance to be unavailable for 1-3
+ *        minutes. (Value: "SELF_SERVICE_MAINTENANCE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Snapshot Value "SNAPSHOT"
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecified
  *        Unknown operation type. (Value: "SQL_OPERATION_TYPE_UNSPECIFIED")
@@ -5289,8 +5418,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_StopReplica Stops
  *        replication on a Cloud SQL read replica instance. (Value:
  *        "STOP_REPLICA")
- *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Switchover Switches over to
- *        replica instance from primary. (Value: "SWITCHOVER")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Switchover Switches the
+ *        roles of the primary and replica pair. The target instance should be
+ *        the replica. (Value: "SWITCHOVER")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_SwitchoverToReplica Switches
+ *        a primary instance to a replica. This operation runs as part of a
+ *        switchover operation to the original primary instance. (Value:
+ *        "SWITCHOVER_TO_REPLICA")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_TruncateLog Truncates a
  *        general or slow log table in MySQL. (Value: "TRUNCATE_LOG")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Update Updates the settings
@@ -5625,6 +5759,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *failoverDrReplicaName;
 
+/**
+ *  Output only. If set, it indicates this instance has a private service access
+ *  (PSA) dns endpoint that is pointing to the primary instance of the cluster.
+ *  If this instance is the primary, the dns should be pointing to this
+ *  instance. After Switchover or Replica failover, this DNS endpoint points to
+ *  the promoted instance. This is a read-only field, returned to the user as
+ *  information. This field can exist even if a standalone instance does not yet
+ *  have a replica, or had a DR replica that was deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *psaWriteEndpoint;
+
 @end
 
 
@@ -5732,7 +5877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlActiveDirectoryConfig *activeDirectoryConfig;
 
 /**
- *  Specifies advance machine configuration for the instance relevant only for
+ *  Specifies advanced machine configuration for the instances relevant only for
  *  SQL Server.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_AdvancedMachineFeatures *advancedMachineFeatures;

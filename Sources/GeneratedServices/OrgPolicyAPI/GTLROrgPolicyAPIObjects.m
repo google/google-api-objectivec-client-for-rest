@@ -19,17 +19,6 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDe
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_ConstraintDefaultUnspecified = @"CONSTRAINT_DEFAULT_UNSPECIFIED";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_Deny = @"DENY";
 
-// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint.actionType
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_Allow = @"ALLOW";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_ActionType_Deny = @"DENY";
-
-// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint.methodTypes
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_MethodTypes_Create = @"CREATE";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_MethodTypes_Delete = @"DELETE";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_MethodTypes_MethodTypeUnspecified = @"METHOD_TYPE_UNSPECIFIED";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint_MethodTypes_Update = @"UPDATE";
-
 // GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.actionType
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Allow = @"ALLOW";
@@ -60,7 +49,7 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint
 @dynamic booleanConstraint, constraintDefault, descriptionProperty, displayName,
-         googleManagedConstraint, listConstraint, name, supportsDryRun;
+         listConstraint, name, supportsDryRun;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -75,25 +64,6 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 //
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintBooleanConstraint
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint
-//
-
-@implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintGoogleManagedConstraint
-@dynamic actionType, condition, methodTypes, resourceTypes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"methodTypes" : [NSString class],
-    @"resourceTypes" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

@@ -50,6 +50,8 @@
 @class GTLRCloudFilestore_Operation;
 @class GTLRCloudFilestore_Operation_Metadata;
 @class GTLRCloudFilestore_Operation_Response;
+@class GTLRCloudFilestore_ReplicaConfig;
+@class GTLRCloudFilestore_Replication;
 @class GTLRCloudFilestore_Schedule;
 @class GTLRCloudFilestore_Snapshot;
 @class GTLRCloudFilestore_Snapshot_Labels;
@@ -480,6 +482,81 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMo
  *  Value: "SQUASH_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_SquashModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_ReplicaConfig.state
+
+/**
+ *  The replica is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Creating;
+/**
+ *  The replica is experiencing an issue and might be unusable. You can get
+ *  further details from the `stateReasons` field of the `ReplicaConfig` object.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Failed;
+/**
+ *  The replica is ready.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Ready;
+/**
+ *  The replica is being removed.
+ *
+ *  Value: "REMOVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Removing;
+/**
+ *  State not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_ReplicaConfig.stateReasons
+
+/**
+ *  The peer instance is unreachable.
+ *
+ *  Value: "PEER_INSTANCE_UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_PeerInstanceUnreachable;
+/**
+ *  Reason not specified.
+ *
+ *  Value: "STATE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_StateReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_Replication.role
+
+/**
+ *  The instance is a Active replication member, functions as the replication
+ *  source instance.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Replication_Role_Active;
+/**
+ *  Role not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Replication_Role_RoleUnspecified;
+/**
+ *  The instance is a Standby replication member, functions as the replication
+ *  destination instance.
+ *
+ *  Value: "STANDBY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Replication_Role_Standby;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Schedule.day
@@ -1438,6 +1515,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
 
+/** Optional. Replicaition configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Replication *replication;
+
 /**
  *  Output only. Reserved for future use.
  *
@@ -2077,6 +2157,77 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Replica configuration for the instance.
+ */
+@interface GTLRCloudFilestore_ReplicaConfig : GTLRObject
+
+/**
+ *  Output only. The timestamp of the latest replication snapshot taken on the
+ *  active instance and is already replicated safely.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastActiveSyncTime;
+
+/** Optional. The peer instance. */
+@property(nonatomic, copy, nullable) NSString *peerInstance;
+
+/**
+ *  Output only. The replica state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Creating The replica is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Failed The replica is
+ *        experiencing an issue and might be unusable. You can get further
+ *        details from the `stateReasons` field of the `ReplicaConfig` object.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Ready The replica is
+ *        ready. (Value: "READY")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Removing The replica is
+ *        being removed. (Value: "REMOVING")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_StateUnspecified State not
+ *        set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Additional information about the replication state, if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stateReasons;
+
+@end
+
+
+/**
+ *  Replication specifications.
+ */
+@interface GTLRCloudFilestore_Replication : GTLRObject
+
+/**
+ *  Optional. Replicas configuration on the instance. For now, only a single
+ *  replica config is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_ReplicaConfig *> *replicas;
+
+/**
+ *  Optional. The replication role.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_Replication_Role_Active The instance is a
+ *        Active replication member, functions as the replication source
+ *        instance. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudFilestore_Replication_Role_RoleUnspecified Role not set.
+ *        (Value: "ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Replication_Role_Standby The instance is a
+ *        Standby replication member, functions as the replication destination
+ *        instance. (Value: "STANDBY")
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 

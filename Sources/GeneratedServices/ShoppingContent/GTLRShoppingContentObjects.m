@@ -5189,8 +5189,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          freeShippingThreshold, gender, googleProductCategory, gtin, identifier,
          identifierExists, imageLink, includedDestinations, installment,
          isBundle, itemGroupId, kind, lifestyleImageLinks, link, linkTemplate,
-         loyaltyProgram, material, maxEnergyEfficiencyClass, maxHandlingTime,
-         minEnergyEfficiencyClass, minHandlingTime, mobileLink,
+         loyaltyProgram, loyaltyPrograms, material, maxEnergyEfficiencyClass,
+         maxHandlingTime, minEnergyEfficiencyClass, minHandlingTime, mobileLink,
          mobileLinkTemplate, mpn, multipack, offerId, pattern, pause,
          pickupMethod, pickupSla, price, productDetails, productHeight,
          productHighlights, productLength, productTypes, productWeight,
@@ -5222,6 +5222,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"freeShippingThreshold" : [GTLRShoppingContent_FreeShippingThreshold class],
     @"includedDestinations" : [NSString class],
     @"lifestyleImageLinks" : [NSString class],
+    @"loyaltyPrograms" : [GTLRShoppingContent_LoyaltyProgram class],
     @"productDetails" : [GTLRShoppingContent_ProductProductDetail class],
     @"productHighlights" : [NSString class],
     @"productTypes" : [NSString class],
@@ -5259,7 +5260,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ProductCertification
-@dynamic certificationAuthority, certificationCode, certificationName;
+@dynamic certificationAuthority, certificationCode, certificationName,
+         certificationValue;
 @end
 
 

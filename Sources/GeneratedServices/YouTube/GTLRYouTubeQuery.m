@@ -1225,6 +1225,27 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @end
 
+@implementation GTLRYouTubeQuery_LiveChatMessagesTransition
+
+@dynamic identifier, status;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"youtube/v3/liveChat/messages/transition";
+  GTLRYouTubeQuery_LiveChatMessagesTransition *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRYouTube_LiveChatMessage class];
+  query.loggingName = @"youtube.liveChatMessages.transition";
+  return query;
+}
+
+@end
+
 @implementation GTLRYouTubeQuery_LiveChatModeratorsDelete
 
 @dynamic identifier;
@@ -2426,27 +2447,6 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
                        pathParameterNames:nil];
   query.channelId = channelId;
   query.loggingName = @"youtube.watermarks.unset";
-  return query;
-}
-
-@end
-
-@implementation GTLRYouTubeQuery_YoutubeV3LiveChatMessagesTransition
-
-@dynamic identifier, status;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"youtube/v3/liveChat/messages/transition";
-  GTLRYouTubeQuery_YoutubeV3LiveChatMessagesTransition *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRYouTube_LiveChatMessage class];
-  query.loggingName = @"youtube.youtube.v3.liveChat.messages.transition";
   return query;
 }
 

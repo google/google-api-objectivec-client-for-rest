@@ -9812,7 +9812,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  The status of a refresh cancellation. You can send cancel request to
+ *  The status of a refresh cancellation. You can send a cancel request to
  *  explicitly cancel one or multiple data source object refreshes.
  */
 @interface GTLRSheets_RefreshCancellationStatus : GTLRObject

@@ -121,6 +121,16 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_CheckUpgradeRequest
+//
+
+@implementation GTLRCloudComposer_CheckUpgradeRequest
+@dynamic imageVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_CheckUpgradeResponse
 //
 

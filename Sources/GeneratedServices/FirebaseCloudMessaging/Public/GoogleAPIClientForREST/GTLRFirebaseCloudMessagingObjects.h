@@ -808,9 +808,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /**
  *  Input only. Arbitrary key/value payload, which must be UTF-8 encoded. The
  *  key should not be a reserved word ("from", "message_type", or any word
- *  starting with "google" or "gcm"). When sending payloads containing only data
- *  fields to iOS devices, only normal priority (`"apns-priority": "5"`) is
- *  allowed in
+ *  starting with "google." or "gcm.notification."). When sending payloads
+ *  containing only data fields to iOS devices, only normal priority
+ *  (`"apns-priority": "5"`) is allowed in
  *  [`ApnsConfig`](/docs/reference/fcm/rest/v1/projects.messages#apnsconfig).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Message_Data *data;
@@ -850,9 +850,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /**
  *  Input only. Arbitrary key/value payload, which must be UTF-8 encoded. The
  *  key should not be a reserved word ("from", "message_type", or any word
- *  starting with "google" or "gcm"). When sending payloads containing only data
- *  fields to iOS devices, only normal priority (`"apns-priority": "5"`) is
- *  allowed in
+ *  starting with "google." or "gcm.notification."). When sending payloads
+ *  containing only data fields to iOS devices, only normal priority
+ *  (`"apns-priority": "5"`) is allowed in
  *  [`ApnsConfig`](/docs/reference/fcm/rest/v1/projects.messages#apnsconfig).
  *
  *  @note This class is documented as having more properties of NSString. Use @c

@@ -1774,7 +1774,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *renewalMethod;
 
 /**
- *  Controls whether the domain can be transferred to another registrar.
+ *  This is the desired transfer lock state for this `Registration`. A transfer
+ *  lock controls whether the domain can be transferred to another registrar.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_ManagementSettings_TransferLockState_Locked The

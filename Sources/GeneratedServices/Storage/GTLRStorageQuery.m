@@ -431,6 +431,25 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_BucketsGetStorageLayout
+
+@dynamic bucket, prefix;
+
++ (instancetype)queryWithBucket:(NSString *)bucket {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/storageLayout";
+  GTLRStorageQuery_BucketsGetStorageLayout *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_BucketStorageLayout class];
+  query.loggingName = @"storage.buckets.getStorageLayout";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_BucketsInsert
 
 @dynamic enableObjectRetention, predefinedAcl, predefinedDefaultObjectAcl,

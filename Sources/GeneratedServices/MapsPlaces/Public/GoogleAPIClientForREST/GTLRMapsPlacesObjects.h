@@ -23,6 +23,13 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStringRange;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStructuredFormat;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Circle;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContent;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationBusinessAvailabilityAttributesJustification;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustification;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedText;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedTextHighlightedTextRange;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions;
@@ -31,7 +38,9 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Place;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAccessibilityOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAreaSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriod;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint;
@@ -40,6 +49,7 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePaymentOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePlusCode;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1References;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Review;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions;
@@ -611,11 +621,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  Optional. Included primary Place type (for example, "restaurant" or
- *  "gas_station") from
- *  https://developers.google.com/maps/documentation/places/web-service/place-types.
- *  A Place is only returned if its primary type is included in this list. Up to
- *  5 values can be specified. If no types are specified, all Place types are
- *  returned.
+ *  "gas_station") in Place Types
+ *  (https://developers.google.com/maps/documentation/places/web-service/place-types),
+ *  or only `(regions)`, or only `(cities)`. A Place is only returned if its
+ *  primary type is included in this list. Up to 5 values can be specified. If
+ *  no types are specified, all Place types are returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedPrimaryTypes;
 
@@ -951,6 +961,165 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  A block of content that can be served individually.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock : GTLRObject
+
+/** Content related to the topic. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *content;
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. References that are related to this block of content.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1References *references;
+
+/** The topic of the content, for example "overview" or "restaurant". */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. Content that is contextual to the place query.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContent : GTLRObject
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. Justifications for the place.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification *> *justifications;
+
+/**
+ *  Information (including references) about photos of this place, contexual to
+ *  the place query.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Photo *> *photos;
+
+/** List of reviews about this place, contexual to the place query. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Review *> *reviews;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. Justifications for the place. Justifications answers the
+ *  question of why a place could interest an end user.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification : GTLRObject
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationBusinessAvailabilityAttributesJustification *businessAvailabilityAttributesJustification;
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustification *reviewJustification;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. BusinessAvailabilityAttributes justifications. This shows
+ *  some attributes a business has that could interest an end user.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationBusinessAvailabilityAttributesJustification : GTLRObject
+
+/**
+ *  If a place provides delivery.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *delivery;
+
+/**
+ *  If a place provides dine-in.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dineIn;
+
+/**
+ *  If a place provides takeout.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *takeout;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. User review justifications. This highlights a section of
+ *  the user review that would interest an end user. For instance, if the search
+ *  query is "firewood pizza", the review justification highlights the text
+ *  relevant to the search query.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustification : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedText *highlightedText;
+
+/** The review that the highlighted text is generated from. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1Review *review;
+
+@end
+
+
+/**
+ *  The text highlighted by the justification. This is a subset of the review
+ *  itself. The exact word to highlight is marked by the HighlightedTextRange.
+ *  There could be several words in the text being highlighted.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedText : GTLRObject
+
+/** The list of the ranges of the highlighted text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedTextHighlightedTextRange *> *highlightedTextRanges;
+
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  The range of highlighted text.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedTextHighlightedTextRange : GTLRObject
+
+/**
+ *  endIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  startIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
  *  Information about the EV Charge Station hosted in Place. Terminology follows
  *  https://afdc.energy.gov/fuels/electricity_infrastructure.html One port could
  *  charge one car at a time. One port has one or more connectors. One station
@@ -1217,6 +1386,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSNumber *allowsDogs;
 
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. AI-generated summary of the area that the place is in.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAreaSummary *areaSummary;
+
 /** A set of data provider that must be shown with this result. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution *> *attributions;
 
@@ -1302,6 +1478,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  information is updated regularly.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions *fuelOptions;
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. AI-generated summary of the place.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary *generativeSummary;
 
 /**
  *  Place is good for children.
@@ -1662,6 +1845,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. AI-generated summary of the area that the place is in.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAreaSummary : GTLRObject
+
+/**
+ *  Content blocks that compose the area summary. Each block has a separate
+ *  topic about the area.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *> *contentBlocks;
+
+@end
+
+
+/**
  *  Information about data providers of this place.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution : GTLRObject
@@ -1671,6 +1870,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** URI to the Place's data provider. */
 @property(nonatomic, copy, nullable) NSString *providerUri;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. AI-generated summary of the place.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary : GTLRObject
+
+/**
+ *  The detailed description of the place.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *descriptionProperty;
+
+/** The overview of the place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *overview;
+
+/** References that are used to generate the summary description. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1References *references;
 
 @end
 
@@ -1959,6 +2181,25 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. Reference that the generative content is related to.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1References : GTLRObject
+
+/**
+ *  The list of resource names of the referenced places. This name can be used
+ *  in other APIs that accept Place resource names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *places;
+
+/** Reviews that serve as references. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Review *> *reviews;
+
+@end
+
+
+/**
  *  Information about a review of a place.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1Review : GTLRObject
@@ -2181,14 +2422,18 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationRestriction *locationRestriction;
 
 /**
- *  Maximum number of results to return. It must be between 1 and 20,
- *  inclusively. The default is 20. If the number is unset, it falls back to the
- *  upper limit. If the number is set to negative or exceeds the upper limit, an
- *  INVALID_ARGUMENT error is returned.
+ *  Deprecated: Use `page_size` instead. The maximum number of results per page
+ *  that can be returned. If the number of available results is larger than
+ *  `max_result_count`, a `next_page_token` is returned which can be passed to
+ *  `page_token` to get the next page of results in subsequent requests. If 0 or
+ *  no value is provided, a default of 20 is used. The maximum value is 20;
+ *  values above 20 will be coerced to 20. Negative values will return an
+ *  INVALID_ARGUMENT error. If both `max_result_count` and `page_size` are
+ *  specified, `max_result_count` will be ignored.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxResultCount;
+@property(nonatomic, strong, nullable) NSNumber *maxResultCount GTLR_DEPRECATED;
 
 /**
  *  Filter out results whose average user rating is strictly less than this
@@ -2208,6 +2453,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *openNow;
+
+/**
+ *  Optional. The maximum number of results per page that can be returned. If
+ *  the number of available results is larger than `page_size`, a
+ *  `next_page_token` is returned which can be passed to `page_token` to get the
+ *  next page of results in subsequent requests. If 0 or no value is provided, a
+ *  default of 20 is used. The maximum value is 20; values above 20 will be set
+ *  to 20. Negative values will return an INVALID_ARGUMENT error. If both
+ *  `max_result_count` and `page_size` are specified, `max_result_count` will be
+ *  ignored.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous TextSearch call. Provide
+ *  this to retrieve the subsequent page. When paginating, all parameters other
+ *  than `page_token`, `page_size`, and `max_result_count` provided to
+ *  TextSearch must match the initial call that provided the page token.
+ *  Otherwise an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Used to restrict the search to places that are marked as certain price
@@ -2324,6 +2592,25 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Response proto for SearchText.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextResponse : GTLRObject
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. A list of contextual contents where each entry associates
+ *  to the corresponding place in the same index in the places field. The
+ *  contents that are relevant to the `text_query` in the request are preferred.
+ *  If the contextual content is not available for one of the places, it will
+ *  return non-contextual content. It will be empty only when the content is
+ *  unavailable for this place. This list should have as many entries as the
+ *  list of places if requested.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContent *> *contextualContents;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted or empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** A list of places that meet the user's text search criteria. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Place *> *places;

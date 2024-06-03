@@ -213,6 +213,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Schedule;
 @class GTLRDLP_GooglePrivacyDlpV2SchemaModifiedCadence;
 @class GTLRDLP_GooglePrivacyDlpV2SecretManagerCredential;
+@class GTLRDLP_GooglePrivacyDlpV2SecretsDiscoveryTarget;
 @class GTLRDLP_GooglePrivacyDlpV2SelectedInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2SensitivityScore;
 @class GTLRDLP_GooglePrivacyDlpV2StatisticalTable;
@@ -230,6 +231,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceLabels;
 @class GTLRDLP_GooglePrivacyDlpV2TableLocation;
 @class GTLRDLP_GooglePrivacyDlpV2TableOptions;
+@class GTLRDLP_GooglePrivacyDlpV2TableReference;
 @class GTLRDLP_GooglePrivacyDlpV2TaggedField;
 @class GTLRDLP_GooglePrivacyDlpV2ThrowError;
 @class GTLRDLP_GooglePrivacyDlpV2TimePartConfig;
@@ -450,13 +452,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_Comm
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudSqlProperties_DatabaseEngine_DatabaseEngineMysql;
 /**
- *  Cloud SQL for Postgres instance.
+ *  Cloud SQL for PostgreSQL instance.
  *
  *  Value: "DATABASE_ENGINE_POSTGRES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudSqlProperties_DatabaseEngine_DatabaseEnginePostgres;
 /**
- *  An engine that is not currently supported by SDP.
+ *  An engine that is not currently supported by Sensitive Data Protection.
  *
  *  Value: "DATABASE_ENGINE_UNKNOWN"
  */
@@ -870,9 +872,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Connection_State_C
 /**
  *  A configured connection that encountered errors during its last use. It will
  *  not be used again until it is set to AVAILABLE. If the resolution requires
- *  external action, then a request to set the status to AVAILABLE will mark
- *  this connection for use. Otherwise, any changes to the connection properties
- *  will automatically mark it as AVAILABLE.
+ *  external action, then the client must send a request to set the status to
+ *  AVAILABLE when the connection is ready for use. If the resolution doesn't
+ *  require external action, then any changes to the connection properties will
+ *  automatically mark it as AVAILABLE.
  *
  *  Value: "ERROR"
  */
@@ -980,9 +983,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Lik
 // GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage.event
 
 /**
- *  Changed one of the following profile metrics: * Data risk score *
- *  Sensitivity score * Resource visibility * Encryption type * Predicted
- *  infoTypes * Other infoTypes
+ *  One of the following profile metrics changed: Data risk score, Sensitivity
+ *  score, Resource visibility, Encryption type, Predicted infoTypes, Other
+ *  infoTypes
  *
  *  Value: "CHANGED_PROFILE"
  */
@@ -1235,13 +1238,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlC
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlConditions_DatabaseEngines_DatabaseEngineUnspecified;
 /**
- *  MySql database.
+ *  MySQL database.
  *
  *  Value: "MYSQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlConditions_DatabaseEngines_Mysql;
 /**
- *  PostGres database.
+ *  PostgreSQL database.
  *
  *  Value: "POSTGRES"
  */
@@ -1620,6 +1623,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  *  Value: "AUSTRALIA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia;
+/**
+ *  The infoType is typically used in Azerbaijan.
+ *
+ *  Value: "AZERBAIJAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Azerbaijan;
 /**
  *  The infoType is typically used in Belgium.
  *
@@ -2294,9 +2303,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification
 // GTLRDLP_GooglePrivacyDlpV2PubSubNotification.event
 
 /**
- *  Changed one of the following profile metrics: * Data risk score *
- *  Sensitivity score * Resource visibility * Encryption type * Predicted
- *  infoTypes * Other infoTypes
+ *  One of the following profile metrics changed: Data risk score, Sensitivity
+ *  score, Resource visibility, Encryption type, Predicted infoTypes, Other
+ *  infoTypes
  *
  *  Value: "CHANGED_PROFILE"
  */
@@ -2358,7 +2367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SchemaModifiedCade
 // GTLRDLP_GooglePrivacyDlpV2SchemaModifiedCadence.types
 
 /**
- *  New columns has appeared.
+ *  New columns have appeared.
  *
  *  Value: "NEW_COLUMNS"
  */
@@ -2493,8 +2502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_E
 // GTLRDLP_GooglePrivacyDlpV2TableDataProfile.resourceVisibility
 
 /**
- *  May contain public items. For example, if a GCS bucket has uniform bucket
- *  level access disabled, some objects inside it may be public.
+ *  May contain public items. For example, if a Cloud Storage bucket has uniform
+ *  bucket level access disabled, some objects inside it may be public.
  *
  *  Value: "RESOURCE_VISIBILITY_INCONCLUSIVE"
  */
@@ -3489,8 +3498,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Use IAM auth to connect. This requires the Cloud SQL IAM feature to be
- *  enabled on the instance, which is not the default for Cloud SQL. See
+ *  Use IAM authentication to connect. This requires the Cloud SQL IAM feature
+ *  to be enabled on the instance, which is not the default for Cloud SQL. See
  *  https://cloud.google.com/sql/docs/postgres/authentication and
  *  https://cloud.google.com/sql/docs/mysql/authentication.
  */
@@ -3525,10 +3534,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudSqlProperties_DatabaseEngine_DatabaseEngineMysql
  *        Cloud SQL for MySQL instance. (Value: "DATABASE_ENGINE_MYSQL")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudSqlProperties_DatabaseEngine_DatabaseEnginePostgres
- *        Cloud SQL for Postgres instance. (Value: "DATABASE_ENGINE_POSTGRES")
+ *        Cloud SQL for PostgreSQL instance. (Value: "DATABASE_ENGINE_POSTGRES")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudSqlProperties_DatabaseEngine_DatabaseEngineUnknown
- *        An engine that is not currently supported by SDP. (Value:
- *        "DATABASE_ENGINE_UNKNOWN")
+ *        An engine that is not currently supported by Sensitive Data
+ *        Protection. (Value: "DATABASE_ENGINE_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *databaseEngine;
 
@@ -4002,8 +4011,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Connection_State_Error A configured
  *        connection that encountered errors during its last use. It will not be
  *        used again until it is set to AVAILABLE. If the resolution requires
- *        external action, then a request to set the status to AVAILABLE will
- *        mark this connection for use. Otherwise, any changes to the connection
+ *        external action, then the client must send a request to set the status
+ *        to AVAILABLE when the connection is ready for use. If the resolution
+ *        doesn't require external action, then any changes to the connection
  *        properties will automatically mark it as AVAILABLE. (Value: "ERROR")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Connection_State_MissingCredentials DLP
  *        automatically created this connection during an initial scan, and it
@@ -4579,15 +4589,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DatabaseResourceReference : GTLRObject
 
+/** Required. Name of a database within the instance. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Required. Name of a database resource, for example, a table within the
+ *  database.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseResource;
+
 /**
  *  Required. The instance where this resource is located. For example: Cloud
- *  SQL's instance id.
+ *  SQL instance ID.
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
 /**
  *  Required. If within a project-level config, then this must match the
- *  config's project id.
+ *  config's project ID.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -4617,8 +4636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *instanceRegex;
 
 /**
- *  For organizations, if unset, will match all projects. Has no effect for Data
- *  Profile configurations created within a project.
+ *  For organizations, if unset, will match all projects. Has no effect for
+ *  configurations created within a project.
  */
 @property(nonatomic, copy, nullable) NSString *projectIdRegex;
 
@@ -4786,9 +4805,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ChangedProfile
- *        Changed one of the following profile metrics: * Data risk score *
- *        Sensitivity score * Resource visibility * Encryption type * Predicted
- *        infoTypes * Other infoTypes (Value: "CHANGED_PROFILE")
+ *        One of the following profile metrics changed: Data risk score,
+ *        Sensitivity score, Resource visibility, Encryption type, Predicted
+ *        infoTypes, Other infoTypes (Value: "CHANGED_PROFILE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ErrorChanged
  *        A user (non-internal) error occurred. (Value: "ERROR_CHANGED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_EventTypeUnspecified
@@ -5434,6 +5453,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AllOtherBigQueryTables *otherTables;
 
 /**
+ *  The table to scan. Discovery configurations including this can only include
+ *  one DiscoveryTarget (the DiscoveryTarget with this TableReference).
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TableReference *tableReference;
+
+/**
  *  A specific set of tables for this filter to apply to. A table collection
  *  must be specified in only one filter per config. If a table id or dataset is
  *  empty, Cloud DLP assumes all tables in that collection must be profiled.
@@ -5502,7 +5527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Data changes (non-schema changes) in Cloud SQL tables can't trigger
  *  reprofiling. If you set this field, profiles are refreshed at this frequency
- *  regardless of whether the underlying tables have changes. Defaults to never.
+ *  regardless of whether the underlying tables have changed. Defaults to never.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlGenerationCadence_RefreshFrequency_UpdateFrequencyDaily
@@ -5723,6 +5748,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  the one applied.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudSqlDiscoveryTarget *cloudSqlTarget;
+
+/**
+ *  Discovery target that looks for credentials and secrets stored in cloud
+ *  resource metadata and reports them as vulnerabilities to Security Command
+ *  Center. Only one target of this type is allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SecretsDiscoveryTarget *secretsTarget;
 
 @end
 
@@ -6638,6 +6670,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        The infoType is typically used in Argentina. (Value: "ARGENTINA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia
  *        The infoType is typically used in Australia. (Value: "AUSTRALIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Azerbaijan
+ *        The infoType is typically used in Azerbaijan. (Value: "AZERBAIJAN")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belgium
  *        The infoType is typically used in Belgium. (Value: "BELGIUM")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Brazil
@@ -7226,7 +7260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Contains a configuration to make api calls on a repeating basis. See
+ *  Contains a configuration to make API calls on a repeating basis. See
  *  https://cloud.google.com/sensitive-data-protection/docs/concepts-job-triggers
  *  to learn more.
  */
@@ -8611,9 +8645,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ChangedProfile
- *        Changed one of the following profile metrics: * Data risk score *
- *        Sensitivity score * Resource visibility * Encryption type * Predicted
- *        infoTypes * Other infoTypes (Value: "CHANGED_PROFILE")
+ *        One of the following profile metrics changed: Data risk score,
+ *        Sensitivity score, Resource visibility, Encryption type, Predicted
+ *        infoTypes, Other infoTypes (Value: "CHANGED_PROFILE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ErrorChanged A
  *        user (non-internal) error occurred. (Value: "ERROR_CHANGED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_EventTypeUnspecified
@@ -9090,7 +9124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeStats *> *infoTypeStats;
 
 /**
- *  Number of rows scanned post sampling and time filtering (Applicable for row
+ *  Number of rows scanned after sampling and time filtering (applicable for row
  *  based stores such as BigQuery).
  *
  *  Uses NSNumber of longLongValue.
@@ -9178,7 +9212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  How frequency to modify the profile when the table's schema is modified.
+ *  How frequently to modify the profile when the table's schema is modified.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2SchemaModifiedCadence : GTLRObject
 
@@ -9252,6 +9286,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Required. The username. */
 @property(nonatomic, copy, nullable) NSString *username;
 
+@end
+
+
+/**
+ *  Discovery target for credentials and secrets in cloud resource metadata.
+ *  This target does not include any filtering or frequency controls. Cloud DLP
+ *  will scan cloud resource metadata for secrets daily. No inspect template
+ *  should be included in the discovery config for a security benchmarks scan.
+ *  Instead, the built-in list of secrets and credentials infoTypes will be used
+ *  (see
+ *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference#credentials_and_secrets).
+ *  Credentials and secrets discovered will be reported as vulnerabilities to
+ *  Security Command Center.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2SecretsDiscoveryTarget : GTLRObject
 @end
 
 
@@ -9655,9 +9704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityInconclusive
- *        May contain public items. For example, if a GCS bucket has uniform
- *        bucket level access disabled, some objects inside it may be public.
- *        (Value: "RESOURCE_VISIBILITY_INCONCLUSIVE")
+ *        May contain public items. For example, if a Cloud Storage bucket has
+ *        uniform bucket level access disabled, some objects inside it may be
+ *        public. (Value: "RESOURCE_VISIBILITY_INCONCLUSIVE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityPublic
  *        Visible to any user. (Value: "RESOURCE_VISIBILITY_PUBLIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityRestricted
@@ -9758,6 +9807,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  from. No more than 3 may be provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *identifyingFields;
+
+@end
+
+
+/**
+ *  Message defining the location of a BigQuery table with the projectId
+ *  inferred from the parent project.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TableReference : GTLRObject
+
+/** Dataset ID of the table. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Name of the table. */
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 @end
 

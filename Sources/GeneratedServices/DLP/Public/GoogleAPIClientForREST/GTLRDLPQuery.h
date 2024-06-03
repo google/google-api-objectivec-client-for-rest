@@ -809,7 +809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_OrganizationsLocationsConnectionsSearch : GTLRDLPQuery
 
-/** Optional. * Supported fields/values - `state` - MISSING|AVAILABLE|ERROR */
+/** Optional. Supported field/value: - `state` - MISSING|AVAILABLE|ERROR */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Number of results per page, max 1000. */
@@ -4252,7 +4252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsConnectionsList : GTLRDLPQuery
 
-/** Optional. * Supported fields/values - `state` - MISSING|AVAILABLE|ERROR */
+/** Optional. Supported field/value: `state` - MISSING|AVAILABLE|ERROR */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Number of results per page, max 1000. */
@@ -4330,7 +4330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsConnectionsSearch : GTLRDLPQuery
 
-/** Optional. * Supported fields/values - `state` - MISSING|AVAILABLE|ERROR */
+/** Optional. Supported field/value: - `state` - MISSING|AVAILABLE|ERROR */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Number of results per page, max 1000. */

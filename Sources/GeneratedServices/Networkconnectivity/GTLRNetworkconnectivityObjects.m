@@ -53,6 +53,15 @@ NSString * const kGTLRNetworkconnectivity_Group_State_Rejecting = @"REJECTING";
 NSString * const kGTLRNetworkconnectivity_Group_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_Group_State_Updating = @"UPDATING";
 
+// GTLRNetworkconnectivity_Hub.policyMode
+NSString * const kGTLRNetworkconnectivity_Hub_PolicyMode_PolicyModeUnspecified = @"POLICY_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_Hub_PolicyMode_Preset = @"PRESET";
+
+// GTLRNetworkconnectivity_Hub.presetTopology
+NSString * const kGTLRNetworkconnectivity_Hub_PresetTopology_Mesh = @"MESH";
+NSString * const kGTLRNetworkconnectivity_Hub_PresetTopology_PresetTopologyUnspecified = @"PRESET_TOPOLOGY_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_Hub_PresetTopology_Star = @"STAR";
+
 // GTLRNetworkconnectivity_Hub.state
 NSString * const kGTLRNetworkconnectivity_Hub_State_Accepting  = @"ACCEPTING";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Active     = @"ACTIVE";
@@ -119,6 +128,7 @@ NSString * const kGTLRNetworkconnectivity_Route_State_StateUnspecified = @"STATE
 NSString * const kGTLRNetworkconnectivity_Route_State_Updating = @"UPDATING";
 
 // GTLRNetworkconnectivity_Route.type
+NSString * const kGTLRNetworkconnectivity_Route_Type_DynamicRoute = @"DYNAMIC_ROUTE";
 NSString * const kGTLRNetworkconnectivity_Route_Type_RouteTypeUnspecified = @"ROUTE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_Route_Type_VpcPrimarySubnet = @"VPC_PRIMARY_SUBNET";
 NSString * const kGTLRNetworkconnectivity_Route_Type_VpcSecondarySubnet = @"VPC_SECONDARY_SUBNET";
@@ -255,6 +265,24 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_AutoAccept
+//
+
+@implementation GTLRNetworkconnectivity_AutoAccept
+@dynamic autoAcceptProjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoAcceptProjects" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_Binding
 //
 
@@ -277,7 +305,22 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConfig
-@dynamic disableGlobalAccess, network, producerInstanceId, project, state;
+@dynamic disableGlobalAccess, network, producerInstanceId, project,
+         serviceAttachmentIpAddressMap, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_ConsumerPscConfig_ServiceAttachmentIpAddressMap
+//
+
+@implementation GTLRNetworkconnectivity_ConsumerPscConfig_ServiceAttachmentIpAddressMap
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -458,7 +501,8 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_Group
-@dynamic createTime, descriptionProperty, labels, name, state, uid, updateTime;
+@dynamic autoAccept, createTime, descriptionProperty, labels, name, routeTable,
+         state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -487,8 +531,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_Hub
-@dynamic createTime, descriptionProperty, labels, name, routeTables,
-         routingVpcs, spokeSummary, state, uniqueId, updateTime;
+@dynamic createTime, descriptionProperty, exportPsc, labels, name, policyMode,
+         presetTopology, routeTables, routingVpcs, spokeSummary, state,
+         uniqueId, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1020,11 +1065,41 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_NextHopInterconnectAttachment
+//
+
+@implementation GTLRNetworkconnectivity_NextHopInterconnectAttachment
+@dynamic siteToSiteDataTransfer, uri, vpcNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_NextHopRouterApplianceInstance
+//
+
+@implementation GTLRNetworkconnectivity_NextHopRouterApplianceInstance
+@dynamic siteToSiteDataTransfer, uri, vpcNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_NextHopVpcNetwork
 //
 
 @implementation GTLRNetworkconnectivity_NextHopVpcNetwork
 @dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_NextHopVPNTunnel
+//
+
+@implementation GTLRNetworkconnectivity_NextHopVPNTunnel
+@dynamic siteToSiteDataTransfer, uri, vpcNetwork;
 @end
 
 
@@ -1204,7 +1279,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_Route
 @dynamic createTime, descriptionProperty, ipCidrRange, labels, location, name,
-         nextHopVpcNetwork, spoke, state, type, uid, updateTime;
+         nextHopInterconnectAttachment, nextHopRouterApplianceInstance,
+         nextHopVpcNetwork, nextHopVpnTunnel, priority, spoke, state, type, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

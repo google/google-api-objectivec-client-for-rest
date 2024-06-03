@@ -76,6 +76,7 @@
 @class GTLRDatastream_SourceHierarchyDatasets;
 @class GTLRDatastream_SourceObjectIdentifier;
 @class GTLRDatastream_SpecificStartPosition;
+@class GTLRDatastream_SqlServerChangeTables;
 @class GTLRDatastream_SqlServerColumn;
 @class GTLRDatastream_SqlServerObjectIdentifier;
 @class GTLRDatastream_SqlServerProfile;
@@ -83,6 +84,7 @@
 @class GTLRDatastream_SqlServerSchema;
 @class GTLRDatastream_SqlServerSourceConfig;
 @class GTLRDatastream_SqlServerTable;
+@class GTLRDatastream_SqlServerTransactionLogs;
 @class GTLRDatastream_StaticServiceIpConnectivity;
 @class GTLRDatastream_Status;
 @class GTLRDatastream_Status_Details_Item;
@@ -2183,6 +2185,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Configuration to use Change Tables CDC read method.
+ */
+@interface GTLRDatastream_SqlServerChangeTables : GTLRObject
+@end
+
+
+/**
  *  SQLServer Column.
  */
 @interface GTLRDatastream_SqlServerColumn : GTLRObject
@@ -2309,6 +2318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_SqlServerSourceConfig : GTLRObject
 
+/** CDC reader reads from change tables. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerChangeTables *changeTables;
+
 /** SQLServer objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *excludeObjects;
 
@@ -2329,6 +2341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcTasks;
 
+/** CDC reader reads from transaction logs. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerTransactionLogs *transactionLogs;
+
 @end
 
 
@@ -2346,6 +2361,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Table name. */
 @property(nonatomic, copy, nullable) NSString *table;
 
+@end
+
+
+/**
+ *  Configuration to use Transaction Logs CDC read method.
+ */
+@interface GTLRDatastream_SqlServerTransactionLogs : GTLRObject
 @end
 
 

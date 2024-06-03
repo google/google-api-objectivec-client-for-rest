@@ -931,7 +931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @interface GTLRCloudBuild_Connection : GTLRObject
 
-/** Allows clients to store small amounts of arbitrary data. */
+/** Optional. Allows clients to store small amounts of arbitrary data. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Connection_Annotations *annotations;
 
 /** Configuration for connections to Bitbucket Cloud. */
@@ -946,9 +946,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  If disabled is set to true, functionality is disabled for this connection.
- *  Repository based API methods and webhooks processing for repositories in
- *  this connection will be disabled.
+ *  Optional. If disabled is set to true, functionality is disabled for this
+ *  connection. Repository based API methods and webhooks processing for
+ *  repositories in this connection will be disabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -999,7 +999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
- *  Allows clients to store small amounts of arbitrary data.
+ *  Optional. Allows clients to store small amounts of arbitrary data.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1245,16 +1245,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @interface GTLRCloudBuild_GitHubConfig : GTLRObject
 
 /**
- *  GitHub App installation id.
+ *  Optional. GitHub App installation id.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *appInstallationId;
 
 /**
- *  OAuth credential of the account that authorized the Cloud Build GitHub App.
- *  It is recommended to use a robot account instead of a human user account.
- *  The OAuth token must be tied to the Cloud Build GitHub App.
+ *  Optional. OAuth credential of the account that authorized the Cloud Build
+ *  GitHub App. It is recommended to use a robot account instead of a human user
+ *  account. The OAuth token must be tied to the Cloud Build GitHub App.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_OAuthCredential *authorizerCredential;
 
@@ -1320,28 +1320,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 /**
- *  Id of the GitHub App created from the manifest.
+ *  Optional. Id of the GitHub App created from the manifest.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *appId;
 
 /**
- *  ID of the installation of the GitHub App.
+ *  Optional. ID of the installation of the GitHub App.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *appInstallationId;
 
-/** The URL-friendly name of the GitHub App. */
+/** Optional. The URL-friendly name of the GitHub App. */
 @property(nonatomic, copy, nullable) NSString *appSlug;
 
 /** Required. The URI of the GitHub Enterprise host this connection is for. */
 @property(nonatomic, copy, nullable) NSString *hostUri;
 
 /**
- *  SecretManager resource containing the private key of the GitHub App,
- *  formatted as `projects/ * /secrets/ * /versions/ *`.
+ *  Optional. SecretManager resource containing the private key of the GitHub
+ *  App, formatted as `projects/ * /secrets/ * /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *privateKeySecretVersion;
 
@@ -1349,20 +1349,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *serverVersion;
 
 /**
- *  Configuration for using Service Directory to privately connect to a GitHub
- *  Enterprise server. This should only be set if the GitHub Enterprise server
- *  is hosted on-premises and not reachable by public internet. If this field is
- *  left empty, calls to the GitHub Enterprise server will be made over the
- *  public internet.
+ *  Optional. Configuration for using Service Directory to privately connect to
+ *  a GitHub Enterprise server. This should only be set if the GitHub Enterprise
+ *  server is hosted on-premises and not reachable by public internet. If this
+ *  field is left empty, calls to the GitHub Enterprise server will be made over
+ *  the public internet.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig *serviceDirectoryConfig;
 
-/** SSL certificate to use for requests to GitHub Enterprise. */
+/** Optional. SSL certificate to use for requests to GitHub Enterprise. */
 @property(nonatomic, copy, nullable) NSString *sslCa;
 
 /**
- *  SecretManager resource containing the webhook secret of the GitHub App,
- *  formatted as `projects/ * /secrets/ * /versions/ *`.
+ *  Optional. SecretManager resource containing the webhook secret of the GitHub
+ *  App, formatted as `projects/ * /secrets/ * /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
 
@@ -1379,8 +1379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, strong, nullable) GTLRCloudBuild_UserCredential *authorizerCredential;
 
 /**
- *  The URI of the GitLab Enterprise host this connection is for. If not
- *  specified, the default value is https://gitlab.com.
+ *  Optional. The URI of the GitLab Enterprise host this connection is for. If
+ *  not specified, the default value is https://gitlab.com.
  */
 @property(nonatomic, copy, nullable) NSString *hostUri;
 
@@ -1397,15 +1397,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *serverVersion;
 
 /**
- *  Configuration for using Service Directory to privately connect to a GitLab
- *  Enterprise server. This should only be set if the GitLab Enterprise server
- *  is hosted on-premises and not reachable by public internet. If this field is
- *  left empty, calls to the GitLab Enterprise server will be made over the
- *  public internet.
+ *  Optional. Configuration for using Service Directory to privately connect to
+ *  a GitLab Enterprise server. This should only be set if the GitLab Enterprise
+ *  server is hosted on-premises and not reachable by public internet. If this
+ *  field is left empty, calls to the GitLab Enterprise server will be made over
+ *  the public internet.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig *serviceDirectoryConfig;
 
-/** SSL certificate to use for requests to GitLab Enterprise. */
+/** Optional. SSL certificate to use for requests to GitLab Enterprise. */
 @property(nonatomic, copy, nullable) NSString *sslCa;
 
 /**
@@ -1708,8 +1708,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @interface GTLRCloudBuild_OAuthCredential : GTLRObject
 
 /**
- *  A SecretManager resource containing the OAuth token that authorizes the
- *  Cloud Build connection. Format: `projects/ * /secrets/ * /versions/ *`.
+ *  Optional. A SecretManager resource containing the OAuth token that
+ *  authorizes the Cloud Build connection. Format: `projects/ * /secrets/ *
+ *  /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *oauthTokenSecretVersion;
 
@@ -2471,7 +2472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @interface GTLRCloudBuild_Repository : GTLRObject
 
-/** Allows clients to store small amounts of arbitrary data. */
+/** Optional. Allows clients to store small amounts of arbitrary data. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Repository_Annotations *annotations;
 
 /**
@@ -2507,7 +2508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
- *  Allows clients to store small amounts of arbitrary data.
+ *  Optional. Allows clients to store small amounts of arbitrary data.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

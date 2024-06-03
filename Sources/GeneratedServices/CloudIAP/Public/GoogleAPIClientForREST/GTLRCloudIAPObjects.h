@@ -187,13 +187,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_AccessSettings : GTLRObject
 
-/** Settings to configure and enable allowed domains. */
+/** Optional. Settings to configure and enable allowed domains. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AllowedDomainsSettings *allowedDomainsSettings;
 
-/** Configuration to allow cross-origin requests via IAP. */
+/** Optional. Configuration to allow cross-origin requests via IAP. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_CorsSettings *corsSettings;
 
-/** GCIP claims and endpoint configurations for 3p identity providers. */
+/**
+ *  Optional. GCIP claims and endpoint configurations for 3p identity providers.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_GcipSettings *gcipSettings;
 
 /**
@@ -202,16 +204,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identitySources;
 
-/** Settings to configure IAP's OAuth behavior. */
+/** Optional. Settings to configure IAP's OAuth behavior. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_OAuthSettings *oauthSettings;
 
 /**
- *  Settings to configure Policy delegation for apps hosted in tenant projects.
- *  INTERNAL_ONLY.
+ *  Optional. Settings to configure Policy delegation for apps hosted in tenant
+ *  projects. INTERNAL_ONLY.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_PolicyDelegationSettings *policyDelegationSettings;
 
-/** Settings to configure reauthentication policies in IAP. */
+/** Optional. Settings to configure reauthentication policies in IAP. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_ReauthSettings *reauthSettings;
 
 /**
@@ -229,11 +231,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_AllowedDomainsSettings : GTLRObject
 
-/** List of trusted domains. */
+/** Optional. List of trusted domains. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
 
 /**
- *  Configuration for customers to opt in for the feature.
+ *  Optional. Configuration for customers to opt in for the feature.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -247,10 +249,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_ApplicationSettings : GTLRObject
 
-/** Customization for Access Denied page. */
+/** Optional. Customization for Access Denied page. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AccessDeniedPageSettings *accessDeniedPageSettings;
 
-/** Settings to configure attribute propagation. */
+/** Optional. Settings to configure attribute propagation. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AttributePropagationSettings *attributePropagationSettings;
 
 /**
@@ -259,7 +261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, copy, nullable) NSString *cookieDomain;
 
-/** Settings to configure IAP's behavior for a service mesh. */
+/** Optional. Settings to configure IAP's behavior for a service mesh. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_CsmSettings *csmSettings;
 
 @end
@@ -271,18 +273,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @interface GTLRCloudIAP_AttributePropagationSettings : GTLRObject
 
 /**
- *  Whether the provided attribute propagation settings should be evaluated on
- *  user requests. If set to true, attributes returned from the expression will
- *  be propagated in the set output credentials.
+ *  Optional. Whether the provided attribute propagation settings should be
+ *  evaluated on user requests. If set to true, attributes returned from the
+ *  expression will be propagated in the set output credentials.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enable;
 
 /**
- *  Raw string CEL expression. Must return a list of attributes. A maximum of 45
- *  attributes can be selected. Expressions can select different attribute types
- *  from `attributes`: `attributes.saml_attributes`,
+ *  Optional. Raw string CEL expression. Must return a list of attributes. A
+ *  maximum of 45 attributes can be selected. Expressions can select different
+ *  attribute types from `attributes`: `attributes.saml_attributes`,
  *  `attributes.iap_attributes`. The following functions are supported: - filter
  *  `.filter(, )`: Returns a subset of `` where `` is true for every item. - in
  *  ` in `: Returns true if `` contains ``. - selectByName `.selectByName()`:
@@ -298,9 +300,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  Which output credentials attributes selected by the CEL expression should be
- *  propagated in. All attributes will be fully duplicated in each selected
- *  output credential.
+ *  Optional. Which output credentials attributes selected by the CEL expression
+ *  should be propagated in. All attributes will be fully duplicated in each
+ *  selected output credential.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputCredentials;
 
@@ -529,11 +531,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *loginPageUri;
 
 /**
- *  GCIP tenant ids that are linked to the IAP resource. tenant_ids could be a
- *  string beginning with a number character to indicate authenticating with
- *  GCIP tenant flow, or in the format of _ to indicate authenticating with GCIP
- *  agent flow. If agent flow is used, tenant_ids should only contain one single
- *  element, while for tenant flow, tenant_ids can contain multiple elements.
+ *  Optional. GCIP tenant ids that are linked to the IAP resource. tenant_ids
+ *  could be a string beginning with a number character to indicate
+ *  authenticating with GCIP tenant flow, or in the format of _ to indicate
+ *  authenticating with GCIP agent flow. If agent flow is used, tenant_ids
+ *  should only contain one single element, while for tenant flow, tenant_ids
+ *  can contain multiple elements.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tenantIds;
 
@@ -583,10 +586,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_IapSettings : GTLRObject
 
-/** Top level wrapper for all access related setting in IAP */
+/** Optional. Top level wrapper for all access related setting in IAP */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AccessSettings *accessSettings;
 
-/** Top level wrapper for all application related settings in IAP */
+/** Optional. Top level wrapper for all application related settings in IAP */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_ApplicationSettings *applicationSettings;
 
 /** Required. The resource name of the IAP protected resource. */
@@ -718,7 +721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, copy, nullable) NSString *loginHint;
 
-/** List of client ids allowed to use IAP programmatically. */
+/** Optional. List of client ids allowed to use IAP programmatically. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *programmaticClients;
 
 @end
@@ -869,7 +872,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 /**
  *  Resource type. Types are defined in IAM's .service files. Valid values for
- *  type might be 'gce', 'gcs', 'project', 'account' etc.
+ *  type might be 'storage_buckets', 'compute_instances',
+ *  'resourcemanager_customers', 'billing_accounts', etc.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -882,7 +886,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @interface GTLRCloudIAP_ReauthSettings : GTLRObject
 
 /**
- *  Reauth session lifetime, how long before a user has to reauthenticate again.
+ *  Optional. Reauth session lifetime, how long before a user has to
+ *  reauthenticate again.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxAge;
 
@@ -903,8 +908,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
- *  How IAP determines the effective policy in cases of hierarchical policies.
- *  Policies are merged from higher in the hierarchy to lower in the hierarchy.
+ *  Optional. How IAP determines the effective policy in cases of hierarchical
+ *  policies. Policies are merged from higher in the hierarchy to lower in the
+ *  hierarchy.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIAP_ReauthSettings_PolicyType_Default This policy acts
@@ -1104,15 +1110,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_TunnelDestGroup : GTLRObject
 
-/** Unordered list. List of CIDRs that this group applies to. */
+/** Optional. Unordered list. List of CIDRs that this group applies to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *cidrs;
 
-/** Unordered list. List of FQDNs that this group applies to. */
+/** Optional. Unordered list. List of FQDNs that this group applies to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fqdns;
 
 /**
- *  Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
- *  within the project and contain only lower case letters (a-z) and dashes (-).
+ *  Identifier. Identifier for the TunnelDestGroup. Must be unique within the
+ *  project and contain only lower case letters (a-z) and dashes (-).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1120,9 +1126,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
- *  API requires a return message, but currently all response strings will fit
- *  in the status and public message. In the future, this response can hold AST
- *  validation info.
+ *  IAP Expression Linter endpoint returns empty response body.
  */
 @interface GTLRCloudIAP_ValidateIapAttributeExpressionResponse : GTLRObject
 @end

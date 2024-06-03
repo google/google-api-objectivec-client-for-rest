@@ -806,6 +806,44 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Returns the storage layout configuration for the specified bucket. Note that
+ *  this operation requires storage.objects.list permission.
+ *
+ *  Method: storage.buckets.getStorageLayout
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_BucketsGetStorageLayout : GTLRStorageQuery
+
+/** Name of a bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  An optional prefix used for permission check. It is useful when the caller
+ *  only has storage.objects.list permission under a specific prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
+/**
+ *  Fetches a @c GTLRStorage_BucketStorageLayout.
+ *
+ *  Returns the storage layout configuration for the specified bucket. Note that
+ *  this operation requires storage.objects.list permission.
+ *
+ *  @param bucket Name of a bucket.
+ *
+ *  @return GTLRStorageQuery_BucketsGetStorageLayout
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket;
+
+@end
+
+/**
  *  Creates a new bucket.
  *
  *  Method: storage.buckets.insert

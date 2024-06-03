@@ -510,6 +510,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_DeploymentManager"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_DeveloperConnect",
+            targets: ["GoogleAPIClientForREST_DeveloperConnect"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Dfareporting",
             targets: ["GoogleAPIClientForREST_Dfareporting"]
         ),
@@ -1907,6 +1911,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_DeploymentManager",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/DeploymentManager",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DeveloperConnect",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DeveloperConnect",
             publicHeadersPath: "Public"
         ),
         .target(

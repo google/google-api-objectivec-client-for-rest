@@ -13095,9 +13095,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_ErrorProto *replicationError;
 
 /**
- *  Optional. Specifies the interval at which the source table is polled for
- *  updates. It's Optional. If not specified, default replication interval would
- *  be applied.
+ *  Required. Specifies the interval at which the source table is polled for
+ *  updates.
  *
  *  Uses NSNumber of longLongValue.
  */

@@ -1648,6 +1648,54 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  ChangeQuorum is strictly restricted to databases that use dual region
+ *  instance configurations. Initiates a background operation to change quorum a
+ *  database from dual-region mode to single-region mode and vice versa. The
+ *  returned long-running operation will have a name of the format
+ *  `projects//instances//databases//operations/` and can be used to track
+ *  execution of the ChangeQuorum. The metadata field type is
+ *  ChangeQuorumMetadata. Authorization requires
+ *  `spanner.databases.changequorum` permission on the resource database.
+ *
+ *  Method: spanner.projects.instances.databases.changequorum
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesChangequorum : GTLRSpannerQuery
+
+/**
+ *  Required. Name of the database in which to apply the ChangeQuorum. Values
+ *  are of the form `projects//instances//databases/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  ChangeQuorum is strictly restricted to databases that use dual region
+ *  instance configurations. Initiates a background operation to change quorum a
+ *  database from dual-region mode to single-region mode and vice versa. The
+ *  returned long-running operation will have a name of the format
+ *  `projects//instances//databases//operations/` and can be used to track
+ *  execution of the ChangeQuorum. The metadata field type is
+ *  ChangeQuorumMetadata. Authorization requires
+ *  `spanner.databases.changequorum` permission on the resource database.
+ *
+ *  @param object The @c GTLRSpanner_ChangeQuorumRequest to include in the
+ *    query.
+ *  @param name Required. Name of the database in which to apply the
+ *    ChangeQuorum. Values are of the form `projects//instances//databases/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesChangequorum
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_ChangeQuorumRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Cloud Spanner database and starts to prepare it for serving.
  *  The returned long-running operation will have a name of the format
  *  `/operations/` and can be used to track preparation of the database. The
@@ -3521,7 +3569,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Required. The instance whose instance partitions should be listed. Values
- *  are of the form `projects//instances/`.
+ *  are of the form `projects//instances/`. Use `{instance} = '-'` to list
+ *  instance partitions for all Instances in a project, e.g.,
+ *  `projects/myproject/instances/-`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3531,7 +3581,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Lists all instance partitions for the given instance.
  *
  *  @param parent Required. The instance whose instance partitions should be
- *    listed. Values are of the form `projects//instances/`.
+ *    listed. Values are of the form `projects//instances/`. Use `{instance} =
+ *    '-'` to list instance partitions for all Instances in a project, e.g.,
+ *    `projects/myproject/instances/-`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsList
  *

@@ -167,7 +167,7 @@ NSString * const kGTLRVersionHistory_Platform_PlatformType_WinArm64 = @"WIN_ARM6
 //
 
 @implementation GTLRVersionHistory_Release
-@dynamic fraction, fractionGroup, name, serving, version;
+@dynamic fraction, fractionGroup, name, pinnable, serving, version;
 @end
 
 

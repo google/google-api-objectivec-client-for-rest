@@ -1094,6 +1094,33 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Changes the processing order of event edit rules on the specified stream.
+ *
+ *  Method: analyticsadmin.properties.dataStreams.eventEditRules.reorder
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsEventEditRulesReorder : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/123/dataStreams/456 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Changes the processing order of event edit rules on the specified stream.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest to include in
+ *    the query.
+ *  @param parent Required. Example format: properties/123/dataStreams/456
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsEventEditRulesReorder
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Lookup for a single DataStream.
  *
  *  Method: analyticsadmin.properties.dataStreams.get

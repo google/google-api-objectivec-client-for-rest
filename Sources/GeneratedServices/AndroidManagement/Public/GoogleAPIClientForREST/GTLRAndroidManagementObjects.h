@@ -62,6 +62,7 @@
 @class GTLRAndroidManagement_FilePulledEvent;
 @class GTLRAndroidManagement_FilePushedEvent;
 @class GTLRAndroidManagement_FreezePeriod;
+@class GTLRAndroidManagement_GoogleAuthenticationSettings;
 @class GTLRAndroidManagement_HardwareInfo;
 @class GTLRAndroidManagement_HardwareStatus;
 @class GTLRAndroidManagement_InstallConstraint;
@@ -763,6 +764,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Inst
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.userControlSettings
+
+/**
+ *  User control is allowed for the app. Kiosk apps can use this to allow user
+ *  control.
+ *
+ *  Value: "USER_CONTROL_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlAllowed;
+/**
+ *  User control is disallowed for the app. API_LEVEL is reported if the Android
+ *  version is less than 11.
+ *
+ *  Value: "USER_CONTROL_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlDisallowed;
+/**
+ *  Uses the default behaviour of the app to determine if user control is
+ *  allowed or disallowed. For most apps, user control is allowed by default,
+ *  but for some critical apps such as companion apps (extensionConfig set to
+ *  true), kiosk apps and other critical system apps, user control is
+ *  disallowed.
+ *
+ *  Value: "USER_CONTROL_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.workProfileWidgets
 
 /**
@@ -1178,6 +1207,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Active;
 /**
+ *  This is a financed device that has been "locked" by the financing agent.
+ *  This means certain policy settings have been applied which limit device
+ *  functionality until the device has been "unlocked" by the financing agent.
+ *  The device will continue to apply policy settings excluding those overridden
+ *  by the financing agent. When the device is "locked", the state is reported
+ *  in appliedState as DEACTIVATED_BY_DEVICE_FINANCE.
+ *
+ *  Value: "DEACTIVATED_BY_DEVICE_FINANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_DeactivatedByDeviceFinance;
+/**
  *  The device was deleted. This state is never returned by an API call, but is
  *  used in the final status report when the device acknowledges the deletion.
  *  If the device is deleted via the API call, this state is published to
@@ -1275,6 +1315,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_Ownership_Perso
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Active;
+/**
+ *  This is a financed device that has been "locked" by the financing agent.
+ *  This means certain policy settings have been applied which limit device
+ *  functionality until the device has been "unlocked" by the financing agent.
+ *  The device will continue to apply policy settings excluding those overridden
+ *  by the financing agent. When the device is "locked", the state is reported
+ *  in appliedState as DEACTIVATED_BY_DEVICE_FINANCE.
+ *
+ *  Value: "DEACTIVATED_BY_DEVICE_FINANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_DeactivatedByDeviceFinance;
 /**
  *  The device was deleted. This state is never returned by an API call, but is
  *  used in the final status report when the device acknowledges the deletion.
@@ -1710,6 +1761,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowP
  *  Value: "PERSONAL_USAGE_DISALLOWED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed;
+/**
+ *  Device is not associated with a single user, and thus both personal usage
+ *  and corporate identity authentication are not expected.
+ *
+ *  Value: "PERSONAL_USAGE_DISALLOWED_USERLESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowedUserless;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Enterprise.enabledNotificationTypes
@@ -1750,6 +1808,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
  *  Value: "USAGE_LOGS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
+
+/**
+ *  This value is not used.
+ *
+ *  Value: "GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified;
+/**
+ *  Google authentication is not required.
+ *
+ *  Value: "NOT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired;
+/**
+ *  User is required to be successfully authenticated by Google.
+ *
+ *  Value: "REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_Required;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_InstallConstraint.chargingConstraint
@@ -3498,6 +3578,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPers
  *  Value: "PERSONAL_USAGE_DISALLOWED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed;
+/**
+ *  Device is not associated with a single user, and thus both personal usage
+ *  and corporate identity authentication are not expected.
+ *
+ *  Value: "PERSONAL_USAGE_DISALLOWED_USERLESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowedUserless;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_StartLostModeStatus.status
@@ -4698,6 +4785,28 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PermissionGrant *> *permissionGrants;
 
 /**
+ *  Optional. Specifies whether user control is permitted for the app. User
+ *  control includes user actions like force-stopping and clearing app data.
+ *  Supported on Android 11 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlAllowed
+ *        User control is allowed for the app. Kiosk apps can use this to allow
+ *        user control. (Value: "USER_CONTROL_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlDisallowed
+ *        User control is disallowed for the app. API_LEVEL is reported if the
+ *        Android version is less than 11. (Value: "USER_CONTROL_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlSettingsUnspecified
+ *        Uses the default behaviour of the app to determine if user control is
+ *        allowed or disallowed. For most apps, user control is allowed by
+ *        default, but for some critical apps such as companion apps
+ *        (extensionConfig set to true), kiosk apps and other critical system
+ *        apps, user control is disallowed. (Value:
+ *        "USER_CONTROL_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userControlSettings;
+
+/**
  *  Specifies whether the app installed in the work profile is allowed to add
  *  widgets to the home screen.
  *
@@ -4963,7 +5072,7 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_BatchUsageLogEvents : GTLRObject
 
 /**
- *  The name of the device in the form
+ *  If present, the name of the device in the form
  *  ‘enterprises/{enterpriseId}/devices/{deviceId}’
  */
 @property(nonatomic, copy, nullable) NSString *device;
@@ -4981,7 +5090,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_UsageLogEvent *> *usageLogEvents;
 
 /**
- *  The resource name of the user that owns this device in the form
+ *  If present, the resource name of the user that owns this device in the form
  *  ‘enterprises/{enterpriseId}/users/{userId}’.
  */
 @property(nonatomic, copy, nullable) NSString *user;
@@ -5711,6 +5820,15 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Active The device is
  *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRAndroidManagement_Device_AppliedState_DeactivatedByDeviceFinance
+ *        This is a financed device that has been "locked" by the financing
+ *        agent. This means certain policy settings have been applied which
+ *        limit device functionality until the device has been "unlocked" by the
+ *        financing agent. The device will continue to apply policy settings
+ *        excluding those overridden by the financing agent. When the device is
+ *        "locked", the state is reported in appliedState as
+ *        DEACTIVATED_BY_DEVICE_FINANCE. (Value:
+ *        "DEACTIVATED_BY_DEVICE_FINANCE")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Deleted The device was
  *        deleted. This state is never returned by an API call, but is used in
  *        the final status report when the device acknowledges the deletion. If
@@ -5908,6 +6026,15 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Device_State_Active The device is active.
  *        (Value: "ACTIVE")
+ *    @arg @c kGTLRAndroidManagement_Device_State_DeactivatedByDeviceFinance
+ *        This is a financed device that has been "locked" by the financing
+ *        agent. This means certain policy settings have been applied which
+ *        limit device functionality until the device has been "unlocked" by the
+ *        financing agent. The device will continue to apply policy settings
+ *        excluding those overridden by the financing agent. When the device is
+ *        "locked", the state is reported in appliedState as
+ *        DEACTIVATED_BY_DEVICE_FINANCE. (Value:
+ *        "DEACTIVATED_BY_DEVICE_FINANCE")
  *    @arg @c kGTLRAndroidManagement_Device_State_Deleted The device was
  *        deleted. This state is never returned by an API call, but is used in
  *        the final status report when the device acknowledges the deletion. If
@@ -6446,6 +6573,10 @@ GTLR_DEPRECATED
  *        Personal usage is allowed (Value: "PERSONAL_USAGE_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed
  *        Personal usage is disallowed (Value: "PERSONAL_USAGE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowedUserless
+ *        Device is not associated with a single user, and thus both personal
+ *        usage and corporate identity authentication are not expected. (Value:
+ *        "PERSONAL_USAGE_DISALLOWED_USERLESS")
  */
 @property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
 
@@ -6536,6 +6667,9 @@ GTLR_DEPRECATED
  *  length of 100 characters.
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseDisplayName;
+
+/** Settings for Google-provided user authentication. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_GoogleAuthenticationSettings *googleAuthenticationSettings;
 
 /**
  *  An image displayed as a logo during device provisioning. Supported types
@@ -6689,6 +6823,35 @@ GTLR_DEPRECATED
  *  For example, {"month": 1,"date": 30}.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Date *startDate;
+
+@end
+
+
+/**
+ *  Contains settings for Google-provided user authentication.
+ */
+@interface GTLRAndroidManagement_GoogleAuthenticationSettings : GTLRObject
+
+/**
+ *  Output only. Whether users need to be authenticated by Google during the
+ *  enrollment process. IT admin can specify if Google authentication is enabled
+ *  for the enterprise for knowledge worker devices. This value can be set only
+ *  via the Google Admin Console. Google authentication can be used with
+ *  signin_url In the case where Google authentication is required and a
+ *  signin_url is specified, Google authentication will be launched before
+ *  signin_url.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified
+ *        This value is not used. (Value:
+ *        "GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired
+ *        Google authentication is not required. (Value: "NOT_REQUIRED")
+ *    @arg @c kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_Required
+ *        User is required to be successfully authenticated by Google. (Value:
+ *        "REQUIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *googleAuthenticationRequired;
 
 @end
 
@@ -9661,7 +9824,10 @@ GTLR_DEPRECATED
 /** The name of the enterprise in the form enterprises/{enterprise}. */
 @property(nonatomic, copy, nullable) NSString *enterprise;
 
-/** IMEI number of the GSM device. For example, A1000031212. */
+/**
+ *  For corporate-owned devices, IMEI number of the GSM device. For example,
+ *  A1000031212.
+ */
 @property(nonatomic, copy, nullable) NSString *imei;
 
 /**
@@ -9679,7 +9845,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *managementMode;
 
-/** MEID number of the CDMA device. For example, A00000292788E1. */
+/**
+ *  For corporate-owned devices, MEID number of the CDMA device. For example,
+ *  A00000292788E1.
+ */
 @property(nonatomic, copy, nullable) NSString *meid;
 
 /** The model of the device. For example, Asus Nexus 7. */
@@ -9703,7 +9872,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *ownership;
 
-/** The device serial number. */
+/** For corporate-owned devices, The device serial number. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
 @end
@@ -9860,6 +10029,10 @@ GTLR_DEPRECATED
  *        Personal usage is allowed (Value: "PERSONAL_USAGE_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed
  *        Personal usage is disallowed (Value: "PERSONAL_USAGE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowedUserless
+ *        Device is not associated with a single user, and thus both personal
+ *        usage and corporate identity authentication are not expected. (Value:
+ *        "PERSONAL_USAGE_DISALLOWED_USERLESS")
  */
 @property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
 

@@ -453,6 +453,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_AossRepository;
 /**
+ *  Replacement of AOSS_REPOSITORY.
+ *
+ *  Value: "ASSURED_OSS_REPOSITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_AssuredOssRepository;
+/**
  *  Unspecified mode.
  *
  *  Value: "MODE_UNSPECIFIED"
@@ -2326,9 +2332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. If this is true, aunspecified repo type will be treated as error.
- *  Is used for new repo types that don't have any specific fields. Right now is
- *  used by AOSS team when creating repos for customers.
+ *  Optional. If this is true, an unspecified repo type will be treated as error
+ *  rather than defaulting to standard.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2398,6 +2403,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *    @arg @c kGTLRArtifactRegistry_Repository_Mode_AossRepository An AOSS
  *        repository provides artifacts from AOSS upstreams. (Value:
  *        "AOSS_REPOSITORY")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Mode_AssuredOssRepository
+ *        Replacement of AOSS_REPOSITORY. (Value: "ASSURED_OSS_REPOSITORY")
  *    @arg @c kGTLRArtifactRegistry_Repository_Mode_ModeUnspecified Unspecified
  *        mode. (Value: "MODE_UNSPECIFIED")
  *    @arg @c kGTLRArtifactRegistry_Repository_Mode_RemoteRepository A remote
@@ -2661,34 +2668,25 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the file of the generic artifact to be uploaded. E.g.
- *  "example-file.zip" The filename should only include letters, numbers, and
- *  url safe characters, i.e. [a-zA-Z0-9-_.~\@].
+ *  `example-file.zip` The filename is limited to letters, numbers, and url safe
+ *  characters, i.e. [a-zA-Z0-9-_.~\@].
  */
 @property(nonatomic, copy, nullable) NSString *filename;
 
 /**
- *  Deprecated. Use package_id, version_id and filename instead. The resource
- *  name of the generic artifact. E.g.
- *  "projects/math/locations/us/repositories/operations/genericArtifacts/addition/1.0.0/add.py"
- */
-@property(nonatomic, copy, nullable) NSString *name GTLR_DEPRECATED;
-
-/**
  *  The ID of the package of the generic artifact. If the package does not
- *  exist, a new package will be created. E.g. "pkg-1" The package_id must start
- *  with a letter, end with a letter or number, only contain letters, numbers,
- *  hyphens and periods i.e. [a-z0-9-.], and cannot exceed 256 characters.
+ *  exist, a new package will be created. The `package_id` must start with a
+ *  letter, end with a letter or number, only contain letters, numbers, hyphens
+ *  and periods i.e. [a-z0-9-.], and cannot exceed 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *packageId;
 
 /**
  *  The ID of the version of the generic artifact. If the version does not
- *  exist, a new version will be created. E.g."1.0.0" The version_id must start
- *  and end with a letter or number, can only contain lowercase letters,
- *  numbers, hyphens and periods, i.e. [a-z0-9-.] and cannot exceed a total of
- *  128 characters. While "latest" is a well-known name for the latest version
- *  of a package, it is not yet supported and is reserved for future use.
- *  Creating a version called "latest" is not allowed.
+ *  exist, a new version will be created. The version_id must start and end with
+ *  a letter or number, can only contain lowercase letters, numbers, hyphens and
+ *  periods, i.e. [a-z0-9-.] and cannot exceed a total of 128 characters.
+ *  Creating a version called `latest` is not allowed.
  */
 @property(nonatomic, copy, nullable) NSString *versionId;
 
@@ -2945,7 +2943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  LINT.IfChange Virtual repository configuration.
+ *  Virtual repository configuration.
  */
 @interface GTLRArtifactRegistry_VirtualRepositoryConfig : GTLRObject
 

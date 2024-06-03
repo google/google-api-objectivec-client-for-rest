@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRConnectors_AccessCredentials;
+@class GTLRConnectors_AclInfo;
 @class GTLRConnectors_Action;
 @class GTLRConnectors_DailyCycle;
 @class GTLRConnectors_Date;
@@ -23,6 +24,7 @@
 @class GTLRConnectors_Entity;
 @class GTLRConnectors_Entity_Fields;
 @class GTLRConnectors_EntityType;
+@class GTLRConnectors_EntityWithACL;
 @class GTLRConnectors_ExecuteActionRequest_Parameters;
 @class GTLRConnectors_ExecuteActionResponse_Results_Item;
 @class GTLRConnectors_ExecuteSqlQueryResponse_Results_Item;
@@ -49,9 +51,11 @@
 @class GTLRConnectors_NotificationParameter;
 @class GTLRConnectors_PerSliSloEligibility;
 @class GTLRConnectors_PerSliSloEligibility_Eligibilities;
+@class GTLRConnectors_Principal;
 @class GTLRConnectors_ProvisionedResource;
 @class GTLRConnectors_Query;
 @class GTLRConnectors_QueryParameter;
+@class GTLRConnectors_Readers;
 @class GTLRConnectors_Reference;
 @class GTLRConnectors_ResultMetadata;
 @class GTLRConnectors_Schedule;
@@ -1703,6 +1707,19 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  AclInfo has a list of readers for a resource. This is defined as per the
+ *  below docs
+ *  https://cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1alpha/projects.locations.collections.dataStores.branches.documents#aclinfo
+ */
+@interface GTLRConnectors_AclInfo : GTLRObject
+
+/** A list of readers for a resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_Readers *> *readers;
+
+@end
+
+
+/**
  *  Action message contains metadata information about a single action present
  *  in the external system.
  */
@@ -1930,6 +1947,27 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 @property(nonatomic, copy, nullable) NSString *name;
 
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operations;
+
+@end
+
+
+/**
+ *  EntityWithACL refers to a single row of an entity type with ACL information.
+ */
+@interface GTLRConnectors_EntityWithACL : GTLRObject
+
+/** ACL information of the entity. */
+@property(nonatomic, strong, nullable) GTLRConnectors_AclInfo *aclInfo;
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Entity data in JSON format. */
+@property(nonatomic, copy, nullable) NSString *jsonData;
 
 @end
 
@@ -2843,6 +2881,30 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  Response message for EntityService.ListEntitiesWithACLs
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entitiesWithAcl" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRConnectors_ListEntitiesWithACLsResponse : GTLRCollectionObject
+
+/**
+ *  List containing entity rows.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_EntityWithACL *> *entitiesWithAcl;
+
+/** Next page token if more records are available. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for EntityService.ListEntityTypes
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3129,6 +3191,20 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  Principal is a user or group that has access to a resource.
+ */
+@interface GTLRConnectors_Principal : GTLRObject
+
+/** The group that has access to a resource. */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/** The user that has access to a resource. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
  *  Describes provisioned dataplane resources.
  */
 @interface GTLRConnectors_ProvisionedResource : GTLRObject
@@ -3294,6 +3370,17 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id value;
+
+@end
+
+
+/**
+ *  Readers is a list of principals that have read access to a resource.
+ */
+@interface GTLRConnectors_Readers : GTLRObject
+
+/** A list of principals that have read access to a resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_Principal *> *principals;
 
 @end
 

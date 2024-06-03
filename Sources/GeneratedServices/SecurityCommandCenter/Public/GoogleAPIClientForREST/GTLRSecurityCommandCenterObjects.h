@@ -7667,8 +7667,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
- *  A resource value config (RVC) is a mapping configuration of user's resources
- *  to resource values. Used in Attack path simulations.
+ *  A resource value configuration (RVC) is a mapping configuration of user's
+ *  resources to resource values. Used in Attack path simulations.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig : GTLRObject
 
@@ -7690,21 +7690,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *cloudProvider;
 
-/** Output only. Timestamp this resource value config was created. */
+/** Output only. Timestamp this resource value configuration was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Description of the resource value config.
+ *  Description of the resource value configuration.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Name for the resource value config */
+/** Name for the resource value configuration */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  List of resource labels to search for, evaluated with AND. E.g.
+ *  List of resource labels to search for, evaluated with AND. For example,
  *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
  *  resources with labels "key": "value" AND "env": "prod"
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
@@ -7713,7 +7713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  Apply resource_value only to resources that match resource_type.
- *  resource_type will be checked with "AND" of other resources. E.g.
+ *  resource_type will be checked with AND of other resources. For example,
  *  "storage.googleapis.com/Bucket" with resource_value "HIGH" will apply "HIGH"
  *  value only to "storage.googleapis.com/Bucket" resources.
  */
@@ -7737,9 +7737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *resourceValue;
 
 /**
- *  Project or folder to scope this config to. For example, "project/456" would
- *  apply this config only to resources in "project/456" scope will be checked
- *  with "AND" of other resources.
+ *  Project or folder to scope this configuration to. For example, "project/456"
+ *  would apply this configuration only to resources in "project/456" scope will
+ *  be checked with AND of other resources.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -7753,19 +7753,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  Required. Tag values combined with AND to check against. Values in the form
- *  "tagValues/123" E.g. [ "tagValues/123", "tagValues/456", "tagValues/789" ]
+ *  "tagValues/123" Example: [ "tagValues/123", "tagValues/456", "tagValues/789"
+ *  ]
  *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
 
-/** Output only. Timestamp this resource value config was last updated. */
+/**
+ *  Output only. Timestamp this resource value configuration was last updated.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  List of resource labels to search for, evaluated with AND. E.g.
+ *  List of resource labels to search for, evaluated with AND. For example,
  *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
  *  resources with labels "key": "value" AND "env": "prod"
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
@@ -10539,8 +10542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
- *  A resource value config (RVC) is a mapping configuration of user's resources
- *  to resource values. Used in Attack path simulations.
+ *  A resource value configuration (RVC) is a mapping configuration of user's
+ *  resources to resource values. Used in Attack path simulations.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig : GTLRObject
 
@@ -10562,21 +10565,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *cloudProvider;
 
-/** Output only. Timestamp this resource value config was created. */
+/** Output only. Timestamp this resource value configuration was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Description of the resource value config.
+ *  Description of the resource value configuration.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Name for the resource value config */
+/** Name for the resource value configuration */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  List of resource labels to search for, evaluated with AND. E.g.
+ *  List of resource labels to search for, evaluated with AND. For example,
  *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
  *  resources with labels "key": "value" AND "env": "prod"
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
@@ -10585,7 +10588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  Apply resource_value only to resources that match resource_type.
- *  resource_type will be checked with "AND" of other resources. E.g.
+ *  resource_type will be checked with AND of other resources. For example,
  *  "storage.googleapis.com/Bucket" with resource_value "HIGH" will apply "HIGH"
  *  value only to "storage.googleapis.com/Bucket" resources.
  */
@@ -10610,9 +10613,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *resourceValue;
 
 /**
- *  Project or folder to scope this config to. For example, "project/456" would
- *  apply this config only to resources in "project/456" scope will be checked
- *  with "AND" of other resources.
+ *  Project or folder to scope this configuration to. For example, "project/456"
+ *  would apply this configuration only to resources in "project/456" scope will
+ *  be checked with AND of other resources.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -10626,19 +10629,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  Required. Tag values combined with AND to check against. Values in the form
- *  "tagValues/123" E.g. [ "tagValues/123", "tagValues/456", "tagValues/789" ]
+ *  "tagValues/123" Example: [ "tagValues/123", "tagValues/456", "tagValues/789"
+ *  ]
  *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
 
-/** Output only. Timestamp this resource value config was last updated. */
+/**
+ *  Output only. Timestamp this resource value configuration was last updated.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  List of resource labels to search for, evaluated with AND. E.g.
+ *  List of resource labels to search for, evaluated with AND. For example,
  *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
  *  resources with labels "key": "value" AND "env": "prod"
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels

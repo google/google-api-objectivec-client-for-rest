@@ -67,6 +67,7 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres13 = @"POSTGRES_13";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 
@@ -2170,7 +2171,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig
-@dynamic backupFilePattern, databaseBackups;
+@dynamic backupFilePattern, databaseBackups, useDiffBackup;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

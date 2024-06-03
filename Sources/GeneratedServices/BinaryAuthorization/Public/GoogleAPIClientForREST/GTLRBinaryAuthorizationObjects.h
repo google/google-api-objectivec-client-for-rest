@@ -1955,11 +1955,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *  needs to successfully verify an image for this check to pass, so a single
  *  verified attestation found in any of
  *  `container_analysis_attestation_projects` is sufficient for the check to
- *  pass. When fetching Occurrences from Container Analysis, only
- *  `AttestationOccurrence` kinds are considered. In the future, additional
- *  Occurrence kinds may be added to the query. Maximum number of
- *  `container_analysis_attestation_projects` allowed in each
- *  `SimpleSigningAttestationCheck` is 10.
+ *  pass. A project ID must be used, not a project number. When fetching
+ *  Occurrences from Container Analysis, only `AttestationOccurrence` kinds are
+ *  considered. In the future, additional Occurrence kinds may be added to the
+ *  query. Maximum number of `container_analysis_attestation_projects` allowed
+ *  in each `SimpleSigningAttestationCheck` is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *containerAnalysisAttestationProjects;
 
@@ -2060,10 +2060,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
 
 /**
  *  Required. The Grafeas resource name of a Attestation.Authority Note, created
- *  by the user, in the format: `projects/ * /notes/ *`. This field may not be
- *  updated. An attestation by this attestor is stored as a Grafeas
- *  Attestation.Authority Occurrence that names a container image and that links
- *  to this Note. Grafeas is an external dependency.
+ *  by the user, in the format: `projects/[PROJECT_ID]/notes/ *`. This field may
+ *  not be updated. A project ID must be used, not a project number. An
+ *  attestation by this attestor is stored as a Grafeas Attestation.Authority
+ *  Occurrence that names a container image and that links to this Note. Grafeas
+ *  is an external dependency.
  */
 @property(nonatomic, copy, nullable) NSString *noteReference;
 

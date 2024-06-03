@@ -435,6 +435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Whether or not the release was available for version pinning.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pinnable;
+
+/**
  *  Timestamp interval of when the release was live. If end_time is unspecified,
  *  the release is currently live.
  */

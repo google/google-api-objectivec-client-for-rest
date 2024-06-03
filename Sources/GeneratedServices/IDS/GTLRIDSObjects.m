@@ -117,8 +117,8 @@ NSString * const kGTLRIDS_Endpoint_State_Updating         = @"UPDATING";
 
 @implementation GTLRIDS_Endpoint
 @dynamic createTime, descriptionProperty, endpointForwardingRule, endpointIp,
-         labels, name, network, severity, state, threatExceptions, trafficLogs,
-         updateTime;
+         labels, name, network, satisfiesPzi, satisfiesPzs, severity, state,
+         threatExceptions, trafficLogs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

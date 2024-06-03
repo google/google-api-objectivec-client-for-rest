@@ -806,10 +806,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
 @property(nonatomic, strong, nullable) NSNumber *antennaDowntilt;
 
 /**
- *  Peak antenna gain in dBi. This parameter is an integer with a value between
- *  -127 and +128 (dBi) inclusive.
+ *  Peak antenna gain in dBi. This parameter is a double with a value between
+ *  -127 and +128 (dBi) inclusive. Part of Release 2 to support floating-point
+ *  value
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *antennaGain;
 

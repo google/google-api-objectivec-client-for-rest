@@ -142,6 +142,21 @@ NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyToleran
 NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
 NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_InstallmentsBasePlanType.prorationMode
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ProrationMode_SubscriptionProrationModeChargeFullPriceImmediately = @"SUBSCRIPTION_PRORATION_MODE_CHARGE_FULL_PRICE_IMMEDIATELY";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ProrationMode_SubscriptionProrationModeChargeOnNextBillingDate = @"SUBSCRIPTION_PRORATION_MODE_CHARGE_ON_NEXT_BILLING_DATE";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ProrationMode_SubscriptionProrationModeUnspecified = @"SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_InstallmentsBasePlanType.renewalType
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_RenewalType_RenewalTypeRenewsWithCommitment = @"RENEWAL_TYPE_RENEWS_WITH_COMMITMENT";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_RenewalType_RenewalTypeRenewsWithoutCommitment = @"RENEWAL_TYPE_RENEWS_WITHOUT_COMMITMENT";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_RenewalType_RenewalTypeUnspecified = @"RENEWAL_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_InstallmentsBasePlanType.resubscribeState
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateActive = @"RESUBSCRIBE_STATE_ACTIVE";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateInactive = @"RESUBSCRIBE_STATE_INACTIVE";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateUnspecified = @"RESUBSCRIBE_STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings.eeaWithdrawalRightType
 NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
 NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
@@ -236,6 +251,7 @@ NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_
 NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateOnHold = @"SUBSCRIPTION_STATE_ON_HOLD";
 NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStatePaused = @"SUBSCRIPTION_STATE_PAUSED";
 NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStatePending = @"SUBSCRIPTION_STATE_PENDING";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStatePendingPurchaseCanceled = @"SUBSCRIPTION_STATE_PENDING_PURCHASE_CANCELED";
 NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateUnspecified = @"SUBSCRIPTION_STATE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings.eeaWithdrawalRightType
@@ -645,7 +661,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_AutoRenewingPlan
-@dynamic autoRenewEnabled, priceChangeDetails;
+@dynamic autoRenewEnabled, installmentDetails, priceChangeDetails;
 @end
 
 
@@ -655,8 +671,9 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_BasePlan
-@dynamic autoRenewingBasePlanType, basePlanId, offerTags, otherRegionsConfig,
-         prepaidBasePlanType, regionalConfigs, state;
+@dynamic autoRenewingBasePlanType, basePlanId, installmentsBasePlanType,
+         offerTags, otherRegionsConfig, prepaidBasePlanType, regionalConfigs,
+         state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1789,6 +1806,28 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_InstallmentPlan
+//
+
+@implementation GTLRAndroidPublisher_InstallmentPlan
+@dynamic initialCommittedPaymentsCount, pendingCancellation,
+         remainingCommittedPaymentsCount, subsequentCommittedPaymentsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_InstallmentsBasePlanType
+//
+
+@implementation GTLRAndroidPublisher_InstallmentsBasePlanType
+@dynamic accountHoldDuration, billingPeriodDuration, committedPaymentsCount,
+         gracePeriodDuration, prorationMode, renewalType, resubscribeState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_InternalAppSharingArtifact
 //
 
@@ -2241,6 +2280,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_PendingCancellation
+//
+
+@implementation GTLRAndroidPublisher_PendingCancellation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_PrepaidBasePlanType
 //
 
@@ -2452,6 +2500,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ReplacementCancellation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RestrictedPaymentCountries
+//
+
+@implementation GTLRAndroidPublisher_RestrictedPaymentCountries
+@dynamic regionCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionCodes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2699,7 +2765,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_Subscription
 @dynamic archived, basePlans, listings, packageName, productId,
-         taxAndComplianceSettings;
+         restrictedPaymentCountries, taxAndComplianceSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

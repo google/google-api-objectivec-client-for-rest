@@ -191,7 +191,7 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
 
 @implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsCreate
 
-@dynamic osPolicyAssignmentId, parent;
+@dynamic osPolicyAssignmentId, parent, requestId;
 
 + (instancetype)queryWithObject:(GTLROSConfig_OSPolicyAssignment *)object
                          parent:(NSString *)parent {
@@ -218,7 +218,7 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
 
 @implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsDelete
 
-@dynamic name;
+@dynamic name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -340,7 +340,7 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
 
 @implementation GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsPatch
 
-@dynamic name, updateMask;
+@dynamic allowMissing, name, requestId, updateMask;
 
 + (instancetype)queryWithObject:(GTLROSConfig_OSPolicyAssignment *)object
                            name:(NSString *)name {

@@ -304,6 +304,7 @@ NSString * const kGTLRWalletobjects_MediaRequestInfo_NotificationType_Start = @"
 NSString * const kGTLRWalletobjects_Message_MessageType_ExpirationNotification = @"expirationNotification";
 NSString * const kGTLRWalletobjects_Message_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRWalletobjects_Message_MessageType_Text   = @"text";
+NSString * const kGTLRWalletobjects_Message_MessageType_TextAndNotify = @"TEXT_AND_NOTIFY";
 
 // GTLRWalletobjects_OfferClass.multipleDevicesAndHoldersAllowedStatus
 NSString * const kGTLRWalletobjects_OfferClass_MultipleDevicesAndHoldersAllowedStatus_MultipleHolders = @"multipleHolders";
@@ -937,13 +938,13 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_EventTicketClass
-@dynamic allowMultipleUsersPerObject, callbackOptions, classTemplateInfo,
-         confirmationCodeLabel, countryCode, customConfirmationCodeLabel,
-         customGateLabel, customRowLabel, customSeatLabel, customSectionLabel,
-         dateTime, enableSmartTap, eventId, eventName, finePrint, gateLabel,
-         heroImage, hexBackgroundColor, homepageUri, identifier,
-         imageModulesData, infoModuleData, issuerName, kind, linksModuleData,
-         localizedIssuerName, locations, logo, messages,
+@dynamic allowMultipleUsersPerObject, appLinkData, callbackOptions,
+         classTemplateInfo, confirmationCodeLabel, countryCode,
+         customConfirmationCodeLabel, customGateLabel, customRowLabel,
+         customSeatLabel, customSectionLabel, dateTime, enableSmartTap, eventId,
+         eventName, finePrint, gateLabel, heroImage, hexBackgroundColor,
+         homepageUri, identifier, imageModulesData, infoModuleData, issuerName,
+         kind, linksModuleData, localizedIssuerName, locations, logo, messages,
          multipleDevicesAndHoldersAllowedStatus, redemptionIssuers, review,
          reviewStatus, rowLabel, seatLabel, sectionLabel, securityAnimation,
          textModulesData, venue, version, viewUnlockRequirement, wideLogo,
@@ -1157,12 +1158,12 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_FlightClass
-@dynamic allowMultipleUsersPerObject, boardingAndSeatingPolicy, callbackOptions,
-         classTemplateInfo, countryCode, destination, enableSmartTap,
-         flightHeader, flightStatus, heroImage, hexBackgroundColor, homepageUri,
-         identifier, imageModulesData, infoModuleData, issuerName, kind,
-         languageOverride, linksModuleData, localBoardingDateTime,
-         localEstimatedOrActualArrivalDateTime,
+@dynamic allowMultipleUsersPerObject, appLinkData, boardingAndSeatingPolicy,
+         callbackOptions, classTemplateInfo, countryCode, destination,
+         enableSmartTap, flightHeader, flightStatus, heroImage,
+         hexBackgroundColor, homepageUri, identifier, imageModulesData,
+         infoModuleData, issuerName, kind, languageOverride, linksModuleData,
+         localBoardingDateTime, localEstimatedOrActualArrivalDateTime,
          localEstimatedOrActualDepartureDateTime, localGateClosingDateTime,
          localizedIssuerName, localScheduledArrivalDateTime,
          localScheduledDepartureDateTime, locations, messages,
@@ -1328,8 +1329,8 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_GenericClass
-@dynamic callbackOptions, classTemplateInfo, enableSmartTap, identifier,
-         imageModulesData, linksModuleData, messages,
+@dynamic appLinkData, callbackOptions, classTemplateInfo, enableSmartTap,
+         identifier, imageModulesData, linksModuleData, messages,
          multipleDevicesAndHoldersAllowedStatus, redemptionIssuers,
          securityAnimation, textModulesData, viewUnlockRequirement;
 
@@ -1439,13 +1440,13 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_GiftCardClass
-@dynamic allowBarcodeRedemption, allowMultipleUsersPerObject, callbackOptions,
-         cardNumberLabel, classTemplateInfo, countryCode, enableSmartTap,
-         eventNumberLabel, heroImage, hexBackgroundColor, homepageUri,
-         identifier, imageModulesData, infoModuleData, issuerName, kind,
-         linksModuleData, localizedCardNumberLabel, localizedEventNumberLabel,
-         localizedIssuerName, localizedMerchantName, localizedPinLabel,
-         locations, merchantName, messages,
+@dynamic allowBarcodeRedemption, allowMultipleUsersPerObject, appLinkData,
+         callbackOptions, cardNumberLabel, classTemplateInfo, countryCode,
+         enableSmartTap, eventNumberLabel, heroImage, hexBackgroundColor,
+         homepageUri, identifier, imageModulesData, infoModuleData, issuerName,
+         kind, linksModuleData, localizedCardNumberLabel,
+         localizedEventNumberLabel, localizedIssuerName, localizedMerchantName,
+         localizedPinLabel, locations, merchantName, messages,
          multipleDevicesAndHoldersAllowedStatus, pinLabel, programLogo,
          redemptionIssuers, review, reviewStatus, securityAnimation,
          textModulesData, version, viewUnlockRequirement, wideProgramLogo,
@@ -1824,18 +1825,18 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_LoyaltyClass
 @dynamic accountIdLabel, accountNameLabel, allowMultipleUsersPerObject,
-         callbackOptions, classTemplateInfo, countryCode, discoverableProgram,
-         enableSmartTap, heroImage, hexBackgroundColor, homepageUri, identifier,
-         imageModulesData, infoModuleData, issuerName, kind, linksModuleData,
-         localizedAccountIdLabel, localizedAccountNameLabel,
-         localizedIssuerName, localizedProgramName, localizedRewardsTier,
-         localizedRewardsTierLabel, localizedSecondaryRewardsTier,
-         localizedSecondaryRewardsTierLabel, locations, messages,
-         multipleDevicesAndHoldersAllowedStatus, programLogo, programName,
-         redemptionIssuers, review, reviewStatus, rewardsTier, rewardsTierLabel,
-         secondaryRewardsTier, secondaryRewardsTierLabel, securityAnimation,
-         textModulesData, version, viewUnlockRequirement, wideProgramLogo,
-         wordMark;
+         appLinkData, callbackOptions, classTemplateInfo, countryCode,
+         discoverableProgram, enableSmartTap, heroImage, hexBackgroundColor,
+         homepageUri, identifier, imageModulesData, infoModuleData, issuerName,
+         kind, linksModuleData, localizedAccountIdLabel,
+         localizedAccountNameLabel, localizedIssuerName, localizedProgramName,
+         localizedRewardsTier, localizedRewardsTierLabel,
+         localizedSecondaryRewardsTier, localizedSecondaryRewardsTierLabel,
+         locations, messages, multipleDevicesAndHoldersAllowedStatus,
+         programLogo, programName, redemptionIssuers, review, reviewStatus,
+         rewardsTier, rewardsTierLabel, secondaryRewardsTier,
+         secondaryRewardsTierLabel, securityAnimation, textModulesData, version,
+         viewUnlockRequirement, wideProgramLogo, wordMark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2122,16 +2123,16 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_OfferClass
-@dynamic allowMultipleUsersPerObject, callbackOptions, classTemplateInfo,
-         countryCode, details, enableSmartTap, finePrint, helpUri, heroImage,
-         hexBackgroundColor, homepageUri, identifier, imageModulesData,
-         infoModuleData, issuerName, kind, linksModuleData, localizedDetails,
-         localizedFinePrint, localizedIssuerName, localizedProvider,
-         localizedShortTitle, localizedTitle, locations, messages,
-         multipleDevicesAndHoldersAllowedStatus, provider, redemptionChannel,
-         redemptionIssuers, review, reviewStatus, securityAnimation, shortTitle,
-         textModulesData, title, titleImage, version, viewUnlockRequirement,
-         wideTitleImage, wordMark;
+@dynamic allowMultipleUsersPerObject, appLinkData, callbackOptions,
+         classTemplateInfo, countryCode, details, enableSmartTap, finePrint,
+         helpUri, heroImage, hexBackgroundColor, homepageUri, identifier,
+         imageModulesData, infoModuleData, issuerName, kind, linksModuleData,
+         localizedDetails, localizedFinePrint, localizedIssuerName,
+         localizedProvider, localizedShortTitle, localizedTitle, locations,
+         messages, multipleDevicesAndHoldersAllowedStatus, provider,
+         redemptionChannel, redemptionIssuers, review, reviewStatus,
+         securityAnimation, shortTitle, textModulesData, title, titleImage,
+         version, viewUnlockRequirement, wideTitleImage, wordMark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2608,10 +2609,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_TransitClass
-@dynamic activationOptions, allowMultipleUsersPerObject, callbackOptions,
-         classTemplateInfo, countryCode, customCarriageLabel, customCoachLabel,
-         customConcessionCategoryLabel, customConfirmationCodeLabel,
-         customDiscountMessageLabel, customFareClassLabel, customFareNameLabel,
+@dynamic activationOptions, allowMultipleUsersPerObject, appLinkData,
+         callbackOptions, classTemplateInfo, countryCode, customCarriageLabel,
+         customCoachLabel, customConcessionCategoryLabel,
+         customConfirmationCodeLabel, customDiscountMessageLabel,
+         customFareClassLabel, customFareNameLabel,
          customOtherRestrictionsLabel, customPlatformLabel,
          customPurchaseFaceValueLabel, customPurchasePriceLabel,
          customPurchaseReceiptNumberLabel, customRouteRestrictionsDetailsLabel,

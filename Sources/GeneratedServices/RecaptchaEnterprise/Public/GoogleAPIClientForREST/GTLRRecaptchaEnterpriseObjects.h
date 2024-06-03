@@ -41,6 +41,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership;
@@ -49,6 +50,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreDistribution_ScoreBuckets;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics_ActionMetrics;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionData;
@@ -442,6 +444,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "UNEXPECTED_USAGE_PATTERNS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_UnexpectedUsagePatterns;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict.reasons
+
+/**
+ *  The provided phone number was invalid
+ *
+ *  Value: "INVALID_PHONE_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict_Reasons_InvalidPhoneNumber;
+/**
+ *  Default unspecified reason
+ *
+ *  Value: "SMS_TOLL_FRAUD_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict_Reasons_SmsTollFraudReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions.testingChallenge
@@ -1034,6 +1052,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  `projects/{project}/assessments/{assessment}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Assessment returned when a site key, a token, and a phone
+ *  number as `user_id` are provided. Account defender and SMS toll fraud
+ *  protection need to be enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment *phoneFraudAssessment;
 
 /**
  *  Optional. The private password leak verification field contains the
@@ -1802,6 +1827,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Assessment for Phone Fraud
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment : GTLRObject
+
+/** Output only. Assessment of this phone event for risk of SMS toll fraud. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict *smsTollFraudVerdict;
+
+@end
+
+
+/**
  *  Private password leak verification info.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification : GTLRObject
@@ -2087,6 +2123,25 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership *> *relatedAccountGroupMemberships;
+
+@end
+
+
+/**
+ *  Information about SMS toll fraud.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict : GTLRObject
+
+/** Output only. Reasons contributing to the SMS toll fraud verdict. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
+
+/**
+ *  Output only. Probability of an SMS event being fraudulent. Values are from
+ *  0.0 (lowest) to 1.0 (highest).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *risk;
 
 @end
 
