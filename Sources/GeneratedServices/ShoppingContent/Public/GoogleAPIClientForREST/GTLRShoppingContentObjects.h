@@ -13269,9 +13269,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  can use the '?' as an icon. * `tooltip-style-info` - the tooltip adds
  *  additional information fitting to the context, can use the 'i' as an icon. *
  *  `content-moderation` - marks the paragraph that explains how the issue was
- *  identified. * `new-element` - Present for new elements added to the
- *  pre-rendered content in the future. To make sure that a new content element
- *  does not break your style, you can hide everything with this class.
+ *  identified. * `list-intro` - marks the paragraph that contains an intro for
+ *  a list. This paragraph will be always followed by a list. * `new-element` -
+ *  Present for new elements added to the pre-rendered content in the future. To
+ *  make sure that a new content element does not break your style, you can hide
+ *  everything with this class.
  */
 @property(nonatomic, copy, nullable) NSString *prerenderedContent;
 

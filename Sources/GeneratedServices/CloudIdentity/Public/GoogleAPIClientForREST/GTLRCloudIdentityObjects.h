@@ -928,6 +928,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  LRO response metadata for InboundSamlSsoProfilesService.AddIdpCredential.
  */
 @interface GTLRCloudIdentity_AddIdpCredentialOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -983,6 +992,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  InboundSamlSsoProfilesService.CreateInboundSamlSsoProfile.
  */
 @interface GTLRCloudIdentity_CreateInboundSamlSsoProfileOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -3669,6 +3687,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  InboundSamlSsoProfilesService.UpdateInboundSamlSsoProfile.
  */
 @interface GTLRCloudIdentity_UpdateInboundSamlSsoProfileOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 

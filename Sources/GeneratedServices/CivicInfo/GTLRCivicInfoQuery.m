@@ -90,13 +90,12 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
 @dynamic address, electionId, officialOnly, productionDataOnly,
          returnAllAvailableData;
 
-+ (instancetype)queryWithAddress:(NSString *)address {
++ (instancetype)query {
   NSString *pathURITemplate = @"civicinfo/v2/voterinfo";
   GTLRCivicInfoQuery_ElectionsVoterInfoQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.address = address;
   query.expectedObjectClass = [GTLRCivicInfo_VoterInfoResponse class];
   query.loggingName = @"civicinfo.elections.voterInfoQuery";
   return query;

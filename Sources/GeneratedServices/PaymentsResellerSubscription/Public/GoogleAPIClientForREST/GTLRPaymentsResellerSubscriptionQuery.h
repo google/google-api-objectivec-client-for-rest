@@ -33,7 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  To retrieve the products that can be resold by the partner. It should be
- *  autenticated with a service account.
+ *  autenticated with a service account. - This API doesn't apply to YouTube
+ *  products currently.
  *
  *  Method: paymentsresellersubscription.partners.products.list
  *
@@ -82,7 +83,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse.
  *
  *  To retrieve the products that can be resold by the partner. It should be
- *  autenticated with a service account.
+ *  autenticated with a service account. - This API doesn't apply to YouTube
+ *  products currently.
  *
  *  @param parent Required. The parent, the partner that can resell. Format:
  *    partners/{partner}
@@ -137,8 +139,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  To retrieve the promotions, such as free trial, that can be used by the
- *  partner. It should be autenticated with a service account.
+ *  Retrieves the promotions, such as free trial, that can be used by the
+ *  partner. - This API doesn't apply to YouTube promotions currently. It should
+ *  be autenticated with a service account.
  *
  *  Method: paymentsresellersubscription.partners.promotions.list
  *
@@ -187,8 +190,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListPromotionsResponse.
  *
- *  To retrieve the promotions, such as free trial, that can be used by the
- *  partner. It should be autenticated with a service account.
+ *  Retrieves the promotions, such as free trial, that can be used by the
+ *  partner. - This API doesn't apply to YouTube promotions currently. It should
+ *  be autenticated with a service account.
  *
  *  @param parent Required. The parent, the partner that can resell. Format:
  *    partners/{partner}
@@ -461,10 +465,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Used by partners to revoke the pending cancellation of a subscription, which
- *  is currently in `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is
- *  already cancelled, the request will fail. It should be called directly by
- *  the partner using service accounts.
+ *  Revokes the pending cancellation of a subscription, which is currently in
+ *  `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is already
+ *  cancelled, the request will fail. - **This API doesn't apply to YouTube
+ *  subscriptions.** It should be called directly by the partner using service
+ *  accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.undoCancel
  *
@@ -484,10 +489,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionResponse.
  *
- *  Used by partners to revoke the pending cancellation of a subscription, which
- *  is currently in `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is
- *  already cancelled, the request will fail. It should be called directly by
- *  the partner using service accounts.
+ *  Revokes the pending cancellation of a subscription, which is currently in
+ *  `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is already
+ *  cancelled, the request will fail. - **This API doesn't apply to YouTube
+ *  subscriptions.** It should be called directly by the partner using service
+ *  accounts.
  *
  *  @param object The @c
  *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionRequest

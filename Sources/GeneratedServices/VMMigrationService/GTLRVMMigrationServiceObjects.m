@@ -354,7 +354,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_AwsSourceDetails
 @dynamic accessKeyCreds, awsRegion, error, inventorySecurityGroupNames,
-         inventoryTagList, migrationResourcesUserTags, publicIp, state;
+         inventoryTagList, migrationResourcesUserTags, networkInsights,
+         publicIp, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1620,6 +1621,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_NetworkInsights
+//
+
+@implementation GTLRVMMigrationService_NetworkInsights
+@dynamic sourceNetworkConfig, sourceNetworkTerraform;
 @end
 
 

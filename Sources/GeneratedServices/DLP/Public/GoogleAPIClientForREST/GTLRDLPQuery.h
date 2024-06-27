@@ -177,15 +177,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -204,10 +203,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -340,15 +338,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -363,10 +360,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -443,15 +439,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -469,10 +464,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -605,15 +599,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -628,10 +621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -800,6 +792,137 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
+ *  Create a Connection to an external data source.
+ *
+ *  Method: dlp.organizations.locations.connections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsConnectionsCreate : GTLRDLPQuery
+
+/**
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization): + Projects scope:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Organizations scope:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2Connection.
+ *
+ *  Create a Connection to an external data source.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateConnectionRequest to
+ *    include in the query.
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization): +
+ *    Projects scope: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *    Organizations scope: `organizations/`ORG_ID`/locations/`LOCATION_ID
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsConnectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateConnectionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a Connection.
+ *
+ *  Method: dlp.organizations.locations.connections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsConnectionsDelete : GTLRDLPQuery
+
+/**
+ *  Required. Resource name of the Connection to be deleted, in the format:
+ *  `projects/{project}/locations/{location}/connections/{connection}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Delete a Connection.
+ *
+ *  @param name Required. Resource name of the Connection to be deleted, in the
+ *    format:
+ *    `projects/{project}/locations/{location}/connections/{connection}`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsConnectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a Connection by name.
+ *
+ *  Method: dlp.organizations.locations.connections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsConnectionsGet : GTLRDLPQuery
+
+/**
+ *  Required. Resource name in the format:
+ *  `projects/{project}/locations/{location}/connections/{connection}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2Connection.
+ *
+ *  Get a Connection by name.
+ *
+ *  @param name Required. Resource name in the format:
+ *    `projects/{project}/locations/{location}/connections/{connection}`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsConnectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update a Connection.
+ *
+ *  Method: dlp.organizations.locations.connections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsConnectionsPatch : GTLRDLPQuery
+
+/**
+ *  Required. Resource name in the format:
+ *  `projects/{project}/locations/{location}/connections/{connection}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2Connection.
+ *
+ *  Update a Connection.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateConnectionRequest to
+ *    include in the query.
+ *  @param name Required. Resource name in the format:
+ *    `projects/{project}/locations/{location}/connections/{connection}`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsConnectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateConnectionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Searches for Connections in a parent.
  *
  *  Method: dlp.organizations.locations.connections.search
@@ -863,15 +986,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -890,10 +1012,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -1026,15 +1147,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1049,10 +1169,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -1122,11 +1241,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @interface GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsCreate : GTLRDLPQuery
 
 /**
- *  Required. Parent resource name. The format of this value is as follows:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID The following example `parent`
- *  string specifies a parent project with the identifier `example-project`, and
- *  specifies the `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization): + Projects scope:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Organizations scope:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID The following example
+ *  `parent` string specifies a parent project with the identifier
+ *  `example-project`, and specifies the `europe-west3` location for processing
+ *  data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1137,11 +1258,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name. The format of this value is as
- *    follows: `projects/`PROJECT_ID`/locations/`LOCATION_ID The following
- *    example `parent` string specifies a parent project with the identifier
- *    `example-project`, and specifies the `europe-west3` location for
- *    processing data: parent=projects/example-project/locations/europe-west3
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization): +
+ *    Projects scope: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *    Organizations scope: `organizations/`ORG_ID`/locations/`LOCATION_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDiscoveryConfigsCreate
  */
@@ -1362,12 +1486,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1396,12 +1520,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDlpJobsList
@@ -1432,15 +1555,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1458,10 +1580,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -1594,15 +1715,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1617,10 +1737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -1695,12 +1814,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1717,12 +1836,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsJobTriggersCreate
@@ -1859,12 +1977,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1891,12 +2009,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsJobTriggersList
@@ -2059,15 +2176,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2084,10 +2200,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -2219,12 +2334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2239,12 +2354,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesList
@@ -2452,15 +2566,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2477,10 +2590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -2612,12 +2724,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2632,12 +2744,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesList
@@ -2711,12 +2822,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2736,12 +2847,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsContentDeidentify
@@ -2771,12 +2881,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2796,12 +2906,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsContentInspect
@@ -2827,12 +2936,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2848,12 +2957,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsContentReidentify
@@ -2881,15 +2989,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2908,10 +3015,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -3044,15 +3150,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3067,10 +3172,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -3188,12 +3292,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3213,12 +3317,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsDlpJobsCreate
@@ -3359,12 +3462,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3393,12 +3496,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsDlpJobsList
@@ -3431,12 +3533,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3456,12 +3558,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsImageRedact
@@ -3489,15 +3590,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3515,10 +3615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -3651,15 +3750,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3674,10 +3772,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -3787,12 +3884,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3809,12 +3906,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersCreate
@@ -3951,12 +4047,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3983,12 +4079,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersList
@@ -4159,8 +4254,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @interface GTLRDLPQuery_ProjectsLocationsConnectionsCreate : GTLRDLPQuery
 
 /**
- *  Required. Parent resource name in the format:
- *  `projects/{project}/locations/{location}`.
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization): + Projects scope:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Organizations scope:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4171,8 +4268,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateConnectionRequest to
  *    include in the query.
- *  @param parent Required. Parent resource name in the format:
- *    `projects/{project}/locations/{location}`.
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization): +
+ *    Projects scope: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *    Organizations scope: `organizations/`ORG_ID`/locations/`LOCATION_ID
  *
  *  @return GTLRDLPQuery_ProjectsLocationsConnectionsCreate
  */
@@ -4386,12 +4485,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4411,12 +4510,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentDeidentify
@@ -4446,12 +4544,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4471,12 +4569,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentInspect
@@ -4502,12 +4599,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4523,12 +4620,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentReidentify
@@ -4556,15 +4652,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4583,10 +4678,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -4719,15 +4813,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4742,10 +4835,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -4815,11 +4907,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @interface GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsCreate : GTLRDLPQuery
 
 /**
- *  Required. Parent resource name. The format of this value is as follows:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID The following example `parent`
- *  string specifies a parent project with the identifier `example-project`, and
- *  specifies the `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization): + Projects scope:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Organizations scope:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID The following example
+ *  `parent` string specifies a parent project with the identifier
+ *  `example-project`, and specifies the `europe-west3` location for processing
+ *  data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4830,11 +4924,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDiscoveryConfigRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name. The format of this value is as
- *    follows: `projects/`PROJECT_ID`/locations/`LOCATION_ID The following
- *    example `parent` string specifies a parent project with the identifier
- *    `example-project`, and specifies the `europe-west3` location for
- *    processing data: parent=projects/example-project/locations/europe-west3
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization): +
+ *    Projects scope: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *    Organizations scope: `organizations/`ORG_ID`/locations/`LOCATION_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDiscoveryConfigsCreate
  */
@@ -5055,12 +5152,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5080,12 +5177,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsCreate
@@ -5292,12 +5388,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5326,12 +5422,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsList
@@ -5364,12 +5459,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5389,12 +5484,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsImageRedact
@@ -5422,15 +5516,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5448,10 +5541,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -5584,15 +5676,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5607,10 +5698,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -5720,12 +5810,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5742,12 +5832,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersCreate
@@ -5922,12 +6011,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5954,12 +6043,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersList
@@ -6122,15 +6210,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6147,10 +6234,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -6282,12 +6368,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6302,12 +6388,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesList
@@ -6515,15 +6600,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID + Organizations scope,
- *  location specified: `organizations/`ORG_ID`/locations/`LOCATION_ID +
- *  Organizations scope, no location specified (defaults to global):
- *  `organizations/`ORG_ID The following example `parent` string specifies a
- *  parent project with the identifier `example-project`, and specifies the
- *  `europe-west3` location for processing data:
- *  parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6540,10 +6624,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID + Organizations scope, location specified:
  *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
  *    location specified (defaults to global): `organizations/`ORG_ID The
  *    following example `parent` string specifies a parent project with the
@@ -6675,12 +6758,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
  *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *  + Projects scope, location specified:
- *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
- *  specified (defaults to global): `projects/`PROJECT_ID The following example
- *  `parent` string specifies a parent project with the identifier
- *  `example-project`, and specifies the `europe-west3` location for processing
- *  data: parent=projects/example-project/locations/europe-west3
+ *  + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *  LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6695,12 +6778,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
  *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
- *    + Projects scope, location specified:
- *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID The
- *    following example `parent` string specifies a parent project with the
- *    identifier `example-project`, and specifies the `europe-west3` location
- *    for processing data:
+ *    + Projects scope, location specified: `projects/`PROJECT_ID`/locations/`
+ *    LOCATION_ID + Projects scope, no location specified (defaults to global):
+ *    `projects/`PROJECT_ID The following example `parent` string specifies a
+ *    parent project with the identifier `example-project`, and specifies the
+ *    `europe-west3` location for processing data:
  *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsStoredInfoTypesList

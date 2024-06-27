@@ -593,7 +593,7 @@
 //
 
 @implementation GTLRStorage_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic kind, nextPageToken, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -615,7 +615,7 @@
 //
 
 @implementation GTLRStorage_GoogleLongrunningOperation
-@dynamic done, error, metadata, name, response;
+@dynamic done, error, kind, metadata, name, response, selfLink;
 @end
 
 

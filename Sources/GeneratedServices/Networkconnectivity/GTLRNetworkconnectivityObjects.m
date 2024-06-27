@@ -98,6 +98,10 @@ NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_Site
 NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_DefaultRouting = @"DEFAULT_ROUTING";
 NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_OtherRoutesUnspecified = @"OTHER_ROUTES_UNSPECIFIED";
 
+// GTLRNetworkconnectivity_PscConfig.producerInstanceLocation
+NSString * const kGTLRNetworkconnectivity_PscConfig_ProducerInstanceLocation_CustomResourceHierarchyLevels = @"CUSTOM_RESOURCE_HIERARCHY_LEVELS";
+NSString * const kGTLRNetworkconnectivity_PscConfig_ProducerInstanceLocation_ProducerInstanceLocationUnspecified = @"PRODUCER_INSTANCE_LOCATION_UNSPECIFIED";
+
 // GTLRNetworkconnectivity_PscConnection.errorType
 NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ConnectionErrorTypeUnspecified = @"CONNECTION_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorType_ErrorConsumerSide = @"ERROR_CONSUMER_SIDE";
@@ -305,8 +309,8 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConfig
-@dynamic disableGlobalAccess, network, producerInstanceId, project,
-         serviceAttachmentIpAddressMap, state;
+@dynamic consumerInstanceProject, disableGlobalAccess, network,
+         producerInstanceId, project, serviceAttachmentIpAddressMap, state;
 @end
 
 
@@ -620,10 +624,11 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedInterconnectAttachments
-@dynamic siteToSiteDataTransfer, uris, vpcNetwork;
+@dynamic includeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"includeImportRanges" : [NSString class],
     @"uris" : [NSString class]
   };
   return map;
@@ -638,10 +643,11 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedRouterApplianceInstances
-@dynamic instances, siteToSiteDataTransfer, vpcNetwork;
+@dynamic includeImportRanges, instances, siteToSiteDataTransfer, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"includeImportRanges" : [NSString class],
     @"instances" : [GTLRNetworkconnectivity_RouterApplianceInstance class]
   };
   return map;
@@ -656,11 +662,12 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedVpcNetwork
-@dynamic excludeExportRanges, uri;
+@dynamic excludeExportRanges, includeExportRanges, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"excludeExportRanges" : [NSString class]
+    @"excludeExportRanges" : [NSString class],
+    @"includeExportRanges" : [NSString class]
   };
   return map;
 }
@@ -674,10 +681,11 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedVpnTunnels
-@dynamic siteToSiteDataTransfer, uris, vpcNetwork;
+@dynamic includeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"includeImportRanges" : [NSString class],
     @"uris" : [NSString class]
   };
   return map;
@@ -1197,10 +1205,12 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_PscConfig
-@dynamic limit, subnetworks;
+@dynamic allowedGoogleProducersResourceHierarchyLevel, limit,
+         producerInstanceLocation, subnetworks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allowedGoogleProducersResourceHierarchyLevel" : [NSString class],
     @"subnetworks" : [NSString class]
   };
   return map;

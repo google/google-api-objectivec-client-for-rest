@@ -134,6 +134,143 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsCreate
+
+@dynamic addOnToken, courseId, itemId, postId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/announcements/{itemId}/addOnAttachments";
+  GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.announcements.addOnAttachments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsDelete
+
+@dynamic attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/announcements/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.announcements.addOnAttachments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsGet
+
+@dynamic attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/announcements/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.announcements.addOnAttachments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsList
+
+@dynamic courseId, itemId, pageSize, pageToken, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId {
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/announcements/{itemId}/addOnAttachments";
+  GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_ListAddOnAttachmentsResponse class];
+  query.loggingName = @"classroom.courses.announcements.addOnAttachments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsPatch
+
+@dynamic attachmentId, courseId, itemId, postId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId
+                   attachmentId:(NSString *)attachmentId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/announcements/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.announcements.addOnAttachments.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesAnnouncementsCreate
 
 @dynamic courseId;
@@ -210,6 +347,29 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
   query.identifier = identifier;
   query.expectedObjectClass = [GTLRClassroom_Announcement class];
   query.loggingName = @"classroom.courses.announcements.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesAnnouncementsGetAddOnContext
+
+@dynamic addOnToken, attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId {
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/announcements/{itemId}/addOnContext";
+  GTLRClassroomQuery_CoursesAnnouncementsGetAddOnContext *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnContext class];
+  query.loggingName = @"classroom.courses.announcements.getAddOnContext";
   return query;
 }
 
@@ -311,6 +471,205 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsCreate
+
+@dynamic addOnToken, courseId, itemId, postId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments";
+  GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.courseWork.addOnAttachments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsDelete
+
+@dynamic attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.courseWork.addOnAttachments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsGet
+
+@dynamic attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.courseWork.addOnAttachments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsList
+
+@dynamic courseId, itemId, pageSize, pageToken, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId {
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments";
+  GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_ListAddOnAttachmentsResponse class];
+  query.loggingName = @"classroom.courses.courseWork.addOnAttachments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsPatch
+
+@dynamic attachmentId, courseId, itemId, postId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId
+                   attachmentId:(NSString *)attachmentId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.courseWork.addOnAttachments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsGet
+
+@dynamic attachmentId, courseId, itemId, postId, submissionId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId
+                     submissionId:(NSString *)submissionId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId", @"submissionId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}/studentSubmissions/{submissionId}";
+  GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.submissionId = submissionId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachmentStudentSubmission class];
+  query.loggingName = @"classroom.courses.courseWork.addOnAttachments.studentSubmissions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsPatch
+
+@dynamic attachmentId, courseId, itemId, postId, submissionId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachmentStudentSubmission *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId
+                   attachmentId:(NSString *)attachmentId
+                   submissionId:(NSString *)submissionId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId", @"submissionId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}/studentSubmissions/{submissionId}";
+  GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.submissionId = submissionId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachmentStudentSubmission class];
+  query.loggingName = @"classroom.courses.courseWork.addOnAttachments.studentSubmissions.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesCourseWorkCreate
 
 @dynamic courseId;
@@ -392,6 +751,29 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesCourseWorkGetAddOnContext
+
+@dynamic addOnToken, attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId {
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{itemId}/addOnContext";
+  GTLRClassroomQuery_CoursesCourseWorkGetAddOnContext *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnContext class];
+  query.loggingName = @"classroom.courses.courseWork.getAddOnContext";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesCourseWorkList
 
 @dynamic courseId, courseWorkStates, orderBy, pageSize, pageToken;
@@ -413,6 +795,143 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
   query.courseId = courseId;
   query.expectedObjectClass = [GTLRClassroom_ListCourseWorkResponse class];
   query.loggingName = @"classroom.courses.courseWork.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsCreate
+
+@dynamic addOnToken, courseId, itemId, postId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments";
+  GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.courseWorkMaterials.addOnAttachments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsDelete
+
+@dynamic attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.courseWorkMaterials.addOnAttachments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsGet
+
+@dynamic attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.courseWorkMaterials.addOnAttachments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsList
+
+@dynamic courseId, itemId, pageSize, pageToken, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId {
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments";
+  GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_ListAddOnAttachmentsResponse class];
+  query.loggingName = @"classroom.courses.courseWorkMaterials.addOnAttachments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsPatch
+
+@dynamic attachmentId, courseId, itemId, postId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId
+                   attachmentId:(NSString *)attachmentId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.courseWorkMaterials.addOnAttachments.patch";
   return query;
 }
 
@@ -494,6 +1013,29 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
   query.identifier = identifier;
   query.expectedObjectClass = [GTLRClassroom_CourseWorkMaterial class];
   query.loggingName = @"classroom.courses.courseWorkMaterials.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkMaterialsGetAddOnContext
+
+@dynamic addOnToken, attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId {
+  NSArray *pathParams = @[
+    @"courseId", @"itemId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnContext";
+  GTLRClassroomQuery_CoursesCourseWorkMaterialsGetAddOnContext *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.itemId = itemId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnContext class];
+  query.loggingName = @"classroom.courses.courseWorkMaterials.getAddOnContext";
   return query;
 }
 
@@ -993,6 +1535,228 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
   query.identifier = identifier;
   query.expectedObjectClass = [GTLRClassroom_Course class];
   query.loggingName = @"classroom.courses.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesPostsAddOnAttachmentsCreate
+
+@dynamic addOnToken, courseId, itemId, postId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         postId:(NSString *)postId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"postId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/posts/{postId}/addOnAttachments";
+  GTLRClassroomQuery_CoursesPostsAddOnAttachmentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.postId = postId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.posts.addOnAttachments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesPostsAddOnAttachmentsDelete
+
+@dynamic attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"postId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesPostsAddOnAttachmentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.postId = postId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.posts.addOnAttachments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesPostsAddOnAttachmentsGet
+
+@dynamic attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId
+                     attachmentId:(NSString *)attachmentId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"postId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesPostsAddOnAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.postId = postId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.posts.addOnAttachments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesPostsAddOnAttachmentsList
+
+@dynamic courseId, itemId, pageSize, pageToken, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId {
+  NSArray *pathParams = @[
+    @"courseId", @"postId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/posts/{postId}/addOnAttachments";
+  GTLRClassroomQuery_CoursesPostsAddOnAttachmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.postId = postId;
+  query.expectedObjectClass = [GTLRClassroom_ListAddOnAttachmentsResponse class];
+  query.loggingName = @"classroom.courses.posts.addOnAttachments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesPostsAddOnAttachmentsPatch
+
+@dynamic attachmentId, courseId, itemId, postId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         postId:(NSString *)postId
+                   attachmentId:(NSString *)attachmentId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"postId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}";
+  GTLRClassroomQuery_CoursesPostsAddOnAttachmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.postId = postId;
+  query.attachmentId = attachmentId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachment class];
+  query.loggingName = @"classroom.courses.posts.addOnAttachments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsGet
+
+@dynamic attachmentId, courseId, itemId, postId, submissionId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId
+                     attachmentId:(NSString *)attachmentId
+                     submissionId:(NSString *)submissionId {
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"postId", @"submissionId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}/studentSubmissions/{submissionId}";
+  GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.postId = postId;
+  query.attachmentId = attachmentId;
+  query.submissionId = submissionId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachmentStudentSubmission class];
+  query.loggingName = @"classroom.courses.posts.addOnAttachments.studentSubmissions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsPatch
+
+@dynamic attachmentId, courseId, itemId, postId, submissionId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachmentStudentSubmission *)object
+                       courseId:(NSString *)courseId
+                         postId:(NSString *)postId
+                   attachmentId:(NSString *)attachmentId
+                   submissionId:(NSString *)submissionId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"attachmentId", @"courseId", @"postId", @"submissionId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}/studentSubmissions/{submissionId}";
+  GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.postId = postId;
+  query.attachmentId = attachmentId;
+  query.submissionId = submissionId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnAttachmentStudentSubmission class];
+  query.loggingName = @"classroom.courses.posts.addOnAttachments.studentSubmissions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesPostsGetAddOnContext
+
+@dynamic addOnToken, attachmentId, courseId, itemId, postId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId {
+  NSArray *pathParams = @[
+    @"courseId", @"postId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/posts/{postId}/addOnContext";
+  GTLRClassroomQuery_CoursesPostsGetAddOnContext *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.postId = postId;
+  query.expectedObjectClass = [GTLRClassroom_AddOnContext class];
+  query.loggingName = @"classroom.courses.posts.getAddOnContext";
   return query;
 }
 

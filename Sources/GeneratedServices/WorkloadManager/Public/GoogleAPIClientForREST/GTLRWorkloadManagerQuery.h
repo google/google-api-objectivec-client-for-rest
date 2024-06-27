@@ -251,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List the running result of a single Execution.
+ *  Lists the result of a single evaluation.
  *
  *  Method: workloadmanager.projects.locations.evaluations.executions.results.list
  *
@@ -281,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkloadManager_ListExecutionResultsResponse.
  *
- *  List the running result of a single Execution.
+ *  Lists the result of a single evaluation.
  *
  *  @param parent Required. The execution results. Format: {parent}/evaluations/
  *    * /executions/ * /results
@@ -415,7 +415,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsList : GTLRWorkloadManagerQuery
 
-/** Filtering results */
+/** Filter to be applied when listing the evaluation results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Hint for how to order the results */

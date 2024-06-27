@@ -82,8 +82,8 @@
 //
 
 @implementation GTLRFcmdata_GoogleFirebaseFcmDataV1beta1MessageOutcomePercents
-@dynamic delivered, droppedAppForceStopped, droppedDeviceInactive,
-         droppedTooManyPendingMessages, pending;
+@dynamic collapsed, delivered, droppedAppForceStopped, droppedDeviceInactive,
+         droppedTooManyPendingMessages, droppedTtlExpired, pending;
 @end
 
 

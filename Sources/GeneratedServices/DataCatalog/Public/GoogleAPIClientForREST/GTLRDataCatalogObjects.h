@@ -864,11 +864,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Seri
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_DataplexTransferStatusUnspecified;
 /**
  *  TagTemplate and its tags are auto-copied to Dataplex service. Visible in
- *  both services. Editable in DataCatalog, read-only in Dataplex.
+ *  both services. Editable in DataCatalog, read-only in Dataplex. Deprecated:
+ *  Individual TagTemplate migration is deprecated in favor of organization or
+ *  project wide TagTemplate migration opt-in.
  *
  *  Value: "MIGRATED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy.activatedPolicyTypes
@@ -3678,7 +3680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated
  *        TagTemplate and its tags are auto-copied to Dataplex service. Visible
  *        in both services. Editable in DataCatalog, read-only in Dataplex.
- *        (Value: "MIGRATED")
+ *        Deprecated: Individual TagTemplate migration is deprecated in favor of
+ *        organization or project wide TagTemplate migration opt-in. (Value:
+ *        "MIGRATED")
  */
 @property(nonatomic, copy, nullable) NSString *dataplexTransferStatus;
 

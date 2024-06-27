@@ -236,14 +236,22 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeUserOptionsConfigured = @"SIGNAL_TYPE_USER_OPTIONS_CONFIGURED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeVerboseErrorLogging = @"SIGNAL_TYPE_VERBOSE_ERROR_LOGGING";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp = @"SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisControlsV80 = @"SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation10 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation11 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_1";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation12 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_2";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation13 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_3";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_2_0";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4 = @"SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesHipaa = @"SIGNAL_TYPE_VIOLATES_HIPAA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001 = @"SIGNAL_TYPE_VIOLATES_ISO_27001";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001V2022 = @"SIGNAL_TYPE_VIOLATES_ISO_27001_V2022";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053 = @"SIGNAL_TYPE_VIOLATES_NIST_800_53";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053R5 = @"SIGNAL_TYPE_VIOLATES_NIST_800_53_R5";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10 = @"SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV321 = @"SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV40 = @"SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesSoc2V2017 = @"SIGNAL_TYPE_VIOLATES_SOC2_V2017";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeWeakRootPassword = @"SIGNAL_TYPE_WEAK_ROOT_PASSWORD";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData.state
@@ -360,14 +368,22 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeUserOptionsConfigured = @"SIGNAL_TYPE_USER_OPTIONS_CONFIGURED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeVerboseErrorLogging = @"SIGNAL_TYPE_VERBOSE_ERROR_LOGGING";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp = @"SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisControlsV80 = @"SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation10 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation11 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_1";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation12 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_2";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation13 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_3";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20 = @"SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_2_0";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4 = @"SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesHipaa = @"SIGNAL_TYPE_VIOLATES_HIPAA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001 = @"SIGNAL_TYPE_VIOLATES_ISO_27001";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001V2022 = @"SIGNAL_TYPE_VIOLATES_ISO_27001_V2022";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053 = @"SIGNAL_TYPE_VIOLATES_NIST_800_53";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053R5 = @"SIGNAL_TYPE_VIOLATES_NIST_800_53_R5";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10 = @"SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV321 = @"SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV40 = @"SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesSoc2V2017 = @"SIGNAL_TYPE_VIOLATES_SOC2_V2017";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakRootPassword = @"SIGNAL_TYPE_WEAK_ROOT_PASSWORD";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement.entitlementState
@@ -379,9 +395,20 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEnt
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_EntitlementTypeUnspecified = @"ENTITLEMENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Gemini = @"GEMINI";
 
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData.aggregationType
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_AggregationTypeUnspecified = @"AGGREGATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_Current = @"CURRENT";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_P95 = @"P95";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_P99 = @"P99";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_Peak = @"PEAK";
+
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData.metricType
-NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_InstancePeakCpuUtilisation = @"INSTANCE_PEAK_CPU_UTILISATION";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_CpuUtilization = @"CPU_UTILIZATION";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MemoryUtilization = @"MEMORY_UTILIZATION";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_NetworkConnections = @"NETWORK_CONNECTIONS";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_StorageUsedBytes = @"STORAGE_USED_BYTES";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_StorageUtilization = @"STORAGE_UTILIZATION";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError.errorType
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError_ErrorType_CancellationError = @"CANCELLATION_ERROR";
@@ -454,10 +481,6 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Sunday = @"SUN
 NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Thursday = @"THURSDAY";
 NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Tuesday = @"TUESDAY";
 NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"WEDNESDAY";
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -1487,7 +1510,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
          creationTime, currentState, customMetadata, entitlements,
          expectedState, identifier, instanceType, location,
          machineConfiguration, primaryResourceId, product, resourceContainer,
-         resourceName, updationTime, userLabels, userLabelSet;
+         resourceName, updationTime, userLabelSet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1498,20 +1521,6 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
     @"entitlements" : [GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_UserLabels
-//
-
-@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_UserLabels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
 }
 
 @end
@@ -1568,7 +1577,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData
-@dynamic metricTimestamp, metricType, resourceName, value;
+@dynamic aggregationType, metricType, observationTime, resourceName, value;
 @end
 
 
@@ -1628,6 +1637,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonTypedValue
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonTypedValue
+@dynamic boolValue, doubleValue, int64Value, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_StringRestrictions
 //
 
@@ -1660,6 +1679,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_SwitchoverClusterRequest
+//
+
+@implementation GTLRCloudAlloyDBAdmin_SwitchoverClusterRequest
+@dynamic requestId, validateOnly;
 @end
 
 
@@ -1718,5 +1747,3 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 }
 
 @end
-
-#pragma clang diagnostic pop

@@ -16,31 +16,48 @@
 
 @class GTLRAnalyticsHub_AuditConfig;
 @class GTLRAnalyticsHub_AuditLogConfig;
+@class GTLRAnalyticsHub_AvroConfig;
+@class GTLRAnalyticsHub_BigQueryConfig;
 @class GTLRAnalyticsHub_BigQueryDatasetSource;
 @class GTLRAnalyticsHub_Binding;
+@class GTLRAnalyticsHub_CloudStorageConfig;
 @class GTLRAnalyticsHub_DataExchange;
 @class GTLRAnalyticsHub_DataProvider;
 @class GTLRAnalyticsHub_DcrExchangeConfig;
+@class GTLRAnalyticsHub_DeadLetterPolicy;
 @class GTLRAnalyticsHub_DefaultExchangeConfig;
 @class GTLRAnalyticsHub_DestinationDataset;
 @class GTLRAnalyticsHub_DestinationDataset_Labels;
 @class GTLRAnalyticsHub_DestinationDatasetReference;
+@class GTLRAnalyticsHub_DestinationPubSubSubscription;
+@class GTLRAnalyticsHub_ExpirationPolicy;
 @class GTLRAnalyticsHub_Expr;
 @class GTLRAnalyticsHub_GetPolicyOptions;
+@class GTLRAnalyticsHub_GooglePubsubV1Subscription;
+@class GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels;
 @class GTLRAnalyticsHub_LinkedResource;
 @class GTLRAnalyticsHub_Listing;
+@class GTLRAnalyticsHub_NoWrapper;
+@class GTLRAnalyticsHub_OidcToken;
 @class GTLRAnalyticsHub_Operation_Metadata;
 @class GTLRAnalyticsHub_Operation_Response;
 @class GTLRAnalyticsHub_Policy;
 @class GTLRAnalyticsHub_Publisher;
+@class GTLRAnalyticsHub_PubSubTopicSource;
+@class GTLRAnalyticsHub_PubsubWrapper;
+@class GTLRAnalyticsHub_PushConfig;
+@class GTLRAnalyticsHub_PushConfig_Attributes;
 @class GTLRAnalyticsHub_RestrictedExportConfig;
 @class GTLRAnalyticsHub_RestrictedExportPolicy;
+@class GTLRAnalyticsHub_RetryPolicy;
 @class GTLRAnalyticsHub_SelectedResource;
 @class GTLRAnalyticsHub_SharingEnvironmentConfig;
 @class GTLRAnalyticsHub_Status;
 @class GTLRAnalyticsHub_Status_Details_Item;
 @class GTLRAnalyticsHub_Subscription;
 @class GTLRAnalyticsHub_Subscription_LinkedDatasetMap;
+@class GTLRAnalyticsHub_SubscriptionInfo;
+@class GTLRAnalyticsHub_TextConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -79,6 +96,141 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_Data
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_BigQueryConfig.state
+
+/**
+ *  The subscription can actively send messages to BigQuery
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_Active;
+/**
+ *  Cannot write to the destination because enforce_in_transit is set to true
+ *  and the destination locations are not in the allowed regions.
+ *
+ *  Value: "IN_TRANSIT_LOCATION_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_InTransitLocationRestriction;
+/**
+ *  Cannot write to the BigQuery table because it does not exist.
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_NotFound;
+/**
+ *  Cannot write to the BigQuery table because of permission denied errors. This
+ *  can happen if - Pub/Sub SA has not been granted the [appropriate BigQuery
+ *  IAM
+ *  permissions](https://cloud.google.com/pubsub/docs/create-subscription#assign_bigquery_service_account)
+ *  - bigquery.googleapis.com API is not enabled for the project
+ *  ([instructions](https://cloud.google.com/service-usage/docs/enable-disable))
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_PermissionDenied;
+/**
+ *  Cannot write to the BigQuery table due to a schema mismatch.
+ *
+ *  Value: "SCHEMA_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_SchemaMismatch;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_CloudStorageConfig.state
+
+/**
+ *  The subscription can actively send messages to Cloud Storage.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_Active;
+/**
+ *  Cannot write to the destination because enforce_in_transit is set to true
+ *  and the destination locations are not in the allowed regions.
+ *
+ *  Value: "IN_TRANSIT_LOCATION_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_InTransitLocationRestriction;
+/**
+ *  Cannot write to the Cloud Storage bucket because it does not exist.
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_NotFound;
+/**
+ *  Cannot write to the Cloud Storage bucket because of permission denied
+ *  errors.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_PermissionDenied;
+/**
+ *  Cannot write to the Cloud Storage bucket due to an incompatibility between
+ *  the topic schema and subscription settings.
+ *
+ *  Value: "SCHEMA_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_SchemaMismatch;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_DataExchange.discoveryType
+
+/**
+ *  The Data exchange/listing can be discovered in the 'Private' results list.
+ *
+ *  Value: "DISCOVERY_TYPE_PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePrivate;
+/**
+ *  The Data exchange/listing can be discovered in the 'Public' results list.
+ *
+ *  Value: "DISCOVERY_TYPE_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePublic;
+/**
+ *  Unspecified. Defaults to DISCOVERY_TYPE_PRIVATE.
+ *
+ *  Value: "DISCOVERY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_GooglePubsubV1Subscription.state
+
+/**
+ *  The subscription can actively receive messages
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_Active;
+/**
+ *  The subscription cannot receive messages because of an error with the
+ *  resource to which it pushes messages. See the more detailed error state in
+ *  the corresponding configuration.
+ *
+ *  Value: "RESOURCE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_ResourceError;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_Listing.categories
@@ -125,6 +277,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_Categories_Category
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Listing.discoveryType
+
+/**
+ *  The Data exchange/listing can be discovered in the 'Private' results list.
+ *
+ *  Value: "DISCOVERY_TYPE_PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypePrivate;
+/**
+ *  The Data exchange/listing can be discovered in the 'Public' results list.
+ *
+ *  Value: "DISCOVERY_TYPE_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypePublic;
+/**
+ *  Unspecified. Defaults to DISCOVERY_TYPE_PRIVATE.
+ *
+ *  Value: "DISCOVERY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Listing.resourceType
+
+/**
+ *  BigQuery Dataset Asset.
+ *
+ *  Value: "BIGQUERY_DATASET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_ResourceType_BigqueryDataset;
+/**
+ *  Pub/Sub Topic Asset.
+ *
+ *  Value: "PUBSUB_TOPIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_ResourceType_PubsubTopic;
+/**
+ *  Not specified.
+ *
+ *  Value: "SHARED_RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_ResourceType_SharedResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_Listing.state
 
 /**
@@ -140,6 +336,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_Active;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Subscription.resourceType
+
+/**
+ *  BigQuery Dataset Asset.
+ *
+ *  Value: "BIGQUERY_DATASET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_BigqueryDataset;
+/**
+ *  Pub/Sub Topic Asset.
+ *
+ *  Value: "PUBSUB_TOPIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_PubsubTopic;
+/**
+ *  Not specified.
+ *
+ *  Value: "SHARED_RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_SharedResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_Subscription.state
@@ -238,6 +456,127 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Configuration for writing message data in Avro format. Message payloads and
+ *  metadata will be written to files as an Avro binary.
+ */
+@interface GTLRAnalyticsHub_AvroConfig : GTLRObject
+
+/**
+ *  Optional. When true, the output Cloud Storage file will be serialized using
+ *  the topic schema, if it exists.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useTopicSchema;
+
+/**
+ *  Optional. When true, write the subscription name, message_id, publish_time,
+ *  attributes, and ordering_key as additional fields in the output. The
+ *  subscription name, message_id, and publish_time fields are put in their own
+ *  fields while all other message properties other than data (for example, an
+ *  ordering_key, if present) are added as entries in the attributes map.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeMetadata;
+
+@end
+
+
+/**
+ *  Configuration for a BigQuery subscription.
+ */
+@interface GTLRAnalyticsHub_BigQueryConfig : GTLRObject
+
+/**
+ *  Optional. When true and use_topic_schema is true, any fields that are a part
+ *  of the topic schema that are not part of the BigQuery table schema are
+ *  dropped when writing to BigQuery. Otherwise, the schemas must be kept in
+ *  sync and any messages with extra fields are not written and remain in the
+ *  subscription's backlog.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dropUnknownFields;
+
+/**
+ *  Optional. The service account to use to write to BigQuery. The subscription
+ *  creator or updater that specifies this field must have
+ *  `iam.serviceAccounts.actAs` permission on the service account. If not
+ *  specified, the Pub/Sub [service
+ *  agent](https://cloud.google.com/iam/docs/service-agents),
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Output only. An output-only field that indicates whether or not the
+ *  subscription can receive messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_Active The subscription can
+ *        actively send messages to BigQuery (Value: "ACTIVE")
+ *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_InTransitLocationRestriction
+ *        Cannot write to the destination because enforce_in_transit is set to
+ *        true and the destination locations are not in the allowed regions.
+ *        (Value: "IN_TRANSIT_LOCATION_RESTRICTION")
+ *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_NotFound Cannot write to
+ *        the BigQuery table because it does not exist. (Value: "NOT_FOUND")
+ *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_PermissionDenied Cannot
+ *        write to the BigQuery table because of permission denied errors. This
+ *        can happen if - Pub/Sub SA has not been granted the [appropriate
+ *        BigQuery IAM
+ *        permissions](https://cloud.google.com/pubsub/docs/create-subscription#assign_bigquery_service_account)
+ *        - bigquery.googleapis.com API is not enabled for the project
+ *        ([instructions](https://cloud.google.com/service-usage/docs/enable-disable))
+ *        (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_SchemaMismatch Cannot write
+ *        to the BigQuery table due to a schema mismatch. (Value:
+ *        "SCHEMA_MISMATCH")
+ *    @arg @c kGTLRAnalyticsHub_BigQueryConfig_State_StateUnspecified Default
+ *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. The name of the table to which to write data, of the form
+ *  {projectId}.{datasetId}.{tableId}
+ */
+@property(nonatomic, copy, nullable) NSString *table;
+
+/**
+ *  Optional. When true, use the BigQuery table's schema as the columns to write
+ *  to in BigQuery. `use_table_schema` and `use_topic_schema` cannot be enabled
+ *  at the same time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useTableSchema;
+
+/**
+ *  Optional. When true, use the topic's schema as the columns to write to in
+ *  BigQuery, if it exists. `use_topic_schema` and `use_table_schema` cannot be
+ *  enabled at the same time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useTopicSchema;
+
+/**
+ *  Optional. When true, write the subscription name, message_id, publish_time,
+ *  attributes, and ordering_key to additional columns in the table. The
+ *  subscription name, message_id, and publish_time fields are put in their own
+ *  columns while all other message properties (other than data) are written to
+ *  a JSON object in the attributes column.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeMetadata;
+
+@end
+
+
+/**
  *  A reference to a shared dataset. It is an existing BigQuery dataset with a
  *  collection of objects such as tables and views that you want to share with
  *  subscribers. When subscriber's subscribe to a listing, Analytics Hub creates
@@ -260,9 +599,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_RestrictedExportPolicy *restrictedExportPolicy;
 
 /**
- *  Optional. Resources in this dataset that are selectively shared. If this
- *  field is empty, then the entire dataset (all resources) are shared. This
- *  field is only valid for data clean room exchanges.
+ *  Optional. Resource in this dataset that is selectively shared. This field is
+ *  required for data clean room exchanges.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_SelectedResource *> *selectedResources;
 
@@ -356,6 +694,113 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Configuration for a Cloud Storage subscription.
+ */
+@interface GTLRAnalyticsHub_CloudStorageConfig : GTLRObject
+
+/**
+ *  Optional. If set, message data will be written to Cloud Storage in Avro
+ *  format.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_AvroConfig *avroConfig;
+
+/**
+ *  Required. User-provided name for the Cloud Storage bucket. The bucket must
+ *  be created by the user. The bucket name must be without any prefix like
+ *  "gs://". See the [bucket naming requirements]
+ *  (https://cloud.google.com/storage/docs/buckets#naming).
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Optional. User-provided format string specifying how to represent datetimes
+ *  in Cloud Storage filenames. See the [datetime format
+ *  guidance](https://cloud.google.com/pubsub/docs/create-cloudstorage-subscription#file_names).
+ */
+@property(nonatomic, copy, nullable) NSString *filenameDatetimeFormat;
+
+/**
+ *  Optional. User-provided prefix for Cloud Storage filename. See the [object
+ *  naming requirements](https://cloud.google.com/storage/docs/objects#naming).
+ */
+@property(nonatomic, copy, nullable) NSString *filenamePrefix;
+
+/**
+ *  Optional. User-provided suffix for Cloud Storage filename. See the [object
+ *  naming requirements](https://cloud.google.com/storage/docs/objects#naming).
+ *  Must not end in "/".
+ */
+@property(nonatomic, copy, nullable) NSString *filenameSuffix;
+
+/**
+ *  Optional. The maximum bytes that can be written to a Cloud Storage file
+ *  before a new file is created. Min 1 KB, max 10 GiB. The max_bytes limit may
+ *  be exceeded in cases where messages are larger than the limit.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxBytes;
+
+/**
+ *  Optional. The maximum duration that can elapse before a new Cloud Storage
+ *  file is created. Min 1 minute, max 10 minutes, default 5 minutes. May not
+ *  exceed the subscription's acknowledgement deadline.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxDuration;
+
+/**
+ *  Optional. The maximum number of messages that can be written to a Cloud
+ *  Storage file before a new file is created. Min 1000 messages.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxMessages;
+
+/**
+ *  Optional. The service account to use to write to Cloud Storage. The
+ *  subscription creator or updater that specifies this field must have
+ *  `iam.serviceAccounts.actAs` permission on the service account. If not
+ *  specified, the Pub/Sub [service
+ *  agent](https://cloud.google.com/iam/docs/service-agents),
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Output only. An output-only field that indicates whether or not the
+ *  subscription can receive messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_Active The subscription
+ *        can actively send messages to Cloud Storage. (Value: "ACTIVE")
+ *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_InTransitLocationRestriction
+ *        Cannot write to the destination because enforce_in_transit is set to
+ *        true and the destination locations are not in the allowed regions.
+ *        (Value: "IN_TRANSIT_LOCATION_RESTRICTION")
+ *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_NotFound Cannot write
+ *        to the Cloud Storage bucket because it does not exist. (Value:
+ *        "NOT_FOUND")
+ *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_PermissionDenied Cannot
+ *        write to the Cloud Storage bucket because of permission denied errors.
+ *        (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_SchemaMismatch Cannot
+ *        write to the Cloud Storage bucket due to an incompatibility between
+ *        the topic schema and subscription settings. (Value: "SCHEMA_MISMATCH")
+ *    @arg @c kGTLRAnalyticsHub_CloudStorageConfig_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. If set, message data will be written to Cloud Storage in text
+ *  format.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_TextConfig *textConfig;
+
+@end
+
+
+/**
  *  A data exchange is a container that lets you share data. Along with the
  *  descriptive information about the data exchange, it contains listings that
  *  reference shared datasets.
@@ -371,6 +816,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Type of discovery on the discovery page for all the listings under
+ *  this exchange. Updating this field also updates (overwrites) the
+ *  discovery_type field for all the listings under this exchange.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePrivate
+ *        The Data exchange/listing can be discovered in the 'Private' results
+ *        list. (Value: "DISCOVERY_TYPE_PRIVATE")
+ *    @arg @c kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePublic
+ *        The Data exchange/listing can be discovered in the 'Public' results
+ *        list. (Value: "DISCOVERY_TYPE_PUBLIC")
+ *    @arg @c kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypeUnspecified
+ *        Unspecified. Defaults to DISCOVERY_TYPE_PRIVATE. (Value:
+ *        "DISCOVERY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *discoveryType;
 
 /**
  *  Required. Human-readable display name of the data exchange. The display name
@@ -468,6 +931,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Dead lettering is done on a best effort basis. The same message might be
+ *  dead lettered multiple times. If validation on any of the fields fails at
+ *  subscription creation/updation, the create/update subscription request will
+ *  fail.
+ */
+@interface GTLRAnalyticsHub_DeadLetterPolicy : GTLRObject
+
+/**
+ *  Optional. The name of the topic to which dead letter messages should be
+ *  published. Format is `projects/{project}/topics/{topic}`.The Pub/Sub service
+ *  account associated with the enclosing subscription's parent project (i.e.,
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com) must have
+ *  permission to Publish() to this topic. The operation will fail if the topic
+ *  does not exist. Users should ensure that there is a subscription attached to
+ *  this topic since messages published to a topic with no subscriptions are
+ *  lost.
+ */
+@property(nonatomic, copy, nullable) NSString *deadLetterTopic;
+
+/**
+ *  Optional. The maximum number of delivery attempts for any message. The value
+ *  must be between 5 and 100. The number of delivery attempts is defined as 1 +
+ *  (the sum of number of NACKs and number of times the acknowledgement deadline
+ *  has been exceeded for the message). A NACK is any call to ModifyAckDeadline
+ *  with a 0 deadline. Note that client libraries may automatically extend
+ *  ack_deadlines. This field will be honored on a best effort basis. If this
+ *  parameter is 0, a default value of 5 is used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDeliveryAttempts;
+
+@end
+
+
+/**
  *  Default Analytics Hub data exchange, used for secured data sharing.
  */
 @interface GTLRAnalyticsHub_DefaultExchangeConfig : GTLRObject
@@ -545,12 +1044,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Defines the destination Pub/Sub subscription.
+ */
+@interface GTLRAnalyticsHub_DestinationPubSubSubscription : GTLRObject
+
+/** Required. Destination Pub/Sub subscription resource. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_GooglePubsubV1Subscription *pubsubSubscription;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAnalyticsHub_Empty : GTLRObject
+@end
+
+
+/**
+ *  A policy that specifies the conditions for resource expiration (i.e.,
+ *  automatic resource deletion).
+ */
+@interface GTLRAnalyticsHub_ExpirationPolicy : GTLRObject
+
+/**
+ *  Optional. Specifies the "time-to-live" duration for an associated resource.
+ *  The resource expires if it is not active for a period of `ttl`. The
+ *  definition of "activity" depends on the type of the associated resource. The
+ *  minimum and maximum allowed values for `ttl` depend on the type of the
+ *  associated resource, as well. If `ttl` is not set, the associated resource
+ *  never expires.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
 @end
 
 
@@ -642,6 +1171,207 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  A subscription resource. If none of `push_config`, `bigquery_config`, or
+ *  `cloud_storage_config` is set, then the subscriber will pull and ack
+ *  messages using API methods. At most one of these fields may be set.
+ */
+@interface GTLRAnalyticsHub_GooglePubsubV1Subscription : GTLRObject
+
+/**
+ *  Optional. The approximate amount of time (on a best-effort basis) Pub/Sub
+ *  waits for the subscriber to acknowledge receipt before resending the
+ *  message. In the interval after the message is delivered and before it is
+ *  acknowledged, it is considered to be _outstanding_. During that time period,
+ *  the message will not be redelivered (on a best-effort basis). For pull
+ *  subscriptions, this value is used as the initial value for the ack deadline.
+ *  To override this value for a given message, call `ModifyAckDeadline` with
+ *  the corresponding `ack_id` if using non-streaming pull or send the `ack_id`
+ *  in a `StreamingModifyAckDeadlineRequest` if using streaming pull. The
+ *  minimum custom deadline you can specify is 10 seconds. The maximum custom
+ *  deadline you can specify is 600 seconds (10 minutes). If this parameter is
+ *  0, a default value of 10 seconds is used. For push delivery, this value is
+ *  also used to set the request timeout for the call to the push endpoint. If
+ *  the subscriber never acknowledges the message, the Pub/Sub system will
+ *  eventually redeliver the message.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
+
+/**
+ *  Output only. Information about the associated Analytics Hub subscription.
+ *  Only set if the subscritpion is created by Analytics Hub.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_SubscriptionInfo *analyticsHubSubscriptionInfo;
+
+/**
+ *  Optional. If delivery to BigQuery is used with this subscription, this field
+ *  is used to configure it.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_BigQueryConfig *bigqueryConfig;
+
+/**
+ *  Optional. If delivery to Google Cloud Storage is used with this
+ *  subscription, this field is used to configure it.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_CloudStorageConfig *cloudStorageConfig;
+
+/**
+ *  Optional. A policy that specifies the conditions for dead lettering messages
+ *  in this subscription. If dead_letter_policy is not set, dead lettering is
+ *  disabled. The Pub/Sub service account associated with this subscriptions's
+ *  parent project (i.e.,
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com) must have
+ *  permission to Acknowledge() messages on this subscription.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_DeadLetterPolicy *deadLetterPolicy;
+
+/**
+ *  Optional. Indicates whether the subscription is detached from its topic.
+ *  Detached subscriptions don't receive messages from their topic and don't
+ *  retain any backlog. `Pull` and `StreamingPull` requests will return
+ *  FAILED_PRECONDITION. If the subscription is a push subscription, pushes to
+ *  the endpoint will not be made.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detached;
+
+/**
+ *  Optional. If true, Pub/Sub provides the following guarantees for the
+ *  delivery of a message with a given value of `message_id` on this
+ *  subscription: * The message sent to a subscriber is guaranteed not to be
+ *  resent before the message's acknowledgement deadline expires. * An
+ *  acknowledged message will not be resent to a subscriber. Note that
+ *  subscribers may still receive multiple copies of a message when
+ *  `enable_exactly_once_delivery` is true if the message was published multiple
+ *  times by a publisher client. These copies are considered distinct by Pub/Sub
+ *  and have distinct `message_id` values.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableExactlyOnceDelivery;
+
+/**
+ *  Optional. If true, messages published with the same `ordering_key` in
+ *  `PubsubMessage` will be delivered to the subscribers in the order in which
+ *  they are received by the Pub/Sub system. Otherwise, they may be delivered in
+ *  any order.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableMessageOrdering;
+
+/**
+ *  Optional. A policy that specifies the conditions for this subscription's
+ *  expiration. A subscription is considered active as long as any connected
+ *  subscriber is successfully consuming messages from the subscription or is
+ *  issuing operations on the subscription. If `expiration_policy` is not set, a
+ *  *default policy* with `ttl` of 31 days will be used. The minimum allowed
+ *  value for `expiration_policy.ttl` is 1 day. If `expiration_policy` is set,
+ *  but `expiration_policy.ttl` is not set, the subscription never expires.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_ExpirationPolicy *expirationPolicy;
+
+/**
+ *  Optional. An expression written in the Pub/Sub [filter
+ *  language](https://cloud.google.com/pubsub/docs/filtering). If non-empty,
+ *  then only `PubsubMessage`s whose `attributes` field matches the filter are
+ *  delivered on this subscription. If empty, then no messages are filtered out.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. See [Creating and managing
+ *  labels](https://cloud.google.com/pubsub/docs/labels).
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels *labels;
+
+/**
+ *  Optional. How long to retain unacknowledged messages in the subscription's
+ *  backlog, from the moment a message is published. If `retain_acked_messages`
+ *  is true, then this also configures the retention of acknowledged messages,
+ *  and thus configures how far back in time a `Seek` can be done. Defaults to 7
+ *  days. Cannot be more than 7 days or less than 10 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
+
+/**
+ *  Required. Name of the subscription. Format is
+ *  `projects/{project}/subscriptions/{sub}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If push delivery is used with this subscription, this field is
+ *  used to configure it.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_PushConfig *pushConfig;
+
+/**
+ *  Optional. Indicates whether to retain acknowledged messages. If true, then
+ *  messages are not expunged from the subscription's backlog, even if they are
+ *  acknowledged, until they fall out of the `message_retention_duration`
+ *  window. This must be true if you would like to [`Seek` to a timestamp]
+ *  (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time) in the
+ *  past to replay previously-acknowledged messages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retainAckedMessages;
+
+/**
+ *  Optional. A policy that specifies how Pub/Sub retries message delivery for
+ *  this subscription. If not set, the default retry policy is applied. This
+ *  generally implies that messages will be retried as soon as possible for
+ *  healthy subscribers. RetryPolicy will be triggered on NACKs or
+ *  acknowledgement deadline exceeded events for a given message.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_RetryPolicy *retryPolicy;
+
+/**
+ *  Output only. An output-only field indicating whether or not the subscription
+ *  can receive messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_Active The
+ *        subscription can actively receive messages (Value: "ACTIVE")
+ *    @arg @c kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_ResourceError
+ *        The subscription cannot receive messages because of an error with the
+ *        resource to which it pushes messages. See the more detailed error
+ *        state in the corresponding configuration. (Value: "RESOURCE_ERROR")
+ *    @arg @c kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Indicates the minimum duration for which a message is retained
+ *  after it is published to the subscription's topic. If this field is set,
+ *  messages published to the subscription's topic in the last
+ *  `topic_message_retention_duration` are always available to subscribers. See
+ *  the `message_retention_duration` field in `Topic`. This field is set only in
+ *  responses from the server; it is ignored if it is set in any requests.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *topicMessageRetentionDuration;
+
+@end
+
+
+/**
+ *  Optional. See [Creating and managing
+ *  labels](https://cloud.google.com/pubsub/docs/labels).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels : GTLRObject
+@end
+
+
+/**
  *  Reference to a linked resource tracked by this Subscription.
  */
 @interface GTLRAnalyticsHub_LinkedResource : GTLRObject
@@ -651,6 +1381,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  projects/subscriberproject/datasets/linked_dataset
  */
 @property(nonatomic, copy, nullable) NSString *linkedDataset;
+
+/**
+ *  Output only. Name of the Pub/Sub subscription, e.g.
+ *  projects/subscriberproject/subscriptions/subscriptions/sub_id
+ */
+@property(nonatomic, copy, nullable) NSString *linkedPubsubSubscription;
+
+/** Output only. Listing for which linked resource is created. */
+@property(nonatomic, copy, nullable) NSString *listing;
 
 @end
 
@@ -707,6 +1446,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Type of discovery of the listing on the discovery page.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypePrivate The
+ *        Data exchange/listing can be discovered in the 'Private' results list.
+ *        (Value: "DISCOVERY_TYPE_PRIVATE")
+ *    @arg @c kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypePublic The
+ *        Data exchange/listing can be discovered in the 'Public' results list.
+ *        (Value: "DISCOVERY_TYPE_PUBLIC")
+ *    @arg @c kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypeUnspecified
+ *        Unspecified. Defaults to DISCOVERY_TYPE_PRIVATE. (Value:
+ *        "DISCOVERY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *discoveryType;
+
+/**
  *  Required. Human-readable display name of the listing. The display name must
  *  contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
  *  spaces ( ), ampersands (&) and can't start or end with spaces. Default value
@@ -747,11 +1502,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_Publisher *publisher;
 
+/** Required. Pub/Sub topic source. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_PubSubTopicSource *pubsubTopic;
+
 /**
  *  Optional. Email or URL of the request access of the listing. Subscribers can
  *  use this reference to request access. Max Length: 1000 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *requestAccess;
+
+/**
+ *  Output only. Listing shared asset type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Listing_ResourceType_BigqueryDataset BigQuery
+ *        Dataset Asset. (Value: "BIGQUERY_DATASET")
+ *    @arg @c kGTLRAnalyticsHub_Listing_ResourceType_PubsubTopic Pub/Sub Topic
+ *        Asset. (Value: "PUBSUB_TOPIC")
+ *    @arg @c kGTLRAnalyticsHub_Listing_ResourceType_SharedResourceTypeUnspecified
+ *        Not specified. (Value: "SHARED_RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
 
 /**
  *  Optional. If set, restricted export configuration will be propagated and
@@ -867,6 +1638,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_Subscription *> *subscriptions;
+
+@end
+
+
+/**
+ *  Sets the `data` field as the HTTP body for delivery.
+ */
+@interface GTLRAnalyticsHub_NoWrapper : GTLRObject
+
+/**
+ *  Optional. When true, writes the Pub/Sub message metadata to
+ *  `x-goog-pubsub-:` headers of the HTTP request. Writes the Pub/Sub message
+ *  attributes to `:` headers of the HTTP request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeMetadata;
+
+@end
+
+
+/**
+ *  Contains information needed for generating an [OpenID Connect
+ *  token](https://developers.google.com/identity/protocols/OpenIDConnect).
+ */
+@interface GTLRAnalyticsHub_OidcToken : GTLRObject
+
+/**
+ *  Optional. Audience to be used when generating OIDC token. The audience claim
+ *  identifies the recipients that the JWT is intended for. The audience value
+ *  is a single case-sensitive string. Having multiple values (array) for the
+ *  audience field is not supported. More info about the OIDC JWT token audience
+ *  here: https://tools.ietf.org/html/rfc7519#section-4.1.3 Note: if not
+ *  specified, the Push endpoint URL will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *audience;
+
+/**
+ *  Optional. [Service account
+ *  email](https://cloud.google.com/iam/docs/service-accounts) used for
+ *  generating the OIDC token. For more information on setting up
+ *  authentication, see [Push
+ *  subscriptions](https://cloud.google.com/pubsub/docs/push).
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 @end
 
@@ -1097,6 +1913,109 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Pub/Sub topic source.
+ */
+@interface GTLRAnalyticsHub_PubSubTopicSource : GTLRObject
+
+/**
+ *  Optional. Region hint on where the data might be published. Data affinity
+ *  regions are modifiable. See go/regions for full listing of possible Cloud
+ *  regions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataAffinityRegions;
+
+/**
+ *  Required. Resource name of the Pub/Sub topic source for this listing. e.g.
+ *  projects/myproject/topics/topicId
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  The payload to the push endpoint is in the form of the JSON representation
+ *  of a PubsubMessage
+ *  (https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#pubsubmessage).
+ */
+@interface GTLRAnalyticsHub_PubsubWrapper : GTLRObject
+@end
+
+
+/**
+ *  Configuration for a push delivery endpoint.
+ */
+@interface GTLRAnalyticsHub_PushConfig : GTLRObject
+
+/**
+ *  Optional. Endpoint configuration attributes that can be used to control
+ *  different aspects of the message delivery. The only currently supported
+ *  attribute is `x-goog-version`, which you can use to change the format of the
+ *  pushed message. This attribute indicates the version of the data expected by
+ *  the endpoint. This controls the shape of the pushed message (i.e., its
+ *  fields and metadata). If not present during the `CreateSubscription` call,
+ *  it will default to the version of the Pub/Sub API used to make such call. If
+ *  not present in a `ModifyPushConfig` call, its value will not be changed.
+ *  `GetSubscription` calls will always return a valid version, even if the
+ *  subscription was created without this attribute. The only supported values
+ *  for the `x-goog-version` attribute are: * `v1beta1`: uses the push format
+ *  defined in the v1beta1 Pub/Sub API. * `v1` or `v1beta2`: uses the push
+ *  format defined in the v1 Pub/Sub API. For example: `attributes {
+ *  "x-goog-version": "v1" }`
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_PushConfig_Attributes *attributes;
+
+/** Optional. When set, the payload to the push endpoint is not wrapped. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_NoWrapper *noWrapper;
+
+/**
+ *  Optional. If specified, Pub/Sub will generate and attach an OIDC JWT token
+ *  as an `Authorization` header in the HTTP request for every pushed message.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_OidcToken *oidcToken;
+
+/**
+ *  Optional. When set, the payload to the push endpoint is in the form of the
+ *  JSON representation of a PubsubMessage
+ *  (https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#pubsubmessage).
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_PubsubWrapper *pubsubWrapper;
+
+/**
+ *  Optional. A URL locating the endpoint to which messages should be pushed.
+ *  For example, a Webhook endpoint might use `https://example.com/push`.
+ */
+@property(nonatomic, copy, nullable) NSString *pushEndpoint;
+
+@end
+
+
+/**
+ *  Optional. Endpoint configuration attributes that can be used to control
+ *  different aspects of the message delivery. The only currently supported
+ *  attribute is `x-goog-version`, which you can use to change the format of the
+ *  pushed message. This attribute indicates the version of the data expected by
+ *  the endpoint. This controls the shape of the pushed message (i.e., its
+ *  fields and metadata). If not present during the `CreateSubscription` call,
+ *  it will default to the version of the Pub/Sub API used to make such call. If
+ *  not present in a `ModifyPushConfig` call, its value will not be changed.
+ *  `GetSubscription` calls will always return a valid version, even if the
+ *  subscription was created without this attribute. The only supported values
+ *  for the `x-goog-version` attribute are: * `v1beta1`: uses the push format
+ *  defined in the v1beta1 Pub/Sub API. * `v1` or `v1beta2`: uses the push
+ *  format defined in the v1 Pub/Sub API. For example: `attributes {
+ *  "x-goog-version": "v1" }`
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAnalyticsHub_PushConfig_Attributes : GTLRObject
+@end
+
+
+/**
  *  Message for refreshing a subscription.
  */
 @interface GTLRAnalyticsHub_RefreshSubscriptionRequest : GTLRObject
@@ -1179,6 +2098,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  A policy that specifies how Pub/Sub retries message delivery. Retry delay
+ *  will be exponential based on provided minimum and maximum backoffs.
+ *  https://en.wikipedia.org/wiki/Exponential_backoff. RetryPolicy will be
+ *  triggered on NACKs or acknowledgement deadline exceeded events for a given
+ *  message. Retry Policy is implemented on a best effort basis. At times, the
+ *  delay between consecutive deliveries may not match the configuration. That
+ *  is, delay can be more or less than configured backoff.
+ */
+@interface GTLRAnalyticsHub_RetryPolicy : GTLRObject
+
+/**
+ *  Optional. The maximum delay between consecutive deliveries of a given
+ *  message. Value should be between 0 and 600 seconds. Defaults to 600 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maximumBackoff;
+
+/**
+ *  Optional. The minimum delay between consecutive deliveries of a given
+ *  message. Value should be between 0 and 600 seconds. Defaults to 10 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minimumBackoff;
+
+@end
+
+
+/**
  *  Message for revoking a subscription.
  */
 @interface GTLRAnalyticsHub_RevokeSubscriptionRequest : GTLRObject
@@ -1193,7 +2138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
- *  Resource in this dataset that are selectively shared.
+ *  Resource in this dataset that is selectively shared.
  */
 @interface GTLRAnalyticsHub_SelectedResource : GTLRObject
 
@@ -1330,6 +2275,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /** Input only. BigQuery destination dataset to create for the subscriber. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_DestinationDataset *destinationDataset;
 
+/**
+ *  Required. Input only. Destination Pub/Sub subscription to create for the
+ *  subscriber.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_DestinationPubSubSubscription *destinationPubsubSubscription;
+
 @end
 
 
@@ -1372,6 +2323,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_Subscription_LinkedDatasetMap *linkedDatasetMap;
 
 /**
+ *  Output only. Linked resources created in the subscription. Only contains
+ *  values if state = STATE_ACTIVE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_LinkedResource *> *linkedResources;
+
+/**
  *  Output only. Resource name of the source Listing. e.g.
  *  projects/123/locations/US/dataExchanges/456/listings/789
  */
@@ -1388,6 +2345,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /** Output only. Organization of the project this subscription belongs to. */
 @property(nonatomic, copy, nullable) NSString *organizationId;
+
+/**
+ *  Output only. Listing shared asset type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Subscription_ResourceType_BigqueryDataset
+ *        BigQuery Dataset Asset. (Value: "BIGQUERY_DATASET")
+ *    @arg @c kGTLRAnalyticsHub_Subscription_ResourceType_PubsubTopic Pub/Sub
+ *        Topic Asset. (Value: "PUBSUB_TOPIC")
+ *    @arg @c kGTLRAnalyticsHub_Subscription_ResourceType_SharedResourceTypeUnspecified
+ *        Not specified. (Value: "SHARED_RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
 
 /**
  *  Output only. Current state of the subscription.
@@ -1429,6 +2399,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Information about an associated Analytics Hub subscription
+ *  (https://cloud.google.com/bigquery/docs/analytics-hub-manage-subscriptions).
+ */
+@interface GTLRAnalyticsHub_SubscriptionInfo : GTLRObject
+
+/**
+ *  Optional. The name of the associated Analytics Hub listing resource.
+ *  Pattern:
+ *  "projects/{project}/locations/{location}/dataExchanges/{data_exchange}/listings/{listing}"
+ */
+@property(nonatomic, copy, nullable) NSString *listing;
+
+/**
+ *  Optional. The name of the associated Analytics Hub subscription resource.
+ *  Pattern:
+ *  "projects/{project}/locations/{location}/subscriptions/{subscription}"
+ */
+@property(nonatomic, copy, nullable) NSString *subscription;
+
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRAnalyticsHub_TestIamPermissionsRequest : GTLRObject
@@ -1453,6 +2446,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  Configuration for writing message data in text format. Message payloads will
+ *  be written to files as raw text, separated by a newline.
+ */
+@interface GTLRAnalyticsHub_TextConfig : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

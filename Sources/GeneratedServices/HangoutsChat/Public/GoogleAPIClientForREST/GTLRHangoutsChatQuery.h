@@ -264,6 +264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAdminDelete
  *    @c kGTLRAuthScopeHangoutsChatDelete
  *    @c kGTLRAuthScopeHangoutsChatImport
  */
@@ -369,6 +370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAdminSpaces
+ *    @c kGTLRAuthScopeHangoutsChatAdminSpacesReadonly
  *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  *    @c kGTLRAuthScopeHangoutsChatSpacesReadonly
@@ -412,8 +415,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *  Lists spaces visible to the caller or authenticated user. Group chats and
  *  DMs aren't listed until the first message is sent. To list all named spaces
- *  by Google Workspace organization, use the `spaces.search()` method using
- *  Workspace administrator privileges instead.
+ *  by Google Workspace organization, use the
+ *  [`spaces.search()`](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/search)
+ *  method using Workspace administrator privileges instead.
  *
  *  Method: chat.spaces.list
  *
@@ -465,8 +469,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *  Lists spaces visible to the caller or authenticated user. Group chats and
  *  DMs aren't listed until the first message is sent. To list all named spaces
- *  by Google Workspace organization, use the `spaces.search()` method using
- *  Workspace administrator privileges instead.
+ *  by Google Workspace organization, use the
+ *  [`spaces.search()`](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/search)
+ *  method using Workspace administrator privileges instead.
  *
  *  @return GTLRHangoutsChatQuery_SpacesList
  *
@@ -502,6 +507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.members.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAdminMemberships
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsApp
@@ -558,6 +564,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.members.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAdminMemberships
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsApp
@@ -617,6 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.members.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAdminMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAdminMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
@@ -687,6 +696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.members.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAdminMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAdminMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMemberships
@@ -795,6 +806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.members.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAdminMemberships
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  */
@@ -1558,6 +1570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAdminSpaces
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  */
@@ -1582,17 +1595,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `space_type` mask and the `SPACE` type in the specified space when updating
  *  the display name is optional if the existing space already has the `SPACE`
  *  type. Trying to update the space type in other ways results in an invalid
- *  argument error). - `space_details` - `space_history_state` (Supports
- *  [turning history on or off for the
- *  space](https://support.google.com/chat/answer/7664687) if [the organization
- *  allows users to change their history
+ *  argument error). `space_type` is not supported with admin access. -
+ *  `space_details` - `space_history_state` (Supports [turning history on or off
+ *  for the space](https://support.google.com/chat/answer/7664687) if [the
+ *  organization allows users to change their history
  *  setting](https://support.google.com/a/answer/7664184). Warning: mutually
- *  exclusive with all other field paths.) - Developer Preview:
- *  `access_settings.audience` (Supports changing the [access
+ *  exclusive with all other field paths.) `space_history_state` is not
+ *  supported with admin access. - Developer Preview: `access_settings.audience`
+ *  (Supports changing the [access
  *  setting](https://support.google.com/chat/answer/11971020) of a space. If no
  *  audience is specified in the access setting, the space's access setting is
  *  updated to restricted. Warning: mutually exclusive with all other field
- *  paths.)
+ *  paths.) `access_settings.audience` is not supported with admin access. -
+ *  Developer Preview: Supports changing the [permission
+ *  settings](https://support.google.com/chat/answer/13340792) of a space,
+ *  supported field paths include:
+ *  `permission_settings.manage_members_and_groups`,
+ *  `permission_settings.modify_space_details`,
+ *  `permission_settings.toggle_history`,
+ *  `permission_settings.use_at_mention_all`, `permission_settings.manage_apps`,
+ *  `permission_settings.manage_webhooks`, `permission_settings.reply_messages`
+ *  (Warning: mutually exclusive with all other non-permission settings field
+ *  paths). `permission_settings` is not supported with admin access.
  *
  *  String format is a comma-separated list of fields.
  */

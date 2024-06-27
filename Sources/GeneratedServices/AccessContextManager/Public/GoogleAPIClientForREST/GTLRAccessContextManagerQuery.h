@@ -271,7 +271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Resource name for the `AccessLevel`. Format:
+ *  Identifier. Resource name for the `AccessLevel`. Format:
  *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
  *  `access_level` component must begin with a letter, followed by alphanumeric
  *  characters or `_`. Its maximum length is 50 characters. After you create an
@@ -296,7 +296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_AccessLevel to include in the
  *    query.
- *  @param name Resource name for the `AccessLevel`. Format:
+ *  @param name Identifier. Resource name for the `AccessLevel`. Format:
  *    `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
  *    `access_level` component must begin with a letter, followed by
  *    alphanumeric characters or `_`. Its maximum length is 50 characters. After
@@ -560,7 +560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Resource name for the `AuthorizedOrgsDesc`. Format:
+ *  Identifier. Resource name for the `AuthorizedOrgsDesc`. Format:
  *  `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
  *  The `authorized_orgs_desc` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
@@ -587,7 +587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_AuthorizedOrgsDesc to include
  *    in the query.
- *  @param name Resource name for the `AuthorizedOrgsDesc`. Format:
+ *  @param name Identifier. Resource name for the `AuthorizedOrgsDesc`. Format:
  *    `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
  *    The `authorized_orgs_desc` component must begin with a letter, followed by
  *    alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
@@ -783,7 +783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Output only. Resource name of the `AccessPolicy`. Format:
+ *  Output only. Identifier. Resource name of the `AccessPolicy`. Format:
  *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -804,8 +804,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_AccessPolicy to include in the
  *    query.
- *  @param name Output only. Resource name of the `AccessPolicy`. Format:
- *    `accessPolicies/{access_policy}`
+ *  @param name Output only. Identifier. Resource name of the `AccessPolicy`.
+ *    Format: `accessPolicies/{access_policy}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesPatch
  */
@@ -1029,7 +1029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Resource name for the `ServicePerimeter`. Format:
+ *  Identifier. Resource name for the `ServicePerimeter`. Format:
  *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
  *  `service_perimeter` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
@@ -1054,7 +1054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_ServicePerimeter to include in
  *    the query.
- *  @param name Resource name for the `ServicePerimeter`. Format:
+ *  @param name Identifier. Resource name for the `ServicePerimeter`. Format:
  *    `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`.
  *    The `service_perimeter` component must begin with a letter, followed by
  *    alphanumeric characters or `_`. After you create a `ServicePerimeter`, you

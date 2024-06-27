@@ -264,8 +264,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersPatch : GTLRCloudRedisQuery
 
 /**
- *  Required. Unique name of the resource in this scope including project and
- *  location using the form:
+ *  Required. Identifier. Unique name of the resource in this scope including
+ *  project and location using the form:
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -291,8 +291,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  hours, so there is no need to call DeleteOperation.
  *
  *  @param object The @c GTLRCloudRedis_Cluster to include in the query.
- *  @param name Required. Unique name of the resource in this scope including
- *    project and location using the form:
+ *  @param name Required. Identifier. Unique name of the resource in this scope
+ *    including project and location using the form:
  *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersPatch

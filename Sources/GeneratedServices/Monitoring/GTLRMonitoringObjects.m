@@ -737,7 +737,15 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Documentation
-@dynamic content, mimeType, subject;
+@dynamic content, links, mimeType, subject;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRMonitoring_Link class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1056,6 +1064,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_Linear
 @dynamic numFiniteBuckets, offset, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Link
+//
+
+@implementation GTLRMonitoring_Link
+@dynamic displayName, url;
 @end
 
 

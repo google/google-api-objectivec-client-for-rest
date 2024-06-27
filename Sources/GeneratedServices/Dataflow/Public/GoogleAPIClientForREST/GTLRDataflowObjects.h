@@ -141,6 +141,7 @@
 @class GTLRDataflow_SeqMapTask;
 @class GTLRDataflow_SeqMapTask_UserFn;
 @class GTLRDataflow_SeqMapTaskOutputInfo;
+@class GTLRDataflow_ServiceResources;
 @class GTLRDataflow_ShellTask;
 @class GTLRDataflow_SideInputInfo;
 @class GTLRDataflow_SideInputInfo_Kind;
@@ -1301,9 +1302,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Jav
  *  This can be either a Google Managed Kafka topic or a non-managed Kafka
  *  topic.
  *
+ *  Value: "KAFKA_READ_TOPIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaReadTopic;
+/**
+ *  Deprecated. Please use KAFKA_READ_TOPIC instead.
+ *
  *  Value: "KAFKA_TOPIC"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaTopic;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaTopic GTLR_DEPRECATED;
+/**
+ *  The parameter specifies the fully-qualified name of an Apache Kafka topic.
+ *  This can be an existing Google Managed Kafka topic, the name for a new
+ *  Google Managed Kafka topic, or an existing non-managed Kafka topic.
+ *
+ *  Value: "KAFKA_WRITE_TOPIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaWriteTopic;
 /**
  *  The parameter specifies a KMS Key name.
  *
@@ -2790,8 +2805,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_DataSamplingConfig *dataSampling;
 
 /**
- *  When true, enables the logging of the literal hot key to the user's Cloud
- *  Logging.
+ *  Optional. When true, enables the logging of the literal hot key to the
+ *  user's Cloud Logging.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3016,13 +3031,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *clusterManagerApiService;
 
 /**
- *  The dataset for the current project where various workflow related tables
- *  are stored. The supported resource type is: Google BigQuery:
+ *  Optional. The dataset for the current project where various workflow related
+ *  tables are stored. The supported resource type is: Google BigQuery:
  *  bigquery.googleapis.com/{dataset}
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
-/** Any debugging options to be supplied to the job. */
+/** Optional. Any debugging options to be supplied to the job. */
 @property(nonatomic, strong, nullable) GTLRDataflow_DebugOptions *debugOptions;
 
 /**
@@ -3033,7 +3048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 
 /**
- *  Which Flexible Resource Scheduling mode to run in.
+ *  Optional. Which Flexible Resource Scheduling mode to run in.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsCostOptimized
@@ -3055,12 +3070,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_SdkPipelineOptions *sdkPipelineOptions;
 
-/** Identity to run virtual machines as. Defaults to the default account. */
+/**
+ *  Optional. Identity to run virtual machines as. Defaults to the default
+ *  account.
+ */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
- *  If set, contains the Cloud KMS key identifier used to encrypt data at rest,
- *  AKA a Customer Managed Encryption Key (CMEK). Format:
+ *  Optional. If set, contains the Cloud KMS key identifier used to encrypt data
+ *  at rest, AKA a Customer Managed Encryption Key (CMEK). Format:
  *  projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY
  */
 @property(nonatomic, copy, nullable) NSString *serviceKmsKeyName;
@@ -3146,7 +3164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkerPool *> *workerPools;
 
 /**
- *  The Compute Engine region
+ *  Optional. The Compute Engine region
  *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which
  *  worker processing should occur, e.g. "us-west1". Mutually exclusive with
  *  worker_zone. If neither worker_region nor worker_zone is specified, default
@@ -3155,7 +3173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *workerRegion;
 
 /**
- *  The Compute Engine zone
+ *  Optional. The Compute Engine zone
  *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which
  *  worker processing should occur, e.g. "us-west1-a". Mutually exclusive with
  *  worker_region. If neither worker_region nor worker_zone is specified, a zone
@@ -4142,7 +4160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_Job_Labels *labels;
 
 /**
- *  The [regional endpoint]
+ *  Optional. The [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
  *  contains this job.
  */
@@ -4284,6 +4302,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
+/** Output only. Resources used by the Dataflow Service to run the job. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ServiceResources *serviceResources;
+
 /**
  *  This field may be mutated by the Cloud Dataflow service; callers cannot
  *  mutate it.
@@ -4319,8 +4340,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tempFiles;
 
 /**
- *  The map of transform name prefixes of the job to be replaced to the
- *  corresponding name prefixes of the new job.
+ *  Optional. The map of transform name prefixes of the job to be replaced to
+ *  the corresponding name prefixes of the new job.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Job_TransformNameMapping *transformNameMapping;
 
@@ -4359,8 +4380,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  The map of transform name prefixes of the job to be replaced to the
- *  corresponding name prefixes of the new job.
+ *  Optional. The map of transform name prefixes of the job to be replaced to
+ *  the corresponding name prefixes of the new job.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5508,10 +5529,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile The
  *        parameter specifies a JavaScript UDF in Cloud Storage. (Value:
  *        "JAVASCRIPT_UDF_FILE")
- *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_KafkaTopic The parameter
- *        specifies the fully-qualified name of an Apache Kafka topic. This can
- *        be either a Google Managed Kafka topic or a non-managed Kafka topic.
- *        (Value: "KAFKA_TOPIC")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_KafkaReadTopic The
+ *        parameter specifies the fully-qualified name of an Apache Kafka topic.
+ *        This can be either a Google Managed Kafka topic or a non-managed Kafka
+ *        topic. (Value: "KAFKA_READ_TOPIC")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_KafkaTopic Deprecated.
+ *        Please use KAFKA_READ_TOPIC instead. (Value: "KAFKA_TOPIC")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_KafkaWriteTopic The
+ *        parameter specifies the fully-qualified name of an Apache Kafka topic.
+ *        This can be an existing Google Managed Kafka topic, the name for a new
+ *        Google Managed Kafka topic, or an existing non-managed Kafka topic.
+ *        (Value: "KAFKA_WRITE_TOPIC")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_KmsKeyName The parameter
  *        specifies a KMS Key name. (Value: "KMS_KEY_NAME")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_MachineType The
@@ -6569,6 +6597,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** The id of the TupleTag the user code will tag the output value by. */
 @property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Resources used by the Dataflow Service to run the job.
+ */
+@interface GTLRDataflow_ServiceResources : GTLRObject
+
+/**
+ *  Output only. List of Cloud Zones being used by the Dataflow Service for this
+ *  job. Example: us-central1-c
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *zones;
 
 @end
 

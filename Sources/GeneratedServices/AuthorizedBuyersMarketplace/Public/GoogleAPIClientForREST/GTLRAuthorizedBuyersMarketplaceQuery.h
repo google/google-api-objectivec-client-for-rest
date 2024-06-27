@@ -1047,7 +1047,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Pauses serving of the given finalized deal. This call only pauses the
  *  serving status, and does not affect other fields of the finalized deal.
  *  Calling this method for an already paused deal has no effect. This method
- *  only applies to programmatic guaranteed deals.
+ *  only applies to programmatic guaranteed deals and preferred deals.
  *
  *  Method: authorizedbuyersmarketplace.buyers.finalizedDeals.pause
  *
@@ -1065,7 +1065,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Pauses serving of the given finalized deal. This call only pauses the
  *  serving status, and does not affect other fields of the finalized deal.
  *  Calling this method for an already paused deal has no effect. This method
- *  only applies to programmatic guaranteed deals.
+ *  only applies to programmatic guaranteed deals and preferred deals.
  *
  *  @param object The @c
  *    GTLRAuthorizedBuyersMarketplace_PauseFinalizedDealRequest to include in
@@ -1084,7 +1084,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  running deal has no effect. If a deal is initially paused by the seller,
  *  calling this method will not resume serving of the deal until the seller
  *  also resumes the deal. This method only applies to programmatic guaranteed
- *  deals.
+ *  deals and preferred deals.
  *
  *  Method: authorizedbuyersmarketplace.buyers.finalizedDeals.resume
  *
@@ -1103,7 +1103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  running deal has no effect. If a deal is initially paused by the seller,
  *  calling this method will not resume serving of the deal until the seller
  *  also resumes the deal. This method only applies to programmatic guaranteed
- *  deals.
+ *  deals and preferred deals.
  *
  *  @param object The @c
  *    GTLRAuthorizedBuyersMarketplace_ResumeFinalizedDealRequest to include in
@@ -1209,7 +1209,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a note for this proposal and sends to the seller.
+ *  Creates a note for this proposal and sends to the seller. This method is not
+ *  supported for proposals with DealType set to 'PRIVATE_AUCTION'.
  *
  *  Method: authorizedbuyersmarketplace.buyers.proposals.addNote
  *
@@ -1226,7 +1227,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAuthorizedBuyersMarketplace_Proposal.
  *
- *  Creates a note for this proposal and sends to the seller.
+ *  Creates a note for this proposal and sends to the seller. This method is not
+ *  supported for proposals with DealType set to 'PRIVATE_AUCTION'.
  *
  *  @param object The @c GTLRAuthorizedBuyersMarketplace_AddNoteRequest to
  *    include in the query.

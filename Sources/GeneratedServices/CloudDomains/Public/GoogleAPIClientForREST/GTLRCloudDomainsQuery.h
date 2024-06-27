@@ -533,6 +533,58 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Initiates the `Push Transfer` process to transfer the domain to another
+ *  registrar. The process might complete instantly or might require
+ *  confirmation or additional work. Check the emails sent to the email address
+ *  of the registrant. The process is aborted after a timeout if it's not
+ *  completed. This method is only supported for domains that have the
+ *  `REQUIRE_PUSH_TRANSFER` property in the list of `domain_properties`. The
+ *  domain must also be unlocked before it can be transferred to a different
+ *  registrar. For more information, see [Transfer a registered domain to
+ *  another
+ *  registrar](https://cloud.google.com/domains/docs/transfer-domain-to-another-registrar).
+ *
+ *  Method: domains.projects.locations.registrations.initiatePushTransfer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
+ */
+@interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsInitiatePushTransfer : GTLRCloudDomainsQuery
+
+/**
+ *  Required. The name of the `Registration` for which the push transfer is
+ *  initiated, in the format `projects/ * /locations/ * /registrations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *registration;
+
+/**
+ *  Fetches a @c GTLRCloudDomains_Operation.
+ *
+ *  Initiates the `Push Transfer` process to transfer the domain to another
+ *  registrar. The process might complete instantly or might require
+ *  confirmation or additional work. Check the emails sent to the email address
+ *  of the registrant. The process is aborted after a timeout if it's not
+ *  completed. This method is only supported for domains that have the
+ *  `REQUIRE_PUSH_TRANSFER` property in the list of `domain_properties`. The
+ *  domain must also be unlocked before it can be transferred to a different
+ *  registrar. For more information, see [Transfer a registered domain to
+ *  another
+ *  registrar](https://cloud.google.com/domains/docs/transfer-domain-to-another-registrar).
+ *
+ *  @param object The @c GTLRCloudDomains_InitiatePushTransferRequest to include
+ *    in the query.
+ *  @param registration Required. The name of the `Registration` for which the
+ *    push transfer is initiated, in the format `projects/ * /locations/ *
+ *    /registrations/ *`.
+ *
+ *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsInitiatePushTransfer
+ */
++ (instancetype)queryWithObject:(GTLRCloudDomains_InitiatePushTransferRequest *)object
+                   registration:(NSString *)registration;
+
+@end
+
+/**
  *  Lists the `Registration` resources in a project.
  *
  *  Method: domains.projects.locations.registrations.list
@@ -690,9 +742,51 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Renews a recently expired domain. This method can only be called on domains
+ *  that expired in the previous 30 days. After the renewal, the new expiration
+ *  time of the domain is one year after the old expiration time and you are
+ *  charged a `yearly_price` for the renewal.
+ *
+ *  Method: domains.projects.locations.registrations.renewDomain
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
+ */
+@interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRenewDomain : GTLRCloudDomainsQuery
+
+/**
+ *  Required. The name of the `Registration` whish is being renewed, in the
+ *  format `projects/ * /locations/ * /registrations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *registration;
+
+/**
+ *  Fetches a @c GTLRCloudDomains_Operation.
+ *
+ *  Renews a recently expired domain. This method can only be called on domains
+ *  that expired in the previous 30 days. After the renewal, the new expiration
+ *  time of the domain is one year after the old expiration time and you are
+ *  charged a `yearly_price` for the renewal.
+ *
+ *  @param object The @c GTLRCloudDomains_RenewDomainRequest to include in the
+ *    query.
+ *  @param registration Required. The name of the `Registration` whish is being
+ *    renewed, in the format `projects/ * /locations/ * /registrations/ *`.
+ *
+ *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRenewDomain
+ */
++ (instancetype)queryWithObject:(GTLRCloudDomains_RenewDomainRequest *)object
+                   registration:(NSString *)registration;
+
+@end
+
+/**
  *  Resets the authorization code of the `Registration` to a new random string.
  *  You can call this method only after 60 days have elapsed since the initial
- *  domain registration.
+ *  domain registration. Domains that have the `REQUIRE_PUSH_TRANSFER` property
+ *  in the list of `domain_properties` don't support authorization codes and
+ *  must use the `InitiatePushTransfer` method to initiate the process to
+ *  transfer the domain to a different registrar.
  *
  *  Method: domains.projects.locations.registrations.resetAuthorizationCode
  *
@@ -712,7 +806,10 @@ GTLR_DEPRECATED
  *
  *  Resets the authorization code of the `Registration` to a new random string.
  *  You can call this method only after 60 days have elapsed since the initial
- *  domain registration.
+ *  domain registration. Domains that have the `REQUIRE_PUSH_TRANSFER` property
+ *  in the list of `domain_properties` don't support authorization codes and
+ *  must use the `InitiatePushTransfer` method to initiate the process to
+ *  transfer the domain to a different registrar.
  *
  *  @param object The @c GTLRCloudDomains_ResetAuthorizationCodeRequest to
  *    include in the query.
@@ -730,7 +827,11 @@ GTLR_DEPRECATED
 /**
  *  Gets the authorization code of the `Registration` for the purpose of
  *  transferring the domain to another registrar. You can call this method only
- *  after 60 days have elapsed since the initial domain registration.
+ *  after 60 days have elapsed since the initial domain registration. Domains
+ *  that have the `REQUIRE_PUSH_TRANSFER` property in the list of
+ *  `domain_properties` don't support authorization codes and must use the
+ *  `InitiatePushTransfer` method to initiate the process to transfer the domain
+ *  to a different registrar.
  *
  *  Method: domains.projects.locations.registrations.retrieveAuthorizationCode
  *
@@ -750,13 +851,106 @@ GTLR_DEPRECATED
  *
  *  Gets the authorization code of the `Registration` for the purpose of
  *  transferring the domain to another registrar. You can call this method only
- *  after 60 days have elapsed since the initial domain registration.
+ *  after 60 days have elapsed since the initial domain registration. Domains
+ *  that have the `REQUIRE_PUSH_TRANSFER` property in the list of
+ *  `domain_properties` don't support authorization codes and must use the
+ *  `InitiatePushTransfer` method to initiate the process to transfer the domain
+ *  to a different registrar.
  *
  *  @param registration Required. The name of the `Registration` whose
  *    authorization code is being retrieved, in the format `projects/ *
  *    /locations/ * /registrations/ *`.
  *
  *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveAuthorizationCode
+ */
++ (instancetype)queryWithRegistration:(NSString *)registration;
+
+@end
+
+/**
+ *  Lists the DNS records from the Google Domains DNS zone for domains that use
+ *  the deprecated `google_domains_dns` in the `Registration`'s `dns_settings`.
+ *
+ *  Method: domains.projects.locations.registrations.retrieveGoogleDomainsDnsRecords
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
+ */
+@interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveGoogleDomainsDnsRecords : GTLRCloudDomainsQuery
+
+/** Optional. Maximum number of results to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. When set to the `next_page_token` from a prior response, provides
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the `Registration` whose Google Domains DNS records
+ *  details you are retrieving, in the format `projects/ * /locations/ *
+ *  /registrations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *registration;
+
+/**
+ *  Fetches a @c GTLRCloudDomains_RetrieveGoogleDomainsDnsRecordsResponse.
+ *
+ *  Lists the DNS records from the Google Domains DNS zone for domains that use
+ *  the deprecated `google_domains_dns` in the `Registration`'s `dns_settings`.
+ *
+ *  @param registration Required. The name of the `Registration` whose Google
+ *    Domains DNS records details you are retrieving, in the format `projects/ *
+ *    /locations/ * /registrations/ *`.
+ *
+ *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveGoogleDomainsDnsRecords
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithRegistration:(NSString *)registration;
+
+@end
+
+/**
+ *  Lists the deprecated domain and email forwarding configurations you set up
+ *  in the deprecated Google Domains UI. The configuration is present only for
+ *  domains with the `google_domains_redirects_data_available` set to `true` in
+ *  the `Registration`'s `dns_settings`. A forwarding configuration might not
+ *  work correctly if required DNS records are not present in the domain's
+ *  authoritative DNS Zone.
+ *
+ *  Method: domains.projects.locations.registrations.retrieveGoogleDomainsForwardingConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
+ */
+@interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveGoogleDomainsForwardingConfig : GTLRCloudDomainsQuery
+
+/**
+ *  Required. The name of the `Registration` whose Google Domains forwarding
+ *  configuration details are being retrieved, in the format `projects/ *
+ *  /locations/ * /registrations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *registration;
+
+/**
+ *  Fetches a @c GTLRCloudDomains_RetrieveGoogleDomainsForwardingConfigResponse.
+ *
+ *  Lists the deprecated domain and email forwarding configurations you set up
+ *  in the deprecated Google Domains UI. The configuration is present only for
+ *  domains with the `google_domains_redirects_data_available` set to `true` in
+ *  the `Registration`'s `dns_settings`. A forwarding configuration might not
+ *  work correctly if required DNS records are not present in the domain's
+ *  authoritative DNS Zone.
+ *
+ *  @param registration Required. The name of the `Registration` whose Google
+ *    Domains forwarding configuration details are being retrieved, in the
+ *    format `projects/ * /locations/ * /registrations/ *`.
+ *
+ *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveGoogleDomainsForwardingConfig
  */
 + (instancetype)queryWithRegistration:(NSString *)registration;
 

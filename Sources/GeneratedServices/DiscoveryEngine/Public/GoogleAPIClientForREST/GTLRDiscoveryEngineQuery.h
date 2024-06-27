@@ -609,6 +609,78 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Imports CompletionSuggestions for a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.completionSuggestions.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsImport : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent data store resource name for which to import customer
+ *  autocomplete suggestions. Follows pattern `projects/ * /locations/ *
+ *  /collections/ * /dataStores/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Imports CompletionSuggestions for a DataStore.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent data store resource name for which to
+ *    import customer autocomplete suggestions. Follows pattern `projects/ *
+ *    /locations/ * /collections/ * /dataStores/ *`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsImport
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Permanently deletes all CompletionSuggestions for a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.completionSuggestions.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsPurge : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent data store resource name for which to purge completion
+ *  suggestions. Follows pattern projects/ * /locations/ * /collections/ *
+ *  /dataStores/ *.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Permanently deletes all CompletionSuggestions for a DataStore.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent data store resource name for which to
+ *    purge completion suggestions. Follows pattern projects/ * /locations/ *
+ *    /collections/ * /dataStores/ *.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsPurge
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a Control. By default 1000 controls are allowed for a data store. A
  *  request can be submitted to adjust this limit. If the Control to create
  *  already exists, an ALREADY_EXISTS error is returned.
@@ -630,6 +702,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Full resource name of parent data store. Format:
  *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  or
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -644,6 +718,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    or
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsCreate
  */
@@ -746,6 +822,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The data store resource name. Format:
  *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  or
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -757,6 +835,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The data store resource name. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    or
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsList
  *
@@ -2942,6 +3022,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Full resource name of parent data store. Format:
  *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  or
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2956,6 +3038,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    or
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsCreate
  */
@@ -3058,6 +3142,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The data store resource name. Format:
  *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  or
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3069,6 +3155,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The data store resource name. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    or
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsList
  *
@@ -4598,6 +4686,78 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Imports CompletionSuggestions for a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.completionSuggestions.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsImport : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent data store resource name for which to import customer
+ *  autocomplete suggestions. Follows pattern `projects/ * /locations/ *
+ *  /collections/ * /dataStores/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Imports CompletionSuggestions for a DataStore.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent data store resource name for which to
+ *    import customer autocomplete suggestions. Follows pattern `projects/ *
+ *    /locations/ * /collections/ * /dataStores/ *`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsImport
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Permanently deletes all CompletionSuggestions for a DataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.completionSuggestions.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsPurge : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent data store resource name for which to purge completion
+ *  suggestions. Follows pattern projects/ * /locations/ * /collections/ *
+ *  /dataStores/ *.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Permanently deletes all CompletionSuggestions for a DataStore.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent data store resource name for which to
+ *    purge completion suggestions. Follows pattern projects/ * /locations/ *
+ *    /collections/ * /dataStores/ *.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsPurge
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a Control. By default 1000 controls are allowed for a data store. A
  *  request can be submitted to adjust this limit. If the Control to create
  *  already exists, an ALREADY_EXISTS error is returned.
@@ -4619,6 +4779,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Full resource name of parent data store. Format:
  *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  or
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4633,6 +4795,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    or
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsCreate
  */
@@ -4735,6 +4899,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The data store resource name. Format:
  *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  or
+ *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4746,6 +4912,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The data store resource name. Format:
  *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    or
+ *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsList
  *
@@ -6741,6 +6909,62 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RankRequest *)object
                   rankingConfig:(NSString *)rankingConfig;
+
+@end
+
+/**
+ *  Writes a single user event from the browser. This uses a GET request to due
+ *  to browser restriction of POST-ing to a third-party domain. This method is
+ *  used only by the Discovery Engine API JavaScript pixel and Google Tag
+ *  Manager. Users should not call this method directly.
+ *
+ *  Method: discoveryengine.projects.locations.userEvents.collect
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsCollect : GTLRDiscoveryEngineQuery
+
+/**
+ *  The event timestamp in milliseconds. This prevents browser caching of
+ *  otherwise identical get requests. The name is abbreviated to reduce the
+ *  payload bytes.
+ */
+@property(nonatomic, assign) long long ets;
+
+/**
+ *  Required. The parent DataStore resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The URL including cgi-parameters but excluding the hash fragment with a
+ *  length limit of 5,000 characters. This is often more useful than the referer
+ *  URL, because many browsers only send the domain for third-party requests.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Required. URL encoded UserEvent proto with a length limit of 2,000,000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *userEvent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleApiHttpBody.
+ *
+ *  Writes a single user event from the browser. This uses a GET request to due
+ *  to browser restriction of POST-ing to a third-party domain. This method is
+ *  used only by the Discovery Engine API JavaScript pixel and Google Tag
+ *  Manager. Users should not call this method directly.
+ *
+ *  @param parent Required. The parent DataStore resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsCollect
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

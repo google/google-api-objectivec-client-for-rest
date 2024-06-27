@@ -717,6 +717,44 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_GamePlayerToken
+//
+
+@implementation GTLRGames_GamePlayerToken
+@dynamic applicationId, token;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"token" : [GTLRGames_RecallToken class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_GeneratePlayGroupingApiTokenResponse
+//
+
+@implementation GTLRGames_GeneratePlayGroupingApiTokenResponse
+@dynamic token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_GenerateRecallPlayGroupingApiTokenResponse
+//
+
+@implementation GTLRGames_GenerateRecallPlayGroupingApiTokenResponse
+@dynamic token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_GetMultipleApplicationPlayerIdsResponse
 //
 
@@ -1283,6 +1321,16 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_PlayGroupingApiToken
+//
+
+@implementation GTLRGames_PlayGroupingApiToken
+@dynamic tokenValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_ProfileSettings
 //
 
@@ -1335,6 +1383,24 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 @implementation GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse
 @dynamic token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_RetrieveGamesPlayerTokensResponse
+//
+
+@implementation GTLRGames_RetrieveGamesPlayerTokensResponse
+@dynamic applicationRecallTokens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applicationRecallTokens" : [GTLRGames_GamePlayerToken class]
+  };
+  return map;
+}
+
 @end
 
 

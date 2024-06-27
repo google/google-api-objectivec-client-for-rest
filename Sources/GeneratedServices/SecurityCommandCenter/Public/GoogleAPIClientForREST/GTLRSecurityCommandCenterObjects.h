@@ -35,6 +35,10 @@
 @class GTLRSecurityCommandCenter_AwsMetadata;
 @class GTLRSecurityCommandCenter_AwsOrganization;
 @class GTLRSecurityCommandCenter_AwsOrganizationalUnit;
+@class GTLRSecurityCommandCenter_AzureManagementGroup;
+@class GTLRSecurityCommandCenter_AzureMetadata;
+@class GTLRSecurityCommandCenter_AzureResourceGroup;
+@class GTLRSecurityCommandCenter_AzureSubscription;
 @class GTLRSecurityCommandCenter_BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_Binding;
 @class GTLRSecurityCommandCenter_CloudArmor;
@@ -102,6 +106,10 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsMetadata;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsOrganization;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsOrganizationalUnit;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureManagementGroup;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureMetadata;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureResourceGroup;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureSubscription;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Binding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor;
@@ -129,6 +137,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Folder;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Geolocation;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2KernelRootkit;
@@ -164,8 +173,10 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ServiceAccountDelegationInfo;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Subject;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2TicketInfo;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ToxicCombination;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Vulnerability;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2YaraRuleSignature;
+@class GTLRSecurityCommandCenter_GroupMembership;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
 @class GTLRSecurityCommandCenter_IamBinding;
@@ -220,6 +231,7 @@
 @class GTLRSecurityCommandCenter_StreamingConfig;
 @class GTLRSecurityCommandCenter_Subject;
 @class GTLRSecurityCommandCenter_TicketInfo;
+@class GTLRSecurityCommandCenter_ToxicCombination;
 @class GTLRSecurityCommandCenter_ValuedResource;
 @class GTLRSecurityCommandCenter_Vulnerability;
 @class GTLRSecurityCommandCenter_VulnerabilityCountBySeverity;
@@ -836,6 +848,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingCla
  *  Value: "THREAT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Threat;
+/**
+ *  Describes a group of security issues that, when the issues occur together,
+ *  represent a greater risk than when the issues occur independently. A group
+ *  of such issues is referred to as a toxic combination.
+ *
+ *  Value: "TOXIC_COMBINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_ToxicCombination;
 /**
  *  Describes a potential weakness in software that increases risk to
  *  Confidentiality & Integrity & Availability.
@@ -1782,6 +1802,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Threat;
 /**
+ *  Describes a combination of security issues that represent a more severe
+ *  security problem when taken together.
+ *
+ *  Value: "TOXIC_COMBINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_ToxicCombination;
+/**
  *  Describes a potential weakness in software that increases risk to
  *  Confidentiality & Integrity & Availability.
  *
@@ -1902,6 +1929,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership.groupType
+
+/**
+ *  Group represents a toxic combination.
+ *
+ *  Value: "GROUP_TYPE_TOXIC_COMBINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership_GroupType_GroupTypeToxicCombination;
+/**
+ *  Default value.
+ *
+ *  Value: "GROUP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership_GroupType_GroupTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding.action
@@ -2115,6 +2158,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 /**
  *  T1613
  *
+ *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ContainerAdministrationCommand;
+/**
+ *  T1613
+ *
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ContainerAndResourceDiscovery;
@@ -2166,6 +2215,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "DYNAMIC_RESOLUTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_DynamicResolution;
+/**
+ *  T1611
+ *
+ *  Value: "ESCAPE_TO_HOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_EscapeToHost;
 /**
  *  T1567
  *
@@ -2346,6 +2401,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "STEAL_APPLICATION_ACCESS_TOKEN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_StealApplicationAccessToken;
+/**
+ *  T1649
+ *
+ *  Value: "STEAL_OR_FORGE_AUTHENTICATION_CERTIFICATES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_StealOrForgeAuthenticationCertificates;
 /**
  *  T1539
  *
@@ -2573,6 +2634,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 /**
  *  T1613
  *
+ *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ContainerAdministrationCommand;
+/**
+ *  T1613
+ *
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ContainerAndResourceDiscovery;
@@ -2624,6 +2691,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "DYNAMIC_RESOLUTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_DynamicResolution;
+/**
+ *  T1611
+ *
+ *  Value: "ESCAPE_TO_HOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_EscapeToHost;
 /**
  *  T1567
  *
@@ -2804,6 +2877,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "STEAL_APPLICATION_ACCESS_TOKEN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_StealApplicationAccessToken;
+/**
+ *  T1649
+ *
+ *  Value: "STEAL_OR_FORGE_AUTHENTICATION_CERTIFICATES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_StealOrForgeAuthenticationCertificates;
 /**
  *  T1539
  *
@@ -3154,6 +3233,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Subject_Kind_User;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GroupMembership.groupType
+
+/**
+ *  Group represents a toxic combination.
+ *
+ *  Value: "GROUP_TYPE_TOXIC_COMBINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GroupMembership_GroupType_GroupTypeToxicCombination;
+/**
+ *  Default value.
+ *
+ *  Value: "GROUP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GroupMembership_GroupType_GroupTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_IamBinding.action
 
 /**
@@ -3428,6 +3523,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CommandAndScriptingInterpreter;
 /**
+ *  T1609
+ *
+ *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ContainerAdministrationCommand;
+/**
  *  T1613
  *
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
@@ -3481,6 +3582,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "DYNAMIC_RESOLUTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DynamicResolution;
+/**
+ *  T1611
+ *
+ *  Value: "ESCAPE_TO_HOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_EscapeToHost;
 /**
  *  T1567
  *
@@ -3661,6 +3768,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "STEAL_APPLICATION_ACCESS_TOKEN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_StealApplicationAccessToken;
+/**
+ *  T1649
+ *
+ *  Value: "STEAL_OR_FORGE_AUTHENTICATION_CERTIFICATES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_StealOrForgeAuthenticationCertificates;
 /**
  *  T1539
  *
@@ -3886,6 +3999,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CommandAndScriptingInterpreter;
 /**
+ *  T1609
+ *
+ *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ContainerAdministrationCommand;
+/**
  *  T1613
  *
  *  Value: "CONTAINER_AND_RESOURCE_DISCOVERY"
@@ -3939,6 +4058,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "DYNAMIC_RESOLUTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DynamicResolution;
+/**
+ *  T1611
+ *
+ *  Value: "ESCAPE_TO_HOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_EscapeToHost;
 /**
  *  T1567
  *
@@ -4119,6 +4244,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "STEAL_APPLICATION_ACCESS_TOKEN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_StealApplicationAccessToken;
+/**
+ *  T1649
+ *
+ *  Value: "STEAL_OR_FORGE_AUTHENTICATION_CERTIFICATES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_StealOrForgeAuthenticationCertificates;
 /**
  *  T1539
  *
@@ -5075,6 +5206,76 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The friendly name of the OU. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an Azure management group.
+ */
+@interface GTLRSecurityCommandCenter_AzureManagementGroup : GTLRObject
+
+/** The display name of the Azure management group. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The UUID of the Azure management group, for example,
+ *  "20000000-0001-0000-0000-000000000000".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Azure metadata associated with the resource, only applicable if the
+ *  finding's cloud provider is Microsoft Azure.
+ */
+@interface GTLRSecurityCommandCenter_AzureMetadata : GTLRObject
+
+/**
+ *  A list of Azure management groups associated with the resource, ordered from
+ *  lowest level (closest to the subscription) to highest level.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AzureManagementGroup *> *managementGroups;
+
+/** The Azure resource group associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AzureResourceGroup *resourceGroup;
+
+/** The Azure subscription associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AzureSubscription *subscription;
+
+@end
+
+
+/**
+ *  Represents an Azure resource group.
+ */
+@interface GTLRSecurityCommandCenter_AzureResourceGroup : GTLRObject
+
+/** The name of the Azure resource group. This is not a UUID. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an Azure subscription.
+ */
+@interface GTLRSecurityCommandCenter_AzureSubscription : GTLRObject
+
+/** The display name of the Azure subscription. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The UUID of the Azure subscription, for example,
+ *  "291bba3f-e0a5-47bc-a099-3bdcb2a50a05".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -6500,11 +6701,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        an error that prevents some SCC functionality. (Value: "SCC_ERROR")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Threat Describes
  *        unwanted or malicious activity. (Value: "THREAT")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_ToxicCombination
+ *        Describes a group of security issues that, when the issues occur
+ *        together, represent a greater risk than when the issues occur
+ *        independently. A group of such issues is referred to as a toxic
+ *        combination. (Value: "TOXIC_COMBINATION")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability
  *        Describes a potential weakness in software that increases risk to
  *        Confidentiality & Integrity & Availability. (Value: "VULNERABILITY")
  */
 @property(nonatomic, copy, nullable) NSString *findingClass;
+
+/**
+ *  Contains details about groups of which this finding is a member. A group is
+ *  a collection of findings that are related in some way. This field cannot be
+ *  updated. Its value is ignored in all update requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GroupMembership *> *groupMemberships;
 
 /** Represents IAM bindings associated with the finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_IamBinding *> *iamBindings;
@@ -6698,6 +6911,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        Unspecified state. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Contains details about a group of security issues that, when the issues
+ *  occur together, represent a greater risk than when the issues occur
+ *  independently. A group of such issues is referred to as a toxic combination.
+ *  This field cannot be updated. Its value is ignored in all update requests.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ToxicCombination *toxicCombination;
 
 /**
  *  Represents vulnerability-specific fields like CVE and CVSS scores. CVE
@@ -7572,6 +7793,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** The AWS metadata associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AwsMetadata *awsMetadata;
 
+/** The Azure metadata associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AzureMetadata *azureMetadata;
+
 /**
  *  Indicates which cloud provider the resource resides in.
  *
@@ -8250,6 +8474,76 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The friendly name of the OU. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an Azure management group.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureManagementGroup : GTLRObject
+
+/** The display name of the Azure management group. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The UUID of the Azure management group, for example,
+ *  "20000000-0001-0000-0000-000000000000".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Azure metadata associated with the resource, only applicable if the
+ *  finding's cloud provider is Microsoft Azure.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureMetadata : GTLRObject
+
+/**
+ *  A list of Azure management groups associated with the resource, ordered from
+ *  lowest level (closest to the subscription) to highest level.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureManagementGroup *> *managementGroups;
+
+/** The Azure resource group associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureResourceGroup *resourceGroup;
+
+/** The Azure subscription associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureSubscription *subscription;
+
+@end
+
+
+/**
+ *  Represents an Azure resource group.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureResourceGroup : GTLRObject
+
+/** The name of the Azure resource group. This is not a UUID. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an Azure subscription.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureSubscription : GTLRObject
+
+/** The display name of the Azure subscription. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The UUID of the Azure subscription, for example,
+ *  "291bba3f-e0a5-47bc-a099-3bdcb2a50a05".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -9393,11 +9687,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        "SCC_ERROR")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Threat
  *        Describes unwanted or malicious activity. (Value: "THREAT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_ToxicCombination
+ *        Describes a combination of security issues that represent a more
+ *        severe security problem when taken together. (Value:
+ *        "TOXIC_COMBINATION")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Vulnerability
  *        Describes a potential weakness in software that increases risk to
  *        Confidentiality & Integrity & Availability. (Value: "VULNERABILITY")
  */
 @property(nonatomic, copy, nullable) NSString *findingClass;
+
+/**
+ *  Contains details about groups of which this finding is a member. A group is
+ *  a collection of findings that are related in some way. This field cannot be
+ *  updated. Its value is ignored in all update requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership *> *groupMemberships;
 
 /** Represents IAM bindings associated with the finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding *> *iamBindings;
@@ -9604,6 +9909,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
+ *  Contains details about a group of security issues that, when the issues
+ *  occur together, represent a greater risk than when the issues occur
+ *  independently. A group of such issues is referred to as a toxic combination.
+ *  This field cannot be updated. Its value is ignored in all update requests.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ToxicCombination *toxicCombination;
+
+/**
  *  Represents vulnerability-specific fields like CVE and CVSS scores. CVE
  *  stands for Common Vulnerabilities and Exposures
  *  (https://cve.mitre.org/about/)
@@ -9685,6 +9998,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** A CLDR. */
 @property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  Contains details about groups of which this finding is a member. A group is
+ *  a collection of findings that are related in some way.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership : GTLRObject
+
+/** ID of the group. */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/**
+ *  Type of group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership_GroupType_GroupTypeToxicCombination
+ *        Group represents a toxic combination. (Value:
+ *        "GROUP_TYPE_TOXIC_COMBINATION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership_GroupType_GroupTypeUnspecified
+ *        Default value. (Value: "GROUP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *groupType;
 
 @end
 
@@ -10416,6 +10753,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** The AWS metadata associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsMetadata *awsMetadata;
 
+/** The Azure metadata associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureMetadata *azureMetadata;
+
 /**
  *  Indicates which cloud provider the finding is from.
  *
@@ -10984,6 +11324,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Contains details about a group of security issues that, when the issues
+ *  occur together, represent a greater risk than when the issues occur
+ *  independently. A group of such issues is referred to as a toxic combination.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ToxicCombination : GTLRObject
+
+/**
+ *  The [Attack exposure
+ *  score](https://cloud.google.com/security-command-center/docs/attack-exposure-learn#attack_exposure_scores)
+ *  of this toxic combination. The score is a measure of how much this toxic
+ *  combination exposes one or more high-value resources to potential attack.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attackExposureScore;
+
+/**
+ *  List of resource names of findings associated with this toxic combination.
+ *  For example, organizations/123/sources/456/findings/789.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFindings;
+
+@end
+
+
+/**
  *  Refers to common vulnerability fields e.g. cve, cvss, cwe etc.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Vulnerability : GTLRObject
@@ -11291,6 +11657,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Contains details about groups of which this finding is a member. A group is
+ *  a collection of findings that are related in some way.
+ */
+@interface GTLRSecurityCommandCenter_GroupMembership : GTLRObject
+
+/** ID of the group. */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/**
+ *  Type of group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GroupMembership_GroupType_GroupTypeToxicCombination
+ *        Group represents a toxic combination. (Value:
+ *        "GROUP_TYPE_TOXIC_COMBINATION")
+ *    @arg @c kGTLRSecurityCommandCenter_GroupMembership_GroupType_GroupTypeUnspecified
+ *        Default value. (Value: "GROUP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *groupType;
 
 @end
 
@@ -12778,6 +13168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** The AWS metadata associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AwsMetadata *awsMetadata;
 
+/** The Azure metadata associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AzureMetadata *azureMetadata;
+
 /**
  *  Indicates which cloud provider the finding is from.
  *
@@ -13599,6 +13992,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The link to the ticket in the ticket system. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Contains details about a group of security issues that, when the issues
+ *  occur together, represent a greater risk than when the issues occur
+ *  independently. A group of such issues is referred to as a toxic combination.
+ */
+@interface GTLRSecurityCommandCenter_ToxicCombination : GTLRObject
+
+/**
+ *  The [Attack exposure
+ *  score](https://cloud.google.com/security-command-center/docs/attack-exposure-learn#attack_exposure_scores)
+ *  of this toxic combination. The score is a measure of how much this toxic
+ *  combination exposes one or more high-value resources to potential attack.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attackExposureScore;
+
+/**
+ *  List of resource names of findings associated with this toxic combination.
+ *  For example, organizations/123/sources/456/findings/789.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFindings;
 
 @end
 

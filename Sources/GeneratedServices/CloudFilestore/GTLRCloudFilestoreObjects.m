@@ -46,6 +46,7 @@ NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvide
 NSString * const kGTLRCloudFilestore_Instance_State_Creating   = @"CREATING";
 NSString * const kGTLRCloudFilestore_Instance_State_Deleting   = @"DELETING";
 NSString * const kGTLRCloudFilestore_Instance_State_Error      = @"ERROR";
+NSString * const kGTLRCloudFilestore_Instance_State_Promoting  = @"PROMOTING";
 NSString * const kGTLRCloudFilestore_Instance_State_Ready      = @"READY";
 NSString * const kGTLRCloudFilestore_Instance_State_Repairing  = @"REPAIRING";
 NSString * const kGTLRCloudFilestore_Instance_State_Restoring  = @"RESTORING";
@@ -142,7 +143,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 @implementation GTLRCloudFilestore_Backup
 @dynamic capacityGb, createTime, descriptionProperty, downloadBytes, kmsKey,
          labels, name, satisfiesPzi, satisfiesPzs, sourceFileShare,
-         sourceInstance, sourceInstanceTier, state, storageBytes;
+         sourceInstance, sourceInstanceTier, state, storageBytes, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -157,6 +158,20 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Backup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Backup_Tags
+//
+
+@implementation GTLRCloudFilestore_Backup_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -470,7 +485,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 @implementation GTLRCloudFilestore_Instance
 @dynamic createTime, descriptionProperty, ETag, fileShares, kmsKeyName, labels,
          name, networks, replication, satisfiesPzi, satisfiesPzs, state,
-         statusMessage, suspensionReasons, tier;
+         statusMessage, suspensionReasons, tags, tier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -498,6 +513,20 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Instance_Tags
+//
+
+@implementation GTLRCloudFilestore_Instance_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -784,6 +813,15 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_PromoteReplicaRequest
+//
+
+@implementation GTLRCloudFilestore_PromoteReplicaRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_ReplicaConfig
 //
 
@@ -855,7 +893,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 @implementation GTLRCloudFilestore_Snapshot
 @dynamic createTime, descriptionProperty, filesystemUsedBytes, labels, name,
-         state;
+         state, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -870,6 +908,20 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Snapshot_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Snapshot_Tags
+//
+
+@implementation GTLRCloudFilestore_Snapshot_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

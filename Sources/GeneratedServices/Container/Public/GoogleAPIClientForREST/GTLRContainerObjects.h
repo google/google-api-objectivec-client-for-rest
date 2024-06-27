@@ -705,11 +705,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelDisabled;
 /**
- *  Gateway API support is enabled, experimental CRDs are installed
+ *  Deprecated: use CHANNEL_STANDARD instead. Gateway API support is enabled,
+ *  experimental CRDs are installed
  *
  *  Value: "CHANNEL_EXPERIMENTAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental GTLR_DEPRECATED;
 /**
  *  Gateway API support is enabled, standard CRDs are installed
  *
@@ -963,6 +964,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_Enab
  *  Value: "DAEMONSET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Daemonset;
+/**
+ *  NVIDIA Data Center GPU Manager (DCGM)
+ *
+ *  Value: "DCGM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Dcgm;
 /**
  *  Deployment
  *
@@ -4110,8 +4117,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelDisabled Gateway
  *        API support is disabled (Value: "CHANNEL_DISABLED")
  *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental
- *        Gateway API support is enabled, experimental CRDs are installed
- *        (Value: "CHANNEL_EXPERIMENTAL")
+ *        Deprecated: use CHANNEL_STANDARD instead. Gateway API support is
+ *        enabled, experimental CRDs are installed (Value:
+ *        "CHANNEL_EXPERIMENTAL")
  *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelStandard Gateway
  *        API support is enabled, standard CRDs are installed (Value:
  *        "CHANNEL_STANDARD")

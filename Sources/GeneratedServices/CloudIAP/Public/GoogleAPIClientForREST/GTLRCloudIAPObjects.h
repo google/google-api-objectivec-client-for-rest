@@ -27,6 +27,7 @@
 @class GTLRCloudIAP_GcipSettings;
 @class GTLRCloudIAP_GetPolicyOptions;
 @class GTLRCloudIAP_IdentityAwareProxyClient;
+@class GTLRCloudIAP_NextStateOfTags;
 @class GTLRCloudIAP_OAuth2;
 @class GTLRCloudIAP_OAuthSettings;
 @class GTLRCloudIAP_Policy;
@@ -36,6 +37,12 @@
 @class GTLRCloudIAP_Resource;
 @class GTLRCloudIAP_Resource_ExpectedNextState;
 @class GTLRCloudIAP_Resource_Labels;
+@class GTLRCloudIAP_TagsFullState;
+@class GTLRCloudIAP_TagsFullState_Tags;
+@class GTLRCloudIAP_TagsFullStateForChildResource;
+@class GTLRCloudIAP_TagsFullStateForChildResource_Tags;
+@class GTLRCloudIAP_TagsPartialState;
+@class GTLRCloudIAP_TagsPartialState_TagsToUpsert;
 @class GTLRCloudIAP_TunnelDestGroup;
 @class GTLRCloudIAP_WorkforceIdentitySettings;
 
@@ -681,6 +688,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
+ *  Used for calculating the next state of tags on the resource being passed for
+ *  the CheckCustomConstraints RPC call. The detail evaluation of each field is
+ *  described in go/op-create-update-time-tags and
+ *  go/tags-in-orgpolicy-requests.
+ */
+@interface GTLRCloudIAP_NextStateOfTags : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsFullState *tagsFullState;
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsFullStateForChildResource *tagsFullStateForChildResource;
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsPartialState *tagsPartialState;
+
+@end
+
+
+/**
  *  The OAuth 2.0 Settings
  */
 @interface GTLRCloudIAP_OAuth2 : GTLRObject
@@ -984,6 +1006,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Used for calculating the next state of tags on the resource being passed for
+ *  Custom Org Policy enforcement. NOTE: Only one of the tags representations
+ *  (i.e. numeric or namespaced) should be populated. The input tags will be
+ *  converted to the same representation before the calculation. This behavior
+ *  intentionally may differ from other tags related fields in CheckPolicy
+ *  request, which may require both formats to be passed in. IMPORTANT: If tags
+ *  are unchanged, this field should not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_NextStateOfTags *nextStateOfTags;
+
+/**
  *  The name of the service this resource belongs to. It is configured using the
  *  official_service_name of the Service as defined in service configurations
  *  under //configs/cloud/resourcetypes. For example, the official_service_name
@@ -1074,6 +1107,113 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Policy *policy;
 
+@end
+
+
+/**
+ *  GTLRCloudIAP_TagsFullState
+ */
+@interface GTLRCloudIAP_TagsFullState : GTLRObject
+
+/**
+ *  If TagsFullState is initialized, the values in this field fully represent
+ *  all the tags in the next state (the current tag values are not used). If
+ *  tags.size() == 0, the next state of tags would be no tags for evaluation
+ *  purposes. Only one type of tags reference (numeric or namespace) is required
+ *  to be passed.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsFullState_Tags *tags;
+
+@end
+
+
+/**
+ *  If TagsFullState is initialized, the values in this field fully represent
+ *  all the tags in the next state (the current tag values are not used). If
+ *  tags.size() == 0, the next state of tags would be no tags for evaluation
+ *  purposes. Only one type of tags reference (numeric or namespace) is required
+ *  to be passed.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIAP_TagsFullState_Tags : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudIAP_TagsFullStateForChildResource
+ */
+@interface GTLRCloudIAP_TagsFullStateForChildResource : GTLRObject
+
+/**
+ *  If TagsFullStateForChildResource is initialized, the values in this field
+ *  represent all the tags in the next state for the child resource. Only one
+ *  type of tags reference (numeric or namespace) is required to be passed.
+ *  IMPORTANT: This field should only be used when the target resource IAM
+ *  policy name is UNKNOWN and the resource's parent IAM policy name is being
+ *  passed in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsFullStateForChildResource_Tags *tags;
+
+@end
+
+
+/**
+ *  If TagsFullStateForChildResource is initialized, the values in this field
+ *  represent all the tags in the next state for the child resource. Only one
+ *  type of tags reference (numeric or namespace) is required to be passed.
+ *  IMPORTANT: This field should only be used when the target resource IAM
+ *  policy name is UNKNOWN and the resource's parent IAM policy name is being
+ *  passed in the request.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIAP_TagsFullStateForChildResource_Tags : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudIAP_TagsPartialState
+ */
+@interface GTLRCloudIAP_TagsPartialState : GTLRObject
+
+/**
+ *  Keys of the tags that should be removed for evaluation purposes. IMPORTANT:
+ *  Currently only numeric references are supported. Once support for namespace
+ *  references is added, both the tag references (numeric and namespace) will be
+ *  removed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagKeysToRemove;
+
+/**
+ *  Tags that’ll be updated or added to the current state of tags for evaluation
+ *  purposes. If a key exists in both "tags_to_upsert" and "tag_keys_to_remove",
+ *  the one in "tag_keys_to_remove" is ignored. Only one type of tags reference
+ *  (numeric or namespace) is required to be passed.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsPartialState_TagsToUpsert *tagsToUpsert;
+
+@end
+
+
+/**
+ *  Tags that’ll be updated or added to the current state of tags for evaluation
+ *  purposes. If a key exists in both "tags_to_upsert" and "tag_keys_to_remove",
+ *  the one in "tag_keys_to_remove" is ignored. Only one type of tags reference
+ *  (numeric or namespace) is required to be passed.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIAP_TagsPartialState_TagsToUpsert : GTLRObject
 @end
 
 

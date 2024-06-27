@@ -61,6 +61,40 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @end
 
+@implementation GTLRGamesQuery_AccesstokensGeneratePlayGroupingApiToken
+
+@dynamic packageName, persona;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"games/v1/accesstokens/generatePlayGroupingApiToken";
+  GTLRGamesQuery_AccesstokensGeneratePlayGroupingApiToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRGames_GeneratePlayGroupingApiTokenResponse class];
+  query.loggingName = @"games.accesstokens.generatePlayGroupingApiToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRGamesQuery_AccesstokensGenerateRecallPlayGroupingApiToken
+
+@dynamic packageName, persona, recallSessionId;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"games/v1/accesstokens/generateRecallPlayGroupingApiToken";
+  GTLRGamesQuery_AccesstokensGenerateRecallPlayGroupingApiToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRGames_GenerateRecallPlayGroupingApiTokenResponse class];
+  query.loggingName = @"games.accesstokens.generateRecallPlayGroupingApiToken";
+  return query;
+}
+
+@end
+
 @implementation GTLRGamesQuery_AchievementDefinitionsList
 
 @dynamic language, maxResults, pageToken;
@@ -472,6 +506,32 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
   query.collection = collection;
   query.expectedObjectClass = [GTLRGames_PlayerListResponse class];
   query.loggingName = @"games.players.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGamesQuery_RecallGamesPlayerTokens
+
+@dynamic applicationIds, sessionId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applicationIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithSessionId:(NSString *)sessionId {
+  NSArray *pathParams = @[ @"sessionId" ];
+  NSString *pathURITemplate = @"games/v1/recall/gamesPlayerTokens/{sessionId}";
+  GTLRGamesQuery_RecallGamesPlayerTokens *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.sessionId = sessionId;
+  query.expectedObjectClass = [GTLRGames_RetrieveGamesPlayerTokensResponse class];
+  query.loggingName = @"games.recall.gamesPlayerTokens";
   return query;
 }
 

@@ -2407,7 +2407,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleCloudRunV2GCSVolumeSource : GTLRObject
 
-/** Cloud Storage Bucket name. */
+/**
+ *  Cloud Storage Bucket name. TODO (b/344678062) Fix the error validation once
+ *  dynamic mounting is public.
+ */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
@@ -2557,7 +2560,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Output only. Email address of the authenticated creator. */
 @property(nonatomic, copy, nullable) NSString *creator;
 
-/** Output only. The deletion time. */
+/**
+ *  Output only. The deletion time. It is only populated as a response to a
+ *  Delete request.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
@@ -3772,7 +3778,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSNumber *defaultUriDisabled;
 
-/** Output only. The deletion time. */
+/**
+ *  Output only. The deletion time. It is only populated as a response to a
+ *  Delete request.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**

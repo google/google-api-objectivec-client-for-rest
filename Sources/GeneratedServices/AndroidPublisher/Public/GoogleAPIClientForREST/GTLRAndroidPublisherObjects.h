@@ -3522,6 +3522,20 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalTransactionTestPurchase *testPurchase;
 
 /**
+ *  Optional. The transaction program code, used to help determine service fee
+ *  for apps partcipating in special partner programs. This field can not be
+ *  used for external offers transactions. Developers participating in the Play
+ *  Media Experience Program
+ *  (https://play.google.com/console/about/programs/mediaprogram/) must provide
+ *  the program code when reporting alternative billing external transactions.
+ *  If you are an eligible developer, please contact your BDM for more
+ *  information on how to set this field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transactionProgramCode;
+
+/**
  *  Output only. The current state of the transaction.
  *
  *  Likely values:
@@ -7748,7 +7762,7 @@ GTLR_DEPRECATED
 /**
  *  The reason why the purchase was voided, possible values are: 0. Other 1.
  *  Remorse 2. Not_received 3. Defective 4. Accidental_purchase 5. Fraud 6.
- *  Friendly_fraud 7. Chargeback
+ *  Friendly_fraud 7. Chargeback 8. Unacknowledged_purchase
  *
  *  Uses NSNumber of intValue.
  */

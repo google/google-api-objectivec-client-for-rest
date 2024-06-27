@@ -621,7 +621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
  *  Optional. If true, Google will cancel the subscription immediately, and may
  *  or may not (based on the contract) issue a prorated refund for the remainder
  *  of the billing cycle. Otherwise, Google defers the cancelation at
- *  renewal_time, and will not issue a refund.
+ *  renewal_time, and will not issue a refund. - YouTube subscriptions must use
+ *  this option currently. However, the user will still have access to the
+ *  subscription until the end of the billing cycle.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -711,8 +713,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  Partner request for entitling the previously provisioned subscription to an
- *  end user. The end user identity is inferred from the request OAuth context.
+ *  LINT.IfChange Partner request for entitling the previously provisioned
+ *  subscription to an end user. The end user identity is inferred from the
+ *  request OAuth context.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest : GTLRObject
 

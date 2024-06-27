@@ -81,7 +81,6 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_AdditionalMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata;
-@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_UserLabels;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_AdditionalMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement;
@@ -92,6 +91,7 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels_Labels;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonTypedValue;
 @class GTLRCloudAlloyDBAdmin_StringRestrictions;
 @class GTLRCloudAlloyDBAdmin_SupportedDatabaseFlag;
 @class GTLRCloudAlloyDBAdmin_TimeBasedRetention;
@@ -103,7 +103,6 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -1269,6 +1268,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp;
 /**
+ *  Represents if a resource violates CIS Controls 8.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisControlsV80;
+/**
  *  Represents if a resource violates CIS GCP Foundation 1.0.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0"
@@ -1299,11 +1304,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20;
 /**
+ *  Represents if a resource violates Cloud Controls Matrix v4.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4;
+/**
+ *  Represents if a resource violates HIPAA.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesHipaa;
+/**
  *  Represents if a resource violates ISO-27001.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_ISO_27001"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001;
+/**
+ *  Represents if a resource violates ISO 27001 2022.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_ISO_27001_V2022"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001V2022;
 /**
  *  Represents if a resource violates NIST 800-53.
  *
@@ -1311,11 +1334,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053;
 /**
+ *  Represents if a resource violates NIST 800-53 R5.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_NIST_800_53_R5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053R5;
+/**
+ *  Represents if a resource violates NIST Cybersecurity Framework 1.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10;
+/**
  *  Represents if a resource violates PCI-DSS v3.2.1.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV321;
+/**
+ *  Represents if a resource violates PCI-DSS v4.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV40;
+/**
+ *  Represents if a resource violates SOC2 v2017.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_SOC2_V2017"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesSoc2V2017;
 /**
  *  Represents if a Cloud SQL database has a weak password configured for the
  *  root account.
@@ -1990,6 +2037,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp;
 /**
+ *  Represents if a resource violates CIS Controls 8.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisControlsV80;
+/**
  *  Represents if a resource violates CIS GCP Foundation 1.0.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0"
@@ -2020,11 +2073,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20;
 /**
+ *  Represents if a resource violates Cloud Controls Matrix v4.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4;
+/**
+ *  Represents if a resource violates HIPAA.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesHipaa;
+/**
  *  Represents if a resource violates ISO-27001.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_ISO_27001"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001;
+/**
+ *  Represents if a resource violates ISO 27001 2022.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_ISO_27001_V2022"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001V2022;
 /**
  *  Represents if a resource violates NIST 800-53.
  *
@@ -2032,11 +2103,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053;
 /**
+ *  Represents if a resource violates NIST 800-53 R5.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_NIST_800_53_R5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053R5;
+/**
+ *  Represents if a resource violates NIST Cybersecurity Framework 1.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10;
+/**
  *  Represents if a resource violates PCI-DSS v3.2.1.
  *
  *  Value: "SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV321;
+/**
+ *  Represents if a resource violates PCI-DSS v4.0.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV40;
+/**
+ *  Represents if a resource violates SOC2 v2017.
+ *
+ *  Value: "SIGNAL_TYPE_VIOLATES_SOC2_V2017"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesSoc2V2017;
 /**
  *  Represents if a Cloud SQL database has a weak password configured for the
  *  root account.
@@ -2078,19 +2173,81 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Gemini;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData.aggregationType
+
+/**
+ *  Unspecified aggregation type.
+ *
+ *  Value: "AGGREGATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_AggregationTypeUnspecified;
+/**
+ *  current aggregation type.
+ *
+ *  Value: "CURRENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_Current;
+/**
+ *  P95 aggregation type.
+ *
+ *  Value: "P95"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_P95;
+/**
+ *  P99 aggregation type.
+ *
+ *  Value: "P99"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_P99;
+/**
+ *  PEAK aggregation type.
+ *
+ *  Value: "PEAK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_Peak;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData.metricType
 
 /**
- *  Peak CPU utilization for a DB instance as a fraction between 0.0 and 1.0
- *  (may momentarily exceed 1.0 in some cases) List will keep increasing, e.g.
- *  PEAK_MEMORY_UTILISATION, NUMBER_OF_CONNECTIONS, SUCCESS_RATIO_FOR_QUERIES,
- *  etc.
+ *  CPU utilization for a resource. The value is a fraction between 0.0 and 1.0
+ *  (may momentarily exceed 1.0 in some cases).
  *
- *  Value: "INSTANCE_PEAK_CPU_UTILISATION"
+ *  Value: "CPU_UTILIZATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_InstancePeakCpuUtilisation;
-/** Value: "METRIC_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_CpuUtilization;
+/**
+ *  Memory utilization for a resource. The value is a fraction between 0.0 and
+ *  1.0 (may momentarily exceed 1.0 in some cases).
+ *
+ *  Value: "MEMORY_UTILIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MemoryUtilization;
+/**
+ *  Unspecified metric type.
+ *
+ *  Value: "METRIC_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MetricTypeUnspecified;
+/**
+ *  Number of network connections for a resource.
+ *
+ *  Value: "NETWORK_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_NetworkConnections;
+/**
+ *  Sotrage used by a resource.
+ *
+ *  Value: "STORAGE_USED_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_StorageUsedBytes;
+/**
+ *  Storage utilization for a resource. The value is a fraction between 0.0 and
+ *  1.0 (may momentarily exceed 1.0 in some cases).
+ *
+ *  Value: "STORAGE_UTILIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_StorageUtilization;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError.errorType
@@ -5112,6 +5269,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp
  *        Represents violate org policy restrict public ip. (Value:
  *        "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisControlsV80
+ *        Represents if a resource violates CIS Controls 8.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation10
  *        Represents if a resource violates CIS GCP Foundation 1.0. (Value:
  *        "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0")
@@ -5127,15 +5287,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20
  *        Represents if a resource violates CIS GCP Foundation 2.0. (Value:
  *        "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_2_0")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4
+ *        Represents if a resource violates Cloud Controls Matrix v4.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesHipaa
+ *        Represents if a resource violates HIPAA. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_HIPAA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001
  *        Represents if a resource violates ISO-27001. (Value:
  *        "SIGNAL_TYPE_VIOLATES_ISO_27001")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesIso27001V2022
+ *        Represents if a resource violates ISO 27001 2022. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_ISO_27001_V2022")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053
  *        Represents if a resource violates NIST 800-53. (Value:
  *        "SIGNAL_TYPE_VIOLATES_NIST_800_53")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNist80053R5
+ *        Represents if a resource violates NIST 800-53 R5. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_NIST_800_53_R5")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10
+ *        Represents if a resource violates NIST Cybersecurity Framework 1.0.
+ *        (Value: "SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV321
  *        Represents if a resource violates PCI-DSS v3.2.1. (Value:
  *        "SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesPciDssV40
+ *        Represents if a resource violates PCI-DSS v4.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeViolatesSoc2V2017
+ *        Represents if a resource violates SOC2 v2017. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_SOC2_V2017")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeWeakRootPassword
  *        Represents if a Cloud SQL database has a weak password configured for
  *        the root account. (Value: "SIGNAL_TYPE_WEAK_ROOT_PASSWORD")
@@ -5373,29 +5554,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updationTime;
 
-/**
- *  User-provided labels, represented as a dictionary where each label is a
- *  single key value pair.
- */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_UserLabels *userLabels GTLR_DEPRECATED;
-
 /** User-provided labels associated with the resource */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels *userLabelSet;
 
-@end
-
-
-/**
- *  User-provided labels, represented as a dictionary where each label is a
- *  single key value pair.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-GTLR_DEPRECATED
-@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_UserLabels : GTLRObject
 @end
 
 
@@ -5691,6 +5852,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp
  *        Represents violate org policy restrict public ip. (Value:
  *        "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisControlsV80
+ *        Represents if a resource violates CIS Controls 8.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_CIS_CONTROLS_V8_0")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation10
  *        Represents if a resource violates CIS GCP Foundation 1.0. (Value:
  *        "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_1_0")
@@ -5706,15 +5870,36 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCisGcpFoundation20
  *        Represents if a resource violates CIS GCP Foundation 2.0. (Value:
  *        "SIGNAL_TYPE_VIOLATES_CIS_GCP_FOUNDATION_2_0")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesCloudControlsMatrixV4
+ *        Represents if a resource violates Cloud Controls Matrix v4.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_CLOUD_CONTROLS_MATRIX_V4")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesHipaa
+ *        Represents if a resource violates HIPAA. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_HIPAA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001
  *        Represents if a resource violates ISO-27001. (Value:
  *        "SIGNAL_TYPE_VIOLATES_ISO_27001")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesIso27001V2022
+ *        Represents if a resource violates ISO 27001 2022. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_ISO_27001_V2022")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053
  *        Represents if a resource violates NIST 800-53. (Value:
  *        "SIGNAL_TYPE_VIOLATES_NIST_800_53")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNist80053R5
+ *        Represents if a resource violates NIST 800-53 R5. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_NIST_800_53_R5")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesNistCybersecurityFrameworkV10
+ *        Represents if a resource violates NIST Cybersecurity Framework 1.0.
+ *        (Value: "SIGNAL_TYPE_VIOLATES_NIST_CYBERSECURITY_FRAMEWORK_V1_0")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV321
  *        Represents if a resource violates PCI-DSS v3.2.1. (Value:
  *        "SIGNAL_TYPE_VIOLATES_PCI_DSS_V3_2_1")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesPciDssV40
+ *        Represents if a resource violates PCI-DSS v4.0. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_PCI_DSS_V4_0")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesSoc2V2017
+ *        Represents if a resource violates SOC2 v2017. (Value:
+ *        "SIGNAL_TYPE_VIOLATES_SOC2_V2017")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakRootPassword
  *        Represents if a Cloud SQL database has a weak password configured for
  *        the root account. (Value: "SIGNAL_TYPE_WEAK_ROOT_PASSWORD")
@@ -5781,14 +5966,16 @@ GTLR_DEPRECATED
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration : GTLRObject
 
 /**
- *  The number of CPUs.
+ *  The number of CPUs. TODO(b/342344482, b/342346271) add proto validations
+ *  again after bug fix.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuCount;
 
 /**
- *  Memory size in bytes.
+ *  Memory size in bytes. TODO(b/342344482, b/342346271) add proto validations
+ *  again after bug fix.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5802,23 +5989,51 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData : GTLRObject
 
-/** Required. The timestamp of the metric value. */
-@property(nonatomic, strong, nullable) GTLRDateTime *metricTimestamp;
+/**
+ *  Required. Type of aggregation performed on the metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_AggregationTypeUnspecified
+ *        Unspecified aggregation type. (Value: "AGGREGATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_Current
+ *        current aggregation type. (Value: "CURRENT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_P95
+ *        P95 aggregation type. (Value: "P95")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_P99
+ *        P99 aggregation type. (Value: "P99")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_Peak
+ *        PEAK aggregation type. (Value: "PEAK")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationType;
 
 /**
  *  Required. Type of metric like CPU, Memory, etc.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_InstancePeakCpuUtilisation
- *        Peak CPU utilization for a DB instance as a fraction between 0.0 and
- *        1.0 (may momentarily exceed 1.0 in some cases) List will keep
- *        increasing, e.g. PEAK_MEMORY_UTILISATION, NUMBER_OF_CONNECTIONS,
- *        SUCCESS_RATIO_FOR_QUERIES, etc. (Value:
- *        "INSTANCE_PEAK_CPU_UTILISATION")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_CpuUtilization
+ *        CPU utilization for a resource. The value is a fraction between 0.0
+ *        and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
+ *        "CPU_UTILIZATION")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MemoryUtilization
+ *        Memory utilization for a resource. The value is a fraction between 0.0
+ *        and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
+ *        "MEMORY_UTILIZATION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_MetricTypeUnspecified
- *        Value "METRIC_TYPE_UNSPECIFIED"
+ *        Unspecified metric type. (Value: "METRIC_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_NetworkConnections
+ *        Number of network connections for a resource. (Value:
+ *        "NETWORK_CONNECTIONS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_StorageUsedBytes
+ *        Sotrage used by a resource. (Value: "STORAGE_USED_BYTES")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_StorageUtilization
+ *        Storage utilization for a resource. The value is a fraction between
+ *        0.0 and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
+ *        "STORAGE_UTILIZATION")
  */
 @property(nonatomic, copy, nullable) NSString *metricType;
+
+/** Required. The time the metric value was observed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *observationTime;
 
 /**
  *  Required. Database resource name associated with the signal. Resource name
@@ -5826,12 +6041,8 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
-/**
- *  Required. Value of the metric type.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *value;
+/** Required. Value of the metric type. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonTypedValue *value;
 
 @end
 
@@ -6029,6 +6240,39 @@ GTLR_DEPRECATED
 
 
 /**
+ *  TypedValue represents the value of a metric type. It can either be a double,
+ *  an int64, a string or a bool.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonTypedValue : GTLRObject
+
+/**
+ *  For boolean value
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  For double value
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
+
+/**
+ *  For integer value
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *int64Value;
+
+/** For string value */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
  *  Restrictions on STRING type values
  */
 @interface GTLRCloudAlloyDBAdmin_StringRestrictions : GTLRObject
@@ -6107,6 +6351,37 @@ GTLR_DEPRECATED
  *        This is an unknown flag type. (Value: "VALUE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
+ *  Message for switching over to a cluster
+ */
+@interface GTLRCloudAlloyDBAdmin_SwitchoverClusterRequest : GTLRObject
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, performs request validation (e.g. permission checks and
+ *  any other type of validation), but do not actually execute the delete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
 
 @end
 

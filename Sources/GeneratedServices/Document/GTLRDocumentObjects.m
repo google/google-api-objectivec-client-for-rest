@@ -1091,8 +1091,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1Document
-@dynamic content, entities, entityRelations, error, mimeType, pages, revisions,
-         shardInfo, text, textChanges, textStyles, uri;
+@dynamic chunkedDocument, content, documentLayout, entities, entityRelations,
+         error, mimeType, pages, revisions, shardInfo, text, textChanges,
+         textStyles, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1102,6 +1103,221 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
     @"revisions" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentRevision class],
     @"textChanges" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextChange class],
     @"textStyles" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyle class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocument
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocument
+@dynamic chunks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chunks" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunk
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunk
+@dynamic chunkId, content, pageFooters, pageHeaders, pageSpan, sourceBlockIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageFooters" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageFooter class],
+    @"pageHeaders" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageHeader class],
+    @"sourceBlockIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageFooter
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageFooter
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageHeader
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageHeader
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageSpan
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageSpan
+@dynamic pageEnd, pageStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayout
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayout
+@dynamic blocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock
+@dynamic blockId, listBlock, pageSpan, tableBlock, textBlock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock
+@dynamic listEntries, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"listEntries" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry
+@dynamic blocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan
+@dynamic pageEnd, pageStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock
+@dynamic bodyRows, caption, headerRows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bodyRows" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow class],
+    @"headerRows" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell
+@dynamic blocks, colSpan, rowSpan;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow
+@dynamic cells;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cells" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock
+@dynamic blocks, text, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock class]
   };
   return map;
 }
@@ -1786,8 +2002,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2Document
-@dynamic content, entities, entityRelations, error, labels, mimeType, pages,
-         revisions, shardInfo, text, textChanges, textStyles, uri;
+@dynamic chunkedDocument, content, documentLayout, entities, entityRelations,
+         error, labels, mimeType, pages, revisions, shardInfo, text,
+         textChanges, textStyles, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1798,6 +2015,221 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
     @"revisions" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentRevision class],
     @"textChanges" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextChange class],
     @"textStyles" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyle class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocument
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocument
+@dynamic chunks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chunks" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunk
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunk
+@dynamic chunkId, content, pageFooters, pageHeaders, pageSpan, sourceBlockIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageFooters" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageFooter class],
+    @"pageHeaders" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageHeader class],
+    @"sourceBlockIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageFooter
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageFooter
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageHeader
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageHeader
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageSpan
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageSpan
+@dynamic pageEnd, pageStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayout
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayout
+@dynamic blocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock
+@dynamic blockId, listBlock, pageSpan, tableBlock, textBlock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock
+@dynamic listEntries, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"listEntries" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry
+@dynamic blocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan
+@dynamic pageEnd, pageStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock
+@dynamic bodyRows, caption, headerRows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bodyRows" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow class],
+    @"headerRows" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell
+@dynamic blocks, colSpan, rowSpan;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow
+@dynamic cells;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cells" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock
+@dynamic blocks, text, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock class]
   };
   return map;
 }
@@ -2531,8 +2963,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3Dataset
-@dynamic documentWarehouseConfig, gcsManagedConfig, name, spannerIndexingConfig,
-         state, unmanagedDatasetConfig;
+@dynamic documentWarehouseConfig, gcsManagedConfig, name, satisfiesPzi,
+         satisfiesPzs, spannerIndexingConfig, state, unmanagedDatasetConfig;
 @end
 
 
@@ -3019,8 +3451,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1Document
-@dynamic content, entities, entityRelations, error, mimeType, pages, revisions,
-         shardInfo, text, textChanges, textStyles, uri;
+@dynamic chunkedDocument, content, documentLayout, entities, entityRelations,
+         error, mimeType, pages, revisions, shardInfo, text, textChanges,
+         textStyles, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3030,6 +3463,221 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
     @"revisions" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision class],
     @"textChanges" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange class],
     @"textStyles" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocument
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocument
+@dynamic chunks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chunks" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk
+@dynamic chunkId, content, pageFooters, pageHeaders, pageSpan, sourceBlockIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageFooters" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter class],
+    @"pageHeaders" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader class],
+    @"sourceBlockIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan
+@dynamic pageEnd, pageStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayout
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayout
+@dynamic blocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock
+@dynamic blockId, listBlock, pageSpan, tableBlock, textBlock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock
+@dynamic listEntries, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"listEntries" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry
+@dynamic blocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan
+@dynamic pageEnd, pageStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock
+@dynamic bodyRows, caption, headerRows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bodyRows" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow class],
+    @"headerRows" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell
+@dynamic blocks, colSpan, rowSpan;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow
+@dynamic cells;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cells" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock
+@dynamic blocks, text, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock class]
   };
   return map;
 }
@@ -4056,7 +4704,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions
-@dynamic fromEnd, fromStart, individualPageSelector, ocrConfig, schemaOverride;
+@dynamic fromEnd, fromStart, individualPageSelector, layoutConfig, ocrConfig,
+         schemaOverride;
 @end
 
 
@@ -4080,12 +4729,33 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfig
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfig
+@dynamic chunkingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfigChunkingConfig
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfigChunkingConfig
+@dynamic chunkSize, includeAncestorHeadings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1Processor
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1Processor
 @dynamic createTime, defaultProcessorVersion, displayName, kmsKeyName, name,
-         processEndpoint, processorVersionAliases, state, type;
+         processEndpoint, processorVersionAliases, satisfiesPzi, satisfiesPzs,
+         state, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4135,7 +4805,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion
 @dynamic createTime, deprecationInfo, displayName, documentSchema,
          googleManaged, kmsKeyName, kmsKeyVersionName, latestEvaluation,
-         modelType, name, state;
+         modelType, name, satisfiesPzi, satisfiesPzs, state;
 @end
 
 

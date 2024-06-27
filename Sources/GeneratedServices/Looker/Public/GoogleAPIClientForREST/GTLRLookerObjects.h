@@ -778,7 +778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wedne
 
 
 /**
- *  A Looker instance. LINT.IfChange
+ *  A Looker instance.
  */
 @interface GTLRLooker_Instance : GTLRObject
 

@@ -521,7 +521,7 @@ GTLR_DEPRECATED
 @property(nonatomic, assign) BOOL includeChildOrgunits;
 
 /**
- *  Maximum number of results to return, value should not exceed 300.
+ *  Maximum number of results to return. Value should not exceed 300.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -4980,7 +4980,7 @@ GTLR_DEPRECATED
 
 /**
  *  The unique ID for the customer's Google Workspace account. In case of a
- *  multi-domain account, to fetch all groups for a customer, use this field
+ *  multi-domain account, to fetch all users for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
  *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
@@ -4995,10 +4995,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customFieldMask;
 
 /**
- *  The domain name. Use this field to get groups from only one domain. To
- *  return all domains for a customer account, use the `customer` query
- *  parameter instead. Either the `customer` or the `domain` parameter must be
- *  provided.
+ *  The domain name. Use this field to get users from only one domain. To return
+ *  all domains for a customer account, use the `customer` query parameter
+ *  instead. Either the `customer` or the `domain` parameter must be provided.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 

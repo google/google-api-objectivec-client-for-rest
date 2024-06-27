@@ -18,6 +18,8 @@
 
 @class GTLRChromeManagement_GoogleChromeManagementV1AndroidAppInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1AndroidAppPermission;
+@class GTLRChromeManagement_GoogleChromeManagementV1AppReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1AppUsageData;
 @class GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport;
@@ -127,6 +129,106 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_Web;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1AppUsageData.appType
+
+/**
+ *  Application type arc (Android app).
+ *
+ *  Value: "APPLICATION_TYPE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeArc;
+/**
+ *  Application type borealis.
+ *
+ *  Value: "APPLICATION_TYPE_BOREALIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBorealis;
+/**
+ *  Application type bruschetta.
+ *
+ *  Value: "APPLICATION_TYPE_BRUSCHETTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta;
+/**
+ *  Application type built-in.
+ *
+ *  Value: "APPLICATION_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn;
+/**
+ *  Application type Chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeChromeApp;
+/**
+ *  Application type Linux (via Crostini).
+ *
+ *  Value: "APPLICATION_TYPE_CROSTINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeCrostini;
+/**
+ *  Application type extension.
+ *
+ *  Value: "APPLICATION_TYPE_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeExtension;
+/**
+ *  Application type Mac OS.
+ *
+ *  Value: "APPLICATION_TYPE_MAC_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeMacOs;
+/**
+ *  Application type Plugin VM.
+ *
+ *  Value: "APPLICATION_TYPE_PLUGIN_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypePluginVm;
+/**
+ *  Application type remote.
+ *
+ *  Value: "APPLICATION_TYPE_REMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote;
+/**
+ *  Application type standalone browser (Lacros browser app).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser;
+/**
+ *  Application type standalone browser chrome app (hosted in Lacros).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp;
+/**
+ *  Application type standalone browser extension.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension;
+/**
+ *  Application type system web.
+ *
+ *  Value: "APPLICATION_TYPE_SYSTEM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeSystemWeb;
+/**
+ *  Application type web.
+ *
+ *  Value: "APPLICATION_TYPE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeWeb;
+/**
+ *  Application type unknown.
+ *
+ *  Value: "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_TelemetryApplicationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport.batteryHealth
@@ -1990,6 +2092,81 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        Web app. (Value: "WEB")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  App report.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1AppReport : GTLRObject
+
+/** Timestamp when the report was collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** App usage data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AppUsageData *> *usageData;
+
+@end
+
+
+/**
+ *  App usage data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1AppUsageData : GTLRObject
+
+/** App id. */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/** Application instance id. This will be unique per window/instance. */
+@property(nonatomic, copy, nullable) NSString *appInstanceId;
+
+/**
+ *  Type of app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeArc
+ *        Application type arc (Android app). (Value: "APPLICATION_TYPE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBorealis
+ *        Application type borealis. (Value: "APPLICATION_TYPE_BOREALIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta
+ *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn
+ *        Application type built-in. (Value: "APPLICATION_TYPE_BUILT_IN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeChromeApp
+ *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeCrostini
+ *        Application type Linux (via Crostini). (Value:
+ *        "APPLICATION_TYPE_CROSTINI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeExtension
+ *        Application type extension. (Value: "APPLICATION_TYPE_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeMacOs
+ *        Application type Mac OS. (Value: "APPLICATION_TYPE_MAC_OS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypePluginVm
+ *        Application type Plugin VM. (Value: "APPLICATION_TYPE_PLUGIN_VM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote
+ *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser
+ *        Application type standalone browser (Lacros browser app). (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp
+ *        Application type standalone browser chrome app (hosted in Lacros).
+ *        (Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension
+ *        Application type standalone browser extension. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeSystemWeb
+ *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeWeb
+ *        Application type web. (Value: "APPLICATION_TYPE_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_TelemetryApplicationTypeUnspecified
+ *        Application type unknown. (Value:
+ *        "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/** App foreground running time. */
+@property(nonatomic, strong, nullable) GTLRDuration *runningDuration;
 
 @end
 
@@ -4827,6 +5004,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice : GTLRObject
 
 /**
+ *  Output only. App reports collected periodically sorted in a decreasing order
+ *  of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AppReport *> *appReport;
+
+/**
  *  Output only. Audio reports collected periodically sorted in a decreasing
  *  order of report_time.
  */
@@ -5270,6 +5453,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  permission needed: TELEMETRY_API_DEVICE
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice : GTLRObject
+
+/**
+ *  Output only. App reports collected periodically sorted in a decreasing order
+ *  of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AppReport *> *appReport;
 
 /**
  *  Output only. Audio reports collected periodically sorted in a decreasing

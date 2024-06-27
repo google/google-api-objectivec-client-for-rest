@@ -48,6 +48,7 @@ NSString * const kGTLRVMwareEngine_ExternalAddress_State_StateUnspecified = @"ST
 NSString * const kGTLRVMwareEngine_ExternalAddress_State_Updating = @"UPDATING";
 
 // GTLRVMwareEngine_Hcx.state
+NSString * const kGTLRVMwareEngine_Hcx_State_Activating       = @"ACTIVATING";
 NSString * const kGTLRVMwareEngine_Hcx_State_Active           = @"ACTIVE";
 NSString * const kGTLRVMwareEngine_Hcx_State_Creating         = @"CREATING";
 NSString * const kGTLRVMwareEngine_Hcx_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -97,6 +98,7 @@ NSString * const kGTLRVMwareEngine_Network_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 // GTLRVMwareEngine_NetworkPeering.peerNetworkType
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale = @"DELL_POWERSCALE";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudNetappVolumes = @"GOOGLE_CLOUD_NETAPP_VOLUMES";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_NetappCloudVolumes = @"NETAPP_CLOUD_VOLUMES";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PeerNetworkTypeUnspecified = @"PEER_NETWORK_TYPE_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PrivateServicesAccess = @"PRIVATE_SERVICES_ACCESS";

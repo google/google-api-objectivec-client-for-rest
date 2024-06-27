@@ -433,7 +433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar;
 /**
- *  A Google Chat app. Not used for Google Workspace Add-ons.
+ *  A Google Chat app.
  *
  *  Value: "CHAT"
  */
@@ -972,6 +972,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_Op
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource.commonDataSource
 
+/**
+ *  Represents a data source from Google Drive OnePick.
+ *
+ *  Value: "DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Drive;
 /**
  *  Default value. Don't use.
  *
@@ -2096,7 +2102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar The add-on
  *        launches from Google Calendar. (Value: "CALENDAR")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Chat A Google Chat
- *        app. Not used for Google Workspace Add-ons. (Value: "CHAT")
+ *        app. (Value: "CHAT")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Demo Not used. (Value:
  *        "DEMO")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Docs The add-on
@@ -2319,9 +2325,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_FormAction *action;
 
 /**
- *  Represents information about the user's client, such as locale, host app,
- *  and platform. For Chat apps, `CommonEventObject` includes information
- *  submitted by users interacting with
+ *  Represents informatmessage_visibilityion about the user's client, such as
+ *  locale, host app, and platform. For Chat apps, `CommonEventObject` includes
+ *  information submitted by users interacting with
  *  [dialogs](https://developers.google.com/workspace/chat/dialogs), like data
  *  entered on a card.
  */
@@ -3615,6 +3621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  a Google Workspace organization.
  *
  *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Drive
+ *        Represents a data source from Google Drive OnePick. (Value: "DRIVE")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Unknown
  *        Default value. Don't use. (Value: "UNKNOWN")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_User

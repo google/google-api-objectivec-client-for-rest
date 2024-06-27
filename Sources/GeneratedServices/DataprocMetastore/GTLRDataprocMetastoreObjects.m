@@ -325,25 +325,6 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_CustomRegionMetadata
-//
-
-@implementation GTLRDataprocMetastore_CustomRegionMetadata
-@dynamic optionalReadOnlyRegions, requiredReadWriteRegions, witnessRegion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"optionalReadOnlyRegions" : [NSString class],
-    @"requiredReadWriteRegions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataprocMetastore_DatabaseDump
 //
 
@@ -718,12 +699,10 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_LocationMetadata
-@dynamic customRegionMetadata, multiRegionMetadata,
-         supportedHiveMetastoreVersions;
+@dynamic multiRegionMetadata, supportedHiveMetastoreVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"customRegionMetadata" : [GTLRDataprocMetastore_CustomRegionMetadata class],
     @"supportedHiveMetastoreVersions" : [GTLRDataprocMetastore_HiveMetastoreVersion class]
   };
   return map;

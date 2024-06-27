@@ -173,6 +173,11 @@ NSString * const kGTLROnDemandScanning_VexAssessment_State_NotAffected = @"NOT_A
 NSString * const kGTLROnDemandScanning_VexAssessment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLROnDemandScanning_VexAssessment_State_UnderInvestigation = @"UNDER_INVESTIGATION";
 
+// GTLROnDemandScanning_VulnerabilityAttestation.state
+NSString * const kGTLROnDemandScanning_VulnerabilityAttestation_State_Failure = @"FAILURE";
+NSString * const kGTLROnDemandScanning_VulnerabilityAttestation_State_Success = @"SUCCESS";
+NSString * const kGTLROnDemandScanning_VulnerabilityAttestation_State_VulnerabilityAttestationStateUnspecified = @"VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED";
+
 // GTLROnDemandScanning_VulnerabilityOccurrence.cvssVersion
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion2 = @"CVSS_VERSION_2";
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion3 = @"CVSS_VERSION_3";
@@ -580,7 +585,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_DiscoveryOccurrence
 @dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
-         archiveTime, continuousAnalysis, cpe, lastScanTime, sbomStatus;
+         archiveTime, continuousAnalysis, cpe, lastScanTime, sbomStatus,
+         vulnerabilityAttestation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1814,6 +1820,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_VulnerabilityAttestation
+//
+
+@implementation GTLROnDemandScanning_VulnerabilityAttestation
+@dynamic error, lastAttemptTime, state;
 @end
 
 

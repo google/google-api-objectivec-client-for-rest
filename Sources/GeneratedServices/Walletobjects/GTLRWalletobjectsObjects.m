@@ -2348,8 +2348,9 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_Resources
 @dynamic eventTicketClasses, eventTicketObjects, flightClasses, flightObjects,
-         giftCardClasses, giftCardObjects, loyaltyClasses, loyaltyObjects,
-         offerClasses, offerObjects, transitClasses, transitObjects;
+         genericClasses, genericObjects, giftCardClasses, giftCardObjects,
+         loyaltyClasses, loyaltyObjects, offerClasses, offerObjects,
+         transitClasses, transitObjects;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2357,6 +2358,8 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
     @"eventTicketObjects" : [GTLRWalletobjects_EventTicketObject class],
     @"flightClasses" : [GTLRWalletobjects_FlightClass class],
     @"flightObjects" : [GTLRWalletobjects_FlightObject class],
+    @"genericClasses" : [GTLRWalletobjects_GenericClass class],
+    @"genericObjects" : [GTLRWalletobjects_GenericObject class],
     @"giftCardClasses" : [GTLRWalletobjects_GiftCardClass class],
     @"giftCardObjects" : [GTLRWalletobjects_GiftCardObject class],
     @"loyaltyClasses" : [GTLRWalletobjects_LoyaltyClass class],

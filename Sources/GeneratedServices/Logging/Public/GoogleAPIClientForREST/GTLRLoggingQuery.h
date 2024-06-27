@@ -1462,6 +1462,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsLocationsRecentQueriesList : GTLRLoggingQuery
 
 /**
+ *  Optional. Specifies the type ("Logging" or "OpsAnalytics") of the recent
+ *  queries to list. The only valid value for this field is one of the two
+ *  allowable type function calls, which are the following: type("Logging")
+ *  type("OpsAnalytics")
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this request.
  *  Non-positive values are ignored. The presence of nextPageToken in the
  *  response indicates that more results might be available.
@@ -1608,6 +1616,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns all data associated with the requested query.
+ *
+ *  Method: logging.billingAccounts.locations.savedQueries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the saved query.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  example: "projects/my-project/locations/global/savedQueries/my-saved-query"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Returns all data associated with the requested query.
+ *
+ *  @param name Required. The resource name of the saved query.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *    example:
+ *    "projects/my-project/locations/global/savedQueries/my-saved-query"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the SavedQueries that were created by the user making the request.
  *
  *  Method: logging.billingAccounts.locations.savedQueries.list
@@ -1670,6 +1720,60 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing SavedQuery.
+ *
+ *  Method: logging.billingAccounts.locations.savedQueries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesPatch : GTLRLoggingQuery
+
+/**
+ *  Output only. Resource name of the saved query.In the format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  a list of supported locations, see Supported Regions
+ *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  the saved query is created, the location cannot be changed.If the user
+ *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A non-empty list of fields to change in the existing saved query.
+ *  Fields are relative to the saved_query and new values for the fields are
+ *  taken from the corresponding fields in the SavedQuery included in this
+ *  request. Fields not mentioned in update_mask are not changed and are ignored
+ *  in the request.To update all mutable fields, specify an update_mask of *.For
+ *  example, to change the description and query filter text of a saved query,
+ *  specify an update_mask of "description, query.filter".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Updates an existing SavedQuery.
+ *
+ *  @param object The @c GTLRLogging_SavedQuery to include in the query.
+ *  @param name Output only. Resource name of the saved query.In the format:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    For a list of supported locations, see Supported Regions
+ *    (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *    the saved query is created, the location cannot be changed.If the user
+ *    doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1802,11 +1906,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsSinksCreate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -2017,11 +2121,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsSinksPatch : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -2102,11 +2206,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsSinksUpdate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -4081,6 +4185,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersLocationsRecentQueriesList : GTLRLoggingQuery
 
 /**
+ *  Optional. Specifies the type ("Logging" or "OpsAnalytics") of the recent
+ *  queries to list. The only valid value for this field is one of the two
+ *  allowable type function calls, which are the following: type("Logging")
+ *  type("OpsAnalytics")
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this request.
  *  Non-positive values are ignored. The presence of nextPageToken in the
  *  response indicates that more results might be available.
@@ -4227,6 +4339,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns all data associated with the requested query.
+ *
+ *  Method: logging.folders.locations.savedQueries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsSavedQueriesGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the saved query.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  example: "projects/my-project/locations/global/savedQueries/my-saved-query"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Returns all data associated with the requested query.
+ *
+ *  @param name Required. The resource name of the saved query.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *    example:
+ *    "projects/my-project/locations/global/savedQueries/my-saved-query"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsSavedQueriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the SavedQueries that were created by the user making the request.
  *
  *  Method: logging.folders.locations.savedQueries.list
@@ -4289,6 +4443,60 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing SavedQuery.
+ *
+ *  Method: logging.folders.locations.savedQueries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsSavedQueriesPatch : GTLRLoggingQuery
+
+/**
+ *  Output only. Resource name of the saved query.In the format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  a list of supported locations, see Supported Regions
+ *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  the saved query is created, the location cannot be changed.If the user
+ *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A non-empty list of fields to change in the existing saved query.
+ *  Fields are relative to the saved_query and new values for the fields are
+ *  taken from the corresponding fields in the SavedQuery included in this
+ *  request. Fields not mentioned in update_mask are not changed and are ignored
+ *  in the request.To update all mutable fields, specify an update_mask of *.For
+ *  example, to change the description and query filter text of a saved query,
+ *  specify an update_mask of "description, query.filter".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Updates an existing SavedQuery.
+ *
+ *  @param object The @c GTLRLogging_SavedQuery to include in the query.
+ *  @param name Output only. Resource name of the saved query.In the format:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    For a list of supported locations, see Supported Regions
+ *    (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *    the saved query is created, the location cannot be changed.If the user
+ *    doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsSavedQueriesPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -4421,11 +4629,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersSinksCreate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -4636,11 +4844,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersSinksPatch : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -4721,11 +4929,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersSinksUpdate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -7711,6 +7919,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsLocationsRecentQueriesList : GTLRLoggingQuery
 
 /**
+ *  Optional. Specifies the type ("Logging" or "OpsAnalytics") of the recent
+ *  queries to list. The only valid value for this field is one of the two
+ *  allowable type function calls, which are the following: type("Logging")
+ *  type("OpsAnalytics")
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this request.
  *  Non-positive values are ignored. The presence of nextPageToken in the
  *  response indicates that more results might be available.
@@ -7857,6 +8073,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns all data associated with the requested query.
+ *
+ *  Method: logging.organizations.locations.savedQueries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsSavedQueriesGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the saved query.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  example: "projects/my-project/locations/global/savedQueries/my-saved-query"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Returns all data associated with the requested query.
+ *
+ *  @param name Required. The resource name of the saved query.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *    example:
+ *    "projects/my-project/locations/global/savedQueries/my-saved-query"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsSavedQueriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the SavedQueries that were created by the user making the request.
  *
  *  Method: logging.organizations.locations.savedQueries.list
@@ -7919,6 +8177,60 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing SavedQuery.
+ *
+ *  Method: logging.organizations.locations.savedQueries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsSavedQueriesPatch : GTLRLoggingQuery
+
+/**
+ *  Output only. Resource name of the saved query.In the format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  a list of supported locations, see Supported Regions
+ *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  the saved query is created, the location cannot be changed.If the user
+ *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A non-empty list of fields to change in the existing saved query.
+ *  Fields are relative to the saved_query and new values for the fields are
+ *  taken from the corresponding fields in the SavedQuery included in this
+ *  request. Fields not mentioned in update_mask are not changed and are ignored
+ *  in the request.To update all mutable fields, specify an update_mask of *.For
+ *  example, to change the description and query filter text of a saved query,
+ *  specify an update_mask of "description, query.filter".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Updates an existing SavedQuery.
+ *
+ *  @param object The @c GTLRLogging_SavedQuery to include in the query.
+ *  @param name Output only. Resource name of the saved query.In the format:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    For a list of supported locations, see Supported Regions
+ *    (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *    the saved query is created, the location cannot be changed.If the user
+ *    doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsSavedQueriesPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -8051,11 +8363,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsSinksCreate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -8266,11 +8578,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsSinksPatch : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -8351,11 +8663,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsSinksUpdate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -10119,6 +10431,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsLocationsRecentQueriesList : GTLRLoggingQuery
 
 /**
+ *  Optional. Specifies the type ("Logging" or "OpsAnalytics") of the recent
+ *  queries to list. The only valid value for this field is one of the two
+ *  allowable type function calls, which are the following: type("Logging")
+ *  type("OpsAnalytics")
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this request.
  *  Non-positive values are ignored. The presence of nextPageToken in the
  *  response indicates that more results might be available.
@@ -10265,6 +10585,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns all data associated with the requested query.
+ *
+ *  Method: logging.projects.locations.savedQueries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsSavedQueriesGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the saved query.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  example: "projects/my-project/locations/global/savedQueries/my-saved-query"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Returns all data associated with the requested query.
+ *
+ *  @param name Required. The resource name of the saved query.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *    example:
+ *    "projects/my-project/locations/global/savedQueries/my-saved-query"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsSavedQueriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the SavedQueries that were created by the user making the request.
  *
  *  Method: logging.projects.locations.savedQueries.list
@@ -10327,6 +10689,60 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing SavedQuery.
+ *
+ *  Method: logging.projects.locations.savedQueries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsSavedQueriesPatch : GTLRLoggingQuery
+
+/**
+ *  Output only. Resource name of the saved query.In the format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
+ *  a list of supported locations, see Supported Regions
+ *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  the saved query is created, the location cannot be changed.If the user
+ *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A non-empty list of fields to change in the existing saved query.
+ *  Fields are relative to the saved_query and new values for the fields are
+ *  taken from the corresponding fields in the SavedQuery included in this
+ *  request. Fields not mentioned in update_mask are not changed and are ignored
+ *  in the request.To update all mutable fields, specify an update_mask of *.For
+ *  example, to change the description and query filter text of a saved query,
+ *  specify an update_mask of "description, query.filter".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_SavedQuery.
+ *
+ *  Updates an existing SavedQuery.
+ *
+ *  @param object The @c GTLRLogging_SavedQuery to include in the query.
+ *  @param name Output only. Resource name of the saved query.In the format:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
+ *    For a list of supported locations, see Supported Regions
+ *    (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *    the saved query is created, the location cannot be changed.If the user
+ *    doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsSavedQueriesPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -10650,11 +11066,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsSinksCreate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -10865,11 +11281,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsSinksPatch : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -10950,11 +11366,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsSinksUpdate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -11035,11 +11451,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_SinksCreate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 
@@ -11250,11 +11666,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_SinksUpdate : GTLRLoggingQuery
 
 /**
- *  Optional. A service account provided by the caller that will be used to
+ *  Optional. The service account provided by the caller that will be used to
  *  write the log entries. The format must be serviceAccount:some\@email. This
- *  field can only be specified if you are routing logs to a destination outside
- *  this sink's project. If not specified, a Logging service account will
- *  automatically be generated.
+ *  field can only be specified when you are routing logs to a log bucket that
+ *  is in a different project than the sink. When not specified, a Logging
+ *  service account will automatically be generated.
  */
 @property(nonatomic, copy, nullable) NSString *customWriterIdentity;
 

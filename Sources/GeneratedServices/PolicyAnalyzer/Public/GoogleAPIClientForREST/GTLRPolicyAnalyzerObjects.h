@@ -24,7 +24,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  GTLRPolicyAnalyzer_GoogleCloudPolicyanalyzerV1Activity
+ *  Represents Activity on a GCP resource over specific observation period.
  */
 @interface GTLRPolicyAnalyzer_GoogleCloudPolicyanalyzerV1Activity : GTLRObject
 

@@ -349,13 +349,18 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptio
 
 // GTLRCloudRedis_ObservabilityMetricData.aggregationType
 NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_AggregationTypeUnspecified = @"AGGREGATION_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Maximum = @"MAXIMUM";
+NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Current = @"CURRENT";
+NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_P95 = @"P95";
+NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_P99 = @"P99";
+NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Peak = @"PEAK";
 
 // GTLRCloudRedis_ObservabilityMetricData.metricType
 NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_CpuUtilization = @"CPU_UTILIZATION";
 NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_MemoryUtilization = @"MEMORY_UTILIZATION";
 NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_NetworkConnections = @"NETWORK_CONNECTIONS";
+NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_StorageUsedBytes = @"STORAGE_USED_BYTES";
+NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_StorageUtilization = @"STORAGE_UTILIZATION";
 
 // GTLRCloudRedis_OperationError.errorType
 NSString * const kGTLRCloudRedis_OperationError_ErrorType_CancellationError = @"CANCELLATION_ERROR";
@@ -441,6 +446,11 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Thursday = @"THURSD
 NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Tuesday = @"TUESDAY";
 NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNESDAY";
 
+// GTLRCloudRedis_ZoneDistributionConfig.mode
+NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_MultiZone = @"MULTI_ZONE";
+NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_SingleZone = @"SINGLE_ZONE";
+NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionModeUnspecified = @"ZONE_DISTRIBUTION_MODE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudRedis_AOFConfig
@@ -520,7 +530,8 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 @dynamic authorizationMode, createTime, deletionProtectionEnabled,
          discoveryEndpoints, name, nodeType, persistenceConfig, preciseSizeGb,
          pscConfigs, pscConnections, redisConfigs, replicaCount, shardCount,
-         sizeGb, state, stateInfo, transitEncryptionMode, uid;
+         sizeGb, state, stateInfo, transitEncryptionMode, uid,
+         zoneDistributionConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1397,4 +1408,19 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 @implementation GTLRCloudRedis_WeeklyMaintenanceWindow
 @dynamic day, duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ZoneDistributionConfig
+//
+
+@implementation GTLRCloudRedis_ZoneDistributionConfig
+@dynamic mode, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
 @end

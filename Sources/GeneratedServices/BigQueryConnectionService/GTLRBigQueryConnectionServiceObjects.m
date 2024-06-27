@@ -197,7 +197,7 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication
-@dynamic usernamePassword;
+@dynamic serviceAccount, usernamePassword;
 @end
 
 

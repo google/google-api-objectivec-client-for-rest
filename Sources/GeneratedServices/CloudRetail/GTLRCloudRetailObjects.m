@@ -71,12 +71,6 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeC
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_CatalogLevelAttributeConfig = @"CATALOG_LEVEL_ATTRIBUTE_CONFIG";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_ProductLevelAttributeConfig = @"PRODUCT_LEVEL_ATTRIBUTE_CONFIG";
 
-// GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink.state
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Active = @"ACTIVE";
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Failed = @"FAILED";
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_Pending = @"PENDING";
-NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
 // GTLRCloudRetail_GoogleCloudRetailV2betaModel.dataState
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModel_DataState_DataError = @"DATA_ERROR";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2betaModel_DataState_DataOk = @"DATA_OK";
@@ -1107,16 +1101,6 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRetail_GoogleCloudRetailV2betaCreateMerchantCenterAccountLinkMetadata
-//
-
-@implementation GTLRCloudRetail_GoogleCloudRetailV2betaCreateMerchantCenterAccountLinkMetadata
-@dynamic createTime, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRetail_GoogleCloudRetailV2betaCreateModelMetadata
 //
 
@@ -1281,39 +1265,6 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink
-//
-
-@implementation GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLink
-@dynamic branchId, feedFilters, feedLabel, identifier, languageCode,
-         merchantCenterAccountId, name, projectId, source, state;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"feedFilters" : [GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter
-//
-
-@implementation GTLRCloudRetail_GoogleCloudRetailV2betaMerchantCenterAccountLinkMerchantCenterFeedFilter
-@dynamic primaryFeedId, primaryFeedName;
 @end
 
 

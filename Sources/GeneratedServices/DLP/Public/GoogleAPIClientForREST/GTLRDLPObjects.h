@@ -1618,6 +1618,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_I
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Argentina;
 /**
+ *  The infoType is typically used in Armenia.
+ *
+ *  Value: "ARMENIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Armenia;
+/**
  *  The infoType is typically used in Australia.
  *
  *  Value: "AUSTRALIA"
@@ -1629,6 +1635,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_L
  *  Value: "AZERBAIJAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Azerbaijan;
+/**
+ *  The infoType is typically used in Belarus.
+ *
+ *  Value: "BELARUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belarus;
 /**
  *  The infoType is typically used in Belgium.
  *
@@ -3234,11 +3246,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Generalization function that buckets values based on ranges. The ranges and
  *  replacement values are dynamically provided by the user for custom behavior,
- *  such as 1-30 -> LOW 31-65 -> MEDIUM 66-100 -> HIGH This can be used on data
- *  of type: number, long, string, timestamp. If the bound `Value` type differs
- *  from the type of data being transformed, we will first attempt converting
- *  the type of the data to be transformed to match the type of the bound before
- *  comparing. See
+ *  such as 1-30 -> LOW, 31-65 -> MEDIUM, 66-100 -> HIGH. This can be used on
+ *  data of type: number, long, string, timestamp. If the bound `Value` type
+ *  differs from the type of data being transformed, we will first attempt
+ *  converting the type of the data to be transformed to match the type of the
+ *  bound before comparing. See
  *  https://cloud.google.com/sensitive-data-protection/docs/concepts-bucketing
  *  to learn more.
  */
@@ -6668,10 +6680,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Argentina
  *        The infoType is typically used in Argentina. (Value: "ARGENTINA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Armenia
+ *        The infoType is typically used in Armenia. (Value: "ARMENIA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia
  *        The infoType is typically used in Australia. (Value: "AUSTRALIA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Azerbaijan
  *        The infoType is typically used in Azerbaijan. (Value: "AZERBAIJAN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belarus
+ *        The infoType is typically used in Belarus. (Value: "BELARUS")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belgium
  *        The infoType is typically used in Belgium. (Value: "BELGIUM")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Brazil

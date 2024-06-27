@@ -96,6 +96,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V3;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V4;
 /**
+ *  TPU v5lite pod.
+ *
+ *  Value: "V5LITE_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V5litePod;
+/**
  *  TPU v5p
  *
  *  Value: "V5P"
@@ -457,6 +463,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V2 TPU v2. (Value: "V2")
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V3 TPU v3. (Value: "V3")
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V4 TPU v4. (Value: "V4")
+ *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5litePod TPU v5lite pod. (Value:
+ *        "V5LITE_POD")
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5p TPU v5p (Value: "V5P")
  */
 @property(nonatomic, copy, nullable) NSString *type;

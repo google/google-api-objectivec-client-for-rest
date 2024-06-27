@@ -291,6 +291,33 @@
 
 @end
 
+@implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsInitiatePushTransfer
+
+@dynamic registration;
+
++ (instancetype)queryWithObject:(GTLRCloudDomains_InitiatePushTransferRequest *)object
+                   registration:(NSString *)registration {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"registration" ];
+  NSString *pathURITemplate = @"v1/{+registration}:initiatePushTransfer";
+  GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsInitiatePushTransfer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.registration = registration;
+  query.expectedObjectClass = [GTLRCloudDomains_Operation class];
+  query.loggingName = @"domains.projects.locations.registrations.initiatePushTransfer";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -364,6 +391,33 @@
 
 @end
 
+@implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRenewDomain
+
+@dynamic registration;
+
++ (instancetype)queryWithObject:(GTLRCloudDomains_RenewDomainRequest *)object
+                   registration:(NSString *)registration {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"registration" ];
+  NSString *pathURITemplate = @"v1/{+registration}:renewDomain";
+  GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRenewDomain *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.registration = registration;
+  query.expectedObjectClass = [GTLRCloudDomains_Operation class];
+  query.loggingName = @"domains.projects.locations.registrations.renewDomain";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsResetAuthorizationCode
 
 @dynamic registration;
@@ -405,6 +459,44 @@
   query.registration = registration;
   query.expectedObjectClass = [GTLRCloudDomains_AuthorizationCode class];
   query.loggingName = @"domains.projects.locations.registrations.retrieveAuthorizationCode";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveGoogleDomainsDnsRecords
+
+@dynamic pageSize, pageToken, registration;
+
++ (instancetype)queryWithRegistration:(NSString *)registration {
+  NSArray *pathParams = @[ @"registration" ];
+  NSString *pathURITemplate = @"v1/{+registration}:retrieveGoogleDomainsDnsRecords";
+  GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveGoogleDomainsDnsRecords *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.registration = registration;
+  query.expectedObjectClass = [GTLRCloudDomains_RetrieveGoogleDomainsDnsRecordsResponse class];
+  query.loggingName = @"domains.projects.locations.registrations.retrieveGoogleDomainsDnsRecords";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveGoogleDomainsForwardingConfig
+
+@dynamic registration;
+
++ (instancetype)queryWithRegistration:(NSString *)registration {
+  NSArray *pathParams = @[ @"registration" ];
+  NSString *pathURITemplate = @"v1/{+registration}:retrieveGoogleDomainsForwardingConfig";
+  GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveGoogleDomainsForwardingConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.registration = registration;
+  query.expectedObjectClass = [GTLRCloudDomains_RetrieveGoogleDomainsForwardingConfigResponse class];
+  query.loggingName = @"domains.projects.locations.registrations.retrieveGoogleDomainsForwardingConfig";
   return query;
 }
 

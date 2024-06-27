@@ -1638,7 +1638,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus
-@dynamic latestJobEndTime, latestJobStartTime;
+@dynamic latestJobCreateTime, latestJobEndTime, latestJobStartTime;
 @end
 
 
@@ -1878,7 +1878,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource
 @dynamic ancestors, createTime, descriptionProperty, displayName, labels,
-         platform, resource, system, updateTime;
+         location, platform, resource, system, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

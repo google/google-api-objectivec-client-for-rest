@@ -326,6 +326,98 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
+@implementation GTLRDLPQuery_OrganizationsLocationsConnectionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateConnectionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/connections";
+  GTLRDLPQuery_OrganizationsLocationsConnectionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2Connection class];
+  query.loggingName = @"dlp.organizations.locations.connections.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsConnectionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsLocationsConnectionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.organizations.locations.connections.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsConnectionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsLocationsConnectionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2Connection class];
+  query.loggingName = @"dlp.organizations.locations.connections.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsConnectionsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateConnectionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsLocationsConnectionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2Connection class];
+  query.loggingName = @"dlp.organizations.locations.connections.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_OrganizationsLocationsConnectionsSearch
 
 @dynamic filter, pageSize, pageToken, parent;

@@ -13,6 +13,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRClassroom_AddOnAttachmentStudentSubmission.postSubmissionState
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_Created = @"CREATED";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_New = @"NEW";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_ReclaimedByStudent = @"RECLAIMED_BY_STUDENT";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_Returned = @"RETURNED";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_SubmissionStateUnspecified = @"SUBMISSION_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_TurnedIn = @"TURNED_IN";
+
 // GTLRClassroom_Announcement.assigneeMode
 NSString * const kGTLRClassroom_Announcement_AssigneeMode_AllStudents = @"ALL_STUDENTS";
 NSString * const kGTLRClassroom_Announcement_AssigneeMode_AssigneeModeUnspecified = @"ASSIGNEE_MODE_UNSPECIFIED";
@@ -143,6 +151,50 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_AddOnAttachment
+//
+
+@implementation GTLRClassroom_AddOnAttachment
+@dynamic copyHistory, courseId, dueDate, dueTime, identifier, itemId, maxPoints,
+         postId, studentViewUri, studentWorkReviewUri, teacherViewUri, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"copyHistory" : [GTLRClassroom_CopyHistory class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_AddOnAttachmentStudentSubmission
+//
+
+@implementation GTLRClassroom_AddOnAttachmentStudentSubmission
+@dynamic pointsEarned, postSubmissionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_AddOnContext
+//
+
+@implementation GTLRClassroom_AddOnContext
+@dynamic courseId, itemId, postId, studentContext, supportsStudentWork,
+         teacherContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Announcement
 //
 
@@ -210,6 +262,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_CloudPubsubTopic
 @dynamic topicName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_CopyHistory
+//
+
+@implementation GTLRClassroom_CopyHistory
+@dynamic attachmentId, courseId, itemId, postId;
 @end
 
 
@@ -400,6 +462,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_EmbedUri
+//
+
+@implementation GTLRClassroom_EmbedUri
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Empty
 //
 
@@ -540,6 +612,28 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_Link
 @dynamic thumbnailUrl, title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListAddOnAttachmentsResponse
+//
+
+@implementation GTLRClassroom_ListAddOnAttachmentsResponse
+@dynamic addOnAttachments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addOnAttachments" : [GTLRClassroom_AddOnAttachment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"addOnAttachments";
+}
+
 @end
 
 
@@ -982,6 +1076,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_StudentContext
+//
+
+@implementation GTLRClassroom_StudentContext
+@dynamic submissionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_StudentSubmission
 //
 
@@ -1022,6 +1126,15 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_Teacher
 @dynamic courseId, profile, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_TeacherContext
+//
+
+@implementation GTLRClassroom_TeacherContext
 @end
 
 

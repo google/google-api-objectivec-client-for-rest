@@ -560,12 +560,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  If true, the returned list will include locations which are not yet
- *  revealed.
- */
-@property(nonatomic, assign) BOOL includeUnrevealedLocations;
-
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 

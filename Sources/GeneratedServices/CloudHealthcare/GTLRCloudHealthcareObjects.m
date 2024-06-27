@@ -534,7 +534,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_Dataset
-@dynamic name, timeZone;
+@dynamic encryptionSpec, name, timeZone;
 @end
 
 
@@ -677,6 +677,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_EncryptionSpec
+//
+
+@implementation GTLRCloudHealthcare_EncryptionSpec
+@dynamic kmsKeyName;
 @end
 
 

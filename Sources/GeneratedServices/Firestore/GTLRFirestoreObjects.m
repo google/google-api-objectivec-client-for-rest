@@ -48,6 +48,16 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_NotAvailable 
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Ready = @"READY";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata.operationState
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelling = @"CANCELLING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Failed = @"FAILED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Finalizing = @"FINALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Initializing = @"INITIALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Processing = @"PROCESSING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Successful = @"SUCCESSFUL";
+
 // GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_AppEngineIntegrationModeUnspecified = @"APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Disabled = @"DISABLED";
@@ -740,6 +750,45 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata
+@dynamic collectionIds, endTime, namespaceIds, operationState, progressBytes,
+         progressDocuments, snapshotTime, startTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"collectionIds" : [NSString class],
+    @"namespaceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest
+@dynamic collectionIds, namespaceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"collectionIds" : [NSString class],
+    @"namespaceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1CmekConfig
 //
 
@@ -790,16 +839,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return @{ @"ETag" : @"etag" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot
-//
-
-@implementation GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot
-@dynamic database, snapshotTime;
 @end
 
 
@@ -1140,7 +1179,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest
-@dynamic backup, databaseId, databaseSnapshot;
+@dynamic backup, databaseId, kmsKeyName, useBackupEncryption,
+         useGoogleDefaultEncryption;
 @end
 
 

@@ -22,6 +22,7 @@
 @class GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion;
 @class GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate;
 @class GTLRKmsinventory_GoogleCloudKmsV1ExternalProtectionLevelOptions;
+@class GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy;
 @class GTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation;
 @class GTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestationCertificateChains;
 
@@ -688,6 +689,100 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_Software;
 
 // ----------------------------------------------------------------------------
+// GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy.allowedAccessReasons
+
+/**
+ *  One of the following operations is being executed while simultaneously
+ *  encountering an internal technical issue which prevented a more precise
+ *  justification code from being generated: * Your account has been used to
+ *  perform any access to your own data which your IAM policy authorizes. * An
+ *  automated Google system operates on encrypted customer data which your IAM
+ *  policy authorizes. * Customer-initiated Google support access. *
+ *  Google-initiated support access to protect system reliability.
+ *
+ *  Value: "CUSTOMER_AUTHORIZED_WORKFLOW_SERVICING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerAuthorizedWorkflowServicing;
+/**
+ *  Customer uses their account to perform any access to their own data which
+ *  their IAM policy authorizes.
+ *
+ *  Value: "CUSTOMER_INITIATED_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedAccess;
+/**
+ *  Customer-initiated support.
+ *
+ *  Value: "CUSTOMER_INITIATED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedSupport;
+/**
+ *  Google-initiated access for security, fraud, abuse, or compliance purposes.
+ *
+ *  Value: "GOOGLE_INITIATED_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedReview;
+/**
+ *  Google-initiated access for system management and troubleshooting.
+ *
+ *  Value: "GOOGLE_INITIATED_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedService;
+/**
+ *  Google systems access customer data to help optimize the structure of the
+ *  data or quality for future uses by the customer.
+ *
+ *  Value: "GOOGLE_INITIATED_SYSTEM_OPERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedSystemOperation;
+/**
+ *  Google-initiated access to maintain system reliability.
+ *
+ *  Value: "GOOGLE_RESPONSE_TO_PRODUCTION_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleResponseToProductionAlert;
+/**
+ *  Customer uses their account to perform any access to their own data which
+ *  their IAM policy authorizes, and one of the following is true: * A Google
+ *  administrator has reset the root-access account associated with the user's
+ *  organization within the past 7 days. * A Google-initiated emergency access
+ *  operation has interacted with a resource in the same project or folder as
+ *  the currently accessed resource within the past 7 days.
+ *
+ *  Value: "MODIFIED_CUSTOMER_INITIATED_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedCustomerInitiatedAccess;
+/**
+ *  Google systems access customer data to help optimize the structure of the
+ *  data or quality for future uses by the customer, and one of the following is
+ *  true: * A Google administrator has reset the root-access account associated
+ *  with the user's organization within the past 7 days. * A Google-initiated
+ *  emergency access operation has interacted with a resource in the same
+ *  project or folder as the currently accessed resource within the past 7 days.
+ *
+ *  Value: "MODIFIED_GOOGLE_INITIATED_SYSTEM_OPERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedGoogleInitiatedSystemOperation;
+/**
+ *  No reason is expected for this key request.
+ *
+ *  Value: "REASON_NOT_EXPECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonNotExpected;
+/**
+ *  Unspecified access reason.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonUnspecified;
+/**
+ *  Google-initiated access in response to a legal request or legal process.
+ *
+ *  Value: "THIRD_PARTY_DATA_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ThirdPartyDataRequest;
+
+// ----------------------------------------------------------------------------
 // GTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation.format
 
 /**
@@ -949,6 +1044,18 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *importOnly;
+
+/**
+ *  Optional. The policy used for Key Access Justifications Policy Enforcement.
+ *  If this field is present and this key is enrolled in Key Access
+ *  Justifications Policy Enforcement, the policy will be evaluated in encrypt,
+ *  decrypt, and sign operations, and the operation will fail if rejected by the
+ *  policy. The policy is defined by specifying zero or more allowed
+ *  justification codes.
+ *  https://cloud.google.com/assured-workloads/key-access-justifications/docs/justification-codes
+ *  By default, this field is absent, and all justification codes are allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy *keyAccessJustificationsPolicy;
 
 /**
  *  Labels with user-defined metadata. For more information, see [Labeling
@@ -1489,6 +1596,22 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 
 /** The URI for an external resource that this CryptoKeyVersion represents. */
 @property(nonatomic, copy, nullable) NSString *externalKeyUri;
+
+@end
+
+
+/**
+ *  A KeyAccessJustificationsPolicy specifies zero or more allowed AccessReason
+ *  values for encrypt, decrypt, and sign operations on a CryptoKey.
+ */
+@interface GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy : GTLRObject
+
+/**
+ *  The list of allowed reasons for access to a CryptoKey. Zero allowed access
+ *  reasons means all encrypt, decrypt, and sign operations for the CryptoKey
+ *  associated with this policy will fail.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedAccessReasons;
 
 @end
 

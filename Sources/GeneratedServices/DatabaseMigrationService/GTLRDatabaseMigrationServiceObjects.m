@@ -282,6 +282,7 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJob_DumpType_Physical = 
 
 // GTLRDatabaseMigrationService_MigrationJob.phase
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc = @"CDC";
+NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_DiffBackup = @"DIFF_BACKUP";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_FullDump = @"FULL_DUMP";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseUnspecified = @"PHASE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PreparingTheDump = @"PREPARING_THE_DUMP";

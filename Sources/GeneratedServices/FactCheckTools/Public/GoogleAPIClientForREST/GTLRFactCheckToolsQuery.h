@@ -165,6 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFactCheckTools
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesCreate : GTLRFactCheckToolsQuery
@@ -191,6 +192,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFactCheckTools
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesDelete : GTLRFactCheckToolsQuery
@@ -218,6 +220,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFactCheckTools
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesGet : GTLRFactCheckToolsQuery
@@ -247,6 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFactCheckTools
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesList : GTLRFactCheckToolsQuery
@@ -313,6 +317,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFactCheckTools
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesUpdate : GTLRFactCheckToolsQuery

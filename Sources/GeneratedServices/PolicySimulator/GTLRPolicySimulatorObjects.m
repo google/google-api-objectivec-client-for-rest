@@ -137,13 +137,6 @@ NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolic
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Relevance_High = @"HIGH";
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Relevance_Normal = @"NORMAL";
 
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview.state
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewFailed = @"PREVIEW_FAILED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewPending = @"PREVIEW_PENDING";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewRunning = @"PREVIEW_RUNNING";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewStateUnspecified = @"PREVIEW_STATE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewSucceeded = @"PREVIEW_SUCCEEDED";
-
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay.state
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Failed = @"FAILED";
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Pending = @"PENDING";
@@ -535,50 +528,6 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListOrgPolicyViolationsPreviewsResponse
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListOrgPolicyViolationsPreviewsResponse
-@dynamic nextPageToken, orgPolicyViolationsPreviews;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"orgPolicyViolationsPreviews" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"orgPolicyViolationsPreviews";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListOrgPolicyViolationsResponse
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListOrgPolicyViolationsResponse
-@dynamic nextPageToken, orgPolicyViolations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"orgPolicyViolations" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"orgPolicyViolations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListReplayResultsResponse
 //
 
@@ -596,84 +545,6 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
   return @"replayResults";
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlay
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlay
-@dynamic customConstraints, policies;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customConstraints" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayCustomConstraintOverlay class],
-    @"policies" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayPolicyOverlay class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayCustomConstraintOverlay
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayCustomConstraintOverlay
-@dynamic customConstraint, customConstraintParent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayPolicyOverlay
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayPolicyOverlay
-@dynamic policy, policyParent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolation
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolation
-@dynamic customConstraint, error, name, resource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview
-@dynamic createTime, customConstraints, name, overlay, resourceCounts, state,
-         violationsCount;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customConstraints" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreviewResourceCounts
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreviewResourceCounts
-@dynamic compliant, errors, noncompliant, scanned, unenforced;
 @end
 
 
@@ -749,24 +620,6 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 @implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResultsSummary
 @dynamic differenceCount, errorCount, logCount, newestDate, oldestDate,
          unchangedCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ResourceContext
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ResourceContext
-@dynamic ancestors, assetType, resource;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"ancestors" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

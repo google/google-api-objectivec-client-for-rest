@@ -24,7 +24,6 @@
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_Consumer;
-@class GTLRDataprocMetastore_CustomRegionMetadata;
 @class GTLRDataprocMetastore_DatabaseDump;
 @class GTLRDataprocMetastore_DataCatalogConfig;
 @class GTLRDataprocMetastore_EncryptionConfig;
@@ -1111,24 +1110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  Metadata about a custom region. This is only populated if the region is a
- *  custom region. For single/multi regions, it will be empty.
- */
-@interface GTLRDataprocMetastore_CustomRegionMetadata : GTLRObject
-
-/** The read-only regions for this custom region. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *optionalReadOnlyRegions;
-
-/** The read-write regions for this custom region. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredReadWriteRegions;
-
-/** The Spanner witness region for this custom region. */
-@property(nonatomic, copy, nullable) NSString *witnessRegion;
-
-@end
-
-
-/**
  *  A specification of the location of and metadata about a database dump from a
  *  relational database management system.
  */
@@ -1845,11 +1826,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  Metadata about the service in a location.
  */
 @interface GTLRDataprocMetastore_LocationMetadata : GTLRObject
-
-/**
- *  Possible configurations supported if the current region is a custom region.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_CustomRegionMetadata *> *customRegionMetadata;
 
 /** The multi-region metadata if the current region is a multi-region. */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_MultiRegionMetadata *multiRegionMetadata;

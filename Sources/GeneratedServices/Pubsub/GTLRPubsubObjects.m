@@ -83,11 +83,21 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_AnalyticsHubSubscriptionInfo
+//
+
+@implementation GTLRPubsub_AnalyticsHubSubscriptionInfo
+@dynamic listing, subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_AvroConfig
 //
 
 @implementation GTLRPubsub_AvroConfig
-@dynamic writeMetadata;
+@dynamic useTopicSchema, writeMetadata;
 @end
 
 
@@ -694,11 +704,12 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, bigqueryConfig, cloudStorageConfig,
-         deadLetterPolicy, detached, enableExactlyOnceDelivery,
-         enableMessageOrdering, expirationPolicy, filter, labels,
-         messageRetentionDuration, name, pushConfig, retainAckedMessages,
-         retryPolicy, state, topic, topicMessageRetentionDuration;
+@dynamic ackDeadlineSeconds, analyticsHubSubscriptionInfo, bigqueryConfig,
+         cloudStorageConfig, deadLetterPolicy, detached,
+         enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
+         filter, labels, messageRetentionDuration, name, pushConfig,
+         retainAckedMessages, retryPolicy, state, topic,
+         topicMessageRetentionDuration;
 @end
 
 

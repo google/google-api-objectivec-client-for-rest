@@ -699,6 +699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** PostgreSQL RDBMS to enrich with child data objects and metadata. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlRdbms;
 
+/** SQLServer RDBMS to enrich with child data objects and metadata. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerRdbms;
+
 @end
 
 
@@ -715,6 +718,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Enriched PostgreSQL RDBMS object. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlRdbms;
+
+/** Enriched SQLServer RDBMS object. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerRdbms;
 
 @end
 

@@ -475,6 +475,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Promote an standby instance (replica).
+ *
+ *  Method: file.projects.locations.instances.promoteReplica
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica : GTLRCloudFilestoreQuery
+
+/**
+ *  Required. The resource name of the instance, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Promote an standby instance (replica).
+ *
+ *  @param object The @c GTLRCloudFilestore_PromoteReplicaRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the instance, in the format
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_PromoteReplicaRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Restores an existing instance's file share from a backup. The capacity of
  *  the instance needs to be equal to or larger than the capacity of the backup
  *  (and also equal to or larger than the minimum capacity of the tier).

@@ -1619,8 +1619,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 /**
  *  Specifies how each object's `timeCreated` metadata is preserved for
  *  transfers. If unspecified, the default behavior is the same as
- *  TIME_CREATED_SKIP. This behavior is supported for transfers to GCS buckets
- *  from GCS, S3, Azure, S3 Compatible, and Azure sources.
+ *  TIME_CREATED_SKIP. This behavior is supported for transfers to Cloud Storage
+ *  buckets from Cloud Storage, Amazon S3, S3-compatible storage, and Azure
+ *  sources.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedPreserveAsCustomTime

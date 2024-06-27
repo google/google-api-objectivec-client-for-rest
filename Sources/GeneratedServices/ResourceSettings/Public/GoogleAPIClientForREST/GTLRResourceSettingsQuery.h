@@ -81,6 +81,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_FoldersSettingsGet : GTLRResourceSettingsQuery
 
 /**
@@ -131,6 +132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_FoldersSettingsList : GTLRResourceSettingsQuery
 
 /** Unused. The size of the page to be returned. */
@@ -203,6 +205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_FoldersSettingsPatch : GTLRResourceSettingsQuery
 
 /**
@@ -252,6 +255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_OrganizationsSettingsGet : GTLRResourceSettingsQuery
 
 /**
@@ -302,6 +306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_OrganizationsSettingsList : GTLRResourceSettingsQuery
 
 /** Unused. The size of the page to be returned. */
@@ -374,6 +379,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_OrganizationsSettingsPatch : GTLRResourceSettingsQuery
 
 /**
@@ -423,6 +429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_ProjectsSettingsGet : GTLRResourceSettingsQuery
 
 /**
@@ -473,6 +480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_ProjectsSettingsList : GTLRResourceSettingsQuery
 
 /** Unused. The size of the page to be returned. */
@@ -545,6 +553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResourceSettingsViewSettingViewUnspecifi
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeResourceSettingsCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRResourceSettingsQuery_ProjectsSettingsPatch : GTLRResourceSettingsQuery
 
 /**

@@ -32,6 +32,144 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Queries policy activities on Google Cloud resources.
  *
+ *  Method: policyanalyzer.folders.locations.activityTypes.activities.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicyAnalyzerCloudPlatform
+ */
+@interface GTLRPolicyAnalyzerQuery_FoldersLocationsActivityTypesActivitiesQuery : GTLRPolicyAnalyzerQuery
+
+/**
+ *  Optional. Filter expression to restrict the activities returned. For
+ *  serviceAccountLastAuthentication activities, supported filters are: -
+ *  `activities.full_resource_name {=} [STRING]` - `activities.fullResourceName
+ *  {=} [STRING]` where `[STRING]` is the full resource name of the service
+ *  account. For serviceAccountKeyLastAuthentication activities, supported
+ *  filters are: - `activities.full_resource_name {=} [STRING]` -
+ *  `activities.fullResourceName {=} [STRING]` where `[STRING]` is the full
+ *  resource name of the service account key.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return from this request. Max
+ *  limit is 1000. Non-positive values are ignored. The presence of
+ *  `nextPageToken` in the response indicates that more results might be
+ *  available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats:
+ *  `projects/[PROJECT_ID|PROJECT_NUMBER]/locations/[LOCATION]/activityTypes/[ACTIVITY_TYPE]`
+ *  LOCATION here refers to Google Cloud Locations:
+ *  https://cloud.google.com/about/locations/
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRPolicyAnalyzer_GoogleCloudPolicyanalyzerV1QueryActivityResponse.
+ *
+ *  Queries policy activities on Google Cloud resources.
+ *
+ *  @param parent Required. The container resource on which to execute the
+ *    request. Acceptable formats:
+ *    `projects/[PROJECT_ID|PROJECT_NUMBER]/locations/[LOCATION]/activityTypes/[ACTIVITY_TYPE]`
+ *    LOCATION here refers to Google Cloud Locations:
+ *    https://cloud.google.com/about/locations/
+ *
+ *  @return GTLRPolicyAnalyzerQuery_FoldersLocationsActivityTypesActivitiesQuery
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Queries policy activities on Google Cloud resources.
+ *
+ *  Method: policyanalyzer.organizations.locations.activityTypes.activities.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicyAnalyzerCloudPlatform
+ */
+@interface GTLRPolicyAnalyzerQuery_OrganizationsLocationsActivityTypesActivitiesQuery : GTLRPolicyAnalyzerQuery
+
+/**
+ *  Optional. Filter expression to restrict the activities returned. For
+ *  serviceAccountLastAuthentication activities, supported filters are: -
+ *  `activities.full_resource_name {=} [STRING]` - `activities.fullResourceName
+ *  {=} [STRING]` where `[STRING]` is the full resource name of the service
+ *  account. For serviceAccountKeyLastAuthentication activities, supported
+ *  filters are: - `activities.full_resource_name {=} [STRING]` -
+ *  `activities.fullResourceName {=} [STRING]` where `[STRING]` is the full
+ *  resource name of the service account key.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return from this request. Max
+ *  limit is 1000. Non-positive values are ignored. The presence of
+ *  `nextPageToken` in the response indicates that more results might be
+ *  available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `pageToken` must be the value of
+ *  `nextPageToken` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats:
+ *  `projects/[PROJECT_ID|PROJECT_NUMBER]/locations/[LOCATION]/activityTypes/[ACTIVITY_TYPE]`
+ *  LOCATION here refers to Google Cloud Locations:
+ *  https://cloud.google.com/about/locations/
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRPolicyAnalyzer_GoogleCloudPolicyanalyzerV1QueryActivityResponse.
+ *
+ *  Queries policy activities on Google Cloud resources.
+ *
+ *  @param parent Required. The container resource on which to execute the
+ *    request. Acceptable formats:
+ *    `projects/[PROJECT_ID|PROJECT_NUMBER]/locations/[LOCATION]/activityTypes/[ACTIVITY_TYPE]`
+ *    LOCATION here refers to Google Cloud Locations:
+ *    https://cloud.google.com/about/locations/
+ *
+ *  @return GTLRPolicyAnalyzerQuery_OrganizationsLocationsActivityTypesActivitiesQuery
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Queries policy activities on Google Cloud resources.
+ *
  *  Method: policyanalyzer.projects.locations.activityTypes.activities.query
  *
  *  Authorization scope(s):

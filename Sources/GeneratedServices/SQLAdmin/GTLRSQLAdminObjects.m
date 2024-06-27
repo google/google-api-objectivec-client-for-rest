@@ -394,6 +394,8 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogRetentionSetting = @"BINLOG_RETENTION_SETTING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure = @"CONNECTION_FAILURE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica = @"EXISTING_DATA_IN_REPLICA";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExtensionsNotEnabledInReplica = @"EXTENSIONS_NOT_ENABLED_IN_REPLICA";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExtensionsNotMigrated = @"EXTENSIONS_NOT_MIGRATED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseMinorVersion = @"INCOMPATIBLE_DATABASE_MINOR_VERSION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion = @"INCOMPATIBLE_DATABASE_VERSION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientDiskSize = @"INSUFFICIENT_DISK_SIZE";
@@ -414,6 +416,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LocalInfileOff =
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MissingOptionalPrivileges = @"MISSING_OPTIONAL_PRIVILEGES";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MysqlParallelImportInsufficientPrivilege = @"MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgCronFlagEnabledInReplica = @"PG_CRON_FLAG_ENABLED_IN_REPLICA";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSubscriptionCount = @"PG_SUBSCRIPTION_COUNT";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSyncParallelLevel = @"PG_SYNC_PARALLEL_LEVEL";
@@ -431,6 +434,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlo
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDatabaseSettings = @"UNSUPPORTED_DATABASE_SETTINGS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensionsNotMigrated = @"UNSUPPORTED_EXTENSIONS_NOT_MIGRATED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedStorageEngine = @"UNSUPPORTED_STORAGE_ENGINE";
@@ -1739,10 +1743,10 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          collation, connectorEnforcement, crashSafeReplicationEnabled,
          databaseFlags, databaseReplicationEnabled, dataCacheConfig,
          dataDiskSizeGb, dataDiskType, deletionProtectionEnabled,
-         denyMaintenancePeriods, edition, enableGoogleMlIntegration,
-         insightsConfig, ipConfiguration, kind, locationPreference,
-         maintenanceWindow, passwordValidationPolicy, pricingPlan,
-         replicationType, settingsVersion, sqlServerAuditConfig,
+         denyMaintenancePeriods, edition, enableDataplexIntegration,
+         enableGoogleMlIntegration, insightsConfig, ipConfiguration, kind,
+         locationPreference, maintenanceWindow, passwordValidationPolicy,
+         pricingPlan, replicationType, settingsVersion, sqlServerAuditConfig,
          storageAutoResize, storageAutoResizeLimit, tier, timeZone, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

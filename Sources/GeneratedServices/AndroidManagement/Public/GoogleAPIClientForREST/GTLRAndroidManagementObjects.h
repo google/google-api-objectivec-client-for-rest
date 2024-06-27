@@ -52,6 +52,7 @@
 @class GTLRAndroidManagement_DeviceRadioState;
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
+@class GTLRAndroidManagement_DisplaySettings;
 @class GTLRAndroidManagement_DnsEvent;
 @class GTLRAndroidManagement_DpcMigrationInfo;
 @class GTLRAndroidManagement_EnrollmentCompleteEvent;
@@ -116,6 +117,8 @@
 @class GTLRAndroidManagement_PowerManagementEvent;
 @class GTLRAndroidManagement_ProxyInfo;
 @class GTLRAndroidManagement_RemoteLockEvent;
+@class GTLRAndroidManagement_ScreenBrightnessSettings;
+@class GTLRAndroidManagement_ScreenTimeoutSettings;
 @class GTLRAndroidManagement_SecurityPosture;
 @class GTLRAndroidManagement_SetupAction;
 @class GTLRAndroidManagement_SigninDetail;
@@ -505,7 +508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Auto
 /**
  *  The app is updated as soon as possible. No constraints are applied.The
  *  device is notified as soon as possible about a new update after it becomes
- *  available.
+ *  available.*NOTE:* Updates to apps with larger deployments across Android's
+ *  ecosystem can take up to 24h.
  *
  *  Value: "AUTO_UPDATE_HIGH_PRIORITY"
  */
@@ -3528,6 +3532,70 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Owner
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_PersonallyOwned;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ScreenBrightnessSettings.screenBrightnessMode
+
+/**
+ *  The screen brightness mode is automatic in which the brightness is
+ *  automatically adjusted and the user is not allowed to configure the screen
+ *  brightness. screenBrightness can still be set and it is taken into account
+ *  while the brightness is automatically adjusted. Supported on Android 9 and
+ *  above on fully managed devices. A NonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 9.
+ *
+ *  Value: "BRIGHTNESS_AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessAutomatic;
+/**
+ *  The screen brightness mode is fixed in which the brightness is set to
+ *  screenBrightness and the user is not allowed to configure the screen
+ *  brightness. screenBrightness must be set. Supported on Android 9 and above
+ *  on fully managed devices. A NonComplianceDetail with API_LEVEL is reported
+ *  if the Android version is less than 9.
+ *
+ *  Value: "BRIGHTNESS_FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessFixed;
+/**
+ *  The user is allowed to configure the screen brightness. screenBrightness
+ *  must not be set.
+ *
+ *  Value: "BRIGHTNESS_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessUserChoice;
+/**
+ *  Unspecified. Defaults to BRIGHTNESS_USER_CHOICE.
+ *
+ *  Value: "SCREEN_BRIGHTNESS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_ScreenBrightnessModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ScreenTimeoutSettings.screenTimeoutMode
+
+/**
+ *  The screen timeout is set to screenTimeout and the user is not allowed to
+ *  configure the timeout. screenTimeout must be set. Supported on Android 9 and
+ *  above on fully managed devices. A NonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 9.
+ *
+ *  Value: "SCREEN_TIMEOUT_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutEnforced;
+/**
+ *  Unspecified. Defaults to SCREEN_TIMEOUT_USER_CHOICE.
+ *
+ *  Value: "SCREEN_TIMEOUT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutModeUnspecified;
+/**
+ *  The user is allowed to configure the screen timeout. screenTimeout must not
+ *  be set.
+ *
+ *  Value: "SCREEN_TIMEOUT_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_SecurityPosture.devicePosture
 
 /**
@@ -4578,7 +4646,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority
  *        The app is updated as soon as possible. No constraints are applied.The
  *        device is notified as soon as possible about a new update after it
- *        becomes available. (Value: "AUTO_UPDATE_HIGH_PRIORITY")
+ *        becomes available.*NOTE:* Updates to apps with larger deployments
+ *        across Android's ecosystem can take up to 24h. (Value:
+ *        "AUTO_UPDATE_HIGH_PRIORITY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
  *        Unspecified. Defaults to AUTO_UPDATE_DEFAULT. (Value:
  *        "AUTO_UPDATE_MODE_UNSPECIFIED")
@@ -6469,6 +6539,20 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Controls for the display settings.
+ */
+@interface GTLRAndroidManagement_DisplaySettings : GTLRObject
+
+/** Optional. Controls the screen brightness settings. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ScreenBrightnessSettings *screenBrightnessSettings;
+
+/** Optional. Controls the screen timeout settings. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ScreenTimeoutSettings *screenTimeoutSettings;
 
 @end
 
@@ -9116,6 +9200,9 @@ GTLR_DEPRECATED
 /** Covers controls for radio state such as Wi-Fi, bluetooth, and more. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceRadioState *deviceRadioState;
 
+/** Optional. Controls for the display settings. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DisplaySettings *displaySettings;
+
 /**
  *  Whether encryption is enabled
  *
@@ -9818,6 +9905,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *apiLevel;
 
+/**
+ *  The email address of the authenticated user (only present for Google Account
+ *  provisioning method).
+ */
+@property(nonatomic, copy, nullable) NSString *authenticatedUserEmail;
+
 /** The brand of the device. For example, Google. */
 @property(nonatomic, copy, nullable) NSString *brand;
 
@@ -9928,6 +10021,96 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetUserId;
+
+@end
+
+
+/**
+ *  Controls for the screen brightness settings.
+ */
+@interface GTLRAndroidManagement_ScreenBrightnessSettings : GTLRObject
+
+/**
+ *  Optional. The screen brightness between 1 and 255 where 1 is the lowest and
+ *  255 is the highest brightness. A value of 0 (default) means no screen
+ *  brightness set. Any other value is rejected. screenBrightnessMode must be
+ *  either BRIGHTNESS_AUTOMATIC or BRIGHTNESS_FIXED to set this. Supported on
+ *  Android 9 and above on fully managed devices. A NonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 9.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenBrightness;
+
+/**
+ *  Optional. Controls the screen brightness mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessAutomatic
+ *        The screen brightness mode is automatic in which the brightness is
+ *        automatically adjusted and the user is not allowed to configure the
+ *        screen brightness. screenBrightness can still be set and it is taken
+ *        into account while the brightness is automatically adjusted. Supported
+ *        on Android 9 and above on fully managed devices. A NonComplianceDetail
+ *        with API_LEVEL is reported if the Android version is less than 9.
+ *        (Value: "BRIGHTNESS_AUTOMATIC")
+ *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessFixed
+ *        The screen brightness mode is fixed in which the brightness is set to
+ *        screenBrightness and the user is not allowed to configure the screen
+ *        brightness. screenBrightness must be set. Supported on Android 9 and
+ *        above on fully managed devices. A NonComplianceDetail with API_LEVEL
+ *        is reported if the Android version is less than 9. (Value:
+ *        "BRIGHTNESS_FIXED")
+ *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessUserChoice
+ *        The user is allowed to configure the screen brightness.
+ *        screenBrightness must not be set. (Value: "BRIGHTNESS_USER_CHOICE")
+ *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_ScreenBrightnessModeUnspecified
+ *        Unspecified. Defaults to BRIGHTNESS_USER_CHOICE. (Value:
+ *        "SCREEN_BRIGHTNESS_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *screenBrightnessMode;
+
+@end
+
+
+/**
+ *  Controls the screen timeout settings.
+ */
+@interface GTLRAndroidManagement_ScreenTimeoutSettings : GTLRObject
+
+/**
+ *  Optional. Controls the screen timeout duration. The screen timeout duration
+ *  must be greater than 0, otherwise it is rejected. Additionally, it should
+ *  not be greater than maximumTimeToLock, otherwise the screen timeout is set
+ *  to maximumTimeToLock and a NonComplianceDetail with INVALID_VALUE reason and
+ *  SCREEN_TIMEOUT_GREATER_THAN_MAXIMUM_TIME_TO_LOCK specific reason is
+ *  reported. If the screen timeout is less than a certain lower bound, it is
+ *  set to the lower bound. The lower bound may vary across devices. If this is
+ *  set, screenTimeoutMode must be SCREEN_TIMEOUT_ENFORCED. Supported on Android
+ *  9 and above on fully managed devices. A NonComplianceDetail with API_LEVEL
+ *  is reported if the Android version is less than 9.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *screenTimeout;
+
+/**
+ *  Optional. Controls whether the user is allowed to configure the screen
+ *  timeout.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutEnforced
+ *        The screen timeout is set to screenTimeout and the user is not allowed
+ *        to configure the timeout. screenTimeout must be set. Supported on
+ *        Android 9 and above on fully managed devices. A NonComplianceDetail
+ *        with API_LEVEL is reported if the Android version is less than 9.
+ *        (Value: "SCREEN_TIMEOUT_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutModeUnspecified
+ *        Unspecified. Defaults to SCREEN_TIMEOUT_USER_CHOICE. (Value:
+ *        "SCREEN_TIMEOUT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutUserChoice
+ *        The user is allowed to configure the screen timeout. screenTimeout
+ *        must not be set. (Value: "SCREEN_TIMEOUT_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *screenTimeoutMode;
 
 @end
 

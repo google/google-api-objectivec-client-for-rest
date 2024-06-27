@@ -1566,8 +1566,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_SqlIpAddressType
 // GTLRSQLAdmin_MaintenanceWindow.updateTrack
 
 /**
- *  For instance update that requires a restart, this update track indicates
- *  your instance prefer to restart for new version early in maintenance window.
+ *  For an instance with a scheduled maintenance window, this maintenance timing
+ *  indicates that the maintenance update is scheduled 7 to 14 days after the
+ *  notification is sent out. Also referred to as `Week 1` (Console) and
+ *  `preview` (gcloud CLI).
  *
  *  Value: "canary"
  */
@@ -1579,18 +1581,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_SqlUpdateTrackUnspecified;
 /**
- *  For instance update that requires a restart, this update track indicates
- *  your instance prefer to let Cloud SQL choose the timing of restart (within
- *  its Maintenance window, if applicable).
+ *  For an instance with a scheduled maintenance window, this maintenance timing
+ *  indicates that the maintenance update is scheduled 15 to 21 days after the
+ *  notification is sent out. Also referred to as `Week 2` (Console) and
+ *  `production` (gcloud CLI).
  *
  *  Value: "stable"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable;
 /**
- *  For instance update that requires a restart, this update track indicates
- *  your instance prefer to let Cloud SQL choose the timing of restart (within
- *  its Maintenance window, if applicable) to be at least 5 weeks after the
- *  notification.
+ *  For instance with a scheduled maintenance window, this maintenance timing
+ *  indicates that the maintenance update is scheduled 35 to 42 days after the
+ *  notification is sent out.
  *
  *  Value: "week5"
  */
@@ -2129,6 +2131,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica;
 /**
+ *  This error message indicates that the specified extensions are not enabled
+ *  on destination instance. For example, before you can migrate data to the
+ *  destination instance, you must enable the PGAudit extension on the instance.
+ *
+ *  Value: "EXTENSIONS_NOT_ENABLED_IN_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExtensionsNotEnabledInReplica;
+/**
+ *  The warning message indicates the pg_cron extension and settings will not be
+ *  migrated to the destination.
+ *
+ *  Value: "EXTENSIONS_NOT_MIGRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExtensionsNotMigrated;
+/**
  *  The minor version of replica database is incompatible with the source.
  *
  *  Value: "INCOMPATIBLE_DATABASE_MINOR_VERSION"
@@ -2251,6 +2268,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled;
 /**
+ *  The error message indicates that pg_cron flags are enabled on the
+ *  destination which is not supported during the migration.
+ *
+ *  Value: "PG_CRON_FLAG_ENABLED_IN_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgCronFlagEnabledInReplica;
+/**
  *  pglogical node already exists on databases, applicable for postgres.
  *
  *  Value: "PGLOGICAL_NODE_ALREADY_EXISTS"
@@ -2349,6 +2373,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "UNSUPPORTED_EXTENSIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions;
+/**
+ *  The warning message indicates the unsupported extensions will not be
+ *  migrated to the destination.
+ *
+ *  Value: "UNSUPPORTED_EXTENSIONS_NOT_MIGRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensionsNotMigrated;
 /**
  *  The gtid_mode is not supported, applicable for MySQL.
  *
@@ -5108,14 +5139,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_MaintenanceWindow : GTLRObject
 
 /**
- *  day of week (1-7), starting on Monday.
+ *  Day of week - `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`,
+ *  `SATURDAY`, or `SUNDAY`. Specify in the UTC time zone. Returned in output as
+ *  an integer, 1 to 7, where `1` equals Monday.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  hour of day - 0 to 23.
+ *  Hour of day - 0 to 23. Specify in the UTC time zone.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5125,26 +5158,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Maintenance timing setting: `canary` (Earlier) or `stable` (Later). [Learn
- *  more](https://cloud.google.com/sql/docs/mysql/instance-settings#maintenance-timing-2ndgen).
+ *  Maintenance timing settings: `canary`, `stable`, or `week5`. For more
+ *  information, see [About maintenance on Cloud SQL
+ *  instances](https://cloud.google.com/sql/docs/mysql/maintenance).
  *
  *  Likely values:
- *    @arg @c kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Canary For instance
- *        update that requires a restart, this update track indicates your
- *        instance prefer to restart for new version early in maintenance
- *        window. (Value: "canary")
+ *    @arg @c kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Canary For an instance
+ *        with a scheduled maintenance window, this maintenance timing indicates
+ *        that the maintenance update is scheduled 7 to 14 days after the
+ *        notification is sent out. Also referred to as `Week 1` (Console) and
+ *        `preview` (gcloud CLI). (Value: "canary")
  *    @arg @c kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_SqlUpdateTrackUnspecified
  *        This is an unknown maintenance timing preference. (Value:
  *        "SQL_UPDATE_TRACK_UNSPECIFIED")
- *    @arg @c kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable For instance
- *        update that requires a restart, this update track indicates your
- *        instance prefer to let Cloud SQL choose the timing of restart (within
- *        its Maintenance window, if applicable). (Value: "stable")
+ *    @arg @c kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable For an instance
+ *        with a scheduled maintenance window, this maintenance timing indicates
+ *        that the maintenance update is scheduled 15 to 21 days after the
+ *        notification is sent out. Also referred to as `Week 2` (Console) and
+ *        `production` (gcloud CLI). (Value: "stable")
  *    @arg @c kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Week5 For instance
- *        update that requires a restart, this update track indicates your
- *        instance prefer to let Cloud SQL choose the timing of restart (within
- *        its Maintenance window, if applicable) to be at least 5 weeks after
- *        the notification. (Value: "week5")
+ *        with a scheduled maintenance window, this maintenance timing indicates
+ *        that the maintenance update is scheduled 35 to 42 days after the
+ *        notification is sent out. (Value: "week5")
  */
 @property(nonatomic, copy, nullable) NSString *updateTrack;
 
@@ -6007,6 +6042,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *edition;
 
 /**
+ *  Optional. By default, Cloud SQL instances have schema extraction disabled
+ *  for Dataplex. When this parameter is set to true, schema extraction for
+ *  Dataplex on Cloud SQL instances is activated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableDataplexIntegration;
+
+/**
  *  Optional. When this parameter is set to true, Cloud SQL instances can
  *  connect to Vertex AI to pass requests for real-time predictions and insights
  *  to the AI. The default value is false. This applies only to Cloud SQL for
@@ -6182,6 +6226,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExistingDataInReplica
  *        The replica instance contains existing data. (Value:
  *        "EXISTING_DATA_IN_REPLICA")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExtensionsNotEnabledInReplica
+ *        This error message indicates that the specified extensions are not
+ *        enabled on destination instance. For example, before you can migrate
+ *        data to the destination instance, you must enable the PGAudit
+ *        extension on the instance. (Value:
+ *        "EXTENSIONS_NOT_ENABLED_IN_REPLICA")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ExtensionsNotMigrated
+ *        The warning message indicates the pg_cron extension and settings will
+ *        not be migrated to the destination. (Value: "EXTENSIONS_NOT_MIGRATED")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseMinorVersion
  *        The minor version of replica database is incompatible with the source.
  *        (Value: "INCOMPATIBLE_DATABASE_MINOR_VERSION")
@@ -6243,6 +6296,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled
  *        No pglogical extension installed on databases, applicable for
  *        postgres. (Value: "NO_PGLOGICAL_INSTALLED")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgCronFlagEnabledInReplica
+ *        The error message indicates that pg_cron flags are enabled on the
+ *        destination which is not supported during the migration. (Value:
+ *        "PG_CRON_FLAG_ENABLED_IN_REPLICA")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists
  *        pglogical node already exists on databases, applicable for postgres.
  *        (Value: "PGLOGICAL_NODE_ALREADY_EXISTS")
@@ -6296,6 +6353,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions
  *        Extensions installed are either not supported or having unsupported
  *        versions. (Value: "UNSUPPORTED_EXTENSIONS")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensionsNotMigrated
+ *        The warning message indicates the unsupported extensions will not be
+ *        migrated to the destination. (Value:
+ *        "UNSUPPORTED_EXTENSIONS_NOT_MIGRATED")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode
  *        The gtid_mode is not supported, applicable for MySQL. (Value:
  *        "UNSUPPORTED_GTID_MODE")

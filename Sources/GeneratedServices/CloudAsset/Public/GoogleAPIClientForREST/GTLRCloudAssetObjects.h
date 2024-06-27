@@ -3224,7 +3224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name for the `AccessLevel`. Format:
+ *  Identifier. Resource name for the `AccessLevel`. Format:
  *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
  *  `access_level` component must begin with a letter, followed by alphanumeric
  *  characters or `_`. Its maximum length is 50 characters. After you create an
@@ -3250,13 +3250,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Output only. An opaque identifier for the current version of the
  *  `AccessPolicy`. This will always be a strongly validated etag, meaning that
- *  two Access Polices will be identical if and only if their etags are
+ *  two Access Policies will be identical if and only if their etags are
  *  identical. Clients should not expect this to be in any specific format.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Resource name of the `AccessPolicy`. Format:
+ *  Output only. Identifier. Resource name of the `AccessPolicy`. Format:
  *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3852,7 +3852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name for the `ServicePerimeter`. Format:
+ *  Identifier. Resource name for the `ServicePerimeter`. Format:
  *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
  *  `service_perimeter` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
@@ -5395,7 +5395,6 @@ GTLR_DEPRECATED
 
 /**
  *  A result of Resource Search, containing information of a cloud resource.
- *  Next ID: 34
  */
 @interface GTLRCloudAsset_ResourceSearchResult : GTLRObject
 
@@ -5515,8 +5514,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeys;
 
 /**
- *  Labels associated with this resource. See [Labelling and grouping Google
- *  Cloud
+ *  User labels associated with this resource. See [Labelling and grouping
+ *  Google Cloud
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
  *  Protobuf contains it. To search against the `labels`: * Use a field query: -
@@ -5713,8 +5712,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  Labels associated with this resource. See [Labelling and grouping Google
- *  Cloud
+ *  User labels associated with this resource. See [Labelling and grouping
+ *  Google Cloud
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
  *  Protobuf contains it. To search against the `labels`: * Use a field query: -

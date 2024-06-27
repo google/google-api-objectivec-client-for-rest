@@ -897,8 +897,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *deviceType;
 
 /**
- *  If true, attribute suggestions are enabled and provided in response. This
- *  field is only available for "cloud-retail" dataset.
+ *  If true, attribute suggestions are enabled and provided in the response.
+ *  This field is only available for the "cloud-retail" dataset.
  */
 @property(nonatomic, assign) BOOL enableAttributeSuggestions;
 

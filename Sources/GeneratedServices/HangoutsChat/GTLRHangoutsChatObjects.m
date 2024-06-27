@@ -175,6 +175,7 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_FullSize = @"
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_Overlay = @"OVERLAY";
 
 // GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource.commonDataSource
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Drive = @"DRIVE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Unknown = @"UNKNOWN";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_User = @"USER";
 

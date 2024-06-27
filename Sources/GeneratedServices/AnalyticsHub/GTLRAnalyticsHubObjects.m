@@ -19,6 +19,32 @@ NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_DataRead = @"DATA_READ
 NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRAnalyticsHub_BigQueryConfig.state
+NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_Active = @"ACTIVE";
+NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
+NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_NotFound = @"NOT_FOUND";
+NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
+NSString * const kGTLRAnalyticsHub_BigQueryConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAnalyticsHub_CloudStorageConfig.state
+NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_Active = @"ACTIVE";
+NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
+NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_NotFound = @"NOT_FOUND";
+NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
+NSString * const kGTLRAnalyticsHub_CloudStorageConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAnalyticsHub_DataExchange.discoveryType
+NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePrivate = @"DISCOVERY_TYPE_PRIVATE";
+NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePublic = @"DISCOVERY_TYPE_PUBLIC";
+NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypeUnspecified = @"DISCOVERY_TYPE_UNSPECIFIED";
+
+// GTLRAnalyticsHub_GooglePubsubV1Subscription.state
+NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_Active = @"ACTIVE";
+NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_ResourceError = @"RESOURCE_ERROR";
+NSString * const kGTLRAnalyticsHub_GooglePubsubV1Subscription_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRAnalyticsHub_Listing.categories
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryAdvertisingAndMarketing = @"CATEGORY_ADVERTISING_AND_MARKETING";
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryClimateAndEnvironment = @"CATEGORY_CLIMATE_AND_ENVIRONMENT";
@@ -41,9 +67,24 @@ NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryTransportationAndL
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryTravelAndTourism = @"CATEGORY_TRAVEL_AND_TOURISM";
 NSString * const kGTLRAnalyticsHub_Listing_Categories_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
 
+// GTLRAnalyticsHub_Listing.discoveryType
+NSString * const kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypePrivate = @"DISCOVERY_TYPE_PRIVATE";
+NSString * const kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypePublic = @"DISCOVERY_TYPE_PUBLIC";
+NSString * const kGTLRAnalyticsHub_Listing_DiscoveryType_DiscoveryTypeUnspecified = @"DISCOVERY_TYPE_UNSPECIFIED";
+
+// GTLRAnalyticsHub_Listing.resourceType
+NSString * const kGTLRAnalyticsHub_Listing_ResourceType_BigqueryDataset = @"BIGQUERY_DATASET";
+NSString * const kGTLRAnalyticsHub_Listing_ResourceType_PubsubTopic = @"PUBSUB_TOPIC";
+NSString * const kGTLRAnalyticsHub_Listing_ResourceType_SharedResourceTypeUnspecified = @"SHARED_RESOURCE_TYPE_UNSPECIFIED";
+
 // GTLRAnalyticsHub_Listing.state
 NSString * const kGTLRAnalyticsHub_Listing_State_Active        = @"ACTIVE";
 NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAnalyticsHub_Subscription.resourceType
+NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_BigqueryDataset = @"BIGQUERY_DATASET";
+NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_PubsubTopic = @"PUBSUB_TOPIC";
+NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_SharedResourceTypeUnspecified = @"SHARED_RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRAnalyticsHub_Subscription.state
 NSString * const kGTLRAnalyticsHub_Subscription_State_StateActive = @"STATE_ACTIVE";
@@ -89,6 +130,27 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_AvroConfig
+//
+
+@implementation GTLRAnalyticsHub_AvroConfig
+@dynamic useTopicSchema, writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_BigQueryConfig
+//
+
+@implementation GTLRAnalyticsHub_BigQueryConfig
+@dynamic dropUnknownFields, serviceAccountEmail, state, table, useTableSchema,
+         useTopicSchema, writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_BigQueryDatasetSource
 //
 
@@ -125,12 +187,24 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_CloudStorageConfig
+//
+
+@implementation GTLRAnalyticsHub_CloudStorageConfig
+@dynamic avroConfig, bucket, filenameDatetimeFormat, filenamePrefix,
+         filenameSuffix, maxBytes, maxDuration, maxMessages,
+         serviceAccountEmail, state, textConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_DataExchange
 //
 
 @implementation GTLRAnalyticsHub_DataExchange
-@dynamic descriptionProperty, displayName, documentation, icon, listingCount,
-         name, primaryContact, sharingEnvironmentConfig;
+@dynamic descriptionProperty, discoveryType, displayName, documentation, icon,
+         listingCount, name, primaryContact, sharingEnvironmentConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -157,6 +231,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 @implementation GTLRAnalyticsHub_DcrExchangeConfig
 @dynamic singleLinkedDatasetPerCleanroom,
          singleSelectedResourceSharingRestriction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_DeadLetterPolicy
+//
+
+@implementation GTLRAnalyticsHub_DeadLetterPolicy
+@dynamic deadLetterTopic, maxDeliveryAttempts;
 @end
 
 
@@ -210,10 +294,30 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_DestinationPubSubSubscription
+//
+
+@implementation GTLRAnalyticsHub_DestinationPubSubSubscription
+@dynamic pubsubSubscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_Empty
 //
 
 @implementation GTLRAnalyticsHub_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_ExpirationPolicy
+//
+
+@implementation GTLRAnalyticsHub_ExpirationPolicy
+@dynamic ttl;
 @end
 
 
@@ -254,11 +358,39 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_GooglePubsubV1Subscription
+//
+
+@implementation GTLRAnalyticsHub_GooglePubsubV1Subscription
+@dynamic ackDeadlineSeconds, analyticsHubSubscriptionInfo, bigqueryConfig,
+         cloudStorageConfig, deadLetterPolicy, detached,
+         enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
+         filter, labels, messageRetentionDuration, name, pushConfig,
+         retainAckedMessages, retryPolicy, state, topicMessageRetentionDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels
+//
+
+@implementation GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_LinkedResource
 //
 
 @implementation GTLRAnalyticsHub_LinkedResource
-@dynamic linkedDataset;
+@dynamic linkedDataset, linkedPubsubSubscription, listing;
 @end
 
 
@@ -291,8 +423,9 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 @implementation GTLRAnalyticsHub_Listing
 @dynamic bigqueryDataset, categories, dataProvider, descriptionProperty,
-         displayName, documentation, icon, name, primaryContact, publisher,
-         requestAccess, restrictedExportConfig, state;
+         discoveryType, displayName, documentation, icon, name, primaryContact,
+         publisher, pubsubTopic, requestAccess, resourceType,
+         restrictedExportConfig, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -398,6 +531,26 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_NoWrapper
+//
+
+@implementation GTLRAnalyticsHub_NoWrapper
+@dynamic writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_OidcToken
+//
+
+@implementation GTLRAnalyticsHub_OidcToken
+@dynamic audience, serviceAccountEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_Operation
 //
 
@@ -480,6 +633,57 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_PubSubTopicSource
+//
+
+@implementation GTLRAnalyticsHub_PubSubTopicSource
+@dynamic dataAffinityRegions, topic;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataAffinityRegions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_PubsubWrapper
+//
+
+@implementation GTLRAnalyticsHub_PubsubWrapper
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_PushConfig
+//
+
+@implementation GTLRAnalyticsHub_PushConfig
+@dynamic attributes, noWrapper, oidcToken, pubsubWrapper, pushEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_PushConfig_Attributes
+//
+
+@implementation GTLRAnalyticsHub_PushConfig_Attributes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_RefreshSubscriptionRequest
 //
 
@@ -514,6 +718,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 @implementation GTLRAnalyticsHub_RestrictedExportPolicy
 @dynamic enabled, restrictDirectTableAccess, restrictQueryResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_RetryPolicy
+//
+
+@implementation GTLRAnalyticsHub_RetryPolicy
+@dynamic maximumBackoff, minimumBackoff;
 @end
 
 
@@ -623,7 +837,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_SubscribeListingRequest
-@dynamic destinationDataset;
+@dynamic destinationDataset, destinationPubsubSubscription;
 @end
 
 
@@ -643,9 +857,17 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_Subscription
-@dynamic creationTime, dataExchange, lastModifyTime, linkedDatasetMap, listing,
-         name, organizationDisplayName, organizationId, state,
-         subscriberContact;
+@dynamic creationTime, dataExchange, lastModifyTime, linkedDatasetMap,
+         linkedResources, listing, name, organizationDisplayName,
+         organizationId, resourceType, state, subscriberContact;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"linkedResources" : [GTLRAnalyticsHub_LinkedResource class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -660,6 +882,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
   return [GTLRAnalyticsHub_LinkedResource class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_SubscriptionInfo
+//
+
+@implementation GTLRAnalyticsHub_SubscriptionInfo
+@dynamic listing, subscription;
 @end
 
 
@@ -696,4 +928,13 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_TextConfig
+//
+
+@implementation GTLRAnalyticsHub_TextConfig
 @end

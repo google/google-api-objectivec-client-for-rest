@@ -465,6 +465,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudNa
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudRunRevisionNotReady;
 /**
+ *  Packet was dropped because the Cloud SQL instance requires all connections
+ *  to use Cloud SQL connectors and to target the Cloud SQL proxy port (3307).
+ *
+ *  Value: "CLOUD_SQL_CONNECTOR_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlConnectorRequired;
+/**
  *  Packet was dropped because the Cloud SQL instance has neither a private nor
  *  a public IP address.
  *
@@ -730,6 +737,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegP
  *  Value: "PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerForwardingRuleMultiplePorts;
+/**
+ *  PSC endpoint is accessed via NCC, but PSC transitivity configuration is not
+ *  yet propagated.
+ *
+ *  Value: "PSC_TRANSITIVITY_NOT_PROPAGATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscTransitivityNotPropagated;
 /**
  *  Packet sent from a Cloud SQL instance with only a public IP address to a
  *  private IP address.
@@ -2507,6 +2521,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudRunRevisionNotReady
  *        Packet sent from a Cloud Run revision that is not ready. (Value:
  *        "CLOUD_RUN_REVISION_NOT_READY")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlConnectorRequired
+ *        Packet was dropped because the Cloud SQL instance requires all
+ *        connections to use Cloud SQL connectors and to target the Cloud SQL
+ *        proxy port (3307). (Value: "CLOUD_SQL_CONNECTOR_REQUIRED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress
  *        Packet was dropped because the Cloud SQL instance has neither a
  *        private nor a public IP address. (Value:
@@ -2652,6 +2670,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        endpoint group), but the producer PSC forwarding rule has multiple
  *        ports specified. (Value:
  *        "PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PscTransitivityNotPropagated
+ *        PSC endpoint is accessed via NCC, but PSC transitivity configuration
+ *        is not yet propagated. (Value: "PSC_TRANSITIVITY_NOT_PROPAGATED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PublicCloudSqlInstanceToPrivateDestination
  *        Packet sent from a Cloud SQL instance with only a public IP address to
  *        a private IP address. (Value:

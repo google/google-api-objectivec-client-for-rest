@@ -632,6 +632,17 @@ NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_CompanyOwned 
 NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_OwnershipUnspecified = @"OWNERSHIP_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_PersonallyOwned = @"PERSONALLY_OWNED";
 
+// GTLRAndroidManagement_ScreenBrightnessSettings.screenBrightnessMode
+NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessAutomatic = @"BRIGHTNESS_AUTOMATIC";
+NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessFixed = @"BRIGHTNESS_FIXED";
+NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessUserChoice = @"BRIGHTNESS_USER_CHOICE";
+NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_ScreenBrightnessModeUnspecified = @"SCREEN_BRIGHTNESS_MODE_UNSPECIFIED";
+
+// GTLRAndroidManagement_ScreenTimeoutSettings.screenTimeoutMode
+NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutEnforced = @"SCREEN_TIMEOUT_ENFORCED";
+NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutModeUnspecified = @"SCREEN_TIMEOUT_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutUserChoice = @"SCREEN_TIMEOUT_USER_CHOICE";
+
 // GTLRAndroidManagement_SecurityPosture.devicePosture
 NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk = @"AT_RISK";
 NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified = @"POSTURE_UNSPECIFIED";
@@ -1319,6 +1330,16 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_Display
 @dynamic density, displayId, height, name, refreshRate, state, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DisplaySettings
+//
+
+@implementation GTLRAndroidManagement_DisplaySettings
+@dynamic screenBrightnessSettings, screenTimeoutSettings;
 @end
 
 
@@ -2213,10 +2234,10 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
          credentialsConfigDisabled, crossProfilePolicies, dataRoamingDisabled,
          debuggingFeaturesAllowed, defaultPermissionPolicy,
          deviceConnectivityManagement, deviceOwnerLockScreenInfo,
-         deviceRadioState, encryptionPolicy, ensureVerifyAppsEnabled,
-         factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
-         installUnknownSourcesAllowed, keyguardDisabled,
-         keyguardDisabledFeatures, kioskCustomization,
+         deviceRadioState, displaySettings, encryptionPolicy,
+         ensureVerifyAppsEnabled, factoryResetDisabled, frpAdminEmails,
+         funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
+         keyguardDisabled, keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,
          maximumTimeToLock, microphoneAccess, minimumApiLevel,
          mobileNetworksConfigDisabled, modifyAccountsDisabled,
@@ -2318,8 +2339,8 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 //
 
 @implementation GTLRAndroidManagement_ProvisioningInfo
-@dynamic apiLevel, brand, enterprise, imei, managementMode, meid, model, name,
-         ownership, serialNumber;
+@dynamic apiLevel, authenticatedUserEmail, brand, enterprise, imei,
+         managementMode, meid, model, name, ownership, serialNumber;
 @end
 
 
@@ -2348,6 +2369,26 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_RemoteLockEvent
 @dynamic adminPackageName, adminUserId, targetUserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ScreenBrightnessSettings
+//
+
+@implementation GTLRAndroidManagement_ScreenBrightnessSettings
+@dynamic screenBrightness, screenBrightnessMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ScreenTimeoutSettings
+//
+
+@implementation GTLRAndroidManagement_ScreenTimeoutSettings
+@dynamic screenTimeout, screenTimeoutMode;
 @end
 
 

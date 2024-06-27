@@ -273,6 +273,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamValue_Type_TypeUnspecifi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Bundles;
 /**
+ *  Default resolver.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Default;
+/**
  *  Developer Connect resolver.
  *
  *  Value: "DEVELOPER_CONNECT"
@@ -484,6 +490,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Privil
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_Step.onError
+
+/**
+ *  Continue indicates continue executing the rest of the steps/tasks
+ *  irrespective of the exit code
+ *
+ *  Value: "CONTINUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Step_OnError_Continue;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "ON_ERROR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Step_OnError_OnErrorTypeUnspecified;
+/**
+ *  StopAndFail indicates exit if the step/task exits with non-zero exit code
+ *
+ *  Value: "STOP_AND_FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Step_OnError_StopAndFail;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_StepRef.resolver
 
 /**
@@ -492,6 +521,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unpriv
  *  Value: "BUNDLES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_Bundles;
+/**
+ *  Default resolver.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_Default;
 /**
  *  Developer Connect resolver.
  *
@@ -526,6 +561,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_ResolverName
  *  Value: "BUNDLES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_TaskRef_Resolver_Bundles;
+/**
+ *  Default resolver.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_TaskRef_Resolver_Default;
 /**
  *  Developer Connect resolver.
  *
@@ -1938,6 +1979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_Bundles Bundles resolver.
  *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_Default Default resolver.
+ *        (Value: "DEFAULT")
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_DeveloperConnect Developer
  *        Connect resolver. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_GcbRepo GCB repo resolver.
@@ -2859,6 +2902,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Name of the container specified as a DNS_LABEL. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. OnError defines the exiting behavior on error can be set to [
+ *  continue | stopAndFail ]
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_Step_OnError_Continue Continue indicates continue
+ *        executing the rest of the steps/tasks irrespective of the exit code
+ *        (Value: "CONTINUE")
+ *    @arg @c kGTLRCloudBuild_Step_OnError_OnErrorTypeUnspecified Default enum
+ *        type; should not be used. (Value: "ON_ERROR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_Step_OnError_StopAndFail StopAndFail indicates
+ *        exit if the step/task exits with non-zero exit code (Value:
+ *        "STOP_AND_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *onError;
+
 /** Optional. Optional parameters passed to the StepAction. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Param *> *params;
 
@@ -2906,6 +2965,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_StepRef_Resolver_Bundles Bundles resolver.
  *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_Default Default resolver. (Value:
+ *        "DEFAULT")
  *    @arg @c kGTLRCloudBuild_StepRef_Resolver_DeveloperConnect Developer
  *        Connect resolver. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRCloudBuild_StepRef_Resolver_GcbRepo GCB repo resolver.
@@ -2961,6 +3022,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_Bundles Bundles resolver.
  *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_Default Default resolver. (Value:
+ *        "DEFAULT")
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_DeveloperConnect Developer
  *        Connect resolver. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_GcbRepo GCB repo resolver.

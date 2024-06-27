@@ -457,14 +457,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 @interface GTLRWorkflows_Workflow : GTLRObject
 
 /**
- *  Output only. A list of all KMS crypto keys used to encrypt or decrpt the
+ *  Output only. A list of all KMS crypto keys used to encrypt or decrypt the
  *  data associated with the workflow.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allKmsKeys;
 
 /**
- *  Output only. A list of all KMS crypto keys versions used to encrypt or
- *  decrpt the data associated with the workflow.
+ *  Output only. A list of all KMS crypto key versions used to encrypt or
+ *  decrypt the data associated with the workflow.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allKmsKeysVersions;
 

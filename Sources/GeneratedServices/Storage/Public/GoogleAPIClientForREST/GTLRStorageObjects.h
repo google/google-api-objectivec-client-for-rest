@@ -1364,6 +1364,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorage_GoogleLongrunningListOperationsResponse : GTLRCollectionObject
 
 /**
+ *  The kind of item this is. For lists of operations, this is always
+ *  storage#operations.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
  *  The continuation token, used to page through large result sets. Provide this
  *  value in a subsequent request to return the next page of results.
  */
@@ -1399,6 +1405,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRStorage_GoogleRpcStatus *error;
 
 /**
+ *  The kind of item this is. For operations, this is always storage#operation.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
  *  Service-specific metadata associated with the operation. It typically
  *  contains progress information and common metadata such as create time. Some
  *  services might not provide such metadata. Any method that returns a
@@ -1423,6 +1434,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  response type is "TakeSnapshotResponse".
  */
 @property(nonatomic, strong, nullable) GTLRStorage_GoogleLongrunningOperation_Response *response;
+
+/** The link to this long running operation. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 

@@ -156,26 +156,6 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_DataResidencyAugmentedView
-//
-
-@implementation GTLRDataFusion_DataResidencyAugmentedView
-@dynamic crGopoGuris, crGopoPrefixes, serviceData, tpIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"crGopoGuris" : [NSString class],
-    @"crGopoPrefixes" : [NSString class],
-    @"tpIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataFusion_DnsPeering
 //
 
@@ -234,10 +214,11 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
          dataprocServiceAccount, descriptionProperty, disabledReason,
          displayName, enableRbac, enableStackdriverLogging,
          enableStackdriverMonitoring, enableZoneSeparation, eventPublishConfig,
-         gcsBucket, labels, name, networkConfig, options, p4ServiceAccount,
-         patchRevision, privateInstance, satisfiesPzs, serviceAccount,
-         serviceEndpoint, state, stateMessage, tenantProjectId, type,
-         updateTime, version, workforceIdentityServiceEndpoint, zoneProperty;
+         gcsBucket, labels, maintenancePolicy, name, networkConfig, options,
+         p4ServiceAccount, patchRevision, privateInstance, satisfiesPzs,
+         serviceAccount, serviceEndpoint, state, stateMessage, tenantProjectId,
+         type, updateTime, version, workforceIdentityServiceEndpoint,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -438,6 +419,26 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_MaintenancePolicy
+//
+
+@implementation GTLRDataFusion_MaintenancePolicy
+@dynamic maintenanceExclusionWindow, maintenanceWindow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_MaintenanceWindow
+//
+
+@implementation GTLRDataFusion_MaintenanceWindow
+@dynamic recurringTimeWindow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_NetworkConfig
 //
 
@@ -511,25 +512,6 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_PersistentDiskData
-//
-
-@implementation GTLRDataFusion_PersistentDiskData
-@dynamic cfsRoots, gcsBucketNames;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cfsRoots" : [NSString class],
-    @"gcsBucketNames" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataFusion_Policy
 //
 
@@ -563,20 +545,20 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_RestartInstanceRequest
+//   GTLRDataFusion_RecurringTimeWindow
 //
 
-@implementation GTLRDataFusion_RestartInstanceRequest
+@implementation GTLRDataFusion_RecurringTimeWindow
+@dynamic recurrence, window;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_ServiceData
+//   GTLRDataFusion_RestartInstanceRequest
 //
 
-@implementation GTLRDataFusion_ServiceData
-@dynamic pd;
+@implementation GTLRDataFusion_RestartInstanceRequest
 @end
 
 
@@ -655,6 +637,16 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_TimeWindow
+//
+
+@implementation GTLRDataFusion_TimeWindow
+@dynamic endTime, startTime;
 @end
 
 

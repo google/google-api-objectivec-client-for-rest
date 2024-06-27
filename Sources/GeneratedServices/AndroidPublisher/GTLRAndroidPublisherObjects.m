@@ -1412,7 +1412,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @dynamic createTime, currentPreTaxAmount, currentTaxAmount,
          externalTransactionId, oneTimeTransaction, originalPreTaxAmount,
          originalTaxAmount, packageName, recurringTransaction, testPurchase,
-         transactionState, transactionTime, userTaxAddress;
+         transactionProgramCode, transactionState, transactionTime,
+         userTaxAddress;
 @end
 
 

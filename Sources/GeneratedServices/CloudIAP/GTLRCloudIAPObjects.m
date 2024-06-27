@@ -307,6 +307,16 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_NextStateOfTags
+//
+
+@implementation GTLRCloudIAP_NextStateOfTags
+@dynamic tagsFullState, tagsFullStateForChildResource, tagsPartialState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_OAuth2
 //
 
@@ -405,7 +415,7 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_Resource
-@dynamic expectedNextState, labels, name, service, type;
+@dynamic expectedNextState, labels, name, nextStateOfTags, service, type;
 @end
 
 
@@ -444,6 +454,86 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 
 @implementation GTLRCloudIAP_SetIamPolicyRequest
 @dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_TagsFullState
+//
+
+@implementation GTLRCloudIAP_TagsFullState
+@dynamic tags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_TagsFullState_Tags
+//
+
+@implementation GTLRCloudIAP_TagsFullState_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_TagsFullStateForChildResource
+//
+
+@implementation GTLRCloudIAP_TagsFullStateForChildResource
+@dynamic tags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_TagsFullStateForChildResource_Tags
+//
+
+@implementation GTLRCloudIAP_TagsFullStateForChildResource_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_TagsPartialState
+//
+
+@implementation GTLRCloudIAP_TagsPartialState
+@dynamic tagKeysToRemove, tagsToUpsert;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagKeysToRemove" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_TagsPartialState_TagsToUpsert
+//
+
+@implementation GTLRCloudIAP_TagsPartialState_TagsToUpsert
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

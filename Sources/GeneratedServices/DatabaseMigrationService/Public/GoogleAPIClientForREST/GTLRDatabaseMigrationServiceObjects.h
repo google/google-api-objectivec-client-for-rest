@@ -1538,6 +1538,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Du
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc;
 /**
+ *  The migration job is in the differential backup phase.
+ *
+ *  Value: "DIFF_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_DiffBackup;
+/**
  *  The migration job is in the full dump phase.
  *
  *  Value: "FULL_DUMP"
@@ -5031,6 +5037,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc The migration
  *        job is CDC phase. (Value: "CDC")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_DiffBackup The
+ *        migration job is in the differential backup phase. (Value:
+ *        "DIFF_BACKUP")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_FullDump The
  *        migration job is in the full dump phase. (Value: "FULL_DUMP")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseUnspecified

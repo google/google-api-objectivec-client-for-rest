@@ -39,6 +39,7 @@
 @class GTLRCloudHealthcare_DicomFilterConfig;
 @class GTLRCloudHealthcare_DicomStore;
 @class GTLRCloudHealthcare_DicomStore_Labels;
+@class GTLRCloudHealthcare_EncryptionSpec;
 @class GTLRCloudHealthcare_Entity;
 @class GTLRCloudHealthcare_EntityMention;
 @class GTLRCloudHealthcare_EntityMentionRelationship;
@@ -1649,16 +1650,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_Dataset : GTLRObject
 
 /**
+ *  Optional. Customer-managed encryption key spec for a Dataset. If set, this
+ *  Dataset and all of its sub-resources will be secured by this key. If empty,
+ *  the Dataset is secured by the default Google encryption key.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_EncryptionSpec *encryptionSpec;
+
+/**
  *  Identifier. Resource name of the dataset, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The default timezone used by this dataset. Must be a either a valid IANA
- *  time zone name such as "America/New_York" or empty, which defaults to UTC.
- *  This is used for parsing times in resources, such as HL7 messages, where no
- *  explicit timezone is specified.
+ *  Optional. The default timezone used by this dataset. Must be a either a
+ *  valid IANA time zone name such as "America/New_York" or empty, which
+ *  defaults to UTC. This is used for parsing times in resources, such as HL7
+ *  messages, where no explicit timezone is specified.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -2069,6 +2077,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCloudHealthcare_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents a customer-managed encryption key spec that can be applied to a
+ *  resource.
+ */
+@interface GTLRCloudHealthcare_EncryptionSpec : GTLRObject
+
+/**
+ *  Required. The resource name of customer-managed encryption key that is used
+ *  to secure a resource and its sub-resources. Only the key in the same
+ *  location as this Dataset is allowed to be used for encryption. Format is:
+ *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 @end
 
 

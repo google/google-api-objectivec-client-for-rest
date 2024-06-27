@@ -36,8 +36,6 @@
 @class GTLRDfareporting_CampaignCreativeAssociation;
 @class GTLRDfareporting_CampaignSummary;
 @class GTLRDfareporting_ChangeLog;
-@class GTLRDfareporting_ChannelGrouping;
-@class GTLRDfareporting_ChannelGroupingRule;
 @class GTLRDfareporting_City;
 @class GTLRDfareporting_ClickTag;
 @class GTLRDfareporting_ClickThroughUrl;
@@ -80,10 +78,8 @@
 @class GTLRDfareporting_DimensionValue;
 @class GTLRDfareporting_DirectorySite;
 @class GTLRDfareporting_DirectorySiteSettings;
-@class GTLRDfareporting_DisjunctiveMatchStatement;
 @class GTLRDfareporting_DynamicTargetingKey;
 @class GTLRDfareporting_EncryptionInfo;
-@class GTLRDfareporting_EventFilter;
 @class GTLRDfareporting_EventTag;
 @class GTLRDfareporting_EventTagOverride;
 @class GTLRDfareporting_File;
@@ -127,9 +123,6 @@
 @class GTLRDfareporting_OptimizationActivity;
 @class GTLRDfareporting_Order;
 @class GTLRDfareporting_OrderContact;
-@class GTLRDfareporting_PathFilter;
-@class GTLRDfareporting_PathReportCompatibleFields;
-@class GTLRDfareporting_PathReportDimensionValue;
 @class GTLRDfareporting_PathToConversionReportCompatibleFields;
 @class GTLRDfareporting_Placement;
 @class GTLRDfareporting_PlacementAssignment;
@@ -155,8 +148,6 @@
 @class GTLRDfareporting_Report_Delivery;
 @class GTLRDfareporting_Report_FloodlightCriteria;
 @class GTLRDfareporting_Report_FloodlightCriteria_ReportProperties;
-@class GTLRDfareporting_Report_PathAttributionCriteria;
-@class GTLRDfareporting_Report_PathCriteria;
 @class GTLRDfareporting_Report_PathToConversionCriteria;
 @class GTLRDfareporting_Report_PathToConversionCriteria_ReportProperties;
 @class GTLRDfareporting_Report_ReachCriteria;
@@ -193,7 +184,6 @@
 @class GTLRDfareporting_UserRole;
 @class GTLRDfareporting_UserRolePermission;
 @class GTLRDfareporting_UserRolePermissionGroup;
-@class GTLRDfareporting_UvarFilter;
 @class GTLRDfareporting_VideoFormat;
 @class GTLRDfareporting_VideoOffset;
 @class GTLRDfareporting_VideoSettings;
@@ -1488,9 +1478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Warne
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_EnablerUnsupportedMethodDcm;
 /**
- *  Reference to a third-party resource. Problematic because the volume of ad
- *  serving could bring down unprepared web servers due to high load. e.g.
- *  http://www.zibble.net/smiles.gif
+ *  Reference to a third-party resource.
  *
  *  Value: "EXTERNAL_FILE_REFERENCED"
  */
@@ -1520,8 +1508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Warne
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_Html5FeatureUnsupported;
 /**
- *  A relative file was linked to that wasn't included in zip. e.g.
- *  images/missing_file.gif
+ *  A relative file was linked to that wasn't included in zip.
  *
  *  Value: "LINKED_FILE_NOT_FOUND"
  */
@@ -1569,7 +1556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Warne
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_SvgInvalid;
 /**
- *  Invalid zip passed in (could not extract from zip
+ *  Invalid zip passed in
  *
  *  Value: "ZIP_INVALID"
  */
@@ -2594,6 +2581,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertise
  *  Value: "MEASUREMENT_PARTNER_UNLINKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked;
+/**
+ *  Partner unlink pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINK_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinkPending;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerAdvertiserLink.measurementPartner
@@ -2656,6 +2649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignL
  *  Value: "MEASUREMENT_PARTNER_UNLINKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked;
+/**
+ *  Partner unlink pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINK_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinkPending;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerCampaignLink.measurementPartner
@@ -2718,6 +2717,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingD
  *  Value: "MEASUREMENT_PARTNER_UNLINKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked;
+/**
+ *  Partner unlink pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINK_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinkPending;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerWrappingData.measurementPartner
@@ -2818,30 +2823,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_Pl
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact;
 /** Value: "PLANNING_ORDER_CONTACT_SELLER_CONTACT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_PathFilter.pathMatchPosition
-
-/** Value: "ANY" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Any;
-/** Value: "FIRST" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_First;
-/** Value: "LAST" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Last;
-/** Value: "PATH_MATCH_POSITION_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_PathMatchPositionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_PathReportDimensionValue.matchType
-
-/** Value: "BEGINS_WITH" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_BeginsWith;
-/** Value: "CONTAINS" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Contains;
-/** Value: "EXACT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Exact;
-/** Value: "WILDCARD_EXPRESSION" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_WildcardExpression;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.activeStatus
@@ -3237,10 +3218,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Format_Excel;
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach;
 /** Value: "FLOODLIGHT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Floodlight;
-/** Value: "PATH" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Path;
-/** Value: "PATH_ATTRIBUTION" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_PathAttribution;
 /** Value: "PATH_TO_CONVERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_PathToConversion;
 /** Value: "REACH" */
@@ -3893,16 +3870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availabi
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly;
 
 // ----------------------------------------------------------------------------
-// GTLRDfareporting_UvarFilter.match
-
-/** Value: "CONTAINS" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Contains;
-/** Value: "EXACT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Exact;
-/** Value: "UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Unspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRDfareporting_VideoFormat.fileType
 
 /** Value: "FLV" */
@@ -4337,7 +4304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *comments;
 
 /**
- *  Email of the user profile. The email addresss must be linked to a Google
+ *  Email of the user profile. The email address must be linked to a Google
  *  Account. This field is required on insertion and is read-only after
  *  insertion.
  */
@@ -6068,47 +6035,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Represents a DfaReporting channel grouping.
- */
-@interface GTLRDfareporting_ChannelGrouping : GTLRObject
-
-/** ChannelGrouping fallback name. */
-@property(nonatomic, copy, nullable) NSString *fallbackName;
-
-/**
- *  The kind of resource this is, in this case dfareporting#channelGrouping.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** ChannelGrouping name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The rules contained within this channel grouping. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_ChannelGroupingRule *> *rules;
-
-@end
-
-
-/**
- *  Represents a DfaReporting channel grouping rule.
- */
-@interface GTLRDfareporting_ChannelGroupingRule : GTLRObject
-
-/** The disjunctive match statements contained within this rule. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DisjunctiveMatchStatement *> *disjunctiveMatchStatements;
-
-/**
- *  The kind of resource this is, in this case dfareporting#channelGroupingRule.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Rule name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
  *  City List Response
  */
 @interface GTLRDfareporting_CitiesListResponse : GTLRObject
@@ -6343,18 +6269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  The kind of resource this is, in this case dfareporting#compatibleFields.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Contains items that are compatible to be selected for a report of type
- *  "PATH_ATTRIBUTION".
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_PathReportCompatibleFields *pathAttributionReportCompatibleFields;
-
-/**
- *  Contains items that are compatible to be selected for a report of type
- *  "PATH".
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_PathReportCompatibleFields *pathReportCompatibleFields;
 
 /**
  *  Contains items that are compatible to be selected for a report of type
@@ -9611,24 +9525,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Represents a Disjunctive Match Statement resource, which is a conjunction
- *  (and) of disjunctive (or) boolean statements.
- */
-@interface GTLRDfareporting_DisjunctiveMatchStatement : GTLRObject
-
-/** The event filters contained within this disjunctive match statement. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_EventFilter *> *eventFilters;
-
-/**
- *  The kind of resource this is, in this case
- *  dfareporting#disjunctiveMatchStatement.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
  *  Contains properties of a dynamic targeting key. Dynamic targeting keys are
  *  unique, user-friendly labels, created at the advertiser level in DCM, that
  *  can be assigned to ads, creatives, and placements and used for targeting
@@ -9747,23 +9643,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  "dfareporting#encryptionInfo".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  Represents a DfaReporting event filter.
- */
-@interface GTLRDfareporting_EventFilter : GTLRObject
-
-/** The dimension filter contained within this EventFilter. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_PathReportDimensionValue *dimensionFilter;
-
-/** The kind of resource this is, in this case dfareporting#eventFilter. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Filter on a custom variable. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_UvarFilter *uvarFilter;
 
 @end
 
@@ -10142,15 +10021,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_FloodlightActivitiesGenerateTagResponse : GTLRObject
 
 /**
- *  Generated tag for this Floodlight activity. For global site tags, this is
- *  the event snippet.
+ *  Generated tag for this Floodlight activity. For Google tags, this is the
+ *  event snippet.
  */
 @property(nonatomic, copy, nullable) NSString *floodlightActivityTag;
 
 /**
- *  The global snippet section of a global site tag. The global site tag sets
- *  new cookies on your domain, which will store a unique identifier for a user
- *  or the ad click that brought the user to your site. Learn more.
+ *  The global snippet section of a Google tag. The Google tag sets new cookies
+ *  on your domain, which will store a unique identifier for a user or the ad
+ *  click that brought the user to your site. Learn more.
  */
 @property(nonatomic, copy, nullable) NSString *globalSiteTagGlobalSnippet;
 
@@ -11597,6 +11476,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked
  *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinkPending
+ *        Partner unlink pending. (Value: "MEASUREMENT_PARTNER_UNLINK_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -11647,6 +11528,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked
  *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinkPending
+ *        Partner unlink pending. (Value: "MEASUREMENT_PARTNER_UNLINK_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -11700,6 +11583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked
  *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinkPending
+ *        Partner unlink pending. (Value: "MEASUREMENT_PARTNER_UNLINK_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -12445,117 +12330,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Order *> *orders;
-
-@end
-
-
-/**
- *  Represents a DfaReporting path filter.
- */
-@interface GTLRDfareporting_PathFilter : GTLRObject
-
-/** Event filters in path report. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_EventFilter *> *eventFilters;
-
-/** The kind of resource this is, in this case dfareporting#pathFilter. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Determines how the 'value' field is matched when filtering. If not
- *  specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed
- *  as a placeholder for variable length character sequences, and it can be
- *  escaped with a backslash. Note, only paid search dimensions
- *  ('dfa:paidSearch*') allow a matchType other than EXACT.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_PathFilter_PathMatchPosition_Any Value "ANY"
- *    @arg @c kGTLRDfareporting_PathFilter_PathMatchPosition_First Value "FIRST"
- *    @arg @c kGTLRDfareporting_PathFilter_PathMatchPosition_Last Value "LAST"
- *    @arg @c kGTLRDfareporting_PathFilter_PathMatchPosition_PathMatchPositionUnspecified
- *        Value "PATH_MATCH_POSITION_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *pathMatchPosition;
-
-@end
-
-
-/**
- *  Represents fields that are compatible to be selected for a report of type
- *  "PATH".
- */
-@interface GTLRDfareporting_PathReportCompatibleFields : GTLRObject
-
-/**
- *  Dimensions which are compatible to be selected in the "channelGroupings"
- *  section of the report.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *channelGroupings;
-
-/**
- *  Dimensions which are compatible to be selected in the "dimensions" section
- *  of the report.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *dimensions;
-
-/**
- *  The kind of resource this is, in this case
- *  dfareporting#pathReportCompatibleFields.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Metrics which are compatible to be selected in the "metricNames" section of
- *  the report.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Metric *> *metrics;
-
-/**
- *  Dimensions which are compatible to be selected in the "pathFilters" section
- *  of the report.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *pathFilters;
-
-@end
-
-
-/**
- *  Represents a PathReportDimensionValue resource.
- */
-@interface GTLRDfareporting_PathReportDimensionValue : GTLRObject
-
-/** The name of the dimension. */
-@property(nonatomic, copy, nullable) NSString *dimensionName;
-
-/** The possible ID's associated with the value if available. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
-
-/**
- *  The kind of resource this is, in this case
- *  dfareporting#pathReportDimensionValue.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Determines how the 'value' field is matched when filtering. If not
- *  specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed
- *  as a placeholder for variable length character sequences, and it can be
- *  escaped with a backslash. Note, only paid search dimensions
- *  ('dfa:paidSearch*') allow a matchType other than EXACT.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_PathReportDimensionValue_MatchType_BeginsWith
- *        Value "BEGINS_WITH"
- *    @arg @c kGTLRDfareporting_PathReportDimensionValue_MatchType_Contains
- *        Value "CONTAINS"
- *    @arg @c kGTLRDfareporting_PathReportDimensionValue_MatchType_Exact Value
- *        "EXACT"
- *    @arg @c kGTLRDfareporting_PathReportDimensionValue_MatchType_WildcardExpression
- *        Value "WILDCARD_EXPRESSION"
- */
-@property(nonatomic, copy, nullable) NSString *matchType;
-
-/** The possible values of the dimension. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -14348,12 +14122,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *ownerProfileId;
 
-/** The report criteria for a report of type "PATH_ATTRIBUTION". */
-@property(nonatomic, strong, nullable) GTLRDfareporting_Report_PathAttributionCriteria *pathAttributionCriteria;
-
-/** The report criteria for a report of type "PATH". */
-@property(nonatomic, strong, nullable) GTLRDfareporting_Report_PathCriteria *pathCriteria;
-
 /** The report criteria for a report of type "PATH_TO_CONVERSION". */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_PathToConversionCriteria *pathToConversionCriteria;
 
@@ -14380,9 +14148,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *    @arg @c kGTLRDfareporting_Report_Type_CrossDimensionReach Value
  *        "CROSS_DIMENSION_REACH"
  *    @arg @c kGTLRDfareporting_Report_Type_Floodlight Value "FLOODLIGHT"
- *    @arg @c kGTLRDfareporting_Report_Type_Path Value "PATH"
- *    @arg @c kGTLRDfareporting_Report_Type_PathAttribution Value
- *        "PATH_ATTRIBUTION"
  *    @arg @c kGTLRDfareporting_Report_Type_PathToConversion Value
  *        "PATH_TO_CONVERSION"
  *    @arg @c kGTLRDfareporting_Report_Type_Reach Value "REACH"
@@ -14533,72 +14298,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** The properties of the report. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_FloodlightCriteria_ReportProperties *reportProperties;
-
-@end
-
-
-/**
- *  The report criteria for a report of type "PATH_ATTRIBUTION".
- */
-@interface GTLRDfareporting_Report_PathAttributionCriteria : GTLRObject
-
-/** The list of 'dfa:activity' values to filter on. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *activityFilters;
-
-/** Channel Grouping. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_ChannelGrouping *customChannelGrouping;
-
-/** The date range this report should be run for. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
-
-/** The list of dimensions the report should include. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortedDimension *> *dimensions;
-
-/**
- *  The floodlight ID for which to show data in this report. All advertisers
- *  associated with that ID will automatically be added. The dimension of the
- *  value needs to be 'dfa:floodlightConfigId'.
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *floodlightConfigId;
-
-/** The list of names of metrics the report should include. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
-
-/** Path Filters. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_PathFilter *> *pathFilters;
-
-@end
-
-
-/**
- *  The report criteria for a report of type "PATH".
- */
-@interface GTLRDfareporting_Report_PathCriteria : GTLRObject
-
-/** The list of 'dfa:activity' values to filter on. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *activityFilters;
-
-/** Channel Grouping. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_ChannelGrouping *customChannelGrouping;
-
-/** The date range this report should be run for. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
-
-/** The list of dimensions the report should include. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortedDimension *> *dimensions;
-
-/**
- *  The floodlight ID for which to show data in this report. All advertisers
- *  associated with that ID will automatically be added. The dimension of the
- *  value needs to be 'dfa:floodlightConfigId'.
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *floodlightConfigId;
-
-/** The list of names of metrics the report should include. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
-
-/** Path Filters. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_PathFilter *> *pathFilters;
 
 @end
 
@@ -16818,44 +16517,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_UserRole *> *userRoles;
-
-@end
-
-
-/**
- *  Defines the filtering on a single uvar.
- */
-@interface GTLRDfareporting_UvarFilter : GTLRObject
-
-/**
- *  Return rows which don't match this filter.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *complement;
-
-/**
- *  Custom variable index the filter is applied to.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *index;
-
-/** The kind of resource this is, in this case dfareporting#uvarFilter. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Indicates how the filter should be matched to the values.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_UvarFilter_Match_Contains Value "CONTAINS"
- *    @arg @c kGTLRDfareporting_UvarFilter_Match_Exact Value "EXACT"
- *    @arg @c kGTLRDfareporting_UvarFilter_Match_Unspecified Value "UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *match;
-
-/** Values to filter on. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 

@@ -218,7 +218,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_DiscoverConnectionProfileRequest
 @dynamic connectionProfile, connectionProfileName, fullHierarchy,
-         hierarchyDepth, mysqlRdbms, oracleRdbms, postgresqlRdbms;
+         hierarchyDepth, mysqlRdbms, oracleRdbms, postgresqlRdbms,
+         sqlServerRdbms;
 @end
 
 
@@ -228,7 +229,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_DiscoverConnectionProfileResponse
-@dynamic mysqlRdbms, oracleRdbms, postgresqlRdbms;
+@dynamic mysqlRdbms, oracleRdbms, postgresqlRdbms, sqlServerRdbms;
 @end
 
 

@@ -129,12 +129,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate;
 /**
- *  Assured Workloads for Regional Controls/Free Regions
- *
- *  Value: "FREE_REGIONS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FreeRegions;
-/**
  *  Health Insurance Portability and Accountability Act controls
  *
  *  Value: "HIPAA"
@@ -195,7 +189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls;
 /**
- *  Assured Workloads for Regional Controls/Free Regions
+ *  Assured Workloads for Regional Controls
  *
  *  Value: "REGIONAL_CONTROLS"
  */
@@ -358,6 +352,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation;
 /**
+ *  Remediation type for resource violation due to gcp.restrictNonCmekServices
+ *
+ *  Value: "REMEDIATION_RESOURCE_VIOLATION_NON_CMEK_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolationNonCmekServices;
+/**
  *  Remediation type for gcp.restrictCmekCryptoKeyProjects
  *
  *  Value: "REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION"
@@ -428,12 +428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate;
 /**
- *  Assured Workloads for Regional Controls/Free Regions
- *
- *  Value: "FREE_REGIONS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FreeRegions;
-/**
  *  Health Insurance Portability and Accountability Act controls
  *
  *  Value: "HIPAA"
@@ -494,7 +488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls;
 /**
- *  Assured Workloads for Regional Controls/Free Regions
+ *  Assured Workloads for Regional Controls
  *
  *  Value: "REGIONAL_CONTROLS"
  */
@@ -945,9 +939,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FreeRegions
- *        Assured Workloads for Regional Controls/Free Regions (Value:
- *        "FREE_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
  *        Health Insurance Portability and Accountability Act controls (Value:
  *        "HIPAA")
@@ -972,8 +963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        KSA R5 Controls. (Value:
  *        "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls
- *        Assured Workloads for Regional Controls/Free Regions (Value:
- *        "REGIONAL_CONTROLS")
+ *        Assured Workloads for Regional Controls (Value: "REGIONAL_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumAu
  *        Assured Workloads for Australia Regions and Support controls (Value:
  *        "REGIONAL_CONTROLS_PREMIUM_AU")
@@ -1374,6 +1364,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation
  *        Remediation type for resource violation. (Value:
  *        "REMEDIATION_RESOURCE_VIOLATION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolationNonCmekServices
+ *        Remediation type for resource violation due to
+ *        gcp.restrictNonCmekServices (Value:
+ *        "REMEDIATION_RESOURCE_VIOLATION_NON_CMEK_SERVICES")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationRestrictCmekCryptoKeyProjectsOrgPolicyViolation
  *        Remediation type for gcp.restrictCmekCryptoKeyProjects (Value:
  *        "REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION")
@@ -1477,9 +1471,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FreeRegions
- *        Assured Workloads for Regional Controls/Free Regions (Value:
- *        "FREE_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa
  *        Health Insurance Portability and Accountability Act controls (Value:
  *        "HIPAA")
@@ -1504,8 +1495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        KSA R5 Controls. (Value:
  *        "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls
- *        Assured Workloads for Regional Controls/Free Regions (Value:
- *        "REGIONAL_CONTROLS")
+ *        Assured Workloads for Regional Controls (Value: "REGIONAL_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumAu
  *        Assured Workloads for Australia Regions and Support controls (Value:
  *        "REGIONAL_CONTROLS_PREMIUM_AU")

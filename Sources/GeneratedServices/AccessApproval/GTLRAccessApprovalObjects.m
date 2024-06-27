@@ -26,6 +26,12 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_
 NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll = @"BLOCK_ALL";
 NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified = @"ENROLLMENT_LEVEL_UNSPECIFIED";
 
+// GTLRAccessApproval_Settings.requestScopeMaxWidthPreference
+NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Folder = @"FOLDER";
+NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Organization = @"ORGANIZATION";
+NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Project = @"PROJECT";
+NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_RequestScopeMaxWidthPreferenceUnspecified = @"REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED";
+
 // GTLRAccessApproval_SignatureInfo.googleKeyAlgorithm
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Cbc = @"AES_128_CBC";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Ctr = @"AES_128_CTR";
@@ -214,7 +220,8 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 @dynamic activeKeyVersion, ancestorHasActiveKeyVersion, enrolledAncestor,
          enrolledServices, invalidKeyVersion, name, notificationEmails,
          notificationPubsubTopic, preferNoBroadApprovalRequests,
-         preferredRequestExpirationDays, requireCustomerVisibleJustification;
+         preferredRequestExpirationDays, requestScopeMaxWidthPreference,
+         requireCustomerVisibleJustification;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
