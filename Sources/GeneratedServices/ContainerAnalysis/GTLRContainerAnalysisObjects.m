@@ -387,6 +387,11 @@ NSString * const kGTLRContainerAnalysis_VexAssessment_State_NotAffected = @"NOT_
 NSString * const kGTLRContainerAnalysis_VexAssessment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_VexAssessment_State_UnderInvestigation = @"UNDER_INVESTIGATION";
 
+// GTLRContainerAnalysis_VulnerabilityAttestation.state
+NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_Failure = @"FAILURE";
+NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_Success = @"SUCCESS";
+NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_VulnerabilityAttestationStateUnspecified = @"VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED";
+
 // GTLRContainerAnalysis_VulnerabilityNote.cvssVersion
 NSString * const kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersion2 = @"CVSS_VERSION_2";
 NSString * const kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersion3 = @"CVSS_VERSION_3";
@@ -1015,7 +1020,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_DiscoveryOccurrence
 @dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
-         archiveTime, continuousAnalysis, cpe, lastScanTime, sbomStatus;
+         archiveTime, continuousAnalysis, cpe, lastScanTime, sbomStatus,
+         vulnerabilityAttestation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3082,6 +3088,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @implementation GTLRContainerAnalysis_VulnerabilityAssessmentNote
 @dynamic assessment, languageCode, longDescription, product, publisher,
          shortDescription, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_VulnerabilityAttestation
+//
+
+@implementation GTLRContainerAnalysis_VulnerabilityAttestation
+@dynamic error, lastAttemptTime, state;
 @end
 
 

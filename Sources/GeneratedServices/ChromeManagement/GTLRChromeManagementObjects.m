@@ -21,6 +21,24 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_A
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_Chrome = @"CHROME";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_Web = @"WEB";
 
+// GTLRChromeManagement_GoogleChromeManagementV1AppUsageData.appType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeArc = @"APPLICATION_TYPE_ARC";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBorealis = @"APPLICATION_TYPE_BOREALIS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta = @"APPLICATION_TYPE_BRUSCHETTA";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn = @"APPLICATION_TYPE_BUILT_IN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeChromeApp = @"APPLICATION_TYPE_CHROME_APP";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeCrostini = @"APPLICATION_TYPE_CROSTINI";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeExtension = @"APPLICATION_TYPE_EXTENSION";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeMacOs = @"APPLICATION_TYPE_MAC_OS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypePluginVm = @"APPLICATION_TYPE_PLUGIN_VM";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote = @"APPLICATION_TYPE_REMOTE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser = @"APPLICATION_TYPE_STANDALONE_BROWSER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp = @"APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension = @"APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeSystemWeb = @"APPLICATION_TYPE_SYSTEM_WEB";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeWeb = @"APPLICATION_TYPE_WEB";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_TelemetryApplicationTypeUnspecified = @"TELEMETRY_APPLICATION_TYPE_UNSPECIFIED";
+
 // GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport.batteryHealth
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthNormal = @"BATTERY_HEALTH_NORMAL";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthUnspecified = @"BATTERY_HEALTH_UNSPECIFIED";
@@ -396,6 +414,34 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1AppReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1AppReport
+@dynamic reportTime, usageData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"usageData" : [GTLRChromeManagement_GoogleChromeManagementV1AppUsageData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1AppUsageData
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1AppUsageData
+@dynamic appId, appInstanceId, appType, runningDuration;
 @end
 
 
@@ -1369,7 +1415,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice
-@dynamic audioStatusReport, batteryInfo, batteryStatusReport,
+@dynamic appReport, audioStatusReport, batteryInfo, batteryStatusReport,
          bootPerformanceReport, cpuInfo, cpuStatusReport, customer, deviceId,
          graphicsInfo, graphicsStatusReport, heartbeatStatusReport,
          kioskAppStatusReport, memoryInfo, memoryStatusReport, name,
@@ -1380,6 +1426,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"appReport" : [GTLRChromeManagement_GoogleChromeManagementV1AppReport class],
     @"audioStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport class],
     @"batteryInfo" : [GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo class],
     @"batteryStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport class],
@@ -1539,11 +1586,12 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice
-@dynamic audioStatusReport, deviceActivityReport, deviceId,
+@dynamic appReport, audioStatusReport, deviceActivityReport, deviceId,
          networkBandwidthReport, peripheralsReport;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"appReport" : [GTLRChromeManagement_GoogleChromeManagementV1AppReport class],
     @"audioStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport class],
     @"deviceActivityReport" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport class],
     @"networkBandwidthReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkBandwidthReport class],

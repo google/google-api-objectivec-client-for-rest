@@ -191,6 +191,7 @@
 @class GTLRContainerAnalysis_VexAssessment;
 @class GTLRContainerAnalysis_Volume;
 @class GTLRContainerAnalysis_VulnerabilityAssessmentNote;
+@class GTLRContainerAnalysis_VulnerabilityAttestation;
 @class GTLRContainerAnalysis_VulnerabilityNote;
 @class GTLRContainerAnalysis_VulnerabilityOccurrence;
 @class GTLRContainerAnalysis_WindowsDetail;
@@ -1745,6 +1746,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_St
  *  Value: "UNDER_INVESTIGATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_UnderInvestigation;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_VulnerabilityAttestation.state
+
+/**
+ *  Attestation was unsuccessfully generated and stored.
+ *
+ *  Value: "FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_Failure;
+/**
+ *  Attestation was successfully generated and stored.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_Success;
+/**
+ *  Default unknown state.
+ *
+ *  Value: "VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_VulnerabilityAttestationStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityNote.cvssVersion
@@ -3444,6 +3467,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The status of an SBOM generation. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SBOMStatus *sbomStatus;
+
+/** The status of an vulnerability attestation generation. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityAttestation *vulnerabilityAttestation;
 
 @end
 
@@ -7818,6 +7844,35 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The title of the note. E.g. `Vex-Debian-11.4` */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  The status of an vulnerability attestation generation.
+ */
+@interface GTLRContainerAnalysis_VulnerabilityAttestation : GTLRObject
+
+/** If failure, the error reason for why the attestation generation failed. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/** The last time we attempted to generate an attestation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastAttemptTime;
+
+/**
+ *  The success/failure state of the latest attestation attempt.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityAttestation_State_Failure
+ *        Attestation was unsuccessfully generated and stored. (Value:
+ *        "FAILURE")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityAttestation_State_Success
+ *        Attestation was successfully generated and stored. (Value: "SUCCESS")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityAttestation_State_VulnerabilityAttestationStateUnspecified
+ *        Default unknown state. (Value:
+ *        "VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

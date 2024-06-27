@@ -715,6 +715,79 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_QuorumInfo_Initiator_InitiatorUn
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_QuorumInfo_Initiator_User;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_ReadRequest.lockHint
+
+/**
+ *  Acquire exclusive locks. Requesting exclusive locks is beneficial if you
+ *  observe high write contention, which means you notice that multiple
+ *  transactions are concurrently trying to read and write to the same data,
+ *  resulting in a large number of aborts. This problem occurs when two
+ *  transactions initially acquire shared locks and then both try to upgrade to
+ *  exclusive locks at the same time. In this situation both transactions are
+ *  waiting for the other to give up their lock, resulting in a deadlocked
+ *  situation. Spanner is able to detect this occurring and force one of the
+ *  transactions to abort. However, this is a slow and expensive operation and
+ *  results in lower performance. In this case it makes sense to acquire
+ *  exclusive locks at the start of the transaction because then when multiple
+ *  transactions try to act on the same data, they automatically get serialized.
+ *  Each transaction waits its turn to acquire the lock and avoids getting into
+ *  deadlock situations. Because the exclusive lock hint is just a hint, it
+ *  should not be considered equivalent to a mutex. In other words, you should
+ *  not use Spanner exclusive locks as a mutual exclusion mechanism for the
+ *  execution of code outside of Spanner. **Note:** Request exclusive locks
+ *  judiciously because they block others from reading that data for the entire
+ *  transaction, rather than just when the writes are being performed. Unless
+ *  you observe high write contention, you should use the default of shared read
+ *  locks so you don't prematurely block other clients from reading the data
+ *  that you're writing to.
+ *
+ *  Value: "LOCK_HINT_EXCLUSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintExclusive;
+/**
+ *  Acquire shared locks. By default when you perform a read as part of a
+ *  read-write transaction, Spanner acquires shared read locks, which allows
+ *  other reads to still access the data until your transaction is ready to
+ *  commit. When your transaction is committing and writes are being applied,
+ *  the transaction attempts to upgrade to an exclusive lock for any data you
+ *  are writing. For more information about locks, see [Lock
+ *  modes](https://cloud.google.com/spanner/docs/introspection/lock-statistics#explain-lock-modes).
+ *
+ *  Value: "LOCK_HINT_SHARED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintShared;
+/**
+ *  Default value. LOCK_HINT_UNSPECIFIED is equivalent to LOCK_HINT_SHARED.
+ *
+ *  Value: "LOCK_HINT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_ReadRequest.orderBy
+
+/**
+ *  Read rows are returned in any order.
+ *
+ *  Value: "ORDER_BY_NO_ORDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByNoOrder;
+/**
+ *  Read rows are returned in primary key order. In the event that this option
+ *  is used in conjunction with the `partition_token` field, the API will return
+ *  an `INVALID_ARGUMENT` error.
+ *
+ *  Value: "ORDER_BY_PRIMARY_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByPrimaryKey;
+/**
+ *  Default value. ORDER_BY_UNSPECIFIED is equivalent to ORDER_BY_PRIMARY_KEY.
+ *
+ *  Value: "ORDER_BY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_ReadWrite.readLockMode
 
 /**
@@ -3248,7 +3321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  A unique identifier for the instance configuration. Values are of the form
- *  `projects//instanceConfigs/a-z*`.
+ *  `projects//instanceConfigs/a-z*`. User instance config must start with
+ *  `custom-`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3289,7 +3363,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The geographic placement of nodes in this instance configuration and their
- *  replication properties.
+ *  replication properties. To create user managed configurations, input
+ *  `replicas` must include all replicas in `replicas` of the `base_config` and
+ *  include one or more replicas in the `optional_replicas` of the
+ *  `base_config`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaInfo *> *replicas;
 
@@ -5172,6 +5249,72 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
 /**
+ *  Optional. Lock Hint for the request, it can only be used with read-write
+ *  transactions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_ReadRequest_LockHint_LockHintExclusive Acquire
+ *        exclusive locks. Requesting exclusive locks is beneficial if you
+ *        observe high write contention, which means you notice that multiple
+ *        transactions are concurrently trying to read and write to the same
+ *        data, resulting in a large number of aborts. This problem occurs when
+ *        two transactions initially acquire shared locks and then both try to
+ *        upgrade to exclusive locks at the same time. In this situation both
+ *        transactions are waiting for the other to give up their lock,
+ *        resulting in a deadlocked situation. Spanner is able to detect this
+ *        occurring and force one of the transactions to abort. However, this is
+ *        a slow and expensive operation and results in lower performance. In
+ *        this case it makes sense to acquire exclusive locks at the start of
+ *        the transaction because then when multiple transactions try to act on
+ *        the same data, they automatically get serialized. Each transaction
+ *        waits its turn to acquire the lock and avoids getting into deadlock
+ *        situations. Because the exclusive lock hint is just a hint, it should
+ *        not be considered equivalent to a mutex. In other words, you should
+ *        not use Spanner exclusive locks as a mutual exclusion mechanism for
+ *        the execution of code outside of Spanner. **Note:** Request exclusive
+ *        locks judiciously because they block others from reading that data for
+ *        the entire transaction, rather than just when the writes are being
+ *        performed. Unless you observe high write contention, you should use
+ *        the default of shared read locks so you don't prematurely block other
+ *        clients from reading the data that you're writing to. (Value:
+ *        "LOCK_HINT_EXCLUSIVE")
+ *    @arg @c kGTLRSpanner_ReadRequest_LockHint_LockHintShared Acquire shared
+ *        locks. By default when you perform a read as part of a read-write
+ *        transaction, Spanner acquires shared read locks, which allows other
+ *        reads to still access the data until your transaction is ready to
+ *        commit. When your transaction is committing and writes are being
+ *        applied, the transaction attempts to upgrade to an exclusive lock for
+ *        any data you are writing. For more information about locks, see [Lock
+ *        modes](https://cloud.google.com/spanner/docs/introspection/lock-statistics#explain-lock-modes).
+ *        (Value: "LOCK_HINT_SHARED")
+ *    @arg @c kGTLRSpanner_ReadRequest_LockHint_LockHintUnspecified Default
+ *        value. LOCK_HINT_UNSPECIFIED is equivalent to LOCK_HINT_SHARED.
+ *        (Value: "LOCK_HINT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *lockHint;
+
+/**
+ *  Optional. Order for the returned rows. By default, Spanner will return
+ *  result rows in primary key order except for PartitionRead requests. For
+ *  applications that do not require rows to be returned in primary key
+ *  (`ORDER_BY_PRIMARY_KEY`) order, setting `ORDER_BY_NO_ORDER` option allows
+ *  Spanner to optimize row retrieval, resulting in lower latencies in certain
+ *  cases (e.g. bulk point lookups).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_ReadRequest_OrderBy_OrderByNoOrder Read rows are
+ *        returned in any order. (Value: "ORDER_BY_NO_ORDER")
+ *    @arg @c kGTLRSpanner_ReadRequest_OrderBy_OrderByPrimaryKey Read rows are
+ *        returned in primary key order. In the event that this option is used
+ *        in conjunction with the `partition_token` field, the API will return
+ *        an `INVALID_ARGUMENT` error. (Value: "ORDER_BY_PRIMARY_KEY")
+ *    @arg @c kGTLRSpanner_ReadRequest_OrderBy_OrderByUnspecified Default value.
+ *        ORDER_BY_UNSPECIFIED is equivalent to ORDER_BY_PRIMARY_KEY. (Value:
+ *        "ORDER_BY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  If present, results will be restricted to the specified partition previously
  *  created using PartitionRead(). There must be an exact match for the values
  *  of fields common to this message and the PartitionReadRequest message used
@@ -5747,11 +5890,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRSpanner_Session_Labels *labels;
 
 /**
- *  Optional. If true, specifies a multiplexed session. A multiplexed session
- *  may be used for multiple, concurrent read-only operations but can not be
- *  used for read-write transactions, partitioned reads, or partitioned queries.
- *  Multiplexed sessions can be created via CreateSession but not via
- *  BatchCreateSessions. Multiplexed sessions may not be deleted nor listed.
+ *  Optional. If true, specifies a multiplexed session. Use a multiplexed
+ *  session for multiple, concurrent read-only operations. Don't use them for
+ *  read-write transactions, partitioned reads, or partitioned queries. Use
+ *  CreateSession to create multiplexed sessions. Don't use BatchCreateSessions
+ *  to create a multiplexed session. You can't delete or list multiplexed
+ *  sessions.
  *
  *  Uses NSNumber of boolValue.
  */

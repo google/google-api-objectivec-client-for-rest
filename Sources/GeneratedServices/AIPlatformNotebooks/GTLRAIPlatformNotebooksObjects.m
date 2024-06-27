@@ -106,6 +106,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_AccessConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_AccessConfig
+@dynamic externalIp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Binding
 //
 
@@ -334,8 +344,9 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_Instance
 @dynamic createTime, creator, disableProxyAccess, gceSetup, healthInfo,
-         healthState, identifier, instanceOwners, labels, name, proxyUri, state,
-         thirdPartyProxyUrl, updateTime, upgradeHistory;
+         healthState, identifier, instanceOwners, labels, name, proxyUri,
+         satisfiesPzi, satisfiesPzs, state, thirdPartyProxyUrl, updateTime,
+         upgradeHistory;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -491,7 +502,15 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_NetworkInterface
-@dynamic network, nicType, subnet;
+@dynamic accessConfigs, network, nicType, subnet;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessConfigs" : [GTLRAIPlatformNotebooks_AccessConfig class]
+  };
+  return map;
+}
+
 @end
 
 

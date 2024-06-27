@@ -71,6 +71,7 @@
 @class GTLRCloudRedis_UserLabels;
 @class GTLRCloudRedis_UserLabels_Labels;
 @class GTLRCloudRedis_WeeklyMaintenanceWindow;
+@class GTLRCloudRedis_ZoneDistributionConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1936,11 +1937,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_AggregationTypeUnspecified;
 /**
- *  Maximum aggregation type.
+ *  current aggregation type.
  *
- *  Value: "MAXIMUM"
+ *  Value: "CURRENT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Maximum;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Current;
+/**
+ *  P95 aggregation type.
+ *
+ *  Value: "P95"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_P95;
+/**
+ *  P99 aggregation type.
+ *
+ *  Value: "P99"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_P99;
+/**
+ *  PEAK aggregation type.
+ *
+ *  Value: "PEAK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Peak;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_ObservabilityMetricData.metricType
@@ -1959,7 +1978,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_Metri
  *  Value: "MEMORY_UTILIZATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_MemoryUtilization;
-/** Value: "METRIC_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified metric type.
+ *
+ *  Value: "METRIC_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_MetricTypeUnspecified;
 /**
  *  Number of network connections for a resource.
@@ -1967,6 +1990,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_Metri
  *  Value: "NETWORK_CONNECTIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_NetworkConnections;
+/**
+ *  Sotrage used by a resource.
+ *
+ *  Value: "STORAGE_USED_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_StorageUsedBytes;
+/**
+ *  Storage utilization for a resource. The value is a fraction between 0.0 and
+ *  1.0 (may momentarily exceed 1.0 in some cases).
+ *
+ *  Value: "STORAGE_UTILIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ObservabilityMetricData_MetricType_StorageUtilization;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_OperationError.errorType
@@ -2402,6 +2438,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_ZoneDistributionConfig.mode
+
+/**
+ *  Distribute all resources across 3 zones picked at random, within the region.
+ *
+ *  Value: "MULTI_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_MultiZone;
+/**
+ *  Distribute all resources in a single zone. The zone field must be specified,
+ *  when this mode is selected.
+ *
+ *  Value: "SINGLE_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_SingleZone;
+/**
+ *  Not Set. Default: MULTI_ZONE
+ *
+ *  Value: "ZONE_DISTRIBUTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionModeUnspecified;
+
 /**
  *  Configuration of the AOF based persistence.
  */
@@ -2604,8 +2663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_DiscoveryEndpoint *> *discoveryEndpoints;
 
 /**
- *  Required. Unique name of the resource in this scope including project and
- *  location using the form:
+ *  Required. Identifier. Unique name of the resource in this scope including
+ *  project and location using the form:
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2721,6 +2780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 
 /** Output only. System assigned, unique identifier for the cluster. */
 @property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Optional. This config will be used to determine how the customer wants us to
+ *  distribute cluster resources within the region.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_ZoneDistributionConfig *zoneDistributionConfig;
 
 @end
 
@@ -4774,8 +4839,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_AggregationType_AggregationTypeUnspecified
  *        Unspecified aggregation type. (Value: "AGGREGATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Maximum
- *        Maximum aggregation type. (Value: "MAXIMUM")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Current
+ *        current aggregation type. (Value: "CURRENT")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_AggregationType_P95 P95
+ *        aggregation type. (Value: "P95")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_AggregationType_P99 P99
+ *        aggregation type. (Value: "P99")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Peak PEAK
+ *        aggregation type. (Value: "PEAK")
  */
 @property(nonatomic, copy, nullable) NSString *aggregationType;
 
@@ -4792,10 +4863,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *        and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
  *        "MEMORY_UTILIZATION")
  *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_MetricTypeUnspecified
- *        Value "METRIC_TYPE_UNSPECIFIED"
+ *        Unspecified metric type. (Value: "METRIC_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_NetworkConnections
  *        Number of network connections for a resource. (Value:
  *        "NETWORK_CONNECTIONS")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_StorageUsedBytes
+ *        Sotrage used by a resource. (Value: "STORAGE_USED_BYTES")
+ *    @arg @c kGTLRCloudRedis_ObservabilityMetricData_MetricType_StorageUtilization
+ *        Storage utilization for a resource. The value is a fraction between
+ *        0.0 and 1.0 (may momentarily exceed 1.0 in some cases). (Value:
+ *        "STORAGE_UTILIZATION")
  */
 @property(nonatomic, copy, nullable) NSString *metricType;
 
@@ -5451,26 +5528,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @interface GTLRCloudRedis_TypedValue : GTLRObject
 
 /**
- *  boolValue
+ *  For boolean value
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *boolValue;
 
 /**
- *  doubleValue
+ *  For double value
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
- *  int64Value
+ *  For integer value
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *int64Value;
 
+/** For string value */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
@@ -5570,6 +5648,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 
 /** Required. Start time of the window in UTC time. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *startTime;
+
+@end
+
+
+/**
+ *  Zone distribution config for allocation of cluster resources.
+ */
+@interface GTLRCloudRedis_ZoneDistributionConfig : GTLRObject
+
+/**
+ *  Optional. The mode of zone distribution. Defaults to MULTI_ZONE, when not
+ *  specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ZoneDistributionConfig_Mode_MultiZone Distribute
+ *        all resources across 3 zones picked at random, within the region.
+ *        (Value: "MULTI_ZONE")
+ *    @arg @c kGTLRCloudRedis_ZoneDistributionConfig_Mode_SingleZone Distribute
+ *        all resources in a single zone. The zone field must be specified, when
+ *        this mode is selected. (Value: "SINGLE_ZONE")
+ *    @arg @c kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionModeUnspecified
+ *        Not Set. Default: MULTI_ZONE (Value:
+ *        "ZONE_DISTRIBUTION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Optional. When SINGLE ZONE distribution is selected, zone field would be
+ *  used to allocate all resources in that zone. This is not applicable to
+ *  MULTI_ZONE, and would be ignored for MULTI_ZONE clusters.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 

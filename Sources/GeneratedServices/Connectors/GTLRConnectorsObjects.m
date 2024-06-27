@@ -307,24 +307,6 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_AclInfo
-//
-
-@implementation GTLRConnectors_AclInfo
-@dynamic readers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"readers" : [GTLRConnectors_Readers class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRConnectors_Action
 //
 
@@ -447,25 +429,6 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
   NSDictionary<NSString *, Class> *map = @{
     @"fields" : [GTLRConnectors_Field class],
     @"operations" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_EntityWithACL
-//
-
-@implementation GTLRConnectors_EntityWithACL
-@dynamic aclInfo, identifier, jsonData;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"aclInfo" : @"acl_info",
-    @"identifier" : @"id"
   };
   return map;
 }
@@ -861,28 +824,6 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_ListEntitiesWithACLsResponse
-//
-
-@implementation GTLRConnectors_ListEntitiesWithACLsResponse
-@dynamic entitiesWithAcl, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"entitiesWithAcl" : [GTLRConnectors_EntityWithACL class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"entitiesWithAcl";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRConnectors_ListEntityTypesResponse
 //
 
@@ -1033,25 +974,6 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_Principal
-//
-
-@implementation GTLRConnectors_Principal
-@dynamic groupId, userId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"groupId" : @"group_id",
-    @"userId" : @"user_id"
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRConnectors_ProvisionedResource
 //
 
@@ -1085,24 +1007,6 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 @implementation GTLRConnectors_QueryParameter
 @dynamic dataType, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Readers
-//
-
-@implementation GTLRConnectors_Readers
-@dynamic principals;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"principals" : [GTLRConnectors_Principal class]
-  };
-  return map;
-}
-
 @end
 
 

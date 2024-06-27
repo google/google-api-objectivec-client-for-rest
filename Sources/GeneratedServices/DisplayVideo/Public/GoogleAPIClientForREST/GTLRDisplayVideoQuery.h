@@ -9625,7 +9625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
  *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *  `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -9797,7 +9798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
  *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *    `TARGETING_TYPE_KEYWORD`
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this advertiser that identifies the assigned targeting
  *    option being requested.
@@ -10023,7 +10025,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *  Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
  *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *  `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -10196,7 +10199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
  *    options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
  *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *    `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default

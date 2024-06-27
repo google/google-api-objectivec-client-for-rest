@@ -2278,7 +2278,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Creates an InboundSamlSsoProfile for a customer.
+ *  Creates an InboundSamlSsoProfile for a customer. When the target customer
+ *  has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  Method: cloudidentity.inboundSamlSsoProfiles.create
  *
@@ -2290,7 +2294,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Operation.
  *
- *  Creates an InboundSamlSsoProfile for a customer.
+ *  Creates an InboundSamlSsoProfile for a customer. When the target customer
+ *  has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  @param object The @c GTLRCloudIdentity_InboundSamlSsoProfile to include in
  *    the query.
@@ -2370,7 +2378,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Adds an IdpCredential. Up to 2 credentials are allowed.
+ *  Adds an IdpCredential. Up to 2 credentials are allowed. When the target
+ *  customer has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.add
  *
@@ -2388,7 +2400,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Operation.
  *
- *  Adds an IdpCredential. Up to 2 credentials are allowed.
+ *  Adds an IdpCredential. Up to 2 credentials are allowed. When the target
+ *  customer has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  @param object The @c GTLRCloudIdentity_AddIdpCredentialRequest to include in
  *    the query.
@@ -2571,7 +2587,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Updates an InboundSamlSsoProfile.
+ *  Updates an InboundSamlSsoProfile. When the target customer has enabled
+ *  [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  Method: cloudidentity.inboundSamlSsoProfiles.patch
  *
@@ -2597,7 +2617,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Operation.
  *
- *  Updates an InboundSamlSsoProfile.
+ *  Updates an InboundSamlSsoProfile. When the target customer has enabled
+ *  [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  @param object The @c GTLRCloudIdentity_InboundSamlSsoProfile to include in
  *    the query.

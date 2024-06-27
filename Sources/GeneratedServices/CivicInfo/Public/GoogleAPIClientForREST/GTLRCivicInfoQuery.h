@@ -194,11 +194,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  Looks up information relevant to a voter based on the voter's registered
  *  address.
  *
- *  @param address The registered address of the voter to look up.
- *
  *  @return GTLRCivicInfoQuery_ElectionsVoterInfoQuery
  */
-+ (instancetype)queryWithAddress:(NSString *)address;
++ (instancetype)query;
 
 @end
 

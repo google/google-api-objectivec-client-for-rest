@@ -456,8 +456,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_De
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_FetchSupportPacket;
 /**
- *  Reboot the device. Can only be issued to Kiosk and managed guest session
- *  devices.
+ *  Reboot the device. Can be issued to Kiosk and managed guest session devices,
+ *  and regular devices running ChromeOS version 113 or later.
  *
  *  Value: "REBOOT"
  */
@@ -557,8 +557,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchSupportPacket;
 /**
- *  Reboot the device. Can only be issued to Kiosk and managed guest session
- *  devices.
+ *  Reboot the device. Can be issued to Kiosk and managed guest session devices,
+ *  and regular devices running ChromeOS version 113 or later.
  *
  *  Value: "REBOOT"
  */
@@ -2490,8 +2490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *        [`chromeosdevices`](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
  *        (Value: "FETCH_SUPPORT_PACKET")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot Reboot the
- *        device. Can only be issued to Kiosk and managed guest session devices.
- *        (Value: "REBOOT")
+ *        device. Can be issued to Kiosk and managed guest session devices, and
+ *        regular devices running ChromeOS version 113 or later. (Value:
+ *        "REBOOT")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_RemotePowerwash Wipes
  *        the device by performing a power wash. Executing this command in the
  *        device will remove all data including user policies, device policies
@@ -2583,8 +2584,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *        [`chromeosdevices`](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
  *        (Value: "FETCH_SUPPORT_PACKET")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot
- *        Reboot the device. Can only be issued to Kiosk and managed guest
- *        session devices. (Value: "REBOOT")
+ *        Reboot the device. Can be issued to Kiosk and managed guest session
+ *        devices, and regular devices running ChromeOS version 113 or later.
+ *        (Value: "REBOOT")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_RemotePowerwash
  *        Wipes the device by performing a power wash. Executing this command in
  *        the device will remove all data including user policies, device

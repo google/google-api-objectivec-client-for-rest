@@ -78,6 +78,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified = @"CAUS
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive = @"CLOUD_FUNCTION_NOT_ACTIVE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudNatNoAddresses = @"CLOUD_NAT_NO_ADDRESSES";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudRunRevisionNotReady = @"CLOUD_RUN_REVISION_NOT_READY";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlConnectorRequired = @"CLOUD_SQL_CONNECTOR_REQUIRED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress = @"CLOUD_SQL_INSTANCE_NO_IP_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoRoute = @"CLOUD_SQL_INSTANCE_NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotConfiguredForExternalTraffic = @"CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC";
@@ -116,6 +117,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted 
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscEndpointAccessedFromPeeredNetwork = @"PSC_ENDPOINT_ACCESSED_FROM_PEERED_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerEndpointNoGlobalAccess = @"PSC_NEG_PRODUCER_ENDPOINT_NO_GLOBAL_ACCESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerForwardingRuleMultiplePorts = @"PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscTransitivityNotPropagated = @"PSC_TRANSITIVITY_NOT_PROPAGATED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicCloudSqlInstanceToPrivateDestination = @"PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination = @"PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole = @"ROUTE_BLACKHOLE";

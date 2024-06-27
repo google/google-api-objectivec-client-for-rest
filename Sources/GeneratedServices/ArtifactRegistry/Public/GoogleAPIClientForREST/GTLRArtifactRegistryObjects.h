@@ -351,6 +351,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyR
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoFinalized GTLR_DEPRECATED;
 /**
+ *  Redirection is partially enabled and missing images are copied from GCR
+ *
+ *  Value: "REDIRECTION_FROM_GCR_IO_PARTIAL_AND_COPYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoPartialAndCopying;
+/**
  *  No redirection status has been set.
  *
  *  Value: "REDIRECTION_STATE_UNSPECIFIED"
@@ -2180,6 +2186,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *    @arg @c kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoFinalized
  *        Redirection is enabled, and has been finalized so cannot be reverted.
  *        (Value: "REDIRECTION_FROM_GCR_IO_FINALIZED")
+ *    @arg @c kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoPartialAndCopying
+ *        Redirection is partially enabled and missing images are copied from
+ *        GCR (Value: "REDIRECTION_FROM_GCR_IO_PARTIAL_AND_COPYING")
  *    @arg @c kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionStateUnspecified
  *        No redirection status has been set. (Value:
  *        "REDIRECTION_STATE_UNSPECIFIED")

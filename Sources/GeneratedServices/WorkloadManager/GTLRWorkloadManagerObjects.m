@@ -100,6 +100,8 @@ NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_Topolog
 // GTLRWorkloadManager_SapDiscoveryComponentApplicationProperties.applicationType
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_ApplicationTypeUnspecified = @"APPLICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_Netweaver = @"NETWEAVER";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_NetweaverAbap = @"NETWEAVER_ABAP";
+NSString * const kGTLRWorkloadManager_SapDiscoveryComponentApplicationProperties_ApplicationType_NetweaverJava = @"NETWEAVER_JAVA";
 
 // GTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties.databaseType
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponentDatabaseProperties_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
@@ -158,6 +160,30 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_D
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_InstanceMetrics = @"INSTANCE_METRICS";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_Os = @"OS";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified = @"SQLSERVER_VALIDATION_TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_AgentCommand
+//
+
+@implementation GTLRWorkloadManager_AgentCommand
+@dynamic command, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_AgentCommand_Parameters
+//
+
+@implementation GTLRWorkloadManager_AgentCommand_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -241,6 +267,16 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Command
+//
+
+@implementation GTLRWorkloadManager_Command
+@dynamic agentCommand, shellCommand;
 @end
 
 
@@ -349,8 +385,16 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_ExecutionResult
-@dynamic documentationUrl, resource, rule, severity, violationDetails,
+@dynamic commands, documentationUrl, resource, rule, severity, violationDetails,
          violationMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"commands" : [GTLRWorkloadManager_Command class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -360,7 +404,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_ExternalDataSources
-@dynamic name, type, uri;
+@dynamic assetType, name, type, uri;
 @end
 
 
@@ -624,7 +668,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_LocationData
 @dynamic blobstoreLocation, childAssetLocation, directLocation, gcpProjectProxy,
-         spannerLocation;
+         placerLocation, spannerLocation;
 @end
 
 
@@ -674,6 +718,16 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 @implementation GTLRWorkloadManager_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_PlacerLocation
+//
+
+@implementation GTLRWorkloadManager_PlacerLocation
+@dynamic placerConfig;
 @end
 
 
@@ -807,11 +861,12 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_SapDiscoveryComponent
 @dynamic applicationProperties, databaseProperties, haHosts, hostProject,
-         resources, sid, topologyType;
+         replicationSites, resources, sid, topologyType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"haHosts" : [NSString class],
+    @"replicationSites" : [GTLRWorkloadManager_SapDiscoveryComponent class],
     @"resources" : [GTLRWorkloadManager_SapDiscoveryResource class]
   };
   return map;
@@ -993,6 +1048,16 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_ScannedResource
 @dynamic resource, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ShellCommand
+//
+
+@implementation GTLRWorkloadManager_ShellCommand
+@dynamic args, command, timeoutSeconds;
 @end
 
 

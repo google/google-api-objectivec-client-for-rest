@@ -122,6 +122,20 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Prot
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_Software = @"SOFTWARE";
 
+// GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy.allowedAccessReasons
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerAuthorizedWorkflowServicing = @"CUSTOMER_AUTHORIZED_WORKFLOW_SERVICING";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedAccess = @"CUSTOMER_INITIATED_ACCESS";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedSupport = @"CUSTOMER_INITIATED_SUPPORT";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedReview = @"GOOGLE_INITIATED_REVIEW";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedService = @"GOOGLE_INITIATED_SERVICE";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedSystemOperation = @"GOOGLE_INITIATED_SYSTEM_OPERATION";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleResponseToProductionAlert = @"GOOGLE_RESPONSE_TO_PRODUCTION_ALERT";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedCustomerInitiatedAccess = @"MODIFIED_CUSTOMER_INITIATED_ACCESS";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedGoogleInitiatedSystemOperation = @"MODIFIED_GOOGLE_INITIATED_SYSTEM_OPERATION";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonNotExpected = @"REASON_NOT_EXPECTED";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonUnspecified = @"REASON_UNSPECIFIED";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ThirdPartyDataRequest = @"THIRD_PARTY_DATA_REQUEST";
+
 // GTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation.format
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_AttestationFormatUnspecified = @"ATTESTATION_FORMAT_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_CaviumV1Compressed = @"CAVIUM_V1_COMPRESSED";
@@ -264,8 +278,8 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Forma
 
 @implementation GTLRKmsinventory_GoogleCloudKmsV1CryptoKey
 @dynamic createTime, cryptoKeyBackend, destroyScheduledDuration, importOnly,
-         labels, name, nextRotationTime, primary, purpose, rotationPeriod,
-         versionTemplate;
+         keyAccessJustificationsPolicy, labels, name, nextRotationTime, primary,
+         purpose, rotationPeriod, versionTemplate;
 @end
 
 
@@ -313,6 +327,24 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Forma
 
 @implementation GTLRKmsinventory_GoogleCloudKmsV1ExternalProtectionLevelOptions
 @dynamic ekmConnectionKeyPath, externalKeyUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy
+//
+
+@implementation GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy
+@dynamic allowedAccessReasons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedAccessReasons" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

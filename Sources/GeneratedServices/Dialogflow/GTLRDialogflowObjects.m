@@ -419,6 +419,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization = @"CONVERSATION_SUMMARIZATION";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_DialogflowAssist = @"DIALOGFLOW_ASSIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq = @"FAQ";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist = @"KNOWLEDGE_ASSIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch = @"KNOWLEDGE_SEARCH";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -554,6 +555,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatur
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization = @"CONVERSATION_SUMMARIZATION";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_DialogflowAssist = @"DIALOGFLOW_ASSIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq = @"FAQ";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist = @"KNOWLEDGE_ASSIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch = @"KNOWLEDGE_SEARCH";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -567,6 +569,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureCo
 // GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion = @"ARTICLE_SUGGESTION";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq = @"FAQ";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist = @"KNOWLEDGE_ASSIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch = @"KNOWLEDGE_SEARCH";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -699,6 +702,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConf
 // GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion = @"ARTICLE_SUGGESTION";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq = @"FAQ";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist = @"KNOWLEDGE_ASSIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch = @"KNOWLEDGE_SEARCH";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -2015,7 +2019,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1QueryInput
-@dynamic audio, dtmf, event, intent, languageCode, text;
+@dynamic audio, dtmf, event, intent, languageCode, text, toolCallResult;
 @end
 
 
@@ -2037,7 +2041,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage
 @dynamic channel, conversationSuccess, endInteraction, knowledgeInfoCard,
          liveAgentHandoff, mixedAudio, outputAudioText, payload, playAudio,
-         telephonyTransferCall, text;
+         telephonyTransferCall, text, toolCall;
 @end
 
 
@@ -2366,6 +2370,64 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TextInput
 @dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall
+@dynamic action, inputParameters, tool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall_InputParameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall_InputParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult
+@dynamic action, error, outputParameters, tool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult_OutputParameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult_OutputParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResultError
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResultError
+@dynamic message;
 @end
 
 
@@ -7134,6 +7196,74 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer
+@dynamic answerRecord, suggestedQuery, suggestedQueryAnswer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer
+@dynamic answerText, faqSource, generativeSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource
+@dynamic question;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource
+@dynamic snippets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snippets" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet
+@dynamic text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery
+@dynamic queryText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata
 //
 
@@ -7381,7 +7511,17 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult
 @dynamic error, suggestArticlesResponse, suggestDialogflowAssistsResponse,
          suggestEntityExtractionResponse, suggestFaqAnswersResponse,
-         suggestSmartRepliesResponse;
+         suggestKnowledgeAssistResponse, suggestSmartRepliesResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse
+@dynamic contextSize, knowledgeAssistAnswer, latestMessage;
 @end
 
 
@@ -8286,6 +8426,74 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswer
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswer
+@dynamic answerRecord, suggestedQuery, suggestedQueryAnswer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer
+@dynamic answerText, faqSource, generativeSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource
+@dynamic question;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource
+@dynamic snippets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snippets" : [GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet
+@dynamic text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery
+@dynamic queryText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata
 //
 
@@ -8524,7 +8732,17 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult
 @dynamic error, suggestArticlesResponse, suggestFaqAnswersResponse,
-         suggestSmartRepliesResponse;
+         suggestKnowledgeAssistResponse, suggestSmartRepliesResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse
+@dynamic contextSize, knowledgeAssistAnswer, latestMessage;
 @end
 
 

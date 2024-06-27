@@ -175,6 +175,12 @@ NSString * const kGTLRBigquery_IndexUnusedReason_Code_TimeTravelQuery = @"TIME_T
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_UnindexedSearchFields = @"UNINDEXED_SEARCH_FIELDS";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_UnsupportedSearchPattern = @"UNSUPPORTED_SEARCH_PATTERN";
 
+// GTLRBigquery_JobConfigurationLoad.columnNameCharacterMap
+NSString * const kGTLRBigquery_JobConfigurationLoad_ColumnNameCharacterMap_ColumnNameCharacterMapUnspecified = @"COLUMN_NAME_CHARACTER_MAP_UNSPECIFIED";
+NSString * const kGTLRBigquery_JobConfigurationLoad_ColumnNameCharacterMap_Strict = @"STRICT";
+NSString * const kGTLRBigquery_JobConfigurationLoad_ColumnNameCharacterMap_V1 = @"V1";
+NSString * const kGTLRBigquery_JobConfigurationLoad_ColumnNameCharacterMap_V2 = @"V2";
+
 // GTLRBigquery_JobConfigurationLoad.decimalTargetTypes
 NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_Bignumeric = @"BIGNUMERIC";
 NSString * const kGTLRBigquery_JobConfigurationLoad_DecimalTargetTypes_DecimalTargetTypeUnspecified = @"DECIMAL_TARGET_TYPE_UNSPECIFIED";
@@ -1210,8 +1216,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          ETag, externalCatalogDatasetOptions, externalDatasetReference,
          friendlyName, identifier, isCaseInsensitive, kind, labels,
          lastModifiedTime, linkedDatasetMetadata, linkedDatasetSource, location,
-         maxTimeTravelHours, restrictions, satisfiesPzi, satisfiesPzs, selfLink,
-         storageBillingModel, tags, type;
+         maxTimeTravelHours, resourceTags, restrictions, satisfiesPzi,
+         satisfiesPzs, selfLink, storageBillingModel, tags, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1250,6 +1256,20 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_Dataset_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_Dataset_ResourceTags
+//
+
+@implementation GTLRBigquery_Dataset_ResourceTags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1712,6 +1732,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ForeignViewDefinition
+//
+
+@implementation GTLRBigquery_ForeignViewDefinition
+@dynamic dialect, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_GetIamPolicyRequest
 //
 
@@ -2050,11 +2080,12 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobConfigurationLoad
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, clustering,
-         connectionProperties, copyFilesOnly, createDisposition, createSession,
-         decimalTargetTypes, destinationEncryptionConfiguration,
-         destinationTable, destinationTableProperties, encoding, fieldDelimiter,
-         fileSetSpecType, hivePartitioningOptions, ignoreUnknownValues,
-         jsonExtension, maxBadRecords, nullMarker, parquetOptions,
+         columnNameCharacterMap, connectionProperties, copyFilesOnly,
+         createDisposition, createSession, decimalTargetTypes,
+         destinationEncryptionConfiguration, destinationTable,
+         destinationTableProperties, encoding, fieldDelimiter, fileSetSpecType,
+         hivePartitioningOptions, ignoreUnknownValues, jsonExtension,
+         maxBadRecords, nullMarker, parquetOptions,
          preserveAsciiControlCharacters, projectionFields, quote,
          rangePartitioning, referenceFileSchemaUri, schema, schemaInline,
          schemaInlineFormat, schemaUpdateOptions, skipLeadingRows, sourceFormat,
@@ -3634,9 +3665,9 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          externalCatalogTableOptions, externalDataConfiguration, friendlyName,
          identifier, kind, labels, lastModifiedTime, location, materializedView,
          materializedViewStatus, maxStaleness, model, numActiveLogicalBytes,
-         numActivePhysicalBytes, numBytes, numLongTermBytes,
-         numLongTermLogicalBytes, numLongTermPhysicalBytes, numPartitions,
-         numPhysicalBytes, numRows, numTimeTravelPhysicalBytes,
+         numActivePhysicalBytes, numBytes, numCurrentPhysicalBytes,
+         numLongTermBytes, numLongTermLogicalBytes, numLongTermPhysicalBytes,
+         numPartitions, numPhysicalBytes, numRows, numTimeTravelPhysicalBytes,
          numTotalLogicalBytes, numTotalPhysicalBytes, partitionDefinition,
          rangePartitioning, replicas, requirePartitionFilter, resourceTags,
          restrictions, schema, selfLink, snapshotDefinition, streamingBuffer,
@@ -4262,11 +4293,12 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_ViewDefinition
-@dynamic privacyPolicy, query, useExplicitColumnNames, useLegacySql,
-         userDefinedFunctionResources;
+@dynamic foreignDefinitions, privacyPolicy, query, useExplicitColumnNames,
+         useLegacySql, userDefinedFunctionResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"foreignDefinitions" : [GTLRBigquery_ForeignViewDefinition class],
     @"userDefinedFunctionResources" : [GTLRBigquery_UserDefinedFunctionResource class]
   };
   return map;

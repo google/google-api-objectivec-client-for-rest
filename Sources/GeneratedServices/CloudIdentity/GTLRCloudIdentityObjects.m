@@ -195,6 +195,7 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_AddIdpCredentialOperationMetadata
+@dynamic state;
 @end
 
 
@@ -242,6 +243,7 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_CreateInboundSamlSsoProfileOperationMetadata
+@dynamic state;
 @end
 
 
@@ -1603,6 +1605,7 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_UpdateInboundSamlSsoProfileOperationMetadata
+@dynamic state;
 @end
 
 

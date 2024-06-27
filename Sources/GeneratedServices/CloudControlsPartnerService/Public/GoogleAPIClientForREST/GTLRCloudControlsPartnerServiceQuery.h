@@ -115,13 +115,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists access requests associated with a workload
+ *  Deprecated: Only returns access approval requests directly associated with
+ *  an assured workload folder.
  *
  *  Method: cloudcontrolspartner.organizations.locations.customers.workloads.accessApprovalRequests.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudControlsPartnerServiceCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRCloudControlsPartnerServiceQuery_OrganizationsLocationsCustomersWorkloadsAccessApprovalRequestsList : GTLRCloudControlsPartnerServiceQuery
 
 /** Optional. Filtering results. */
@@ -154,7 +156,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRCloudControlsPartnerService_ListAccessApprovalRequestsResponse.
  *
- *  Lists access requests associated with a workload
+ *  Deprecated: Only returns access approval requests directly associated with
+ *  an assured workload folder.
  *
  *  @param parent Required. Parent resource Format:
  *    `organizations/{organization}/locations/{location}/customers/{customer}/workloads/{workload}`

@@ -20,8 +20,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: Read, create, update, and delete your ClaimReview data.
+ *
+ *  Value "https://www.googleapis.com/auth/factchecktools"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFactCheckTools;
 /**
  *  Authorization scope: See your primary Google Account email address
  *

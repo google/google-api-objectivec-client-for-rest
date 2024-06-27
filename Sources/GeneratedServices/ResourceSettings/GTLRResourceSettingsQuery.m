@@ -25,6 +25,9 @@ NSString * const kGTLRResourceSettingsViewSettingViewUnspecified = @"SETTING_VIE
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRResourceSettingsQuery
 
 @dynamic fields;
@@ -225,3 +228,5 @@ NSString * const kGTLRResourceSettingsViewSettingViewUnspecified = @"SETTING_VIE
 }
 
 @end
+
+#pragma clang diagnostic pop

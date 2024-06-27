@@ -17,6 +17,7 @@
 
 @class GTLRCloudFilestore_Backup;
 @class GTLRCloudFilestore_Backup_Labels;
+@class GTLRCloudFilestore_Backup_Tags;
 @class GTLRCloudFilestore_DailyCycle;
 @class GTLRCloudFilestore_Date;
 @class GTLRCloudFilestore_DenyMaintenancePeriod;
@@ -39,6 +40,7 @@
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
 @class GTLRCloudFilestore_Instance;
 @class GTLRCloudFilestore_Instance_Labels;
+@class GTLRCloudFilestore_Instance_Tags;
 @class GTLRCloudFilestore_Location;
 @class GTLRCloudFilestore_Location_Labels;
 @class GTLRCloudFilestore_Location_Metadata;
@@ -55,6 +57,7 @@
 @class GTLRCloudFilestore_Schedule;
 @class GTLRCloudFilestore_Snapshot;
 @class GTLRCloudFilestore_Snapshot_Labels;
+@class GTLRCloudFilestore_Snapshot_Tags;
 @class GTLRCloudFilestore_Status;
 @class GTLRCloudFilestore_Status_Details_Item;
 @class GTLRCloudFilestore_TimeOfDay;
@@ -245,6 +248,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Deleting;
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Error;
+/**
+ *  The replica instance is being promoted.
+ *
+ *  Value: "PROMOTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Promoting;
 /**
  *  The instance is available for use.
  *
@@ -822,6 +831,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSNumber *storageBytes;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Backup_Tags *tags;
+
 @end
 
 
@@ -834,6 +850,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        fetch them all at once.
  */
 @interface GTLRCloudFilestore_Backup_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_Backup_Tags : GTLRObject
 @end
 
 
@@ -1544,6 +1574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        experiencing an issue and might be unusable. You can get further
  *        details from the `statusMessage` field of the `Instance` resource.
  *        (Value: "ERROR")
+ *    @arg @c kGTLRCloudFilestore_Instance_State_Promoting The replica instance
+ *        is being promoted. (Value: "PROMOTING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Ready The instance is available
  *        for use. (Value: "READY")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Repairing Work is being done on
@@ -1576,6 +1608,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  state.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Instance_Tags *tags;
 
 /**
  *  The service tier of the instance.
@@ -1620,6 +1659,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        fetch them all at once.
  */
 @interface GTLRCloudFilestore_Instance_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_Instance_Tags : GTLRObject
 @end
 
 
@@ -2162,6 +2215,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
+ *  PromoteReplicaRequest promotes a Filestore standby instance (replica).
+ */
+@interface GTLRCloudFilestore_PromoteReplicaRequest : GTLRObject
+@end
+
+
+/**
  *  Replica configuration for the instance.
  */
 @interface GTLRCloudFilestore_ReplicaConfig : GTLRObject
@@ -2351,6 +2411,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Snapshot_Tags *tags;
+
 @end
 
 
@@ -2363,6 +2430,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        fetch them all at once.
  */
 @interface GTLRCloudFilestore_Snapshot_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_Snapshot_Tags : GTLRObject
 @end
 
 

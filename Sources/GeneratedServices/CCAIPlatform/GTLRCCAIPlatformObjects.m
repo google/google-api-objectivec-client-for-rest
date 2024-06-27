@@ -118,11 +118,11 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 //
 
 @implementation GTLRCCAIPlatform_Component
-@dynamic name, serviceAttachments;
+@dynamic name, serviceAttachmentNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"serviceAttachments" : [GTLRCCAIPlatform_ServiceAttachment class]
+    @"serviceAttachmentNames" : [NSString class]
   };
   return map;
 }
@@ -409,12 +409,30 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 //
 
 @implementation GTLRCCAIPlatform_PrivateAccess
-@dynamic egressSettings, ingressSettings;
+@dynamic egressSettings, ingressSettings, pscSetting;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"egressSettings" : [GTLRCCAIPlatform_Component class],
     @"ingressSettings" : [GTLRCCAIPlatform_Component class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_PscSetting
+//
+
+@implementation GTLRCCAIPlatform_PscSetting
+@dynamic allowedConsumerProjectIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedConsumerProjectIds" : [NSString class]
   };
   return map;
 }
@@ -445,24 +463,6 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"authenticationContexts" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCCAIPlatform_ServiceAttachment
-//
-
-@implementation GTLRCCAIPlatform_ServiceAttachment
-@dynamic allowedProjectIds, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedProjectIds" : [NSString class]
   };
   return map;
 }

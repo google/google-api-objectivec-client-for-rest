@@ -133,6 +133,16 @@ NSString * const kGTLRSpanner_QuorumInfo_Initiator_Google      = @"GOOGLE";
 NSString * const kGTLRSpanner_QuorumInfo_Initiator_InitiatorUnspecified = @"INITIATOR_UNSPECIFIED";
 NSString * const kGTLRSpanner_QuorumInfo_Initiator_User        = @"USER";
 
+// GTLRSpanner_ReadRequest.lockHint
+NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintExclusive = @"LOCK_HINT_EXCLUSIVE";
+NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintShared = @"LOCK_HINT_SHARED";
+NSString * const kGTLRSpanner_ReadRequest_LockHint_LockHintUnspecified = @"LOCK_HINT_UNSPECIFIED";
+
+// GTLRSpanner_ReadRequest.orderBy
+NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByNoOrder = @"ORDER_BY_NO_ORDER";
+NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByPrimaryKey = @"ORDER_BY_PRIMARY_KEY";
+NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByUnspecified = @"ORDER_BY_UNSPECIFIED";
+
 // GTLRSpanner_ReadWrite.readLockMode
 NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Optimistic = @"OPTIMISTIC";
 NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Pessimistic = @"PESSIMISTIC";
@@ -1942,7 +1952,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_ReadRequest
 @dynamic columns, dataBoostEnabled, directedReadOptions, index, keySet, limit,
-         partitionToken, requestOptions, resumeToken, table, transaction;
+         lockHint, orderBy, partitionToken, requestOptions, resumeToken, table,
+         transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

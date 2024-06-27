@@ -177,6 +177,7 @@ NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Cadvi
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ControllerManager = @"CONTROLLER_MANAGER";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Daemonset = @"DAEMONSET";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Dcgm = @"DCGM";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Deployment = @"DEPLOYMENT";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Hpa = @"HPA";
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Kubelet = @"KUBELET";

@@ -34,17 +34,19 @@
 @class GTLRDataFusion_Location;
 @class GTLRDataFusion_Location_Labels;
 @class GTLRDataFusion_Location_Metadata;
+@class GTLRDataFusion_MaintenancePolicy;
+@class GTLRDataFusion_MaintenanceWindow;
 @class GTLRDataFusion_NetworkConfig;
 @class GTLRDataFusion_Operation;
 @class GTLRDataFusion_Operation_Metadata;
 @class GTLRDataFusion_Operation_Response;
 @class GTLRDataFusion_OperationMetadata_AdditionalStatus;
-@class GTLRDataFusion_PersistentDiskData;
 @class GTLRDataFusion_Policy;
 @class GTLRDataFusion_PrivateServiceConnectConfig;
-@class GTLRDataFusion_ServiceData;
+@class GTLRDataFusion_RecurringTimeWindow;
 @class GTLRDataFusion_Status;
 @class GTLRDataFusion_Status_Details_Item;
+@class GTLRDataFusion_TimeWindow;
 @class GTLRDataFusion_Version;
 
 // Generated comments include content from the discovery document; avoid them
@@ -74,21 +76,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_CcaiInsights;
 /**
- *  Change Data Capture accelerator for CDF.
+ *  Change Data Capture accelerator for Cloud Data Fusion.
  *
  *  Value: "CDC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc;
 /**
- *  Cloud search accelerator for CDF. This accelerator is to enable Cloud search
- *  specific CDF plugins developed by Cloudsearch team.
+ *  Reserved for internal use.
  *
  *  Value: "CLOUDSEARCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch;
 /**
- *  Cloud Healthcare accelerator for CDF. This accelerator is to enable Cloud
- *  Healthcare specific CDF plugins developed by Healthcare team.
+ *  Reserved for internal use.
  *
  *  Value: "HEALTHCARE"
  */
@@ -327,7 +327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @interface GTLRDataFusion_Accelerator : GTLRObject
 
 /**
- *  The type of an accelator for a CDF instance.
+ *  Optional. The type of an accelator for a Cloud Data Fusion instance.
  *
  *  Likely values:
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified
@@ -337,20 +337,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        export pipelines custom built to streamline CCAI Insights processing.
  *        (Value: "CCAI_INSIGHTS")
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cdc Change Data
- *        Capture accelerator for CDF. (Value: "CDC")
- *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch Cloud
- *        search accelerator for CDF. This accelerator is to enable Cloud search
- *        specific CDF plugins developed by Cloudsearch team. (Value:
- *        "CLOUDSEARCH")
- *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare Cloud
- *        Healthcare accelerator for CDF. This accelerator is to enable Cloud
- *        Healthcare specific CDF plugins developed by Healthcare team. (Value:
- *        "HEALTHCARE")
+ *        Capture accelerator for Cloud Data Fusion. (Value: "CDC")
+ *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch Reserved
+ *        for internal use. (Value: "CLOUDSEARCH")
+ *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare Reserved
+ *        for internal use. (Value: "HEALTHCARE")
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
- *  The state of the accelerator.
+ *  Output only. The state of the accelerator.
  *
  *  Likely values:
  *    @arg @c kGTLRDataFusion_Accelerator_State_Disabled Indicates that the
@@ -509,7 +505,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -535,45 +535,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  /keyRings/ * /cryptoKeys/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *keyReference;
-
-@end
-
-
-/**
- *  Next tag: 7
- */
-@interface GTLRDataFusion_DataResidencyAugmentedView : GTLRObject
-
-/**
- *  Cloud resource to Google owned production object mapping in the form of
- *  GURIs. The GURIs should be available in DG KB storage/cns tables. This is
- *  the preferred way of providing cloud resource mappings. For further details
- *  please read go/cloud-resource-monitoring_sig
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *crGopoGuris;
-
-/**
- *  Cloud resource to Google owned production object mapping in the form of
- *  prefixes. These should be available in DG KB storage/cns tables. The entity
- *  type, which is the part of the string before the first colon in the GURI,
- *  must be completely specified in prefix. For details about GURI please read
- *  go/guri. For further details about the field please read
- *  go/cloud-resource-monitoring_sig.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *crGopoPrefixes;
-
-/**
- *  Service-specific data. Only required for pre-determined services. Generally
- *  used to bind a Cloud Resource to some a TI container that uniquely specifies
- *  a customer. See milestone 2 of DRZ KR8 SIG for more information.
- */
-@property(nonatomic, strong, nullable) GTLRDataFusion_ServiceData *serviceData;
-
-/**
- *  The list of project_id's of the tenant projects in the 'google.com' org
- *  which serve the Cloud Resource. See go/drz-mst-sig for more details.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tpIds;
 
 @end
 
@@ -789,6 +750,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Labels *labels;
 
+/** Optional. Configure the maintenance policy for this instance. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_MaintenancePolicy *maintenancePolicy;
+
 /**
  *  Output only. The name of this instance is in the form of
  *  projects/{project}/locations/{location}/instances/{instance}.
@@ -807,7 +771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Options *options;
 
-/** Output only. P4 service account for the customer project. */
+/** Output only. Service agent for the customer project. */
 @property(nonatomic, copy, nullable) NSString *p4ServiceAccount;
 
 /** Optional. Current patch revision of the Data Fusion. */
@@ -1144,6 +1108,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Maintenance policy of the instance.
+ */
+@interface GTLRDataFusion_MaintenancePolicy : GTLRObject
+
+/** Optional. The maintenance exclusion window of the instance. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_TimeWindow *maintenanceExclusionWindow;
+
+/** Optional. The maintenance window of the instance. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_MaintenanceWindow *maintenanceWindow;
+
+@end
+
+
+/**
+ *  Maintenance window of the instance.
+ */
+@interface GTLRDataFusion_MaintenanceWindow : GTLRObject
+
+/** Required. The recurring time window of the maintenance window. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_RecurringTimeWindow *recurringTimeWindow;
+
+@end
+
+
+/**
  *  Network configuration for a Data Fusion instance. These configurations are
  *  used for peering with the customer network. Configurations are optional when
  *  a public Data Fusion instance is to be created. However, providing these
@@ -1183,11 +1172,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /**
  *  Optional. Name of the network in the customer project with which the Tenant
- *  Project will be peered for executing pipelines. This is required only when
- *  using connection type VPC peering. In case of shared VPC where the network
- *  resides in another host project the network should specified in the form of
- *  projects/{host-project-id}/global/networks/{network}. This is only required
- *  for connectivity type VPC_PEERING.
+ *  Project will be peered for executing pipelines. In case of shared VPC where
+ *  the network resides in another host project the network should specified in
+ *  the form of projects/{host-project-id}/global/networks/{network}. This is
+ *  only required for connectivity type VPC_PEERING.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -1337,40 +1325,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
- *  Persistent Disk service-specific Data. Contains information that may not be
- *  appropriate for the generic DRZ Augmented View. This currently includes LSV
- *  Colossus Roots and GCS Buckets.
- */
-@interface GTLRDataFusion_PersistentDiskData : GTLRObject
-
-/**
- *  Path to Colossus root for an LSV. NOTE: Unlike `cr_ti_guris` and
- *  `cr_ti_prefixes`, the field `cfs_roots` below does not need to be a GUri or
- *  GUri prefix. It can simply be any valid CFS or CFS2 Path. The DRZ KR8 SIG
- *  has more details overall, but generally the `cfs_roots` provided here should
- *  be scoped to an individual Persistent Disk. An example for a PD Disk with a
- *  disk ID 3277719120423414466, follows: * `cr_ti_guris` could be
- *  ‘/cfs2/pj/pd-cloud-prod’ as this is a valid GUri present in the DG KB and
- *  contains enough information to perform location monitoring and scope
- *  ownership of the Production Object. * `cfs_roots` would be:
- *  ‘/cfs2/pj/pd-cloud-staging/lsv000001234\@/
- *  lsv/projects~773365403387~zones~2700~disks~3277719120423414466
- *  ~bank-blue-careful-3526-lsv00054DB1B7254BA3/’ as this allows us to enumerate
- *  the files on CFS2 that belong to an individual Disk.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *cfsRoots;
-
-/**
- *  The GCS Buckets that back this snapshot or image. This is required as
- *  `cr_ti_prefixes` and `cr_ti_guris` only accept TI resources. This should be
- *  the globally unique bucket name.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *gcsBucketNames;
-
-@end
-
-
-/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -1498,25 +1452,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
- *  Request message for restarting a Data Fusion instance.
+ *  Represents an arbitrary window of time that recurs.
  */
-@interface GTLRDataFusion_RestartInstanceRequest : GTLRObject
+@interface GTLRDataFusion_RecurringTimeWindow : GTLRObject
+
+/**
+ *  Required. An RRULE with format
+ *  [RFC-5545](https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this
+ *  window reccurs. They go on for the span of time between the start and end
+ *  time. The only supported FREQ value is "WEEKLY". To have something repeat
+ *  every weekday, use: "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR". This specifies how
+ *  frequently the window starts. To have a 9 am - 5 pm UTC-4 window every
+ *  weekday, use something like: ``` start time = 2019-01-01T09:00:00-0400 end
+ *  time = 2019-01-01T17:00:00-0400 recurrence =
+ *  FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR ```
+ */
+@property(nonatomic, copy, nullable) NSString *recurrence;
+
+/**
+ *  Required. The window representing the start and end time of recurrences.
+ *  This field ignores the date components of the provided timestamps. Only the
+ *  time of day and duration between start and end time are relevant.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_TimeWindow *window;
+
 @end
 
 
 /**
- *  This message defines service-specific data that certain service teams must
- *  provide as part of the Data Residency Augmented View for a resource. Next
- *  ID: 2
+ *  Request message for restarting a Data Fusion instance.
  */
-@interface GTLRDataFusion_ServiceData : GTLRObject
-
-/**
- *  Auxiliary data for the persistent disk pipeline provided to provide the LSV
- *  Colossus Roots and GCS Buckets.
- */
-@property(nonatomic, strong, nullable) GTLRDataFusion_PersistentDiskData *pd;
-
+@interface GTLRDataFusion_RestartInstanceRequest : GTLRObject
 @end
 
 
@@ -1613,6 +1579,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Represents an arbitrary window of time.
+ */
+@interface GTLRDataFusion_TimeWindow : GTLRObject
+
+/**
+ *  Required. The end time of the time window provided in [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. The end time should take
+ *  place after the start time. Example: "2024-01-02T12:04:06-06:00"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Required. The start time of the time window provided in [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. Example:
+ *  "2024-01-01T12:04:06-04:00"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

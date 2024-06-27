@@ -17,6 +17,12 @@
 NSString * const kGTLRDataproc_AnalyzeOperationMetadata_AnalyzedWorkloadType_Batch = @"BATCH";
 NSString * const kGTLRDataproc_AnalyzeOperationMetadata_AnalyzedWorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
 
+// GTLRDataproc_AutotuningConfig.scenarios
+NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_BroadcastHashJoin = @"BROADCAST_HASH_JOIN";
+NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Memory = @"MEMORY";
+NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Scaling = @"SCALING";
+NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_ScenarioUnspecified = @"SCENARIO_UNSPECIFIED";
+
 // GTLRDataproc_Batch.state
 NSString * const kGTLRDataproc_Batch_State_Cancelled        = @"CANCELLED";
 NSString * const kGTLRDataproc_Batch_State_Cancelling       = @"CANCELLING";
@@ -133,6 +139,8 @@ NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Delete =
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_NodeGroupOperationTypeUnspecified = @"NODE_GROUP_OPERATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Repair = @"REPAIR";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize = @"RESIZE";
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Start = @"START";
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Stop = @"STOP";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Update = @"UPDATE";
 NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_UpdateLabels = @"UPDATE_LABELS";
 
@@ -319,6 +327,24 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AutotuningConfig
+//
+
+@implementation GTLRDataproc_AutotuningConfig
+@dynamic scenarios;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scenarios" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -701,7 +727,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_DiskConfig
-@dynamic bootDiskSizeGb, bootDiskType, localSsdInterface, numLocalSsds;
+@dynamic bootDiskProvisionedIops, bootDiskProvisionedThroughput, bootDiskSizeGb,
+         bootDiskType, localSsdInterface, numLocalSsds;
 @end
 
 
@@ -2206,7 +2233,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RuntimeConfig
-@dynamic containerImage, properties, repositoryConfig, version;
+@dynamic autotuningConfig, cohort, containerImage, properties, repositoryConfig,
+         version;
 @end
 
 

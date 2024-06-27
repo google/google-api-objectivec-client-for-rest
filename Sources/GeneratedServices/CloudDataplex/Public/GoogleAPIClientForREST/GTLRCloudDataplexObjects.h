@@ -5051,6 +5051,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus : GTLRObject
 
+/** Optional. The time when the DataScanJob execution was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestJobCreateTime;
+
 /** The time when the latest DataScanJob ended. */
 @property(nonatomic, strong, nullable) GTLRDateTime *latestJobEndTime;
 
@@ -5744,6 +5747,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource_Labels *labels;
 
 /**
+ *  Output only. Location of the resource in the source system. Entry will be
+ *  searchable by this location. By default, this should match the location of
+ *  the EntryGroup containing this entry. A different value allows capturing
+ *  source location for data external to GCP.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  The platform containing the source system. The maximum size of the field is
  *  64 characters.
  */
@@ -6137,18 +6148,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Generate recommended DataQualityRules request.
+ *  Request details for generating data quality rule recommendations.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1GenerateDataQualityRulesRequest : GTLRObject
 @end
 
 
 /**
- *  Generate recommended DataQualityRules response.
+ *  Response details for data quality rule recommendations.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1GenerateDataQualityRulesResponse : GTLRObject
 
-/** Generated recommended {\@link DataQualityRule}s. */
+/**
+ *  The data quality rules that Dataplex generates based on the results of a
+ *  data profiling scan.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *> *rule;
 
 @end

@@ -201,7 +201,9 @@ NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket = @"GC
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile = @"GCS_WRITE_FILE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder = @"GCS_WRITE_FOLDER";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_JavascriptUdfFile = @"JAVASCRIPT_UDF_FILE";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaReadTopic = @"KAFKA_READ_TOPIC";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaTopic = @"KAFKA_TOPIC";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KafkaWriteTopic = @"KAFKA_WRITE_TOPIC";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_KmsKeyName = @"KMS_KEY_NAME";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_MachineType = @"MACHINE_TYPE";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Number = @"NUMBER";
@@ -1154,8 +1156,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
          currentStateTime, environment, executionInfo, identifier, jobMetadata,
          labels, location, name, pipelineDescription, projectId,
          replacedByJobId, replaceJobId, requestedState, runtimeUpdatableParams,
-         satisfiesPzi, satisfiesPzs, stageStates, startTime, steps,
-         stepsLocation, tempFiles, transformNameMapping, type;
+         satisfiesPzi, satisfiesPzs, serviceResources, stageStates, startTime,
+         steps, stepsLocation, tempFiles, transformNameMapping, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2402,6 +2404,24 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_SeqMapTaskOutputInfo
 @dynamic sink, tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ServiceResources
+//
+
+@implementation GTLRDataflow_ServiceResources
+@dynamic zones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zones" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

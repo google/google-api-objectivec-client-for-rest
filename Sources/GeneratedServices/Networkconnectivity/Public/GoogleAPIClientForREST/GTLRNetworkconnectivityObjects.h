@@ -522,6 +522,27 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_Nex
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_OtherRoutesUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_PscConfig.producerInstanceLocation
+
+/**
+ *  Producer instance must be within one of the values provided in
+ *  allowed_google_producers_resource_hierarchy_level.
+ *
+ *  Value: "CUSTOM_RESOURCE_HIERARCHY_LEVELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConfig_ProducerInstanceLocation_CustomResourceHierarchyLevels;
+/**
+ *  Producer instance location is not specified. When this option is chosen,
+ *  then the PSC connections created by this ServiceConnectionPolicy must be
+ *  within the same project as the Producer instance. This is the default
+ *  ProducerInstanceLocation value. To allow for PSC connections from this
+ *  network to other networks, use the CUSTOM_RESOURCE_HIERARCHY_LEVELS option.
+ *
+ *  Value: "PRODUCER_INSTANCE_LOCATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConfig_ProducerInstanceLocation_ProducerInstanceLocationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_PscConnection.errorType
 
 /**
@@ -1280,6 +1301,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  Allow the producer to specify which consumers can connect to it.
  */
 @interface GTLRNetworkconnectivity_ConsumerPscConfig : GTLRObject
+
+/**
+ *  Required. The project ID or project number of the consumer project. This
+ *  project is the one that the consumer uses to interact with the producer
+ *  instance. From the perspective of a consumer who's created a producer
+ *  instance, this is the project of the producer instance. Format: 'projects/'
+ *  Eg. 'projects/consumer-project' or 'projects/1234'
+ */
+@property(nonatomic, copy, nullable) NSString *consumerInstanceProject;
 
 /**
  *  This is used in PSC consumer ForwardingRule to control whether the PSC
@@ -2186,6 +2216,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedInterconnectAttachments : GTLRObject
 
 /**
+ *  Optional. IP ranges allowed to be included during import from hub.(does not
+ *  control transit connectivity) The only allowed value for now is
+ *  "ALL_IPV4_RANGES".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
+
+/**
  *  A value that controls whether site-to-site data transfer is enabled for
  *  these resources. Data transfer is available only in [supported
  *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
@@ -2210,6 +2247,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  spoke.
  */
 @interface GTLRNetworkconnectivity_LinkedRouterApplianceInstances : GTLRObject
+
+/**
+ *  Optional. IP ranges allowed to be included during import from hub.(does not
+ *  control transit connectivity) The only allowed value for now is
+ *  "ALL_IPV4_RANGES".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
 
 /** The list of router appliance instances. */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RouterApplianceInstance *> *instances;
@@ -2242,6 +2286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludeExportRanges;
 
+/** Optional. IP ranges allowed to be included from peering. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeExportRanges;
+
 /** Required. The URI of the VPC network resource. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -2255,6 +2302,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  be capable of advertising the same prefixes.
  */
 @interface GTLRNetworkconnectivity_LinkedVpnTunnels : GTLRObject
+
+/**
+ *  Optional. IP ranges allowed to be included during import from hub.(does not
+ *  control transit connectivity) The only allowed value for now is
+ *  "ALL_IPV4_RANGES".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeImportRanges;
 
 /**
  *  A value that controls whether site-to-site data transfer is enabled for
@@ -3109,11 +3163,49 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_PscConfig : GTLRObject
 
 /**
+ *  Optional. List of Projects, Folders, or Organizations from where the
+ *  Producer instance can be within. For example, a network administrator can
+ *  provide both 'organizations/foo' and 'projects/bar' as
+ *  allowed_google_producers_resource_hierarchy_levels. This allowlists this
+ *  network to connect with any Producer instance within the 'foo' organization
+ *  or the 'bar' project. By default,
+ *  allowed_google_producers_resource_hierarchy_level is empty. The format for
+ *  each allowed_google_producers_resource_hierarchy_level is / where is one of
+ *  'projects', 'folders', or 'organizations' and is either the ID or the number
+ *  of the resource type. Format for each
+ *  allowed_google_producers_resource_hierarchy_level value: 'projects/' or
+ *  'folders/' or 'organizations/' Eg. [projects/my-project-id, projects/567,
+ *  folders/891, organizations/123]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedGoogleProducersResourceHierarchyLevel;
+
+/**
  *  Optional. Max number of PSC connections for this policy.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
+
+/**
+ *  Required. ProducerInstanceLocation is used to specify which authorization
+ *  mechanism to use to determine which projects the Producer instance can be
+ *  within.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_PscConfig_ProducerInstanceLocation_CustomResourceHierarchyLevels
+ *        Producer instance must be within one of the values provided in
+ *        allowed_google_producers_resource_hierarchy_level. (Value:
+ *        "CUSTOM_RESOURCE_HIERARCHY_LEVELS")
+ *    @arg @c kGTLRNetworkconnectivity_PscConfig_ProducerInstanceLocation_ProducerInstanceLocationUnspecified
+ *        Producer instance location is not specified. When this option is
+ *        chosen, then the PSC connections created by this
+ *        ServiceConnectionPolicy must be within the same project as the
+ *        Producer instance. This is the default ProducerInstanceLocation value.
+ *        To allow for PSC connections from this network to other networks, use
+ *        the CUSTOM_RESOURCE_HIERARCHY_LEVELS option. (Value:
+ *        "PRODUCER_INSTANCE_LOCATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *producerInstanceLocation;
 
 /**
  *  The resource paths of subnetworks to use for IP address management. Example:

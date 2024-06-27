@@ -9568,6 +9568,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrd
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_InsertionOrder.optimizationObjective
+
+/**
+ *  Prioritize impressions of specific quality.
+ *
+ *  Value: "BRAND_AWARENESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_BrandAwareness;
+/**
+ *  Prioritize impressions that increase website traffic, apps, app stores.
+ *
+ *  Value: "CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Click;
+/**
+ *  Prioritize impressions that increase sales and conversions.
+ *
+ *  Value: "CONVERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Conversion;
+/**
+ *  Objective is defined by the assigned custom bidding algorithm.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Custom;
+/**
+ *  Objective is not defined. Any KPI or bidding strategy can be used.
+ *
+ *  Value: "NO_OBJECTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_NoObjective;
+/**
+ *  Type value is not specified or is unknown in this version.
+ *
+ *  Value: "OPTIMIZATION_OBJECTIVE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_OptimizationObjectiveUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_InsertionOrder.reservationType
 
 /**
@@ -23875,6 +23915,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** Output only. The resource name of the insertion order. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The optimization objective of the insertion order. **This field is
+ *  only available to allowlisted customers.** If a customer is not allowlisted,
+ *  this field will be null and attempts to set it will return an error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_BrandAwareness
+ *        Prioritize impressions of specific quality. (Value: "BRAND_AWARENESS")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Click
+ *        Prioritize impressions that increase website traffic, apps, app
+ *        stores. (Value: "CLICK")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Conversion
+ *        Prioritize impressions that increase sales and conversions. (Value:
+ *        "CONVERSION")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Custom
+ *        Objective is defined by the assigned custom bidding algorithm. (Value:
+ *        "CUSTOM")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_NoObjective
+ *        Objective is not defined. Any KPI or bidding strategy can be used.
+ *        (Value: "NO_OBJECTIVE")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_OptimizationObjectiveUnspecified
+ *        Type value is not specified or is unknown in this version. (Value:
+ *        "OPTIMIZATION_OBJECTIVE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *optimizationObjective;
 
 /** Required. The budget spending speed setting of the insertion order. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Pacing *pacing;

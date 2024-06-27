@@ -299,32 +299,6 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitieswithaclsList
-
-@dynamic conditions, gsutilUri, pageSize, pageToken, parent, sortBy;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"sortBy" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v2/{+parent}/entitieswithacls";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitieswithaclsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRConnectors_ListEntitiesWithACLsResponse class];
-  query.loggingName = @"connectors.projects.locations.connections.entityTypes.entitieswithacls.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet
 
 @dynamic name;

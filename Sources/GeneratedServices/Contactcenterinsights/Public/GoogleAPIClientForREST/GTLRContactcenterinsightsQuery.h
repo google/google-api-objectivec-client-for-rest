@@ -297,8 +297,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
- *  Creates a conversation. DEPRECATED: Use UploadConversation instead.
- *  CreateConversation does not support audio transcription or DLP redaction.
+ *  Creates a conversation. Does not support audio transcription or DLP
+ *  redaction. Use `conversations.upload` instead.
  *
  *  Method: contactcenterinsights.projects.locations.conversations.create
  *
@@ -324,8 +324,8 @@ GTLR_DEPRECATED
  *  Fetches a @c
  *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation.
  *
- *  Creates a conversation. DEPRECATED: Use UploadConversation instead.
- *  CreateConversation does not support audio transcription or DLP redaction.
+ *  Creates a conversation. Does not support audio transcription or DLP
+ *  redaction. Use `conversations.upload` instead.
  *
  *  @param object The @c
  *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation
@@ -468,8 +468,8 @@ GTLR_DEPRECATED
  *  values are one of the following: * create_time *
  *  customer_satisfaction_rating * duration * latest_analysis * start_time *
  *  turn_count The default sort order is ascending. To specify order, append
- *  `asc` or `desc`, i.e. `create_time desc`. See
- *  https://google.aip.dev/132#ordering for more details.
+ *  `asc` or `desc` (`create_time desc`). For more details, see [Google AIPs
+ *  Ordering](https://google.aip.dev/132#ordering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -572,8 +572,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Create a longrunning conversation upload operation. This method differs from
- *  CreateConversation by allowing audio transcription and optional DLP
+ *  Create a long-running conversation upload operation. This method differs
+ *  from `CreateConversation` by allowing audio transcription and optional DLP
  *  redaction.
  *
  *  Method: contactcenterinsights.projects.locations.conversations.upload
@@ -589,8 +589,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
  *
- *  Create a longrunning conversation upload operation. This method differs from
- *  CreateConversation by allowing audio transcription and optional DLP
+ *  Create a long-running conversation upload operation. This method differs
+ *  from `CreateConversation` by allowing audio transcription and optional DLP
  *  redaction.
  *
  *  @param object The @c
@@ -788,7 +788,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsExport : GTLRContactcenterinsightsQuery
 
-/** Required. The issue model to export */
+/** Required. The issue model to export. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -799,7 +799,7 @@ GTLR_DEPRECATED
  *  @param object The @c
  *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportIssueModelRequest
  *    to include in the query.
- *  @param name Required. The issue model to export
+ *  @param name Required. The issue model to export.
  *
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsIssueModelsExport
  */

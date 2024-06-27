@@ -231,6 +231,20 @@ NSString * const kGTLRCloudKMS_ImportJob_State_Expired         = @"EXPIRED";
 NSString * const kGTLRCloudKMS_ImportJob_State_ImportJobStateUnspecified = @"IMPORT_JOB_STATE_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_ImportJob_State_PendingGeneration = @"PENDING_GENERATION";
 
+// GTLRCloudKMS_KeyAccessJustificationsPolicy.allowedAccessReasons
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerAuthorizedWorkflowServicing = @"CUSTOMER_AUTHORIZED_WORKFLOW_SERVICING";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedAccess = @"CUSTOMER_INITIATED_ACCESS";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedSupport = @"CUSTOMER_INITIATED_SUPPORT";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedReview = @"GOOGLE_INITIATED_REVIEW";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedService = @"GOOGLE_INITIATED_SERVICE";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedSystemOperation = @"GOOGLE_INITIATED_SYSTEM_OPERATION";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleResponseToProductionAlert = @"GOOGLE_RESPONSE_TO_PRODUCTION_ALERT";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedCustomerInitiatedAccess = @"MODIFIED_CUSTOMER_INITIATED_ACCESS";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedGoogleInitiatedSystemOperation = @"MODIFIED_GOOGLE_INITIATED_SYSTEM_OPERATION";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonNotExpected = @"REASON_NOT_EXPECTED";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonUnspecified = @"REASON_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ThirdPartyDataRequest = @"THIRD_PARTY_DATA_REQUEST";
+
 // GTLRCloudKMS_KeyOperationAttestation.format
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_AttestationFormatUnspecified = @"ATTESTATION_FORMAT_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed = @"CAVIUM_V1_COMPRESSED";
@@ -460,8 +474,8 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 @implementation GTLRCloudKMS_CryptoKey
 @dynamic createTime, cryptoKeyBackend, destroyScheduledDuration, importOnly,
-         labels, name, nextRotationTime, primary, purpose, rotationPeriod,
-         versionTemplate;
+         keyAccessJustificationsPolicy, labels, name, nextRotationTime, primary,
+         purpose, rotationPeriod, versionTemplate;
 @end
 
 
@@ -660,6 +674,24 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 @implementation GTLRCloudKMS_ImportJob
 @dynamic attestation, createTime, expireEventTime, expireTime, generateTime,
          importMethod, name, protectionLevel, publicKey, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_KeyAccessJustificationsPolicy
+//
+
+@implementation GTLRCloudKMS_KeyAccessJustificationsPolicy
+@dynamic allowedAccessReasons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedAccessReasons" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

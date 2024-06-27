@@ -346,12 +346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Condition_Type_LessOrEquals;
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Condition_Type_MatchRegex;
 /** Value: "startsWith" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Condition_Type_StartsWith;
-/**
- *  NOTE(lanzone): When defining a ConditionType here, don't forget to also
- *  define a matching PredicateType (in condition.proto).
- *
- *  Value: "urlMatches"
- */
+/** Value: "urlMatches" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Condition_Type_UrlMatches;
 
 // ----------------------------------------------------------------------------
@@ -1048,9 +1043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_Condition_Type_LessOrEquals Value "lessOrEquals"
  *    @arg @c kGTLRTagManager_Condition_Type_MatchRegex Value "matchRegex"
  *    @arg @c kGTLRTagManager_Condition_Type_StartsWith Value "startsWith"
- *    @arg @c kGTLRTagManager_Condition_Type_UrlMatches NOTE(lanzone): When
- *        defining a ConditionType here, don't forget to also define a matching
- *        PredicateType (in condition.proto). (Value: "urlMatches")
+ *    @arg @c kGTLRTagManager_Condition_Type_UrlMatches Value "urlMatches"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

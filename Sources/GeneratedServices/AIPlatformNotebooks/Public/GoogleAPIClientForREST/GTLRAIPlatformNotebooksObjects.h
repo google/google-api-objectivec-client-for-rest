@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRAIPlatformNotebooks_AcceleratorConfig;
+@class GTLRAIPlatformNotebooks_AccessConfig;
 @class GTLRAIPlatformNotebooks_Binding;
 @class GTLRAIPlatformNotebooks_BootDisk;
 @class GTLRAIPlatformNotebooks_ContainerImage;
@@ -515,6 +516,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        Accelerator type is Nvidia Tesla V100. (Value: "NVIDIA_TESLA_V100")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  An access configuration attached to an instance's network interface.
+ */
+@interface GTLRAIPlatformNotebooks_AccessConfig : GTLRObject
+
+/**
+ *  An external IP address associated with this instance. Specify an unused
+ *  static external IP address available to the project or leave this field
+ *  undefined to use an IP from a shared ephemeral IP address pool. If you
+ *  specify a static external IP address, it must live in the same region as the
+ *  zone of the instance.
+ */
+@property(nonatomic, copy, nullable) NSString *externalIp;
 
 @end
 
@@ -1210,6 +1228,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, copy, nullable) NSString *proxyUri;
 
 /**
+ *  Output only. Reserved for future use for Zone Isolation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use for Zone Separation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The state of this instance.
  *
  *  Likely values:
@@ -1429,6 +1461,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  The definition of a network interface resource attached to a VM.
  */
 @interface GTLRAIPlatformNotebooks_NetworkInterface : GTLRObject
+
+/**
+ *  Optional. An array of configurations for this interface. Currently, only one
+ *  access config, ONE_TO_ONE_NAT, is supported. If no accessConfigs specified,
+ *  the instance will have an external internet access through an ephemeral
+ *  external IP address.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_AccessConfig *> *accessConfigs;
 
 /**
  *  Optional. The name of the VPC that this VM instance is in. Format:

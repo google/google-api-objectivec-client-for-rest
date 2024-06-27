@@ -258,6 +258,33 @@
 
 @end
 
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFilestore_PromoteReplicaRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:promoteReplica";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
+  query.loggingName = @"file.projects.locations.instances.promoteReplica";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRestore
 
 @dynamic name;

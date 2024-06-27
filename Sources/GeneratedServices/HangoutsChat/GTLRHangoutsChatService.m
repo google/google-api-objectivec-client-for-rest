@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeHangoutsChatAdminDelete         = @"https://www.googleapis.com/auth/chat.admin.delete";
+NSString * const kGTLRAuthScopeHangoutsChatAdminMemberships    = @"https://www.googleapis.com/auth/chat.admin.memberships";
+NSString * const kGTLRAuthScopeHangoutsChatAdminMembershipsReadonly = @"https://www.googleapis.com/auth/chat.admin.memberships.readonly";
+NSString * const kGTLRAuthScopeHangoutsChatAdminSpaces         = @"https://www.googleapis.com/auth/chat.admin.spaces";
+NSString * const kGTLRAuthScopeHangoutsChatAdminSpacesReadonly = @"https://www.googleapis.com/auth/chat.admin.spaces.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatBot                 = @"https://www.googleapis.com/auth/chat.bot";
 NSString * const kGTLRAuthScopeHangoutsChatDelete              = @"https://www.googleapis.com/auth/chat.delete";
 NSString * const kGTLRAuthScopeHangoutsChatImport              = @"https://www.googleapis.com/auth/chat.import";

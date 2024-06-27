@@ -39,6 +39,20 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest_Labels;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1Barcode;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocument;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunk;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageFooter;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageHeader;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageSpan;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayout;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntityNormalizedValue;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntityRelation;
@@ -84,6 +98,20 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1Vertex;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2Barcode;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2BoundingPoly;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocument;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunk;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageFooter;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageHeader;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageSpan;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayout;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntityNormalizedValue;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntityRelation;
@@ -147,6 +175,20 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1Document;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocument;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayout;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityNormalizedValue;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityRelation;
@@ -208,6 +250,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1OcrConfigPremiumFeatures;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessOptions;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsIndividualPageSelector;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfigChunkingConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1Processor;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorType;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo;
@@ -2876,6 +2920,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1Document : GTLRObject
 
+/** Document chunked based on chunking config. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocument *chunkedDocument;
+
 /**
  *  Optional. Inline document content, represented as a stream of bytes. Note:
  *  As with all `bytes` fields, protobuffers use a pure binary representation,
@@ -2885,6 +2932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/** Parsed layout of the document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayout *documentLayout;
 
 /**
  *  A list of entities detected on Document.text. For document shards, entities
@@ -2936,6 +2986,262 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents the chunks that the document is divided into.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocument : GTLRObject
+
+/** List of chunks. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunk *> *chunks;
+
+@end
+
+
+/**
+ *  Represents a chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunk : GTLRObject
+
+/** ID of the chunk. */
+@property(nonatomic, copy, nullable) NSString *chunkId;
+
+/** Text content of the chunk. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Page footers associated with the chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageFooter *> *pageFooters;
+
+/** Page headers associated with the chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageHeader *> *pageHeaders;
+
+/** Page span of the chunk. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Unused. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceBlockIds;
+
+@end
+
+
+/**
+ *  Represents the page footer associated with the chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageFooter : GTLRObject
+
+/** Page span of the footer. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Footer in text format. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents the page header associated with the chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageHeader : GTLRObject
+
+/** Page span of the header. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Header in text format. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents where the chunk starts and ends in the document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentChunkedDocumentChunkChunkPageSpan : GTLRObject
+
+/**
+ *  Page where chunk ends in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageEnd;
+
+/**
+ *  Page where chunk starts in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  Represents the parsed layout of a document as a collection of blocks that
+ *  the document is divided into.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayout : GTLRObject
+
+/** List of blocks in the document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+@end
+
+
+/**
+ *  Represents a block. A block could be one of the various types (text, table,
+ *  list) supported.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock : GTLRObject
+
+/** ID of the block. */
+@property(nonatomic, copy, nullable) NSString *blockId;
+
+/** Block consisting of list content/structure. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock *listBlock;
+
+/** Page span of the block. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan *pageSpan;
+
+/** Block consisting of table content/structure. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock *tableBlock;
+
+/** Block consisting of text content. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock *textBlock;
+
+@end
+
+
+/**
+ *  Represents a list type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock : GTLRObject
+
+/** List entries that constitute a list block. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry *> *listEntries;
+
+/**
+ *  Type of the list_entries (if exist). Available options are `ordered` and
+ *  `unordered`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents an entry in the list.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry : GTLRObject
+
+/**
+ *  A list entry is a list of blocks. Repeated blocks support further
+ *  hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+@end
+
+
+/**
+ *  Represents where the block starts and ends in the document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan : GTLRObject
+
+/**
+ *  Page where block ends in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageEnd;
+
+/**
+ *  Page where block starts in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  Represents a table type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock : GTLRObject
+
+/** Body rows containing main table content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *bodyRows;
+
+/** Table caption/title. */
+@property(nonatomic, copy, nullable) NSString *caption;
+
+/** Header rows at the top of the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *headerRows;
+
+@end
+
+
+/**
+ *  Represents a cell in a table row.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell : GTLRObject
+
+/**
+ *  A table cell is a list of blocks. Repeated blocks support further
+ *  hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+/**
+ *  How many columns this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colSpan;
+
+/**
+ *  How many rows this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowSpan;
+
+@end
+
+
+/**
+ *  Represents a row in a table.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow : GTLRObject
+
+/** A table row is a list of table cells. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell *> *cells;
+
+@end
+
+
+/**
+ *  Represents a text type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock : GTLRObject
+
+/**
+ *  A text block could further have child blocks. Repeated blocks support
+ *  further hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+/** Text content stored in the block. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Type of the text in the block. Available options are: `paragraph`,
+ *  `subtitle`, `heading-1`, `heading-2`, `heading-3`, `heading-4`, `heading-5`,
+ *  `header`, `footer`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -4380,6 +4686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2Document : GTLRObject
 
+/** Document chunked based on chunking config. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocument *chunkedDocument;
+
 /**
  *  Optional. Inline document content, represented as a stream of bytes. Note:
  *  As with all `bytes` fields, protobuffers use a pure binary representation,
@@ -4389,6 +4698,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/** Parsed layout of the document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayout *documentLayout;
 
 /**
  *  A list of entities detected on Document.text. For document shards, entities
@@ -4443,6 +4755,262 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents the chunks that the document is divided into.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocument : GTLRObject
+
+/** List of chunks. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunk *> *chunks;
+
+@end
+
+
+/**
+ *  Represents a chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunk : GTLRObject
+
+/** ID of the chunk. */
+@property(nonatomic, copy, nullable) NSString *chunkId;
+
+/** Text content of the chunk. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Page footers associated with the chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageFooter *> *pageFooters;
+
+/** Page headers associated with the chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageHeader *> *pageHeaders;
+
+/** Page span of the chunk. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Unused. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceBlockIds;
+
+@end
+
+
+/**
+ *  Represents the page footer associated with the chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageFooter : GTLRObject
+
+/** Page span of the footer. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Footer in text format. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents the page header associated with the chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageHeader : GTLRObject
+
+/** Page span of the header. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Header in text format. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents where the chunk starts and ends in the document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentChunkedDocumentChunkChunkPageSpan : GTLRObject
+
+/**
+ *  Page where chunk ends in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageEnd;
+
+/**
+ *  Page where chunk starts in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  Represents the parsed layout of a document as a collection of blocks that
+ *  the document is divided into.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayout : GTLRObject
+
+/** List of blocks in the document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+@end
+
+
+/**
+ *  Represents a block. A block could be one of the various types (text, table,
+ *  list) supported.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock : GTLRObject
+
+/** ID of the block. */
+@property(nonatomic, copy, nullable) NSString *blockId;
+
+/** Block consisting of list content/structure. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock *listBlock;
+
+/** Page span of the block. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan *pageSpan;
+
+/** Block consisting of table content/structure. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock *tableBlock;
+
+/** Block consisting of text content. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock *textBlock;
+
+@end
+
+
+/**
+ *  Represents a list type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock : GTLRObject
+
+/** List entries that constitute a list block. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry *> *listEntries;
+
+/**
+ *  Type of the list_entries (if exist). Available options are `ordered` and
+ *  `unordered`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents an entry in the list.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry : GTLRObject
+
+/**
+ *  A list entry is a list of blocks. Repeated blocks support further
+ *  hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+@end
+
+
+/**
+ *  Represents where the block starts and ends in the document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan : GTLRObject
+
+/**
+ *  Page where block ends in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageEnd;
+
+/**
+ *  Page where block starts in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  Represents a table type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock : GTLRObject
+
+/** Body rows containing main table content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *bodyRows;
+
+/** Table caption/title. */
+@property(nonatomic, copy, nullable) NSString *caption;
+
+/** Header rows at the top of the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *headerRows;
+
+@end
+
+
+/**
+ *  Represents a cell in a table row.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell : GTLRObject
+
+/**
+ *  A table cell is a list of blocks. Repeated blocks support further
+ *  hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+/**
+ *  How many columns this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colSpan;
+
+/**
+ *  How many rows this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowSpan;
+
+@end
+
+
+/**
+ *  Represents a row in a table.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow : GTLRObject
+
+/** A table row is a list of table cells. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell *> *cells;
+
+@end
+
+
+/**
+ *  Represents a text type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock : GTLRObject
+
+/**
+ *  A text block could further have child blocks. Repeated blocks support
+ *  further hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+/** Text content stored in the block. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Type of the text in the block. Available options are: `paragraph`,
+ *  `subtitle`, `heading-1`, `heading-2`, `heading-3`, `heading-4`, `heading-5`,
+ *  `header`, `footer`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -6062,6 +6630,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Optional. A lightweight indexing source with low latency and high
  *  reliability, but lacking advanced features like CMEK and content-based
  *  search.
@@ -6783,6 +7365,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1Document : GTLRObject
 
+/** Document chunked based on chunking config. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocument *chunkedDocument;
+
 /**
  *  Optional. Inline document content, represented as a stream of bytes. Note:
  *  As with all `bytes` fields, protobuffers use a pure binary representation,
@@ -6792,6 +7377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/** Parsed layout of the document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayout *documentLayout;
 
 /**
  *  A list of entities detected on Document.text. For document shards, entities
@@ -6843,6 +7431,262 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents the chunks that the document is divided into.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocument : GTLRObject
+
+/** List of chunks. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk *> *chunks;
+
+@end
+
+
+/**
+ *  Represents a chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk : GTLRObject
+
+/** ID of the chunk. */
+@property(nonatomic, copy, nullable) NSString *chunkId;
+
+/** Text content of the chunk. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Page footers associated with the chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter *> *pageFooters;
+
+/** Page headers associated with the chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader *> *pageHeaders;
+
+/** Page span of the chunk. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Unused. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceBlockIds;
+
+@end
+
+
+/**
+ *  Represents the page footer associated with the chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter : GTLRObject
+
+/** Page span of the footer. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Footer in text format. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents the page header associated with the chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader : GTLRObject
+
+/** Page span of the header. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Header in text format. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents where the chunk starts and ends in the document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan : GTLRObject
+
+/**
+ *  Page where chunk ends in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageEnd;
+
+/**
+ *  Page where chunk starts in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  Represents the parsed layout of a document as a collection of blocks that
+ *  the document is divided into.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayout : GTLRObject
+
+/** List of blocks in the document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+@end
+
+
+/**
+ *  Represents a block. A block could be one of the various types (text, table,
+ *  list) supported.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock : GTLRObject
+
+/** ID of the block. */
+@property(nonatomic, copy, nullable) NSString *blockId;
+
+/** Block consisting of list content/structure. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock *listBlock;
+
+/** Page span of the block. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan *pageSpan;
+
+/** Block consisting of table content/structure. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock *tableBlock;
+
+/** Block consisting of text content. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock *textBlock;
+
+@end
+
+
+/**
+ *  Represents a list type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock : GTLRObject
+
+/** List entries that constitute a list block. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry *> *listEntries;
+
+/**
+ *  Type of the list_entries (if exist). Available options are `ordered` and
+ *  `unordered`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents an entry in the list.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry : GTLRObject
+
+/**
+ *  A list entry is a list of blocks. Repeated blocks support further
+ *  hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+@end
+
+
+/**
+ *  Represents where the block starts and ends in the document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan : GTLRObject
+
+/**
+ *  Page where block ends in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageEnd;
+
+/**
+ *  Page where block starts in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  Represents a table type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock : GTLRObject
+
+/** Body rows containing main table content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *bodyRows;
+
+/** Table caption/title. */
+@property(nonatomic, copy, nullable) NSString *caption;
+
+/** Header rows at the top of the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *headerRows;
+
+@end
+
+
+/**
+ *  Represents a cell in a table row.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell : GTLRObject
+
+/**
+ *  A table cell is a list of blocks. Repeated blocks support further
+ *  hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+/**
+ *  How many columns this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colSpan;
+
+/**
+ *  How many rows this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowSpan;
+
+@end
+
+
+/**
+ *  Represents a row in a table.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow : GTLRObject
+
+/** A table row is a list of table cells. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell *> *cells;
+
+@end
+
+
+/**
+ *  Represents a text type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock : GTLRObject
+
+/**
+ *  A text block could further have child blocks. Repeated blocks support
+ *  further hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+/** Text content stored in the block. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Type of the text in the block. Available options are: `paragraph`,
+ *  `subtitle`, `heading-1`, `heading-2`, `heading-3`, `heading-4`, `heading-5`,
+ *  `header`, `footer`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -8948,6 +9792,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsIndividualPageSelector *individualPageSelector;
 
 /**
+ *  Optional. Only applicable to `LAYOUT_PARSER_PROCESSOR`. Returns error if set
+ *  on other processor types.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfig *layoutConfig;
+
+/**
  *  Only applicable to `OCR_PROCESSOR` and `FORM_PARSER_PROCESSOR`. Returns
  *  error if set on other processor types.
  */
@@ -8974,6 +9824,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *pages;
+
+@end
+
+
+/**
+ *  Serving config for layout parser processor.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfig : GTLRObject
+
+/** Optional. Config for chunking in layout parser processor. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfigChunkingConfig *chunkingConfig;
+
+@end
+
+
+/**
+ *  Serving config for chunking.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessOptionsLayoutConfigChunkingConfig : GTLRObject
+
+/**
+ *  Optional. The chunk sizes to use when splitting documents, in order of
+ *  level.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *chunkSize;
+
+/**
+ *  Optional. Whether or not to include ancestor headings when splitting.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeAncestorHeadings;
 
 @end
 
@@ -9013,6 +9897,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** Output only. The processor version aliases. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionAlias *> *processorVersionAliases;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The state of the processor.
@@ -9211,6 +10109,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The state of the processor version.

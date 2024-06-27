@@ -683,7 +683,7 @@
 
 @implementation GTLRLoggingQuery_BillingAccountsLocationsRecentQueriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -746,6 +746,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_SavedQuery class];
+  query.loggingName = @"logging.billingAccounts.locations.savedQueries.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesList
 
 @dynamic pageSize, pageToken, parent;
@@ -760,6 +779,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListSavedQueriesResponse class];
   query.loggingName = @"logging.billingAccounts.locations.savedQueries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_SavedQuery class];
+  query.loggingName = @"logging.billingAccounts.locations.savedQueries.patch";
   return query;
 }
 
@@ -1895,7 +1941,7 @@
 
 @implementation GTLRLoggingQuery_FoldersLocationsRecentQueriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1958,6 +2004,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_FoldersLocationsSavedQueriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_FoldersLocationsSavedQueriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_SavedQuery class];
+  query.loggingName = @"logging.folders.locations.savedQueries.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_FoldersLocationsSavedQueriesList
 
 @dynamic pageSize, pageToken, parent;
@@ -1972,6 +2037,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListSavedQueriesResponse class];
   query.loggingName = @"logging.folders.locations.savedQueries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsSavedQueriesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_FoldersLocationsSavedQueriesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_SavedQuery class];
+  query.loggingName = @"logging.folders.locations.savedQueries.patch";
   return query;
 }
 
@@ -3568,7 +3660,7 @@
 
 @implementation GTLRLoggingQuery_OrganizationsLocationsRecentQueriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -3631,6 +3723,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_OrganizationsLocationsSavedQueriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_OrganizationsLocationsSavedQueriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_SavedQuery class];
+  query.loggingName = @"logging.organizations.locations.savedQueries.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_OrganizationsLocationsSavedQueriesList
 
 @dynamic pageSize, pageToken, parent;
@@ -3645,6 +3756,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListSavedQueriesResponse class];
   query.loggingName = @"logging.organizations.locations.savedQueries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsSavedQueriesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_OrganizationsLocationsSavedQueriesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_SavedQuery class];
+  query.loggingName = @"logging.organizations.locations.savedQueries.patch";
   return query;
 }
 
@@ -4635,7 +4773,7 @@
 
 @implementation GTLRLoggingQuery_ProjectsLocationsRecentQueriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -4698,6 +4836,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_ProjectsLocationsSavedQueriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_ProjectsLocationsSavedQueriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_SavedQuery class];
+  query.loggingName = @"logging.projects.locations.savedQueries.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_ProjectsLocationsSavedQueriesList
 
 @dynamic pageSize, pageToken, parent;
@@ -4712,6 +4869,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListSavedQueriesResponse class];
   query.loggingName = @"logging.projects.locations.savedQueries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsSavedQueriesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_SavedQuery *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_ProjectsLocationsSavedQueriesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_SavedQuery class];
+  query.loggingName = @"logging.projects.locations.savedQueries.patch";
   return query;
 }
 

@@ -232,6 +232,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_ExternalAddress_State_Updat
 // GTLRVMwareEngine_Hcx.state
 
 /**
+ *  The appliance is being activated.
+ *
+ *  Value: "ACTIVATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Hcx_State_Activating;
+/**
  *  The appliance is operational and can be used.
  *
  *  Value: "ACTIVE"
@@ -464,6 +470,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Network_Type_TypeUnspecifie
  *  Value: "DELL_POWERSCALE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale;
+/**
+ *  Peering connection used for connecting to Google Cloud NetApp Volumes.
+ *
+ *  Value: "GOOGLE_CLOUD_NETAPP_VOLUMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudNetappVolumes;
 /**
  *  Peering connection used for connecting to NetApp Cloud Volumes.
  *
@@ -1640,6 +1652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  Output only. The state of the appliance.
  *
  *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_Hcx_State_Activating The appliance is being
+ *        activated. (Value: "ACTIVATING")
  *    @arg @c kGTLRVMwareEngine_Hcx_State_Active The appliance is operational
  *        and can be used. (Value: "ACTIVE")
  *    @arg @c kGTLRVMwareEngine_Hcx_State_Creating The appliance is being
@@ -2752,6 +2766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale
  *        Peering connection used for connecting to Dell PowerScale Filers
  *        (Value: "DELL_POWERSCALE")
+ *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudNetappVolumes
+ *        Peering connection used for connecting to Google Cloud NetApp Volumes.
+ *        (Value: "GOOGLE_CLOUD_NETAPP_VOLUMES")
  *    @arg @c kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_NetappCloudVolumes
  *        Peering connection used for connecting to NetApp Cloud Volumes.
  *        (Value: "NETAPP_CLOUD_VOLUMES")

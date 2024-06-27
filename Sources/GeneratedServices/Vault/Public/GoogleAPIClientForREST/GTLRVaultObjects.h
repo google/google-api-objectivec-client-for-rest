@@ -40,6 +40,7 @@
 @class GTLRVault_HangoutsChatInfo;
 @class GTLRVault_HangoutsChatOptions;
 @class GTLRVault_HeldAccount;
+@class GTLRVault_HeldCalendarQuery;
 @class GTLRVault_HeldDriveQuery;
 @class GTLRVault_HeldGroupsQuery;
 @class GTLRVault_HeldHangoutsChatQuery;
@@ -1065,6 +1066,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @interface GTLRVault_CorpusQuery : GTLRObject
 
 /**
+ *  Service-specific options for Calendar holds. If set, **CorpusType** must be
+ *  **CALENDAR**.
+ */
+@property(nonatomic, strong, nullable) GTLRVault_HeldCalendarQuery *calendarQuery;
+
+/**
  *  Service-specific options for Drive holds. If set, **CorpusType** must be
  *  **DRIVE**.
  */
@@ -1528,6 +1535,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 /** Output only. The last name of the account holder. */
 @property(nonatomic, copy, nullable) NSString *lastName;
 
+@end
+
+
+/**
+ *  Options for Calendar holds.
+ */
+@interface GTLRVault_HeldCalendarQuery : GTLRObject
 @end
 
 

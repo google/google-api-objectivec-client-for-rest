@@ -35,6 +35,7 @@
 @class GTLRFirestore_DocumentRemove;
 @class GTLRFirestore_DocumentsTarget;
 @class GTLRFirestore_DocumentTransform;
+@class GTLRFirestore_Empty;
 @class GTLRFirestore_ExecutionStats;
 @class GTLRFirestore_ExecutionStats_DebugStats;
 @class GTLRFirestore_ExistenceFilter;
@@ -50,7 +51,6 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1CmekConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database;
-@class GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
 @class GTLRFirestore_GoogleFirestoreAdminV1FlatIndex;
 @class GTLRFirestore_GoogleFirestoreAdminV1Index;
@@ -294,6 +294,60 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_S
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata.operationState
+
+/**
+ *  Request has finished being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelled;
+/**
+ *  Request is in the process of being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation on the operation.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelling;
+/**
+ *  Request has finished being processed, but encountered an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Failed;
+/**
+ *  Request has been processed and is in its finalization stage.
+ *
+ *  Value: "FINALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Finalizing;
+/**
+ *  Request is being prepared for processing.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Initializing;
+/**
+ *  Unspecified.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_OperationStateUnspecified;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Processing;
+/**
+ *  Request has completed successfully.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Successful;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
 
 /**
@@ -402,7 +456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 // GTLRFirestore_GoogleFirestoreAdminV1Database.type
 
 /**
- *  The default value. This value is used if the database type is omitted.
+ *  Not used.
  *
  *  Value: "DATABASE_TYPE_UNSPECIFIED"
  */
@@ -2175,6 +2229,98 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Metadata for google.longrunning.Operation results from
+ *  FirestoreAdmin.BulkDeleteDocuments.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata : GTLRObject
+
+/** The ids of the collection groups that are being deleted. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
+
+/**
+ *  The time this operation completed. Will be unset if operation still in
+ *  progress.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Which namespace ids are being deleted. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
+
+/**
+ *  The state of the operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelled
+ *        Request has finished being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation. (Value: "CANCELLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelling
+ *        Request is in the process of being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation on the operation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Failed
+ *        Request has finished being processed, but encountered an error.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Finalizing
+ *        Request has been processed and is in its finalization stage. (Value:
+ *        "FINALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Initializing
+ *        Request is being prepared for processing. (Value: "INITIALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_OperationStateUnspecified
+ *        Unspecified. (Value: "OPERATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Successful
+ *        Request has completed successfully. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *operationState;
+
+/** The progress, in bytes, of this operation. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Progress *progressBytes;
+
+/** The progress, in documents, of this operation. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Progress *progressDocuments;
+
+/**
+ *  The timestamp that corresponds to the version of the database that is being
+ *  read to get the list of documents to delete. This time can also be used as
+ *  the timestamp of PITR in case of disaster recovery (subject to PITR window
+ *  limit).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
+
+/** The time this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The request for FirestoreAdmin.BulkDeleteDocuments. When both collection_ids
+ *  and namespace_ids are set, only documents satisfying both conditions will be
+ *  deleted. Requests with namespace_ids and collection_ids both empty will be
+ *  rejected. Please use FirestoreAdmin.DeleteDatabase instead.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest : GTLRObject
+
+/**
+ *  Optional. IDs of the collection groups to delete. Unspecified means all
+ *  collection groups. Each collection group in this list must be unique.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
+
+/**
+ *  Optional. Namespaces to delete. An empty list means all namespaces. This is
+ *  the recommended usage for databases that don't use namespaces. An empty
+ *  string element represents the default namespace. This should be used if the
+ *  database has data in non-default namespaces, but doesn't want to delete from
+ *  them. Each namespace in this list must be unique.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
+
+@end
+
+
+/**
  *  The CMEK (Customer Managed Encryption Key) configuration for a Firestore
  *  database. If not present, the database is secured by the default Google
  *  encryption key.
@@ -2368,8 +2514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatabaseTypeUnspecified
- *        The default value. This value is used if the database type is omitted.
- *        (Value: "DATABASE_TYPE_UNSPECIFIED")
+ *        Not used. (Value: "DATABASE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatastoreMode
  *        Firestore in Datastore Mode. (Value: "DATASTORE_MODE")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_FirestoreNative
@@ -2395,25 +2540,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  period is 1 hour.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *versionRetentionPeriod;
-
-@end
-
-
-/**
- *  A consistent snapshot of a database at a specific point in time.
- */
-@interface GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot : GTLRObject
-
-/**
- *  Required. A name of the form `projects/{project_id}/databases/{database_id}`
- */
-@property(nonatomic, copy, nullable) NSString *database;
-
-/**
- *  Required. The timestamp at which the database snapshot is taken. The
- *  requested timestamp must be a whole minute within the PITR window.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
 @end
 
@@ -2569,21 +2695,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1IndexConfig *indexConfig;
 
 /**
- *  Required. A field name of the form
+ *  Required. A field name of the form:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
- *  A field path may be a simple field name, e.g. `address` or a path to fields
- *  within map_value , e.g. `address.city`, or a special field path. The only
- *  valid special field is `*`, which represents any field. Field paths may be
- *  quoted using ` (backtick). The only character that needs to be escaped
+ *  A field path can be a simple field name, e.g. `address` or a path to fields
+ *  within `map_value` , e.g. `address.city`, or a special field path. The only
+ *  valid special field is `*`, which represents any field. Field paths can be
+ *  quoted using `` ` `` (backtick). The only character that must be escaped
  *  within a quoted field path is the backtick character itself, escaped using a
  *  backslash. Special characters in field paths that must be quoted include:
- *  `*`, `.`, ``` (backtick), `[`, `]`, as well as any ascii symbolic
- *  characters. Examples: (Note: Comments here are written in markdown syntax,
- *  so there is an additional layer of backticks to represent a code block)
- *  `\\`address.city\\`` represents a field named `address.city`, not the map
- *  key `city` in the field `address`. `\\`*\\`` represents a field named `*`,
- *  not any field. A special `Field` contains the default indexing settings for
- *  all fields. This field's resource name is:
+ *  `*`, `.`, `` ` `` (backtick), `[`, `]`, as well as any ascii symbolic
+ *  characters. Examples: `` `address.city` `` represents a field named
+ *  `address.city`, not the map key `city` in the field `address`. `` `*` ``
+ *  represents a field named `*`, not any field. A special `Field` contains the
+ *  default indexing settings for all fields. This field's resource name is:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
  *  *` Indexes defined on this `Field` will be applied to all fields which do
  *  not have their own `Field` index configuration.
@@ -3241,11 +3365,24 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
- *  Database snapshot to restore from. The source database must exist and have
- *  enabled PITR. The restored database will be created in the same location as
- *  the source database.
+ *  Use Customer Managed Encryption Keys (CMEK) for encryption. Only keys in the
+ *  same location as this database are allowed to be used for encryption. For
+ *  Firestore's nam5 multi-region, this corresponds to Cloud KMS multi-region
+ *  us. For Firestore's eur3 multi-region, this corresponds to Cloud KMS
+ *  multi-region europe. See https://cloud.google.com/kms/docs/locations. The
+ *  expected format is
+ *  `projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
  */
-@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot *databaseSnapshot;
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  The restored database will use the same encryption configuration as the
+ *  backup. This is the default option when no `encryption_config` is specified.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_Empty *useBackupEncryption;
+
+/** Use Google default encryption. */
+@property(nonatomic, strong, nullable) GTLRFirestore_Empty *useGoogleDefaultEncryption;
 
 @end
 

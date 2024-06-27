@@ -9,8 +9,9 @@
 #import <GoogleAPIClientForREST/GTLRFactCheckTools.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeFactCheckTools              = @"https://www.googleapis.com/auth/factchecktools";
 NSString * const kGTLRAuthScopeFactCheckToolsUserinfoEmail = @"https://www.googleapis.com/auth/userinfo.email";
 
 // ----------------------------------------------------------------------------

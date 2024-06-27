@@ -74,6 +74,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AIPlatformNotebooks"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AirQuality",
+            targets: ["GoogleAPIClientForREST_AirQuality"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AlertCenter",
             targets: ["GoogleAPIClientForREST_AlertCenter"]
         ),
@@ -124,6 +128,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_ApiKeysService",
             targets: ["GoogleAPIClientForREST_ApiKeysService"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_APIManagement",
+            targets: ["GoogleAPIClientForREST_APIManagement"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Appengine",
@@ -766,6 +774,14 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_MapsPlaces"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Meet",
+            targets: ["GoogleAPIClientForREST_Meet"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Merchant",
+            targets: ["GoogleAPIClientForREST_Merchant"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_MigrationCenterAPI",
             targets: ["GoogleAPIClientForREST_MigrationCenterAPI"]
         ),
@@ -872,6 +888,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_PolicyTroubleshooter",
             targets: ["GoogleAPIClientForREST_PolicyTroubleshooter"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Pollen",
+            targets: ["GoogleAPIClientForREST_Pollen"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PolyService",
@@ -1260,6 +1280,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_AirQuality",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AirQuality",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_AlertCenter",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AlertCenter",
@@ -1335,6 +1361,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_ApiKeysService",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/ApiKeysService",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_APIManagement",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/APIManagement",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2298,6 +2330,18 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_Meet",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Meet",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Merchant",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Merchant",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_MigrationCenterAPI",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/MigrationCenterAPI",
@@ -2457,6 +2501,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_PolicyTroubleshooter",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/PolicyTroubleshooter",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Pollen",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Pollen",
             publicHeadersPath: "Public"
         ),
         .target(

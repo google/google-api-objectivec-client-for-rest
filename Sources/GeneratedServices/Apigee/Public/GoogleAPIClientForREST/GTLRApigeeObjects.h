@@ -2174,7 +2174,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Configuration for the Advanced API Ops add-on. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig *advancedApiOpsConfig;
 
-/** Configuration for the Analytics add-on. */
+/**
+ *  Configuration for the Analytics add-on. Only used in
+ *  organizations.environments.addonsConfig.
+ */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig *analyticsConfig;
 
 /** Configuration for the API Security add-on. */
@@ -6626,8 +6629,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  To change this message, in the same CL add a change log in
- *  go/changing-api-proto-breaks-ui
+ *  GTLRApigee_GoogleCloudApigeeV1ListApiProxiesResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListApiProxiesResponse : GTLRObject
 
@@ -7289,8 +7291,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  To change this message, in the same CL add a change log in
- *  go/changing-api-proto-breaks-ui
+ *  GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse : GTLRObject
 

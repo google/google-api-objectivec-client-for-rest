@@ -128,6 +128,33 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesBulkDeleteDocuments
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:bulkDeleteDocuments";
+  GTLRFirestoreQuery_ProjectsDatabasesBulkDeleteDocuments *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.bulkDeleteDocuments";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsGet
 
 @dynamic name;

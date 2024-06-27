@@ -210,6 +210,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFcmdata_GoogleFirebaseFcmDataV1beta1MessageOutcomePercents : GTLRObject
 
 /**
+ *  The percentage of accepted messages that were
+ *  [collapsed](https://firebase.google.com/docs/cloud-messaging/concept-options#collapsible_and_non-collapsible_messages)
+ *  by another message.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *collapsed;
+
+/**
  *  The percentage of all accepted messages that were successfully delivered to
  *  the device.
  *
@@ -253,6 +262,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *droppedTooManyPendingMessages;
 
 /**
+ *  The percentage of accepted messages that expired because [Time To Live
+ *  (TTL)](https://firebase.google.com/docs/cloud-messaging/concept-options#ttl)
+ *  elapsed before the target device reconnected.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *droppedTtlExpired;
+
+/**
  *  The percentage of messages accepted on this day that were not dropped and
  *  not delivered, due to the device being disconnected (as of the end of the
  *  America/Los_Angeles day when the message was sent to FCM). A portion of
@@ -267,8 +285,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Additional information about proxy notification delivery. All percentages
- *  are calculated with countNotificationsAccepted as the denominator.
+ *  Additional information about [proxy
+ *  notification](https://firebase.google.com/docs/cloud-messaging/android/message-priority#proxy)
+ *  delivery. All percentages are calculated with countNotificationsAccepted as
+ *  the denominator.
  */
 @interface GTLRFcmdata_GoogleFirebaseFcmDataV1beta1ProxyNotificationInsightPercents : GTLRObject
 

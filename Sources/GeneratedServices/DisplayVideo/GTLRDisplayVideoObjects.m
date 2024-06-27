@@ -1648,6 +1648,14 @@ NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_InsertionOr
 NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_OverTheTop = @"OVER_THE_TOP";
 NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb = @"RTB";
 
+// GTLRDisplayVideo_InsertionOrder.optimizationObjective
+NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_BrandAwareness = @"BRAND_AWARENESS";
+NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Click = @"CLICK";
+NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Conversion = @"CONVERSION";
+NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Custom = @"CUSTOM";
+NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_NoObjective = @"NO_OBJECTIVE";
+NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_OptimizationObjectiveUnspecified = @"OPTIMIZATION_OBJECTIVE_UNSPECIFIED";
+
 // GTLRDisplayVideo_InsertionOrder.reservationType
 NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeInstantReserve = @"RESERVATION_TYPE_INSTANT_RESERVE";
 NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeNotGuaranteed = @"RESERVATION_TYPE_NOT_GUARANTEED";
@@ -4870,8 +4878,8 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 @implementation GTLRDisplayVideo_InsertionOrder
 @dynamic advertiserId, bidStrategy, budget, campaignId, displayName,
          entityStatus, frequencyCap, insertionOrderId, insertionOrderType,
-         integrationDetails, kpi, name, pacing, partnerCosts, reservationType,
-         updateTime;
+         integrationDetails, kpi, name, optimizationObjective, pacing,
+         partnerCosts, reservationType, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

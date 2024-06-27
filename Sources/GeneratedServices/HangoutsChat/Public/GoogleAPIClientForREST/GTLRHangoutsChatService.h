@@ -27,6 +27,41 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: Delete conversations and spaces owned by your
+ *  organization and remove access to associated files in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.delete"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminDelete;
+/**
+ *  Authorization scope: View, add, update and remove members and managers in
+ *  conversations owned by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.memberships"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminMemberships;
+/**
+ *  Authorization scope: View members and managers in conversations owned by
+ *  your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.memberships.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminMembershipsReadonly;
+/**
+ *  Authorization scope: View or edit display name, description, and other
+ *  metadata for all Google Chat conversations owned by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.spaces"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminSpaces;
+/**
+ *  Authorization scope: View display name, description, and other metadata for
+ *  all Google Chat conversations owned by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.spaces.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminSpacesReadonly;
+/**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/chat.bot
  *

@@ -1699,13 +1699,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  The request processing latency on the server, from the time the request was
- *  received until the response was sent.
+ *  received until the response was sent. For WebSocket connections, this field
+ *  refers to the entire time duration of the connection.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *latency;
 
-/**
- *  Protocol used for the request. Examples: "HTTP/1.1", "HTTP/2", "websocket"
- */
+/** Protocol used for the request. Examples: "HTTP/1.1", "HTTP/2" */
 @property(nonatomic, copy, nullable) NSString *protocol;
 
 /**

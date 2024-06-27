@@ -380,6 +380,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular;
 
 // ----------------------------------------------------------------------------
+// GTLRAccessContextManager_SupportedService.serviceSupportStage
+
+/**
+ *  Deprecated features are scheduled to be shut down and removed.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Deprecated;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Ga;
+/**
+ *  PREVIEW indicates a pre-release stage where the product is functionally
+ *  complete but undergoing real-world testing.
+ *
+ *  Value: "PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Preview;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "SERVICE_SUPPORT_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_ServiceSupportStageUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAccessContextManager_SupportedService.supportStage
 
 /**
@@ -472,7 +502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name for the `AccessLevel`. Format:
+ *  Identifier. Resource name for the `AccessLevel`. Format:
  *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
  *  `access_level` component must begin with a letter, followed by alphanumeric
  *  characters or `_`. Its maximum length is 50 characters. After you create an
@@ -498,13 +528,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 /**
  *  Output only. An opaque identifier for the current version of the
  *  `AccessPolicy`. This will always be a strongly validated etag, meaning that
- *  two Access Polices will be identical if and only if their etags are
+ *  two Access Policies will be identical if and only if their etags are
  *  identical. Clients should not expect this to be in any specific format.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Resource name of the `AccessPolicy`. Format:
+ *  Output only. Identifier. Resource name of the `AccessPolicy`. Format:
  *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -701,7 +731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *authorizationType;
 
 /**
- *  Resource name for the `AuthorizedOrgsDesc`. Format:
+ *  Identifier. Resource name for the `AuthorizedOrgsDesc`. Format:
  *  `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
  *  The `authorized_orgs_desc` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
@@ -1974,7 +2004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name for the `ServicePerimeter`. Format:
+ *  Identifier. Resource name for the `ServicePerimeter`. Format:
  *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
  *  `service_perimeter` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
@@ -2187,6 +2217,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  `service.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The support stage of the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. (Value:
+ *        "DEPRECATED")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Ga
+ *        GA features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Preview
+ *        PREVIEW indicates a pre-release stage where the product is
+ *        functionally complete but undergoing real-world testing. (Value:
+ *        "PREVIEW")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_ServiceSupportStageUnspecified
+ *        Do not use this default value. (Value:
+ *        "SERVICE_SUPPORT_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceSupportStage;
 
 /**
  *  The list of the supported methods. This field exists only in response to

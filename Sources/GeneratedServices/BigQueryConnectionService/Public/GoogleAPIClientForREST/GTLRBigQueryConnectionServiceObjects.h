@@ -550,7 +550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
  */
 @interface GTLRBigQueryConnectionService_ConnectorConfiguration : GTLRObject
 
-/** Optional. Data asset. */
+/** Data asset. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationAsset *asset;
 
 /** Client authentication. */
@@ -579,7 +579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
  */
 @interface GTLRBigQueryConnectionService_ConnectorConfigurationAsset : GTLRObject
 
-/** Optional. Name of the database. */
+/** Name of the database. */
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
@@ -596,6 +596,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
  *  Client authentication.
  */
 @interface GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication : GTLRObject
+
+/**
+ *  Output only. Google-managed service account associated with this connection,
+ *  e.g.,
+ *  `service-{project_number}\@gcp-sa-bigqueryconnection.iam.gserviceaccount.com`.
+ *  BigQuery jobs using this connection will act as `service_account` identity
+ *  while connecting to the datasource.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /** Username/password authentication. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword *usernamePassword;

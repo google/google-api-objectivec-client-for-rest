@@ -414,6 +414,294 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
+ *  Creates an add-on attachment under a post. Requires the add-on to have
+ *  permission to create new attachments on the post. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.announcements.addOnAttachments.create
+ */
+@interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsCreate : GTLRClassroomQuery
+
+/**
+ *  Optional. Token that authorizes the request. The token is passed as a query
+ *  parameter when the user is redirected from Classroom to the add-on's URL.
+ *  This authorization token is required for in-Classroom attachment creation
+ *  but optional for partner-first attachment creation. Returns an error if not
+ *  provided for partner-first attachment creation and the developer projects
+ *  that created the attachment and its parent stream item do not match.
+ */
+@property(nonatomic, copy, nullable) NSString *addOnToken;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which to create the attachment. This field is required, but is not marked as
+ *  such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Creates an add-on attachment under a post. Requires the add-on to have
+ *  permission to create new attachments on the post. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which to create the attachment. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId;
+
+@end
+
+/**
+ *  Deletes an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.announcements.addOnAttachments.delete
+ */
+@interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsDelete : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns an add-on attachment. Requires the add-on requesting the attachment
+ *  to be the original creator of the attachment. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.announcements.addOnAttachments.get
+ */
+@interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsGet : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Returns an add-on attachment. Requires the add-on requesting the attachment
+ *  to be the original creator of the attachment. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns all attachments created by an add-on under the post. Requires the
+ *  add-on to have active attachments on the post or have permission to create
+ *  new attachments on the post. This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.announcements.addOnAttachments.list
+ */
+@interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsList : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial whose
+ *  attachments should be enumerated. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  The maximum number of attachments to return. The service may return fewer
+ *  than this value. If unspecified, at most 20 attachments will be returned.
+ *  The maximum value is 20; values above 20 will be coerced to 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAddOnAttachments` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListAddOnAttachments` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Identifier of the post under the course whose attachments to
+ *  enumerate. Deprecated, use item_id instead.
+ */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListAddOnAttachmentsResponse.
+ *
+ *  Returns all attachments created by an add-on under the post. Requires the
+ *  add-on to have active attachments on the post or have permission to create
+ *  new attachments on the post. This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial whose attachments should be enumerated. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId;
+
+@end
+
+/**
+ *  Updates an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.announcements.addOnAttachments.patch
+ */
+@interface GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsPatch : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Identifier of the post under which the attachment is attached. */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Required. Identifier of the post under which the attachment is attached.
+ */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Required. Mask that identifies which fields on the attachment to update. The
+ *  update fails if invalid fields are specified. If a field supports empty
+ *  values, it can be cleared by specifying it in the update mask and not in the
+ *  `AddOnAttachment` object. If a field that does not support empty values is
+ *  included in the update mask and not set in the `AddOnAttachment` object, an
+ *  `INVALID_ARGUMENT` error is returned. The following fields may be specified
+ *  by teachers: * `title` * `teacher_view_uri` * `student_view_uri` *
+ *  `student_work_review_uri` * `due_date` * `due_time` * `max_points`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Updates an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the post under which the attachment is attached.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId
+                   attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
  *  Creates an announcement. This method returns the following error codes: *
  *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
  *  requested course, create announcements in the requested course, share a
@@ -559,6 +847,73 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                        identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Gets metadata for Classroom add-ons in the context of a specific post. To
+ *  maintain the integrity of its own data and permissions model, an add-on
+ *  should call this to validate query parameters and the requesting user's role
+ *  whenever the add-on is opened in an
+ *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  Method: classroom.courses.announcements.getAddOnContext
+ */
+@interface GTLRClassroomQuery_CoursesAnnouncementsGetAddOnContext : GTLRClassroomQuery
+
+/**
+ *  Optional. Token that authorizes the request. The token is passed as a query
+ *  parameter when the user is redirected from Classroom to the add-on's URL.
+ *  The authorization token is required when neither of the following is true: *
+ *  The add-on has attachments on the post. * The developer project issuing the
+ *  request is the same project that created the post.
+ */
+@property(nonatomic, copy, nullable) NSString *addOnToken;
+
+/**
+ *  Optional. The identifier of the attachment. This field is required for
+ *  student users and optional for teacher users. If not provided in the student
+ *  case, an error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnContext.
+ *
+ *  Gets metadata for Classroom add-ons in the context of a specific post. To
+ *  maintain the integrity of its own data and permissions model, an add-on
+ *  should call this to validate query parameters and the requesting user's role
+ *  whenever the add-on is opened in an
+ *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesAnnouncementsGetAddOnContext
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId;
 
 @end
 
@@ -771,6 +1126,421 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
+ *  Creates an add-on attachment under a post. Requires the add-on to have
+ *  permission to create new attachments on the post. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWork.addOnAttachments.create
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsCreate : GTLRClassroomQuery
+
+/**
+ *  Optional. Token that authorizes the request. The token is passed as a query
+ *  parameter when the user is redirected from Classroom to the add-on's URL.
+ *  This authorization token is required for in-Classroom attachment creation
+ *  but optional for partner-first attachment creation. Returns an error if not
+ *  provided for partner-first attachment creation and the developer projects
+ *  that created the attachment and its parent stream item do not match.
+ */
+@property(nonatomic, copy, nullable) NSString *addOnToken;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which to create the attachment. This field is required, but is not marked as
+ *  such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Creates an add-on attachment under a post. Requires the add-on to have
+ *  permission to create new attachments on the post. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which to create the attachment. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId;
+
+@end
+
+/**
+ *  Deletes an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.courseWork.addOnAttachments.delete
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsDelete : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns an add-on attachment. Requires the add-on requesting the attachment
+ *  to be the original creator of the attachment. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWork.addOnAttachments.get
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsGet : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Returns an add-on attachment. Requires the add-on requesting the attachment
+ *  to be the original creator of the attachment. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns all attachments created by an add-on under the post. Requires the
+ *  add-on to have active attachments on the post or have permission to create
+ *  new attachments on the post. This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.courseWork.addOnAttachments.list
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsList : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial whose
+ *  attachments should be enumerated. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  The maximum number of attachments to return. The service may return fewer
+ *  than this value. If unspecified, at most 20 attachments will be returned.
+ *  The maximum value is 20; values above 20 will be coerced to 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAddOnAttachments` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListAddOnAttachments` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Identifier of the post under the course whose attachments to
+ *  enumerate. Deprecated, use item_id instead.
+ */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListAddOnAttachmentsResponse.
+ *
+ *  Returns all attachments created by an add-on under the post. Requires the
+ *  add-on to have active attachments on the post or have permission to create
+ *  new attachments on the post. This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial whose attachments should be enumerated. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId;
+
+@end
+
+/**
+ *  Updates an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.courseWork.addOnAttachments.patch
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsPatch : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Identifier of the post under which the attachment is attached. */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Required. Identifier of the post under which the attachment is attached.
+ */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Required. Mask that identifies which fields on the attachment to update. The
+ *  update fails if invalid fields are specified. If a field supports empty
+ *  values, it can be cleared by specifying it in the update mask and not in the
+ *  `AddOnAttachment` object. If a field that does not support empty values is
+ *  included in the update mask and not set in the `AddOnAttachment` object, an
+ *  `INVALID_ARGUMENT` error is returned. The following fields may be specified
+ *  by teachers: * `title` * `teacher_view_uri` * `student_view_uri` *
+ *  `student_work_review_uri` * `due_date` * `due_time` * `max_points`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Updates an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the post under which the attachment is attached.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId
+                   attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns a student submission for an add-on attachment. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWork.addOnAttachments.studentSubmissions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsGet : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/** Required. Identifier of the student’s submission. */
+@property(nonatomic, copy, nullable) NSString *submissionId;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachmentStudentSubmission.
+ *
+ *  Returns a student submission for an add-on attachment. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *  @param submissionId Required. Identifier of the student’s submission.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId
+                     submissionId:(NSString *)submissionId;
+
+@end
+
+/**
+ *  Updates data associated with an add-on attachment submission. Requires the
+ *  add-on to have been the original creator of the attachment and the
+ *  attachment to have a positive `max_points` value set. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWork.addOnAttachments.studentSubmissions.patch
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsPatch : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/** Required. Identifier of the student's submission. */
+@property(nonatomic, copy, nullable) NSString *submissionId;
+
+/**
+ *  Required. Mask that identifies which fields on the attachment to update. The
+ *  update fails if invalid fields are specified. If a field supports empty
+ *  values, it can be cleared by specifying it in the update mask and not in the
+ *  `AddOnAttachmentStudentSubmission` object. The following fields may be
+ *  specified by teachers: * `points_earned`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachmentStudentSubmission.
+ *
+ *  Updates data associated with an add-on attachment submission. Requires the
+ *  add-on to have been the original creator of the attachment and the
+ *  attachment to have a positive `max_points` value set. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachmentStudentSubmission to
+ *    include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *  @param submissionId Required. Identifier of the student's submission.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsStudentSubmissionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachmentStudentSubmission *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId
+                   attachmentId:(NSString *)attachmentId
+                   submissionId:(NSString *)submissionId;
+
+@end
+
+/**
  *  Creates course work. The resulting course work (and corresponding student
  *  submissions) are associated with the Developer Console project of the [OAuth
  *  client ID](https://support.google.com/cloud/answer/6158849) used to make the
@@ -932,6 +1702,73 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
+ *  Gets metadata for Classroom add-ons in the context of a specific post. To
+ *  maintain the integrity of its own data and permissions model, an add-on
+ *  should call this to validate query parameters and the requesting user's role
+ *  whenever the add-on is opened in an
+ *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWork.getAddOnContext
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkGetAddOnContext : GTLRClassroomQuery
+
+/**
+ *  Optional. Token that authorizes the request. The token is passed as a query
+ *  parameter when the user is redirected from Classroom to the add-on's URL.
+ *  The authorization token is required when neither of the following is true: *
+ *  The add-on has attachments on the post. * The developer project issuing the
+ *  request is the same project that created the post.
+ */
+@property(nonatomic, copy, nullable) NSString *addOnToken;
+
+/**
+ *  Optional. The identifier of the attachment. This field is required for
+ *  student users and optional for teacher users. If not provided in the student
+ *  case, an error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnContext.
+ *
+ *  Gets metadata for Classroom add-ons in the context of a specific post. To
+ *  maintain the integrity of its own data and permissions model, an add-on
+ *  should call this to validate query parameters and the requesting user's role
+ *  whenever the add-on is opened in an
+ *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkGetAddOnContext
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId;
+
+@end
+
+/**
  *  Returns a list of course work that the requester is permitted to view.
  *  Course students may only view `PUBLISHED` course work. Course teachers and
  *  domain administrators may view all course work. This method returns the
@@ -1021,6 +1858,294 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *        information.
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Creates an add-on attachment under a post. Requires the add-on to have
+ *  permission to create new attachments on the post. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.create
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsCreate : GTLRClassroomQuery
+
+/**
+ *  Optional. Token that authorizes the request. The token is passed as a query
+ *  parameter when the user is redirected from Classroom to the add-on's URL.
+ *  This authorization token is required for in-Classroom attachment creation
+ *  but optional for partner-first attachment creation. Returns an error if not
+ *  provided for partner-first attachment creation and the developer projects
+ *  that created the attachment and its parent stream item do not match.
+ */
+@property(nonatomic, copy, nullable) NSString *addOnToken;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which to create the attachment. This field is required, but is not marked as
+ *  such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Creates an add-on attachment under a post. Requires the add-on to have
+ *  permission to create new attachments on the post. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which to create the attachment. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId;
+
+@end
+
+/**
+ *  Deletes an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.delete
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsDelete : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns an add-on attachment. Requires the add-on requesting the attachment
+ *  to be the original creator of the attachment. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.get
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsGet : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Returns an add-on attachment. Requires the add-on requesting the attachment
+ *  to be the original creator of the attachment. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns all attachments created by an add-on under the post. Requires the
+ *  add-on to have active attachments on the post or have permission to create
+ *  new attachments on the post. This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.list
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsList : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial whose
+ *  attachments should be enumerated. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  The maximum number of attachments to return. The service may return fewer
+ *  than this value. If unspecified, at most 20 attachments will be returned.
+ *  The maximum value is 20; values above 20 will be coerced to 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAddOnAttachments` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListAddOnAttachments` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Identifier of the post under the course whose attachments to
+ *  enumerate. Deprecated, use item_id instead.
+ */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListAddOnAttachmentsResponse.
+ *
+ *  Returns all attachments created by an add-on under the post. Requires the
+ *  add-on to have active attachments on the post or have permission to create
+ *  new attachments on the post. This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial whose attachments should be enumerated. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId;
+
+@end
+
+/**
+ *  Updates an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.addOnAttachments.patch
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsPatch : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Identifier of the post under which the attachment is attached. */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Required. Identifier of the post under which the attachment is attached.
+ */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Required. Mask that identifies which fields on the attachment to update. The
+ *  update fails if invalid fields are specified. If a field supports empty
+ *  values, it can be cleared by specifying it in the update mask and not in the
+ *  `AddOnAttachment` object. If a field that does not support empty values is
+ *  included in the update mask and not set in the `AddOnAttachment` object, an
+ *  `INVALID_ARGUMENT` error is returned. The following fields may be specified
+ *  by teachers: * `title` * `teacher_view_uri` * `student_view_uri` *
+ *  `student_work_review_uri` * `due_date` * `due_time` * `max_points`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Updates an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the post under which the attachment is attached.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         itemId:(NSString *)itemId
+                   attachmentId:(NSString *)attachmentId;
 
 @end
 
@@ -1171,6 +2296,73 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                        identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Gets metadata for Classroom add-ons in the context of a specific post. To
+ *  maintain the integrity of its own data and permissions model, an add-on
+ *  should call this to validate query parameters and the requesting user's role
+ *  whenever the add-on is opened in an
+ *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.getAddOnContext
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsGetAddOnContext : GTLRClassroomQuery
+
+/**
+ *  Optional. Token that authorizes the request. The token is passed as a query
+ *  parameter when the user is redirected from Classroom to the add-on's URL.
+ *  The authorization token is required when neither of the following is true: *
+ *  The add-on has attachments on the post. * The developer project issuing the
+ *  request is the same project that created the post.
+ */
+@property(nonatomic, copy, nullable) NSString *addOnToken;
+
+/**
+ *  Optional. The identifier of the attachment. This field is required for
+ *  student users and optional for teacher users. If not provided in the student
+ *  case, an error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnContext.
+ *
+ *  Gets metadata for Classroom add-ons in the context of a specific post. To
+ *  maintain the integrity of its own data and permissions model, an add-on
+ *  should call this to validate query parameters and the requesting user's role
+ *  whenever the add-on is opened in an
+ *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param itemId Identifier of the announcement, courseWork, or
+ *    courseWorkMaterial under which the attachment is attached. This field is
+ *    required, but is not marked as such while we are migrating from post_id.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsGetAddOnContext
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           itemId:(NSString *)itemId;
 
 @end
 
@@ -2287,6 +3479,476 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  */
 + (instancetype)queryWithObject:(GTLRClassroom_Course *)object
                      identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Creates an add-on attachment under a post. Requires the add-on to have
+ *  permission to create new attachments on the post. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.posts.addOnAttachments.create
+ */
+@interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsCreate : GTLRClassroomQuery
+
+/**
+ *  Optional. Token that authorizes the request. The token is passed as a query
+ *  parameter when the user is redirected from Classroom to the add-on's URL.
+ *  This authorization token is required for in-Classroom attachment creation
+ *  but optional for partner-first attachment creation. Returns an error if not
+ *  provided for partner-first attachment creation and the developer projects
+ *  that created the attachment and its parent stream item do not match.
+ */
+@property(nonatomic, copy, nullable) NSString *addOnToken;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which to create the attachment. This field is required, but is not marked as
+ *  such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Creates an add-on attachment under a post. Requires the add-on to have
+ *  permission to create new attachments on the post. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param postId Optional. Deprecated, use item_id instead.
+ *
+ *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         postId:(NSString *)postId;
+
+@end
+
+/**
+ *  Deletes an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.posts.addOnAttachments.delete
+ */
+@interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsDelete : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns an add-on attachment. Requires the add-on requesting the attachment
+ *  to be the original creator of the attachment. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.posts.addOnAttachments.get
+ */
+@interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsGet : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Returns an add-on attachment. Requires the add-on requesting the attachment
+ *  to be the original creator of the attachment. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId
+                     attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns all attachments created by an add-on under the post. Requires the
+ *  add-on to have active attachments on the post or have permission to create
+ *  new attachments on the post. This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.posts.addOnAttachments.list
+ */
+@interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsList : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial whose
+ *  attachments should be enumerated. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  The maximum number of attachments to return. The service may return fewer
+ *  than this value. If unspecified, at most 20 attachments will be returned.
+ *  The maximum value is 20; values above 20 will be coerced to 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAddOnAttachments` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListAddOnAttachments` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Identifier of the post under the course whose attachments to
+ *  enumerate. Deprecated, use item_id instead.
+ */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListAddOnAttachmentsResponse.
+ *
+ *  Returns all attachments created by an add-on under the post. Requires the
+ *  add-on to have active attachments on the post or have permission to create
+ *  new attachments on the post. This method returns the following error codes:
+ *  * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param postId Optional. Identifier of the post under the course whose
+ *    attachments to enumerate. Deprecated, use item_id instead.
+ *
+ *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId;
+
+@end
+
+/**
+ *  Updates an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  Method: classroom.courses.posts.addOnAttachments.patch
+ */
+@interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsPatch : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Identifier of the post under which the attachment is attached. */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Required. Identifier of the post under which the attachment is attached.
+ */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Required. Mask that identifies which fields on the attachment to update. The
+ *  update fails if invalid fields are specified. If a field supports empty
+ *  values, it can be cleared by specifying it in the update mask and not in the
+ *  `AddOnAttachment` object. If a field that does not support empty values is
+ *  included in the update mask and not set in the `AddOnAttachment` object, an
+ *  `INVALID_ARGUMENT` error is returned. The following fields may be specified
+ *  by teachers: * `title` * `teacher_view_uri` * `student_view_uri` *
+ *  `student_work_review_uri` * `due_date` * `due_time` * `max_points`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachment.
+ *
+ *  Updates an add-on attachment. Requires the add-on to have been the original
+ *  creator of the attachment. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if one of the identified resources does not
+ *  exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param postId Required. Identifier of the post under which the attachment is
+ *    attached.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *
+ *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachment *)object
+                       courseId:(NSString *)courseId
+                         postId:(NSString *)postId
+                   attachmentId:(NSString *)attachmentId;
+
+@end
+
+/**
+ *  Returns a student submission for an add-on attachment. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.posts.addOnAttachments.studentSubmissions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsGet : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/** Required. Identifier of the student’s submission. */
+@property(nonatomic, copy, nullable) NSString *submissionId;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachmentStudentSubmission.
+ *
+ *  Returns a student submission for an add-on attachment. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *  @param submissionId Required. Identifier of the student’s submission.
+ *
+ *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId
+                     attachmentId:(NSString *)attachmentId
+                     submissionId:(NSString *)submissionId;
+
+@end
+
+/**
+ *  Updates data associated with an add-on attachment submission. Requires the
+ *  add-on to have been the original creator of the attachment and the
+ *  attachment to have a positive `max_points` value set. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  Method: classroom.courses.posts.addOnAttachments.studentSubmissions.patch
+ */
+@interface GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsPatch : GTLRClassroomQuery
+
+/** Required. Identifier of the attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/** Required. Identifier of the student's submission. */
+@property(nonatomic, copy, nullable) NSString *submissionId;
+
+/**
+ *  Required. Mask that identifies which fields on the attachment to update. The
+ *  update fails if invalid fields are specified. If a field supports empty
+ *  values, it can be cleared by specifying it in the update mask and not in the
+ *  `AddOnAttachmentStudentSubmission` object. The following fields may be
+ *  specified by teachers: * `points_earned`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnAttachmentStudentSubmission.
+ *
+ *  Updates data associated with an add-on attachment submission. Requires the
+ *  add-on to have been the original creator of the attachment and the
+ *  attachment to have a positive `max_points` value set. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if one of the
+ *  identified resources does not exist.
+ *
+ *  @param object The @c GTLRClassroom_AddOnAttachmentStudentSubmission to
+ *    include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param attachmentId Required. Identifier of the attachment.
+ *  @param submissionId Required. Identifier of the student's submission.
+ *
+ *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsStudentSubmissionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_AddOnAttachmentStudentSubmission *)object
+                       courseId:(NSString *)courseId
+                         postId:(NSString *)postId
+                   attachmentId:(NSString *)attachmentId
+                   submissionId:(NSString *)submissionId;
+
+@end
+
+/**
+ *  Gets metadata for Classroom add-ons in the context of a specific post. To
+ *  maintain the integrity of its own data and permissions model, an add-on
+ *  should call this to validate query parameters and the requesting user's role
+ *  whenever the add-on is opened in an
+ *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  Method: classroom.courses.posts.getAddOnContext
+ */
+@interface GTLRClassroomQuery_CoursesPostsGetAddOnContext : GTLRClassroomQuery
+
+/**
+ *  Optional. Token that authorizes the request. The token is passed as a query
+ *  parameter when the user is redirected from Classroom to the add-on's URL.
+ *  The authorization token is required when neither of the following is true: *
+ *  The add-on has attachments on the post. * The developer project issuing the
+ *  request is the same project that created the post.
+ */
+@property(nonatomic, copy, nullable) NSString *addOnToken;
+
+/**
+ *  Optional. The identifier of the attachment. This field is required for
+ *  student users and optional for teacher users. If not provided in the student
+ *  case, an error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the announcement, courseWork, or courseWorkMaterial under
+ *  which the attachment is attached. This field is required, but is not marked
+ *  as such while we are migrating from post_id.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/** Optional. Deprecated, use item_id instead. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/**
+ *  Fetches a @c GTLRClassroom_AddOnContext.
+ *
+ *  Gets metadata for Classroom add-ons in the context of a specific post. To
+ *  maintain the integrity of its own data and permissions model, an add-on
+ *  should call this to validate query parameters and the requesting user's role
+ *  whenever the add-on is opened in an
+ *  [iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/iframes-overview).
+ *  This method returns the following error codes: * `PERMISSION_DENIED` for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if one of the identified resources does not exist.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param postId Optional. Deprecated, use item_id instead.
+ *
+ *  @return GTLRClassroomQuery_CoursesPostsGetAddOnContext
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                           postId:(NSString *)postId;
 
 @end
 

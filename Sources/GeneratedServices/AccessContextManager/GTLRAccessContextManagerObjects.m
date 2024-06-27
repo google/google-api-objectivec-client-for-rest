@@ -88,6 +88,12 @@ NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified = @
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge = @"PERIMETER_TYPE_BRIDGE";
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular = @"PERIMETER_TYPE_REGULAR";
 
+// GTLRAccessContextManager_SupportedService.serviceSupportStage
+NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Ga = @"GA";
+NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Preview = @"PREVIEW";
+NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_ServiceSupportStageUnspecified = @"SERVICE_SUPPORT_STAGE_UNSPECIFIED";
+
 // GTLRAccessContextManager_SupportedService.supportStage
 NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Alpha = @"ALPHA";
 NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Beta = @"BETA";
@@ -952,8 +958,8 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_SupportedService
-@dynamic availableOnRestrictedVip, knownLimitations, name, supportedMethods,
-         supportStage, title;
+@dynamic availableOnRestrictedVip, knownLimitations, name, serviceSupportStage,
+         supportedMethods, supportStage, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

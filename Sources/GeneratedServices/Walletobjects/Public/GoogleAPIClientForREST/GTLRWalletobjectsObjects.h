@@ -6830,7 +6830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  Deprecated, use one of explicit hash type fields instead. These two hash
  *  related fields will only be populated on Scotty based media uploads and will
  *  contain the content of the hash group in the NotificationRequest:
- *  http://cs/#google3/uploader/service/proto/upload_listener.proto&q=class:Hash
+ *  http://cs/#google3/blobstore2/api/scotty/service/proto/upload_listener.proto&q=class:Hash
  *  Hex encoded hash value of the uploaded media.
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
@@ -7958,17 +7958,46 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @interface GTLRWalletobjects_Resources : GTLRObject
 
+/** A list of event ticket classes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_EventTicketClass *> *eventTicketClasses;
+
+/** A list of event ticket objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_EventTicketObject *> *eventTicketObjects;
+
+/** A list of flight classes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_FlightClass *> *flightClasses;
+
+/** A list of flight objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_FlightObject *> *flightObjects;
+
+/** A list of generic classes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_GenericClass *> *genericClasses;
+
+/** A list of generic objects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_GenericObject *> *genericObjects;
+
+/** A list of gift card classes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_GiftCardClass *> *giftCardClasses;
+
+/** A list of gift card objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_GiftCardObject *> *giftCardObjects;
+
+/** A list of loyalty classes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LoyaltyClass *> *loyaltyClasses;
+
+/** A list of loyalty objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LoyaltyObject *> *loyaltyObjects;
+
+/** A list of offer classes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_OfferClass *> *offerClasses;
+
+/** A list of offer objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_OfferObject *> *offerObjects;
+
+/** A list of transit classes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TransitClass *> *transitClasses;
+
+/** A list of transit objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TransitObject *> *transitObjects;
 
 @end

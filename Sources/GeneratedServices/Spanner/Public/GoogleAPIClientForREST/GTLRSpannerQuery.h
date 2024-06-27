@@ -344,7 +344,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Lists the supported instance configurations for a given project.
+ *  Lists the supported instance configurations for a given project. Returns
+ *  both Google managed configs and user managed configs.
  *
  *  Method: spanner.projects.instanceConfigs.list
  *
@@ -375,7 +376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_ListInstanceConfigsResponse.
  *
- *  Lists the supported instance configurations for a given project.
+ *  Lists the supported instance configurations for a given project. Returns
+ *  both Google managed configs and user managed configs.
  *
  *  @param parent Required. The name of the project for which a list of
  *    supported instance configurations is requested. Values are of the form
@@ -570,7 +572,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  A unique identifier for the instance configuration. Values are of the form
- *  `projects//instanceConfigs/a-z*`.
+ *  `projects//instanceConfigs/a-z*`. User instance config must start with
+ *  `custom-`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -599,7 +602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  @param object The @c GTLRSpanner_UpdateInstanceConfigRequest to include in
  *    the query.
  *  @param name A unique identifier for the instance configuration. Values are
- *    of the form `projects//instanceConfigs/a-z*`.
+ *    of the form `projects//instanceConfigs/a-z*`. User instance config must
+ *    start with `custom-`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstanceConfigsPatch
  */

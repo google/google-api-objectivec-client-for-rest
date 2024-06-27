@@ -49,12 +49,21 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1BatchReadFeatureValuesRequestPassThroughField;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BigQueryDestination;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BigQuerySource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BleuInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BleuInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BleuMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BleuResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BleuSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Blob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BlurBaselineConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BoolArray;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Candidate;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Citation;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CitationMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1CoherenceResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1CoherenceSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CompletionStats;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ContainerRegistryDestination;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ContainerSpec;
@@ -80,9 +89,6 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1DataLabelingJob_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Dataset;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Dataset_Labels;
-@class GTLRAiplatform_GoogleCloudAiplatformV1DatasetDistribution;
-@class GTLRAiplatform_GoogleCloudAiplatformV1DatasetDistributionDistributionBucket;
-@class GTLRAiplatform_GoogleCloudAiplatformV1DatasetStats;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DedicatedResources;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DeleteFeatureValuesRequestSelectEntity;
@@ -99,7 +105,6 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1DeployModelRequest_TrafficSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DestinationFeatureSetting;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DiskSpec;
-@class GTLRAiplatform_GoogleCloudAiplatformV1DistillationDataStats;
 @class GTLRAiplatform_GoogleCloudAiplatformV1DoubleArray;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Endpoint;
@@ -115,6 +120,11 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluatedAnnotationExplanation;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Event;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Event_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Examples;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExamplesExampleGcsSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExamplesOverride;
@@ -194,7 +204,15 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQueryRRF;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsResponseNearestNeighbors;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsResponseNeighbor;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FluencyInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FluencyInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FluencyResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FluencySpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FractionSplit;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FunctionCall;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FunctionCall_Args;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig;
@@ -209,6 +227,10 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenieSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundednessResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundednessSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob_Labels;
@@ -322,6 +344,14 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplateRef;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualitySpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualitySpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Part;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PersistentDiskSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource;
@@ -365,6 +395,22 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelDocumentation;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelResourceReference;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PythonPackageSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualitySpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RayMetricSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RaySpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RaySpec_ResourcePoolImages;
@@ -375,7 +421,6 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReadTensorboardUsageResponse_MonthlyUsageData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerMonthUsageData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerUserUsageData;
-@class GTLRAiplatform_GoogleCloudAiplatformV1ReinforcementLearningDataStats;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourcePool;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourcePoolAutoscalingSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntime;
@@ -383,8 +428,17 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntimeSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourcesConsumed;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Retrieval;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RougeInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RougeInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RougeResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RougeSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SafetyInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SafetyInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SafetyResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SafetySpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SampleConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SampledShapleyAttribution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SamplingStrategy;
@@ -514,6 +568,18 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1StudySpecParameterSpecIntegerValueSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1StudySpecStudyStoppingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1StudyTimeConstraint;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualitySpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbositySpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistribution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistributionDatasetBucket;
@@ -539,7 +605,27 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1TimestampSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TokensInfo;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tool;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInput;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchMetricValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrainingPipeline_Labels;
@@ -577,6 +663,9 @@
 @class GTLRAiplatform_GoogleTypeExpr;
 @class GTLRAiplatform_GoogleTypeInterval;
 @class GTLRAiplatform_GoogleTypeMoney;
+@class GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry;
+@class GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel;
+@class GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -861,6 +950,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candid
  *  Value: "FINISH_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_FinishReasonUnspecified;
+/**
+ *  The function call generated by the model is invalid.
+ *
+ *  Value: "MALFORMED_FUNCTION_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedFunctionCall;
 /**
  *  The maximum number of tokens as specified in the request was reached.
  *
@@ -2579,7 +2674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Neares
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidCsvSyntax;
 /**
- *  Invalid embedding.
+ *  Invalid dense embedding.
  *
  *  Value: "INVALID_EMBEDDING"
  */
@@ -2772,6 +2867,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Notebo
  *  Value: "USER_DEFINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_UserDefined;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult.pairwiseChoice
+
+/**
+ *  Baseline prediction wins
+ *
+ *  Value: "BASELINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Baseline;
+/**
+ *  Candidate prediction wins
+ *
+ *  Value: "CANDIDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Candidate;
+/**
+ *  Unspecified prediction choice.
+ *
+ *  Value: "PAIRWISE_CHOICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_PairwiseChoiceUnspecified;
+/**
+ *  Winner cannot be determined
+ *
+ *  Value: "TIE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Tie;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult.pairwiseChoice
+
+/**
+ *  Baseline prediction wins
+ *
+ *  Value: "BASELINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Baseline;
+/**
+ *  Candidate prediction wins
+ *
+ *  Value: "CANDIDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Candidate;
+/**
+ *  Unspecified prediction choice.
+ *
+ *  Value: "PAIRWISE_CHOICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_PairwiseChoiceUnspecified;
+/**
+ *  Winner cannot be determined
+ *
+ *  Value: "TIE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Tie;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource.state
@@ -4629,6 +4780,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 /** Returns rai failure reasons if any. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *raiMediaFilteredReasons;
 
+/** Billable prediction metrics. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics *reportingMetrics;
+
 @end
 
 
@@ -4748,6 +4902,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 /** The list of detected labels for different rai categories. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabels *> *detectedLabels;
+
+/**
+ *  The model name used to indexing into the RaiFilterConfig map. Would either
+ *  be one of imagegeneration\@002-006, imagen-3.0-... api endpoint names, or
+ *  internal names used for mapping to different filter configs (genselfie,
+ *  ai_watermark) than its api endpoint.
+ */
+@property(nonatomic, copy, nullable) NSString *modelName;
 
 /** List of rai categories' information to return */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *raiCategories;
@@ -6407,6 +6569,69 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
+ *  Input for bleu metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BleuInput : GTLRObject
+
+/** Required. Repeated bleu instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1BleuInstance *> *instances;
+
+/** Required. Spec for bleu score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BleuSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for bleu instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BleuInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Required. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Bleu metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BleuMetricValue : GTLRObject
+
+/**
+ *  Output only. Bleu score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for bleu metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BleuResults : GTLRObject
+
+/** Output only. Bleu metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1BleuMetricValue *> *bleuMetricValues;
+
+@end
+
+
+/**
+ *  Spec for bleu score metric - calculates the precision of n-grams in the
+ *  prediction as compared to reference - returns a score ranging between 0 to
+ *  1.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BleuSpec : GTLRObject
+@end
+
+
+/**
  *  Content blob. It's preferred to send as text directly rather than raw bytes.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Blob : GTLRObject
@@ -6544,6 +6769,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *        "BLOCKLIST")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_FinishReasonUnspecified
  *        The finish reason is unspecified. (Value: "FINISH_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedFunctionCall
+ *        The function call generated by the model is invalid. (Value:
+ *        "MALFORMED_FUNCTION_CALL")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MaxTokens
  *        The maximum number of tokens as specified in the request was reached.
  *        (Value: "MAX_TOKENS")
@@ -6672,6 +6900,71 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 /** Output only. List of citations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Citation *> *citations;
+
+@end
+
+
+/**
+ *  Input for coherence metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInput : GTLRObject
+
+/** Required. Coherence instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInstance *instance;
+
+/** Required. Spec for coherence score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1CoherenceSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for coherence instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+@end
+
+
+/**
+ *  Spec for coherence result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CoherenceResult : GTLRObject
+
+/**
+ *  Output only. Confidence for coherence score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for coherence score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Coherence score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for coherence score metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CoherenceSpec : GTLRObject
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -8114,144 +8407,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
- *  Distribution computed over a tuning dataset.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1DatasetDistribution : GTLRObject
-
-/** Output only. Defines the histogram bucket. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1DatasetDistributionDistributionBucket *> *buckets;
-
-/**
- *  Output only. The maximum of the population values.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *max;
-
-/**
- *  Output only. The arithmetic mean of the values in the population.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *mean;
-
-/**
- *  Output only. The median of the values in the population.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *median;
-
-/**
- *  Output only. The minimum of the population values.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *min;
-
-/**
- *  Output only. The 5th percentile of the values in the population.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *p5;
-
-/**
- *  Output only. The 95th percentile of the values in the population.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *p95;
-
-/**
- *  Output only. Sum of a given population of values.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sum;
-
-@end
-
-
-/**
- *  Dataset bucket used to create a histogram for the distribution given a
- *  population of values.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1DatasetDistributionDistributionBucket : GTLRObject
-
-/**
- *  Output only. Number of values in the bucket.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/**
- *  Output only. Left bound of the bucket.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *left;
-
-/**
- *  Output only. Right bound of the bucket.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *right;
-
-@end
-
-
-/**
- *  Statistics computed over a tuning dataset.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1DatasetStats : GTLRObject
-
-/**
- *  Output only. Number of billable characters in the tuning dataset.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalBillableCharacterCount;
-
-/**
- *  Output only. Number of tuning characters in the tuning dataset.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalTuningCharacterCount;
-
-/**
- *  Output only. Number of examples in the tuning dataset.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *tuningDatasetExampleCount;
-
-/**
- *  Output only. Number of tuning steps for this Tuning Job.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *tuningStepCount;
-
-/** Output only. Sample user messages in the training dataset uri. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Content *> *userDatasetExamples;
-
-/** Output only. Dataset distributions for the user input tokens. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DatasetDistribution *userInputTokenDistribution;
-
-/** Output only. Dataset distributions for the messages per example. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DatasetDistribution *userMessagePerExampleDistribution;
-
-/** Output only. Dataset distributions for the user output tokens. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DatasetDistribution *userOutputTokenDistribution;
-
-@end
-
-
-/**
  *  Describes the dataset version.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion : GTLRObject
@@ -9099,17 +9254,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
- *  Statistics computed for datasets used for distillation.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1DistillationDataStats : GTLRObject
-
-/** Output only. Statistics computed for the training dataset. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DatasetStats *trainingDatasetStats;
-
-@end
-
-
-/**
  *  A list of double values.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1DoubleArray : GTLRObject
@@ -9586,6 +9730,159 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
+ *  Request message for EvaluationService.EvaluateInstances.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest : GTLRObject
+
+/** Instances and metric spec for bleu metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BleuInput *bleuInput;
+
+/** Input for coherence metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInput *coherenceInput;
+
+/**
+ *  Auto metric instances. Instances and metric spec for exact match metric.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInput *exactMatchInput;
+
+/**
+ *  LLM-based metric instance. General text generation metrics, applicable to
+ *  other categories. Input for fluency metric.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FluencyInput *fluencyInput;
+
+/** Input for fulfillment metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInput *fulfillmentInput;
+
+/** Input for groundedness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInput *groundednessInput;
+
+/** Input for pairwise question answering quality metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInput *pairwiseQuestionAnsweringQualityInput;
+
+/** Input for pairwise summarization quality metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInput *pairwiseSummarizationQualityInput;
+
+/** Input for question answering correctness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInput *questionAnsweringCorrectnessInput;
+
+/** Input for question answering helpfulness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInput *questionAnsweringHelpfulnessInput;
+
+/** Input for question answering quality metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInput *questionAnsweringQualityInput;
+
+/** Input for question answering relevance metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInput *questionAnsweringRelevanceInput;
+
+/** Instances and metric spec for rouge metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RougeInput *rougeInput;
+
+/** Input for safety metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SafetyInput *safetyInput;
+
+/** Input for summarization helpfulness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInput *summarizationHelpfulnessInput;
+
+/** Input for summarization quality metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInput *summarizationQualityInput;
+
+/** Input for summarization verbosity metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInput *summarizationVerbosityInput;
+
+/** Tool call metric instances. Input for tool call valid metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInput *toolCallValidInput;
+
+/** Input for tool name match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInput *toolNameMatchInput;
+
+/** Input for tool parameter key match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInput *toolParameterKeyMatchInput;
+
+/** Input for tool parameter key value match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInput *toolParameterKvMatchInput;
+
+@end
+
+
+/**
+ *  Response message for EvaluationService.EvaluateInstances.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesResponse : GTLRObject
+
+/** Results for bleu metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BleuResults *bleuResults;
+
+/** Result for coherence metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1CoherenceResult *coherenceResult;
+
+/** Auto metric evaluation results. Results for exact match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchResults *exactMatchResults;
+
+/**
+ *  LLM-based metric evaluation result. General text generation metrics,
+ *  applicable to other categories. Result for fluency metric.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FluencyResult *fluencyResult;
+
+/** Result for fulfillment metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentResult *fulfillmentResult;
+
+/** Result for groundedness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundednessResult *groundednessResult;
+
+/** Result for pairwise question answering quality metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult *pairwiseQuestionAnsweringQualityResult;
+
+/** Result for pairwise summarization quality metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult *pairwiseSummarizationQualityResult;
+
+/** Result for question answering correctness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessResult *questionAnsweringCorrectnessResult;
+
+/** Result for question answering helpfulness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessResult *questionAnsweringHelpfulnessResult;
+
+/**
+ *  Question answering only metrics. Result for question answering quality
+ *  metric.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityResult *questionAnsweringQualityResult;
+
+/** Result for question answering relevance metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceResult *questionAnsweringRelevanceResult;
+
+/** Results for rouge metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RougeResults *rougeResults;
+
+/** Result for safety metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SafetyResult *safetyResult;
+
+/** Result for summarization helpfulness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessResult *summarizationHelpfulnessResult;
+
+/** Summarization only metrics. Result for summarization quality metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityResult *summarizationQualityResult;
+
+/** Result for summarization verbosity metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityResult *summarizationVerbosityResult;
+
+/** Tool call metrics. Results for tool call valid metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidResults *toolCallValidResults;
+
+/** Results for tool name match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchResults *toolNameMatchResults;
+
+/** Results for tool parameter key match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchResults *toolParameterKeyMatchResults;
+
+/** Results for tool parameter key value match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchResults *toolParameterKvMatchResults;
+
+@end
+
+
+/**
  *  An edge describing the relationship between an Artifact and an Execution in
  *  a lineage graph.
  */
@@ -9645,6 +9942,68 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Event_Labels : GTLRObject
+@end
+
+
+/**
+ *  Input for exact match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInput : GTLRObject
+
+/** Required. Repeated exact match instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInstance *> *instances;
+
+/** Required. Spec for exact match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for exact match instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Required. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Exact match metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchMetricValue : GTLRObject
+
+/**
+ *  Output only. Exact match score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for exact match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchResults : GTLRObject
+
+/** Output only. Exact match metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchMetricValue *> *exactMatchMetricValues;
+
+@end
+
+
+/**
+ *  Spec for exact match metric - returns 1 if prediction and reference exactly
+ *  matches, otherwise 0.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchSpec : GTLRObject
 @end
 
 
@@ -12642,6 +13001,71 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
+ *  Input for fluency metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FluencyInput : GTLRObject
+
+/** Required. Fluency instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FluencyInstance *instance;
+
+/** Required. Spec for fluency score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FluencySpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for fluency instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FluencyInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+@end
+
+
+/**
+ *  Spec for fluency result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FluencyResult : GTLRObject
+
+/**
+ *  Output only. Confidence for fluency score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for fluency score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Fluency score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for fluency score metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FluencySpec : GTLRObject
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  Assigns the input data to training, validation, and test sets as per the
  *  given fractions. Any of `training_fraction`, `validation_fraction` and
  *  `test_fraction` may optionally be provided, they must sum to up to 1. If the
@@ -12671,6 +13095,74 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *validationFraction;
+
+@end
+
+
+/**
+ *  Input for fulfillment metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInput : GTLRObject
+
+/** Required. Fulfillment instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInstance *instance;
+
+/** Required. Spec for fulfillment score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for fulfillment instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInstance : GTLRObject
+
+/** Required. Inference instruction prompt to compare prediction with. */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+@end
+
+
+/**
+ *  Spec for fulfillment result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentResult : GTLRObject
+
+/**
+ *  Output only. Confidence for fulfillment score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for fulfillment score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Fulfillment score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for fulfillment metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentSpec : GTLRObject
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -13096,6 +13588,77 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  Tool to retrieve public web data for grounding, powered by Google.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval : GTLRObject
+@end
+
+
+/**
+ *  Input for groundedness metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInput : GTLRObject
+
+/** Required. Groundedness instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInstance *instance;
+
+/** Required. Spec for groundedness metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundednessSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for groundedness instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInstance : GTLRObject
+
+/**
+ *  Required. Background information provided in context used to compare against
+ *  the prediction.
+ */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+@end
+
+
+/**
+ *  Spec for groundedness result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundednessResult : GTLRObject
+
+/**
+ *  Output only. Confidence for groundedness score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for groundedness score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Groundedness score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for groundedness metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundednessSpec : GTLRObject
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
 @end
 
 
@@ -18366,7 +18929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidCsvSyntax
  *        Invalid csv format. (Value: "INVALID_CSV_SYNTAX")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEmbedding
- *        Invalid embedding. (Value: "INVALID_EMBEDDING")
+ *        Invalid dense embedding. (Value: "INVALID_EMBEDDING")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEmbeddingId
  *        The embedding id is not valid. (Value: "INVALID_EMBEDDING_ID")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEncoding
@@ -18897,6 +19460,192 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
+ *  Input for pairwise question answering quality metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInput : GTLRObject
+
+/** Required. Pairwise question answering quality instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInstance *instance;
+
+/** Required. Spec for pairwise question answering quality score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualitySpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for pairwise question answering quality instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInstance : GTLRObject
+
+/** Required. Output of the baseline model. */
+@property(nonatomic, copy, nullable) NSString *baselinePrediction;
+
+/** Required. Text to answer the question. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/** Required. Question Answering prompt for LLM. */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the candidate model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for pairwise question answering quality result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult : GTLRObject
+
+/**
+ *  Output only. Confidence for question answering quality score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for question answering quality score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Pairwise question answering prediction choice.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Baseline
+ *        Baseline prediction wins (Value: "BASELINE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Candidate
+ *        Candidate prediction wins (Value: "CANDIDATE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_PairwiseChoiceUnspecified
+ *        Unspecified prediction choice. (Value: "PAIRWISE_CHOICE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Tie
+ *        Winner cannot be determined (Value: "TIE")
+ */
+@property(nonatomic, copy, nullable) NSString *pairwiseChoice;
+
+@end
+
+
+/**
+ *  Spec for pairwise question answering quality score metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualitySpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute question answering
+ *  quality.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Input for pairwise summarization quality metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInput : GTLRObject
+
+/** Required. Pairwise summarization quality instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInstance *instance;
+
+/** Required. Spec for pairwise summarization quality score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualitySpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for pairwise summarization quality instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInstance : GTLRObject
+
+/** Required. Output of the baseline model. */
+@property(nonatomic, copy, nullable) NSString *baselinePrediction;
+
+/** Required. Text to be summarized. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/** Required. Summarization prompt for LLM. */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the candidate model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for pairwise summarization quality result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult : GTLRObject
+
+/**
+ *  Output only. Confidence for summarization quality score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for summarization quality score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Pairwise summarization prediction choice.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Baseline
+ *        Baseline prediction wins (Value: "BASELINE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Candidate
+ *        Candidate prediction wins (Value: "CANDIDATE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_PairwiseChoiceUnspecified
+ *        Unspecified prediction choice. (Value: "PAIRWISE_CHOICE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Tie
+ *        Winner cannot be determined (Value: "TIE")
+ */
+@property(nonatomic, copy, nullable) NSString *pairwiseChoice;
+
+@end
+
+
+/**
+ *  Spec for pairwise summarization quality score metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualitySpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute pairwise
+ *  summarization quality.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  A datatype containing media that is part of a multi-part `Content` message.
  *  A `Part` consists of data which has an associated datatype. A `Part` can
  *  only contain one of the accepted types in `Part.data`. A `Part` must have a
@@ -19174,6 +19923,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 /** The spec of the pipeline. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob_PipelineSpec *pipelineSpec;
+
+/**
+ *  Optional. Whether to do component level validations before job creation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preflightValidations;
 
 /**
  *  A list of names for the reserved ip ranges under the VPC network that can be
@@ -20164,11 +20920,6 @@ GTLR_DEPRECATED
 /** Optional. Deploy PublisherModel to Google Kubernetes Engine. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployGke *deployGke;
 
-/**
- *  Optional. Fine tune the PublisherModel with the third-party model tuning UI.
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *fineTune;
-
 /** Optional. Open evaluation pipeline of the PublisherModel. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences *openEvaluationPipeline;
 
@@ -20636,6 +21387,340 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Input for question answering correctness metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInput : GTLRObject
+
+/** Required. Question answering correctness instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInstance *instance;
+
+/** Required. Spec for question answering correctness score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for question answering correctness instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInstance : GTLRObject
+
+/** Optional. Text provided as context to answer the question. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/**
+ *  Required. The question asked and other instruction in the inference prompt.
+ */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for question answering correctness result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessResult : GTLRObject
+
+/**
+ *  Output only. Confidence for question answering correctness score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for question answering correctness score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Question Answering Correctness score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for question answering correctness metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessSpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute question answering
+ *  correctness.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Input for question answering helpfulness metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInput : GTLRObject
+
+/** Required. Question answering helpfulness instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInstance *instance;
+
+/** Required. Spec for question answering helpfulness score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for question answering helpfulness instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInstance : GTLRObject
+
+/** Optional. Text provided as context to answer the question. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/**
+ *  Required. The question asked and other instruction in the inference prompt.
+ */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for question answering helpfulness result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessResult : GTLRObject
+
+/**
+ *  Output only. Confidence for question answering helpfulness score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for question answering helpfulness score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Question Answering Helpfulness score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for question answering helpfulness metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessSpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute question answering
+ *  helpfulness.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Input for question answering quality metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInput : GTLRObject
+
+/** Required. Question answering quality instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInstance *instance;
+
+/** Required. Spec for question answering quality score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualitySpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for question answering quality instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInstance : GTLRObject
+
+/** Required. Text to answer the question. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/** Required. Question Answering prompt for LLM. */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for question answering quality result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityResult : GTLRObject
+
+/**
+ *  Output only. Confidence for question answering quality score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for question answering quality score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Question Answering Quality score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for question answering quality score metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualitySpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute question answering
+ *  quality.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Input for question answering relevance metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInput : GTLRObject
+
+/** Required. Question answering relevance instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInstance *instance;
+
+/** Required. Spec for question answering relevance score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for question answering relevance instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInstance : GTLRObject
+
+/** Optional. Text provided as context to answer the question. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/**
+ *  Required. The question asked and other instruction in the inference prompt.
+ */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for question answering relevance result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceResult : GTLRObject
+
+/**
+ *  Output only. Confidence for question answering relevance score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for question answering relevance score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Question Answering Relevance score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for question answering relevance metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceSpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute question answering
+ *  relevance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  Request message for PredictionService.RawPredict.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1RawPredictRequest : GTLRObject
@@ -20974,27 +22059,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Statistics computed for datasets used for reinforcement learning.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1ReinforcementLearningDataStats : GTLRObject
-
-/**
- *  Output only. Statistics computed for the preference dataset. This can be
- *  either a human preference dataset or a preference dataset generated from AI
- *  feedback.
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DatasetStats *preferenceDatasetStats;
-
-/**
- *  Output only. Statistics computed for the prompt dataset used during
- *  reinforcement learning.
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DatasetStats *promptDatasetStats;
-
-@end
-
-
-/**
  *  Request message for MetadataService.DeleteContextChildrenRequest.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1RemoveContextChildrenRequest : GTLRObject
@@ -21220,6 +22284,111 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Input for rouge metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RougeInput : GTLRObject
+
+/** Required. Repeated rouge instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1RougeInstance *> *instances;
+
+/** Required. Spec for rouge score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RougeSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for rouge instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RougeInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Required. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Rouge metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue : GTLRObject
+
+/**
+ *  Output only. Rouge score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for rouge metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RougeResults : GTLRObject
+
+/** Output only. Rouge metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue *> *rougeMetricValues;
+
+@end
+
+
+/**
+ *  Spec for rouge score metric - calculates the recall of n-grams in prediction
+ *  as compared to reference - returns a score ranging between 0 and 1.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RougeSpec : GTLRObject
+
+/** Optional. Supported rouge types are rougen[1-9], rougeL, and rougeLsum. */
+@property(nonatomic, copy, nullable) NSString *rougeType;
+
+/**
+ *  Optional. Whether to split summaries while using rougeLsum.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *splitSummaries;
+
+/**
+ *  Optional. Whether to use stemmer to compute rouge score.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useStemmer;
+
+@end
+
+
+/**
+ *  Input for safety metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SafetyInput : GTLRObject
+
+/** Required. Safety instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SafetyInstance *instance;
+
+/** Required. Spec for safety metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SafetySpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for safety instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SafetyInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+@end
+
+
+/**
  *  Safety rating corresponding to the generated content.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating : GTLRObject
@@ -21303,6 +22472,31 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Spec for safety result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SafetyResult : GTLRObject
+
+/**
+ *  Output only. Confidence for safety score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for safety score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Safety score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
  *  Safety settings.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting : GTLRObject
@@ -21362,6 +22556,21 @@ GTLR_DEPRECATED
  *        "HARM_BLOCK_THRESHOLD_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *threshold;
+
+@end
+
+
+/**
+ *  Spec for safety metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SafetySpec : GTLRObject
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -28361,6 +29570,252 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Input for summarization helpfulness metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInput : GTLRObject
+
+/** Required. Summarization helpfulness instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInstance *instance;
+
+/** Required. Spec for summarization helpfulness score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for summarization helpfulness instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInstance : GTLRObject
+
+/** Required. Text to be summarized. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/** Optional. Summarization prompt for LLM. */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for summarization helpfulness result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessResult : GTLRObject
+
+/**
+ *  Output only. Confidence for summarization helpfulness score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for summarization helpfulness score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Summarization Helpfulness score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for summarization helpfulness score metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessSpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute summarization
+ *  helpfulness.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Input for summarization quality metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInput : GTLRObject
+
+/** Required. Summarization quality instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInstance *instance;
+
+/** Required. Spec for summarization quality score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualitySpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for summarization quality instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInstance : GTLRObject
+
+/** Required. Text to be summarized. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/** Required. Summarization prompt for LLM. */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for summarization quality result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityResult : GTLRObject
+
+/**
+ *  Output only. Confidence for summarization quality score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for summarization quality score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Summarization Quality score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for summarization quality score metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualitySpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute summarization
+ *  quality.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Input for summarization verbosity metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInput : GTLRObject
+
+/** Required. Summarization verbosity instance. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInstance *instance;
+
+/** Required. Spec for summarization verbosity score metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbositySpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for summarization verbosity instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInstance : GTLRObject
+
+/** Required. Text to be summarized. */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/** Optional. Summarization prompt for LLM. */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Optional. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Spec for summarization verbosity result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityResult : GTLRObject
+
+/**
+ *  Output only. Confidence for summarization verbosity score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Output only. Explanation for summarization verbosity score. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Output only. Summarization Verbosity score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Spec for summarization verbosity score metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbositySpec : GTLRObject
+
+/**
+ *  Optional. Whether to use instance.reference to compute summarization
+ *  verbosity.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useReference;
+
+/**
+ *  Optional. Which version to use for evaluation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
  *  Hyperparameters for SFT.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters : GTLRObject
@@ -29352,12 +30807,264 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Input for tool call valid metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInput : GTLRObject
+
+/** Required. Repeated tool call valid instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInstance *> *instances;
+
+/** Required. Spec for tool call valid metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for tool call valid instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Required. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Tool call valid metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidMetricValue : GTLRObject
+
+/**
+ *  Output only. Tool call valid score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for tool call valid metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidResults : GTLRObject
+
+/** Output only. Tool call valid metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidMetricValue *> *toolCallValidMetricValues;
+
+@end
+
+
+/**
+ *  Spec for tool call valid metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidSpec : GTLRObject
+@end
+
+
+/**
  *  Tool config. This config is shared for all tools provided in the request.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig : GTLRObject
 
 /** Optional. Function calling config. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig *functionCallingConfig;
+
+@end
+
+
+/**
+ *  Input for tool name match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInput : GTLRObject
+
+/** Required. Repeated tool name match instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInstance *> *instances;
+
+/** Required. Spec for tool name match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for tool name match instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Required. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Tool name match metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchMetricValue : GTLRObject
+
+/**
+ *  Output only. Tool name match score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for tool name match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchResults : GTLRObject
+
+/** Output only. Tool name match metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchMetricValue *> *toolNameMatchMetricValues;
+
+@end
+
+
+/**
+ *  Spec for tool name match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchSpec : GTLRObject
+@end
+
+
+/**
+ *  Input for tool parameter key match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInput : GTLRObject
+
+/** Required. Repeated tool parameter key match instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInstance *> *instances;
+
+/** Required. Spec for tool parameter key match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for tool parameter key match instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Required. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Tool parameter key match metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchMetricValue : GTLRObject
+
+/**
+ *  Output only. Tool parameter key match score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for tool parameter key match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchResults : GTLRObject
+
+/** Output only. Tool parameter key match metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchMetricValue *> *toolParameterKeyMatchMetricValues;
+
+@end
+
+
+/**
+ *  Spec for tool parameter key match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchSpec : GTLRObject
+@end
+
+
+/**
+ *  Input for tool parameter key value match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInput : GTLRObject
+
+/** Required. Repeated tool parameter key value match instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInstance *> *instances;
+
+/** Required. Spec for tool parameter key value match metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchSpec *metricSpec;
+
+@end
+
+
+/**
+ *  Spec for tool parameter key value match instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInstance : GTLRObject
+
+/** Required. Output of the evaluated model. */
+@property(nonatomic, copy, nullable) NSString *prediction;
+
+/** Required. Ground truth used to compare against the prediction. */
+@property(nonatomic, copy, nullable) NSString *reference;
+
+@end
+
+
+/**
+ *  Tool parameter key value match metric value for an instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchMetricValue : GTLRObject
+
+/**
+ *  Output only. Tool parameter key value match score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Results for tool parameter key value match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchResults : GTLRObject
+
+/** Output only. Tool parameter key value match metric values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchMetricValue *> *toolParameterKvMatchMetricValues;
+
+@end
+
+
+/**
+ *  Spec for tool parameter key value match metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchSpec : GTLRObject
+
+/**
+ *  Optional. Whether to use STRCIT string match on parameter values.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useStrictStringMatch;
 
 @end
 
@@ -29758,12 +31465,6 @@ GTLR_DEPRECATED
  *  The tuning data statistic values for TuningJob.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1TuningDataStats : GTLRObject
-
-/** Statistics for distillation. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DistillationDataStats *distillationDataStats;
-
-/** Statistics for reinforcement learning. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReinforcementLearningDataStats *reinforcementLearningDataStats;
 
 /** The SFT Tuning data stats. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDataStats *supervisedTuningDataStats;
@@ -31235,6 +32936,75 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry
+ */
+@interface GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry : GTLRObject
+
+/**
+ *  For billing metrics that are using legacy sku's, set the legacy billing
+ *  metric id here. This will be sent to Chemist as the
+ *  "cloudbilling.googleapis.com/argentum_metric_id" label. Otherwise leave
+ *  empty.
+ */
+@property(nonatomic, copy, nullable) NSString *argentumMetricId;
+
+/**
+ *  A double value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
+
+/**
+ *  A signed 64-bit integer value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *int64Value;
+
+/** The metric name defined in the service configuration. */
+@property(nonatomic, copy, nullable) NSString *metricName;
+
+/** Billing system labels for this (metric, value) pair. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel *> *systemLabels;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel
+ */
+@interface GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel : GTLRObject
+
+/** The name of the label. */
+@property(nonatomic, copy, nullable) NSString *labelName;
+
+/** The value of the label. */
+@property(nonatomic, copy, nullable) NSString *labelValue;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics
+ */
+@interface GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics : GTLRObject
+
+/**
+ *  The effective time training used. If set, this is used for quota management
+ *  and billing. Deprecated. AutoML BE doesn't use this. Don't set.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *effectiveTrainingDuration GTLR_DEPRECATED;
+
+/**
+ *  One entry per metric name. The values must be aggregated per metric name.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry *> *metricEntries;
 
 @end
 

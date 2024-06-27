@@ -3388,7 +3388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_MachineArchitectureDetails *architecture;
 
 /**
- *  Number of CPU cores in the machine. Must be non-negative.
+ *  Number of logical CPU cores in the machine. Must be non-negative.
  *
  *  Uses NSNumber of intValue.
  */

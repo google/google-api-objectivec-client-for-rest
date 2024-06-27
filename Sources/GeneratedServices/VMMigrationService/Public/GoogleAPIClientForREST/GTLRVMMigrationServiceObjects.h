@@ -83,6 +83,7 @@
 @class GTLRVMMigrationService_MigratingVm;
 @class GTLRVMMigrationService_MigratingVm_Labels;
 @class GTLRVMMigrationService_MigrationWarning;
+@class GTLRVMMigrationService_NetworkInsights;
 @class GTLRVMMigrationService_NetworkInterface;
 @class GTLRVMMigrationService_Operation;
 @class GTLRVMMigrationService_Operation_Metadata;
@@ -1447,20 +1448,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_AwsDiskDetails : GTLRObject
 
 /**
- *  The ordinal number of the disk.
+ *  Output only. The ordinal number of the disk.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskNumber;
 
 /**
- *  Size in GB.
+ *  Output only. Size in GB.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeGb;
 
-/** AWS volume ID. */
+/** Output only. AWS volume ID. */
 @property(nonatomic, copy, nullable) NSString *volumeId;
 
 @end
@@ -1516,6 +1517,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceDetails_MigrationResourcesUserTags *migrationResourcesUserTags;
 
 /**
+ *  Output only. Information about the network coniguration of the source. Only
+ *  gatherred upon request.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_NetworkInsights *networkInsights;
+
+/**
  *  Output only. The source's public IP. All communication initiated by this
  *  source will originate from this IP.
  */
@@ -1562,17 +1569,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_AwsSourceVmDetails : GTLRObject
 
 /**
- *  The total size of the disks being migrated in bytes.
+ *  Output only. The total size of the disks being migrated in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *committedStorageBytes;
 
-/** The disks attached to the source VM. */
+/** Output only. The disks attached to the source VM. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_AwsDiskDetails *> *disks;
 
 /**
- *  The firmware type of the source VM.
+ *  Output only. The firmware type of the source VM.
  *
  *  Likely values:
  *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios The
@@ -1755,18 +1762,18 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @interface GTLRVMMigrationService_AzureDiskDetails : GTLRObject
 
-/** Azure disk ID. */
+/** Output only. Azure disk ID. */
 @property(nonatomic, copy, nullable) NSString *diskId;
 
 /**
- *  The ordinal number of the disk.
+ *  Output only. The ordinal number of the disk.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskNumber;
 
 /**
- *  Size in GB.
+ *  Output only. Size in GB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1855,17 +1862,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_AzureSourceVmDetails : GTLRObject
 
 /**
- *  The total size of the disks being migrated in bytes.
+ *  Output only. The total size of the disks being migrated in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *committedStorageBytes;
 
-/** The disks attached to the source VM. */
+/** Output only. The disks attached to the source VM. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_AzureDiskDetails *> *disks;
 
 /**
- *  The firmware type of the source VM.
+ *  Output only. The firmware type of the source VM.
  *
  *  Likely values:
  *    @arg @c kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Bios The
@@ -4049,7 +4056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @interface GTLRVMMigrationService_MigrationWarning : GTLRObject
 
-/** Suggested action for solving the warning. */
+/** Output only. Suggested action for solving the warning. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_LocalizedMessage *actionItem;
 
 /**
@@ -4065,11 +4072,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
- *  URL(s) pointing to additional information on handling the current warning.
+ *  Output only. URL(s) pointing to additional information on handling the
+ *  current warning.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_Link *> *helpLinks;
 
-/** The localized warning message. */
+/** Output only. The localized warning message. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_LocalizedMessage *warningMessage;
 
 /** The time the warning occurred. */
@@ -4079,16 +4087,36 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  Information about the network coniguration of the source.
+ */
+@interface GTLRVMMigrationService_NetworkInsights : GTLRObject
+
+/**
+ *  Output only. The gathered network configuration of the source. Presented in
+ *  json format.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceNetworkConfig;
+
+/**
+ *  Output only. The gathered network configuration of the source. Presented in
+ *  terraform format.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceNetworkTerraform;
+
+@end
+
+
+/**
  *  NetworkInterface represents a NIC of a VM.
  */
 @interface GTLRVMMigrationService_NetworkInterface : GTLRObject
 
-/** The external IP to define in the NIC. */
+/** Optional. The external IP to define in the NIC. */
 @property(nonatomic, copy, nullable) NSString *externalIp;
 
 /**
- *  The internal IP to define in the NIC. The formats accepted are: `ephemeral`
- *  \\ ipv4 address \\ a named address resource full path.
+ *  Optional. The internal IP to define in the NIC. The formats accepted are:
+ *  `ephemeral` \\ ipv4 address \\ a named address resource full path.
  */
 @property(nonatomic, copy, nullable) NSString *internalIp;
 
@@ -4424,7 +4452,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** The time the replication cycle has ended. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Provides details on the state of the cycle in case of an error. */
+/**
+ *  Output only. Provides details on the state of the cycle in case of an error.
+ */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_Status *error;
 
 /** The identifier of the ReplicationCycle. */
@@ -4666,10 +4696,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @interface GTLRVMMigrationService_Tag : GTLRObject
 
-/** Key of tag. */
+/** Required. Key of tag. */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/** Value of tag. */
+/** Required. Value of tag. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -4734,7 +4764,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_UpgradeStatus : GTLRObject
 
 /**
- *  Provides details on the state of the upgrade operation in case of an error.
+ *  Output only. Provides details on the state of the upgrade operation in case
+ *  of an error.
  */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_Status *error;
 
@@ -4975,17 +5006,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_VmwareDiskDetails : GTLRObject
 
 /**
- *  The ordinal number of the disk.
+ *  Output only. The ordinal number of the disk.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskNumber;
 
-/** The disk label. */
+/** Output only. The disk label. */
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  Size in GB.
+ *  Output only. Size in GB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5027,17 +5058,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_VmwareSourceVmDetails : GTLRObject
 
 /**
- *  The total size of the disks being migrated in bytes.
+ *  Output only. The total size of the disks being migrated in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *committedStorageBytes;
 
-/** The disks attached to the source VM. */
+/** Output only. The disks attached to the source VM. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_VmwareDiskDetails *> *disks;
 
 /**
- *  The firmware type of the source VM.
+ *  Output only. The firmware type of the source VM.
  *
  *  Likely values:
  *    @arg @c kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Bios The

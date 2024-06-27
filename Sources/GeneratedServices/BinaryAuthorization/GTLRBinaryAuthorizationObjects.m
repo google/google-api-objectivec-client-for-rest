@@ -554,10 +554,14 @@ NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_MaximumUnfixableSev
 //
 
 @implementation GTLRBinaryAuthorization_PlatformPolicy
-@dynamic descriptionProperty, gkePolicy, name, updateTime;
+@dynamic descriptionProperty, ETag, gkePolicy, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end

@@ -27,9 +27,9 @@
 @class GTLRCCAIPlatform_Operation_Metadata;
 @class GTLRCCAIPlatform_Operation_Response;
 @class GTLRCCAIPlatform_PrivateAccess;
+@class GTLRCCAIPlatform_PscSetting;
 @class GTLRCCAIPlatform_Quota;
 @class GTLRCCAIPlatform_SAMLParams;
-@class GTLRCCAIPlatform_ServiceAttachment;
 @class GTLRCCAIPlatform_Status;
 @class GTLRCCAIPlatform_Status_Details_Item;
 @class GTLRCCAIPlatform_TimeOfDay;
@@ -585,8 +585,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 /** Name of the component. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Associated service attachments. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_ServiceAttachment *> *serviceAttachments;
+/**
+ *  Associated service attachments. The service attachment names that will be
+ *  used for sending private traffic to the CCAIP tenant project. Example
+ *  service attachment name:
+ *  "projects/${TENANT_PROJECT_ID}/regions/${REGION}/serviceAttachments/ingress-default".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAttachmentNames;
 
 @end
 
@@ -650,14 +655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 /** Optional. VPC-SC related networking configuration. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_PrivateAccess *privateAccess;
 
-/**
- *  Output only. A list of UJET components that should be privately accessed.
- *  This field is set by reading settings from the data plane. For more
- *  information about the format of the component please refer to
- *  go/ccaip-vpc-sc-org-policy. This field is must be fully populated only for
- *  Create/Update resource operations. The main use case for this field is
- *  OrgPolicy checks via CPE.
- */
+/** Output only. TODO(b/283407860) Deprecate this field. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *privateComponents;
 
 /** Optional. Params that sets up Google as IdP. */
@@ -1145,6 +1143,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_Component *> *ingressSettings;
 
+/** Private service connect settings. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_PscSetting *pscSetting;
+
+@end
+
+
+/**
+ *  Private service connect settings.
+ */
+@interface GTLRCCAIPlatform_PscSetting : GTLRObject
+
+/**
+ *  The list of project ids that are allowed to send traffic to the service
+ *  attachment. This field should be filled only for the ingress components.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjectIds;
+
 @end
 
 
@@ -1228,28 +1243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 /** Email address of the first admin users. */
 @property(nonatomic, copy, nullable) NSString *userEmail GTLR_DEPRECATED;
-
-@end
-
-
-/**
- *  Container for the VPC-SC networking configurations.
- */
-@interface GTLRCCAIPlatform_ServiceAttachment : GTLRObject
-
-/**
- *  The list of project ids that are allowed to send traffic to the service
- *  attachment. This field should be filled only for the ingress service
- *  attachments.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedProjectIds;
-
-/**
- *  The service attachment name that will be used for sending private traffic to
- *  the CCAIP tenant project. Example:
- *  "projects/${TENANT_PROJECT_ID}/regions/${REGION}/serviceAttachments/ingress-default".
- */
-@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

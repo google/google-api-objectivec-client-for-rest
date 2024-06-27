@@ -598,12 +598,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Gets an active, unexpired enrollment token. Only a partial view of
- *  EnrollmentToken is returned: all the fields but name and
- *  expiration_timestamp are empty. This method is meant to help manage active
- *  enrollment tokens lifecycle. For security reasons, it's recommended to
- *  delete active enrollment tokens as soon as they're not intended to be used
- *  anymore.
+ *  Gets an active, unexpired enrollment token. A partial view of the enrollment
+ *  token is returned. Only the following fields are populated: name,
+ *  expirationTimestamp, allowPersonalUsage, value, qrCode. This method is meant
+ *  to help manage active enrollment tokens lifecycle. For security reasons,
+ *  it's recommended to delete active enrollment tokens as soon as they're not
+ *  intended to be used anymore.
  *
  *  Method: androidmanagement.enterprises.enrollmentTokens.get
  *
@@ -621,12 +621,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_EnrollmentToken.
  *
- *  Gets an active, unexpired enrollment token. Only a partial view of
- *  EnrollmentToken is returned: all the fields but name and
- *  expiration_timestamp are empty. This method is meant to help manage active
- *  enrollment tokens lifecycle. For security reasons, it's recommended to
- *  delete active enrollment tokens as soon as they're not intended to be used
- *  anymore.
+ *  Gets an active, unexpired enrollment token. A partial view of the enrollment
+ *  token is returned. Only the following fields are populated: name,
+ *  expirationTimestamp, allowPersonalUsage, value, qrCode. This method is meant
+ *  to help manage active enrollment tokens lifecycle. For security reasons,
+ *  it's recommended to delete active enrollment tokens as soon as they're not
+ *  intended to be used anymore.
  *
  *  @param name Required. The name of the enrollment token in the form
  *    enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
@@ -639,8 +639,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 
 /**
  *  Lists active, unexpired enrollment tokens for a given enterprise. The list
- *  items contain only a partial view of EnrollmentToken: all the fields but
- *  name and expiration_timestamp are empty. This method is meant to help manage
+ *  items contain only a partial view of EnrollmentToken object. Only the
+ *  following fields are populated: name, expirationTimestamp,
+ *  allowPersonalUsage, value, qrCode. This method is meant to help manage
  *  active enrollment tokens lifecycle. For security reasons, it's recommended
  *  to delete active enrollment tokens as soon as they're not intended to be
  *  used anymore.
@@ -671,8 +672,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  Fetches a @c GTLRAndroidManagement_ListEnrollmentTokensResponse.
  *
  *  Lists active, unexpired enrollment tokens for a given enterprise. The list
- *  items contain only a partial view of EnrollmentToken: all the fields but
- *  name and expiration_timestamp are empty. This method is meant to help manage
+ *  items contain only a partial view of EnrollmentToken object. Only the
+ *  following fields are populated: name, expirationTimestamp,
+ *  allowPersonalUsage, value, qrCode. This method is meant to help manage
  *  active enrollment tokens lifecycle. For security reasons, it's recommended
  *  to delete active enrollment tokens as soon as they're not intended to be
  *  used anymore.

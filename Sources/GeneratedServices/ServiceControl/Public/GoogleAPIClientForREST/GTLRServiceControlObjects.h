@@ -843,22 +843,17 @@ GTLR_DEPRECATED
 @interface GTLRServiceControl_OrgPolicyViolationInfo : GTLRObject
 
 /**
- *  Optional. Resource payload that is currently in scope and is subjected to
- *  orgpolicy conditions. This payload may be the subset of the actual Resource
- *  that may come in the request. This payload should not contain any core
- *  content.
+ *  Optional. Deprecated. Resource payload that is currently in scope and is
+ *  subjected to orgpolicy conditions. This payload may be the subset of the
+ *  actual Resource that may come in the request.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_Payload *payload;
+@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_Payload *payload GTLR_DEPRECATED;
 
 /**
- *  Optional. Tags referenced on the resource at the time of evaluation. These
- *  also include the federated tags, if they are supplied in the CheckOrgPolicy
- *  or CheckCustomConstraints Requests. Optional field as of now. These tags are
- *  the Cloud tags that are available on the resource during the policy
- *  evaluation and will be available as part of the OrgPolicy check response for
- *  logging purposes.
+ *  Optional. Deprecated. Tags referenced on the resource at the time of
+ *  evaluation.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags *resourceTags;
+@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags *resourceTags GTLR_DEPRECATED;
 
 /**
  *  Optional. Resource type that the orgpolicy is checked against. Example:
@@ -873,33 +868,30 @@ GTLR_DEPRECATED
 
 
 /**
- *  Optional. Resource payload that is currently in scope and is subjected to
- *  orgpolicy conditions. This payload may be the subset of the actual Resource
- *  that may come in the request. This payload should not contain any core
- *  content.
+ *  Optional. Deprecated. Resource payload that is currently in scope and is
+ *  subjected to orgpolicy conditions. This payload may be the subset of the
+ *  actual Resource that may come in the request.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRServiceControl_OrgPolicyViolationInfo_Payload : GTLRObject
 @end
 
 
 /**
- *  Optional. Tags referenced on the resource at the time of evaluation. These
- *  also include the federated tags, if they are supplied in the CheckOrgPolicy
- *  or CheckCustomConstraints Requests. Optional field as of now. These tags are
- *  the Cloud tags that are available on the resource during the policy
- *  evaluation and will be available as part of the OrgPolicy check response for
- *  logging purposes.
+ *  Optional. Deprecated. Tags referenced on the resource at the time of
+ *  evaluation.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags : GTLRObject
 @end
 

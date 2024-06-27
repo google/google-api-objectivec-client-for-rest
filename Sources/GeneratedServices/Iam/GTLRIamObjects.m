@@ -238,6 +238,50 @@ NSString * const kGTLRIam_GoogleIamV1BindingDelta_Action_Remove = @"REMOVE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_GoogleIamV3alphaOperationMetadata
+//
+
+@implementation GTLRIam_GoogleIamV3alphaOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV3betaOperationMetadata
+//
+
+@implementation GTLRIam_GoogleIamV3betaOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV3mainOperationMetadata
+//
+
+@implementation GTLRIam_GoogleIamV3mainOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_GoogleIamV3OperationMetadata
+//
+
+@implementation GTLRIam_GoogleIamV3OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_GoogleLongrunningOperation
 //
 

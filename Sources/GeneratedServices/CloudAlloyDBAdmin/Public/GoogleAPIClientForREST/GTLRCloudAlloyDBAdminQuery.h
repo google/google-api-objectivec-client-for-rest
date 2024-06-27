@@ -1299,6 +1299,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @end
 
 /**
+ *  Switches the role of PRIMARY and SECONDARY cluster without any data loss.
+ *  This promotes the SECONDARY cluster to PRIMARY and sets up original PRIMARY
+ *  cluster to replicate from this newly promoted cluster.
+ *
+ *  Method: alloydb.projects.locations.clusters.switchover
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
+ */
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersSwitchover : GTLRCloudAlloyDBAdminQuery
+
+/**
+ *  Required. The name of the resource. For the required format, see the comment
+ *  on the Cluster.name field
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Switches the role of PRIMARY and SECONDARY cluster without any data loss.
+ *  This promotes the SECONDARY cluster to PRIMARY and sets up original PRIMARY
+ *  cluster to replicate from this newly promoted cluster.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_SwitchoverClusterRequest to
+ *    include in the query.
+ *  @param name Required. The name of the resource. For the required format, see
+ *    the comment on the Cluster.name field
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersSwitchover
+ */
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_SwitchoverClusterRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new User in a given project, location, and cluster.
  *
  *  Method: alloydb.projects.locations.clusters.users.create

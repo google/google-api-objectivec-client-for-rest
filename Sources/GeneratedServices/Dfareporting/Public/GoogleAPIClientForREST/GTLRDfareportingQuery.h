@@ -1019,7 +1019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing user role. This method supports patch semantics.
+ *  Updates an existing account user profile. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.accountUserProfiles.patch
  *
@@ -1041,7 +1042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_AccountUserProfile.
  *
- *  Updates an existing user role. This method supports patch semantics.
+ *  Updates an existing account user profile. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_AccountUserProfile to include in the
  *    query.
@@ -1353,7 +1355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing ad. This method supports patch semantics.
  *
  *  Method: dfareporting.ads.patch
  *
@@ -1375,7 +1377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_Ad.
  *
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing ad. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_Ad to include in the query.
  *  @param profileId User profile ID associated with this request.
@@ -1895,7 +1897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing advertiser. This method supports patch semantics.
+ *  Updates an existing landing page. This method supports patch semantics.
  *
  *  Method: dfareporting.advertiserLandingPages.patch
  *
@@ -1917,7 +1919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_LandingPage.
  *
- *  Updates an existing advertiser. This method supports patch semantics.
+ *  Updates an existing landing page. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
  *  @param profileId User profile ID associated with this request.
@@ -2800,7 +2802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing creative. This method supports patch semantics.
+ *  Updates an existing campaign. This method supports patch semantics.
  *
  *  Method: dfareporting.campaigns.patch
  *
@@ -2822,7 +2824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_Campaign.
  *
- *  Updates an existing creative. This method supports patch semantics.
+ *  Updates an existing campaign. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_Campaign to include in the query.
  *  @param profileId User profile ID associated with this request.
@@ -5730,7 +5732,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight activity. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.floodlightActivities.patch
  *
@@ -5752,7 +5755,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightActivity.
  *
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight activity. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightActivity to include in the
  *    query.
@@ -5973,7 +5977,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight activity group. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.floodlightActivityGroups.patch
  *
@@ -5995,7 +6000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightActivityGroup.
  *
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight activity group. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightActivityGroup to include in
  *    the query.
@@ -6109,7 +6115,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight configuration. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.floodlightConfigurations.patch
  *
@@ -6131,7 +6138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightConfiguration.
  *
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight configuration. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightConfiguration to include in
  *    the query.
@@ -8186,7 +8194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing RemarketingListShare. This method supports patch
+ *  Updates an existing remarketing list share. This method supports patch
  *  semantics.
  *
  *  Method: dfareporting.remarketingListShares.patch
@@ -8209,7 +8217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_RemarketingListShare.
  *
- *  Updates an existing RemarketingListShare. This method supports patch
+ *  Updates an existing remarketing list share. This method supports patch
  *  semantics.
  *
  *  @param object The @c GTLRDfareporting_RemarketingListShare to include in the
@@ -8375,7 +8383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing RemarketingList. This method supports patch semantics.
+ *  Updates an existing remarketing list. This method supports patch semantics.
  *
  *  Method: dfareporting.remarketingLists.patch
  *
@@ -8397,7 +8405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_RemarketingList.
  *
- *  Updates an existing RemarketingList. This method supports patch semantics.
+ *  Updates an existing remarketing list. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_RemarketingList to include in the
  *    query.

@@ -19,6 +19,7 @@
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
 @class GTLRDataproc_AutoscalingPolicy_Labels;
+@class GTLRDataproc_AutotuningConfig;
 @class GTLRDataproc_AuxiliaryNodeGroup;
 @class GTLRDataproc_AuxiliaryServicesConfig;
 @class GTLRDataproc_BasicAutoscalingAlgorithm;
@@ -197,6 +198,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_AnalyzeOperationMetadata_Analyz
  *  Value: "WORKLOAD_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AnalyzeOperationMetadata_AnalyzedWorkloadType_WorkloadTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_AutotuningConfig.scenarios
+
+/**
+ *  Adding hints for potential relation broadcasts.
+ *
+ *  Value: "BROADCAST_HASH_JOIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_BroadcastHashJoin;
+/**
+ *  Memory management for workloads.
+ *
+ *  Value: "MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Memory;
+/**
+ *  Scaling recommendations such as initialExecutors.
+ *
+ *  Value: "SCALING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Scaling;
+/**
+ *  Default value.
+ *
+ *  Value: "SCENARIO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_ScenarioUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_Batch.state
@@ -809,6 +838,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_Oper
  *  Value: "RESIZE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize;
+/**
+ *  Start node group operation type.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Start;
+/**
+ *  Stop node group operation type.
+ *
+ *  Value: "STOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Stop;
 /**
  *  Update node group operation type.
  *
@@ -1448,6 +1489,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_AutoscalingPolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  Autotuning configuration of the workload.
+ */
+@interface GTLRDataproc_AutotuningConfig : GTLRObject
+
+/** Optional. Scenarios for which tunings are applied. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scenarios;
+
 @end
 
 
@@ -2371,6 +2423,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_DiskConfig : GTLRObject
 
 /**
+ *  Optional. Indicates how many IOPS to provision for the disk. This sets the
+ *  number of I/O operations per second that the disk can handle. Note: This
+ *  field is only supported if boot_disk_type is hyperdisk-balanced.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bootDiskProvisionedIops;
+
+/**
+ *  Optional. Indicates how much throughput to provision for the disk. This sets
+ *  the number of throughput mb per second that the disk can handle. Values must
+ *  be greater than or equal to 1. Note: This field is only supported if
+ *  boot_disk_type is hyperdisk-balanced.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bootDiskProvisionedThroughput;
+
+/**
  *  Optional. Size in GB of the boot disk (default is 500GB).
  *
  *  Uses NSNumber of intValue.
@@ -2823,8 +2894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *subnetworkUri;
 
 /**
- *  The Compute Engine tags to add to all instances (see Tagging instances
- *  (https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+ *  The Compute Engine network tags to add to all instances (see Tagging
+ *  instances (https://cloud.google.com/vpc/docs/add-remove-network-tags)).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -4762,6 +4833,10 @@ GTLR_DEPRECATED
  *        Repair node group operation type. (Value: "REPAIR")
  *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize
  *        Resize node group operation type. (Value: "RESIZE")
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Start Start
+ *        node group operation type. (Value: "START")
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Stop Stop
+ *        node group operation type. (Value: "STOP")
  *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Update
  *        Update node group operation type. (Value: "UPDATE")
  *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_UpdateLabels
@@ -5609,6 +5684,15 @@ GTLR_DEPRECATED
  *  Runtime configuration for a workload.
  */
 @interface GTLRDataproc_RuntimeConfig : GTLRObject
+
+/** Optional. Autotuning configuration of the workload. */
+@property(nonatomic, strong, nullable) GTLRDataproc_AutotuningConfig *autotuningConfig;
+
+/**
+ *  Optional. Cohort identifier. Identifies families of the workloads having the
+ *  same shape, e.g. daily ETL jobs.
+ */
+@property(nonatomic, copy, nullable) NSString *cohort;
 
 /**
  *  Optional. Optional custom container image for the job runtime environment.

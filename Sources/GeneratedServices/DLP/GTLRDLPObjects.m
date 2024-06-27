@@ -274,8 +274,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Te
 
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.locationCategory
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Argentina = @"ARGENTINA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Armenia = @"ARMENIA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia = @"AUSTRALIA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Azerbaijan = @"AZERBAIJAN";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belarus = @"BELARUS";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belgium = @"BELGIUM";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Brazil = @"BRAZIL";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Canada = @"CANADA";

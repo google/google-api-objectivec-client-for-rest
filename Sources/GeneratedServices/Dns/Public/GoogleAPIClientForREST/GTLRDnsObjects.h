@@ -45,7 +45,6 @@
 @class GTLRDns_PolicyNetwork;
 @class GTLRDns_Quota;
 @class GTLRDns_ResourceRecordSet;
-@class GTLRDns_ResponseHeader;
 @class GTLRDns_ResponsePolicy;
 @class GTLRDns_ResponsePolicy_Labels;
 @class GTLRDns_ResponsePolicyGKECluster;
@@ -164,17 +163,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha384;
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZone.visibility
 
-/** Value: "private" */
+/**
+ *  Indicates that records in this zone cannot be queried from the public
+ *  internet. Access to private zones depends on the zone configuration.
+ *
+ *  Value: "private"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Private;
-/** Value: "public" */
+/**
+ *  Indicates that records in this zone can be queried from the public internet.
+ *
+ *  Value: "public"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Public;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZoneDnsSecConfig.nonExistence
 
-/** Value: "nsec" */
+/**
+ *  Indicates that Cloud DNS will sign records in the managed zone according to
+ *  RFC 4034 and respond with NSEC records for names that do not exist.
+ *
+ *  Value: "nsec"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec;
-/** Value: "nsec3" */
+/**
+ *  Indicates that Cloud DNS will sign records in the managed zone according to
+ *  RFC 5155 and respond with NSEC3 records for names that do not exist.
+ *
+ *  Value: "nsec3"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3;
 
 // ----------------------------------------------------------------------------
@@ -249,18 +267,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /** Value: "behaviorUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified;
 /**
- *  Skip a less-specific ResponsePolicyRule and continue normal query logic.
- *  This can be used with a less-specific wildcard selector to exempt a subset
- *  of the wildcard ResponsePolicyRule from the ResponsePolicy behavior and
- *  query the public Internet instead. For instance, if these rules exist:
- *  *.example.com -> LocalData 1.2.3.4 foo.example.com -> Behavior
- *  'bypassResponsePolicy' Then a query for 'foo.example.com' skips the
- *  wildcard. This additionally functions to facilitate the allowlist feature.
- *  RPZs can be applied to multiple levels in the (eventually org, folder,
- *  project, network) hierarchy. If a rule is applied at a higher level of the
- *  hierarchy, adding a passthru rule at a lower level will supersede that, and
- *  a query from an affected vm to that domain will be exempt from the RPZ and
- *  proceed to normal resolution behavior.
+ *  Skip a less-specific Response Policy Rule and let the query logic continue.
+ *  This mechanism, when used with wildcard selectors, lets you exempt specific
+ *  subdomains from a broader Response Policy Rule and direct the queries to the
+ *  public internet instead. For example, if the following rules exist: ```
+ *  *.example.com -> LocalData 1.2.3.4 foo.example.com -> Behavior 'passthrough'
+ *  ``` A query for foo.example.com skips the wildcard rule. This functionality
+ *  also facilitates allowlisting. Response Policy Zones (RPZs) can be applied
+ *  at multiple levels within the hierarchy: for example, an organization, a
+ *  folder, a project, or a VPC network. If an RPZ rule is applied at a higher
+ *  level, adding a `passthrough` rule at a lower level will override it.
+ *  Queries from affected virtual machines (VMs) to that domain bypass the RPZ
+ *  and proceed with normal resolution.
  *
  *  Value: "bypassResponsePolicy"
  */
@@ -269,9 +287,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
 // ----------------------------------------------------------------------------
 // GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.ipProtocol
 
-/** Value: "tcp" */
+/**
+ *  Indicates the load balancer is accessible via TCP.
+ *
+ *  Value: "tcp"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Tcp;
-/** Value: "udp" */
+/**
+ *  Indicates the load balancer is accessible via UDP.
+ *
+ *  Value: "udp"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Udp;
 /** Value: "undefined" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Undefined;
@@ -279,23 +305,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 // ----------------------------------------------------------------------------
 // GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.loadBalancerType
 
-/** Value: "globalL7ilb" */
+/**
+ *  Indicates the load balancer is a Cross-Region Application Load Balancer.
+ *
+ *  Value: "globalL7ilb"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_GlobalL7ilb;
 /** Value: "none" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None;
-/** Value: "regionalL4ilb" */
+/**
+ *  Indicates the load balancer is a Regional Network Passthrough Load Balancer.
+ *
+ *  Value: "regionalL4ilb"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb;
-/** Value: "regionalL7ilb" */
+/**
+ *  Indicates the load balancer is a Regional Application Load Balancer.
+ *
+ *  Value: "regionalL7ilb"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL7ilb;
 
 /**
- *  A Change represents a set of ResourceRecordSet additions and deletions
+ *  A Change represents a set of `ResourceRecordSet` additions and deletions
  *  applied atomically to a ManagedZone. ResourceRecordSets within a ManagedZone
  *  are modified by creating a new Change element in the Changes collection. In
  *  turn the Changes collection also records the past modifications to the
- *  ResourceRecordSets in a ManagedZone. The current state of the ManagedZone is
- *  the sum effect of applying all Change elements in the Changes collection in
- *  sequence.
+ *  `ResourceRecordSets` in a `ManagedZone`. The current state of the
+ *  `ManagedZone` is the sum effect of applying all `Change` elements in the
+ *  `Changes` collection in sequence.
  */
 @interface GTLRDns_Change : GTLRObject
 
@@ -360,20 +398,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_Change *> *changes;
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The presence of this field indicates that there exist more results following
- *  your last page of results in pagination order. To fetch them, make another
- *  list request using this value as your pagination token. This lets you
- *  retrieve the complete contents of even very large collections one page at a
- *  time. However, if the contents of the collection change between the first
- *  and last paginated list request, the set of all elements returned are an
- *  inconsistent view of the collection. You cannot retrieve a "snapshot" of
- *  collections larger than the maximum page size.
+ *  This field indicates that more results are available beyond the last page
+ *  displayed. To fetch the results, make another list request and use this
+ *  value as your page token. This lets you retrieve the complete contents of a
+ *  very large collection one page at a time. However, if the contents of the
+ *  collection change between the first and last paginated list request, the set
+ *  of all elements returned are an inconsistent view of the collection. You
+ *  can't retrieve a consistent snapshot of a collection larger than the maximum
+ *  page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -493,20 +529,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_DnsKey *> *dnsKeys;
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The presence of this field indicates that there exist more results following
- *  your last page of results in pagination order. To fetch them, make another
- *  list request using this value as your pagination token. In this way you can
- *  retrieve the complete contents of even very large collections one page at a
- *  time. However, if the contents of the collection change between the first
- *  and last paginated list request, the set of all elements returned are an
- *  inconsistent view of the collection. There is no way to retrieve a
- *  "snapshot" of collections larger than the maximum page size.
+ *  This field indicates that more results are available beyond the last page
+ *  displayed. To fetch the results, make another list request and use this
+ *  value as your page token. This lets you retrieve the complete contents of a
+ *  very large collection one page at a time. However, if the contents of the
+ *  collection change between the first and last paginated list request, the set
+ *  of all elements returned are an inconsistent view of the collection. You
+ *  can't retrieve a consistent snapshot of a collection larger than the maximum
+ *  page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1066,8 +1100,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  private zones are visible only to Virtual Private Cloud resources.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_ManagedZone_Visibility_Private Value "private"
- *    @arg @c kGTLRDns_ManagedZone_Visibility_Public Value "public"
+ *    @arg @c kGTLRDns_ManagedZone_Visibility_Private Indicates that records in
+ *        this zone cannot be queried from the public internet. Access to
+ *        private zones depends on the zone configuration. (Value: "private")
+ *    @arg @c kGTLRDns_ManagedZone_Visibility_Public Indicates that records in
+ *        this zone can be queried from the public internet. (Value: "public")
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
 
@@ -1122,8 +1159,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  only be changed while the state is OFF.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec Value "nsec"
- *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3 Value "nsec3"
+ *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec Indicates that
+ *        Cloud DNS will sign records in the managed zone according to RFC 4034
+ *        and respond with NSEC records for names that do not exist. (Value:
+ *        "nsec")
+ *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3 Indicates that
+ *        Cloud DNS will sign records in the managed zone according to RFC 5155
+ *        and respond with NSEC3 records for names that do not exist. (Value:
+ *        "nsec3")
  */
 @property(nonatomic, copy, nullable) NSString *nonExistence;
 
@@ -1207,20 +1250,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ManagedZoneOperationsListResponse : GTLRCollectionObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The presence of this field indicates that there exist more results following
- *  your last page of results in pagination order. To fetch them, make another
- *  list request using this value as your page token. This lets you retrieve the
- *  complete contents of even very large collections one page at a time.
- *  However, if the contents of the collection change between the first and last
- *  paginated list request, the set of all elements returned are an inconsistent
- *  view of the collection. You cannot retrieve a consistent snapshot of a
- *  collection larger than the maximum page size.
+ *  This field indicates that more results are available beyond the last page
+ *  displayed. To fetch the results, make another list request and use this
+ *  value as your page token. This lets you retrieve the complete contents of a
+ *  very large collection one page at a time. However, if the contents of the
+ *  collection change between the first and last paginated list request, the set
+ *  of all elements returned are an inconsistent view of the collection. You
+ *  can't retrieve a consistent snapshot of a collection larger than the maximum
+ *  page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1266,7 +1307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  The fully qualified URL of the VPC network to forward queries to. This
  *  should be formatted like
- *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`
  */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
@@ -1316,7 +1357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 /**
  *  The fully qualified URL of the VPC network to bind to. Format this URL like
- *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`
  */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
@@ -1366,7 +1407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  The fully qualified URL of the namespace associated with the zone. Format
  *  must be
- *  https://servicedirectory.googleapis.com/v1/projects/{project}/locations/{location}/namespaces/{namespace}
+ *  `https://servicedirectory.googleapis.com/v1/projects/{project}/locations/{location}/namespaces/{namespace}`
  */
 @property(nonatomic, copy, nullable) NSString *namespaceUrl;
 
@@ -1383,8 +1424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ManagedZonesListResponse : GTLRCollectionObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1397,14 +1436,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZone *> *managedZones;
 
 /**
- *  The presence of this field indicates that there exist more results following
- *  your last page of results in pagination order. To fetch them, make another
- *  list request using this value as your page token. This lets you the complete
- *  contents of even very large collections one page at a time. However, if the
- *  contents of the collection change between the first and last paginated list
- *  request, the set of all elements returned are an inconsistent view of the
- *  collection. You cannot retrieve a consistent snapshot of a collection larger
- *  than the maximum page size.
+ *  This field indicates that more results are available beyond the last page
+ *  displayed. To fetch the results, make another list request and use this
+ *  value as your page token. This lets you retrieve the complete contents of a
+ *  very large collection one page at a time. However, if the contents of the
+ *  collection change between the first and last paginated list request, the set
+ *  of all elements returned are an inconsistent view of the collection. You
+ *  can't retrieve a consistent snapshot of a collection larger than the maximum
+ *  page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1509,20 +1548,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_PoliciesListResponse : GTLRCollectionObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The presence of this field indicates that there exist more results following
- *  your last page of results in pagination order. To fetch them, make another
- *  list request using this value as your page token. This lets you the complete
- *  contents of even very large collections one page at a time. However, if the
- *  contents of the collection change between the first and last paginated list
- *  request, the set of all elements returned are an inconsistent view of the
- *  collection. You cannot retrieve a consistent snapshot of a collection larger
- *  than the maximum page size.
+ *  This field indicates that more results are available beyond the last page
+ *  displayed. To fetch the results, make another list request and use this
+ *  value as your page token. This lets you retrieve the complete contents of a
+ *  very large collection one page at a time. However, if the contents of the
+ *  collection change between the first and last paginated list request, the set
+ *  of all elements returned are an inconsistent view of the collection. You
+ *  can't retrieve a consistent snapshot of a collection larger than the maximum
+ *  page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1542,7 +1579,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_PoliciesPatchResponse : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
 @property(nonatomic, strong, nullable) GTLRDns_Policy *policy;
 
 @end
@@ -1553,7 +1589,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_PoliciesUpdateResponse : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
 @property(nonatomic, strong, nullable) GTLRDns_Policy *policy;
 
 @end
@@ -1694,7 +1729,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  A project resource. The project is a top level container for resources
  *  including Cloud DNS ManagedZones. Projects can be created only in the APIs
- *  console. Next tag: 7.
+ *  console.
  */
 @interface GTLRDns_Project : GTLRObject
 
@@ -1914,8 +1949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  Configures dynamic query responses based on either the geo location of the
  *  querying user or a weighted round robin based routing policy. A valid
- *  ResourceRecordSet contains only rrdata (for static resolution) or a
- *  routing_policy (for dynamic resolution).
+ *  `ResourceRecordSet` contains only `rrdata` (for static resolution) or a
+ *  `routing_policy` (for dynamic resolution).
  */
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicy *routingPolicy;
 
@@ -1929,7 +1964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
 
 /**
- *  Number of seconds that this ResourceRecordSet can be cached by resolvers.
+ *  Number of seconds that this `ResourceRecordSet` can be cached by resolvers.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1961,20 +1996,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ResourceRecordSetsListResponse : GTLRCollectionObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The presence of this field indicates that there exist more results following
- *  your last page of results in pagination order. To fetch them, make another
- *  list request using this value as your pagination token. This lets you
- *  retrieve the complete contents of even larger collections, one page at a
- *  time. However, if the collection changes between paginated list requests,
- *  the set of elements returned is an inconsistent view of the collection. You
- *  cannot retrieve a consistent snapshot of a collection larger than the
- *  maximum page size.
+ *  This field indicates that more results are available beyond the last page
+ *  displayed. To fetch the results, make another list request and use this
+ *  value as your page token. This lets you retrieve the complete contents of a
+ *  very large collection one page at a time. However, if the contents of the
+ *  collection change between the first and last paginated list request, the set
+ *  of all elements returned are an inconsistent view of the collection. You
+ *  can't retrieve a consistent snapshot of a collection larger than the maximum
+ *  page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1990,21 +2023,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 
 /**
- *  Elements common to every response.
- */
-@interface GTLRDns_ResponseHeader : GTLRObject
-
-/**
- *  For mutating operation requests that completed successfully. This is the
- *  client_operation_id if the client specified it, otherwise it is generated by
- *  the server (output only).
- */
-@property(nonatomic, copy, nullable) NSString *operationId;
-
-@end
-
-
-/**
  *  GTLRDns_ResponsePoliciesListResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2014,17 +2032,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ResponsePoliciesListResponse : GTLRCollectionObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
 /**
- *  The presence of this field indicates that more results exist following your
- *  last page of results in pagination order. To fetch them, make another list
- *  request by using this value as your page token. This lets you view the
- *  complete contents of even very large collections one page at a time.
- *  However, if the contents of the collection change between the first and last
- *  paginated list request, the set of all elements returned are an inconsistent
- *  view of the collection. You cannot retrieve a consistent snapshot of a
- *  collection larger than the maximum page size.
+ *  This field indicates that more results are available beyond the last page
+ *  displayed. To fetch the results, make another list request and use this
+ *  value as your page token. This lets you retrieve the complete contents of a
+ *  very large collection one page at a time. However, if the contents of the
+ *  collection change between the first and last paginated list request, the set
+ *  of all elements returned are an inconsistent view of the collection. You
+ *  can't retrieve a consistent snapshot of a collection larger than the maximum
+ *  page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2044,7 +2060,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ResponsePoliciesPatchResponse : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
 @property(nonatomic, strong, nullable) GTLRDns_ResponsePolicy *responsePolicy;
 
 @end
@@ -2055,7 +2070,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ResponsePoliciesUpdateResponse : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
 @property(nonatomic, strong, nullable) GTLRDns_ResponsePolicy *responsePolicy;
 
 @end
@@ -2145,7 +2159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  The fully qualified URL of the VPC network to bind to. This should be
  *  formatted like
- *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`
  */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
@@ -2168,19 +2182,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *    @arg @c kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified Value
  *        "behaviorUnspecified"
  *    @arg @c kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy Skip a
- *        less-specific ResponsePolicyRule and continue normal query logic. This
- *        can be used with a less-specific wildcard selector to exempt a subset
- *        of the wildcard ResponsePolicyRule from the ResponsePolicy behavior
- *        and query the public Internet instead. For instance, if these rules
- *        exist: *.example.com -> LocalData 1.2.3.4 foo.example.com -> Behavior
- *        'bypassResponsePolicy' Then a query for 'foo.example.com' skips the
- *        wildcard. This additionally functions to facilitate the allowlist
- *        feature. RPZs can be applied to multiple levels in the (eventually
- *        org, folder, project, network) hierarchy. If a rule is applied at a
- *        higher level of the hierarchy, adding a passthru rule at a lower level
- *        will supersede that, and a query from an affected vm to that domain
- *        will be exempt from the RPZ and proceed to normal resolution behavior.
- *        (Value: "bypassResponsePolicy")
+ *        less-specific Response Policy Rule and let the query logic continue.
+ *        This mechanism, when used with wildcard selectors, lets you exempt
+ *        specific subdomains from a broader Response Policy Rule and direct the
+ *        queries to the public internet instead. For example, if the following
+ *        rules exist: ``` *.example.com -> LocalData 1.2.3.4 foo.example.com ->
+ *        Behavior 'passthrough' ``` A query for foo.example.com skips the
+ *        wildcard rule. This functionality also facilitates allowlisting.
+ *        Response Policy Zones (RPZs) can be applied at multiple levels within
+ *        the hierarchy: for example, an organization, a folder, a project, or a
+ *        VPC network. If an RPZ rule is applied at a higher level, adding a
+ *        `passthrough` rule at a lower level will override it. Queries from
+ *        affected virtual machines (VMs) to that domain bypass the RPZ and
+ *        proceed with normal resolution. (Value: "bypassResponsePolicy")
  */
 @property(nonatomic, copy, nullable) NSString *behavior;
 
@@ -2230,17 +2244,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ResponsePolicyRulesListResponse : GTLRCollectionObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
 /**
- *  The presence of this field indicates that there exist more results following
- *  your last page of results in pagination order. To fetch them, make another
- *  list request using this value as your page token. This lets you the complete
- *  contents of even very large collections one page at a time. However, if the
- *  contents of the collection change between the first and last paginated list
- *  request, the set of all elements returned are an inconsistent view of the
- *  collection. You cannot retrieve a consistent snapshot of a collection larger
- *  than the maximum page size.
+ *  This field indicates that more results are available beyond the last page
+ *  displayed. To fetch the results, make another list request and use this
+ *  value as your page token. This lets you retrieve the complete contents of a
+ *  very large collection one page at a time. However, if the contents of the
+ *  collection change between the first and last paginated list request, the set
+ *  of all elements returned are an inconsistent view of the collection. You
+ *  can't retrieve a consistent snapshot of a collection larger than the maximum
+ *  page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2260,7 +2272,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ResponsePolicyRulesPatchResponse : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
 @property(nonatomic, strong, nullable) GTLRDns_ResponsePolicyRule *responsePolicyRule;
 
 @end
@@ -2271,7 +2282,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ResponsePolicyRulesUpdateResponse : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
 @property(nonatomic, strong, nullable) GTLRDns_ResponsePolicyRule *responsePolicyRule;
 
 @end
@@ -2293,8 +2303,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 
 /**
- *  Configures a RRSetRoutingPolicy that routes based on the geo location of the
- *  querying user.
+ *  Configures a `RRSetRoutingPolicy` that routes based on the geo location of
+ *  the querying user.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -2335,7 +2345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 /**
  *  For A and AAAA types only. Endpoints to return in the query result only if
- *  they are healthy. These can be specified along with rrdata within this item.
+ *  they are healthy. These can be specified along with `rrdata` within this
+ *  item.
  */
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyHealthCheckTargets *healthCheckedTargets;
 
@@ -2351,7 +2362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
 
 /**
- *  DNSSEC generated signatures for all the rrdata within this item. If health
+ *  DNSSEC generated signatures for all the `rrdata` within this item. If health
  *  checked targets are provided for DNSSEC enabled zones, there's a restriction
  *  of 1 IP address per item.
  */
@@ -2363,8 +2374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  HealthCheckTargets describes endpoints to health-check when responding to
  *  Routing Policy queries. Only the healthy endpoints will be included in the
- *  response. Only one of internal_load_balancer and external_endpoints should
- *  be set.
+ *  response.
  */
 @interface GTLRDns_RRSetRoutingPolicyHealthCheckTargets : GTLRObject
 
@@ -2386,10 +2396,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  The protocol of the load balancer to health check.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Tcp Value
- *        "tcp"
- *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Udp Value
- *        "udp"
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Tcp
+ *        Indicates the load balancer is accessible via TCP. (Value: "tcp")
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Udp
+ *        Indicates the load balancer is accessible via UDP. (Value: "udp")
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Undefined
  *        Value "undefined"
  */
@@ -2407,21 +2417,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *
  *  Likely values:
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_GlobalL7ilb
- *        Value "globalL7ilb"
+ *        Indicates the load balancer is a Cross-Region Application Load
+ *        Balancer. (Value: "globalL7ilb")
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None
  *        Value "none"
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb
- *        Value "regionalL4ilb"
+ *        Indicates the load balancer is a Regional Network Passthrough Load
+ *        Balancer. (Value: "regionalL4ilb")
  *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL7ilb
- *        Value "regionalL7ilb"
+ *        Indicates the load balancer is a Regional Application Load Balancer.
+ *        (Value: "regionalL7ilb")
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancerType;
 
 /**
  *  The fully qualified URL of the network that the load balancer is attached
  *  to. This should be formatted like
- *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
- *  .
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`.
  */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
@@ -2446,8 +2458,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 /**
  *  Backup targets provide a regional failover policy for the otherwise global
- *  primary targets. If serving state is set to BACKUP, this policy essentially
- *  becomes a geo routing policy.
+ *  primary targets. If serving state is set to `BACKUP`, this policy
+ *  essentially becomes a geo routing policy.
  */
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyGeoPolicy *backupGeoTargets;
 
@@ -2456,12 +2468,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  Endpoints that are health checked before making the routing decision.
  *  Unhealthy endpoints are omitted from the results. If all endpoints are
- *  unhealthy, we serve a response based on the backup_geo_targets.
+ *  unhealthy, we serve a response based on the `backup_geo_targets`.
  */
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyHealthCheckTargets *primaryTargets;
 
 /**
- *  When serving state is PRIMARY, this field provides the option of sending a
+ *  When serving state is `PRIMARY`, this field provides the option of sending a
  *  small percentage of the traffic to the backup targets.
  *
  *  Uses NSNumber of doubleValue.
@@ -2503,7 +2515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  unhealthy endpoints are omitted from the result. If all endpoints within a
  *  bucket are unhealthy, we choose a different bucket (sampled with respect to
  *  its weight) for responding. If DNSSEC is enabled for this zone, only one of
- *  rrdata or health_checked_targets can be set.
+ *  `rrdata` or `health_checked_targets` can be set.
  */
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyHealthCheckTargets *healthCheckedTargets;
 
@@ -2511,16 +2523,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
 
 /**
- *  DNSSEC generated signatures for all the rrdata within this item. Note that
+ *  DNSSEC generated signatures for all the `rrdata` within this item. Note that
  *  if health checked targets are provided for DNSSEC enabled zones, there's a
  *  restriction of 1 IP address per item.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
 
 /**
- *  The weight corresponding to this WrrPolicyItem object. When multiple
- *  WrrPolicyItem objects are configured, the probability of returning an
- *  WrrPolicyItem object's data is proportional to its weight relative to the
+ *  The weight corresponding to this `WrrPolicyItem` object. When multiple
+ *  `WrrPolicyItem` objects are configured, the probability of returning an
+ *  `WrrPolicyItem` object's data is proportional to its weight relative to the
  *  sum of weights configured for all items. This weight must be non-negative.
  *
  *  Uses NSNumber of doubleValue.

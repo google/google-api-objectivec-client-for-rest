@@ -303,6 +303,60 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/completionSuggestions:import";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.completionSuggestions.import";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsPurge
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/completionSuggestions:purge";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsPurge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.completionSuggestions.purge";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsCreate
 
 @dynamic controlId, parent;
@@ -2482,6 +2536,60 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/completionSuggestions:import";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.dataStores.completionSuggestions.import";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsPurge
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/completionSuggestions:purge";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsPurge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.dataStores.completionSuggestions.purge";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsCreate
 
 @dynamic controlId, parent;
@@ -3692,6 +3800,25 @@
   query.rankingConfig = rankingConfig;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RankResponse class];
   query.loggingName = @"discoveryengine.projects.locations.rankingConfigs.rank";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsCollect
+
+@dynamic ets, parent, uri, userEvent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userEvents:collect";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsCollect *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleApiHttpBody class];
+  query.loggingName = @"discoveryengine.projects.locations.userEvents.collect";
   return query;
 }
 

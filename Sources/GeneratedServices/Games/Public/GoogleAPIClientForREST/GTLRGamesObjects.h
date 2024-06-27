@@ -31,6 +31,7 @@
 @class GTLRGames_EventPeriodUpdate;
 @class GTLRGames_EventRecordFailure;
 @class GTLRGames_EventUpdateRequest;
+@class GTLRGames_GamePlayerToken;
 @class GTLRGames_ImageAsset;
 @class GTLRGames_Instance;
 @class GTLRGames_InstanceAndroidDetails;
@@ -48,6 +49,7 @@
 @class GTLRGames_PlayerLevel;
 @class GTLRGames_PlayerScore;
 @class GTLRGames_PlayerScoreResponse;
+@class GTLRGames_PlayGroupingApiToken;
 @class GTLRGames_ProfileSettings;
 @class GTLRGames_RecallToken;
 @class GTLRGames_ScoreSubmission;
@@ -1459,6 +1461,42 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
 
 
 /**
+ *  Recall tokens for a game.
+ */
+@interface GTLRGames_GamePlayerToken : GTLRObject
+
+/** The application that this player identifier is for. */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/** Recall token data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_RecallToken *> *token;
+
+@end
+
+
+/**
+ *  Response for the GeneratePlayGroupingApiToken RPC.
+ */
+@interface GTLRGames_GeneratePlayGroupingApiTokenResponse : GTLRObject
+
+/** Token for accessing the Play Grouping API. */
+@property(nonatomic, strong, nullable) GTLRGames_PlayGroupingApiToken *token;
+
+@end
+
+
+/**
+ *  Response for the GenerateRecallPlayGroupingApiToken RPC.
+ */
+@interface GTLRGames_GenerateRecallPlayGroupingApiTokenResponse : GTLRObject
+
+/** Token for accessing the Play Grouping API. */
+@property(nonatomic, strong, nullable) GTLRGames_PlayGroupingApiToken *token;
+
+@end
+
+
+/**
  *  Response message for GetMultipleApplicationPlayerIds rpc.
  */
 @interface GTLRGames_GetMultipleApplicationPlayerIdsResponse : GTLRObject
@@ -2586,6 +2624,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
 
 
 /**
+ *  Token data returned from GeneratePlayGroupingApiToken RPC.
+ */
+@interface GTLRGames_PlayGroupingApiToken : GTLRObject
+
+/** Value of the token. */
+@property(nonatomic, copy, nullable) NSString *tokenValue;
+
+@end
+
+
+/**
  *  Profile settings
  */
 @interface GTLRGames_ProfileSettings : GTLRObject
@@ -2690,6 +2739,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
  *  principal.
  */
 @property(nonatomic, strong, nullable) GTLRGames_RecallToken *token;
+
+@end
+
+
+/**
+ *  A list of recall token data returned from the RetrieveGamesPlayerTokens RPC
+ */
+@interface GTLRGames_RetrieveGamesPlayerTokensResponse : GTLRObject
+
+/**
+ *  The requested applications along with the recall tokens for the player. If
+ *  the player does not have recall tokens for an application, that application
+ *  is not included in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_GamePlayerToken *> *applicationRecallTokens;
 
 @end
 

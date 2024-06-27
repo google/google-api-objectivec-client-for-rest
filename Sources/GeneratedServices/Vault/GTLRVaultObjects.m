@@ -352,7 +352,8 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 //
 
 @implementation GTLRVault_CorpusQuery
-@dynamic driveQuery, groupsQuery, hangoutsChatQuery, mailQuery, voiceQuery;
+@dynamic calendarQuery, driveQuery, groupsQuery, hangoutsChatQuery, mailQuery,
+         voiceQuery;
 @end
 
 
@@ -529,6 +530,15 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 
 @implementation GTLRVault_HeldAccount
 @dynamic accountId, email, firstName, holdTime, lastName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_HeldCalendarQuery
+//
+
+@implementation GTLRVault_HeldCalendarQuery
 @end
 
 

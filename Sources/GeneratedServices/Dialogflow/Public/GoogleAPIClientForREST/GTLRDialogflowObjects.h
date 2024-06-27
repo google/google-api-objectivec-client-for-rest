@@ -103,6 +103,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestError;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TextInput;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall_InputParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult_OutputParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResultError;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TransitionRoute;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TurnSignals;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook;
@@ -351,6 +356,12 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Message;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1MessageAnnotation;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest;
@@ -367,6 +378,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestDialogflowAssistsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestSmartRepliesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
@@ -414,6 +426,12 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentParameter;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Message;
 @class GTLRDialogflow_GoogleCloudDialogflowV2MessageAnnotation;
 @class GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest;
@@ -430,6 +448,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
@@ -2492,6 +2511,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
+ *  Run knowledge assist with automatic query generation.
+ *
+ *  Value: "KNOWLEDGE_ASSIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist;
+/**
  *  Run knowledge search with text input from agent or text generated query.
  *
  *  Value: "KNOWLEDGE_SEARCH"
@@ -3171,6 +3196,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
+ *  Run knowledge assist with automatic query generation.
+ *
+ *  Value: "KNOWLEDGE_ASSIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist;
+/**
  *  Run knowledge search with text input from agent or text generated query.
  *
  *  Value: "KNOWLEDGE_SEARCH"
@@ -3233,6 +3264,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearS
  *  Value: "FAQ"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
+/**
+ *  Run knowledge assist with automatic query generation.
+ *
+ *  Value: "KNOWLEDGE_ASSIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist;
 /**
  *  Run knowledge search with text input from agent or text generated query.
  *
@@ -3911,6 +3948,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSug
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
+ *  Run knowledge assist with automatic query generation.
+ *
+ *  Value: "KNOWLEDGE_ASSIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist;
+/**
  *  Run knowledge search with text input from agent or text generated query.
  *
  *  Value: "KNOWLEDGE_SEARCH"
@@ -4084,14 +4127,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings : GTLRObject
 
 /**
- *  If true, DF Interaction logging is currently enabled.
+ *  Enables DF Interaction logging.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableInteractionLogging;
 
 /**
- *  If true, StackDriver logging is currently enabled.
+ *  Enables StackDriver logging.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4655,14 +4698,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsLoggingSettings : GTLRObject
 
 /**
- *  If true, DF Interaction logging is currently enabled.
+ *  Enables DF Interaction logging.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableInteractionLogging;
 
 /**
- *  If true, StackDriver logging is currently enabled.
+ *  Enables StackDriver logging.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6474,6 +6517,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** The natural language text to be processed. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TextInput *text;
 
+/** The results of a tool executed by the client. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult *toolCallResult;
+
 @end
 
 
@@ -6564,6 +6610,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Returns a text response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageText *text;
+
+/**
+ *  Returns the definition of a tool call that should be executed by the client.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall *toolCall;
 
 @end
 
@@ -7068,6 +7119,84 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Required. The UTF-8 encoded natural language text to be processed. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents a call of a specific tool's action with the specified inputs.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall : GTLRObject
+
+/** Required. The name of the tool's action associated with this call. */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Optional. The action's input parameters. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall_InputParameters *inputParameters;
+
+/**
+ *  Required. The tool associated with this call. Format:
+ *  `projects//locations//agents//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
+
+@end
+
+
+/**
+ *  Optional. The action's input parameters.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCall_InputParameters : GTLRObject
+@end
+
+
+/**
+ *  The result of calling a tool's action that has been executed by the client.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult : GTLRObject
+
+/** Required. The name of the tool's action associated with this call. */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** The tool call's error. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResultError *error;
+
+/** The tool call's output parameters. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult_OutputParameters *outputParameters;
+
+/**
+ *  Required. The tool associated with this call. Format:
+ *  `projects//locations//agents//tools/`.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
+
+@end
+
+
+/**
+ *  The tool call's output parameters.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResult_OutputParameters : GTLRObject
+@end
+
+
+/**
+ *  An error produced by the tool call.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ToolCallResultError : GTLRObject
+
+/** Optional. The error message of the function. */
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -15065,6 +15194,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        agent response as suggestion. (Value: "DIALOGFLOW_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist
+ *        Run knowledge assist with automatic query generation. (Value:
+ *        "KNOWLEDGE_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch
  *        Run knowledge search with text input from agent or text generated
  *        query. (Value: "KNOWLEDGE_SEARCH")
@@ -16961,6 +17093,103 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a Knowledge Assist answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer : GTLRObject
+
+/**
+ *  The name of the answer record. Format: `projects//locations//answer
+ *  Records/`.
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  The query suggested based on the context. Suggestion is made only if it is
+ *  different from the previous suggestion.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery *suggestedQuery;
+
+/**
+ *  The answer generated for the suggested query. Whether or not an answer is
+ *  generated depends on how confident we are about the generated query.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer *suggestedQueryAnswer;
+
+@end
+
+
+/**
+ *  Represents an answer from Knowledge. Currently supports FAQ and Generative
+ *  answers.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer : GTLRObject
+
+/** The piece of text from the `source` that answers this suggested query. */
+@property(nonatomic, copy, nullable) NSString *answerText;
+
+/** Populated if the prediction came from FAQ. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource *faqSource;
+
+/** Populated if the prediction was Generative. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource *generativeSource;
+
+@end
+
+
+/**
+ *  Details about source of FAQ answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource : GTLRObject
+
+/** The corresponding FAQ question. */
+@property(nonatomic, copy, nullable) NSString *question;
+
+@end
+
+
+/**
+ *  Details about source of Generative answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource : GTLRObject
+
+/**
+ *  All snippets used for this Generative Prediction, with their source URI and
+ *  data.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet *> *snippets;
+
+@end
+
+
+/**
+ *  Snippet Source for a Generative Prediction.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet : GTLRObject
+
+/** Text taken from that URI. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** Title of the document. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** URI the data is sourced from. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents a suggested query.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery : GTLRObject
+
+/** Suggested query text. */
+@property(nonatomic, copy, nullable) NSString *queryText;
+
+@end
+
+
+/**
  *  Metadata in google::longrunning::Operation for Knowledge operations.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata : GTLRObject
@@ -17464,6 +17693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        agent response as suggestion. (Value: "DIALOGFLOW_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist
+ *        Run knowledge assist with automatic query generation. (Value:
+ *        "KNOWLEDGE_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch
  *        Run knowledge search with text input from agent or text generated
  *        query. (Value: "KNOWLEDGE_SEARCH")
@@ -17607,8 +17839,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
 
+/** SuggestKnowledgeAssistResponse if request is for KNOWLEDGE_ASSIST. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse *suggestKnowledgeAssistResponse;
+
 /** SuggestSmartRepliesResponse if request is for SMART_REPLY. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestSmartRepliesResponse *suggestSmartRepliesResponse;
+
+@end
+
+
+/**
+ *  The response message for Participants.SuggestKnowledgeAssist.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse : GTLRObject
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the
+ *  SuggestKnowledgeAssistRequest.context_size field in the request if there are
+ *  fewer messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/** Output only. Knowledge Assist suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer *knowledgeAssistAnswer;
+
+/**
+ *  The name of the latest conversation message used to compile suggestion for.
+ *  Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
 
 @end
 
@@ -17835,6 +18097,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model for chat. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist
+ *        Run knowledge assist with automatic query generation. (Value:
+ *        "KNOWLEDGE_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch
  *        Run knowledge search with text input from agent or text generated
  *        query. (Value: "KNOWLEDGE_SEARCH")
@@ -19533,6 +19798,103 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a Knowledge Assist answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswer : GTLRObject
+
+/**
+ *  The name of the answer record. Format: `projects//locations//answer
+ *  Records/`.
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  The query suggested based on the context. Suggestion is made only if it is
+ *  different from the previous suggestion.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery *suggestedQuery;
+
+/**
+ *  The answer generated for the suggested query. Whether or not an answer is
+ *  generated depends on how confident we are about the generated query.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer *suggestedQueryAnswer;
+
+@end
+
+
+/**
+ *  Represents an answer from Knowledge. Currently supports FAQ and Generative
+ *  answers.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer : GTLRObject
+
+/** The piece of text from the `source` that answers this suggested query. */
+@property(nonatomic, copy, nullable) NSString *answerText;
+
+/** Populated if the prediction came from FAQ. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource *faqSource;
+
+/** Populated if the prediction was Generative. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource *generativeSource;
+
+@end
+
+
+/**
+ *  Details about source of FAQ answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource : GTLRObject
+
+/** The corresponding FAQ question. */
+@property(nonatomic, copy, nullable) NSString *question;
+
+@end
+
+
+/**
+ *  Details about source of Generative answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource : GTLRObject
+
+/**
+ *  All snippets used for this Generative Prediction, with their source URI and
+ *  data.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet *> *snippets;
+
+@end
+
+
+/**
+ *  Snippet Source for a Generative Prediction.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet : GTLRObject
+
+/** Text taken from that URI. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** Title of the document. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** URI the data is sourced from. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents a suggested query.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery : GTLRObject
+
+/** Suggested query text. */
+@property(nonatomic, copy, nullable) NSString *queryText;
+
+@end
+
+
+/**
  *  Metadata in google::longrunning::Operation for Knowledge operations.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata : GTLRObject
@@ -20021,6 +20383,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model for chat. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeAssist
+ *        Run knowledge assist with automatic query generation. (Value:
+ *        "KNOWLEDGE_ASSIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_KnowledgeSearch
  *        Run knowledge search with text input from agent or text generated
  *        query. (Value: "KNOWLEDGE_SEARCH")
@@ -20151,8 +20516,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
 
+/** SuggestKnowledgeAssistResponse if request is for KNOWLEDGE_ASSIST. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse *suggestKnowledgeAssistResponse;
+
 /** SuggestSmartRepliesResponse if request is for SMART_REPLY. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse *suggestSmartRepliesResponse;
+
+@end
+
+
+/**
+ *  The response message for Participants.SuggestKnowledgeAssist.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse : GTLRObject
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the
+ *  SuggestKnowledgeAssistRequest.context_size field in the request if there are
+ *  fewer messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/** Output only. Knowledge Assist suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswer *knowledgeAssistAnswer;
+
+/**
+ *  The name of the latest conversation message used to compile suggestion for.
+ *  Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
 
 @end
 

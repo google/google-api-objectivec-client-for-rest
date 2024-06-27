@@ -2849,7 +2849,9 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  working on a different task. This mostly happens when the agent or VM
  *  unexpectedly restarts while applying OS policies. *
  *  `internal-service-errors`: Internal service errors were encountered while
- *  attempting to apply the policy.
+ *  attempting to apply the policy. * `os-policy-execution-pending`: OS policy
+ *  was assigned to the given VM, but was not executed yet. Typically this is a
+ *  transient condition that will go away after the next policy execution cycle.
  */
 @property(nonatomic, copy, nullable) NSString *complianceStateReason;
 
@@ -2895,7 +2897,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  while executing prior resources in the OS policy. *
  *  `os-policy-execution-attempt-failed`: The execution of the OS policy
  *  containing this resource failed and the compliance state couldn't be
- *  determined.
+ *  determined. * `os-policy-execution-pending`: OS policy that owns this
+ *  resource was assigned to the given VM, but was not executed yet.
  */
 @property(nonatomic, copy, nullable) NSString *complianceStateReason;
 

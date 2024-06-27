@@ -108,6 +108,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAccessApproval_Settings.requestScopeMaxWidthPreference
+
+/**
+ *  Customer allows the scope of Access Approval requests as broad as the Folder
+ *  level.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Folder;
+/**
+ *  This is the widest scope possible. It means the customer has no scope
+ *  restriction when it comes to Access Approval requests.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Organization;
+/**
+ *  Customer allows the scope of Access Approval requests as broad as the
+ *  Project level.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Project;
+/**
+ *  Default value for proto, shouldn't be used.
+ *
+ *  Value: "REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_RequestScopeMaxWidthPreferenceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAccessApproval_SignatureInfo.googleKeyAlgorithm
 
 /**
@@ -756,6 +787,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preferredRequestExpirationDays;
+
+/**
+ *  Optional. A setting to indicate the maximum width of an Access Approval
+ *  request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Folder
+ *        Customer allows the scope of Access Approval requests as broad as the
+ *        Folder level. (Value: "FOLDER")
+ *    @arg @c kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Organization
+ *        This is the widest scope possible. It means the customer has no scope
+ *        restriction when it comes to Access Approval requests. (Value:
+ *        "ORGANIZATION")
+ *    @arg @c kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Project
+ *        Customer allows the scope of Access Approval requests as broad as the
+ *        Project level. (Value: "PROJECT")
+ *    @arg @c kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_RequestScopeMaxWidthPreferenceUnspecified
+ *        Default value for proto, shouldn't be used. (Value:
+ *        "REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *requestScopeMaxWidthPreference;
 
 /**
  *  Optional. A setting to require approval request justifications to be

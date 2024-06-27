@@ -509,6 +509,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesDelete : GTLRBinaryAuthorizationQuery
 
 /**
+ *  Optional. Used to prevent deleting the policy when another request has
+ *  updated it since it was retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Required. The name of the platform policy to delete, in the format
  *  `projects/ * /platforms/ * /policies/ *`.
  */
