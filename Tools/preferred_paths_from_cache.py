@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+#
+# Copyright 2024 Google Inc. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+"""Helper to act on a directory of cached discovery data."""
+
+import argparse
+import json
+import os
+import sys
+
+def Main(args):
+  """Main method."""
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--index-name', default="index.json")
+  parser.add_argument('--skip', default=[], action='append')
+  parser.add_argument('cache_dir')
+  opts = parser.parse_args(args)
+  
+  index_path = os.path.join(opts.cache_dir, opts.index_name)
+  with open(index_path, 'r') as fp:
+    services = json.load(fp).get('items')
+
+  file_names = []
+  for x in services:
+    if not x.get("preferred"):
+      continue
+    name = x.get('name')
+    if name in opts.skip:
+      continue
+    version = x.get('version')
+    file_names.append(f'{name}.{version}.json')
+
+  perferred_paths = [
+    os.path.join(opts.cache_dir, x)
+    for x in file_names
+  ]
+  print(" ".join(perferred_paths))
+
+if __name__ == '__main__':
+  sys.exit(Main(sys.argv[1:]))
