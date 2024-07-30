@@ -26,7 +26,8 @@ def Main(args):
   """Main method."""
   parser = argparse.ArgumentParser()
   parser.add_argument('--index-name', default="index.json")
-  parser.add_argument('--skip', default=[], action='append')
+  # Not sure why prod_tt_sasportal is in discovery, always skip it off.
+  parser.add_argument('--skip', default=["prod_tt_sasportal"], action='append')
   parser.add_argument('cache_dir')
   opts = parser.parse_args(args)
   
