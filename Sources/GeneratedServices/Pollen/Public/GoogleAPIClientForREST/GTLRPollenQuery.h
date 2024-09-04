@@ -46,7 +46,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPollenMapTypeMapTypeUnspecified;
  */
 FOUNDATION_EXTERN NSString * const kGTLRPollenMapTypeTreeUpi;
 /**
- *  The heatmap type will represent a weed index graphically map.
+ *  The heatmap type will represent a weed index graphical map.
  *
  *  Value: "WEED_UPI"
  */
@@ -85,8 +85,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPollenMapTypeWeedUpi;
 
 /**
  *  Optional. Allows the client to choose the language for the response. If data
- *  cannot be provided for that language the API uses the closest match. Allowed
- *  values rely on the IETF BCP-47 standard. Default value is "en".
+ *  cannot be provided for that language, the API uses the closest match.
+ *  Allowed values rely on the IETF BCP-47 standard. The default value is "en".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -98,14 +98,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPollenMapTypeWeedUpi;
 
 /**
  *  Optional. The maximum number of daily info records to return per page. The
- *  default and max value is 5 (5 days of data).
+ *  default and max value is 5, indicating 5 days of data.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. A page token received from a previous daily call. It is used to
  *  retrieve the subsequent page. Note that when providing a value for the page
- *  token all other request parameters provided must match the previous call
+ *  token, all other request parameters provided must match the previous call
  *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -113,7 +113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPollenMapTypeWeedUpi;
 /**
  *  Optional. Contains general information about plants, including details on
  *  their seasonality, special shapes and colors, information about allergic
- *  cross-reactions, and plant photos.
+ *  cross-reactions, and plant photos. The default value is "true".
  */
 @property(nonatomic, assign) BOOL plantsDescription;
 
@@ -155,7 +155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPollenMapTypeWeedUpi;
  *    @arg @c kGTLRPollenMapTypeGrassUpi The heatmap type will represent a grass
  *        index graphical map. (Value: "GRASS_UPI")
  *    @arg @c kGTLRPollenMapTypeWeedUpi The heatmap type will represent a weed
- *        index graphically map. (Value: "WEED_UPI")
+ *        index graphical map. (Value: "WEED_UPI")
  */
 @property(nonatomic, copy, nullable) NSString *mapType;
 
@@ -198,7 +198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPollenMapTypeWeedUpi;
  *    @arg @c kGTLRPollenMapTypeGrassUpi The heatmap type will represent a grass
  *        index graphical map. (Value: "GRASS_UPI")
  *    @arg @c kGTLRPollenMapTypeWeedUpi The heatmap type will represent a weed
- *        index graphically map. (Value: "WEED_UPI")
+ *        index graphical map. (Value: "WEED_UPI")
  *
  *  @return GTLRPollenQuery_MapTypesHeatmapTilesLookupHeatmapTile
  */

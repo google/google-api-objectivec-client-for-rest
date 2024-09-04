@@ -50,6 +50,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EntityMentionData;
@@ -68,6 +69,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestConversationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Intent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IntentMatchData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InterruptionData;
@@ -136,6 +138,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowInteractionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Entity;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Entity_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData;
@@ -155,6 +158,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestConversationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Intent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IntentMatchData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InterruptionData;
@@ -579,6 +583,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PHONE_CALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput.querySource
+
+/**
+ *  The query is from agents.
+ *
+ *  Value: "AGENT_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_AgentQuery;
+/**
+ *  Unknown query source.
+ *
+ *  Value: "QUERY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_QuerySourceUnspecified;
+/**
+ *  The query is a query from previous suggestions, e.g. from a preceding
+ *  SuggestKnowledgeAssist response.
+ *
+ *  Value: "SUGGESTED_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_SuggestedQuery;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig.summarizationModel
@@ -1033,6 +1060,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PHRASE_MATCH_RULE_GROUP_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_PhraseMatchRuleGroupTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput.querySource
+
+/**
+ *  The query is from agents.
+ *
+ *  Value: "AGENT_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_AgentQuery;
+/**
+ *  Unknown query source.
+ *
+ *  Value: "QUERY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_QuerySourceUnspecified;
+/**
+ *  The query is a query from previous suggestions, e.g. from a preceding
+ *  SuggestKnowledgeAssist response.
+ *
+ *  Value: "SUGGESTED_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_SuggestedQuery;
 
 /**
  *  The analysis resource.
@@ -2244,6 +2294,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  A customer-managed encryption key specification that can be applied to all
+ *  created resources (e.g. Conversation).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec : GTLRObject
+
+/**
+ *  Required. The name of customer-managed encryption key that is used to secure
+ *  a resource and its sub-resources. If empty, the resource is secured by the
+ *  default Google encryption key. Only the key in the same location as this
+ *  resource is allowed to be used for encryption. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Immutable. The resource name of the encryption key specification resource.
+ *  Format: projects/{project}/locations/{location}/encryptionSpec
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  The data for an entity annotation. Represents a phrase in the conversation
  *  that is a known entity, such as a person, an organization, or location.
  */
@@ -2879,6 +2953,52 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 
 /**
+ *  Metadata for initializing a location-level encryption specification.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Partial errors during initialising operation that might cause the operation
+ *  output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** Output only. The original request for initialization. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecRequest *request;
+
+@end
+
+
+/**
+ *  The request to initialize a location-level encryption specification.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecRequest : GTLRObject
+
+/**
+ *  Required. The encryption spec used for CMEK encryption. It is required that
+ *  the kms key is in the same region as the endpoint. The same key will be used
+ *  for all provisioned resources, if encryption is available. If the
+ *  kms_key_name is left empty, no encryption will be enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec *encryptionSpec;
+
+@end
+
+
+/**
+ *  The response to initialize a location-level encryption specification.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecResponse : GTLRObject
+@end
+
+
+/**
  *  The data for an intent. Represents a detected intent in the conversation,
  *  for example MAKES_PROMISE.
  */
@@ -3256,6 +3376,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  generate the search results.
  */
 @property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Query source for the answer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_AgentQuery
+ *        The query is from agents. (Value: "AGENT_QUERY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_QuerySourceUnspecified
+ *        Unknown query source. (Value: "QUERY_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_SuggestedQuery
+ *        The query is a query from previous suggestions, e.g. from a preceding
+ *        SuggestKnowledgeAssist response. (Value: "SUGGESTED_QUERY")
+ */
+@property(nonatomic, copy, nullable) NSString *querySource;
 
 @end
 
@@ -4872,6 +5006,30 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A customer-managed encryption key specification that can be applied to all
+ *  created resources (e.g. Conversation).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec : GTLRObject
+
+/**
+ *  Required. The name of customer-managed encryption key that is used to secure
+ *  a resource and its sub-resources. If empty, the resource is secured by the
+ *  default Google encryption key. Only the key in the same location as this
+ *  resource is allowed to be used for encryption. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Immutable. The resource name of the encryption key specification resource.
+ *  Format: projects/{project}/locations/{location}/encryptionSpec
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  The data for an entity annotation. Represents a phrase in the conversation
  *  that is a known entity, such as a person, an organization, or location.
  */
@@ -5522,6 +5680,52 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metadata for initializing a location-level encryption specification.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Partial errors during initialising operation that might cause the operation
+ *  output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/** Output only. The original request for initialization. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest *request;
+
+@end
+
+
+/**
+ *  The request to initialize a location-level encryption specification.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest : GTLRObject
+
+/**
+ *  Required. The encryption spec used for CMEK encryption. It is required that
+ *  the kms key is in the same region as the endpoint. The same key will be used
+ *  for all provisioned resources, if encryption is available. If the
+ *  kms_key_name is left empty, no encryption will be enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec *encryptionSpec;
+
+@end
+
+
+/**
+ *  The response to initialize a location-level encryption specification.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecResponse : GTLRObject
+@end
+
+
+/**
  *  The data for an intent. Represents a detected intent in the conversation,
  *  for example MAKES_PROMISE.
  */
@@ -5570,6 +5774,9 @@ GTLR_DEPRECATED
 
 /** Output only. The time at which this issue was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Representative description of the issue. */
+@property(nonatomic, copy, nullable) NSString *displayDescription;
 
 /** The representative name for the issue. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -6214,6 +6421,20 @@ GTLR_DEPRECATED
  *  generate the search results.
  */
 @property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Query source for the answer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_AgentQuery
+ *        The query is from agents. (Value: "AGENT_QUERY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_QuerySourceUnspecified
+ *        Unknown query source. (Value: "QUERY_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_SuggestedQuery
+ *        The query is a query from previous suggestions, e.g. from a preceding
+ *        SuggestKnowledgeAssist response. (Value: "SUGGESTED_QUERY")
+ */
+@property(nonatomic, copy, nullable) NSString *querySource;
 
 @end
 

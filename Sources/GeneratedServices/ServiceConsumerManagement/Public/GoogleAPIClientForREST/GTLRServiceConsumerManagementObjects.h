@@ -1593,10 +1593,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
-/** A list of full type names of provided contexts. */
+/**
+ *  A list of full type names of provided contexts. It is used to support
+ *  propagating HTTP headers and ETags from the response extension.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
 
-/** A list of full type names of requested contexts. */
+/**
+ *  A list of full type names of requested contexts, only the requested context
+ *  will be made available to the backend.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requested;
 
 /**
@@ -2333,11 +2339,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  effect as the proto annotation. This can be particularly useful if you have
  *  a proto that is reused in multiple services. Note that any transcoding
  *  specified in the service config will override any matching transcoding
- *  configuration in the proto. Example below selects a gRPC method and applies
- *  HttpRule to it. http: rules: - selector: example.v1.Messaging.GetMessage
- *  get: /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC
- *  Transcoding is used to map a gRPC to JSON REST endpoints, the proto to JSON
- *  conversion must follow the [proto3
+ *  configuration in the proto. The following example selects a gRPC method and
+ *  applies an `HttpRule` to it: http: rules: - selector:
+ *  example.v1.Messaging.GetMessage get:
+ *  /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC Transcoding
+ *  is used to map a gRPC to JSON REST endpoints, the proto to JSON conversion
+ *  must follow the [proto3
  *  specification](https://developers.google.com/protocol-buffers/docs/proto3#json).
  *  While the single segment variable follows the semantics of [RFC
  *  6570](https://tools.ietf.org/html/rfc6570) Section 3.2.2 Simple String

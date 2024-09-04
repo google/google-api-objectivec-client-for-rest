@@ -24,16 +24,24 @@
 @class GTLRDataFusion_AuditConfig;
 @class GTLRDataFusion_AuditLogConfig;
 @class GTLRDataFusion_Binding;
+@class GTLRDataFusion_BlobstoreLocation;
+@class GTLRDataFusion_CloudAsset;
+@class GTLRDataFusion_CloudAssetComposition;
 @class GTLRDataFusion_CryptoKeyConfig;
+@class GTLRDataFusion_DirectLocationAssignment;
 @class GTLRDataFusion_DnsPeering;
 @class GTLRDataFusion_EventPublishConfig;
 @class GTLRDataFusion_Expr;
+@class GTLRDataFusion_ExtraParameter;
 @class GTLRDataFusion_Instance;
 @class GTLRDataFusion_Instance_Labels;
 @class GTLRDataFusion_Instance_Options;
+@class GTLRDataFusion_IsolationExpectations;
 @class GTLRDataFusion_Location;
 @class GTLRDataFusion_Location_Labels;
 @class GTLRDataFusion_Location_Metadata;
+@class GTLRDataFusion_LocationAssignment;
+@class GTLRDataFusion_LocationData;
 @class GTLRDataFusion_MaintenancePolicy;
 @class GTLRDataFusion_MaintenanceWindow;
 @class GTLRDataFusion_NetworkConfig;
@@ -41,13 +49,18 @@
 @class GTLRDataFusion_Operation_Metadata;
 @class GTLRDataFusion_Operation_Response;
 @class GTLRDataFusion_OperationMetadata_AdditionalStatus;
+@class GTLRDataFusion_PlacerLocation;
 @class GTLRDataFusion_Policy;
 @class GTLRDataFusion_PrivateServiceConnectConfig;
 @class GTLRDataFusion_RecurringTimeWindow;
+@class GTLRDataFusion_RegionalMigDistributionPolicy;
+@class GTLRDataFusion_SpannerLocation;
 @class GTLRDataFusion_Status;
 @class GTLRDataFusion_Status_Details_Item;
+@class GTLRDataFusion_TenantProjectProxy;
 @class GTLRDataFusion_TimeWindow;
 @class GTLRDataFusion_Version;
+@class GTLRDataFusion_ZoneConfiguration;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -275,6 +288,154 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Enterprise;
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataFusion_IsolationExpectations.ziOrgPolicy
+
+/** Value: "ZI_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiNotRequired;
+/** Value: "ZI_PREFERRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiPreferred;
+/** Value: "ZI_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiUnknown;
+/** Value: "ZI_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_IsolationExpectations.ziRegionPolicy
+
+/** Value: "ZI_REGION_POLICY_FAIL_CLOSED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed;
+/** Value: "ZI_REGION_POLICY_FAIL_OPEN" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen;
+/** Value: "ZI_REGION_POLICY_NOT_SET" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_REGION_POLICY_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown;
+/** Value: "ZI_REGION_POLICY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_IsolationExpectations.ziRegionState
+
+/** Value: "ZI_REGION_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionEnabled;
+/** Value: "ZI_REGION_NOT_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_REGION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionUnknown;
+/** Value: "ZI_REGION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_IsolationExpectations.zoneIsolation
+
+/** Value: "ZI_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiNotRequired;
+/** Value: "ZI_PREFERRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiPreferred;
+/** Value: "ZI_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiUnknown;
+/** Value: "ZI_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_IsolationExpectations.zoneSeparation
+
+/** Value: "ZS_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsNotRequired;
+/** Value: "ZS_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsUnknown;
+/** Value: "ZS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_IsolationExpectations.zsOrgPolicy
+
+/** Value: "ZS_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsNotRequired;
+/** Value: "ZS_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsUnknown;
+/** Value: "ZS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_IsolationExpectations.zsRegionState
+
+/** Value: "ZS_REGION_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionEnabled;
+/** Value: "ZS_REGION_NOT_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled;
+/**
+ *  To be used if tracking of the asset ZS-bit is not available
+ *
+ *  Value: "ZS_REGION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionUnknown;
+/** Value: "ZS_REGION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_LocationAssignment.locationType
+
+/** Value: "CLOUD_REGION" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_CloudRegion;
+/**
+ *  11-20: Logical failure domains.
+ *
+ *  Value: "CLOUD_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_CloudZone;
+/**
+ *  1-10: Physical failure domains.
+ *
+ *  Value: "CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Cluster;
+/** Value: "GLOBAL" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Global;
+/** Value: "MULTI_REGION_GEO" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_MultiRegionGeo;
+/** Value: "MULTI_REGION_JURISDICTION" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_MultiRegionJurisdiction;
+/** Value: "OTHER" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Other;
+/** Value: "POP" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Pop;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataFusion_NetworkConfig.connectionType
 
 /**
@@ -360,6 +521,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        could be retried while in this state. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Provides the mapping of a cloud asset to a direct physical location or to a
+ *  proxy that defines the location on its behalf.
+ */
+@interface GTLRDataFusion_AssetLocation : GTLRObject
+
+/**
+ *  Defines the customer expectation around ZI/ZS for this asset and ZI/ZS state
+ *  of the region at the time of asset creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_IsolationExpectations *expected;
+
+/** Defines extra parameters required for specific asset types. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_ExtraParameter *> *extraParameters;
+
+/** Contains all kinds of physical location definitions for this asset. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_LocationData *> *locationData;
+
+/**
+ *  Defines parents assets if any in order to allow later generation of
+ *  child_asset_location data via child assets.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_CloudAsset *> *parentAsset;
 
 @end
 
@@ -517,9 +705,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Policy ID that identified data placement in Blobstore as per
+ *  go/blobstore-user-guide#data-metadata-placement-and-failure-domains
+ */
+@interface GTLRDataFusion_BlobstoreLocation : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *policyId;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRDataFusion_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataFusion_CloudAsset
+ */
+@interface GTLRDataFusion_CloudAsset : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *assetName;
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+@end
+
+
+/**
+ *  GTLRDataFusion_CloudAssetComposition
+ */
+@interface GTLRDataFusion_CloudAssetComposition : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_CloudAsset *> *childAsset;
+
 @end
 
 
@@ -535,6 +755,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  /keyRings/ * /cryptoKeys/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *keyReference;
+
+@end
+
+
+/**
+ *  GTLRDataFusion_DirectLocationAssignment
+ */
+@interface GTLRDataFusion_DirectLocationAssignment : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_LocationAssignment *> *location;
 
 @end
 
@@ -646,6 +876,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Defines parameters that should only be used for specific asset types.
+ */
+@interface GTLRDataFusion_ExtraParameter : GTLRObject
+
+/**
+ *  Details about zones used by regional
+ *  compute.googleapis.com/InstanceGroupManager to create instances.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_RegionalMigDistributionPolicy *regionalMigDistributionPolicy;
 
 @end
 
@@ -915,6 +1159,129 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  GTLRDataFusion_IsolationExpectations
+ */
+@interface GTLRDataFusion_IsolationExpectations : GTLRObject
+
+/**
+ *  ziOrgPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiNotRequired
+ *        Value "ZI_NOT_REQUIRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiPreferred
+ *        Value "ZI_PREFERRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiRequired Value
+ *        "ZI_REQUIRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiUnknown To be
+ *        used if tracking is not available (Value: "ZI_UNKNOWN")
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiUnspecified
+ *        Value "ZI_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziOrgPolicy;
+
+/**
+ *  ziRegionPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed
+ *        Value "ZI_REGION_POLICY_FAIL_CLOSED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen
+ *        Value "ZI_REGION_POLICY_FAIL_OPEN"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet
+ *        Value "ZI_REGION_POLICY_NOT_SET"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown
+ *        To be used if tracking is not available (Value:
+ *        "ZI_REGION_POLICY_UNKNOWN")
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified
+ *        Value "ZI_REGION_POLICY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziRegionPolicy;
+
+/**
+ *  ziRegionState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionEnabled
+ *        Value "ZI_REGION_ENABLED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled
+ *        Value "ZI_REGION_NOT_ENABLED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionUnknown
+ *        To be used if tracking is not available (Value: "ZI_REGION_UNKNOWN")
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionUnspecified
+ *        Value "ZI_REGION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziRegionState;
+
+/**
+ *  Deprecated: use zi_org_policy, zi_region_policy and zi_region_state instead
+ *  for setting ZI expectations as per go/zicy-publish-physical-location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiNotRequired
+ *        Value "ZI_NOT_REQUIRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiPreferred
+ *        Value "ZI_PREFERRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiRequired
+ *        Value "ZI_REQUIRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiUnknown To
+ *        be used if tracking is not available (Value: "ZI_UNKNOWN")
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiUnspecified
+ *        Value "ZI_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zoneIsolation GTLR_DEPRECATED;
+
+/**
+ *  Deprecated: use zs_org_policy, and zs_region_stateinstead for setting Zs
+ *  expectations as per go/zicy-publish-physical-location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsNotRequired
+ *        Value "ZS_NOT_REQUIRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsRequired
+ *        Value "ZS_REQUIRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsUnknown To
+ *        be used if tracking is not available (Value: "ZS_UNKNOWN")
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsUnspecified
+ *        Value "ZS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zoneSeparation GTLR_DEPRECATED;
+
+/**
+ *  zsOrgPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsNotRequired
+ *        Value "ZS_NOT_REQUIRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsRequired Value
+ *        "ZS_REQUIRED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsUnknown To be
+ *        used if tracking is not available (Value: "ZS_UNKNOWN")
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsUnspecified
+ *        Value "ZS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zsOrgPolicy;
+
+/**
+ *  zsRegionState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionEnabled
+ *        Value "ZS_REGION_ENABLED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled
+ *        Value "ZS_REGION_NOT_ENABLED"
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionUnknown
+ *        To be used if tracking of the asset ZS-bit is not available (Value:
+ *        "ZS_REGION_UNKNOWN")
+ *    @arg @c kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionUnspecified
+ *        Value "ZS_REGION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zsRegionState;
+
+@end
+
+
+/**
  *  Response message for the list available versions request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1104,6 +1471,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataFusion_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataFusion_LocationAssignment
+ */
+@interface GTLRDataFusion_LocationAssignment : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  locationType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_CloudRegion Value
+ *        "CLOUD_REGION"
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_CloudZone 11-20:
+ *        Logical failure domains. (Value: "CLOUD_ZONE")
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_Cluster 1-10:
+ *        Physical failure domains. (Value: "CLUSTER")
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_Global Value
+ *        "GLOBAL"
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_MultiRegionGeo
+ *        Value "MULTI_REGION_GEO"
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_MultiRegionJurisdiction
+ *        Value "MULTI_REGION_JURISDICTION"
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_Other Value
+ *        "OTHER"
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_Pop Value "POP"
+ *    @arg @c kGTLRDataFusion_LocationAssignment_LocationType_Unspecified Value
+ *        "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *locationType;
+
+@end
+
+
+/**
+ *  GTLRDataFusion_LocationData
+ */
+@interface GTLRDataFusion_LocationData : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataFusion_BlobstoreLocation *blobstoreLocation;
+@property(nonatomic, strong, nullable) GTLRDataFusion_CloudAssetComposition *childAssetLocation;
+@property(nonatomic, strong, nullable) GTLRDataFusion_DirectLocationAssignment *directLocation;
+@property(nonatomic, strong, nullable) GTLRDataFusion_TenantProjectProxy *gcpProjectProxy;
+@property(nonatomic, strong, nullable) GTLRDataFusion_PlacerLocation *placerLocation;
+@property(nonatomic, strong, nullable) GTLRDataFusion_SpannerLocation *spannerLocation;
+
 @end
 
 
@@ -1325,6 +1741,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Message describing that the location of the customer resource is tied to
+ *  placer allocations
+ */
+@interface GTLRDataFusion_PlacerLocation : GTLRObject
+
+/**
+ *  Directory with a config related to it in placer (e.g.
+ *  "/placer/prod/home/my-root/my-dir")
+ */
+@property(nonatomic, copy, nullable) NSString *placerConfig;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -1480,6 +1911,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  To be used for specifying the intended distribution of regional
+ *  compute.googleapis.com/InstanceGroupManager instances
+ */
+@interface GTLRDataFusion_RegionalMigDistributionPolicy : GTLRObject
+
+/**
+ *  The shape in which the group converges around distribution of resources.
+ *  Instance of proto2 enum
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetShape;
+
+/** Cloud zones used by regional MIG to create instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_ZoneConfiguration *> *zones;
+
+@end
+
+
+/**
  *  Request message for restarting a Data Fusion instance.
  */
 @interface GTLRDataFusion_RestartInstanceRequest : GTLRObject
@@ -1506,6 +1957,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  GTLRDataFusion_SpannerLocation
+ */
+@interface GTLRDataFusion_SpannerLocation : GTLRObject
+
+/**
+ *  Set of backups used by the resource with name in the same format as what is
+ *  available at http://table/spanner_automon.backup_metadata
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *backupName;
+
+/** Set of databases used by the resource in format /span// */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dbName;
 
 @end
 
@@ -1552,6 +2020,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataFusion_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataFusion_TenantProjectProxy
+ */
+@interface GTLRDataFusion_TenantProjectProxy : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projectNumbers;
+
 @end
 
 
@@ -1636,6 +2114,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /** The version number of the Data Fusion instance, such as '6.0.1.0'. */
 @property(nonatomic, copy, nullable) NSString *versionNumber;
+
+@end
+
+
+/**
+ *  GTLRDataFusion_ZoneConfiguration
+ */
+@interface GTLRDataFusion_ZoneConfiguration : GTLRObject
+
+/**
+ *  zoneProperty
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 

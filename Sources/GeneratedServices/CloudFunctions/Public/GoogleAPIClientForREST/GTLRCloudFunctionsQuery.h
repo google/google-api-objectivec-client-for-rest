@@ -449,8 +449,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. If no field mask is provided, all provided
- *  fields in the request will be updated.
+ *  The list of fields to be updated. If no field mask is provided, all fields
+ *  will be updated.
  *
  *  String format is a comma-separated list of fields.
  */

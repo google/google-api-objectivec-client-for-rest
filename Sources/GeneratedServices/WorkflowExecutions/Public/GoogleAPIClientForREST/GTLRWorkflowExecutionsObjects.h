@@ -30,6 +30,8 @@
 @class GTLRWorkflowExecutions_Step;
 @class GTLRWorkflowExecutions_StepEntry;
 @class GTLRWorkflowExecutions_StepEntryMetadata;
+@class GTLRWorkflowExecutions_VariableData;
+@class GTLRWorkflowExecutions_VariableData_Variables;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -69,6 +71,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLeve
  *  Value: "LOG_NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogNone;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkflowExecutions_Execution.executionHistoryLevel
+
+/**
+ *  Enable execution history basic feature for this execution.
+ *
+ *  Value: "EXECUTION_HISTORY_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryBasic;
+/**
+ *  Enable execution history detailed feature for this execution.
+ *
+ *  Value: "EXECUTION_HISTORY_DETAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryDetailed;
+/**
+ *  The default/unset value.
+ *
+ *  Value: "EXECUTION_HISTORY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkflowExecutions_Execution.state
@@ -365,6 +389,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
 
 
 /**
+ *  Request for the DeleteExecutionHistory method.
+ */
+@interface GTLRWorkflowExecutions_DeleteExecutionHistoryRequest : GTLRObject
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRWorkflowExecutions_Empty : GTLRObject
+@end
+
+
+/**
  *  Error describes why the execution was abnormally terminated.
  */
 @interface GTLRWorkflowExecutions_Error : GTLRObject
@@ -446,6 +487,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
  *  value is only present if the execution's state is `FAILED` or `CANCELLED`.
  */
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Error *error;
+
+/**
+ *  Optional. Describes the level of the execution history feature to apply to
+ *  this execution. If not specified, the level of the execution history feature
+ *  will be determined by its workflow's execution history level. If the value
+ *  is different from its workflow's value, it will override the workflow's
+ *  execution history level for this exeuction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryBasic
+ *        Enable execution history basic feature for this execution. (Value:
+ *        "EXECUTION_HISTORY_BASIC")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryDetailed
+ *        Enable execution history detailed feature for this execution. (Value:
+ *        "EXECUTION_HISTORY_DETAILED")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryLevelUnspecified
+ *        The default/unset value. (Value:
+ *        "EXECUTION_HISTORY_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *executionHistoryLevel;
 
 /**
  *  Labels associated with this execution. Labels can contain at most 64
@@ -973,6 +1034,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
 /** Output only. The most recently updated time of the step entry. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** Output only. The VariableData associated to this step. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_VariableData *variableData;
+
 @end
 
 
@@ -1059,6 +1123,29 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
+@end
+
+
+/**
+ *  VariableData contains the variable data for this step.
+ */
+@interface GTLRWorkflowExecutions_VariableData : GTLRObject
+
+/** Variables that are associated with this step. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_VariableData_Variables *variables;
+
+@end
+
+
+/**
+ *  Variables that are associated with this step.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRWorkflowExecutions_VariableData_Variables : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

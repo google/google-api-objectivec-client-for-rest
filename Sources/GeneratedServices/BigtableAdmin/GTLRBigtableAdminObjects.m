@@ -654,7 +654,34 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate
-@dynamic inputType, stateType, sum;
+@dynamic hllppUniqueCount, inputType, max, min, stateType, sum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMin
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMin
 @end
 
 
@@ -664,6 +691,25 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray
+@dynamic elementType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool
 @end
 
 
@@ -698,6 +744,33 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64
 //
 
@@ -723,6 +796,91 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes
 @dynamic bytesType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap
+@dynamic keyType, valueType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString
+@dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding
+@dynamic utf8Bytes, utf8Raw;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct
+@dynamic fields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField
+@dynamic fieldName, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp
 @end
 
 
@@ -1395,7 +1553,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Type
-@dynamic aggregateType, bytesType, int64Type;
+@dynamic aggregateType, arrayType, boolType, bytesType, dateType, float32Type,
+         float64Type, int64Type, mapType, stringType, structType, timestampType;
 @end
 
 

@@ -1954,8 +1954,9 @@ NSString * const kGTLRContentwarehouse_GoogleIamV1AuditLogConfig_LogType_LogType
 //
 
 @implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1Document
-@dynamic content, entities, entityRelations, error, mimeType, pages, revisions,
-         shardInfo, text, textChanges, textStyles, uri;
+@dynamic chunkedDocument, content, documentLayout, entities, entityRelations,
+         error, mimeType, pages, revisions, shardInfo, text, textChanges,
+         textStyles, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1965,6 +1966,221 @@ NSString * const kGTLRContentwarehouse_GoogleIamV1AuditLogConfig_LogType_LogType
     @"revisions" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentRevision class],
     @"textChanges" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentTextChange class],
     @"textStyles" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentStyle class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocument
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocument
+@dynamic chunks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chunks" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk
+@dynamic chunkId, content, pageFooters, pageHeaders, pageSpan, sourceBlockIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageFooters" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter class],
+    @"pageHeaders" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader class],
+    @"sourceBlockIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan
+@dynamic pageEnd, pageStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayout
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayout
+@dynamic blocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock
+@dynamic blockId, listBlock, pageSpan, tableBlock, textBlock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock
+@dynamic listEntries, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"listEntries" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry
+@dynamic blocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan
+@dynamic pageEnd, pageStart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock
+@dynamic bodyRows, caption, headerRows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bodyRows" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow class],
+    @"headerRows" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell
+@dynamic blocks, colSpan, rowSpan;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow
+@dynamic cells;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cells" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock
+//
+
+@implementation GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock
+@dynamic blocks, text, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blocks" : [GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock class]
   };
   return map;
 }

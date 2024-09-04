@@ -909,6 +909,25 @@
 
 @end
 
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysShouldThrottle
+
+@dynamic name, port, requestedAmount;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:shouldThrottle";
+  GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysShouldThrottle *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_ShouldThrottleResponse class];
+  query.loggingName = @"beyondcorp.projects.locations.appGateways.shouldThrottle";
+  return query;
+}
+
+@end
+
 @implementation GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysTestIamPermissions
 
 @dynamic resource;

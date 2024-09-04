@@ -28,6 +28,13 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: Move a copy of the Google Alerts subscriptions you
+ *  created.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.alerts.subscriptions"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityAlertsSubscriptions;
+/**
  *  Authorization scope: Move a copy of messages between you and the businesses
  *  you have conversations with across Google services.
  *
@@ -354,6 +361,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityStreetviewImager
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.channel"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeChannel;
+/**
+ *  Authorization scope: Move a copy of your YouTube clips metadata.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.youtube.clips"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeClips;
 /**
  *  Authorization scope: Move a copy of your YouTube comments.
  *

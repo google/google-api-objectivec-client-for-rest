@@ -530,55 +530,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: networkservices.projects.locations.endpointPolicies.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists EndpointPolicies in a given project and location.
  *
  *  Method: networkservices.projects.locations.endpointPolicies.list
@@ -634,7 +585,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesPatch : GTLRNetworkServicesQuery
 
 /**
- *  Required. Name of the EndpointPolicy resource. It matches pattern
+ *  Identifier. Name of the EndpointPolicy resource. It matches pattern
  *  `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -657,7 +608,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRNetworkServices_EndpointPolicy to include in the
  *    query.
- *  @param name Required. Name of the EndpointPolicy resource. It matches
+ *  @param name Identifier. Name of the EndpointPolicy resource. It matches
  *    pattern
  *    `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
  *
@@ -665,90 +616,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_EndpointPolicy *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: networkservices.projects.locations.endpointPolicies.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: networkservices.projects.locations.endpointPolicies.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -848,55 +715,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: networkservices.projects.locations.gateways.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists Gateways in a given project and location.
  *
  *  Method: networkservices.projects.locations.gateways.list
@@ -951,7 +769,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysPatch : GTLRNetworkServicesQuery
 
 /**
- *  Required. Name of the Gateway resource. It matches pattern `projects/ *
+ *  Identifier. Name of the Gateway resource. It matches pattern `projects/ *
  *  /locations/ * /gateways/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -973,97 +791,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the parameters of a single Gateway.
  *
  *  @param object The @c GTLRNetworkServices_Gateway to include in the query.
- *  @param name Required. Name of the Gateway resource. It matches pattern
+ *  @param name Identifier. Name of the Gateway resource. It matches pattern
  *    `projects/ * /locations/ * /gateways/`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysPatch
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_Gateway *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: networkservices.projects.locations.gateways.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysSetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: networkservices.projects.locations.gateways.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysTestIamPermissions : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -1243,7 +977,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesPatch : GTLRNetworkServicesQuery
 
 /**
- *  Required. Name of the GrpcRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the GrpcRoute resource. It matches pattern `projects/ *
  *  /locations/global/grpcRoutes/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1265,7 +999,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the parameters of a single GrpcRoute.
  *
  *  @param object The @c GTLRNetworkServices_GrpcRoute to include in the query.
- *  @param name Required. Name of the GrpcRoute resource. It matches pattern
+ *  @param name Identifier. Name of the GrpcRoute resource. It matches pattern
  *    `projects/ * /locations/global/grpcRoutes/`
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesPatch
@@ -1425,7 +1159,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesPatch : GTLRNetworkServicesQuery
 
 /**
- *  Required. Name of the HttpRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the HttpRoute resource. It matches pattern `projects/ *
  *  /locations/global/httpRoutes/http_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1447,7 +1181,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the parameters of a single HttpRoute.
  *
  *  @param object The @c GTLRNetworkServices_HttpRoute to include in the query.
- *  @param name Required. Name of the HttpRoute resource. It matches pattern
+ *  @param name Identifier. Name of the HttpRoute resource. It matches pattern
  *    `projects/ * /locations/global/httpRoutes/http_route_name>`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesPatch
@@ -2089,55 +1823,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: networkservices.projects.locations.meshes.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesGetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists Meshes in a given project and location.
  *
  *  Method: networkservices.projects.locations.meshes.list
@@ -2192,7 +1877,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesPatch : GTLRNetworkServicesQuery
 
 /**
- *  Required. Name of the Mesh resource. It matches pattern `projects/ *
+ *  Identifier. Name of the Mesh resource. It matches pattern `projects/ *
  *  /locations/global/meshes/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2214,97 +1899,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the parameters of a single Mesh.
  *
  *  @param object The @c GTLRNetworkServices_Mesh to include in the query.
- *  @param name Required. Name of the Mesh resource. It matches pattern
+ *  @param name Identifier. Name of the Mesh resource. It matches pattern
  *    `projects/ * /locations/global/meshes/`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesPatch
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_Mesh *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: networkservices.projects.locations.meshes.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesSetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: networkservices.projects.locations.meshes.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesTestIamPermissions : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -2553,55 +2154,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: networkservices.projects.locations.serviceBindings.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists ServiceBinding in a given project and location.
  *
  *  Method: networkservices.projects.locations.serviceBindings.list
@@ -2643,90 +2195,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: networkservices.projects.locations.serviceBindings.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: networkservices.projects.locations.serviceBindings.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
- */
-@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions : GTLRNetworkServicesQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -3205,7 +2673,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesPatch : GTLRNetworkServicesQuery
 
 /**
- *  Required. Name of the TcpRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the TcpRoute resource. It matches pattern `projects/ *
  *  /locations/global/tcpRoutes/tcp_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3227,7 +2695,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the parameters of a single TcpRoute.
  *
  *  @param object The @c GTLRNetworkServices_TcpRoute to include in the query.
- *  @param name Required. Name of the TcpRoute resource. It matches pattern
+ *  @param name Identifier. Name of the TcpRoute resource. It matches pattern
  *    `projects/ * /locations/global/tcpRoutes/tcp_route_name>`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesPatch
@@ -3387,7 +2855,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesPatch : GTLRNetworkServicesQuery
 
 /**
- *  Required. Name of the TlsRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the TlsRoute resource. It matches pattern `projects/ *
  *  /locations/global/tlsRoutes/tls_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3409,7 +2877,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the parameters of a single TlsRoute.
  *
  *  @param object The @c GTLRNetworkServices_TlsRoute to include in the query.
- *  @param name Required. Name of the TlsRoute resource. It matches pattern
+ *  @param name Identifier. Name of the TlsRoute resource. It matches pattern
  *    `projects/ * /locations/global/tlsRoutes/tls_route_name>`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesPatch

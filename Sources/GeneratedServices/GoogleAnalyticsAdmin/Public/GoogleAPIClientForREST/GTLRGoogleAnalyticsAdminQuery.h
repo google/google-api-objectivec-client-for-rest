@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the settings to lookup. Format:
  *  accounts/{account}/dataSharingSettings Example:
- *  "accounts/1000/dataSharingSettings"
+ *  `accounts/1000/dataSharingSettings`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the settings to lookup. Format:
  *    accounts/{account}/dataSharingSettings Example:
- *    "accounts/1000/dataSharingSettings"
+ *    `accounts/1000/dataSharingSettings`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsGetDataSharingSettings
  */
@@ -149,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns all accounts accessible by the caller. Note that these accounts
- *  might not currently have GA4 properties. Soft-deleted (ie: "trashed")
+ *  might not currently have GA properties. Soft-deleted (ie: "trashed")
  *  accounts are excluded by default. Returns an empty list if no relevant
  *  accounts are found.
  *
@@ -186,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListAccountsResponse.
  *
  *  Returns all accounts accessible by the caller. Note that these accounts
- *  might not currently have GA4 properties. Soft-deleted (ie: "trashed")
+ *  might not currently have GA properties. Soft-deleted (ie: "trashed")
  *  accounts are excluded by default. Returns an empty list if no relevant
  *  accounts are found.
  *
@@ -275,8 +275,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  for a property. Reports may be requested for any property, but dimensions
  *  that aren't related to quota can only be requested on Google Analytics 360
  *  properties. This method is only available to Administrators. These data
- *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
- *  and other products like Firebase & Admob that can retrieve data from Google
+ *  access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+ *  other products like Firebase & Admob that can retrieve data from Google
  *  Analytics through a linkage. These records don't include property
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
@@ -294,9 +294,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Data Access Report supports requesting at the property level or account
  *  level. If requested at the account level, Data Access Reports include all
  *  access for all properties under that account. To request at the property
- *  level, entity should be for example 'properties/123' if "123" is your GA4
- *  property ID. To request at the account level, entity should be for example
- *  'accounts/1234' if "1234" is your GA4 Account ID.
+ *  level, entity should be for example 'properties/123' if "123" is your Google
+ *  Analytics property ID. To request at the account level, entity should be for
+ *  example 'accounts/1234' if "1234" is your Google Analytics Account ID.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
 
@@ -309,8 +309,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  for a property. Reports may be requested for any property, but dimensions
  *  that aren't related to quota can only be requested on Google Analytics 360
  *  properties. This method is only available to Administrators. These data
- *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
- *  and other products like Firebase & Admob that can retrieve data from Google
+ *  access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+ *  other products like Firebase & Admob that can retrieve data from Google
  *  Analytics through a linkage. These records don't include property
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
@@ -322,9 +322,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    level or account level. If requested at the account level, Data Access
  *    Reports include all access for all properties under that account. To
  *    request at the property level, entity should be for example
- *    'properties/123' if "123" is your GA4 property ID. To request at the
- *    account level, entity should be for example 'accounts/1234' if "1234" is
- *    your GA4 Account ID.
+ *    'properties/123' if "123" is your Google Analytics property ID. To request
+ *    at the account level, entity should be for example 'accounts/1234' if
+ *    "1234" is your Google Analytics Account ID.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsRunAccessReport
  */
@@ -346,7 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The account resource for which to return change history resources.
- *  Format: accounts/{account} Example: "accounts/100"
+ *  Format: accounts/{account} Example: `accounts/100`
  */
 @property(nonatomic, copy, nullable) NSString *account;
 
@@ -361,7 +361,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest to include
  *    in the query.
  *  @param account Required. The account resource for which to return change
- *    history resources. Format: accounts/{account} Example: "accounts/100"
+ *    history resources. Format: accounts/{account} Example: `accounts/100`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents
  */
@@ -449,7 +449,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a conversion event with the specified attributes.
+ *  Deprecated: Use `CreateKeyEvent` instead. Creates a conversion event with
+ *  the specified attributes.
  *
  *  Method: analyticsadmin.properties.conversionEvents.create
  *
@@ -468,7 +469,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
  *
- *  Creates a conversion event with the specified attributes.
+ *  Deprecated: Use `CreateKeyEvent` instead. Creates a conversion event with
+ *  the specified attributes.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent to
  *    include in the query.
@@ -483,7 +485,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Deletes a conversion event in a property.
+ *  Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a
+ *  property.
  *
  *  Method: analyticsadmin.properties.conversionEvents.delete
  *
@@ -503,7 +506,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
  *
- *  Deletes a conversion event in a property.
+ *  Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a
+ *  property.
  *
  *  @param name Required. The resource name of the conversion event to delete.
  *    Format: properties/{property}/conversionEvents/{conversion_event} Example:
@@ -516,7 +520,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieve a single conversion event.
+ *  Deprecated: Use `GetKeyEvent` instead. Retrieve a single conversion event.
  *
  *  Method: analyticsadmin.properties.conversionEvents.get
  *
@@ -537,7 +541,7 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
  *
- *  Retrieve a single conversion event.
+ *  Deprecated: Use `GetKeyEvent` instead. Retrieve a single conversion event.
  *
  *  @param name Required. The resource name of the conversion event to retrieve.
  *    Format: properties/{property}/conversionEvents/{conversion_event} Example:
@@ -550,8 +554,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Returns a list of conversion events in the specified parent property.
- *  Returns an empty list if no conversion events are found.
+ *  Deprecated: Use `ListKeyEvents` instead. Returns a list of conversion events
+ *  in the specified parent property. Returns an empty list if no conversion
+ *  events are found.
  *
  *  Method: analyticsadmin.properties.conversionEvents.list
  *
@@ -586,8 +591,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListConversionEventsResponse.
  *
- *  Returns a list of conversion events in the specified parent property.
- *  Returns an empty list if no conversion events are found.
+ *  Deprecated: Use `ListKeyEvents` instead. Returns a list of conversion events
+ *  in the specified parent property. Returns an empty list if no conversion
+ *  events are found.
  *
  *  @param parent Required. The resource name of the parent property. Example:
  *    'properties/123'
@@ -603,7 +609,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Updates a conversion event with the specified attributes.
+ *  Deprecated: Use `UpdateKeyEvent` instead. Updates a conversion event with
+ *  the specified attributes.
  *
  *  Method: analyticsadmin.properties.conversionEvents.patch
  *
@@ -632,7 +639,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
  *
- *  Updates a conversion event with the specified attributes.
+ *  Deprecated: Use `UpdateKeyEvent` instead. Updates a conversion event with
+ *  the specified attributes.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent to
  *    include in the query.
@@ -647,7 +655,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Creates an "GA4" property with the specified location and attributes.
+ *  Creates a Google Analytics property with the specified location and
+ *  attributes.
  *
  *  Method: analyticsadmin.properties.create
  *
@@ -659,7 +668,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProperty.
  *
- *  Creates an "GA4" property with the specified location and attributes.
+ *  Creates a Google Analytics property with the specified location and
+ *  attributes.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaProperty to include in
  *    the query.
@@ -1094,33 +1104,6 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Changes the processing order of event edit rules on the specified stream.
- *
- *  Method: analyticsadmin.properties.dataStreams.eventEditRules.reorder
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsEventEditRulesReorder : GTLRGoogleAnalyticsAdminQuery
-
-/** Required. Example format: properties/123/dataStreams/456 */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
- *
- *  Changes the processing order of event edit rules on the specified stream.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest to include in
- *    the query.
- *  @param parent Required. Example format: properties/123/dataStreams/456
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsEventEditRulesReorder
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
  *  Lookup for a single DataStream.
  *
  *  Method: analyticsadmin.properties.dataStreams.get
@@ -1263,7 +1246,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *  Lookup for a single MeasurementProtocolSecret.
  *
  *  Method: analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get
  *
@@ -1282,7 +1265,7 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret.
  *
- *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *  Lookup for a single MeasurementProtocolSecret.
  *
  *  @param name Required. The name of the measurement protocol secret to lookup.
  *    Format:
@@ -1442,7 +1425,7 @@ GTLR_DEPRECATED
  *  before the expiration time, the Property and all child resources (eg:
  *  GoogleAdsLinks, Streams, AccessBindings) will be permanently purged.
  *  https://support.google.com/analytics/answer/6154772 Returns an error if the
- *  target is not found, or is not a GA4 Property.
+ *  target is not found.
  *
  *  Method: analyticsadmin.properties.delete
  *
@@ -1466,7 +1449,7 @@ GTLR_DEPRECATED
  *  before the expiration time, the Property and all child resources (eg:
  *  GoogleAdsLinks, Streams, AccessBindings) will be permanently purged.
  *  https://support.google.com/analytics/answer/6154772 Returns an error if the
- *  target is not found, or is not a GA4 Property.
+ *  target is not found.
  *
  *  @param name Required. The name of the Property to soft-delete. Format:
  *    properties/{property_id} Example: "properties/1000"
@@ -1487,7 +1470,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksCreate : GTLRGoogleAnalyticsAdminQuery
 
-/** Required. Format: properties/{property_id} Example: properties/1234 */
+/** Required. Format: properties/{property_id} Example: `properties/1234` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1498,7 +1481,7 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink to include
  *    in the query.
  *  @param parent Required. Format: properties/{property_id} Example:
- *    properties/1234
+ *    `properties/1234`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksCreate
  */
@@ -1519,7 +1502,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Format: properties/{property_id}/firebaseLinks/{firebase_link_id}
- *  Example: properties/1234/firebaseLinks/5678
+ *  Example: `properties/1234/firebaseLinks/5678`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1530,7 +1513,7 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Format:
  *    properties/{property_id}/firebaseLinks/{firebase_link_id} Example:
- *    properties/1234/firebaseLinks/5678
+ *    `properties/1234/firebaseLinks/5678`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksDelete
  */
@@ -1566,7 +1549,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Format: properties/{property_id} Example: properties/1234 */
+/** Required. Format: properties/{property_id} Example: `properties/1234` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1576,7 +1559,7 @@ GTLR_DEPRECATED
  *  FirebaseLink.
  *
  *  @param parent Required. Format: properties/{property_id} Example:
- *    properties/1234
+ *    `properties/1234`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksList
  *
@@ -1589,7 +1572,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lookup for a single "GA4" Property.
+ *  Lookup for a single GA Property.
  *
  *  Method: analyticsadmin.properties.get
  *
@@ -1608,7 +1591,7 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProperty.
  *
- *  Lookup for a single "GA4" Property.
+ *  Lookup for a single GA Property.
  *
  *  @param name Required. The name of the property to lookup. Format:
  *    properties/{property_id} Example: "properties/1000"
@@ -1991,10 +1974,10 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Returns child Properties under the specified parent Account. Only "GA4"
- *  properties will be returned. Properties will be excluded if the caller does
- *  not have access. Soft-deleted (ie: "trashed") properties are excluded by
- *  default. Returns an empty list if no relevant properties are found.
+ *  Returns child Properties under the specified parent Account. Properties will
+ *  be excluded if the caller does not have access. Soft-deleted (ie: "trashed")
+ *  properties are excluded by default. Returns an empty list if no relevant
+ *  properties are found.
  *
  *  Method: analyticsadmin.properties.list
  *
@@ -2044,10 +2027,10 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListPropertiesResponse.
  *
- *  Returns child Properties under the specified parent Account. Only "GA4"
- *  properties will be returned. Properties will be excluded if the caller does
- *  not have access. Soft-deleted (ie: "trashed") properties are excluded by
- *  default. Returns an empty list if no relevant properties are found.
+ *  Returns child Properties under the specified parent Account. Properties will
+ *  be excluded if the caller does not have access. Soft-deleted (ie: "trashed")
+ *  properties are excluded by default. Returns an empty list if no relevant
+ *  properties are found.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesList
  *
@@ -2109,8 +2092,8 @@ GTLR_DEPRECATED
  *  for a property. Reports may be requested for any property, but dimensions
  *  that aren't related to quota can only be requested on Google Analytics 360
  *  properties. This method is only available to Administrators. These data
- *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
- *  and other products like Firebase & Admob that can retrieve data from Google
+ *  access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+ *  other products like Firebase & Admob that can retrieve data from Google
  *  Analytics through a linkage. These records don't include property
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
@@ -2128,9 +2111,9 @@ GTLR_DEPRECATED
  *  The Data Access Report supports requesting at the property level or account
  *  level. If requested at the account level, Data Access Reports include all
  *  access for all properties under that account. To request at the property
- *  level, entity should be for example 'properties/123' if "123" is your GA4
- *  property ID. To request at the account level, entity should be for example
- *  'accounts/1234' if "1234" is your GA4 Account ID.
+ *  level, entity should be for example 'properties/123' if "123" is your Google
+ *  Analytics property ID. To request at the account level, entity should be for
+ *  example 'accounts/1234' if "1234" is your Google Analytics Account ID.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
 
@@ -2143,8 +2126,8 @@ GTLR_DEPRECATED
  *  for a property. Reports may be requested for any property, but dimensions
  *  that aren't related to quota can only be requested on Google Analytics 360
  *  properties. This method is only available to Administrators. These data
- *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
- *  and other products like Firebase & Admob that can retrieve data from Google
+ *  access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+ *  other products like Firebase & Admob that can retrieve data from Google
  *  Analytics through a linkage. These records don't include property
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
@@ -2156,9 +2139,9 @@ GTLR_DEPRECATED
  *    level or account level. If requested at the account level, Data Access
  *    Reports include all access for all properties under that account. To
  *    request at the property level, entity should be for example
- *    'properties/123' if "123" is your GA4 property ID. To request at the
- *    account level, entity should be for example 'accounts/1234' if "1234" is
- *    your GA4 Account ID.
+ *    'properties/123' if "123" is your Google Analytics property ID. To request
+ *    at the account level, entity should be for example 'accounts/1234' if
+ *    "1234" is your Google Analytics Account ID.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport
  */

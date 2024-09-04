@@ -285,11 +285,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  An expression for filtering the results of the request by label. The syntax
- *  is \\"labels.<name>[:<value>]\\". Multiple filters can be ANDed together by
- *  connecting with a space. Example: \\"labels.department:receiving
- *  labels.active\\". See [Filtering datasets using
- *  labels](/bigquery/docs/filtering-labels#filtering_datasets_using_labels) for
- *  details.
+ *  is `labels.[:]`. Multiple filters can be ANDed together by connecting with a
+ *  space. Example: `labels.department:receiving labels.active`. See [Filtering
+ *  datasets using
+ *  labels](https://cloud.google.com/bigquery/docs/filtering-labels#filtering_datasets_using_labels)
+ *  for details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -460,8 +460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  The geographic location of the job. You must specify the location to run the
- *  job for the following scenarios: - If the location to run a job is not in
- *  the `us` or the `eu` multi-regional location - If the job's location is in a
+ *  job for the following scenarios: * If the location to run a job is not in
+ *  the `us` or the `eu` multi-regional location * If the job's location is in a
  *  single region (for example, `us-central1`) For more information, see
  *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
@@ -556,8 +556,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  The geographic location of the job. You must specify the location to run the
- *  job for the following scenarios: - If the location to run a job is not in
- *  the `us` or the `eu` multi-regional location - If the job's location is in a
+ *  job for the following scenarios: * If the location to run a job is not in
+ *  the `us` or the `eu` multi-regional location * If the job's location is in a
  *  single region (for example, `us-central1`) For more information, see
  *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
@@ -603,8 +603,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  The geographic location of the job. You must specify the location to run the
- *  job for the following scenarios: - If the location to run a job is not in
- *  the `us` or the `eu` multi-regional location - If the job's location is in a
+ *  job for the following scenarios: * If the location to run a job is not in
+ *  the `us` or the `eu` multi-regional location * If the job's location is in a
  *  single region (for example, `us-central1`) For more information, see
  *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */

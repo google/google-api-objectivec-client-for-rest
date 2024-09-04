@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRServiceUsage_Analysis.analysisType
+NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeDependency = @"ANALYSIS_TYPE_DEPENDENCY";
+NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceUsage = @"ANALYSIS_TYPE_RESOURCE_USAGE";
+NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeUnspecified = @"ANALYSIS_TYPE_UNSPECIFIED";
+
 // GTLRServiceUsage_Api.syntax
 NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
@@ -95,6 +100,10 @@ NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentit
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled = @"DISABLED";
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled = @"ENABLED";
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRServiceUsage_Impact.impactType
+NSString * const kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies = @"DEPENDENCY_MISSING_DEPENDENCIES";
+NSString * const kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified = @"IMPACT_TYPE_UNSPECIFIED";
 
 // GTLRServiceUsage_LabelDescriptor.valueType
 NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Bool = @"BOOL";
@@ -212,6 +221,62 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_Analysis
+//
+
+@implementation GTLRServiceUsage_Analysis
+@dynamic analysis, analysisType, displayName, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AnalysisResult
+//
+
+@implementation GTLRServiceUsage_AnalysisResult
+@dynamic blockers, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blockers" : [GTLRServiceUsage_Impact class],
+    @"warnings" : [GTLRServiceUsage_Impact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AnalyzeConsumerPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_AnalyzeConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AnalyzeConsumerPolicyResponse
+//
+
+@implementation GTLRServiceUsage_AnalyzeConsumerPolicyResponse
+@dynamic analysis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysis" : [GTLRServiceUsage_Analysis class]
+  };
+  return map;
 }
 
 @end
@@ -1170,6 +1235,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_Impact
+//
+
+@implementation GTLRServiceUsage_Impact
+@dynamic detail, impactType;
 @end
 
 

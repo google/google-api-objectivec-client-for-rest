@@ -538,10 +538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 /** Required. The configuration of the synthesized audio. */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_AudioConfig *audioConfig;
 
-/**
- *  Required. The Synthesizer requires either plain text or SSML as input. While
- *  Long Audio is in preview, SSML is temporarily unsupported.
- */
+/** Required. The Synthesizer requires either plain text or SSML as input. */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_SynthesisInput *input;
 
 /**

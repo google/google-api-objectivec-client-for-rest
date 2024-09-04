@@ -60,6 +60,8 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue;
 @class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigRerankConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2ColorInfo;
+@class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse_AttributeResults;
+@class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseAttributeResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult_Attributes;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult;
@@ -3834,13 +3836,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  */
 @property(nonatomic, copy, nullable) NSString *mergedFacetKey;
 
-/**
- *  Each instance is a list of facet values that map into the same (possibly
- *  different) merged facet value. For the current attribute config, each facet
- *  value should map to at most one merged facet value.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue *> *mergedFacetValues GTLR_DEPRECATED;
-
 @end
 
 
@@ -3936,6 +3931,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 @interface GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse : GTLRObject
 
 /**
+ *  A map of matched attribute suggestions. This field is only available for
+ *  "cloud-retail" dataset. Current supported keys: * `brands` * `categories`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse_AttributeResults *attributeResults;
+
+/**
  *  A unique complete token. This should be included in the
  *  UserEvent.completion_detail for search events resulting from this
  *  completion, which enables accurate attribution of complete model
@@ -3961,6 +3962,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  duplication happens.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult *> *recentSearchResults GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  A map of matched attribute suggestions. This field is only available for
+ *  "cloud-retail" dataset. Current supported keys: * `brands` * `categories`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseAttributeResult.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse_AttributeResults : GTLRObject
+@end
+
+
+/**
+ *  Resource that represents attribute results. The list of suggestions for the
+ *  attribute.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseAttributeResult : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestions;
 
 @end
 
@@ -4001,7 +4027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
- *  Recent search of this user.
+ *  Deprecated: Recent search of this user.
  */
 GTLR_DEPRECATED
 @interface GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult : GTLRObject
@@ -5688,7 +5714,12 @@ GTLR_DEPRECATED
 
 /**
  *  The online availability of the Product. Default to Availability.IN_STOCK.
- *  Corresponding properties: Google Merchant Center property
+ *  For primary products with variants set the availability of the primary as
+ *  Availability.OUT_OF_STOCK and set the true availability at the variant
+ *  level. This way the primary product will be considered "in stock" as long as
+ *  it has at least one variant in stock. For primary products with no variants
+ *  set the true availability at the primary level. Corresponding properties:
+ *  Google Merchant Center property
  *  [availability](https://support.google.com/merchants/answer/6324448).
  *  Schema.org property [Offer.availability](https://schema.org/availability).
  *
@@ -6801,7 +6832,7 @@ GTLR_DEPRECATED
 
 /**
  *  Each instance corresponds to a force return attribute for the given
- *  condition. There can't be more 3 instances here.
+ *  condition. There can't be more 15 instances here.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2RuleForceReturnFacetActionFacetPositionAdjustment *> *facetPositionAdjustments;
 

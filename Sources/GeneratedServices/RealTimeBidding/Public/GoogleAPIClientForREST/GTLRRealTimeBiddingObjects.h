@@ -675,6 +675,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_SkippableInstreamVideo;
 
 // ----------------------------------------------------------------------------
+// GTLRRealTimeBidding_CreativeServingDecision.detectedCategoriesTaxonomy
+
+/**
+ *  Default value that should never be used.
+ *
+ *  Value: "AD_CATEGORY_TAXONOMY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_AdCategoryTaxonomyUnspecified;
+/**
+ *  IAB Content Taxonomy 1.0. See
+ *  https://github.com/InteractiveAdvertisingBureau/Taxonomies/blob/main/Content%20Taxonomies/Content%20Taxonomy%201.0.tsv
+ *  for more details.
+ *
+ *  Value: "IAB_CONTENT_1_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_IabContent10;
+
+// ----------------------------------------------------------------------------
 // GTLRRealTimeBidding_DestinationNotCrawlableEvidence.reason
 
 /**
@@ -1177,6 +1195,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PretargetingConfig_Inclu
  *  Value: "HOSTED_MATCH_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_HostedMatchData;
+/**
+ *  Publisher first party ID, scoped to a single site, app or vendor needs to be
+ *  present on the bid request.
+ *
+ *  Value: "PUBLISHER_FIRST_PARTY_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_PublisherFirstPartyId;
 /**
  *  The request has a publisher-provided ID available to the bidder.
  *
@@ -2044,6 +2069,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  filtered before the auction.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedAttributes;
+
+/**
+ *  Output only. IDs of the detected categories, if any. The taxonomy in which
+ *  the categories are expressed is specified by the
+ *  detected_categories_taxonomy field. Can be used to filter the response of
+ *  the creatives.list method.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *detectedCategories;
+
+/**
+ *  Output only. The taxonomy in which the detected_categories field is
+ *  expressed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_AdCategoryTaxonomyUnspecified
+ *        Default value that should never be used. (Value:
+ *        "AD_CATEGORY_TAXONOMY_UNSPECIFIED")
+ *    @arg @c kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_IabContent10
+ *        IAB Content Taxonomy 1.0. See
+ *        https://github.com/InteractiveAdvertisingBureau/Taxonomies/blob/main/Content%20Taxonomies/Content%20Taxonomy%201.0.tsv
+ *        for more details. (Value: "IAB_CONTENT_1_0")
+ */
+@property(nonatomic, copy, nullable) NSString *detectedCategoriesTaxonomy;
 
 /**
  *  The set of detected destination URLs for the creative. Can be used to filter

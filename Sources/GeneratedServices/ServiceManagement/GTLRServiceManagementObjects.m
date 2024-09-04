@@ -141,6 +141,12 @@ NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Lau
 NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRServiceManagement_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRServiceManagement_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -821,6 +827,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_ExperimentalFeatures
+//
+
+@implementation GTLRServiceManagement_ExperimentalFeatures
+@dynamic restAsyncIoEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_Expr
 //
 
@@ -1312,7 +1328,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1600,7 +1625,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_PythonSettings
-@dynamic common;
+@dynamic common, experimentalFeatures;
 @end
 
 

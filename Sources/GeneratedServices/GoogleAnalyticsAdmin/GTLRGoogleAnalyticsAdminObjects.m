@@ -990,24 +990,6 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest
-@dynamic eventEditRules;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"eventEditRules" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
 //
 

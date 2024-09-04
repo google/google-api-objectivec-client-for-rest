@@ -1903,8 +1903,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours : GTLRObject
 
 /**
- *  Is this place open right now? Always present unless we lack time-of-day or
- *  timezone data for these opening hours.
+ *  Whether the opening hours period is currently active. For regular opening
+ *  hours and current opening hours, this field means whether the place is open.
+ *  For secondary opening hours and current secondary opening hours, this field
+ *  means whether the secondary hours of this place is active.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2601,8 +2603,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  contents that are relevant to the `text_query` in the request are preferred.
  *  If the contextual content is not available for one of the places, it will
  *  return non-contextual content. It will be empty only when the content is
- *  unavailable for this place. This list should have as many entries as the
- *  list of places if requested.
+ *  unavailable for this place. This list will have as many entries as the list
+ *  of places if requested.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContent *> *contextualContents;
 

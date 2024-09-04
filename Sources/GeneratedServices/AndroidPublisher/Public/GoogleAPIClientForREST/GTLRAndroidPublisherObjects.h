@@ -64,6 +64,7 @@
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternalAccountIdentifiers;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
+@class GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails;
 @class GTLRAndroidPublisher_ExternalSubscription;
 @class GTLRAndroidPublisher_ExternalTransactionAddress;
 @class GTLRAndroidPublisher_ExternalTransactionTestPurchase;
@@ -131,6 +132,7 @@
 @class GTLRAndroidPublisher_Review;
 @class GTLRAndroidPublisher_ReviewReplyResult;
 @class GTLRAndroidPublisher_RevocationContext;
+@class GTLRAndroidPublisher_RevocationContextFullRefund;
 @class GTLRAndroidPublisher_RevocationContextProratedRefund;
 @class GTLRAndroidPublisher_ScreenDensity;
 @class GTLRAndroidPublisher_ScreenDensityTargeting;
@@ -1036,13 +1038,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecurringExternalTransa
 // GTLRAndroidPublisher_RegionalPriceMigrationConfig.priceIncreaseType
 
 /**
- *  Price increase will be presented to users on an opt-in basis.
+ *  Subscribers must accept the price increase or their subscription is
+ *  canceled.
  *
  *  Value: "PRICE_INCREASE_TYPE_OPT_IN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptIn;
 /**
- *  Price increase will be presented to users on an opt-out basis.
+ *  Subscribers are notified but do not have to accept the price increase.
+ *  Opt-out price increases not meeting regional, frequency, and amount limits
+ *  will proceed as opt-in price increase. The first opt-out price increase for
+ *  each app must be initiated in the Google Play Console.
  *
  *  Value: "PRICE_INCREASE_TYPE_OPT_OUT"
  */
@@ -3437,6 +3443,21 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about the first time a user/device completed a transaction using
+ *  external offers.
+ */
+@interface GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails : GTLRObject
+
+/**
+ *  Required. The external transaction id of the first completed purchase made
+ *  by the user.
+ */
+@property(nonatomic, copy, nullable) NSString *externalTransactionId;
+
+@end
+
+
+/**
  *  Details of an external subscription.
  */
 @interface GTLRAndroidPublisher_ExternalSubscription : GTLRObject
@@ -3484,6 +3505,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *currentTaxAmount;
 
 /**
+ *  Optional. Details about the first time a user/device completed a transaction
+ *  using external offers. Not required for transactions made using user choice
+ *  billing or alternative billing only.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails *externalOfferInitialAcquisitionDetails;
+
+/**
  *  Output only. The id of this transaction. All transaction ids under the same
  *  package name must be unique. Set when creating the external transaction.
  */
@@ -3523,13 +3551,13 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. The transaction program code, used to help determine service fee
- *  for apps partcipating in special partner programs. This field can not be
- *  used for external offers transactions. Developers participating in the Play
- *  Media Experience Program
+ *  for eligible apps participating in partner programs. Developers
+ *  participating in the Play Media Experience Program
  *  (https://play.google.com/console/about/programs/mediaprogram/) must provide
- *  the program code when reporting alternative billing external transactions.
- *  If you are an eligible developer, please contact your BDM for more
- *  information on how to set this field.
+ *  the program code when reporting alternative billing transactions. If you are
+ *  an eligible developer, please contact your BDM for more information on how
+ *  to set this field. Note: this field can not be used for external offers
+ *  transactions.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4808,7 +4836,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Represents a list of apis.
+ *  Represents a list of ABIs.
  */
 @interface GTLRAndroidPublisher_MultiAbi : GTLRObject
 
@@ -5356,34 +5384,34 @@ GTLR_DEPRECATED
 
 
 /**
- *  Configuration for a price migration.
+ *  Configuration for migration of a legacy price cohort.
  */
 @interface GTLRAndroidPublisher_RegionalPriceMigrationConfig : GTLRObject
 
 /**
- *  Required. The cutoff time for historical prices that subscribers can remain
- *  paying. Subscribers on prices which were available at this cutoff time or
- *  later will stay on their existing price. Subscribers on older prices will be
- *  migrated to the currently-offered price. The migrated subscribers will
- *  receive a notification that they will be paying a different price.
- *  Subscribers who do not agree to the new price will have their subscription
- *  ended at the next renewal.
+ *  Required. Subscribers in all legacy price cohorts before this time will be
+ *  migrated to the current price. Subscribers in any newer price cohorts are
+ *  unaffected. Affected subscribers will receive one or more notifications from
+ *  Google Play about the price change. Price decreases occur at the
+ *  subscriber's next billing date. Price increases occur at the subscriber's
+ *  next billing date following a notification period that varies by region and
+ *  price increase type.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *oldestAllowedPriceVersionTime;
 
 /**
- *  Optional. The behavior the caller wants users to see when there is a price
- *  increase during migration. If left unset, the behavior defaults to
- *  PRICE_INCREASE_TYPE_OPT_IN. Note that the first opt-out price increase
- *  migration for each app must be initiated in Play Console.
+ *  Optional. The requested type of price increase
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptIn
- *        Price increase will be presented to users on an opt-in basis. (Value:
- *        "PRICE_INCREASE_TYPE_OPT_IN")
+ *        Subscribers must accept the price increase or their subscription is
+ *        canceled. (Value: "PRICE_INCREASE_TYPE_OPT_IN")
  *    @arg @c kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptOut
- *        Price increase will be presented to users on an opt-out basis. (Value:
- *        "PRICE_INCREASE_TYPE_OPT_OUT")
+ *        Subscribers are notified but do not have to accept the price increase.
+ *        Opt-out price increases not meeting regional, frequency, and amount
+ *        limits will proceed as opt-in price increase. The first opt-out price
+ *        increase for each app must be initiated in the Google Play Console.
+ *        (Value: "PRICE_INCREASE_TYPE_OPT_OUT")
  *    @arg @c kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeUnspecified
  *        Unspecified state. (Value: "PRICE_INCREASE_TYPE_UNSPECIFIED")
  */
@@ -5742,11 +5770,25 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_RevocationContext : GTLRObject
 
 /**
+ *  Optional. Used when users should be refunded the full amount of the latest
+ *  order of the subscription.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RevocationContextFullRefund *fullRefund;
+
+/**
  *  Optional. Used when users should be refunded a prorated amount they paid for
  *  their subscription based on the amount of time remaining in a subscription.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_RevocationContextProratedRefund *proratedRefund;
 
+@end
+
+
+/**
+ *  Used to determine if the refund type in the RevocationContext is a full
+ *  refund.
+ */
+@interface GTLRAndroidPublisher_RevocationContextFullRefund : GTLRObject
 @end
 
 

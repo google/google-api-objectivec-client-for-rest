@@ -15,6 +15,9 @@
 
 // view
 NSString * const kGTLRWorkflowExecutionsViewBasic              = @"BASIC";
+NSString * const kGTLRWorkflowExecutionsViewExecutionEntryViewBasic = @"EXECUTION_ENTRY_VIEW_BASIC";
+NSString * const kGTLRWorkflowExecutionsViewExecutionEntryViewDetailed = @"EXECUTION_ENTRY_VIEW_DETAILED";
+NSString * const kGTLRWorkflowExecutionsViewExecutionEntryViewUnspecified = @"EXECUTION_ENTRY_VIEW_UNSPECIFIED";
 NSString * const kGTLRWorkflowExecutionsViewExecutionViewUnspecified = @"EXECUTION_VIEW_UNSPECIFIED";
 NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
@@ -101,6 +104,33 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
 @end
 
+@implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsDeleteExecutionHistory
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRWorkflowExecutions_DeleteExecutionHistoryRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:deleteExecutionHistory";
+  GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsDeleteExecutionHistory *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkflowExecutions_Empty class];
+  query.loggingName = @"workflowexecutions.projects.locations.workflows.executions.deleteExecutionHistory";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsExportData
 
 @dynamic name;
@@ -160,7 +190,7 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
 @implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -179,7 +209,7 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
 @implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent, skip;
+@dynamic filter, orderBy, pageSize, pageToken, parent, skip, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

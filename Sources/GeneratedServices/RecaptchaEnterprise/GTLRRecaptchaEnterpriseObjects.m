@@ -68,6 +68,10 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudS
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals_CardLabels_UnexpectedLocation = @"UNEXPECTED_LOCATION";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals_CardLabels_Virtual = @"VIRTUAL";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData.overrideType
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_Allow = @"ALLOW";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_OverrideTypeUnspecified = @"OVERRIDE_TYPE_UNSPECIFIED";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_Automation = @"AUTOMATION";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_ClassificationReasonUnspecified = @"CLASSIFICATION_REASON_UNSPECIFIED";
@@ -180,6 +184,25 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest
+@dynamic ipOverrideData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideResponse
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings
 //
 
@@ -240,10 +263,20 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment
-@dynamic accountDefenderAssessment, accountVerification, event,
-         firewallPolicyAssessment, fraudPreventionAssessment, fraudSignals,
-         name, phoneFraudAssessment, privatePasswordLeakVerification,
-         riskAnalysis, tokenProperties;
+@dynamic accountDefenderAssessment, accountVerification, assessmentEnvironment,
+         event, firewallPolicyAssessment, fraudPreventionAssessment,
+         fraudSignals, name, phoneFraudAssessment,
+         privatePasswordLeakVerification, riskAnalysis, tokenProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment
+@dynamic client, version;
 @end
 
 
@@ -285,6 +318,15 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings
 @end
 
 
@@ -485,12 +527,22 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData
+@dynamic ip, overrideType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key
-@dynamic androidSettings, createTime, displayName, iosSettings, labels, name,
-         testingOptions, wafSettings, webSettings;
+@dynamic androidSettings, createTime, displayName, expressSettings, iosSettings,
+         labels, name, testingOptions, wafSettings, webSettings;
 @end
 
 
@@ -525,6 +577,28 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 + (NSString *)collectionItemsKey {
   return @"firewallPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListIpOverridesResponse
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListIpOverridesResponse
+@dynamic ipOverrides, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipOverrides" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"ipOverrides";
 }
 
 @end
@@ -671,6 +745,25 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership
 @dynamic accountId, hashedAccountId, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest
+@dynamic ipOverrideData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideResponse
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideResponse
 @end
 
 

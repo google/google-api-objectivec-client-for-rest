@@ -2866,6 +2866,25 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsValuedResourcesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/valuedResources";
+  GTLRSecurityCommandCenterQuery_OrganizationsValuedResourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListValuedResourcesResponse class];
+  query.loggingName = @"securitycenter.organizations.valuedResources.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_ProjectsAssetsGroup
 
 @dynamic parent;

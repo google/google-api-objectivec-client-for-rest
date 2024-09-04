@@ -366,6 +366,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 
 /**
+ *  Optional. Enables routing of Programmable Search Engine requests to an
+ *  alternate search handler.
+ */
+@property(nonatomic, assign) BOOL enableAlternateSearchHandler;
+
+/**
  *  Identifies a phrase that all documents in the search results must contain.
  */
 @property(nonatomic, copy, nullable) NSString *exactTerms;
@@ -722,6 +728,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *  `y[number]`: requests results from the specified number of past years.
  */
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
+
+/**
+ *  Optional. Enables routing of Programmable Search Engine requests to an
+ *  alternate search handler.
+ */
+@property(nonatomic, assign) BOOL enableAlternateSearchHandler;
 
 /**
  *  Identifies a phrase that all documents in the search results must contain.

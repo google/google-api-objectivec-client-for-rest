@@ -54,7 +54,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Al
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_CurrentDay;
 /**
- *  Custom range specified by custom_start_date and custom_end_date fields.
+ *  Custom date range.
  *
  *  Value: "CUSTOM_DATES"
  */
@@ -173,6 +173,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Au
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Floodlight;
 /**
+ *  Full Path report.
+ *
+ *  Value: "FULL_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_FullPath GTLR_DEPRECATED;
+/**
  *  GRP report.
  *
  *  Value: "GRP"
@@ -184,6 +190,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Gr
  *  Value: "INVENTORY_AVAILABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability;
+/**
+ *  Path Attribution report.
+ *
+ *  Value: "PATH_ATTRIBUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution GTLR_DEPRECATED;
 /**
  *  Reach report.
  *
@@ -266,13 +278,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Freq
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Monthly;
 /**
- *  Only once.
+ *  Only when the query is run manually.
  *
  *  Value: "ONE_TIME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_OneTime;
 /**
- *  Once a quarter
+ *  Once a quarter.
  *
  *  Value: "QUARTERLY"
  */
@@ -353,26 +365,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_StateUnspecified;
 
 /**
- *  Report data range.
+ *  The date range to be reported on.
  */
 @interface GTLRDoubleClickBidManager_DataRange : GTLRObject
 
 /**
- *  The ending date for the data that is shown in the report. Note,
- *  `customEndDate` is required if `range` is `CUSTOM_DATES` and ignored
- *  otherwise.
+ *  If `CUSTOM_DATES` is assigned to range, this field specifies the end date
+ *  for the date range that is reported on. This field is required if using
+ *  `CUSTOM_DATES` range and will be ignored otherwise.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Date *customEndDate;
 
 /**
- *  The starting data for the data that is shown in the report. Note,
- *  `customStartDate` is required if `range` is `CUSTOM_DATES` and ignored
- *  otherwise.
+ *  If `CUSTOM_DATES` is assigned to range, this field specifies the starting
+ *  date for the date range that is reported on. This field is required if using
+ *  `CUSTOM_DATES` range and will be ignored otherwise.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Date *customStartDate;
 
 /**
- *  Report data range used to generate the report.
+ *  The preset date range to be reported on. If `CUSTOM_DATES` is assigned to
+ *  this field, fields custom_start_date and custom_end_date must be set to
+ *  specify the custom date range.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_AllTime All time for
@@ -380,9 +394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  *        "ALL_TIME")
  *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_CurrentDay Current day.
  *        (Value: "CURRENT_DAY")
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_CustomDates Custom
- *        range specified by custom_start_date and custom_end_date fields.
- *        (Value: "CUSTOM_DATES")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_CustomDates Custom date
+ *        range. (Value: "CUSTOM_DATES")
  *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last14Days The previous
  *        14 days, excluding the current day. (Value: "LAST_14_DAYS")
  *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last30Days The previous
@@ -468,14 +481,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Filter used to match traffic data in your report.
+ *  Represents a single filter rule.
  */
 @interface GTLRDoubleClickBidManager_FilterPair : GTLRObject
 
-/** Filter type. */
+/**
+ *  The type of value to filter by. Defined by a
+ *  [Filter](/bid-manager/reference/rest/v2/filters-metrics#filters) value.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** Filter value. */
+/** The identifying value to filter by, such as a relevant resource ID. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -492,13 +508,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @interface GTLRDoubleClickBidManager_ListQueriesResponse : GTLRCollectionObject
 
 /**
- *  A token, which can be sent as page_token to retrieve the next page of
- *  queries. If this field is omitted, there are no subsequent pages.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  page_token field in the subsequent call to `queries.list` method to retrieve
+ *  the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of queries.
+ *  The list of queries. This field will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -519,13 +536,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @interface GTLRDoubleClickBidManager_ListReportsResponse : GTLRCollectionObject
 
 /**
- *  A token, which can be sent as page_token to retrieve the next page of
- *  reports. If this field is omitted, there are no subsequent pages.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  page_token field in the subsequent call to `queries.reports.list` method to
+ *  retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Retrieved reports.
+ *  The list of reports. This field will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -536,14 +554,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Additional query options.
+ *  Report parameter options.
  */
 @interface GTLRDoubleClickBidManager_Options : GTLRObject
 
 /**
- *  Set to true and filter your report by `FILTER_INSERTION_ORDER` or
- *  `FILTER_LINE_ITEM` to include data for audience lists specifically targeted
- *  by those items.
+ *  Whether to include data for audience lists specifically targeted by filtered
+ *  line items or insertion orders. Requires the use of `FILTER_INSERTION_ORDER`
+ *  or `FILTER_LINE_ITEM` filters.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -553,35 +571,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Parameters of a query or report.
+ *  Parameters of a generated report.
  */
 @interface GTLRDoubleClickBidManager_Parameters : GTLRObject
 
-/** Filters used to match traffic data in your report. */
+/** Filters to limit the scope of reported data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_FilterPair *> *filters;
 
-/** Data is grouped by the filters listed in this field. */
+/**
+ *  Dimensions by which to segment and group the data. Defined by
+ *  [Filter](/bid-manager/reference/rest/v2/filters-metrics#filters) values.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groupBys;
 
-/** Metrics to include as columns in your report. */
+/**
+ *  Metrics to define the data populating the report. Defined by
+ *  [Metric](/bid-manager/reference/rest/v2/filters-metrics#metrics) values.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
-/** Additional query options. */
+/** Additional report parameter options. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Options *options;
 
 /**
- *  The type of the report. The type of the report will dictate what dimesions,
- *  filters, and metrics can be used.
+ *  The type of the report. The type of the report determines the dimesions,
+ *  filters, and metrics that can be used.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_AudienceComposition
  *        Audience Composition report. (Value: "AUDIENCE_COMPOSITION")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Floodlight Floodlight
  *        report. (Value: "FLOODLIGHT")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_FullPath Full Path
+ *        report. (Value: "FULL_PATH")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Grp GRP report. (Value:
  *        "GRP")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability
  *        Inventory Availability report. (Value: "INVENTORY_AVAILABILITY")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution Path
+ *        Attribution report. (Value: "PATH_ATTRIBUTION")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Reach Reach report.
  *        (Value: "REACH")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_ReportTypeUnspecified
@@ -603,26 +631,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Represents a query.
+ *  A single query used to generate a report.
  */
 @interface GTLRDoubleClickBidManager_Query : GTLRObject
 
-/** Query metadata. */
+/** The metadata of the query. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_QueryMetadata *metadata;
 
-/** Query parameters. */
+/** The parameters of the report generated by the query. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Parameters *params;
 
 /**
- *  Output only. Query ID.
+ *  Output only. The unique ID of the query.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *queryId;
 
 /**
- *  Information on how often and when to run a query. If `ONE_TIME` is set to
- *  the frequency field, the query will only be run at the time of creation.
+ *  When and how often the query is scheduled to run. If the frequency field is
+ *  set to `ONE_TIME`, the query will only run when queries.run is called.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_QuerySchedule *schedule;
 
@@ -630,18 +658,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Query metadata.
+ *  The metadata of the query.
  */
 @interface GTLRDoubleClickBidManager_QueryMetadata : GTLRObject
 
 /**
- *  Range of report data. All reports will be based on the same time zone as
- *  used by the advertiser.
+ *  The date range the report generated by the query will report on. This date
+ *  range will be defined by the time zone as used by the advertiser.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_DataRange *dataRange;
 
 /**
- *  Format of the generated report.
+ *  The format of the report generated by the query.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_QueryMetadata_Format_Csv CSV. (Value:
@@ -655,38 +683,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Whether to send an email notification when a report is ready. Defaults to
- *  false.
+ *  Whether an email notification is sent to the query creator when a report
+ *  generated by the query is ready. This value is `false` by default.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sendNotification;
 
 /**
- *  List of email addresses which are sent email notifications when the report
- *  is finished. Separate from send_notification.
+ *  List of additional email addresses with which to share the query. If
+ *  send_notification is `true`, these email addresses will receive a
+ *  notification when a report generated by the query is ready. If these email
+ *  addresses are connected to Display & Video 360 users, the query will be
+ *  available to them in the Display & Video 360 interface.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shareEmailAddress;
 
-/** Query title. It is used to name the reports generated from this query. */
+/**
+ *  The display name of the query. This value will be used in the file name of
+ *  reports generated by the query.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
 
 /**
- *  Information on when and how frequently to run a query.
+ *  Settings on when and how frequently to run a query.
  */
 @interface GTLRDoubleClickBidManager_QuerySchedule : GTLRObject
 
 /**
- *  Date to periodically run the query until. Not applicable to `ONE_TIME`
- *  frequency.
+ *  The date on which to end the scheduled runs. This field is required if
+ *  frequency is not set to `ONE_TIME`. Otherwise, it will be ignored.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Date *endDate;
 
 /**
- *  How often the query is run.
+ *  How frequently to run the query. If set to `ONE_TIME`, the query will only
+ *  be run when queries.run is called.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Daily Once a
@@ -697,9 +732,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Monthly Once a
  *        month. (Value: "MONTHLY")
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_OneTime Only
- *        once. (Value: "ONE_TIME")
+ *        when the query is run manually. (Value: "ONE_TIME")
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Quarterly Once
- *        a quarter (Value: "QUARTERLY")
+ *        a quarter. (Value: "QUARTERLY")
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_SemiMonthly
  *        Twice a month. (Value: "SEMI_MONTHLY")
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly Once a
@@ -710,13 +745,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @property(nonatomic, copy, nullable) NSString *frequency;
 
 /**
- *  Canonical timezone code for report generation time. Defaults to
- *  `America/New_York`.
+ *  The canonical code for the timezone the query schedule is based on.
+ *  Scheduled runs are usually conducted in the morning of a given day. Defaults
+ *  to `America/New_York`.
  */
 @property(nonatomic, copy, nullable) NSString *nextRunTimezoneCode;
 
 /**
- *  When to start running the query. Not applicable to `ONE_TIME` frequency.
+ *  The date on which to begin the scheduled runs. This field is required if
+ *  frequency is not set to `ONE_TIME`. Otherwise, it will be ignored.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Date *startDate;
 
@@ -724,36 +761,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Represents a report.
+ *  A single report generated by its parent report.
  */
 @interface GTLRDoubleClickBidManager_Report : GTLRObject
 
-/** Key used to identify a report. */
+/** The key information identifying the report. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_ReportKey *key;
 
-/** Report metadata. */
+/** The metadata of the report. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_ReportMetadata *metadata;
 
-/** Report parameters. */
+/** The parameters of the report. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Parameters *params;
 
 @end
 
 
 /**
- *  Key used to identify a report.
+ *  Identifying information of a report.
  */
 @interface GTLRDoubleClickBidManager_ReportKey : GTLRObject
 
 /**
- *  Output only. Query ID.
+ *  Output only. The unique ID of the query that generated the report.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *queryId;
 
 /**
- *  Output only. Report ID.
+ *  Output only. The unique ID of the report.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -763,41 +800,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Report metadata.
+ *  The metadata of a report.
  */
 @interface GTLRDoubleClickBidManager_ReportMetadata : GTLRObject
 
 /**
- *  Output only. The path to the location in Google Cloud Storage where the
- *  report is stored.
+ *  Output only. The location of the generated report file in Google Cloud
+ *  Storage. This field will be absent if status.state is not `DONE`.
  */
 @property(nonatomic, copy, nullable) NSString *googleCloudStoragePath;
 
-/** The ending time for the data that is shown in the report. */
+/** The end date of the report data date range. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Date *reportDataEndDate;
 
-/** The starting time for the data that is shown in the report. */
+/** The start date of the report data date range. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Date *reportDataStartDate;
 
-/** Report status. */
+/** The status of the report. */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_ReportStatus *status;
 
 @end
 
 
 /**
- *  Report status.
+ *  The status of a report.
  */
 @interface GTLRDoubleClickBidManager_ReportStatus : GTLRObject
 
 /**
- *  Output only. The time when this report either completed successfully or
- *  failed.
+ *  Output only. The timestamp of when report generation finished successfully
+ *  or in failure. This field will not be set unless state is `DONE` or
+ *  `FAILED`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
 
 /**
- *  The file type of the report.
+ *  The format of the generated report file.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_Format_Csv CSV. (Value:
@@ -811,7 +849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Output only. The state of the report.
+ *  Output only. The state of the report generation.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Done The report has
@@ -832,13 +870,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Request to run a stored query to generate a report.
+ *  Details specifying how to run a query.
  */
 @interface GTLRDoubleClickBidManager_RunQueryRequest : GTLRObject
 
 /**
- *  Report data range used to generate the report. If unspecified, the original
- *  parent query's data range is used.
+ *  The date range used by the query to generate the report. If unspecified, the
+ *  query's original data_range is used.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_DataRange *dataRange;
 

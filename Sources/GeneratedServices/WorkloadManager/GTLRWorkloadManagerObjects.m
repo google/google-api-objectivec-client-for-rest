@@ -86,6 +86,19 @@ NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Other = @"
 NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Pop = @"POP";
 NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Unspecified = @"UNSPECIFIED";
 
+// GTLRWorkloadManager_RequirementOverride.ziOverride
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiNotRequired = @"ZI_NOT_REQUIRED";
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiPreferred = @"ZI_PREFERRED";
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiRequired = @"ZI_REQUIRED";
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiUnknown = @"ZI_UNKNOWN";
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiUnspecified = @"ZI_UNSPECIFIED";
+
+// GTLRWorkloadManager_RequirementOverride.zsOverride
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsNotRequired = @"ZS_NOT_REQUIRED";
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsRequired = @"ZS_REQUIRED";
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsUnknown = @"ZS_UNKNOWN";
+NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsUnspecified = @"ZS_UNSPECIFIED";
+
 // GTLRWorkloadManager_ResourceStatus.state
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Active = @"ACTIVE";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Creating = @"CREATING";
@@ -131,9 +144,20 @@ NSString * const kGTLRWorkloadManager_SapDiscoveryResource_ResourceType_Resource
 
 // GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties.instanceRole
 NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAppServer = @"INSTANCE_ROLE_APP_SERVER";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAppServerDatabase = @"INSTANCE_ROLE_APP_SERVER_DATABASE";
 NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscs = @"INSTANCE_ROLE_ASCS";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsAppServer = @"INSTANCE_ROLE_ASCS_APP_SERVER";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsAppServerDatabase = @"INSTANCE_ROLE_ASCS_APP_SERVER_DATABASE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsDatabase = @"INSTANCE_ROLE_ASCS_DATABASE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErs = @"INSTANCE_ROLE_ASCS_ERS";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsAppServer = @"INSTANCE_ROLE_ASCS_ERS_APP_SERVER";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsAppServerDatabase = @"INSTANCE_ROLE_ASCS_ERS_APP_SERVER_DATABASE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsDatabase = @"INSTANCE_ROLE_ASCS_ERS_DATABASE";
 NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleDatabase = @"INSTANCE_ROLE_DATABASE";
 NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErs = @"INSTANCE_ROLE_ERS";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsAppServer = @"INSTANCE_ROLE_ERS_APP_SERVER";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsAppServerDatabase = @"INSTANCE_ROLE_ERS_APP_SERVER_DATABASE";
+NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsDatabase = @"INSTANCE_ROLE_ERS_DATABASE";
 NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleUnspecified = @"INSTANCE_ROLE_UNSPECIFIED";
 
 // GTLRWorkloadManager_SapValidationValidationDetail.sapValidationType
@@ -191,7 +215,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_AssetLocation
-@dynamic expected, extraParameters, locationData, parentAsset;
+@dynamic ccfeRmsPath, expected, extraParameters, locationData, parentAsset;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -452,8 +476,8 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_IsolationExpectations
-@dynamic ziOrgPolicy, ziRegionPolicy, ziRegionState, zoneIsolation,
-         zoneSeparation, zsOrgPolicy, zsRegionState;
+@dynamic requirementOverride, ziOrgPolicy, ziRegionPolicy, ziRegionState,
+         zoneIsolation, zoneSeparation, zsOrgPolicy, zsRegionState;
 @end
 
 
@@ -746,6 +770,16 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_RequirementOverride
+//
+
+@implementation GTLRWorkloadManager_RequirementOverride
+@dynamic ziOverride, zsOverride;
 @end
 
 
@@ -1067,10 +1101,11 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SpannerLocation
-@dynamic dbName;
+@dynamic backupName, dbName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"backupName" : [NSString class],
     @"dbName" : [NSString class]
   };
   return map;

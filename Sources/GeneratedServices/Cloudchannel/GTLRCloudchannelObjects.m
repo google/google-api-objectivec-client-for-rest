@@ -115,6 +115,11 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkSt
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Revoked = @"REVOKED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Suspended = @"SUSPENDED";
 
+// GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount.customerType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Domain = @"DOMAIN";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Team = @"TEAM";
+
 // GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo.customerType
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_Domain = @"DOMAIN";
@@ -739,7 +744,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest
-@dynamic domain;
+@dynamic domain, primaryAdminEmail;
 @end
 
 
@@ -767,7 +772,8 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount
-@dynamic customerCloudIdentityId, customerName, existing, owned;
+@dynamic channelPartnerCloudIdentityId, customerCloudIdentityId, customerName,
+         customerType, existing, owned;
 @end
 
 
@@ -1016,7 +1022,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest
 @dynamic authToken, channelPartnerId, cloudIdentityId, customer, domain,
-         overwriteIfExists;
+         overwriteIfExists, primaryAdminEmail;
 @end
 
 
@@ -1655,7 +1661,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest
-@dynamic serviceAccount;
+@dynamic integrator, serviceAccount;
 @end
 
 
@@ -2022,7 +2028,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest
-@dynamic serviceAccount;
+@dynamic integrator, serviceAccount;
 @end
 
 

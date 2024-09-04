@@ -1126,6 +1126,83 @@
 
 @end
 
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRNetworkSecurity_GoogleIamV1Policy class];
+  query.loggingName = @"networksecurity.projects.locations.authzPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRNetworkSecurity_GoogleIamV1Policy class];
+  query.loggingName = @"networksecurity.projects.locations.authzPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.authzPolicies.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkSecurityQuery_ProjectsLocationsClientTlsPoliciesCreate
 
 @dynamic clientTlsPolicyId, parent;

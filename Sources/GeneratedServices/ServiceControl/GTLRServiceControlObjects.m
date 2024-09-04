@@ -820,7 +820,7 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_V2ResourceEvent
-@dynamic destinations, parent, path, payload, resource, type;
+@dynamic contextId, destinations, parent, path, payload, resource, type;
 @end
 
 

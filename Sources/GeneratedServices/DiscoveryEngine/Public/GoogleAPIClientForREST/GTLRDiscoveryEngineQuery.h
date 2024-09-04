@@ -105,6 +105,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets index freshness metadata for Documents. Supported for website search
+ *  only.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.branches.batchGetDocumentsMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesBatchGetDocumentsMetadata : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The FHIR resources to match by. Format:
+ *  projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matcherFhirMatcherFhirResources;
+
+/** The exact URIs to match by. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matcherUrisMatcherUris;
+
+/**
+ *  Required. The parent branch resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponse.
+ *
+ *  Gets index freshness metadata for Documents. Supported for website search
+ *  only.
+ *
+ *  @param parent Required. The parent branch resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesBatchGetDocumentsMetadata
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a Document.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.branches.documents.create
@@ -1181,6 +1223,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  A boolean flag indicating whether to skip the default schema creation for
+ *  the data store. Only enable this flag if you are certain that the default
+ *  schema is incompatible with your use case. If set to true, you must manually
+ *  create a schema for the data store before any documents can be ingested.
+ *  This flag cannot be specified if `data_store.starting_schema` is specified.
+ */
+@property(nonatomic, assign) BOOL skipDefaultSchemaCreation;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
  *
  *  Creates a DataStore. DataStore is for storing Documents. To serve these
@@ -1197,6 +1248,42 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a list of all the custom models.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.customModels.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCustomModelsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the parent Data Store, such as `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/default_data_store`.
+ *  This field is used to identify the data store where to fetch the models
+ *  from.
+ */
+@property(nonatomic, copy, nullable) NSString *dataStore;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListCustomModelsResponse.
+ *
+ *  Gets a list of all the custom models.
+ *
+ *  @param dataStore Required. The resource name of the parent Data Store, such
+ *    as `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/default_data_store`.
+ *    This field is used to identify the data store where to fetch the models
+ *    from.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCustomModelsList
+ */
++ (instancetype)queryWithDataStore:(NSString *)dataStore;
 
 @end
 
@@ -2855,6 +2942,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Trains a custom model.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.trainCustomModel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresTrainCustomModel : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Data Store, such as `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/default_data_store`.
+ *  This field is used to identify the data store where to train the models.
+ */
+@property(nonatomic, copy, nullable) NSString *dataStore;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Trains a custom model.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TrainCustomModelRequest to
+ *    include in the query.
+ *  @param dataStore Required. The resource name of the Data Store, such as
+ *    `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/default_data_store`.
+ *    This field is used to identify the data store where to train the models.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresTrainCustomModel
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TrainCustomModelRequest *)object
+                      dataStore:(NSString *)dataStore;
+
+@end
+
+/**
  *  Writes a single user event from the browser. This uses a GET request to due
  *  to browser restriction of POST-ing to a third-party domain. This method is
  *  used only by the Discovery Engine API JavaScript pixel and Google Tag
@@ -2948,6 +3072,48 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsImport
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes permanently all user events specified by the filter provided.
+ *  Depending on the number of events specified by the filter, this operation
+ *  could take hours or days to complete. To test a filter, use the list command
+ *  first.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.userEvents.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsPurge : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the catalog under which the events are
+ *  created. The format is
+ *  `projects/${projectId}/locations/global/collections/{$collectionId}/dataStores/${dataStoreId}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes permanently all user events specified by the filter provided.
+ *  Depending on the number of events specified by the filter, this operation
+ *  could take hours or days to complete. To test a filter, use the list command
+ *  first.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeUserEventsRequest to
+ *    include in the query.
+ *  @param parent Required. The resource name of the catalog under which the
+ *    events are created. The format is
+ *    `projects/${projectId}/locations/global/collections/{$collectionId}/dataStores/${dataStoreId}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsPurge
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeUserEventsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -4182,6 +4348,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets index freshness metadata for Documents. Supported for website search
+ *  only.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.branches.batchGetDocumentsMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesBatchGetDocumentsMetadata : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The FHIR resources to match by. Format:
+ *  projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matcherFhirMatcherFhirResources;
+
+/** The exact URIs to match by. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matcherUrisMatcherUris;
+
+/**
+ *  Required. The parent branch resource name, such as
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponse.
+ *
+ *  Gets index freshness metadata for Documents. Supported for website search
+ *  only.
+ *
+ *  @param parent Required. The parent branch resource name, such as
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesBatchGetDocumentsMetadata
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a Document.
  *
  *  Method: discoveryengine.projects.locations.dataStores.branches.documents.create
@@ -5256,6 +5464,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project}/locations/{location}/collections/{collection}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  A boolean flag indicating whether to skip the default schema creation for
+ *  the data store. Only enable this flag if you are certain that the default
+ *  schema is incompatible with your use case. If set to true, you must manually
+ *  create a schema for the data store before any documents can be ingested.
+ *  This flag cannot be specified if `data_store.starting_schema` is specified.
+ */
+@property(nonatomic, assign) BOOL skipDefaultSchemaCreation;
 
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
@@ -6723,6 +6940,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes permanently all user events specified by the filter provided.
+ *  Depending on the number of events specified by the filter, this operation
+ *  could take hours or days to complete. To test a filter, use the list command
+ *  first.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.userEvents.purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsPurge : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the catalog under which the events are
+ *  created. The format is
+ *  `projects/${projectId}/locations/global/collections/{$collectionId}/dataStores/${dataStoreId}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes permanently all user events specified by the filter provided.
+ *  Depending on the number of events specified by the filter, this operation
+ *  could take hours or days to complete. To test a filter, use the list command
+ *  first.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeUserEventsRequest to
+ *    include in the query.
+ *  @param parent Required. The resource name of the catalog under which the
+ *    events are created. The format is
+ *    `projects/${projectId}/locations/global/collections/{$collectionId}/dataStores/${dataStoreId}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsPurge
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeUserEventsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Writes a single user event.
  *
  *  Method: discoveryengine.projects.locations.dataStores.userEvents.write
@@ -6803,6 +7062,77 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CheckGroundingRequest *)object
                 groundingConfig:(NSString *)groundingConfig;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.identity_mapping_stores.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: discoveryengine.projects.locations.identity_mapping_stores.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsList : GTLRDiscoveryEngineQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

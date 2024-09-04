@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Anthos On-Prem API (gkeonprem/v1)
+//   GDC Virtual API (gkeonprem/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/clusters/docs/on-prem/
 
@@ -29,7 +29,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalAdminClustersCreate
 
-@dynamic bareMetalAdminClusterId, parent, validateOnly;
+@dynamic allowPreflightFailure, bareMetalAdminClusterId, parent, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRGKEOnPrem_BareMetalAdminCluster *)object
                          parent:(NSString *)parent {
@@ -83,7 +83,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalAdminClustersGet
 
-@dynamic name, view;
+@dynamic allowMissing, name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -125,7 +125,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalAdminClustersList
 
-@dynamic pageSize, pageToken, parent, view;
+@dynamic allowMissing, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -589,7 +589,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalClustersCreate
 
-@dynamic bareMetalClusterId, parent, validateOnly;
+@dynamic allowPreflightFailure, bareMetalClusterId, parent, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRGKEOnPrem_BareMetalCluster *)object
                          parent:(NSString *)parent {
@@ -666,7 +666,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalClustersGet
 
-@dynamic name, view;
+@dynamic allowMissing, name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -708,7 +708,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalClustersList
 
-@dynamic filter, pageSize, pageToken, parent, view;
+@dynamic allowMissing, filter, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1047,7 +1047,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersGet
 
-@dynamic name, view;
+@dynamic allowMissing, name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1089,7 +1089,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersList
 
-@dynamic pageSize, pageToken, parent, view;
+@dynamic allowMissing, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1250,7 +1250,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersCreate
 
-@dynamic parent, validateOnly, vmwareClusterId;
+@dynamic allowPreflightFailure, parent, validateOnly, vmwareClusterId;
 
 + (instancetype)queryWithObject:(GTLRGKEOnPrem_VmwareCluster *)object
                          parent:(NSString *)parent {
@@ -1327,7 +1327,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersGet
 
-@dynamic name, view;
+@dynamic allowMissing, name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1369,7 +1369,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersList
 
-@dynamic filter, pageSize, pageToken, parent, view;
+@dynamic allowMissing, filter, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

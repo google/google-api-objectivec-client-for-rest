@@ -351,6 +351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu8g;
 /** Value: "A3_HIGHGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu8g;
+/** Value: "A3_MEGAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Megagpu8g;
 /** Value: "C2D_HIGHCPU_112" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu112;
 /** Value: "C2D_HIGHCPU_16" */
@@ -851,6 +853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu8g;
 /** Value: "A3_HIGHGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu8g;
+/** Value: "A3_MEGAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Megagpu8g;
 /** Value: "C2D_HIGHCPU_112" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu112;
 /** Value: "C2D_HIGHCPU_16" */
@@ -1171,6 +1175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu8g;
 /** Value: "A3_HIGHGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu8g;
+/** Value: "A3_MEGAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Megagpu8g;
 /** Value: "C2D_HIGHCPU_112" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu112;
 /** Value: "C2D_HIGHCPU_16" */
@@ -1732,6 +1738,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServin
  *  Value: "NVIDIA_H100_80GB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH10080gb;
+/**
+ *  Nvidia H100 80Gb GPU.
+ *
+ *  Value: "NVIDIA_H100_MEGA_80GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH100Mega80gb;
 /**
  *  Nvidia L4 GPU.
  *
@@ -2793,6 +2805,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu8g Value
  *        "A3_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Megagpu8g Value
+ *        "A3_MEGAGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu112
  *        Value "C2D_HIGHCPU_112"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu16 Value
@@ -3395,6 +3409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu8g Value
  *        "A3_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Megagpu8g Value
+ *        "A3_MEGAGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu112
  *        Value "C2D_HIGHCPU_112"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu16 Value
@@ -3818,6 +3834,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu8g Value
  *        "A3_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Megagpu8g Value
+ *        "A3_MEGAGPU_8G"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu112
  *        Value "C2D_HIGHCPU_112"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu16 Value
@@ -5508,6 +5526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        Nvidia A100 80GB GPU. (Value: "NVIDIA_A100_80GB")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH10080gb
  *        Nvidia H100 80Gb GPU. (Value: "NVIDIA_H100_80GB")
+ *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH100Mega80gb
+ *        Nvidia H100 80Gb GPU. (Value: "NVIDIA_H100_MEGA_80GB")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaL4
  *        Nvidia L4 GPU. (Value: "NVIDIA_L4")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaTeslaA100

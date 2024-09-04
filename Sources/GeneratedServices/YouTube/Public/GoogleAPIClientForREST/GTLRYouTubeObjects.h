@@ -3968,6 +3968,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted;
 
 // ----------------------------------------------------------------------------
+// GTLRYouTube_PlaylistStatus.podcastStatus
+
+/** Value: "disabled" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PodcastStatus_Disabled;
+/** Value: "enabled" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PodcastStatus_Enabled;
+
+// ----------------------------------------------------------------------------
 // GTLRYouTube_PlaylistStatus.privacyStatus
 
 /** Value: "private" */
@@ -11030,6 +11038,16 @@ GTLR_DEPRECATED
  *  GTLRYouTube_PlaylistStatus
  */
 @interface GTLRYouTube_PlaylistStatus : GTLRObject
+
+/**
+ *  The playlist's podcast status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_PlaylistStatus_PodcastStatus_Disabled Value
+ *        "disabled"
+ *    @arg @c kGTLRYouTube_PlaylistStatus_PodcastStatus_Enabled Value "enabled"
+ */
+@property(nonatomic, copy, nullable) NSString *podcastStatus;
 
 /**
  *  The playlist's privacy status.

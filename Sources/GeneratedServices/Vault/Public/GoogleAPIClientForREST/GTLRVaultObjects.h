@@ -485,6 +485,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOpt
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVault_Matter.matterRegion
+
+/**
+ *  Any region.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_MatterRegion_Any;
+/**
+ *  Europe region.
+ *
+ *  Value: "EUROPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_MatterRegion_Europe;
+/**
+ *  The region is unspecified. Defaults to ANY.
+ *
+ *  Value: "MATTER_REGION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_MatterRegion_MatterRegionUnspecified;
+/**
+ *  United States region.
+ *
+ *  Value: "US"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_MatterRegion_Us;
+
+// ----------------------------------------------------------------------------
 // GTLRVault_Matter.state
 
 /**
@@ -2008,6 +2036,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  programmer defined limit on the number of permissions a matter can have.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVault_MatterPermission *> *matterPermissions;
+
+/**
+ *  Optional. The requested data region for the matter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_Matter_MatterRegion_Any Any region. (Value: "ANY")
+ *    @arg @c kGTLRVault_Matter_MatterRegion_Europe Europe region. (Value:
+ *        "EUROPE")
+ *    @arg @c kGTLRVault_Matter_MatterRegion_MatterRegionUnspecified The region
+ *        is unspecified. Defaults to ANY. (Value: "MATTER_REGION_UNSPECIFIED")
+ *    @arg @c kGTLRVault_Matter_MatterRegion_Us United States region. (Value:
+ *        "US")
+ */
+@property(nonatomic, copy, nullable) NSString *matterRegion;
 
 /** The name of the matter. */
 @property(nonatomic, copy, nullable) NSString *name;

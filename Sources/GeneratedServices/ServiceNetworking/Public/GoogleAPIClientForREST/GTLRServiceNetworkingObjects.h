@@ -49,6 +49,7 @@
 @class GTLRServiceNetworking_Endpoint;
 @class GTLRServiceNetworking_Enum;
 @class GTLRServiceNetworking_EnumValue;
+@class GTLRServiceNetworking_ExperimentalFeatures;
 @class GTLRServiceNetworking_Field;
 @class GTLRServiceNetworking_FieldPolicy;
 @class GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange;
@@ -707,6 +708,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetada
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceNetworking_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
 
 /**
@@ -1216,6 +1245,19 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  subnetwork.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_SecondaryIpRangeSpec *> *secondaryIpRangeSpecs;
+
+/**
+ *  Optional. Skips validating if the requested_address is in use by SN VPC’s
+ *  peering group. Compute Engine will still perform this check and fail the
+ *  request if the requested_address is in use. Note that Compute Engine does
+ *  not check for the existence of dynamic routes when performing this check.
+ *  Caller of this API should make sure that there are no dynamic routes
+ *  overlapping with the requested_address/prefix_length IP address range
+ *  otherwise the created subnet could cause misrouting.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipRequestedAddressValidation;
 
 /**
  *  Required. A name for the new subnet. For information about the naming
@@ -2009,10 +2051,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
-/** A list of full type names of provided contexts. */
+/**
+ *  A list of full type names of provided contexts. It is used to support
+ *  propagating HTTP headers and ETags from the response extension.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
 
-/** A list of full type names of requested contexts. */
+/**
+ *  A list of full type names of requested contexts, only the requested context
+ *  will be made available to the backend.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requested;
 
 /**
@@ -2549,6 +2597,26 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Experimental features to be included during client library generation. These
+ *  fields will be deprecated once the feature graduates and is enabled by
+ *  default.
+ */
+@interface GTLRServiceNetworking_ExperimentalFeatures : GTLRObject
+
+/**
+ *  Enables generation of asynchronous REST clients if `rest` transport is
+ *  enabled. By default, asynchronous REST clients will not be generated. This
+ *  feature will be enabled by default 1 month after launching the feature in
+ *  preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restAsyncIoEnabled;
+
+@end
+
+
+/**
  *  A single field of a message type.
  */
 @interface GTLRServiceNetworking_Field : GTLRObject
@@ -2952,11 +3020,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  effect as the proto annotation. This can be particularly useful if you have
  *  a proto that is reused in multiple services. Note that any transcoding
  *  specified in the service config will override any matching transcoding
- *  configuration in the proto. Example below selects a gRPC method and applies
- *  HttpRule to it. http: rules: - selector: example.v1.Messaging.GetMessage
- *  get: /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC
- *  Transcoding is used to map a gRPC to JSON REST endpoints, the proto to JSON
- *  conversion must follow the [proto3
+ *  configuration in the proto. The following example selects a gRPC method and
+ *  applies an `HttpRule` to it: http: rules: - selector:
+ *  example.v1.Messaging.GetMessage get:
+ *  /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC Transcoding
+ *  is used to map a gRPC to JSON REST endpoints, the proto to JSON conversion
+ *  must follow the [proto3
  *  specification](https://developers.google.com/protocol-buffers/docs/proto3#json).
  *  While the single segment variable follows the semantics of [RFC
  *  6570](https://tools.ietf.org/html/rfc6570) Section 3.2.2 Simple String
@@ -3724,6 +3793,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
+
 @end
 
 
@@ -4246,9 +4318,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  'roles/container.hostServiceAgentUser' applied on the shared VPC host
  *  project - 'roles/compute.securityAdmin' applied on the shared VPC host
  *  project - 'roles/compute.networkAdmin' applied on the shared VPC host
- *  project - 'roles/compute.xpnAdmin' applied on the shared VPC host project -
+ *  project - 'roles/tpu.xpnAgent' applied on the shared VPC host project -
  *  'roles/dns.admin' applied on the shared VPC host project -
- *  'roles/logging.admin' applied on the shared VPC host project
+ *  'roles/logging.admin' applied on the shared VPC host project -
+ *  'roles/monitoring.viewer' applied on the shared VPC host project -
+ *  'roles/servicemanagement.quotaViewer' applied on the shared VPC host project
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -4355,6 +4429,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
+
+/** Experimental features to be included during client library generation. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_ExperimentalFeatures *experimentalFeatures;
 
 @end
 

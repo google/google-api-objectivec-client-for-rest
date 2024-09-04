@@ -209,6 +209,33 @@
 
 @end
 
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysAddIpOverride
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:addIpOverride";
+  GTLRRecaptchaEnterpriseQuery_ProjectsKeysAddIpOverride *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.keys.addIpOverride";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysCreate
 
 @dynamic parent;
@@ -312,6 +339,25 @@
 
 @end
 
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysListIpOverrides
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:listIpOverrides";
+  GTLRRecaptchaEnterpriseQuery_ProjectsKeysListIpOverrides *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListIpOverridesResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.keys.listIpOverrides";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysMigrate
 
 @dynamic name;
@@ -361,6 +407,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key class];
   query.loggingName = @"recaptchaenterprise.projects.keys.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysRemoveIpOverride
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:removeIpOverride";
+  GTLRRecaptchaEnterpriseQuery_ProjectsKeysRemoveIpOverride *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.keys.removeIpOverride";
   return query;
 }
 

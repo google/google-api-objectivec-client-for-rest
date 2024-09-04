@@ -456,7 +456,7 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesList
 
-@dynamic filter, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

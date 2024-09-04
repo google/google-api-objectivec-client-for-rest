@@ -427,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The name of the destination cluster that will contain the backup
- *  copy. The cluster must already exists. Values are of the form:
+ *  copy. The cluster must already exist. Values are of the form:
  *  `projects/{project}/instances/{instance}/clusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -441,8 +441,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_CopyBackupRequest to include in the
  *    query.
  *  @param parent Required. The name of the destination cluster that will
- *    contain the backup copy. The cluster must already exists. Values are of
- *    the form: `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *    contain the backup copy. The cluster must already exist. Values are of the
+ *    form: `projects/{project}/instances/{instance}/clusters/{cluster}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCopy
  */

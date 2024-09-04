@@ -6222,6 +6222,524 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Retrieves an aggregated list of future reservations. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
+ *
+ *  Method: compute.futureReservations.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FutureReservationsAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_FutureReservationsAggregatedListResponse.
+ *
+ *  Retrieves an aggregated list of future reservations. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_FutureReservationsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Cancel the specified future reservation.
+ *
+ *  Method: compute.futureReservations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FutureReservationsCancel : GTLRComputeQuery
+
+/**
+ *  Name of the future reservation to retrieve. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *futureReservation;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the zone for this request. Name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Cancel the specified future reservation.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Name should conform
+ *    to RFC1035.
+ *  @param futureReservation Name of the future reservation to retrieve. Name
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_FutureReservationsCancel
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+               futureReservation:(NSString *)futureReservation;
+
+@end
+
+/**
+ *  Deletes the specified future reservation.
+ *
+ *  Method: compute.futureReservations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FutureReservationsDelete : GTLRComputeQuery
+
+/**
+ *  Name of the future reservation to retrieve. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *futureReservation;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the zone for this request. Name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified future reservation.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Name should conform
+ *    to RFC1035.
+ *  @param futureReservation Name of the future reservation to retrieve. Name
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_FutureReservationsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+               futureReservation:(NSString *)futureReservation;
+
+@end
+
+/**
+ *  Retrieves information about the specified future reservation.
+ *
+ *  Method: compute.futureReservations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FutureReservationsGet : GTLRComputeQuery
+
+/**
+ *  Name of the future reservation to retrieve. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *futureReservation;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the zone for this request. Name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_FutureReservation.
+ *
+ *  Retrieves information about the specified future reservation.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Name should conform
+ *    to RFC1035.
+ *  @param futureReservation Name of the future reservation to retrieve. Name
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_FutureReservationsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+               futureReservation:(NSString *)futureReservation;
+
+@end
+
+/**
+ *  Creates a new Future Reservation.
+ *
+ *  Method: compute.futureReservations.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FutureReservationsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the zone for this request. Name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new Future Reservation.
+ *
+ *  @param object The @c GTLRCompute_FutureReservation to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Name should conform
+ *    to RFC1035.
+ *
+ *  @return GTLRComputeQuery_FutureReservationsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FutureReservation *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  A list of all the future reservations that have been configured for the
+ *  specified project in specified zone.
+ *
+ *  Method: compute.futureReservations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FutureReservationsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name of the zone for this request. Name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_FutureReservationsListResponse.
+ *
+ *  A list of all the future reservations that have been configured for the
+ *  specified project in specified zone.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Name should conform
+ *    to RFC1035.
+ *
+ *  @return GTLRComputeQuery_FutureReservationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Updates the specified future reservation.
+ *
+ *  Method: compute.futureReservations.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FutureReservationsUpdate : GTLRComputeQuery
+
+/** Name of the reservation to update. Name should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *futureReservation;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Name of the zone for this request. Name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified future reservation.
+ *
+ *  @param object The @c GTLRCompute_FutureReservation to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Name should conform
+ *    to RFC1035.
+ *  @param futureReservation Name of the reservation to update. Name should
+ *    conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_FutureReservationsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FutureReservation *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+              futureReservation:(NSString *)futureReservation;
+
+@end
+
+/**
  *  Deletes the specified address resource.
  *
  *  Method: compute.globalAddresses.delete
@@ -7491,7 +8009,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOperationsDelete : GTLRComputeQuery
 
-/** Name of the Operations resource to delete. */
+/**
+ *  Name of the Operations resource to delete, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -7504,7 +8024,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Deletes the specified Operations resource.
  *
  *  @param project Project ID for this request.
- *  @param operation Name of the Operations resource to delete.
+ *  @param operation Name of the Operations resource to delete, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOperationsDelete
  */
@@ -7525,7 +8046,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOperationsGet : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -7537,7 +8060,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Retrieves the specified Operations resource.
  *
  *  @param project Project ID for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOperationsGet
  */
@@ -7675,7 +8199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOperationsWait : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -7697,7 +8223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  is not `DONE`.
  *
  *  @param project Project ID for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOperationsWait
  */
@@ -7717,7 +8244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOrganizationOperationsDelete : GTLRComputeQuery
 
-/** Name of the Operations resource to delete. */
+/**
+ *  Name of the Operations resource to delete, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Parent ID for this request. */
@@ -7729,7 +8258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Deletes the specified Operations resource.
  *
- *  @param operation Name of the Operations resource to delete.
+ *  @param operation Name of the Operations resource to delete, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOrganizationOperationsDelete
  */
@@ -7750,7 +8280,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOrganizationOperationsGet : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Parent ID for this request. */
@@ -7762,7 +8294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Retrieves the specified Operations resource. Gets a list of operations by
  *  making a `list()` request.
  *
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOrganizationOperationsGet
  */
@@ -33210,7 +33743,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_RegionOperationsDelete : GTLRComputeQuery
 
-/** Name of the Operations resource to delete. */
+/**
+ *  Name of the Operations resource to delete, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -33227,7 +33762,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param operation Name of the Operations resource to delete.
+ *  @param operation Name of the Operations resource to delete, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_RegionOperationsDelete
  */
@@ -33249,7 +33785,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_RegionOperationsGet : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -33265,7 +33803,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_RegionOperationsGet
  */
@@ -33409,7 +33948,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_RegionOperationsWait : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -33435,7 +33976,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_RegionOperationsWait
  */
@@ -33947,7 +34489,13 @@ GTLR_DEPRECATED
  *  information (the `quotas` field). To exclude one or more fields, set your
  *  request's `fields` query parameter to only include the fields you need. For
  *  example, to only include the `id` and `selfLink` fields, add the query
- *  parameter `?fields=id,selfLink` to your request.
+ *  parameter `?fields=id,selfLink` to your request. This method fails if the
+ *  quota information is unavailable for the region and if the organization
+ *  policy constraint compute.requireBasicQuotaInResponse is enforced. This
+ *  constraint, when enforced, disables the fail-open behaviour when quota
+ *  information (the `items.quotas` field) is unavailable for the region. It is
+ *  recommended to use the default setting for the constraint unless your
+ *  application requires the fail-closed behaviour for this method.
  *
  *  Method: compute.regions.get
  *
@@ -33973,7 +34521,13 @@ GTLR_DEPRECATED
  *  information (the `quotas` field). To exclude one or more fields, set your
  *  request's `fields` query parameter to only include the fields you need. For
  *  example, to only include the `id` and `selfLink` fields, add the query
- *  parameter `?fields=id,selfLink` to your request.
+ *  parameter `?fields=id,selfLink` to your request. This method fails if the
+ *  quota information is unavailable for the region and if the organization
+ *  policy constraint compute.requireBasicQuotaInResponse is enforced. This
+ *  constraint, when enforced, disables the fail-open behaviour when quota
+ *  information (the `items.quotas` field) is unavailable for the region. It is
+ *  recommended to use the default setting for the constraint unless your
+ *  application requires the fail-closed behaviour for this method.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region resource to return.
@@ -48196,7 +48750,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_ZoneOperationsDelete : GTLRComputeQuery
 
-/** Name of the Operations resource to delete. */
+/**
+ *  Name of the Operations resource to delete, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -48217,7 +48773,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
- *  @param operation Name of the Operations resource to delete.
+ *  @param operation Name of the Operations resource to delete, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_ZoneOperationsDelete
  */
@@ -48239,7 +48796,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_ZoneOperationsGet : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -48259,7 +48818,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_ZoneOperationsGet
  */
@@ -48404,7 +48964,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_ZoneOperationsWait : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -48433,7 +48995,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_ZoneOperationsWait
  */

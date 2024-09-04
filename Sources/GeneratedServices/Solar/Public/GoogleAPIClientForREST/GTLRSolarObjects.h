@@ -46,7 +46,15 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRSolar_BuildingInsights.imageryQuality
 
 /**
- *  The underlying imagery and DSM data were processed at 0.1 m/pixel.
+ *  Solar data is derived from enhanced satellite imagery processed at 0.25
+ *  m/pixel.
+ *
+ *  Value: "BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Base;
+/**
+ *  Solar data is derived from aerial imagery captured at low-altitude and
+ *  processed at 0.1 m/pixel.
  *
  *  Value: "HIGH"
  */
@@ -58,13 +66,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Hi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_ImageryQualityUnspecified;
 /**
- *  The underlying imagery and DSM data were processed at 0.5 m/pixel.
+ *  Solar data is derived from enhanced satellite imagery processed at 0.25
+ *  m/pixel.
  *
  *  Value: "LOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Low;
 /**
- *  The underlying imagery and DSM data were processed at 0.25 m/pixel.
+ *  Solar data is derived from enhanced aerial imagery captured at high-altitude
+ *  and processed at 0.25 m/pixel.
  *
  *  Value: "MEDIUM"
  */
@@ -74,7 +84,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Me
 // GTLRSolar_DataLayers.imageryQuality
 
 /**
- *  The underlying imagery and DSM data were processed at 0.1 m/pixel.
+ *  Solar data is derived from enhanced satellite imagery processed at 0.25
+ *  m/pixel.
+ *
+ *  Value: "BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolar_DataLayers_ImageryQuality_Base;
+/**
+ *  Solar data is derived from aerial imagery captured at low-altitude and
+ *  processed at 0.1 m/pixel.
  *
  *  Value: "HIGH"
  */
@@ -86,13 +104,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_DataLayers_ImageryQuality_High;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSolar_DataLayers_ImageryQuality_ImageryQualityUnspecified;
 /**
- *  The underlying imagery and DSM data were processed at 0.5 m/pixel.
+ *  Solar data is derived from enhanced satellite imagery processed at 0.25
+ *  m/pixel.
  *
  *  Value: "LOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSolar_DataLayers_ImageryQuality_Low;
 /**
- *  The underlying imagery and DSM data were processed at 0.25 m/pixel.
+ *  Solar data is derived from enhanced aerial imagery captured at high-altitude
+ *  and processed at 0.25 m/pixel.
  *
  *  Value: "MEDIUM"
  */
@@ -150,14 +170,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
  *  The quality of the imagery used to compute the data for this building.
  *
  *  Likely values:
- *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_High The underlying
- *        imagery and DSM data were processed at 0.1 m/pixel. (Value: "HIGH")
+ *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_Base Solar data is
+ *        derived from enhanced satellite imagery processed at 0.25 m/pixel.
+ *        (Value: "BASE")
+ *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_High Solar data is
+ *        derived from aerial imagery captured at low-altitude and processed at
+ *        0.1 m/pixel. (Value: "HIGH")
  *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_ImageryQualityUnspecified
  *        No quality is known. (Value: "IMAGERY_QUALITY_UNSPECIFIED")
- *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_Low The underlying
- *        imagery and DSM data were processed at 0.5 m/pixel. (Value: "LOW")
- *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_Medium The underlying
- *        imagery and DSM data were processed at 0.25 m/pixel. (Value: "MEDIUM")
+ *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_Low Solar data is
+ *        derived from enhanced satellite imagery processed at 0.25 m/pixel.
+ *        (Value: "LOW")
+ *    @arg @c kGTLRSolar_BuildingInsights_ImageryQuality_Medium Solar data is
+ *        derived from enhanced aerial imagery captured at high-altitude and
+ *        processed at 0.25 m/pixel. (Value: "MEDIUM")
  */
 @property(nonatomic, copy, nullable) NSString *imageryQuality;
 
@@ -283,14 +309,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
  *  The quality of the result's imagery.
  *
  *  Likely values:
- *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_High The underlying imagery
- *        and DSM data were processed at 0.1 m/pixel. (Value: "HIGH")
+ *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_Base Solar data is derived
+ *        from enhanced satellite imagery processed at 0.25 m/pixel. (Value:
+ *        "BASE")
+ *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_High Solar data is derived
+ *        from aerial imagery captured at low-altitude and processed at 0.1
+ *        m/pixel. (Value: "HIGH")
  *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_ImageryQualityUnspecified No
  *        quality is known. (Value: "IMAGERY_QUALITY_UNSPECIFIED")
- *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_Low The underlying imagery
- *        and DSM data were processed at 0.5 m/pixel. (Value: "LOW")
- *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_Medium The underlying imagery
- *        and DSM data were processed at 0.25 m/pixel. (Value: "MEDIUM")
+ *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_Low Solar data is derived
+ *        from enhanced satellite imagery processed at 0.25 m/pixel. (Value:
+ *        "LOW")
+ *    @arg @c kGTLRSolar_DataLayers_ImageryQuality_Medium Solar data is derived
+ *        from enhanced aerial imagery captured at high-altitude and processed
+ *        at 0.25 m/pixel. (Value: "MEDIUM")
  */
 @property(nonatomic, copy, nullable) NSString *imageryQuality;
 

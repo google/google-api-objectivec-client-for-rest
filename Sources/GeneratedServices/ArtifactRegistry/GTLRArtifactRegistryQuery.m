@@ -536,7 +536,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -669,7 +669,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -891,7 +891,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsList
 
-@dynamic orderBy, pageSize, pageToken, parent, view;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

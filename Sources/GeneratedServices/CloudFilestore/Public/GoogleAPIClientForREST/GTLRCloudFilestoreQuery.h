@@ -452,7 +452,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Mask of fields to update. At least one path must be supplied in this field.
  *  The elements of the repeated paths field may only include these fields: *
- *  "description" * "file_shares" * "labels"
+ *  "description" * "file_shares" * "labels" * "performance_config" *
+ *  "deletion_protection_enabled" * "deletion_protection_reason"
  *
  *  String format is a comma-separated list of fields.
  */
@@ -475,7 +476,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Promote an standby instance (replica).
+ *  Promote the standby instance (replica).
  *
  *  Method: file.projects.locations.instances.promoteReplica
  *
@@ -493,7 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudFilestore_Operation.
  *
- *  Promote an standby instance (replica).
+ *  Promote the standby instance (replica).
  *
  *  @param object The @c GTLRCloudFilestore_PromoteReplicaRequest to include in
  *    the query.

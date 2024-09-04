@@ -282,6 +282,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv6;
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_IpVersion_IpVersionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkServices_Gateway.routingMode
+
+/**
+ *  The routing mode is explicit; clients are configured to send traffic through
+ *  the gateway. This is the default routing mode.
+ *
+ *  Value: "EXPLICIT_ROUTING_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_RoutingMode_ExplicitRoutingMode;
+/**
+ *  The routing mode is next-hop. Clients are unaware of the gateway, and a
+ *  route (advanced route or other route type) can be configured to direct
+ *  traffic from client to gateway. The gateway then acts as a next-hop to the
+ *  destination.
+ *
+ *  Value: "NEXT_HOP_ROUTING_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_RoutingMode_NextHopRoutingMode;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkServices_Gateway.type
 
 /**
@@ -791,7 +811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_EndpointPolicy_Labels *labels;
 
 /**
- *  Required. Name of the EndpointPolicy resource. It matches pattern
+ *  Identifier. Name of the EndpointPolicy resource. It matches pattern
  *  `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1089,7 +1109,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_Gateway_Labels *labels;
 
 /**
- *  Required. Name of the Gateway resource. It matches pattern `projects/ *
+ *  Identifier. Name of the Gateway resource. It matches pattern `projects/ *
  *  /locations/ * /gateways/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1111,6 +1131,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *ports;
+
+/**
+ *  Optional. The routing mode of the Gateway. This field is configurable only
+ *  for gateways of type SECURE_WEB_GATEWAY. This field is required for gateways
+ *  of type SECURE_WEB_GATEWAY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_Gateway_RoutingMode_ExplicitRoutingMode The
+ *        routing mode is explicit; clients are configured to send traffic
+ *        through the gateway. This is the default routing mode. (Value:
+ *        "EXPLICIT_ROUTING_MODE")
+ *    @arg @c kGTLRNetworkServices_Gateway_RoutingMode_NextHopRoutingMode The
+ *        routing mode is next-hop. Clients are unaware of the gateway, and a
+ *        route (advanced route or other route type) can be configured to direct
+ *        traffic from client to gateway. The gateway then acts as a next-hop to
+ *        the destination. (Value: "NEXT_HOP_ROUTING_MODE")
+ */
+@property(nonatomic, copy, nullable) NSString *routingMode;
 
 /**
  *  Optional. Scope determines how configuration across multiple Gateway
@@ -1231,7 +1269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
- *  Required. Name of the GrpcRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the GrpcRoute resource. It matches pattern `projects/ *
  *  /locations/global/grpcRoutes/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1431,7 +1469,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 
 /**
- *  The specifications for retries.
+ *  The specifications for retries. Specifies one or more conditions for which
+ *  this retry rule applies. Valid values are:
  */
 @interface GTLRNetworkServices_GrpcRouteRetryPolicy : GTLRObject
 
@@ -1626,7 +1665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
- *  Required. Name of the HttpRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the HttpRoute resource. It matches pattern `projects/ *
  *  /locations/global/httpRoutes/http_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3048,7 +3087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_Mesh_Labels *labels;
 
 /**
- *  Required. Name of the Mesh resource. It matches pattern `projects/ *
+ *  Identifier. Name of the Mesh resource. It matches pattern `projects/ *
  *  /locations/global/meshes/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3306,8 +3345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceBinding_Labels *labels;
 
 /**
- *  Required. Name of the ServiceBinding resource. It matches pattern `projects/
- *  * /locations/global/serviceBindings/service_binding_name`.
+ *  Identifier. Name of the ServiceBinding resource. It matches pattern
+ *  `projects/ * /locations/global/serviceBindings/service_binding_name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3570,7 +3609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
- *  Required. Name of the TcpRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the TcpRoute resource. It matches pattern `projects/ *
  *  /locations/global/tcpRoutes/tcp_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3770,7 +3809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
- *  Required. Name of the TlsRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the TlsRoute resource. It matches pattern `projects/ *
  *  /locations/global/tlsRoutes/tls_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

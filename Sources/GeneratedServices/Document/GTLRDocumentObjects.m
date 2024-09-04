@@ -294,6 +294,11 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Sta
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeployed = @"UNDEPLOYED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeploying = @"UNDEPLOYING";
 
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo.customModelType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_CustomModelTypeUnspecified = @"CUSTOM_MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_FineTuned = @"FINE_TUNED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_VersionedFoundation = @"VERSIONED_FOUNDATION";
+
 // GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest.priority
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Default = @"DEFAULT";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent = @"URGENT";
@@ -4804,8 +4809,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion
 @dynamic createTime, deprecationInfo, displayName, documentSchema,
-         googleManaged, kmsKeyName, kmsKeyVersionName, latestEvaluation,
-         modelType, name, satisfiesPzi, satisfiesPzs, state;
+         genAiModelInfo, googleManaged, kmsKeyName, kmsKeyVersionName,
+         latestEvaluation, modelType, name, satisfiesPzi, satisfiesPzs, state;
 @end
 
 
@@ -4831,12 +4836,42 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfo
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfo
+@dynamic customGenAiModelInfo, foundationGenAiModelInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo
+@dynamic baseProcessorVersionId, customModelType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo
+@dynamic finetuningAllowed, minTrainLabeledDocuments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest
-@dynamic fieldMask, gcsDocument, inlineDocument, labels, processOptions,
-         rawDocument, skipHumanReview;
+@dynamic fieldMask, gcsDocument, imagelessMode, inlineDocument, labels,
+         processOptions, rawDocument, skipHumanReview;
 @end
 
 

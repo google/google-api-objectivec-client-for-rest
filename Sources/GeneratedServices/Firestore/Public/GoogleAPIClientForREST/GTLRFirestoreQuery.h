@@ -598,7 +598,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  component of the database's resource name. This value should be 4-63
  *  characters. Valid characters are /a-z-/ with first character a letter and
  *  the last a letter or a number. Must not be UUID-like
- *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also
  *  valid.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;

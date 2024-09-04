@@ -1671,6 +1671,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesList : GTLRLoggingQuery
 
 /**
+ *  Optional. Specifies the type ("Logging" or "OpsAnalytics") and the
+ *  visibility (PRIVATE or SHARED) of the saved queries to list. If provided,
+ *  the filter must contain either the type function or a visibility token, or
+ *  both. If both are chosen, they can be placed in any order, but they must be
+ *  joined by the AND operator or the empty character.The two supported type
+ *  function calls are: type("Logging") type("OpsAnalytics")The two supported
+ *  visibility tokens are: visibility = PRIVATE visibility = SHAREDFor
+ *  example:type("Logging") AND visibility = PRIVATE visibility=SHARED
+ *  type("OpsAnalytics") type("OpsAnalytics)" visibility = PRIVATE visibility =
+ *  SHARED
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this
  *  request.Non-positive values are ignored. The presence of nextPageToken in
  *  the response indicates that more results might be available.
@@ -4394,6 +4408,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersLocationsSavedQueriesList : GTLRLoggingQuery
 
 /**
+ *  Optional. Specifies the type ("Logging" or "OpsAnalytics") and the
+ *  visibility (PRIVATE or SHARED) of the saved queries to list. If provided,
+ *  the filter must contain either the type function or a visibility token, or
+ *  both. If both are chosen, they can be placed in any order, but they must be
+ *  joined by the AND operator or the empty character.The two supported type
+ *  function calls are: type("Logging") type("OpsAnalytics")The two supported
+ *  visibility tokens are: visibility = PRIVATE visibility = SHAREDFor
+ *  example:type("Logging") AND visibility = PRIVATE visibility=SHARED
+ *  type("OpsAnalytics") type("OpsAnalytics)" visibility = PRIVATE visibility =
+ *  SHARED
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this
  *  request.Non-positive values are ignored. The presence of nextPageToken in
  *  the response indicates that more results might be available.
@@ -5022,8 +5050,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name for the settings to update.
- *  "organizations/[ORGANIZATION_ID]/settings" For
- *  example:"organizations/12345/settings"
+ *  "organizations/[ORGANIZATION_ID]/settings" "folders/[FOLDER_ID]/settings"
+ *  For example:"organizations/12345/settings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5054,8 +5082,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.
  *  @param name Required. The resource name for the settings to update.
- *    "organizations/[ORGANIZATION_ID]/settings" For
- *    example:"organizations/12345/settings"
+ *    "organizations/[ORGANIZATION_ID]/settings" "folders/[FOLDER_ID]/settings"
+ *    For example:"organizations/12345/settings"
  *
  *  @return GTLRLoggingQuery_FoldersUpdateSettings
  */
@@ -8128,6 +8156,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsLocationsSavedQueriesList : GTLRLoggingQuery
 
 /**
+ *  Optional. Specifies the type ("Logging" or "OpsAnalytics") and the
+ *  visibility (PRIVATE or SHARED) of the saved queries to list. If provided,
+ *  the filter must contain either the type function or a visibility token, or
+ *  both. If both are chosen, they can be placed in any order, but they must be
+ *  joined by the AND operator or the empty character.The two supported type
+ *  function calls are: type("Logging") type("OpsAnalytics")The two supported
+ *  visibility tokens are: visibility = PRIVATE visibility = SHAREDFor
+ *  example:type("Logging") AND visibility = PRIVATE visibility=SHARED
+ *  type("OpsAnalytics") type("OpsAnalytics)" visibility = PRIVATE visibility =
+ *  SHARED
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this
  *  request.Non-positive values are ignored. The presence of nextPageToken in
  *  the response indicates that more results might be available.
@@ -8831,8 +8873,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name for the settings to update.
- *  "organizations/[ORGANIZATION_ID]/settings" For
- *  example:"organizations/12345/settings"
+ *  "organizations/[ORGANIZATION_ID]/settings" "folders/[FOLDER_ID]/settings"
+ *  For example:"organizations/12345/settings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8863,8 +8905,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.
  *  @param name Required. The resource name for the settings to update.
- *    "organizations/[ORGANIZATION_ID]/settings" For
- *    example:"organizations/12345/settings"
+ *    "organizations/[ORGANIZATION_ID]/settings" "folders/[FOLDER_ID]/settings"
+ *    For example:"organizations/12345/settings"
  *
  *  @return GTLRLoggingQuery_OrganizationsUpdateSettings
  */
@@ -10640,6 +10682,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsLocationsSavedQueriesList : GTLRLoggingQuery
 
 /**
+ *  Optional. Specifies the type ("Logging" or "OpsAnalytics") and the
+ *  visibility (PRIVATE or SHARED) of the saved queries to list. If provided,
+ *  the filter must contain either the type function or a visibility token, or
+ *  both. If both are chosen, they can be placed in any order, but they must be
+ *  joined by the AND operator or the empty character.The two supported type
+ *  function calls are: type("Logging") type("OpsAnalytics")The two supported
+ *  visibility tokens are: visibility = PRIVATE visibility = SHAREDFor
+ *  example:type("Logging") AND visibility = PRIVATE visibility=SHARED
+ *  type("OpsAnalytics") type("OpsAnalytics)" visibility = PRIVATE visibility =
+ *  SHARED
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to return from this
  *  request.Non-positive values are ignored. The presence of nextPageToken in
  *  the response indicates that more results might be available.
@@ -11943,8 +11999,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name for the settings to update.
- *  "organizations/[ORGANIZATION_ID]/settings" For
- *  example:"organizations/12345/settings"
+ *  "organizations/[ORGANIZATION_ID]/settings" "folders/[FOLDER_ID]/settings"
+ *  For example:"organizations/12345/settings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -11975,8 +12031,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.
  *  @param name Required. The resource name for the settings to update.
- *    "organizations/[ORGANIZATION_ID]/settings" For
- *    example:"organizations/12345/settings"
+ *    "organizations/[ORGANIZATION_ID]/settings" "folders/[FOLDER_ID]/settings"
+ *    For example:"organizations/12345/settings"
  *
  *  @return GTLRLoggingQuery_V2UpdateSettings
  */

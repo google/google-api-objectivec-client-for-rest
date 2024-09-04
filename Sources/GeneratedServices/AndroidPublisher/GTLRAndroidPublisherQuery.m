@@ -181,25 +181,6 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
-@implementation GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries
-
-@dynamic packageName, versionCode;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName {
-  NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries";
-  GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.expectedObjectClass = [GTLRAndroidPublisher_ListAppRecoveriesResponse class];
-  query.loggingName = @"androidpublisher.apprecovery.appRecoveries";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidPublisherQuery_ApprecoveryCancel
 
 @dynamic appRecoveryId, packageName;
@@ -284,6 +265,25 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
   query.appRecoveryId = appRecoveryId;
   query.expectedObjectClass = [GTLRAndroidPublisher_DeployAppRecoveryResponse class];
   query.loggingName = @"androidpublisher.apprecovery.deploy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApprecoveryList
+
+@dynamic packageName, versionCode;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries";
+  GTLRAndroidPublisherQuery_ApprecoveryList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListAppRecoveriesResponse class];
+  query.loggingName = @"androidpublisher.apprecovery.list";
   return query;
 }
 

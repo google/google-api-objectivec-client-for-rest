@@ -63,7 +63,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewBasic;
  *  This view contains all devices imported by the company admin. Each device in
  *  the response contains all information specified by the company admin when
  *  importing the device (i.e. asset tags). This includes devices that may be
- *  unaassigned or assigned to users.
+ *  unassigned or assigned to users.
  *
  *  Value: "COMPANY_INVENTORY"
  */
@@ -1198,7 +1198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *        devices imported by the company admin. Each device in the response
  *        contains all information specified by the company admin when importing
  *        the device (i.e. asset tags). This includes devices that may be
- *        unaassigned or assigned to users. (Value: "COMPANY_INVENTORY")
+ *        unassigned or assigned to users. (Value: "COMPANY_INVENTORY")
  *    @arg @c kGTLRCloudIdentityViewUserAssignedDevices This view contains all
  *        devices with at least one user registered on the device. Each device
  *        in the response contains all device information, except for asset

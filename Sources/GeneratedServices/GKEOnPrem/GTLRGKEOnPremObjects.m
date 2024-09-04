@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Anthos On-Prem API (gkeonprem/v1)
+//   GDC Virtual API (gkeonprem/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/clusters/docs/on-prem/
 
@@ -561,7 +561,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_BareMetalClusterUpgradePolicy
-@dynamic policy;
+@dynamic pause, policy;
 @end
 
 
@@ -1578,7 +1578,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_ResourceStatus
-@dynamic conditions, errorMessage;
+@dynamic conditions, errorMessage, version, versions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1723,6 +1723,34 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_Version
+//
+
+@implementation GTLRGKEOnPrem_Version
+@dynamic count, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_Versions
+//
+
+@implementation GTLRGKEOnPrem_Versions
+@dynamic versions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"versions" : [GTLRGKEOnPrem_Version class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_VmwareAAGConfig
 //
 
@@ -1788,7 +1816,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
          createTime, descriptionProperty, endpoint, ETag, fleet, imageType,
          loadBalancer, localName, name, networkConfig, onPremVersion,
          platformConfig, preparedSecrets, reconciling, state, status, uid,
-         updateTime, vcenter;
+         updateTime, validationCheck, vcenter;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -46,6 +46,10 @@ NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv4   = @"IPV4";
 NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv6   = @"IPV6";
 NSString * const kGTLRNetworkServices_Gateway_IpVersion_IpVersionUnspecified = @"IP_VERSION_UNSPECIFIED";
 
+// GTLRNetworkServices_Gateway.routingMode
+NSString * const kGTLRNetworkServices_Gateway_RoutingMode_ExplicitRoutingMode = @"EXPLICIT_ROUTING_MODE";
+NSString * const kGTLRNetworkServices_Gateway_RoutingMode_NextHopRoutingMode = @"NEXT_HOP_ROUTING_MODE";
+
 // GTLRNetworkServices_Gateway.type
 NSString * const kGTLRNetworkServices_Gateway_Type_OpenMesh    = @"OPEN_MESH";
 NSString * const kGTLRNetworkServices_Gateway_Type_SecureWebGateway = @"SECURE_WEB_GATEWAY";
@@ -303,7 +307,8 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 @implementation GTLRNetworkServices_Gateway
 @dynamic addresses, certificateUrls, createTime, descriptionProperty,
          envoyHeaders, gatewaySecurityPolicy, ipVersion, labels, name, network,
-         ports, scope, selfLink, serverTlsPolicy, subnetwork, type, updateTime;
+         ports, routingMode, scope, selfLink, serverTlsPolicy, subnetwork, type,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -663,33 +663,6 @@
 
 @end
 
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsEventEditRulesReorder
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/eventEditRules:reorder";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsEventEditRulesReorder *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
-  query.loggingName = @"analyticsadmin.properties.dataStreams.eventEditRules.reorder";
-  return query;
-}
-
-@end
-
 @implementation GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGet
 
 @dynamic name;

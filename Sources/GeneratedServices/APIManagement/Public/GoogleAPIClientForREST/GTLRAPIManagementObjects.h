@@ -17,6 +17,7 @@
 
 @class GTLRAPIManagement_ApiObservation;
 @class GTLRAPIManagement_ApiOperation;
+@class GTLRAPIManagement_EditTagsApiObservationsRequest;
 @class GTLRAPIManagement_GclbObservationSource;
 @class GTLRAPIManagement_GclbObservationSourcePscNetworkConfig;
 @class GTLRAPIManagement_HttpOperation;
@@ -39,6 +40,7 @@
 @class GTLRAPIManagement_Operation_Response;
 @class GTLRAPIManagement_Status;
 @class GTLRAPIManagement_Status_Details_Item;
+@class GTLRAPIManagement_TagAction;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -348,6 +350,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_ObservationSource_State_Er
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_ObservationSource_State_StateUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRAPIManagement_TagAction.action
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_TagAction_Action_ActionUnspecified;
+/**
+ *  Addition of a Tag.
+ *
+ *  Value: "ADD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_TagAction_Action_Add;
+/**
+ *  Removal of a Tag.
+ *
+ *  Value: "REMOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_TagAction_Action_Remove;
+
 /**
  *  Message describing ApiObservation object
  */
@@ -437,6 +461,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_ObservationSource_State_St
 
 
 /**
+ *  Message for requesting batch edit tags for ApiObservations
+ */
+@interface GTLRAPIManagement_BatchEditTagsApiObservationsRequest : GTLRObject
+
+/**
+ *  Required. The request message specifying the resources to update. A maximum
+ *  of 1000 apiObservations can be modified in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIManagement_EditTagsApiObservationsRequest *> *requests;
+
+@end
+
+
+/**
+ *  Message for response to edit Tags for ApiObservations
+ */
+@interface GTLRAPIManagement_BatchEditTagsApiObservationsResponse : GTLRObject
+
+/** ApiObservations that were changed */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIManagement_ApiObservation *> *apiObservations;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRAPIManagement_CancelOperationRequest : GTLRObject
@@ -447,6 +496,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_ObservationSource_State_St
  *  Message for disabling an ObservationJob
  */
 @interface GTLRAPIManagement_DisableObservationJobRequest : GTLRObject
+@end
+
+
+/**
+ *  Message for requesting edit tags for ApiObservation
+ */
+@interface GTLRAPIManagement_EditTagsApiObservationsRequest : GTLRObject
+
+/**
+ *  Required. Identifier of ApiObservation need to be edit tags Format example:
+ *  "apigee.googleapis.com|us-west1|443"
+ */
+@property(nonatomic, copy, nullable) NSString *apiObservationId;
+
+/** Required. Tag actions to be applied */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIManagement_TagAction *> *tagActions;
+
 @end
 
 
@@ -753,6 +819,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_ObservationSource_State_St
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIManagement_ApiObservation *> *apiObservations;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing tags
+ */
+@interface GTLRAPIManagement_ListApiObservationTagsResponse : GTLRObject
+
+/** The tags from the specified project */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiObservationTags;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -1205,6 +1288,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIManagement_ObservationSource_State_St
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAPIManagement_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Message for edit tag action
+ */
+@interface GTLRAPIManagement_TagAction : GTLRObject
+
+/**
+ *  Required. Action to be applied
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIManagement_TagAction_Action_ActionUnspecified Unspecified.
+ *        (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRAPIManagement_TagAction_Action_Add Addition of a Tag. (Value:
+ *        "ADD")
+ *    @arg @c kGTLRAPIManagement_TagAction_Action_Remove Removal of a Tag.
+ *        (Value: "REMOVE")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Required. Tag to be added or removed */
+@property(nonatomic, copy, nullable) NSString *tag;
+
 @end
 
 NS_ASSUME_NONNULL_END

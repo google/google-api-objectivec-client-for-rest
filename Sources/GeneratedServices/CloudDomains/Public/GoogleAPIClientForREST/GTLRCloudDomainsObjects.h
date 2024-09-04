@@ -1838,6 +1838,13 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDomains_HealthCheckTargets : GTLRObject
 
+/**
+ *  The Internet IP addresses to be health checked. The format matches the
+ *  format of ResourceRecordSet.rrdata as defined in RFC 1035 (section 5) and
+ *  RFC 1034 (section 3.6.1)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalEndpoints;
+
 /** Configuration for internal load balancers to be health checked. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_LoadBalancerTarget *> *internalLoadBalancer;
 
@@ -3051,6 +3058,14 @@ GTLR_DEPRECATED
 
 @property(nonatomic, strong, nullable) GTLRCloudDomains_GeoPolicy *geo;
 @property(nonatomic, strong, nullable) GTLRCloudDomains_GeoPolicy *geoPolicy GTLR_DEPRECATED;
+
+/**
+ *  The selfLink attribute of the HealthCheck resource to use for this
+ *  RRSetRoutingPolicy.
+ *  https://cloud.google.com/compute/docs/reference/rest/v1/healthChecks
+ */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
 @property(nonatomic, strong, nullable) GTLRCloudDomains_PrimaryBackupPolicy *primaryBackup;
 @property(nonatomic, strong, nullable) GTLRCloudDomains_WrrPolicy *wrr;
 @property(nonatomic, strong, nullable) GTLRCloudDomains_WrrPolicy *wrrPolicy GTLR_DEPRECATED;

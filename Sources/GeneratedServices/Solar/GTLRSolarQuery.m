@@ -15,7 +15,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// experiments
+NSString * const kGTLRSolarExperimentsExpandedCoverage      = @"EXPANDED_COVERAGE";
+NSString * const kGTLRSolarExperimentsExperimentUnspecified = @"EXPERIMENT_UNSPECIFIED";
+
 // requiredQuality
+NSString * const kGTLRSolarRequiredQualityBase                 = @"BASE";
 NSString * const kGTLRSolarRequiredQualityHigh                 = @"HIGH";
 NSString * const kGTLRSolarRequiredQualityImageryQualityUnspecified = @"IMAGERY_QUALITY_UNSPECIFIED";
 NSString * const kGTLRSolarRequiredQualityLow                  = @"LOW";
@@ -41,12 +46,19 @@ NSString * const kGTLRSolarViewImageryLayers              = @"IMAGERY_LAYERS";
 
 @implementation GTLRSolarQuery_BuildingInsightsFindClosest
 
-@dynamic locationLatitude, locationLongitude, requiredQuality;
+@dynamic experiments, locationLatitude, locationLongitude, requiredQuality;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"locationLatitude" : @"location.latitude",
     @"locationLongitude" : @"location.longitude"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"experiments" : [NSString class]
   };
   return map;
 }
@@ -66,13 +78,20 @@ NSString * const kGTLRSolarViewImageryLayers              = @"IMAGERY_LAYERS";
 
 @implementation GTLRSolarQuery_DataLayersGet
 
-@dynamic exactQualityRequired, locationLatitude, locationLongitude,
+@dynamic exactQualityRequired, experiments, locationLatitude, locationLongitude,
          pixelSizeMeters, radiusMeters, requiredQuality, view;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"locationLatitude" : @"location.latitude",
     @"locationLongitude" : @"location.longitude"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"experiments" : [NSString class]
   };
   return map;
 }

@@ -16,6 +16,7 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeDataPortabilityAlertsSubscriptions = @"https://www.googleapis.com/auth/dataportability.alerts.subscriptions";
 NSString * const kGTLRAuthScopeDataPortabilityBusinessmessagingConversations = @"https://www.googleapis.com/auth/dataportability.businessmessaging.conversations";
 NSString * const kGTLRAuthScopeDataPortabilityChromeAutofill   = @"https://www.googleapis.com/auth/dataportability.chrome.autofill";
 NSString * const kGTLRAuthScopeDataPortabilityChromeBookmarks  = @"https://www.googleapis.com/auth/dataportability.chrome.bookmarks";
@@ -66,6 +67,7 @@ NSString * const kGTLRAuthScopeDataPortabilityShoppingAddresses = @"https://www.
 NSString * const kGTLRAuthScopeDataPortabilityShoppingReviews  = @"https://www.googleapis.com/auth/dataportability.shopping.reviews";
 NSString * const kGTLRAuthScopeDataPortabilityStreetviewImagery = @"https://www.googleapis.com/auth/dataportability.streetview.imagery";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeChannel   = @"https://www.googleapis.com/auth/dataportability.youtube.channel";
+NSString * const kGTLRAuthScopeDataPortabilityYoutubeClips     = @"https://www.googleapis.com/auth/dataportability.youtube.clips";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeComments  = @"https://www.googleapis.com/auth/dataportability.youtube.comments";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeLiveChat  = @"https://www.googleapis.com/auth/dataportability.youtube.live_chat";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeMusic     = @"https://www.googleapis.com/auth/dataportability.youtube.music";

@@ -80,7 +80,7 @@ NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline = @"SUGGESTIONS_I
 
 @implementation GTLRDocsQuery_DocumentsGet
 
-@dynamic documentId, suggestionsViewMode;
+@dynamic documentId, includeTabsContent, suggestionsViewMode;
 
 + (instancetype)queryWithDocumentId:(NSString *)documentId {
   NSArray *pathParams = @[ @"documentId" ];

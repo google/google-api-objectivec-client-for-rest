@@ -361,9 +361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. Immutable. Unordered list. Input for creating a subscription.
- *  Otherwise, output only. One or more types of events to receive about the
- *  target resource. Formatted according to the CloudEvents specification. The
+ *  Required. Unordered list. Input for creating a subscription. Otherwise,
+ *  output only. One or more types of events to receive about the target
+ *  resource. Formatted according to the CloudEvents specification. The
  *  supported event types depend on the target resource of your subscription.
  *  For details, see [Supported Google Workspace
  *  events](https://developers.google.com/workspace/events/guides#supported-events).

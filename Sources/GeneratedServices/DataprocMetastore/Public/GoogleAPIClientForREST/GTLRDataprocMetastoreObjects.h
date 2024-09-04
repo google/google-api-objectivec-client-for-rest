@@ -18,12 +18,17 @@
 @class GTLRDataprocMetastore_AlterTablePropertiesRequest_Properties;
 @class GTLRDataprocMetastore_AuditConfig;
 @class GTLRDataprocMetastore_AuditLogConfig;
+@class GTLRDataprocMetastore_AutoscalingConfig;
 @class GTLRDataprocMetastore_AuxiliaryVersionConfig;
 @class GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_BackendMetastore;
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
+@class GTLRDataprocMetastore_CdcConfig;
+@class GTLRDataprocMetastore_CloudSQLConnectionConfig;
+@class GTLRDataprocMetastore_CloudSQLMigrationConfig;
 @class GTLRDataprocMetastore_Consumer;
+@class GTLRDataprocMetastore_CustomRegionMetadata;
 @class GTLRDataprocMetastore_DatabaseDump;
 @class GTLRDataprocMetastore_DataCatalogConfig;
 @class GTLRDataprocMetastore_EncryptionConfig;
@@ -38,6 +43,7 @@
 @class GTLRDataprocMetastore_HiveMetastoreVersion;
 @class GTLRDataprocMetastore_KerberosConfig;
 @class GTLRDataprocMetastore_LatestBackup;
+@class GTLRDataprocMetastore_LimitConfig;
 @class GTLRDataprocMetastore_Location;
 @class GTLRDataprocMetastore_Location_Labels;
 @class GTLRDataprocMetastore_Location_Metadata;
@@ -46,6 +52,7 @@
 @class GTLRDataprocMetastore_MetadataImport;
 @class GTLRDataprocMetastore_MetadataIntegration;
 @class GTLRDataprocMetastore_MetadataManagementActivity;
+@class GTLRDataprocMetastore_MigrationExecution;
 @class GTLRDataprocMetastore_MultiRegionMetadata;
 @class GTLRDataprocMetastore_NetworkConfig;
 @class GTLRDataprocMetastore_Operation;
@@ -457,6 +464,92 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataImport_State_S
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataImport_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_MigrationExecution.phase
+
+/**
+ *  Cutover phase refers to the migration phase when Dataproc Metastore switches
+ *  to using its own backend database. Migration enters this phase when customer
+ *  is done migrating all their clusters/workloads to Dataproc Metastore and
+ *  triggers CompleteMigration.
+ *
+ *  Value: "CUTOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_Cutover;
+/**
+ *  The phase of the migration execution is unknown.
+ *
+ *  Value: "PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_PhaseUnspecified;
+/**
+ *  Replication phase refers to the migration phase when Dataproc Metastore is
+ *  running a pipeline to replicate changes in the customer database to its
+ *  backend database. During this phase, Dataproc Metastore uses the customer
+ *  database as the hive metastore backend database.
+ *
+ *  Value: "REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_Replication;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_MigrationExecution.state
+
+/**
+ *  The migration execution is awaiting user action.
+ *
+ *  Value: "AWAITING_USER_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_AwaitingUserAction;
+/**
+ *  The migration execution is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Cancelled;
+/**
+ *  The migration execution is in the process of being cancelled.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Cancelling;
+/**
+ *  The migration execution is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Deleting;
+/**
+ *  The migration execution has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Failed;
+/**
+ *  The migration execution is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Running;
+/**
+ *  The migration execution is starting.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Starting;
+/**
+ *  The state of the migration execution is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_StateUnspecified;
+/**
+ *  The migration execution has completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_Restore.state
 
 /**
@@ -631,6 +724,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_State_Active;
 /**
+ *  The Dataproc Metastore service 2 is being scaled up or down.
+ *
+ *  Value: "AUTOSCALING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_State_Autoscaling;
+/**
  *  The metastore service is in the process of being created.
  *
  *  Value: "CREATING"
@@ -649,6 +748,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_State_Deleting
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_State_Error;
+/**
+ *  The metastore service is processing a managed migration.
+ *
+ *  Value: "MIGRATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_State_Migrating;
 /**
  *  The state of the metastore service is unknown.
  *
@@ -857,6 +962,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  Represents the autoscaling configuration of a metastore service.
+ */
+@interface GTLRDataprocMetastore_AutoscalingConfig : GTLRObject
+
+/**
+ *  Optional. Whether or not autoscaling is enabled for this service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoscalingEnabled;
+
+/**
+ *  Output only. The scaling factor of a service with autoscaling enabled.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoscalingFactor;
+
+/** Optional. The LimitConfig of the service. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_LimitConfig *limitConfig;
 
 @end
 
@@ -1074,9 +1204,167 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Request message for DataprocMetastore.CancelMigration.
+ */
+@interface GTLRDataprocMetastore_CancelMigrationRequest : GTLRObject
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRDataprocMetastore_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Configuration information to start the Change Data Capture (CDC) streams
+ *  from customer database to backend database of Dataproc Metastore.
+ */
+@interface GTLRDataprocMetastore_CdcConfig : GTLRObject
+
+/**
+ *  Optional. The bucket to write the intermediate stream event data in. The
+ *  bucket name must be without any prefix like "gs://". See the bucket naming
+ *  requirements (https://cloud.google.com/storage/docs/buckets#naming). This
+ *  field is optional. If not set, the Artifacts Cloud Storage bucket will be
+ *  used.
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Required. Input only. The password for the user that Datastream service
+ *  should use for the MySQL connection. This field is not returned on request.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Required. The URL of the subnetwork resource to create the VM instance
+ *  hosting the reverse proxy in. More context in
+ *  https://cloud.google.com/datastream/docs/private-connectivity#reverse-csql-proxy
+ *  The subnetwork should reside in the network provided in the request that
+ *  Datastream will peer to and should be in the same region as Datastream, in
+ *  the following format.
+ *  projects/{project_id}/regions/{region_id}/subnetworks/{subnetwork_id}
+ */
+@property(nonatomic, copy, nullable) NSString *reverseProxySubnet;
+
+/**
+ *  Optional. The root path inside the Cloud Storage bucket. The stream event
+ *  data will be written to this path. The default value is /migration.
+ */
+@property(nonatomic, copy, nullable) NSString *rootPath;
+
+/** Required. A /29 CIDR IP range for peering with datastream. */
+@property(nonatomic, copy, nullable) NSString *subnetIpRange;
+
+/**
+ *  Required. The username that the Datastream service should use for the MySQL
+ *  connection.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+/**
+ *  Required. Fully qualified name of the Cloud SQL instance's VPC network or
+ *  the shared VPC network that Datastream will peer to, in the following
+ *  format: projects/{project_id}/locations/global/networks/{network_id}. More
+ *  context in
+ *  https://cloud.google.com/datastream/docs/network-connectivity-options#privateconnectivity
+ */
+@property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
+@end
+
+
+/**
+ *  Configuration information to establish customer database connection before
+ *  the cutover phase of migration
+ */
+@interface GTLRDataprocMetastore_CloudSQLConnectionConfig : GTLRObject
+
+/** Required. The hive database name. */
+@property(nonatomic, copy, nullable) NSString *hiveDatabaseName;
+
+/**
+ *  Required. Cloud SQL database connection name
+ *  (project_id:region:instance_name)
+ */
+@property(nonatomic, copy, nullable) NSString *instanceConnectionName;
+
+/** Required. The private IP address of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/**
+ *  Required. The relative resource name of the subnetwork to be used for
+ *  Private Service Connect. Note that this cannot be a regular subnet and is
+ *  used only for NAT.
+ *  (https://cloud.google.com/vpc/docs/about-vpc-hosted-services#psc-subnets)
+ *  This subnet is used to publish the SOCKS5 proxy service. The subnet size
+ *  must be at least /29 and it should reside in a network through which the
+ *  Cloud SQL instance is accessible. The resource name should be in the format,
+ *  projects/{project_id}/regions/{region_id}/subnetworks/{subnetwork_id}
+ */
+@property(nonatomic, copy, nullable) NSString *natSubnet;
+
+/**
+ *  Required. Input only. The password for the user that Dataproc Metastore
+ *  service will be using to connect to the database. This field is not returned
+ *  on request.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Required. The network port of the database.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Required. The relative resource name of the subnetwork to deploy the SOCKS5
+ *  proxy service in. The subnetwork should reside in a network through which
+ *  the Cloud SQL instance is accessible. The resource name should be in the
+ *  format,
+ *  projects/{project_id}/regions/{region_id}/subnetworks/{subnetwork_id}
+ */
+@property(nonatomic, copy, nullable) NSString *proxySubnet;
+
+/**
+ *  Required. The username that Dataproc Metastore service will use to connect
+ *  to the database.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Configuration information for migrating from self-managed hive metastore on
+ *  Google Cloud using Cloud SQL as the backend database to Dataproc Metastore.
+ */
+@interface GTLRDataprocMetastore_CloudSQLMigrationConfig : GTLRObject
+
+/**
+ *  Required. Configuration information to start the Change Data Capture (CDC)
+ *  streams from customer database to backend database of Dataproc Metastore.
+ *  Dataproc Metastore switches to using its backend database after the cutover
+ *  phase of migration.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CdcConfig *cdcConfig;
+
+/**
+ *  Required. Configuration information to establish customer database
+ *  connection before the cutover phase of migration
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CloudSQLConnectionConfig *cloudSqlConnectionConfig;
+
+@end
+
+
+/**
+ *  Request message for DataprocMetastore.CompleteMigration.
+ */
+@interface GTLRDataprocMetastore_CompleteMigrationRequest : GTLRObject
 @end
 
 
@@ -1105,6 +1393,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  form:projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
+
+@end
+
+
+/**
+ *  Metadata about a custom region. This is only populated if the region is a
+ *  custom region. For single/multi regions, it will be empty.
+ */
+@interface GTLRDataprocMetastore_CustomRegionMetadata : GTLRObject
+
+/** The read-only regions for this custom region. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *optionalReadOnlyRegions;
+
+/** The read-write regions for this custom region. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredReadWriteRegions;
+
+/** The Spanner witness region for this custom region. */
+@property(nonatomic, copy, nullable) NSString *witnessRegion;
 
 @end
 
@@ -1594,6 +1900,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Represents the autoscaling limit configuration of a metastore service.
+ */
+@interface GTLRDataprocMetastore_LimitConfig : GTLRObject
+
+/**
+ *  Optional. The highest scaling factor that the service should be autoscaled
+ *  to.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxScalingFactor;
+
+/**
+ *  Optional. The lowest scaling factor that the service should be autoscaled
+ *  to.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minScalingFactor;
+
+@end
+
+
+/**
  *  Response message for DataprocMetastore.ListBackups.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1694,6 +2024,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_MetadataImport *> *metadataImports;
+
+/**
+ *  A token that can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for DataprocMetastore.ListMigrationExecutions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "migrationExecutions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataprocMetastore_ListMigrationExecutionsResponse : GTLRCollectionObject
+
+/**
+ *  The migration executions on the specified service.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_MigrationExecution *> *migrationExecutions;
 
 /**
  *  A token that can be sent as page_token to retrieve the next page. If this
@@ -1826,6 +2186,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  Metadata about the service in a location.
  */
 @interface GTLRDataprocMetastore_LocationMetadata : GTLRObject
+
+/**
+ *  Possible configurations supported if the current region is a custom region.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_CustomRegionMetadata *> *customRegionMetadata;
 
 /** The multi-region metadata if the current region is a multi-region. */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_MultiRegionMetadata *multiRegionMetadata;
@@ -2002,6 +2367,89 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 /** Output only. The latest restores of the metastore service. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_Restore *> *restores;
+
+@end
+
+
+/**
+ *  The details of a migration execution resource.
+ */
+@interface GTLRDataprocMetastore_MigrationExecution : GTLRObject
+
+/**
+ *  Configuration information specific to migrating from self-managed hive
+ *  metastore on Google Cloud using Cloud SQL as the backend database to
+ *  Dataproc Metastore.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CloudSQLMigrationConfig *cloudSqlMigrationConfig;
+
+/** Output only. The time when the migration execution was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time when the migration execution finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The relative resource name of the migration execution, in the
+ *  following form:
+ *  projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current phase of the migration execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_Phase_Cutover Cutover
+ *        phase refers to the migration phase when Dataproc Metastore switches
+ *        to using its own backend database. Migration enters this phase when
+ *        customer is done migrating all their clusters/workloads to Dataproc
+ *        Metastore and triggers CompleteMigration. (Value: "CUTOVER")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_Phase_PhaseUnspecified
+ *        The phase of the migration execution is unknown. (Value:
+ *        "PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_Phase_Replication
+ *        Replication phase refers to the migration phase when Dataproc
+ *        Metastore is running a pipeline to replicate changes in the customer
+ *        database to its backend database. During this phase, Dataproc
+ *        Metastore uses the customer database as the hive metastore backend
+ *        database. (Value: "REPLICATION")
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+/**
+ *  Output only. The current state of the migration execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_AwaitingUserAction
+ *        The migration execution is awaiting user action. (Value:
+ *        "AWAITING_USER_ACTION")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Cancelled The
+ *        migration execution is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Cancelling The
+ *        migration execution is in the process of being cancelled. (Value:
+ *        "CANCELLING")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Deleting The
+ *        migration execution is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Failed The
+ *        migration execution has failed. (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Running The
+ *        migration execution is running. (Value: "RUNNING")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Starting The
+ *        migration execution is starting. (Value: "STARTING")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_StateUnspecified
+ *        The state of the migration execution is unknown. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Succeeded The
+ *        migration execution has completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Additional information about the current state of the migration
+ *  execution.
+ */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
 
 @end
 
@@ -2413,6 +2861,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  */
 @interface GTLRDataprocMetastore_ScalingConfig : GTLRObject
 
+/** Optional. The autoscaling configuration. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_AutoscalingConfig *autoscalingConfig;
+
 /**
  *  An enum of readable instance sizes, with each instance size mapping to a
  *  float value (e.g. InstanceSize.EXTRA_SMALL = scaling_factor(0.1))
@@ -2641,6 +3092,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  Likely values:
  *    @arg @c kGTLRDataprocMetastore_Service_State_Active The metastore service
  *        is running and ready to serve queries. (Value: "ACTIVE")
+ *    @arg @c kGTLRDataprocMetastore_Service_State_Autoscaling The Dataproc
+ *        Metastore service 2 is being scaled up or down. (Value: "AUTOSCALING")
  *    @arg @c kGTLRDataprocMetastore_Service_State_Creating The metastore
  *        service is in the process of being created. (Value: "CREATING")
  *    @arg @c kGTLRDataprocMetastore_Service_State_Deleting The metastore
@@ -2648,6 +3101,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *    @arg @c kGTLRDataprocMetastore_Service_State_Error The metastore service
  *        has encountered an error and cannot be used. The metastore service
  *        should be deleted. (Value: "ERROR")
+ *    @arg @c kGTLRDataprocMetastore_Service_State_Migrating The metastore
+ *        service is processing a managed migration. (Value: "MIGRATING")
  *    @arg @c kGTLRDataprocMetastore_Service_State_StateUnspecified The state of
  *        the metastore service is unknown. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRDataprocMetastore_Service_State_Suspended The metastore
@@ -2733,6 +3188,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request message for DataprocMetastore.StartMigration.
+ */
+@interface GTLRDataprocMetastore_StartMigrationRequest : GTLRObject
+
+/** Required. The configuration details for the migration. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_MigrationExecution *migrationExecution;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 

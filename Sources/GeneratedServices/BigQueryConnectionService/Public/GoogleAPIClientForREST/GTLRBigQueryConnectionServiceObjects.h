@@ -514,7 +514,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 @property(nonatomic, strong, nullable) NSNumber *hasCredential;
 
 /**
- *  Optional. The Cloud KMS key that is used for encryption. Example:
+ *  Optional. The Cloud KMS key that is used for credentials encryption. If
+ *  omitted, internal Google owned encryption keys are used. Example:
  *  `projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;

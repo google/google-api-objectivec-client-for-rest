@@ -29,6 +29,7 @@
 @class GTLRDataform_CompilationResult;
 @class GTLRDataform_CompilationResultAction;
 @class GTLRDataform_DataEncryptionState;
+@class GTLRDataform_DataPreparation;
 @class GTLRDataform_Declaration;
 @class GTLRDataform_DeleteFile;
 @class GTLRDataform_DirectoryEntry;
@@ -683,6 +684,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /** Output only. Errors encountered during project compilation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_CompilationError *> *compilationErrors;
 
+/** Output only. The timestamp of when the compilation result was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /** Output only. Only set if the repository has a KMS Key. */
 @property(nonatomic, strong, nullable) GTLRDataform_DataEncryptionState *dataEncryptionState;
 
@@ -735,6 +739,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  overrides configured. Unique within the compilation result.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_Target *canonicalTarget;
+
+/** The data preparation executed by this action. */
+@property(nonatomic, strong, nullable) GTLRDataform_DataPreparation *dataPreparation;
 
 /** The declaration declared by this action. */
 @property(nonatomic, strong, nullable) GTLRDataform_Declaration *declaration;
@@ -789,12 +796,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Config for all repositories in a given project and location.
+ */
+@interface GTLRDataform_Config : GTLRObject
+
+/**
+ *  Optional. The default KMS key that is used if no encryption key is provided
+ *  when a repository is created.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultKmsKeyName;
+
+/** Identifier. The config name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Describes encryption state of a resource.
  */
 @interface GTLRDataform_DataEncryptionState : GTLRObject
 
 /** The KMS key version name with which data of a resource is encrypted. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
+
+@end
+
+
+/**
+ *  Defines a compiled Data Preparation entity
+ */
+@interface GTLRDataform_DataPreparation : GTLRObject
+
+/**
+ *  The data preparation definition, stored as a binary encoded proto.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *contents;
+
+/** A list of actions that this action depends on. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_Target *> *dependencyTargets;
+
+/**
+ *  Whether this action is disabled (i.e. should not be run).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** Arbitrary, user-defined tags on this action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
 
@@ -2500,6 +2553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_WorkflowConfig : GTLRObject
 
+/** Output only. The timestamp of when the WorkflowConfig was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
  *  Optional. Optional schedule (in cron format) for automatic execution of this
  *  workflow config.
@@ -2533,6 +2589,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  unspecified, the default is UTC.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
+
+/** Output only. The timestamp of when the WorkflowConfig was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

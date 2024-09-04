@@ -128,10 +128,12 @@
 //
 
 @implementation GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenResponse
-@dynamic accessToken, expiresIn, issuedTokenType, tokenType;
+@dynamic accessBoundarySessionKey, accessToken, expiresIn, issuedTokenType,
+         tokenType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
+    @"accessBoundarySessionKey" : @"access_boundary_session_key",
     @"accessToken" : @"access_token",
     @"expiresIn" : @"expires_in",
     @"issuedTokenType" : @"issued_token_type",

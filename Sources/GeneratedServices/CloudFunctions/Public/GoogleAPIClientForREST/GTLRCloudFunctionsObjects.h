@@ -1252,7 +1252,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  */
 @property(nonatomic, copy, nullable) NSString *runtime;
 
-/** [Preview] Service account to be used for building the container */
+/**
+ *  Service account to be used for building the container. The format of this
+ *  field is `projects/{projectId}/serviceAccounts/{serviceAccountEmail}`.
+ */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /** The location of the function source code. */
@@ -1541,7 +1544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_EventTrigger *eventTrigger;
 
 /**
- *  [Preview] Resource name of a KMS crypto key (managed by the user) used to
+ *  Resource name of a KMS crypto key (managed by the user) used to
  *  encrypt/decrypt function resources. It must match the pattern
  *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
  */
@@ -1660,7 +1663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 @property(nonatomic, copy, nullable) NSString *environment;
 
 /**
- *  [Preview] Resource name of a KMS crypto key (managed by the user) used to
+ *  Resource name of a KMS crypto key (managed by the user) used to
  *  encrypt/decrypt function source code objects in intermediate Cloud Storage
  *  buckets. When you generate an upload url and upload your source code, it
  *  gets copied to an intermediate Cloud Storage bucket. The source code is then
@@ -1720,6 +1723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 
 /** API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** The build name of the function for create and update operations. */
+@property(nonatomic, copy, nullable) NSString *buildName;
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.
@@ -1904,6 +1910,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 /** API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
+/** The build name of the function for create and update operations. */
+@property(nonatomic, copy, nullable) NSString *buildName;
+
 /**
  *  Identifies whether the user has requested cancellation of the operation.
  *  Operations that have successfully been cancelled have
@@ -2086,6 +2095,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 
 /** API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** The build name of the function for create and update operations. */
+@property(nonatomic, copy, nullable) NSString *buildName;
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.

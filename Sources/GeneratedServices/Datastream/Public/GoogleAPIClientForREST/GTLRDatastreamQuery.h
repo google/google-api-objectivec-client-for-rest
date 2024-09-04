@@ -1331,7 +1331,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Use this method to start, resume or recover a stream with a non default CDC
- *  strategy. NOTE: This feature is currently experimental.
+ *  strategy.
  *
  *  Method: datastream.projects.locations.streams.run
  *
@@ -1350,7 +1350,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDatastream_Operation.
  *
  *  Use this method to start, resume or recover a stream with a non default CDC
- *  strategy. NOTE: This feature is currently experimental.
+ *  strategy.
  *
  *  @param object The @c GTLRDatastream_RunStreamRequest to include in the
  *    query.

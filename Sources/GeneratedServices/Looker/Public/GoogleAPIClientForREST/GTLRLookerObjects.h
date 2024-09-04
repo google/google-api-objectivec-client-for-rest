@@ -34,6 +34,8 @@
 @class GTLRLooker_Operation_Metadata;
 @class GTLRLooker_Operation_Response;
 @class GTLRLooker_Policy;
+@class GTLRLooker_PscConfig;
+@class GTLRLooker_ServiceAttachment;
 @class GTLRLooker_Status;
 @class GTLRLooker_Status_Details_Item;
 @class GTLRLooker_TimeOfDay;
@@ -316,6 +318,48 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Tuesd
  *  Value: "WEDNESDAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRLooker_ServiceAttachment.connectionStatus
+
+/**
+ *  Connection is established and functioning normally.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Accepted;
+/**
+ *  Target service attachment does not exist. This status is a terminal state.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Closed;
+/**
+ *  Issue with target service attachment, e.g. NAT subnet is exhausted.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_NeedsAttention;
+/**
+ *  Connection is not established (Looker tenant project hasn't been
+ *  allowlisted).
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Pending;
+/**
+ *  Connection is not established (Looker tenant project is explicitly in reject
+ *  list).
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Rejected;
+/**
+ *  Connection status is unspecified.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown;
 
 /**
  *  Looker instance Admin settings fields.
@@ -880,6 +924,18 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wedne
  */
 @property(nonatomic, strong, nullable) NSNumber *privateIpEnabled;
 
+/** Optional. PSC configuration. Used when `psc_enabled` is true. */
+@property(nonatomic, strong, nullable) GTLRLooker_PscConfig *pscConfig;
+
+/**
+ *  Optional. Whether to use Private Service Connect (PSC) for private IP
+ *  connectivity. If true, neither `public_ip_enabled` nor `private_ip_enabled`
+ *  can be true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscEnabled;
+
 /**
  *  Whether public IP is enabled on the Looker instance.
  *
@@ -1347,9 +1403,72 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wedne
 
 
 /**
+ *  Information for Private Service Connect (PSC) setup for a Looker instance.
+ */
+@interface GTLRLooker_PscConfig : GTLRObject
+
+/**
+ *  Optional. List of VPCs that are allowed ingress into looker. Format:
+ *  projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedVpcs;
+
+/** Output only. URI of the Looker service attachment. */
+@property(nonatomic, copy, nullable) NSString *lookerServiceAttachmentUri;
+
+/** Optional. List of egress service attachment configurations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRLooker_ServiceAttachment *> *serviceAttachments;
+
+@end
+
+
+/**
  *  Request options for restarting an instance.
  */
 @interface GTLRLooker_RestartInstanceRequest : GTLRObject
+@end
+
+
+/**
+ *  Service attachment configuration.
+ */
+@interface GTLRLooker_ServiceAttachment : GTLRObject
+
+/**
+ *  Output only. Connection status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLooker_ServiceAttachment_ConnectionStatus_Accepted Connection
+ *        is established and functioning normally. (Value: "ACCEPTED")
+ *    @arg @c kGTLRLooker_ServiceAttachment_ConnectionStatus_Closed Target
+ *        service attachment does not exist. This status is a terminal state.
+ *        (Value: "CLOSED")
+ *    @arg @c kGTLRLooker_ServiceAttachment_ConnectionStatus_NeedsAttention
+ *        Issue with target service attachment, e.g. NAT subnet is exhausted.
+ *        (Value: "NEEDS_ATTENTION")
+ *    @arg @c kGTLRLooker_ServiceAttachment_ConnectionStatus_Pending Connection
+ *        is not established (Looker tenant project hasn't been allowlisted).
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRLooker_ServiceAttachment_ConnectionStatus_Rejected Connection
+ *        is not established (Looker tenant project is explicitly in reject
+ *        list). (Value: "REJECTED")
+ *    @arg @c kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown Connection
+ *        status is unspecified. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionStatus;
+
+/**
+ *  Required. Fully qualified domain name that will be used in the private DNS
+ *  record created for the service attachment.
+ */
+@property(nonatomic, copy, nullable) NSString *localFqdn;
+
+/**
+ *  Required. URI of the service attachment to connect to. Format:
+ *  projects/{project}/regions/{region}/serviceAttachments/{service_attachment}
+ */
+@property(nonatomic, copy, nullable) NSString *targetServiceAttachmentUri;
+
 @end
 
 

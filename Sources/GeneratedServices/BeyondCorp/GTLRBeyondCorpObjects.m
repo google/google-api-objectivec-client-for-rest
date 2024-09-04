@@ -1012,6 +1012,16 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBeyondCorp_ShouldThrottleResponse
+//
+
+@implementation GTLRBeyondCorp_ShouldThrottleResponse
+@dynamic shouldThrottle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBeyondCorp_Tunnelv1ProtoTunnelerError
 //
 

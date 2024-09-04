@@ -391,6 +391,25 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
+@implementation GTLRDLPQuery_OrganizationsLocationsConnectionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/connections";
+  GTLRDLPQuery_OrganizationsLocationsConnectionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListConnectionsResponse class];
+  query.loggingName = @"dlp.organizations.locations.connections.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_OrganizationsLocationsConnectionsPatch
 
 @dynamic name;
@@ -673,6 +692,63 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
   query.parent = parent;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse class];
   query.loggingName = @"dlp.organizations.locations.dlpJobs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsFileStoreDataProfilesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsLocationsFileStoreDataProfilesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.organizations.locations.fileStoreDataProfiles.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsFileStoreDataProfilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_OrganizationsLocationsFileStoreDataProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile class];
+  query.loggingName = @"dlp.organizations.locations.fileStoreDataProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_OrganizationsLocationsFileStoreDataProfilesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/fileStoreDataProfiles";
+  GTLRDLPQuery_OrganizationsLocationsFileStoreDataProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListFileStoreDataProfilesResponse class];
+  query.loggingName = @"dlp.organizations.locations.fileStoreDataProfiles.list";
   return query;
 }
 
@@ -2427,6 +2503,63 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
   query.parent = parent;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse class];
   query.loggingName = @"dlp.projects.locations.dlpJobs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsFileStoreDataProfilesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_ProjectsLocationsFileStoreDataProfilesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.projects.locations.fileStoreDataProfiles.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsFileStoreDataProfilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDLPQuery_ProjectsLocationsFileStoreDataProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile class];
+  query.loggingName = @"dlp.projects.locations.fileStoreDataProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsFileStoreDataProfilesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/fileStoreDataProfiles";
+  GTLRDLPQuery_ProjectsLocationsFileStoreDataProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListFileStoreDataProfilesResponse class];
+  query.loggingName = @"dlp.projects.locations.fileStoreDataProfiles.list";
   return query;
 }
 

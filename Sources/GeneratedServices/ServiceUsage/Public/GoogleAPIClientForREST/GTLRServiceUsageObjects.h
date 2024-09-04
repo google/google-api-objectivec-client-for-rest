@@ -18,6 +18,8 @@
 
 @class GTLRServiceUsage_AdminQuotaPolicy;
 @class GTLRServiceUsage_AdminQuotaPolicy_Dimensions;
+@class GTLRServiceUsage_Analysis;
+@class GTLRServiceUsage_AnalysisResult;
 @class GTLRServiceUsage_Api;
 @class GTLRServiceUsage_Authentication;
 @class GTLRServiceUsage_AuthenticationRule;
@@ -58,6 +60,7 @@
 @class GTLRServiceUsage_GoSettings;
 @class GTLRServiceUsage_Http;
 @class GTLRServiceUsage_HttpRule;
+@class GTLRServiceUsage_Impact;
 @class GTLRServiceUsage_JavaSettings;
 @class GTLRServiceUsage_JavaSettings_ServiceClassNames;
 @class GTLRServiceUsage_JwtLocation;
@@ -116,6 +119,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_Analysis.analysisType
+
+/**
+ *  The analysis of service dependencies.
+ *
+ *  Value: "ANALYSIS_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeDependency;
+/**
+ *  The analysis of service resource usage.
+ *
+ *  Value: "ANALYSIS_TYPE_RESOURCE_USAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceUsage;
+/**
+ *  Unspecified analysis type. Do not use.
+ *
+ *  Value: "ANALYSIS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Api.syntax
@@ -553,6 +578,24 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Serv
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_Impact.impactType
+
+/**
+ *  Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY
+ *
+ *  Value: "DEPENDENCY_MISSING_DEPENDENCIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies;
+/**
+ *  Reserved Blocks (Block n contains codes from 100n to 100(n+1) -1 Block 0 -
+ *  Special/Admin codes Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY Block
+ *  2 - Impact Type of ANALYSIS_TYPE_RESOURCE_USAGE ...
+ *
+ *  Value: "IMPACT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_LabelDescriptor.valueType
@@ -1064,6 +1107,84 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        fetch them all at once.
  */
 @interface GTLRServiceUsage_AdminQuotaPolicy_Dimensions : GTLRObject
+@end
+
+
+/**
+ *  A message to group the analysis information.
+ */
+@interface GTLRServiceUsage_Analysis : GTLRObject
+
+/** Output only. Analysis result of updating a policy. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_AnalysisResult *analysis;
+
+/**
+ *  Output only. The type of analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeDependency The
+ *        analysis of service dependencies. (Value: "ANALYSIS_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceUsage
+ *        The analysis of service resource usage. (Value:
+ *        "ANALYSIS_TYPE_RESOURCE_USAGE")
+ *    @arg @c kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeUnspecified
+ *        Unspecified analysis type. Do not use. (Value:
+ *        "ANALYSIS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *analysisType;
+
+/**
+ *  Output only. The user friendly display name of the analysis type. E.g.
+ *  service dependency analysis, service resource usage analysis, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The names of the service that has analysis result of warnings or blockers.
+ *  Example: `services/storage.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  An analysis result including blockers and warnings.
+ */
+@interface GTLRServiceUsage_AnalysisResult : GTLRObject
+
+/** Blocking information that would prevent the policy changes at runtime. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Impact *> *blockers;
+
+/**
+ *  Warning information indicating that the policy changes might be unsafe, but
+ *  will not block the changes at runtime.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Impact *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata for the `AnalyzeConsumerPolicy` method.
+ */
+@interface GTLRServiceUsage_AnalyzeConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response of analyzing a consumer policy update.
+ */
+@interface GTLRServiceUsage_AnalyzeConsumerPolicyResponse : GTLRObject
+
+/**
+ *  The list of analyses returned from performing the intended policy update
+ *  analysis. The analysis is grouped by service name and different analysis
+ *  types. The empty analysis list means that the consumer policy can be updated
+ *  without any warnings or blockers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Analysis *> *analysis;
+
 @end
 
 
@@ -1770,10 +1891,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
-/** A list of full type names of provided contexts. */
+/**
+ *  A list of full type names of provided contexts. It is used to support
+ *  propagating HTTP headers and ETags from the response extension.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
 
-/** A list of full type names of requested contexts. */
+/**
+ *  A list of full type names of requested contexts, only the requested context
+ *  will be made available to the backend.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requested;
 
 /**
@@ -3071,11 +3198,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  effect as the proto annotation. This can be particularly useful if you have
  *  a proto that is reused in multiple services. Note that any transcoding
  *  specified in the service config will override any matching transcoding
- *  configuration in the proto. Example below selects a gRPC method and applies
- *  HttpRule to it. http: rules: - selector: example.v1.Messaging.GetMessage
- *  get: /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC
- *  Transcoding is used to map a gRPC to JSON REST endpoints, the proto to JSON
- *  conversion must follow the [proto3
+ *  configuration in the proto. The following example selects a gRPC method and
+ *  applies an `HttpRule` to it: http: rules: - selector:
+ *  example.v1.Messaging.GetMessage get:
+ *  /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC Transcoding
+ *  is used to map a gRPC to JSON REST endpoints, the proto to JSON conversion
+ *  must follow the [proto3
  *  specification](https://developers.google.com/protocol-buffers/docs/proto3#json).
  *  While the single segment variable follows the semantics of [RFC
  *  6570](https://tools.ietf.org/html/rfc6570) Section 3.2.2 Simple String
@@ -3155,6 +3283,32 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  details.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  A message to group impacts of updating a policy.
+ */
+@interface GTLRServiceUsage_Impact : GTLRObject
+
+/** Output only. User friendly impact detail in a free form message. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Output only. The type of impact.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies
+ *        Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY (Value:
+ *        "DEPENDENCY_MISSING_DEPENDENCIES")
+ *    @arg @c kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified Reserved
+ *        Blocks (Block n contains codes from 100n to 100(n+1) -1 Block 0 -
+ *        Special/Admin codes Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY
+ *        Block 2 - Impact Type of ANALYSIS_TYPE_RESOURCE_USAGE ... (Value:
+ *        "IMPACT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *impactType;
 
 @end
 

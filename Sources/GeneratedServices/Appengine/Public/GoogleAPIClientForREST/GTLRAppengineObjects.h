@@ -3789,7 +3789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_Service_GeneratedCustomerMetadata *generatedCustomerMetadata;
 
 /**
- *  Relative name of the service within the application. Example:
+ *  Output only. Relative name of the service within the application. Example:
  *  default.\@OutputOnly
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -3811,7 +3811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_Service_Labels *labels;
 
 /**
- *  Full path to the Service resource in the API. Example:
+ *  Output only. Full path to the Service resource in the API. Example:
  *  apps/myapp/services/default.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4312,7 +4312,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_Version_BuildEnvVariables *buildEnvVariables;
 
-/** Email address of the user who created this version.\@OutputOnly */
+/**
+ *  Output only. Email address of the user who created this version.\@OutputOnly
+ */
 @property(nonatomic, copy, nullable) NSString *createdBy;
 
 /** Time that this version was created.\@OutputOnly */
@@ -4334,8 +4336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_Deployment *deployment;
 
 /**
- *  Total size in bytes of all the files that are included in this version and
- *  currently hosted on the App Engine disk.\@OutputOnly
+ *  Output only. Total size in bytes of all the files that are included in this
+ *  version and currently hosted on the App Engine disk.\@OutputOnly
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4434,7 +4436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_ManualScaling *manualScaling;
 
 /**
- *  Full path to the Version resource in the API. Example:
+ *  Output only. Full path to the Version resource in the API. Example:
  *  apps/myapp/services/default/versions/v1.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4515,7 +4517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) NSNumber *threadsafe;
 
 /**
- *  Serving URL for this version. Example:
+ *  Output only. Serving URL for this version. Example:
  *  "https://myversion-dot-myservice-dot-myapp.appspot.com"\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *versionUrl;

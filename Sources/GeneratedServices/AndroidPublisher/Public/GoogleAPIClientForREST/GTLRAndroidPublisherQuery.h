@@ -351,41 +351,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @end
 
 /**
- *  List all app recovery action resources associated with a particular package
- *  name and app version.
- *
- *  Method: androidpublisher.apprecovery.appRecoveries
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidPublisher
- */
-@interface GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries : GTLRAndroidPublisherQuery
-
-/**
- *  Required. Package name of the app for which list of recovery actions is
- *  requested.
- */
-@property(nonatomic, copy, nullable) NSString *packageName;
-
-/** Required. Version code targeted by the list of recovery actions. */
-@property(nonatomic, assign) long long versionCode;
-
-/**
- *  Fetches a @c GTLRAndroidPublisher_ListAppRecoveriesResponse.
- *
- *  List all app recovery action resources associated with a particular package
- *  name and app version.
- *
- *  @param packageName Required. Package name of the app for which list of
- *    recovery actions is requested.
- *
- *  @return GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries
- */
-+ (instancetype)queryWithPackageName:(NSString *)packageName;
-
-@end
-
-/**
  *  Cancel an already executing app recovery action. Note that this action
  *  changes status of the recovery action to CANCELED.
  *
@@ -498,6 +463,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_DeployAppRecoveryRequest *)object
                     packageName:(NSString *)packageName
                   appRecoveryId:(long long)appRecoveryId;
+
+@end
+
+/**
+ *  List all app recovery action resources associated with a particular package
+ *  name and app version.
+ *
+ *  Method: androidpublisher.apprecovery.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApprecoveryList : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. Package name of the app for which list of recovery actions is
+ *  requested.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. Version code targeted by the list of recovery actions. */
+@property(nonatomic, assign) long long versionCode;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListAppRecoveriesResponse.
+ *
+ *  List all app recovery action resources associated with a particular package
+ *  name and app version.
+ *
+ *  @param packageName Required. Package name of the app for which list of
+ *    recovery actions is requested.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApprecoveryList
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
 
 @end
 
@@ -654,11 +654,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @interface GTLRAndroidPublisherQuery_EditsBundlesUpload : GTLRAndroidPublisherQuery
 
 /**
- *  Must be set to true if the app bundle installation may trigger a warning on
- *  user devices (for example, if installation size may be over a threshold,
- *  typically 100 MB).
+ *  Deprecated. The installation warning has been removed, it's not necessary to
+ *  set this field anymore.
  */
-@property(nonatomic, assign) BOOL ackBundleInstallationWarning;
+@property(nonatomic, assign) BOOL ackBundleInstallationWarning GTLR_DEPRECATED;
 
 /**
  *  Device tier config (DTC) to be used for generating deliverables (APKs).
@@ -3348,12 +3347,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Migrates subscribers who are receiving an historical subscription price to
- *  the currently-offered price for the specified region. Requests will cause
- *  price change notifications to be sent to users who are currently receiving
- *  an historical price older than the supplied timestamp. Subscribers who do
- *  not agree to the new price will have their subscription ended at the next
- *  renewal.
+ *  Migrates subscribers from one or more legacy price cohorts to the current
+ *  price. Requests result in Google Play notifying affected subscribers. Only
+ *  up to 250 simultaneous legacy price cohorts are supported.
  *
  *  Method: androidpublisher.monetization.subscriptions.basePlans.migratePrices
  *
@@ -3380,12 +3376,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRAndroidPublisher_MigrateBasePlanPricesResponse.
  *
- *  Migrates subscribers who are receiving an historical subscription price to
- *  the currently-offered price for the specified region. Requests will cause
- *  price change notifications to be sent to users who are currently receiving
- *  an historical price older than the supplied timestamp. Subscribers who do
- *  not agree to the new price will have their subscription ended at the next
- *  renewal.
+ *  Migrates subscribers from one or more legacy price cohorts to the current
+ *  price. Requests result in Google Play notifying affected subscribers. Only
+ *  up to 250 simultaneous legacy price cohorts are supported.
  *
  *  @param object The @c GTLRAndroidPublisher_MigrateBasePlanPricesRequest to
  *    include in the query.

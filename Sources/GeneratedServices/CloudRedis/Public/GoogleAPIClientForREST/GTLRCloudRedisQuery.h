@@ -303,6 +303,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Reschedules upcoming maintenance event.
+ *
+ *  Method: redis.projects.locations.clusters.rescheduleClusterMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersRescheduleClusterMaintenance : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis Cluster instance resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
+ *  `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Reschedules upcoming maintenance event.
+ *
+ *  @param object The @c GTLRCloudRedis_RescheduleClusterMaintenanceRequest to
+ *    include in the query.
+ *  @param name Required. Redis Cluster instance resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersRescheduleClusterMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_RescheduleClusterMaintenanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: redis.projects.locations.get

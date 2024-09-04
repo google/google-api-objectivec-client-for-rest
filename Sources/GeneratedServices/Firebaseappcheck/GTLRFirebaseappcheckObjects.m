@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy.enforcementMode
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Enforced = @"ENFORCED";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Off = @"OFF";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Unenforced = @"UNENFORCED";
+
 // GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service.enforcementMode
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Enforced = @"ENFORCED";
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Off = @"OFF";
@@ -144,6 +149,42 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesRequest
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesRequest
+@dynamic requests, updateMask;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateResourcePolicyRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesResponse
+@dynamic resourcePolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourcePolicies" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy class]
   };
   return map;
 }
@@ -369,6 +410,28 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListResourcePoliciesResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListResourcePoliciesResponse
+@dynamic nextPageToken, resourcePolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourcePolicies" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resourcePolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListServicesResponse
 //
 
@@ -449,6 +512,21 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy
+@dynamic enforcementMode, ETag, name, targetResource, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig
 //
 
@@ -464,6 +542,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service
 @dynamic enforcementMode, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateResourcePolicyRequest
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateResourcePolicyRequest
+@dynamic resourcePolicy, updateMask;
 @end
 
 

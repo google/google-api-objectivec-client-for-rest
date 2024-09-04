@@ -51,6 +51,7 @@
 @class GTLRBigquery_CsvOptions;
 @class GTLRBigquery_DataFormatOptions;
 @class GTLRBigquery_DataMaskingStatistics;
+@class GTLRBigquery_DataPolicyOption;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
 @class GTLRBigquery_Dataset_ResourceTags;
@@ -1223,6 +1224,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_Other;
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_Requested;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_JobStatistics.edition
+
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobStatistics_Edition_Enterprise;
+/**
+ *  Enterprise plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobStatistics_Edition_EnterprisePlus;
+/**
+ *  Default value, which will be treated as ENTERPRISE.
+ *
+ *  Value: "RESERVATION_EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobStatistics_Edition_ReservationEditionUnspecified;
+/**
+ *  Standard edition.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobStatistics_Edition_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_JoinRestrictionPolicy.joinCondition
 
 /**
@@ -1507,7 +1536,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Tensorfl
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_TensorflowLite;
 /**
- *  Model to capture the manual preprocessing logic in the transform clause.
+ *  Model to capture the columns and logic in the TRANSFORM clause along with
+ *  statistics useful for ML analytic functions.
  *
  *  Value: "TRANSFORM_ONLY"
  */
@@ -1684,7 +1714,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Tensorflow;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_TensorflowLite;
 /**
- *  Model to capture the manual preprocessing logic in the transform clause.
+ *  Model to capture the columns and logic in the TRANSFORM clause along with
+ *  statistics useful for ML analytic functions.
  *
  *  Value: "TRANSFORM_ONLY"
  */
@@ -4273,8 +4304,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Required. The connection specifying the credentials to be used to read and
  *  write to external storage, such as Cloud Storage. The connection_id can have
- *  the form "<project\\_id>.<location\\_id>.<connection\\_id>" or
- *  "projects/<project\\_id>/locations/<location\\_id>/connections/<connection\\_id>".
+ *  the form `{project}.{location}.{connection_id}` or
+ *  `projects/{project}/locations/{location}/connections/{connection_id}".
  */
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
@@ -4292,7 +4323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Required. The fully qualified location prefix of the external folder where
  *  table data is stored. The '*' wildcard character is not allowed. The URI
- *  should be in the format "gs://bucket/path_to_table/"
+ *  should be in the format `gs://bucket/path_to_table/`
  */
 @property(nonatomic, copy, nullable) NSString *storageUri;
 
@@ -4344,7 +4375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  [Required] Qualifier of the column. Columns in the parent column family that
- *  has this exact qualifier are exposed as . field. If the qualifier is valid
+ *  has this exact qualifier are exposed as `.` field. If the qualifier is valid
  *  UTF-8 string, it can be specified in the qualifier_string field. Otherwise,
  *  a base-64 encoded value must be set to qualifier_encoded. The column field
  *  name is the same as the column qualifier. However, if the qualifier is not a
@@ -4381,8 +4412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Optional. Lists of columns that should be exposed as individual fields as
  *  opposed to a list of (column name, value) pairs. All columns whose qualifier
- *  matches a qualifier in this list can be accessed as .. Other columns can be
- *  accessed as a list through .Column field.
+ *  matches a qualifier in this list can be accessed as `.`. Other columns can
+ *  be accessed as a list through the `.Column` field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BigtableColumn *> *columns;
 
@@ -5103,7 +5134,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_Dataset
+ *  Data policy option proto, it currently supports name only, will support
+ *  precedence later.
+ */
+@interface GTLRBigquery_DataPolicyOption : GTLRObject
+
+/**
+ *  Data policy resource name in the form of
+ *  projects/project_id/locations/location_id/dataPolicies/data_policy_id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents a BigQuery dataset.
  */
 @interface GTLRBigquery_Dataset : GTLRObject
 
@@ -5115,7 +5161,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  following entities: access.specialGroup: projectReaders; access.role:
  *  READER; access.specialGroup: projectWriters; access.role: WRITER;
  *  access.specialGroup: projectOwners; access.role: OWNER; access.userByEmail:
- *  [dataset creator email]; access.role: OWNER;
+ *  [dataset creator email]; access.role: OWNER; If you patch a dataset, then
+ *  this field is overwritten by the patched dataset's access field. To add
+ *  entities, you must supply the entire existing access array in addition to
+ *  any new entities that you want to add.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Dataset_Access_Item *> *access;
 
@@ -5260,7 +5309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  The labels associated with this dataset. You can use these to organize and
  *  group your datasets. You can set this property when inserting or updating a
- *  dataset. See Creating and Updating Dataset Labels for more information.
+ *  dataset. See [Creating and Updating Dataset
+ *  Labels](https://cloud.google.com/bigquery/docs/creating-managing-labels#creating_and_updating_dataset_labels)
+ *  for more information.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Dataset_Labels *labels;
 
@@ -5353,8 +5404,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *storageBillingModel;
 
-/** Output only. Tags for the Dataset. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Dataset_Tags_Item *> *tags;
+/**
+ *  Output only. Tags for the dataset. To provide tags as inputs, use the
+ *  `resourceTags` field.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Dataset_Tags_Item *> *tags GTLR_DEPRECATED;
 
 /**
  *  Output only. Same as `type` in `ListFormatDataset`. The type of the dataset,
@@ -5403,9 +5457,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  An IAM role ID that should be granted to the user, group, or domain
  *  specified in this access entry. The following legacy mappings will be
- *  applied: OWNER <=> roles/bigquery.dataOwner WRITER <=>
- *  roles/bigquery.dataEditor READER <=> roles/bigquery.dataViewer This field
- *  will accept any of the above formats, but will return only the legacy
+ *  applied: * `OWNER`: `roles/bigquery.dataOwner` * `WRITER`:
+ *  `roles/bigquery.dataEditor` * `READER`: `roles/bigquery.dataViewer` This
+ *  field will accept any of the above formats, but will return only the legacy
  *  format. For example, if you set this field to "roles/bigquery.dataOwner", it
  *  will be returned back as "OWNER".
  */
@@ -5421,9 +5475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_RoutineReference *routine;
 
 /**
- *  [Pick one] A special group to grant access to. Possible values include:
- *  projectOwners: Owners of the enclosing project. projectReaders: Readers of
- *  the enclosing project. projectWriters: Writers of the enclosing project.
+ *  [Pick one] A special group to grant access to. Possible values include: *
+ *  projectOwners: Owners of the enclosing project. * projectReaders: Readers of
+ *  the enclosing project. * projectWriters: Writers of the enclosing project. *
  *  allAuthenticatedUsers: All authenticated BigQuery users. Maps to
  *  similarly-named IAM members.
  */
@@ -5451,7 +5505,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  The labels associated with this dataset. You can use these to organize and
  *  group your datasets. You can set this property when inserting or updating a
- *  dataset. See Creating and Updating Dataset Labels for more information.
+ *  dataset. See [Creating and Updating Dataset
+ *  Labels](https://cloud.google.com/bigquery/docs/creating-managing-labels#creating_and_updating_dataset_labels)
+ *  for more information.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5623,7 +5679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_DatasetReference
+ *  Identifier for a dataset.
  */
 @interface GTLRBigquery_DatasetReference : GTLRObject
 
@@ -5908,7 +5964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  GTLRBigquery_EncryptionConfiguration
+ *  Configuration for Cloud KMS encryption settings.
  */
 @interface GTLRBigquery_EncryptionConfiguration : GTLRObject
 
@@ -6445,9 +6501,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Optional. The connection specifying the credentials to be used to read
  *  external storage, such as Azure Blob, Cloud Storage, or S3. The
- *  connection_id can have the form
- *  "<project\\_id>.<location\\_id>.<connection\\_id>" or
- *  "projects/<project\\_id>/locations/<location\\_id>/connections/<connection\\_id>".
+ *  connection_id can have the form `{project_id}.{location_id};{connection_id}`
+ *  or
+ *  `projects/{project_id}/locations/{location_id}/connections/{connection_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
@@ -7487,9 +7543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Output only. If set, it provides the reason why a Job was created. If not
- *  set, it should be treated as the default: REQUESTED. This feature is not yet
- *  available. Jobs will always be created.
+ *  Output only. The reason why a Job was created.
+ *  [Preview](/products/#product-launch-stages)
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobCreationReason *jobCreationReason;
 
@@ -8396,8 +8451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  [`jobs.query`](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query)
  *  method when used with `JOB_CREATION_OPTIONAL` Job creation mode. For
  *  [`jobs.insert`](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/insert)
- *  method calls it will always be `REQUESTED`. This feature is not yet
- *  available. Jobs will always be created.
+ *  method calls it will always be `REQUESTED`.
+ *  [Preview](/products/#product-launch-stages)
  */
 @interface GTLRBigquery_JobCreationReason : GTLRObject
 
@@ -8573,6 +8628,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  jobs.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DataMaskingStatistics *dataMaskingStatistics;
+
+/**
+ *  Output only. Name of edition corresponding to the reservation for this job
+ *  at the time of this update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_JobStatistics_Edition_Enterprise Enterprise edition.
+ *        (Value: "ENTERPRISE")
+ *    @arg @c kGTLRBigquery_JobStatistics_Edition_EnterprisePlus Enterprise plus
+ *        edition. (Value: "ENTERPRISE_PLUS")
+ *    @arg @c kGTLRBigquery_JobStatistics_Edition_ReservationEditionUnspecified
+ *        Default value, which will be treated as ENTERPRISE. (Value:
+ *        "RESERVATION_EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_JobStatistics_Edition_Standard Standard edition.
+ *        (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /**
  *  Output only. End time of this job, in milliseconds since the epoch. This
@@ -9692,8 +9764,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *    @arg @c kGTLRBigquery_MlStatistics_ModelType_TensorflowLite An imported
  *        TensorFlow Lite model. (Value: "TENSORFLOW_LITE")
  *    @arg @c kGTLRBigquery_MlStatistics_ModelType_TransformOnly Model to
- *        capture the manual preprocessing logic in the transform clause.
- *        (Value: "TRANSFORM_ONLY")
+ *        capture the columns and logic in the TRANSFORM clause along with
+ *        statistics useful for ML analytic functions. (Value: "TRANSFORM_ONLY")
  *    @arg @c kGTLRBigquery_MlStatistics_ModelType_Xgboost An imported XGBoost
  *        model. (Value: "XGBOOST")
  */
@@ -9882,8 +9954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *    @arg @c kGTLRBigquery_Model_ModelType_TensorflowLite An imported
  *        TensorFlow Lite model. (Value: "TENSORFLOW_LITE")
  *    @arg @c kGTLRBigquery_Model_ModelType_TransformOnly Model to capture the
- *        manual preprocessing logic in the transform clause. (Value:
- *        "TRANSFORM_ONLY")
+ *        columns and logic in the TRANSFORM clause along with statistics useful
+ *        for ML analytic functions. (Value: "TRANSFORM_ONLY")
  *    @arg @c kGTLRBigquery_Model_ModelType_Xgboost An imported XGBoost model.
  *        (Value: "XGBOOST")
  */
@@ -10552,8 +10624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Optional. If not set, jobs are always required. If set, the query request
- *  will follow the behavior described JobCreationMode. This feature is not yet
- *  available. Jobs will always be created.
+ *  will follow the behavior described JobCreationMode.
+ *  [Preview](/products/#product-launch-stages)
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationModeUnspecified
@@ -10749,12 +10821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *jobComplete;
 
 /**
- *  Optional. Only relevant when a job_reference is present in the response. If
- *  job_reference is not present it will always be unset. When job_reference is
- *  present, this field should be interpreted as follows: If set, it will
- *  provide the reason of why a Job was created. If not set, it should be
- *  treated as the default: REQUESTED. This feature is not yet available. Jobs
- *  will always be created.
+ *  Optional. The reason why a Job was created. Only relevant when a
+ *  job_reference is present in the response. If job_reference is not present it
+ *  will always be unset. [Preview](/products/#product-launch-stages)
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobCreationReason *jobCreationReason;
 
@@ -10763,7 +10832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  present even if the original request timed out, in which case
  *  GetQueryResults can be used to read the results once the query has
  *  completed. Since this API only returns the first page of results, subsequent
- *  pages can be fetched via the same mechanism (GetQueryResults).
+ *  pages can be fetched via the same mechanism (GetQueryResults). If
+ *  job_creation_mode was set to `JOB_CREATION_OPTIONAL` and the query completes
+ *  without creating a job, this field will be empty.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobReference *jobReference;
 
@@ -10788,8 +10859,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Query ID for the completed query. This ID will be auto-generated. This field
- *  is not yet available and it is currently not guaranteed to be populated.
+ *  Auto-generated ID for the query. [Preview](/products/#product-launch-stages)
  */
 @property(nonatomic, copy, nullable) NSString *queryId;
 
@@ -11977,7 +12047,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  "arrayElementType": {"typeKind": "STRING"} } * STRUCT>: { "typeKind":
  *  "STRUCT", "structType": { "fields": [ { "name": "x", "type": {"typeKind":
  *  "STRING"} }, { "name": "y", "type": { "typeKind": "ARRAY",
- *  "arrayElementType": {"typeKind": "DATE"} } } ] } }
+ *  "arrayElementType": {"typeKind": "DATE"} } } ] } } * RANGE: { "typeKind":
+ *  "RANGE", "rangeElementType": {"typeKind": "DATE"} }
  */
 @interface GTLRBigquery_StandardSqlDataType : GTLRObject
 
@@ -12824,6 +12895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *collation;
 
+/** Optional. Data policy options, will replace the data_policies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_DataPolicyOption *> *dataPolicies;
+
 /**
  *  Optional. A SQL expression to specify the [default value]
  *  (https://cloud.google.com/bigquery/docs/default-values) for this field.
@@ -12938,8 +13012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Required. The field data type. Possible values include: * STRING * BYTES *
  *  INTEGER (or INT64) * FLOAT (or FLOAT64) * BOOLEAN (or BOOL) * TIMESTAMP *
  *  DATE * TIME * DATETIME * GEOGRAPHY * NUMERIC * BIGNUMERIC * JSON * RECORD
- *  (or STRUCT) * RANGE ([Preview](/products/#product-launch-stages)) Use of
- *  RECORD/STRUCT indicates that the field contains a nested schema.
+ *  (or STRUCT) * RANGE Use of RECORD/STRUCT indicates that the field contains a
+ *  nested schema.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -13135,6 +13209,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Free form human-readable reason metadata caching was unused for the job.
  */
 @property(nonatomic, copy, nullable) NSString *explanation;
+
+/**
+ *  Duration since last refresh as of this job for managed tables (indicates
+ *  metadata cache staleness as seen by this job).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *staleness;
 
 /** Metadata caching eligible table referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;

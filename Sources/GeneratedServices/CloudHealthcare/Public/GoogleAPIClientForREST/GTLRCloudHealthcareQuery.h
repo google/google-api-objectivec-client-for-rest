@@ -2111,6 +2111,88 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  GetStorageInfo returns the storage info of the specified resource.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.getStorageInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesGetStorageInfo : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The path of the instance to return storage info for, in the form:
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_StorageInfo.
+ *
+ *  GetStorageInfo returns the storage info of the specified resource.
+ *
+ *  @param resource Required. The path of the instance to return storage info
+ *    for, in the form:
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesGetStorageInfo
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  SetBlobStorageSettings sets the blob storage settings of the specified
+ *  resources.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.setBlobStorageSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSetBlobStorageSettings : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The path of the resource to update the blob storage settings in
+ *  the format of
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}`,
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/`,
+ *  or
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`.
+ *  If `filter_config` is specified, set the value of `resource` to the resource
+ *  name of a DICOM store in the format
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  SetBlobStorageSettings sets the blob storage settings of the specified
+ *  resources.
+ *
+ *  @param object The @c GTLRCloudHealthcare_SetBlobStorageSettingsRequest to
+ *    include in the query.
+ *  @param resource Required. The path of the resource to update the blob
+ *    storage settings in the format of
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}`,
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/`,
+ *    or
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`.
+ *    If `filter_config` is specified, set the value of `resource` to the
+ *    resource name of a DICOM store in the format
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSetBlobStorageSettings
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetBlobStorageSettingsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Exports data to the specified destination by copying it from the DICOM
  *  store. Errors are also logged to Cloud Logging. For more information, see
  *  [Viewing error logs in Cloud
@@ -2575,6 +2657,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 + (instancetype)queryWithParent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath;
+
+@end
+
+/**
+ *  SetBlobStorageSettings sets the blob storage settings of the specified
+ *  resources.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.setBlobStorageSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetBlobStorageSettings : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The path of the resource to update the blob storage settings in
+ *  the format of
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}`,
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/`,
+ *  or
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`.
+ *  If `filter_config` is specified, set the value of `resource` to the resource
+ *  name of a DICOM store in the format
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  SetBlobStorageSettings sets the blob storage settings of the specified
+ *  resources.
+ *
+ *  @param object The @c GTLRCloudHealthcare_SetBlobStorageSettingsRequest to
+ *    include in the query.
+ *  @param resource Required. The path of the resource to update the blob
+ *    storage settings in the format of
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}`,
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/`,
+ *    or
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`.
+ *    If `filter_config` is specified, set the value of `resource` to the
+ *    resource name of a DICOM store in the format
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetBlobStorageSettings
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetBlobStorageSettingsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -6459,7 +6591,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Output only. Resource name of the Message, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
- *  Assigned by the server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6484,7 +6615,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param object The @c GTLRCloudHealthcare_Message to include in the query.
  *  @param name Output only. Resource name of the Message, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
- *    Assigned by the server.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesPatch
  */
@@ -6531,6 +6661,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_Hl7V2Store *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rolls back messages from the HL7v2 store to the specified time. This method
+ *  returns an Operation that can be used to track the status of the rollback by
+ *  calling GetOperation. Immediate fatal errors appear in the error field,
+ *  errors are also logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  RollbackHl7V2MessagesResponse is returned in the response field. The
+ *  metadata field type for this operation is OperationMetadata.
+ *
+ *  Method: healthcare.projects.locations.datasets.hl7V2Stores.rollback
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresRollback : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the HL7v2 store to rollback, in the format of
+ *  "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}
+ *  /hl7V2Stores/{hl7v2_store_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Rolls back messages from the HL7v2 store to the specified time. This method
+ *  returns an Operation that can be used to track the status of the rollback by
+ *  calling GetOperation. Immediate fatal errors appear in the error field,
+ *  errors are also logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  RollbackHl7V2MessagesResponse is returned in the response field. The
+ *  metadata field type for this operation is OperationMetadata.
+ *
+ *  @param object The @c GTLRCloudHealthcare_RollbackHl7V2MessagesRequest to
+ *    include in the query.
+ *  @param name Required. The name of the HL7v2 store to rollback, in the format
+ *    of "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}
+ *    /hl7V2Stores/{hl7v2_store_id}".
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresRollback
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_RollbackHl7V2MessagesRequest *)object
                            name:(NSString *)name;
 
 @end

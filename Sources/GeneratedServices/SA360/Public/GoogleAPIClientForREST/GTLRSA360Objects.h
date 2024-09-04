@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRSA360_GoogleAdsSearchads360V0CommonAdScheduleInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonAdTextAsset;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonAgeRangeInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonAssetInteractionTarget;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage;
@@ -3218,6 +3219,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LocalAd;
 /**
+ *  Multimedia ad.
+ *
+ *  Value: "MULTIMEDIA_AD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_MultimediaAd;
+/**
  *  The ad is a responsive display ad.
  *
  *  Value: "RESPONSIVE_DISPLAY_AD"
@@ -5177,6 +5184,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_SmartCampaign;
 /**
+ *  Facebook tracking only social campaigns.
+ *
+ *  Value: "SOCIAL_FACEBOOK_TRACKING_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_SocialFacebookTrackingOnly;
+/**
  *  Travel Activities campaigns.
  *
  *  Value: "TRAVEL_ACTIVITIES"
@@ -5290,6 +5303,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  *  Value: "SMART"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Smart;
+/**
+ *  Social campaigns.
+ *
+ *  Value: "SOCIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Social;
 /**
  *  Travel campaigns.
  *
@@ -7493,6 +7512,61 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionTrackingSetting_ConversionTrackingStatus_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn.renderType
+
+/**
+ *  The custom column value is a boolean.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Boolean;
+/**
+ *  The custom column value is a date represented as an integer in YYYYMMDD
+ *  format.
+ *
+ *  Value: "DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Date;
+/**
+ *  The custom column value is a monetary value and is in micros.
+ *
+ *  Value: "MONEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Money;
+/**
+ *  The custom column is a raw numerical value. See value_type field to
+ *  determine if it is an integer or a double.
+ *
+ *  Value: "NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Number;
+/**
+ *  The custom column should be multiplied by 100 to retrieve the percentage
+ *  value.
+ *
+ *  Value: "PERCENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Percent;
+/**
+ *  The custom column value is a string.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_String;
+/**
+ *  Unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn.valueType
 
 /**
@@ -7501,6 +7575,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  *  Value: "BOOLEAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Boolean;
+/**
+ *  The custom column value is a date, in YYYYMMDD format.
+ *
+ *  Value: "DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Date;
 /**
  *  The custom column value is a double number.
  *
@@ -8706,6 +8786,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A text asset used inside an ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonAdTextAsset : GTLRObject
+
+/** Asset text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  An age range criterion.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0CommonAgeRangeInfo : GTLRObject
@@ -9523,6 +9614,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *averageCpm;
+
+/**
+ *  The average quality score.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageQualityScore;
 
 /**
  *  The number of clicks.
@@ -10469,6 +10567,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, strong, nullable) NSNumber *adTrackingId;
 
+/**
+ *  List of text assets for descriptions. When the ad serves the descriptions
+ *  will be selected from this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonAdTextAsset *> *descriptions;
+
+/**
+ *  List of text assets for headlines. When the ad serves the headlines will be
+ *  selected from this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonAdTextAsset *> *headlines;
+
 /** Text appended to the auto-generated visible URL with a delimiter. */
 @property(nonatomic, copy, nullable) NSString *path1;
 
@@ -10682,6 +10792,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Not specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *device;
+
+/** Resource name of the geo target constant that represents a city. */
+@property(nonatomic, copy, nullable) NSString *geoTargetCity;
+
+/** Resource name of the geo target constant that represents a country. */
+@property(nonatomic, copy, nullable) NSString *geoTargetCountry;
+
+/** Resource name of the geo target constant that represents a metro. */
+@property(nonatomic, copy, nullable) NSString *geoTargetMetro;
+
+/** Resource name of the geo target constant that represents a region. */
+@property(nonatomic, copy, nullable) NSString *geoTargetRegion;
+
+/**
+ *  Hour of day as a number between 0 and 23, inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hour;
 
 /** Keyword criterion. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonKeyword *keyword;
@@ -11141,10 +11270,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *cpcBidCeilingMicros;
 
 /**
- *  The spend target under which to maximize clicks. A TargetSpend bidder will
- *  attempt to spend the smaller of this value or the natural throttling spend
- *  amount. If not specified, the budget is used as the spend target. This field
- *  is deprecated and should no longer be used. See
+ *  Deprecated: The spend target under which to maximize clicks. A TargetSpend
+ *  bidder will attempt to spend the smaller of this value or the natural
+ *  throttling spend amount. If not specified, the budget is used as the spend
+ *  target. This field is deprecated and should no longer be used. See
  *  https://ads-developers.googleblog.com/2020/05/reminder-about-sunset-creation-of.html
  *  for details.
  *
@@ -11172,7 +11301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @interface GTLRSA360_GoogleAdsSearchads360V0CommonTextLabel : GTLRObject
 
 /**
- *  Background color of the label in RGB format. This string must match the
+ *  Background color of the label in HEX format. This string must match the
  *  regular expression '^\\#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$'. Note: The
  *  background color may not be visible for manager accounts.
  */
@@ -12266,7 +12395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
- *  SearchAds360-specific error.
+ *  Search Ads 360-specific error.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ErrorsSearchAds360Error : GTLRObject
 
@@ -12712,6 +12841,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        "LEGACY_RESPONSIVE_DISPLAY_AD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_LocalAd The ad
  *        is a local ad. (Value: "LOCAL_AD")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_MultimediaAd
+ *        Multimedia ad. (Value: "MULTIMEDIA_AD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ResponsiveDisplayAd
  *        The ad is a responsive display ad. (Value: "RESPONSIVE_DISPLAY_AD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAd_Type_ResponsiveSearchAd
@@ -12989,8 +13120,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /**
  *  Output only. ID of the ad in the external engine account. This field is for
- *  SearchAds 360 account only, for example, Yahoo Japan, Microsoft, Baidu etc.
- *  For non-SearchAds 360 entity, use "ad_group_ad.ad.id" instead.
+ *  Search Ads 360 account only, for example, Yahoo Japan, Microsoft, Baidu etc.
+ *  For non-Search Ads 360 entity, use "ad_group_ad.ad.id" instead.
  */
 @property(nonatomic, copy, nullable) NSString *engineId;
 
@@ -13097,6 +13228,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** Immutable. The label assigned to the ad group ad. */
 @property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Output only. The ID of the Customer which owns the label.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
 
 /**
  *  Immutable. The resource name of the ad group ad label. Ad group ad label
@@ -13548,6 +13686,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
+ *  Output only. The ID of the Customer which owns the label.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
+
+/**
  *  Immutable. The resource name of the ad group criterion label. Ad group
  *  criterion label resource names have the form:
  *  `customers/{customer_id}/adGroupCriterionLabels/{ad_group_id}~{criterion_id}~{label_id}`
@@ -13599,6 +13744,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** Immutable. The label assigned to the ad group. */
 @property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Output only. The ID of the Customer which owns the label.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
 
 /**
  *  Immutable. The resource name of the ad group label. Ad group label resource
@@ -14574,6 +14726,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Smart Shopping campaigns. (Value: "SHOPPING_SMART_ADS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_SmartCampaign
  *        Standard Smart campaigns. (Value: "SMART_CAMPAIGN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_SocialFacebookTrackingOnly
+ *        Facebook tracking only social campaigns. (Value:
+ *        "SOCIAL_FACEBOOK_TRACKING_ONLY")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_TravelActivities
  *        Travel Activities campaigns. (Value: "TRAVEL_ACTIVITIES")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelSubType_Unknown
@@ -14627,6 +14782,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        search results. (Value: "SHOPPING")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Smart
  *        Smart campaigns. (Value: "SMART")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Social
+ *        Social campaigns. (Value: "SOCIAL")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Travel
  *        Travel campaigns. (Value: "TRAVEL")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_AdvertisingChannelType_Unknown
@@ -15506,6 +15663,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
+ *  Output only. The ID of the Customer which owns the label.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
+
+/**
  *  Immutable. Name of the resource. Campaign label resource names have the
  *  form: `customers/{customer_id}/campaignLabels/{campaign_id}~{label_id}`
  */
@@ -15863,9 +16027,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  Output only. The SearchAds360 inventory account ID containing the product
- *  that was clicked on. SearchAds360 generates this ID when you link an
- *  inventory account in SearchAds360.
+ *  Output only. The Search Ads 360 inventory account ID containing the product
+ *  that was clicked on. Search Ads 360 generates this ID when you link an
+ *  inventory account in Search Ads 360.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -15933,7 +16097,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  Output only. The SearchAds360 visit ID that the conversion is attributed to.
+ *  Output only. The Search Ads 360 visit ID that the conversion is attributed
+ *  to.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16737,6 +16902,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *referencesMetrics;
 
 /**
+ *  Output only. How the result value of the custom column should be
+ *  interpreted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Boolean
+ *        The custom column value is a boolean. (Value: "BOOLEAN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Date
+ *        The custom column value is a date represented as an integer in
+ *        YYYYMMDD format. (Value: "DATE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Money
+ *        The custom column value is a monetary value and is in micros. (Value:
+ *        "MONEY")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Number
+ *        The custom column is a raw numerical value. See value_type field to
+ *        determine if it is an integer or a double. (Value: "NUMBER")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Percent
+ *        The custom column should be multiplied by 100 to retrieve the
+ *        percentage value. (Value: "PERCENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_String
+ *        The custom column value is a string. (Value: "STRING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Unknown
+ *        Unknown. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_RenderType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *renderType;
+
+/**
  *  Immutable. The resource name of the custom column. Custom column resource
  *  names have the form:
  *  `customers/{customer_id}/customColumns/{custom_column_id}`
@@ -16749,6 +16942,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Likely values:
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Boolean
  *        The custom column value is a boolean. (Value: "BOOLEAN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Date
+ *        The custom column value is a date, in YYYYMMDD format. (Value: "DATE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Double
  *        The custom column value is a double number. (Value: "DOUBLE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesCustomColumn_ValueType_Int64
@@ -17123,6 +17318,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  `customers/{customer_id}/customerManagerLinks/{manager_customer_id}~{manager_link_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. The timestamp when the CustomerManagerLink was created. The
+ *  timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss"
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
  *  Status of the link between the customer and the manager.

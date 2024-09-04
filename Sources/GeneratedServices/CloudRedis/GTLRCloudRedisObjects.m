@@ -61,6 +61,22 @@ NSString * const kGTLRCloudRedis_ClusterPersistenceConfig_Mode_Disabled = @"DISA
 NSString * const kGTLRCloudRedis_ClusterPersistenceConfig_Mode_PersistenceModeUnspecified = @"PERSISTENCE_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_ClusterPersistenceConfig_Mode_Rdb = @"RDB";
 
+// GTLRCloudRedis_ClusterWeeklyMaintenanceWindow.day
+NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Friday = @"FRIDAY";
+NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Monday = @"MONDAY";
+NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Saturday = @"SATURDAY";
+NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Sunday = @"SUNDAY";
+NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Thursday = @"THURSDAY";
+NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Tuesday = @"TUESDAY";
+NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Wednesday = @"WEDNESDAY";
+
+// GTLRCloudRedis_CrossClusterReplicationConfig.clusterRole
+NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_ClusterRoleUnspecified = @"CLUSTER_ROLE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_None = @"NONE";
+NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_Primary = @"PRIMARY";
+NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_Secondary = @"SECONDARY";
+
 // GTLRCloudRedis_DatabaseResourceFeed.feedType
 NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified = @"FEEDTYPE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ObservabilityData = @"OBSERVABILITY_DATA";
@@ -84,6 +100,13 @@ NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalClass_Mi
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalClass_Observation = @"OBSERVATION";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalClass_Threat = @"THREAT";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalClass_Vulnerability = @"VULNERABILITY";
+
+// GTLRCloudRedis_DatabaseResourceHealthSignalData.signalSeverity
+NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_High = @"HIGH";
+NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Low = @"LOW";
+NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Medium = @"MEDIUM";
+NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_SignalSeverityUnspecified = @"SIGNAL_SEVERITY_UNSPECIFIED";
 
 // GTLRCloudRedis_DatabaseResourceHealthSignalData.signalType
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeConnectionAttemptsNotLogged = @"SIGNAL_TYPE_CONNECTION_ATTEMPTS_NOT_LOGGED";
@@ -386,6 +409,8 @@ NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwentyFourH
 // GTLRCloudRedis_Product.engine
 NSString * const kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithGooglesqlDialect = @"ENGINE_CLOUD_SPANNER_WITH_GOOGLESQL_DIALECT";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithPostgresDialect = @"ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT";
+NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode = @"ENGINE_FIRESTORE_WITH_DATASTORE_MODE";
+NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode = @"ENGINE_FIRESTORE_WITH_NATIVE_MODE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedis = @"ENGINE_MEMORYSTORE_FOR_REDIS";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedisCluster = @"ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMysql    = @"ENGINE_MYSQL";
@@ -406,6 +431,7 @@ NSString * const kGTLRCloudRedis_Product_Type_OnPrem           = @"ON_PREM";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeAlloydb = @"PRODUCT_TYPE_ALLOYDB";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeBigtable = @"PRODUCT_TYPE_BIGTABLE";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeCloudSql = @"PRODUCT_TYPE_CLOUD_SQL";
+NSString * const kGTLRCloudRedis_Product_Type_ProductTypeFirestore = @"PRODUCT_TYPE_FIRESTORE";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeMemorystore = @"PRODUCT_TYPE_MEMORYSTORE";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOnPrem = @"PRODUCT_TYPE_ON_PREM";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOther = @"PRODUCT_TYPE_OTHER";
@@ -423,6 +449,11 @@ NSString * const kGTLRCloudRedis_RDBConfig_RdbSnapshotPeriod_TwentyFourHours = @
 NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
 NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
 NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
+
+// GTLRCloudRedis_RescheduleClusterMaintenanceRequest.rescheduleType
+NSString * const kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_Immediate = @"IMMEDIATE";
+NSString * const kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified = @"RESCHEDULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_SpecificTime = @"SPECIFIC_TIME";
 
 // GTLRCloudRedis_RescheduleMaintenanceRequest.rescheduleType
 NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_Immediate = @"IMMEDIATE";
@@ -467,8 +498,9 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_AvailabilityConfiguration
-@dynamic availabilityType, crossRegionReplicaConfigured,
-         externalReplicaConfigured, promotableReplicaConfigured;
+@dynamic automaticFailoverRoutingConfigured, availabilityType,
+         crossRegionReplicaConfigured, externalReplicaConfigured,
+         promotableReplicaConfigured;
 @end
 
 
@@ -527,8 +559,9 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_Cluster
-@dynamic authorizationMode, createTime, deletionProtectionEnabled,
-         discoveryEndpoints, name, nodeType, persistenceConfig, preciseSizeGb,
+@dynamic authorizationMode, createTime, crossClusterReplicationConfig,
+         deletionProtectionEnabled, discoveryEndpoints, maintenancePolicy,
+         maintenanceSchedule, name, nodeType, persistenceConfig, preciseSizeGb,
          pscConfigs, pscConnections, redisConfigs, replicaCount, shardCount,
          sizeGb, state, stateInfo, transitEncryptionMode, uid,
          zoneDistributionConfig;
@@ -561,11 +594,49 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_ClusterMaintenancePolicy
+//
+
+@implementation GTLRCloudRedis_ClusterMaintenancePolicy
+@dynamic createTime, updateTime, weeklyMaintenanceWindow;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"weeklyMaintenanceWindow" : [GTLRCloudRedis_ClusterWeeklyMaintenanceWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ClusterMaintenanceSchedule
+//
+
+@implementation GTLRCloudRedis_ClusterMaintenanceSchedule
+@dynamic endTime, scheduleDeadlineTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_ClusterPersistenceConfig
 //
 
 @implementation GTLRCloudRedis_ClusterPersistenceConfig
 @dynamic aofConfig, mode, rdbConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ClusterWeeklyMaintenanceWindow
+//
+
+@implementation GTLRCloudRedis_ClusterWeeklyMaintenanceWindow
+@dynamic day, duration, startTime;
 @end
 
 
@@ -581,15 +652,15 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_CustomMetadataData
+//   GTLRCloudRedis_CrossClusterReplicationConfig
 //
 
-@implementation GTLRCloudRedis_CustomMetadataData
-@dynamic databaseMetadata;
+@implementation GTLRCloudRedis_CrossClusterReplicationConfig
+@dynamic clusterRole, membership, primaryCluster, secondaryClusters, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"databaseMetadata" : [GTLRCloudRedis_DatabaseMetadata class]
+    @"secondaryClusters" : [GTLRCloudRedis_RemoteCluster class]
   };
   return map;
 }
@@ -599,11 +670,19 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_DatabaseMetadata
+//   GTLRCloudRedis_CustomMetadataData
 //
 
-@implementation GTLRCloudRedis_DatabaseMetadata
-@dynamic backupConfiguration, backupRun, product, resourceId, resourceName;
+@implementation GTLRCloudRedis_CustomMetadataData
+@dynamic internalResourceMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"internalResourceMetadata" : [GTLRCloudRedis_InternalResourceMetadata class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -627,7 +706,7 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 @implementation GTLRCloudRedis_DatabaseResourceHealthSignalData
 @dynamic additionalMetadata, compliance, descriptionProperty, eventTime,
          externalUri, name, provider, resourceContainer, resourceName,
-         signalClass, signalId, signalType, state;
+         signalClass, signalId, signalSeverity, signalType, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -920,6 +999,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_InternalResourceMetadata
+//
+
+@implementation GTLRCloudRedis_InternalResourceMetadata
+@dynamic backupConfiguration, backupRun, product, resourceId, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_ListClustersResponse
 //
 
@@ -1108,6 +1197,24 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_Membership
+//
+
+@implementation GTLRCloudRedis_Membership
+@dynamic primaryCluster, secondaryClusters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"secondaryClusters" : [GTLRCloudRedis_RemoteCluster class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_NodeInfo
 //
 
@@ -1262,6 +1369,26 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 @implementation GTLRCloudRedis_ReconciliationOperationMetadata
 @dynamic deleteResource, exclusiveAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_RemoteCluster
+//
+
+@implementation GTLRCloudRedis_RemoteCluster
+@dynamic cluster, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_RescheduleClusterMaintenanceRequest
+//
+
+@implementation GTLRCloudRedis_RescheduleClusterMaintenanceRequest
+@dynamic rescheduleType, scheduleTime;
 @end
 
 

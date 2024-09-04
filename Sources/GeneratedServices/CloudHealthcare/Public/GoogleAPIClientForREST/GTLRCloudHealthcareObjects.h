@@ -19,6 +19,8 @@
 @class GTLRCloudHealthcare_AuditConfig;
 @class GTLRCloudHealthcare_AuditLogConfig;
 @class GTLRCloudHealthcare_Binding;
+@class GTLRCloudHealthcare_BlobStorageInfo;
+@class GTLRCloudHealthcare_BlobStorageSettings;
 @class GTLRCloudHealthcare_CharacterMaskConfig;
 @class GTLRCloudHealthcare_CheckDataAccessRequest_RequestAttributes;
 @class GTLRCloudHealthcare_CheckDataAccessResponse_ConsentDetails;
@@ -103,6 +105,7 @@
 @class GTLRCloudHealthcare_Result;
 @class GTLRCloudHealthcare_Result_ConsentDetails;
 @class GTLRCloudHealthcare_RollbackFhirResourceFilteringFields;
+@class GTLRCloudHealthcare_RollbackHL7MessagesFilteringFields;
 @class GTLRCloudHealthcare_SchemaConfig;
 @class GTLRCloudHealthcare_SchemaGroup;
 @class GTLRCloudHealthcare_SchemaPackage;
@@ -115,6 +118,7 @@
 @class GTLRCloudHealthcare_Status;
 @class GTLRCloudHealthcare_Status_Details_Item;
 @class GTLRCloudHealthcare_StreamConfig;
+@class GTLRCloudHealthcare_StructuredStorageInfo;
 @class GTLRCloudHealthcare_TagFilterList;
 @class GTLRCloudHealthcare_TextConfig;
 @class GTLRCloudHealthcare_TextSpan;
@@ -223,6 +227,86 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_D
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_BlobStorageInfo.storageClass
+
+/**
+ *  This stores the Object in Blob Archive Storage:
+ *  https://cloud.google.com/storage/docs/storage-classes#archive
+ *
+ *  Value: "ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Archive;
+/**
+ *  If unspecified in CreateDataset, the StorageClass defaults to STANDARD. If
+ *  unspecified in UpdateDataset and the StorageClass is set in the field mask,
+ *  an InvalidRequest error is thrown.
+ *
+ *  Value: "BLOB_STORAGE_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_BlobStorageClassUnspecified;
+/**
+ *  This stores the Object in Blob Coldline Storage:
+ *  https://cloud.google.com/storage/docs/storage-classes#coldline
+ *
+ *  Value: "COLDLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Coldline;
+/**
+ *  This stores the Object in Blob Nearline Storage:
+ *  https://cloud.google.com/storage/docs/storage-classes#nearline
+ *
+ *  Value: "NEARLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Nearline;
+/**
+ *  This stores the Object in Blob Standard Storage:
+ *  https://cloud.google.com/storage/docs/storage-classes#standard
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_BlobStorageSettings.blobStorageClass
+
+/**
+ *  This stores the Object in Blob Archive Storage:
+ *  https://cloud.google.com/storage/docs/storage-classes#archive
+ *
+ *  Value: "ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Archive;
+/**
+ *  If unspecified in CreateDataset, the StorageClass defaults to STANDARD. If
+ *  unspecified in UpdateDataset and the StorageClass is set in the field mask,
+ *  an InvalidRequest error is thrown.
+ *
+ *  Value: "BLOB_STORAGE_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_BlobStorageClassUnspecified;
+/**
+ *  This stores the Object in Blob Coldline Storage:
+ *  https://cloud.google.com/storage/docs/storage-classes#coldline
+ *
+ *  Value: "COLDLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Coldline;
+/**
+ *  This stores the Object in Blob Nearline Storage:
+ *  https://cloud.google.com/storage/docs/storage-classes#nearline
+ *
+ *  Value: "NEARLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Nearline;
+/**
+ *  This stores the Object in Blob Standard Storage:
+ *  https://cloud.google.com/storage/docs/storage-classes#standard
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_CheckDataAccessRequest.responseView
@@ -730,6 +814,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesReq
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Update;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_RollbackHl7V2MessagesRequest.changeType
+
+/**
+ *  All transactions
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_All;
+/**
+ *  When unspecified, revert all transactions
+ *
+ *  Value: "CHANGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_ChangeTypeUnspecified;
+/**
+ *  Revert only CREATE transactions
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Create;
+/**
+ *  Revert only Delete transactions
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Delete;
+/**
+ *  Revert only Update transactions
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Update;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 
 /**
@@ -1216,6 +1334,93 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  BlobStorageInfo contains details about the data stored in Blob Storage for
+ *  the referenced resource. Note: Storage class is only valid for DICOM and
+ *  hence will only be populated for DICOM resources.
+ */
+@interface GTLRCloudHealthcare_BlobStorageInfo : GTLRObject
+
+/**
+ *  Size in bytes of data stored in Blob Storage.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/**
+ *  The storage class in which the Blob data is stored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Archive This
+ *        stores the Object in Blob Archive Storage:
+ *        https://cloud.google.com/storage/docs/storage-classes#archive (Value:
+ *        "ARCHIVE")
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_BlobStorageClassUnspecified
+ *        If unspecified in CreateDataset, the StorageClass defaults to
+ *        STANDARD. If unspecified in UpdateDataset and the StorageClass is set
+ *        in the field mask, an InvalidRequest error is thrown. (Value:
+ *        "BLOB_STORAGE_CLASS_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Coldline This
+ *        stores the Object in Blob Coldline Storage:
+ *        https://cloud.google.com/storage/docs/storage-classes#coldline (Value:
+ *        "COLDLINE")
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Nearline This
+ *        stores the Object in Blob Nearline Storage:
+ *        https://cloud.google.com/storage/docs/storage-classes#nearline (Value:
+ *        "NEARLINE")
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Standard This
+ *        stores the Object in Blob Standard Storage:
+ *        https://cloud.google.com/storage/docs/storage-classes#standard (Value:
+ *        "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *storageClass;
+
+/**
+ *  The time at which the storage class was updated. This is used to compute
+ *  early deletion fees of the resource.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *storageClassUpdateTime;
+
+@end
+
+
+/**
+ *  Settings for data stored in Blob storage.
+ */
+@interface GTLRCloudHealthcare_BlobStorageSettings : GTLRObject
+
+/**
+ *  The Storage class in which the Blob data is stored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Archive
+ *        This stores the Object in Blob Archive Storage:
+ *        https://cloud.google.com/storage/docs/storage-classes#archive (Value:
+ *        "ARCHIVE")
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_BlobStorageClassUnspecified
+ *        If unspecified in CreateDataset, the StorageClass defaults to
+ *        STANDARD. If unspecified in UpdateDataset and the StorageClass is set
+ *        in the field mask, an InvalidRequest error is thrown. (Value:
+ *        "BLOB_STORAGE_CLASS_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Coldline
+ *        This stores the Object in Blob Coldline Storage:
+ *        https://cloud.google.com/storage/docs/storage-classes#coldline (Value:
+ *        "COLDLINE")
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Nearline
+ *        This stores the Object in Blob Nearline Storage:
+ *        https://cloud.google.com/storage/docs/storage-classes#nearline (Value:
+ *        "NEARLINE")
+ *    @arg @c kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Standard
+ *        This stores the Object in Blob Standard Storage:
+ *        https://cloud.google.com/storage/docs/storage-classes#standard (Value:
+ *        "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *blobStorageClass;
 
 @end
 
@@ -1749,10 +1954,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Ensures in-flight data remains in the region of origin during
- *  de-identification. Using this option results in a significant reduction of
- *  throughput, and is not compatible with `LOCATION` or `ORGANIZATION_NAME`
- *  infoTypes. `LOCATION` must be excluded within TextConfig, and must also be
- *  excluded within ImageConfig if image redaction is required.
+ *  de-identification. The default value is false. Using this option results in
+ *  a significant reduction of throughput, and is not compatible with `LOCATION`
+ *  or `ORGANIZATION_NAME` infoTypes. `LOCATION` must be excluded within
+ *  TextConfig, and must also be excluded within ImageConfig if image redaction
+ *  is required.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2632,7 +2838,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
- *  Whether to send full FHIR resource to this Pub/Sub topic.
+ *  Whether to send full FHIR resource to this Pub/Sub topic. The default value
+ *  is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2640,12 +2847,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Whether to send full FHIR resource to this Pub/Sub topic for deleting FHIR
- *  resource. Note that setting this to true does not guarantee that all
- *  previous resources will be sent in the format of full FHIR resource. When a
- *  resource change is too large or during heavy traffic, only the resource name
- *  will be sent. Clients should always check the "payloadType" label from a
- *  Pub/Sub message to determine whether it needs to fetch the full previous
- *  resource as a separate operation.
+ *  resource. The default value is false. Note that setting this to true does
+ *  not guarantee that all previous resources will be sent in the format of full
+ *  FHIR resource. When a resource change is too large or during heavy traffic,
+ *  only the resource name will be sent. Clients should always check the
+ *  "payloadType" label from a Pub/Sub message to determine whether it needs to
+ *  fetch the full previous resource as a separate operation.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2687,7 +2894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  If false, uses the FHIR specification default `handling=lenient` which
  *  ignores unrecognized search parameters. The handling can always be changed
  *  from the default on an individual API call by setting the HTTP header
- *  `Prefer: handling=strict` or `Prefer: handling=lenient`.
+ *  `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2709,11 +2916,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 /**
  *  Immutable. Whether to disable resource versioning for this FHIR store. This
  *  field can not be changed after the creation of FHIR store. If set to false,
- *  which is the default behavior, all write operations cause historical
- *  versions to be recorded automatically. The historical versions can be
- *  fetched through the history APIs, but cannot be updated. If set to true, no
- *  historical versions are kept. The server sends errors for attempts to read
- *  the historical versions.
+ *  all write operations cause historical versions to be recorded automatically.
+ *  The historical versions can be fetched through the history APIs, but cannot
+ *  be updated. If set to true, no historical versions are kept. The server
+ *  sends errors for attempts to read the historical versions. Defaults to
+ *  false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2729,7 +2936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  data such as patient identifiers in client-specified resource IDs. Those IDs
  *  are part of the FHIR resource path recorded in Cloud audit logs and Pub/Sub
  *  notifications. Those IDs can also be contained in reference fields within
- *  other resources.
+ *  other resources. Defaults to false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3240,12 +3447,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *datasetUri;
 
 /**
- *  If this flag is `TRUE`, all tables are deleted from the dataset before the
- *  new exported tables are written. If the flag is not set and the destination
- *  dataset contains tables, the export call returns an error. If
- *  `write_disposition` is specified, this parameter is ignored. force=false is
- *  equivalent to write_disposition=WRITE_EMPTY and force=true is equivalent to
- *  write_disposition=WRITE_TRUNCATE.
+ *  The default value is false. If this flag is `TRUE`, all tables are deleted
+ *  from the dataset before the new exported tables are written. If the flag is
+ *  not set and the destination dataset contains tables, the export call returns
+ *  an error. If `write_disposition` is specified, this parameter is ignored.
+ *  force=false is equivalent to write_disposition=WRITE_EMPTY and force=true is
+ *  equivalent to write_disposition=WRITE_TRUNCATE.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3686,6 +3893,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  instances by ignoring the newly-pushed instance. It does not overwrite.
  */
 @interface GTLRCloudHealthcare_ImportDicomDataRequest : GTLRObject
+
+/**
+ *  Optional. The blob storage settings for the data imported by this operation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_BlobStorageSettings *blobStorageSettings;
 
 /**
  *  Cloud Storage source data location and import configuration. The Cloud
@@ -4333,13 +4545,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Message_Labels *labels;
 
-/** The message type for this message. MSH-9.1. */
+/** Output only. The message type for this message. MSH-9.1. */
 @property(nonatomic, copy, nullable) NSString *messageType;
 
 /**
  *  Output only. Resource name of the Message, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
- *  Assigned by the server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4347,21 +4558,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ParsedData *parsedData;
 
 /**
- *  All patient IDs listed in the PID-2, PID-3, and PID-4 segments of this
- *  message.
+ *  Output only. All patient IDs listed in the PID-2, PID-3, and PID-4 segments
+ *  of this message.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_PatientId *> *patientIds;
 
 /**
- *  The parsed version of the raw message data schematized according to this
- *  store's schemas and type definitions.
+ *  Output only. The parsed version of the raw message data schematized
+ *  according to this store's schemas and type definitions.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_SchematizedData *schematizedData;
 
-/** The hospital that this message came from. MSH-4. */
+/** Output only. The hospital that this message came from. MSH-4. */
 @property(nonatomic, copy, nullable) NSString *sendFacility;
 
-/** The datetime the sending application sent this message. MSH-7. */
+/**
+ *  Output only. The datetime the sending application sent this message. MSH-7.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
 
 @end
@@ -5032,6 +5245,93 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  Filtering fields for an HL7v2 rollback. Currently only supports a list of
+ *  operation ids to roll back.
+ */
+@interface GTLRCloudHealthcare_RollbackHL7MessagesFilteringFields : GTLRObject
+
+/**
+ *  Optional. A list of operation IDs to roll back.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *operationIds;
+
+@end
+
+
+/**
+ *  Point in time recovery rollback request.
+ */
+@interface GTLRCloudHealthcare_RollbackHl7V2MessagesRequest : GTLRObject
+
+/**
+ *  Optional. CREATE/UPDATE/DELETE/ALL for reverting all txns of a certain type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_All
+ *        All transactions (Value: "ALL")
+ *    @arg @c kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_ChangeTypeUnspecified
+ *        When unspecified, revert all transactions (Value:
+ *        "CHANGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Create
+ *        Revert only CREATE transactions (Value: "CREATE")
+ *    @arg @c kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Delete
+ *        Revert only Delete transactions (Value: "DELETE")
+ *    @arg @c kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Update
+ *        Revert only Update transactions (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *changeType;
+
+/**
+ *  Optional. Specifies whether to exclude earlier rollbacks.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludeRollbacks;
+
+/** Optional. Parameters for filtering. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_RollbackHL7MessagesFilteringFields *filteringFields;
+
+/**
+ *  Optional. When enabled, changes will be reverted without explicit
+ *  confirmation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  Optional. Cloud storage object containing list of {resourceId} lines,
+ *  identifying resources to be reverted
+ */
+@property(nonatomic, copy, nullable) NSString *inputGcsObject;
+
+/** Required. Bucket to deposit result */
+@property(nonatomic, copy, nullable) NSString *resultGcsBucket;
+
+/** Required. Times point to rollback to. */
+@property(nonatomic, strong, nullable) GTLRDateTime *rollbackTime;
+
+@end
+
+
+/**
+ *  Final response of rollback HL7v2 messages request.
+ */
+@interface GTLRCloudHealthcare_RollbackHl7V2MessagesResponse : GTLRObject
+
+/**
+ *  The name of the HL7v2 store to rollback, in the format of
+ *  "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}
+ *  /hl7v2Stores/{hl7v2_store_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *hl7v2Store;
+
+@end
+
+
+/**
  *  Configuration for the FHIR BigQuery schema. Determines how the server
  *  generates the schema.
  */
@@ -5340,6 +5640,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  Request message for `SetBlobStorageSettings` method.
+ */
+@interface GTLRCloudHealthcare_SetBlobStorageSettingsRequest : GTLRObject
+
+/**
+ *  The blob storage settings to update for the specified resources. Only fields
+ *  listed in `update_mask` are applied.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_BlobStorageSettings *blobStorageSettings;
+
+/**
+ *  Optional. A filter configuration. If `filter_config` is specified, set the
+ *  value of `resource` to the resource name of a DICOM store in the format
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_DicomFilterConfig *filterConfig;
+
+@end
+
+
+/**
+ *  Returns additional info in regards to a completed set blob storage settings
+ *  API.
+ */
+@interface GTLRCloudHealthcare_SetBlobStorageSettingsResponse : GTLRObject
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRCloudHealthcare_SetIamPolicyRequest : GTLRObject
@@ -5445,6 +5774,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  StorageInfo encapsulates all the storage info of a resource.
+ */
+@interface GTLRCloudHealthcare_StorageInfo : GTLRObject
+
+/** Info about the data stored in blob storage for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_BlobStorageInfo *blobStorageInfo;
+
+/**
+ *  The resource whose storage info is returned. For example:
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`
+ */
+@property(nonatomic, copy, nullable) NSString *referencedResource;
+
+/** Info about the data stored in structured storage for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_StructuredStorageInfo *structuredStorageInfo;
+
+@end
+
+
+/**
  *  Contains configuration for streaming FHIR export.
  */
 @interface GTLRCloudHealthcare_StreamConfig : GTLRObject
@@ -5509,6 +5858,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  the supported resource types in this FHIR store.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
+@end
+
+
+/**
+ *  StructuredStorageInfo contains details about the data stored in Structured
+ *  Storage for the referenced resource.
+ */
+@interface GTLRCloudHealthcare_StructuredStorageInfo : GTLRObject
+
+/**
+ *  Size in bytes of data stored in structured storage.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
 
 @end
 
@@ -5753,42 +6118,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_ValidationConfig : GTLRObject
 
 /**
- *  Whether to disable FHIRPath validation for incoming resources. Set this to
- *  true to disable checking incoming resources for conformance against FHIRPath
- *  requirement defined in the FHIR specification. This property only affects
- *  resource types that do not have profiles configured for them, any rules in
- *  enabled implementation guides will still be enforced.
+ *  Whether to disable FHIRPath validation for incoming resources. The default
+ *  value is false. Set this to true to disable checking incoming resources for
+ *  conformance against FHIRPath requirement defined in the FHIR specification.
+ *  This property only affects resource types that do not have profiles
+ *  configured for them, any rules in enabled implementation guides will still
+ *  be enforced.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableFhirpathValidation;
 
 /**
- *  Whether to disable profile validation for this FHIR store. Set this to true
- *  to disable checking incoming resources for conformance against structure
- *  definitions in this FHIR store.
+ *  Whether to disable profile validation for this FHIR store. The default value
+ *  is false. Set this to true to disable checking incoming resources for
+ *  conformance against structure definitions in this FHIR store.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableProfileValidation;
 
 /**
- *  Whether to disable reference type validation for incoming resources. Set
- *  this to true to disable checking incoming resources for conformance against
- *  reference type requirement defined in the FHIR specification. This property
- *  only affects resource types that do not have profiles configured for them,
- *  any rules in enabled implementation guides will still be enforced.
+ *  Whether to disable reference type validation for incoming resources. The
+ *  default value is false. Set this to true to disable checking incoming
+ *  resources for conformance against reference type requirement defined in the
+ *  FHIR specification. This property only affects resource types that do not
+ *  have profiles configured for them, any rules in enabled implementation
+ *  guides will still be enforced.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableReferenceTypeValidation;
 
 /**
- *  Whether to disable required fields validation for incoming resources. Set
- *  this to true to disable checking incoming resources for conformance against
- *  required fields requirement defined in the FHIR specification. This property
- *  only affects resource types that do not have profiles configured for them,
- *  any rules in enabled implementation guides will still be enforced.
+ *  Whether to disable required fields validation for incoming resources. The
+ *  default value is false. Set this to true to disable checking incoming
+ *  resources for conformance against required fields requirement defined in the
+ *  FHIR specification. This property only affects resource types that do not
+ *  have profiles configured for them, any rules in enabled implementation
+ *  guides will still be enforced.
  *
  *  Uses NSNumber of boolValue.
  */

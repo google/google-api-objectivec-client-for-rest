@@ -1011,11 +1011,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 @dynamic appLinkData, barcode, classId, classReference,
          disableExpirationNotification, faceValue, groupingInfo,
          hasLinkedDevice, hasUsers, heroImage, hexBackgroundColor, identifier,
-         imageModulesData, infoModuleData, kind, linkedOfferIds,
-         linksModuleData, locations, messages, passConstraints, reservationInfo,
-         rotatingBarcode, seatInfo, smartTapRedemptionValue, state,
-         textModulesData, ticketHolderName, ticketNumber, ticketType,
-         validTimeInterval, version;
+         imageModulesData, infoModuleData, kind, linkedObjectIds,
+         linkedOfferIds, linksModuleData, locations, messages, passConstraints,
+         reservationInfo, rotatingBarcode, saveRestrictions, seatInfo,
+         smartTapRedemptionValue, state, textModulesData, ticketHolderName,
+         ticketNumber, ticketType, validTimeInterval, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1024,6 +1024,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"linkedObjectIds" : [NSString class],
     @"linkedOfferIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
     @"messages" : [GTLRWalletobjects_Message class],
@@ -1250,10 +1251,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 @dynamic appLinkData, barcode, boardingAndSeatingInfo, classId, classReference,
          disableExpirationNotification, groupingInfo, hasLinkedDevice, hasUsers,
          heroImage, hexBackgroundColor, identifier, imageModulesData,
-         infoModuleData, kind, linksModuleData, locations, messages,
-         passConstraints, passengerName, reservationInfo, rotatingBarcode,
-         securityProgramLogo, smartTapRedemptionValue, state, textModulesData,
-         validTimeInterval, version;
+         infoModuleData, kind, linkedObjectIds, linksModuleData, locations,
+         messages, passConstraints, passengerName, reservationInfo,
+         rotatingBarcode, saveRestrictions, securityProgramLogo,
+         smartTapRedemptionValue, state, textModulesData, validTimeInterval,
+         version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1262,6 +1264,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"linkedObjectIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
@@ -1387,9 +1390,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 @implementation GTLRWalletobjects_GenericObject
 @dynamic appLinkData, barcode, cardTitle, classId, genericType, groupingInfo,
          hasUsers, header, heroImage, hexBackgroundColor, identifier,
-         imageModulesData, linksModuleData, logo, notifications,
-         passConstraints, rotatingBarcode, smartTapRedemptionValue, state,
-         subheader, textModulesData, validTimeInterval, wideLogo;
+         imageModulesData, linkedObjectIds, linksModuleData, logo, messages,
+         notifications, passConstraints, rotatingBarcode, saveRestrictions,
+         smartTapRedemptionValue, state, subheader, textModulesData,
+         validTimeInterval, wideLogo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1398,6 +1402,8 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"linkedObjectIds" : [NSString class],
+    @"messages" : [GTLRWalletobjects_Message class],
     @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
   };
   return map;
@@ -1513,10 +1519,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 @dynamic appLinkData, balance, balanceUpdateTime, barcode, cardNumber, classId,
          classReference, disableExpirationNotification, eventNumber,
          groupingInfo, hasLinkedDevice, hasUsers, heroImage, identifier,
-         imageModulesData, infoModuleData, kind, linksModuleData, locations,
-         messages, passConstraints, pin, rotatingBarcode,
-         smartTapRedemptionValue, state, textModulesData, validTimeInterval,
-         version;
+         imageModulesData, infoModuleData, kind, linkedObjectIds,
+         linksModuleData, locations, messages, passConstraints, pin,
+         rotatingBarcode, saveRestrictions, smartTapRedemptionValue, state,
+         textModulesData, validTimeInterval, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1525,6 +1531,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"linkedObjectIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
@@ -1899,10 +1906,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 @dynamic accountId, accountName, appLinkData, barcode, classId, classReference,
          disableExpirationNotification, groupingInfo, hasLinkedDevice, hasUsers,
          heroImage, identifier, imageModulesData, infoModuleData, kind,
-         linkedOfferIds, linksModuleData, locations, loyaltyPoints, messages,
-         passConstraints, rotatingBarcode, secondaryLoyaltyPoints,
-         smartTapRedemptionValue, state, textModulesData, validTimeInterval,
-         version;
+         linkedObjectIds, linkedOfferIds, linksModuleData, locations,
+         loyaltyPoints, messages, passConstraints, rotatingBarcode,
+         saveRestrictions, secondaryLoyaltyPoints, smartTapRedemptionValue,
+         state, textModulesData, validTimeInterval, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1911,6 +1918,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"linkedObjectIds" : [NSString class],
     @"linkedOfferIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
     @"messages" : [GTLRWalletobjects_Message class],
@@ -2195,9 +2203,9 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 @dynamic appLinkData, barcode, classId, classReference,
          disableExpirationNotification, groupingInfo, hasLinkedDevice, hasUsers,
          heroImage, identifier, imageModulesData, infoModuleData, kind,
-         linksModuleData, locations, messages, passConstraints, rotatingBarcode,
-         smartTapRedemptionValue, state, textModulesData, validTimeInterval,
-         version;
+         linkedObjectIds, linksModuleData, locations, messages, passConstraints,
+         rotatingBarcode, saveRestrictions, smartTapRedemptionValue, state,
+         textModulesData, validTimeInterval, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2206,6 +2214,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"linkedObjectIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
@@ -2439,6 +2448,16 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_SaveRestrictions
+//
+
+@implementation GTLRWalletobjects_SaveRestrictions
+@dynamic restrictToEmailSha256;
 @end
 
 
@@ -2687,11 +2706,12 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          concessionCategory, customConcessionCategory, customTicketStatus,
          deviceContext, disableExpirationNotification, groupingInfo,
          hasLinkedDevice, hasUsers, heroImage, hexBackgroundColor, identifier,
-         imageModulesData, infoModuleData, linksModuleData, locations, messages,
-         passConstraints, passengerNames, passengerType, purchaseDetails,
-         rotatingBarcode, smartTapRedemptionValue, state, textModulesData,
-         ticketLeg, ticketLegs, ticketNumber, ticketRestrictions, ticketStatus,
-         tripId, tripType, validTimeInterval, version;
+         imageModulesData, infoModuleData, linkedObjectIds, linksModuleData,
+         locations, messages, passConstraints, passengerNames, passengerType,
+         purchaseDetails, rotatingBarcode, saveRestrictions,
+         smartTapRedemptionValue, state, textModulesData, ticketLeg, ticketLegs,
+         ticketNumber, ticketRestrictions, ticketStatus, tripId, tripType,
+         validTimeInterval, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2700,6 +2720,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"linkedObjectIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"textModulesData" : [GTLRWalletobjects_TextModuleData class],

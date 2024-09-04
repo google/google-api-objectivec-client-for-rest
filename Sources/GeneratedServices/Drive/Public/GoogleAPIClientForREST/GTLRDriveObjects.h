@@ -1371,7 +1371,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Output only. An overview of the labels on the file. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_LabelInfo *labelInfo;
 
-/** Output only. The last user to modify the file. */
+/**
+ *  Output only. The last user to modify the file. This field is only populated
+ *  when the last modification was performed by a signed-in user.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**
@@ -1440,10 +1443,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_User *> *owners;
 
 /**
- *  The IDs of the parent folders which contain the file. If not specified as
- *  part of a create request, the file is placed directly in the user's My Drive
- *  folder. If not specified as part of a copy request, the file inherits any
- *  discoverable parents of the source file. Update requests must use the
+ *  The ID of the parent folder containing the file. A file can only have one
+ *  parent folder; specifying multiple parents isn't supported. If not specified
+ *  as part of a create request, the file is placed directly in the user's My
+ *  Drive folder. If not specified as part of a copy request, the file inherits
+ *  any discoverable parent of the source file. Update requests must use the
  *  `addParents` and `removeParents` parameters to modify the parents list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *parents;
@@ -1512,7 +1516,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Shortcut file details. Only populated for shortcut files, which have the
- *  mimeType field set to `application/vnd.google-apps.shortcut`.
+ *  mimeType field set to `application/vnd.google-apps.shortcut`. Can only be
+ *  set on `files.create` requests.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ShortcutDetails *shortcutDetails;
 
@@ -1542,9 +1547,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. A short-lived link to the file's thumbnail, if available.
- *  Typically lasts on the order of hours. Only populated when the requesting
- *  app can access the file's content. If the file isn't shared publicly, the
- *  URL returned in `Files.thumbnailLink` must be fetched using a credentialed
+ *  Typically lasts on the order of hours. Not intended for direct usage on web
+ *  applications due to [Cross-Origin Resource Sharing
+ *  (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) policies,
+ *  consider using a proxy server. Only populated when the requesting app can
+ *  access the file's content. If the file isn't shared publicly, the URL
+ *  returned in `Files.thumbnailLink` must be fetched using a credentialed
  *  request.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailLink;
@@ -2188,11 +2196,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Shortcut file details. Only populated for shortcut files, which have the
- *  mimeType field set to `application/vnd.google-apps.shortcut`.
+ *  mimeType field set to `application/vnd.google-apps.shortcut`. Can only be
+ *  set on `files.create` requests.
  */
 @interface GTLRDrive_File_ShortcutDetails : GTLRObject
 
-/** The ID of the file that this shortcut points to. */
+/**
+ *  The ID of the file that this shortcut points to. Can only be set on
+ *  `files.create` requests.
+ */
 @property(nonatomic, copy, nullable) NSString *targetId;
 
 /**
@@ -2920,7 +2932,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Output only. The last user to modify this revision. */
+/**
+ *  Output only. The last user to modify this revision. This field is only
+ *  populated when the last modification was performed by a signed-in user.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**

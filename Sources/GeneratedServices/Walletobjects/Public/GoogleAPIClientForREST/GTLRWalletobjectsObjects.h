@@ -106,6 +106,7 @@
 @class GTLRWalletobjects_RotatingBarcodeTotpDetails;
 @class GTLRWalletobjects_RotatingBarcodeTotpDetailsTotpParameters;
 @class GTLRWalletobjects_RotatingBarcodeValues;
+@class GTLRWalletobjects_SaveRestrictions;
 @class GTLRWalletobjects_SecurityAnimation;
 @class GTLRWalletobjects_SignUpInfo;
 @class GTLRWalletobjects_SmartTapMerchantData;
@@ -3830,6 +3831,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, copy, nullable) NSString *kind GTLR_DEPRECATED;
 
 /**
+ *  linked_object_ids are a list of other objects such as event ticket, loyalty,
+ *  offer, generic, giftcard, transit and boarding pass that should be
+ *  automatically attached to this event ticket object. If a user had saved this
+ *  event ticket, then these linked_object_ids would be automatically pushed to
+ *  the user's wallet (unless they turned off the setting to receive such linked
+ *  passes). Make sure that objects present in linked_object_ids are already
+ *  inserted - if not, calls would fail. Once linked, the linked objects cannot
+ *  be unlinked. You cannot link objects belonging to another issuer. There is a
+ *  limit to the number of objects that can be linked to a single object. After
+ *  the limit is reached, new linked objects in the call will be ignored
+ *  silently. Object IDs should follow the format issuer ID. identifier where
+ *  the former is issued by Google and the latter is chosen by you.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedObjectIds;
+
+/**
  *  A list of offer objects linked to this event ticket. The offer objects must
  *  already exist. Offer object IDs should follow the format issuer ID.
  *  identifier where the former is issued by Google and latter is chosen by you.
@@ -3867,6 +3884,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** The rotating barcode type and value. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_RotatingBarcode *rotatingBarcode;
+
+/**
+ *  Restrictions on the object that needs to be verified before the user tries
+ *  to save the pass. Note that this restrictions will only be applied during
+ *  save time. If the restrictions changed after a user saves the pass, the new
+ *  restrictions will not be applied to an already saved pass.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_SaveRestrictions *saveRestrictions;
 
 /** Seating details for this ticket. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_EventSeat *seatInfo;
@@ -4298,8 +4323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  up to millisecond precision. eg: `2027-03-05T06:30:00` This should be the
  *  local date/time at the airport (not a UTC time). Google will reject the
  *  request if UTC offset is provided. Time zones will be calculated by Google
- *  based on departure airport. If this is not set, Google will set it based on
- *  data from other sources.
+ *  based on departure airport.
  */
 @property(nonatomic, copy, nullable) NSString *localBoardingDateTime;
 
@@ -4313,8 +4337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  offset. Time may be specified up to millisecond precision. eg:
  *  `2027-03-05T06:30:00` This should be the local date/time at the airport (not
  *  a UTC time). Google will reject the request if UTC offset is provided. Time
- *  zones will be calculated by Google based on arrival airport. If this is not
- *  set, Google will set it based on data from other sources.
+ *  zones will be calculated by Google based on arrival airport.
  */
 @property(nonatomic, copy, nullable) NSString *localEstimatedOrActualArrivalDateTime;
 
@@ -4329,8 +4352,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  precision. eg: `2027-03-05T06:30:00` This should be the local date/time at
  *  the airport (not a UTC time). Google will reject the request if UTC offset
  *  is provided. Time zones will be calculated by Google based on departure
- *  airport. If this is not set, Google will set it based on data from other
- *  sources.
+ *  airport.
  */
 @property(nonatomic, copy, nullable) NSString *localEstimatedOrActualDepartureDateTime;
 
@@ -4360,8 +4382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  precision. eg: `2027-03-05T06:30:00` This should be the local date/time at
  *  the airport (not a UTC time). Google will reject the request if UTC offset
  *  is provided. Time zones will be calculated by Google based on arrival
- *  airport. If this is not set, Google will set it based on data from other
- *  sources.
+ *  airport.
  */
 @property(nonatomic, copy, nullable) NSString *localScheduledArrivalDateTime;
 
@@ -4670,6 +4691,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, copy, nullable) NSString *kind GTLR_DEPRECATED;
 
 /**
+ *  linked_object_ids are a list of other objects such as event ticket, loyalty,
+ *  offer, generic, giftcard, transit and boarding pass that should be
+ *  automatically attached to this flight object. If a user had saved this
+ *  boarding pass, then these linked_object_ids would be automatically pushed to
+ *  the user's wallet (unless they turned off the setting to receive such linked
+ *  passes). Make sure that objects present in linked_object_ids are already
+ *  inserted - if not, calls would fail. Once linked, the linked objects cannot
+ *  be unlinked. You cannot link objects belonging to another issuer. There is a
+ *  limit to the number of objects that can be linked to a single object. After
+ *  the limit is reached, new linked objects in the call will be ignored
+ *  silently. Object IDs should follow the format issuer ID. identifier where
+ *  the former is issued by Google and the latter is chosen by you.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedObjectIds;
+
+/**
  *  Links module data. If links module data is also defined on the class, both
  *  will be displayed.
  */
@@ -4703,6 +4740,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** The rotating barcode type and value. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_RotatingBarcode *rotatingBarcode;
+
+/**
+ *  Restrictions on the object that needs to be verified before the user tries
+ *  to save the pass. Note that this restrictions will only be applied during
+ *  save time. If the restrictions changed after a user saves the pass, the new
+ *  restrictions will not be applied to an already saved pass.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_SaveRestrictions *saveRestrictions;
 
 /** An image for the security program that applies to the passenger. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *securityProgramLogo;
@@ -5075,6 +5120,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ImageModuleData *> *imageModulesData;
 
 /**
+ *  linked_object_ids are a list of other objects such as event ticket, loyalty,
+ *  offer, generic, giftcard, transit and boarding pass that should be
+ *  automatically attached to this generic object. If a user had saved this
+ *  generic card, then these linked_object_ids would be automatically pushed to
+ *  the user's wallet (unless they turned off the setting to receive such linked
+ *  passes). Make sure that objects present in linked_object_ids are already
+ *  inserted - if not, calls would fail. Once linked, the linked objects cannot
+ *  be unlinked. You cannot link objects belonging to another issuer. There is a
+ *  limit to the number of objects that can be linked to a single object. After
+ *  the limit is reached, new linked objects in the call will be ignored
+ *  silently. Object IDs should follow the format issuer ID. identifier where
+ *  the former is issued by Google and the latter is chosen by you.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedObjectIds;
+
+/**
  *  Links module data. If `linksModuleData` is also defined on the class, both
  *  will be displayed. The maximum number of these fields displayed is 10 from
  *  class and 10 from object.
@@ -5088,6 +5149,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *logo;
 
+/**
+ *  An array of messages displayed in the app. All users of this object will
+ *  receive its associated messages. The maximum number of these fields is 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_Message *> *messages;
+
 /** The notification settings that are enabled for this object. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Notifications *notifications;
 
@@ -5099,6 +5166,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** The rotating barcode settings/details. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_RotatingBarcode *rotatingBarcode;
+
+/**
+ *  Restrictions on the object that needs to be verified before the user tries
+ *  to save the pass. Note that this restrictions will only be applied during
+ *  save time. If the restrictions changed after a user saves the pass, the new
+ *  restrictions will not be applied to an already saved pass.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_SaveRestrictions *saveRestrictions;
 
 /**
  *  The value that will be transmitted to a Smart Tap certified terminal over
@@ -5602,6 +5677,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, copy, nullable) NSString *kind GTLR_DEPRECATED;
 
 /**
+ *  linked_object_ids are a list of other objects such as event ticket, loyalty,
+ *  offer, generic, giftcard, transit and boarding pass that should be
+ *  automatically attached to this giftcard object. If a user had saved this
+ *  gift card, then these linked_object_ids would be automatically pushed to the
+ *  user's wallet (unless they turned off the setting to receive such linked
+ *  passes). Make sure that objects present in linked_object_ids are already
+ *  inserted - if not, calls would fail. Once linked, the linked objects cannot
+ *  be unlinked. You cannot link objects belonging to another issuer. There is a
+ *  limit to the number of objects that can be linked to a single object. After
+ *  the limit is reached, new linked objects in the call will be ignored
+ *  silently. Object IDs should follow the format issuer ID. identifier where
+ *  the former is issued by Google and the latter is chosen by you.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedObjectIds;
+
+/**
  *  Links module data. If links module data is also defined on the class, both
  *  will be displayed.
  */
@@ -5629,6 +5720,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** The rotating barcode type and value. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_RotatingBarcode *rotatingBarcode;
+
+/**
+ *  Restrictions on the object that needs to be verified before the user tries
+ *  to save the pass. Note that this restrictions will only be applied during
+ *  save time. If the restrictions changed after a user saves the pass, the new
+ *  restrictions will not be applied to an already saved pass.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_SaveRestrictions *saveRestrictions;
 
 /**
  *  The value that will be transmitted to a Smart Tap certified terminal over
@@ -6543,6 +6642,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, copy, nullable) NSString *kind GTLR_DEPRECATED;
 
 /**
+ *  linked_object_ids are a list of other objects such as event ticket, loyalty,
+ *  offer, generic, giftcard, transit and boarding pass that should be
+ *  automatically attached to this loyalty object. If a user had saved this
+ *  loyalty card, then these linked_object_ids would be automatically pushed to
+ *  the user's wallet (unless they turned off the setting to receive such linked
+ *  passes). Make sure that objects present in linked_object_ids are already
+ *  inserted - if not, calls would fail. Once linked, the linked objects cannot
+ *  be unlinked. You cannot link objects belonging to another issuer. There is a
+ *  limit to the number of objects that can be linked to a single object. After
+ *  the limit is reached, new linked objects in the call will be ignored
+ *  silently. Object IDs should follow the format issuer ID. identifier where
+ *  the former is issued by Google and the latter is chosen by you.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedObjectIds;
+
+/**
  *  A list of offer objects linked to this loyalty card. The offer objects must
  *  already exist. Offer object IDs should follow the format issuer ID.
  *  identifier where the former is issued by Google and latter is chosen by you.
@@ -6577,6 +6692,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** The rotating barcode type and value. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_RotatingBarcode *rotatingBarcode;
+
+/**
+ *  Restrictions on the object that needs to be verified before the user tries
+ *  to save the pass. Note that this restrictions will only be applied during
+ *  save time. If the restrictions changed after a user saves the pass, the new
+ *  restrictions will not be applied to an already saved pass.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_SaveRestrictions *saveRestrictions;
 
 /**
  *  The secondary loyalty reward points label, balance, and type. Shown in
@@ -7681,6 +7804,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, copy, nullable) NSString *kind GTLR_DEPRECATED;
 
 /**
+ *  linked_object_ids are a list of other objects such as event ticket, loyalty,
+ *  offer, generic, giftcard, transit and boarding pass that should be
+ *  automatically attached to this offer object. If a user had saved this offer,
+ *  then these linked_object_ids would be automatically pushed to the user's
+ *  wallet (unless they turned off the setting to receive such linked passes).
+ *  Make sure that objects present in linked_object_ids are already inserted -
+ *  if not, calls would fail. Once linked, the linked objects cannot be
+ *  unlinked. You cannot link objects belonging to another issuer. There is a
+ *  limit to the number of objects that can be linked to a single object. After
+ *  the limit is reached, new linked objects in the call will be ignored
+ *  silently. Object IDs should follow the format issuer ID.identifier where the
+ *  former is issued by Google and the latter is chosen by you.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedObjectIds;
+
+/**
  *  Links module data. If links module data is also defined on the class, both
  *  will be displayed.
  */
@@ -7705,6 +7844,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** The rotating barcode type and value. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_RotatingBarcode *rotatingBarcode;
+
+/**
+ *  Restrictions on the object that needs to be verified before the user tries
+ *  to save the pass. Note that this restrictions will only be applied during
+ *  save time. If the restrictions changed after a user saves the pass, the new
+ *  restrictions will not be applied to an already saved pass.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_SaveRestrictions *saveRestrictions;
 
 /**
  *  The value that will be transmitted to a Smart Tap certified terminal over
@@ -8209,6 +8356,34 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 
 /**
+ *  Defines restrictions on the object that will be verified during save. Note:
+ *  this is an advanced feature, please contact Google for implementation
+ *  support.
+ */
+@interface GTLRWalletobjects_SaveRestrictions : GTLRObject
+
+/**
+ *  Restrict the save of the referencing object to the given email address only.
+ *  This is the hex output of SHA256 sum of the email address, all lowercase and
+ *  without any notations like "." or "+", except "\@". For example, for
+ *  example\@example.com, this value will be
+ *  31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66 and for
+ *  Example\@example.com, this value will be
+ *  bc34f262c93ad7122763684ccea6f07fb7f5d8a2d11e60ce15a6f43fe70ce632 If email
+ *  address of the logged-in user who tries to save this pass does not match
+ *  with the defined value here, users won't be allowed to save this pass. They
+ *  will instead be prompted with an error to contact the issuer. This
+ *  information should be gathered from the user with an explicit consent via
+ *  Sign in with Google integration
+ *  https://developers.google.com/identity/authentication. Please contact with
+ *  support before using Save Restrictions.
+ */
+@property(nonatomic, copy, nullable) NSString *restrictToEmailSha256;
+
+@end
+
+
+/**
  *  GTLRWalletobjects_SecurityAnimation
  */
 @interface GTLRWalletobjects_SecurityAnimation : GTLRObject
@@ -8353,7 +8528,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /**
  *  The ID associated with a text module. This field is here to enable ease of
- *  management of text modules.
+ *  management of text modules and referencing them in template overrides. The
+ *  ID should only include alphanumeric characters, '_', or '-'. It can not
+ *  include dots, as dots are used to separate fields within
+ *  FieldReference.fieldPaths in template overrides.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9155,6 +9333,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_InfoModuleData *infoModuleData;
 
 /**
+ *  linked_object_ids are a list of other objects such as event ticket, loyalty,
+ *  offer, generic, giftcard, transit and boarding pass that should be
+ *  automatically attached to this transit object. If a user had saved this
+ *  transit card, then these linked_object_ids would be automatically pushed to
+ *  the user's wallet (unless they turned off the setting to receive such linked
+ *  passes). Make sure that objects present in linked_object_ids are already
+ *  inserted - if not, calls would fail. Once linked, the linked objects cannot
+ *  be unlinked. You cannot link objects belonging to another issuer. There is a
+ *  limit to the number of objects that can be linked to a single object. After
+ *  the limit is reached, new linked objects in the call will be ignored
+ *  silently. Object IDs should follow the format issuer ID. identifier where
+ *  the former is issued by Google and the latter is chosen by you.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedObjectIds;
+
+/**
  *  Links module data. If links module data is also defined on the class, both
  *  will be displayed.
  */
@@ -9203,6 +9397,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 /** The rotating barcode type and value. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_RotatingBarcode *rotatingBarcode;
+
+/**
+ *  Restrictions on the object that needs to be verified before the user tries
+ *  to save the pass. Note that this restrictions will only be applied during
+ *  save time. If the restrictions changed after a user saves the pass, the new
+ *  restrictions will not be applied to an already saved pass.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_SaveRestrictions *saveRestrictions;
 
 /**
  *  The value that will be transmitted to a Smart Tap certified terminal over

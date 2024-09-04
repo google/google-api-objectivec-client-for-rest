@@ -38,6 +38,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewBasic;
 /**
+ *  Include basic information in the step entries. All fields in StepEntry are
+ *  returned except for variable_data.
+ *
+ *  Value: "EXECUTION_ENTRY_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewExecutionEntryViewBasic;
+/**
+ *  Include all data.
+ *
+ *  Value: "EXECUTION_ENTRY_VIEW_DETAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewExecutionEntryViewDetailed;
+/**
+ *  The default/unset value.
+ *
+ *  Value: "EXECUTION_ENTRY_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewExecutionEntryViewUnspecified;
+/**
  *  The default / unset value.
  *
  *  Value: "EXECUTION_VIEW_UNSPECIFIED"
@@ -184,6 +203,41 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRWorkflowExecutions_Execution *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes all step entries for an execution.
+ *
+ *  Method: workflowexecutions.projects.locations.workflows.executions.deleteExecutionHistory
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
+ */
+@interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsDeleteExecutionHistory : GTLRWorkflowExecutionsQuery
+
+/**
+ *  Required. Name of the execution for which step entries should be deleted.
+ *  Format:
+ *  projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkflowExecutions_Empty.
+ *
+ *  Deletes all step entries for an execution.
+ *
+ *  @param object The @c GTLRWorkflowExecutions_DeleteExecutionHistoryRequest to
+ *    include in the query.
+ *  @param name Required. Name of the execution for which step entries should be
+ *    deleted. Format:
+ *    projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
+ *
+ *  @return GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsDeleteExecutionHistory
+ */
++ (instancetype)queryWithObject:(GTLRWorkflowExecutions_DeleteExecutionHistoryRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -372,6 +426,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Deprecated field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutionsViewExecutionEntryViewUnspecified The
+ *        default/unset value. (Value: "EXECUTION_ENTRY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRWorkflowExecutionsViewExecutionEntryViewBasic Include basic
+ *        information in the step entries. All fields in StepEntry are returned
+ *        except for variable_data. (Value: "EXECUTION_ENTRY_VIEW_BASIC")
+ *    @arg @c kGTLRWorkflowExecutionsViewExecutionEntryViewDetailed Include all
+ *        data. (Value: "EXECUTION_ENTRY_VIEW_DETAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *view GTLR_DEPRECATED;
+
+/**
  *  Fetches a @c GTLRWorkflowExecutions_StepEntry.
  *
  *  Gets a step entry.
@@ -399,8 +467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 /**
  *  Optional. Filters applied to the `[StepEntries.ListStepEntries]` results.
  *  The following fields are supported for filtering: `entryId`, `createTime`,
- *  `updateTime`, `routine`, `step`, `stepType`, `state`. For details, see
- *  AIP-160. For example, if you are using the Google APIs Explorer:
+ *  `updateTime`, `routine`, `step`, `stepType`, `parent`, `state`. For details,
+ *  see AIP-160. For example, if you are using the Google APIs Explorer:
  *  `state="SUCCEEDED"` or `createTime>"2023-08-01" AND state="FAILED"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -430,7 +498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 
 /**
  *  Required. Name of the workflow execution to list entries for. Format:
- *  projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}/stepEntries/
+ *  projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -442,6 +510,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
 @property(nonatomic, assign) NSInteger skip;
 
 /**
+ *  Deprecated field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutionsViewExecutionEntryViewUnspecified The
+ *        default/unset value. (Value: "EXECUTION_ENTRY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRWorkflowExecutionsViewExecutionEntryViewBasic Include basic
+ *        information in the step entries. All fields in StepEntry are returned
+ *        except for variable_data. (Value: "EXECUTION_ENTRY_VIEW_BASIC")
+ *    @arg @c kGTLRWorkflowExecutionsViewExecutionEntryViewDetailed Include all
+ *        data. (Value: "EXECUTION_ENTRY_VIEW_DETAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *view GTLR_DEPRECATED;
+
+/**
  *  Fetches a @c GTLRWorkflowExecutions_ListStepEntriesResponse.
  *
  *  Lists step entries for the corresponding workflow execution. Returned
@@ -449,7 +531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *
  *  @param parent Required. Name of the workflow execution to list entries for.
  *    Format:
- *    projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}/stepEntries/
+ *    projects/{project}/locations/{location}/workflows/{workflow}/executions/{execution}
  *
  *  @return GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsStepEntriesList
  *

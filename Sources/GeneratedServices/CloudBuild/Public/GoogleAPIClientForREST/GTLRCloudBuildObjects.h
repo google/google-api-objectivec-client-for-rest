@@ -46,6 +46,7 @@
 @class GTLRCloudBuild_Param;
 @class GTLRCloudBuild_ParamSpec;
 @class GTLRCloudBuild_ParamValue;
+@class GTLRCloudBuild_ParamValue_ObjectVal;
 @class GTLRCloudBuild_PipelineRef;
 @class GTLRCloudBuild_PipelineResult;
 @class GTLRCloudBuild_PipelineRun_Annotations;
@@ -223,11 +224,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_InstallationState_Stage_Stage
 // GTLRCloudBuild_ParamSpec.type
 
 /**
- *  Arrary type.
+ *  Array type.
  *
  *  Value: "ARRAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamSpec_Type_Array;
+/**
+ *  Object type.
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamSpec_Type_Object;
 /**
  *  Default
  *
@@ -250,6 +257,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamSpec_Type_TypeUnspecifie
  *  Value: "ARRAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamValue_Type_Array;
+/**
+ *  Object type
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamValue_Type_Object;
 /**
  *  Default
  *
@@ -1922,7 +1935,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Type of ParamSpec
  *
  *  Likely values:
- *    @arg @c kGTLRCloudBuild_ParamSpec_Type_Array Arrary type. (Value: "ARRAY")
+ *    @arg @c kGTLRCloudBuild_ParamSpec_Type_Array Array type. (Value: "ARRAY")
+ *    @arg @c kGTLRCloudBuild_ParamSpec_Type_Object Object type. (Value:
+ *        "OBJECT")
  *    @arg @c kGTLRCloudBuild_ParamSpec_Type_String Default (Value: "STRING")
  *    @arg @c kGTLRCloudBuild_ParamSpec_Type_TypeUnspecified Default enum type;
  *        should not be used. (Value: "TYPE_UNSPECIFIED")
@@ -1940,6 +1955,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Value of the parameter if type is array. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *arrayVal;
 
+/** Optional. Value of the parameter if type is object. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ParamValue_ObjectVal *objectVal;
+
 /** Value of the parameter if type is string. */
 @property(nonatomic, copy, nullable) NSString *stringVal;
 
@@ -1948,6 +1966,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_ParamValue_Type_Array Array type (Value: "ARRAY")
+ *    @arg @c kGTLRCloudBuild_ParamValue_Type_Object Object type (Value:
+ *        "OBJECT")
  *    @arg @c kGTLRCloudBuild_ParamValue_Type_String Default (Value: "STRING")
  *    @arg @c kGTLRCloudBuild_ParamValue_Type_TypeUnspecified Default enum type;
  *        should not be used. (Value: "TYPE_UNSPECIFIED")
@@ -1958,12 +1978,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  Optional. Value of the parameter if type is object.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_ParamValue_ObjectVal : GTLRObject
+@end
+
+
+/**
  *  PipelineRef can be used to refer to a specific instance of a Pipeline.
  */
 @interface GTLRCloudBuild_PipelineRef : GTLRObject
 
-/** Name of the Pipeline. */
-@property(nonatomic, copy, nullable) NSString *name GTLR_DEPRECATED;
+/** Optional. Name of the Pipeline. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Params contains the parameters used to identify the referenced Tekton
@@ -2651,7 +2683,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *secretName;
 
 /**
- *  Output only. Resource name of the SecretVersion. In format: projects/ *
+ *  Optional. Resource name of the SecretVersion. In format: projects/ *
  *  /secrets/ * /versions/ *
  */
 @property(nonatomic, copy, nullable) NSString *secretVersion;
@@ -2675,7 +2707,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *    @arg @c kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged Unprivileged
  *        mode. (Value: "UNPRIVILEGED")
  */
-@property(nonatomic, copy, nullable) NSString *privilegeMode;
+@property(nonatomic, copy, nullable) NSString *privilegeMode GTLR_DEPRECATED;
 
 /** IAM service account whose credentials will be used at runtime. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
@@ -3005,8 +3037,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @interface GTLRCloudBuild_TaskRef : GTLRObject
 
-/** Name of the task. */
-@property(nonatomic, copy, nullable) NSString *name GTLR_DEPRECATED;
+/** Optional. Name of the task. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Params contains the parameters used to identify the referenced Tekton

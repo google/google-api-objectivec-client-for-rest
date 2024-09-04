@@ -17,6 +17,7 @@
 #endif
 
 @class GTLRHangoutsChat_AccessoryWidget;
+@class GTLRHangoutsChat_AccessSettings;
 @class GTLRHangoutsChat_ActionParameter;
 @class GTLRHangoutsChat_ActionResponse;
 @class GTLRHangoutsChat_ActionStatus;
@@ -90,6 +91,7 @@
 @class GTLRHangoutsChat_MembershipBatchCreatedEventData;
 @class GTLRHangoutsChat_MembershipBatchDeletedEventData;
 @class GTLRHangoutsChat_MembershipBatchUpdatedEventData;
+@class GTLRHangoutsChat_MembershipCount;
 @class GTLRHangoutsChat_MembershipCreatedEventData;
 @class GTLRHangoutsChat_MembershipDeletedEventData;
 @class GTLRHangoutsChat_MembershipUpdatedEventData;
@@ -141,6 +143,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_AccessSettings.accessState
+
+/**
+ *  Access state is unknown or not supported in this API.
+ *
+ *  Value: "ACCESS_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_AccessSettings_AccessState_AccessStateUnspecified;
+/**
+ *  A space manager has granted a target audience access to the space. Users or
+ *  Google Groups that have been individually added or invited to the space can
+ *  also discover and access the space. To learn more, see [Make a space
+ *  discoverable to specific
+ *  users](https://developers.google.com/workspace/chat/space-target-audience).
+ *
+ *  Value: "DISCOVERABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_AccessSettings_AccessState_Discoverable;
+/**
+ *  Only users or Google Groups that have been individually added or invited by
+ *  other users or Google Workspace administrators can discover and access the
+ *  space.
+ *
+ *  Value: "PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_AccessSettings_AccessState_Private;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_ActionResponse.type
@@ -587,28 +617,51 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEvent
 /**
  *  A user adds the Chat app to a space, or a Google Workspace administrator
  *  installs the Chat app in direct message spaces for users in their
- *  organization.
+ *  organization. Chat apps typically respond to this interaction event by
+ *  posting a welcome message in the space. When administrators install Chat
+ *  apps, the `space.adminInstalled` field is set to `true` and users can't
+ *  uninstall them. To learn about Chat apps installed by administrators, see
+ *  Google Workspace Admin Help's documentation, [Install Marketplace apps in
+ *  your domain](https://support.google.com/a/answer/172482).
  *
  *  Value: "ADDED_TO_SPACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace;
 /**
  *  A user clicks an interactive element of a card or dialog from a Chat app,
- *  such as a button. If a user interacts with a dialog, the `CARD_CLICKED`
- *  interaction event's `isDialogEvent` field is set to `true` and includes a
+ *  such as a button. To receive an interaction event, the button must trigger
+ *  another interaction with the Chat app. For example, a Chat app doesn't
+ *  receive a `CARD_CLICKED` interaction event if a user clicks a button that
+ *  opens a link to a website, but receives interaction events in the following
+ *  examples: * The user clicks a `Send feedback` button on a card, which opens
+ *  a dialog for the user to input information. * The user clicks a `Submit`
+ *  button after inputting information into a card or dialog. If a user clicks a
+ *  button to open, submit, or cancel a dialog, the `CARD_CLICKED` interaction
+ *  event's `isDialogEvent` field is set to `true` and includes a
  *  [`DialogEventType`](https://developers.google.com/workspace/chat/api/reference/rest/v1/DialogEventType).
  *
  *  Value: "CARD_CLICKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked;
 /**
- *  A user sends the Chat app a message, or invokes the Chat app in a space.
+ *  A user sends the Chat app a message, or invokes the Chat app in a space,
+ *  such as any of the following examples: * Any message in a direct message
+ *  (DM) space with the Chat app. * A message in a multi-person space where a
+ *  person \@mentions the Chat app, or uses one of its slash commands. * If
+ *  you've configured link previews for your Chat app, a user posts a message
+ *  that contains a link that matches the configured URL pattern.
  *
  *  Value: "MESSAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message;
 /**
- *  A user removes the Chat app from a space.
+ *  A user removes the Chat app from a space, or a Google Workspace
+ *  administrator uninstalls the Chat app for a user in their organization. Chat
+ *  apps can't respond with messages to this event, because they have already
+ *  been removed. When administrators uninstall Chat apps, the
+ *  `space.adminInstalled` field is set to `false`. If a user installed the Chat
+ *  app before the administrator, the Chat app remains installed for the user
+ *  and the Chat app doesn't receive a `REMOVED_FROM_SPACE` interaction event.
  *
  *  Value: "REMOVED_FROM_SPACE"
  */
@@ -721,13 +774,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_Displa
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_DividerStyleUnspecified;
 /**
- *  If set, no divider is rendered between sections.
+ *  If set, no divider is rendered. This style completely removes the divider
+ *  from the layout. The result is equivalent to not adding a divider at all.
  *
  *  Value: "NO_DIVIDER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_NoDivider;
 /**
- *  Default option. Render a solid divider between sections.
+ *  Default option. Render a solid divider.
  *
  *  Value: "SOLID_DIVIDER"
  */
@@ -973,12 +1027,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_Op
 // GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource.commonDataSource
 
 /**
- *  Represents a data source from Google Drive OnePick.
- *
- *  Value: "DRIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Drive;
-/**
  *  Default value. Don't use.
  *
  *  Value: "UNKNOWN"
@@ -1021,8 +1069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionIn
  *  multiselect
  *  menu](https://developers.google.com/workspace/chat/design-interactive-card-dialog#multiselect-menu).
  *  [Google Workspace Add-ons and Chat
- *  apps](https://developers.google.com/workspace/extend): Multiselect for
- *  Google Workspace Add-ons are in Developer Preview.
+ *  apps](https://developers.google.com/workspace/extend):
  *
  *  Value: "MULTI_SELECT"
  */
@@ -1500,6 +1547,48 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** A list of buttons. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
+
+@end
+
+
+/**
+ *  Represents the [access
+ *  setting](https://support.google.com/chat/answer/11971020) of the space.
+ */
+@interface GTLRHangoutsChat_AccessSettings : GTLRObject
+
+/**
+ *  Output only. Indicates the access state of the space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_AccessSettings_AccessState_AccessStateUnspecified
+ *        Access state is unknown or not supported in this API. (Value:
+ *        "ACCESS_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_AccessSettings_AccessState_Discoverable A space
+ *        manager has granted a target audience access to the space. Users or
+ *        Google Groups that have been individually added or invited to the
+ *        space can also discover and access the space. To learn more, see [Make
+ *        a space discoverable to specific
+ *        users](https://developers.google.com/workspace/chat/space-target-audience).
+ *        (Value: "DISCOVERABLE")
+ *    @arg @c kGTLRHangoutsChat_AccessSettings_AccessState_Private Only users or
+ *        Google Groups that have been individually added or invited by other
+ *        users or Google Workspace administrators can discover and access the
+ *        space. (Value: "PRIVATE")
+ */
+@property(nonatomic, copy, nullable) NSString *accessState;
+
+/**
+ *  Optional. The resource name of the [target
+ *  audience](https://support.google.com/a/answer/9934697) who can discover the
+ *  space, join the space, and preview the messages in the space. If unset, only
+ *  users or Google Groups who have been individually invited or added to the
+ *  space can access it. For details, see [Make a space discoverable to a target
+ *  audience](https://developers.google.com/workspace/chat/space-target-audience).
+ *  Format: `audiences/{audience}` To use the default target audience for the
+ *  Google Workspace organization, set to `audiences/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *audience;
 
 @end
 
@@ -2303,15 +2392,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A Google Chat app interaction event. To learn about interaction events, see
- *  [Receive and respond to interactions with your Google Chat
- *  app](https://developers.google.com/workspace/chat/api/guides/message-formats).
- *  To learn about event types and for example event payloads, see [Types of
- *  Google Chat app interaction
- *  events](https://developers.google.com/workspace/chat/events). In addition to
- *  receiving events from user interactions, Chat apps can receive events about
- *  changes to spaces, such as when a new member is added to a space. To learn
- *  about space events, see [Work with events from Google
+ *  A Google Chat app interaction event that represents and contains data about
+ *  a user's interaction with a Chat app. To configure your Chat app to receive
+ *  interaction events, see [Receive and respond to user
+ *  interactions](https://developers.google.com/workspace/chat/receive-respond-interactions).
+ *  In addition to receiving events from user interactions, Chat apps can
+ *  receive events about changes to spaces, such as when a new member is added
+ *  to a space. To learn about space events, see [Work with events from Google
  *  Chat](https://developers.google.com/workspace/chat/events-overview).
  */
 @interface GTLRHangoutsChat_DeprecatedEvent : GTLRObject
@@ -2325,18 +2412,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_FormAction *action;
 
 /**
- *  Represents informatmessage_visibilityion about the user's client, such as
- *  locale, host app, and platform. For Chat apps, `CommonEventObject` includes
- *  information submitted by users interacting with
+ *  Represents information about the user's client, such as locale, host app,
+ *  and platform. For Chat apps, `CommonEventObject` includes information
+ *  submitted by users interacting with
  *  [dialogs](https://developers.google.com/workspace/chat/dialogs), like data
  *  entered on a card.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_CommonEventObject *common;
 
 /**
- *  The URL the Chat app should redirect the user to after they have completed
- *  an authorization or configuration flow outside of Google Chat. For more
- *  information, see [Connect a Chat app with other services &
+ *  For `MESSAGE` interaction events, the URL that users must be redirected to
+ *  after they complete an authorization or configuration flow outside of Google
+ *  Chat. For more information, see [Connect a Chat app with other services and
  *  tools](https://developers.google.com/workspace/chat/connect-web-services-tools).
  */
 @property(nonatomic, copy, nullable) NSString *configCompleteRedirectUrl;
@@ -2372,10 +2459,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *isDialogEvent;
 
-/** The message that triggered the interaction event, if applicable. */
+/**
+ *  For `ADDED_TO_SPACE`, `CARD_CLICKED`, and `MESSAGE` interaction events, the
+ *  message that triggered the interaction event, if applicable.
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Message *message;
 
-/** The space in which the interaction event occurred. */
+/** The space in which the user interacted with the Chat app. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 
 /**
@@ -2399,26 +2489,51 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *token;
 
 /**
- *  The type of interaction event. For details, see [Types of Google Chat app
- *  interaction events](https://developers.google.com/workspace/chat/events).
+ *  The [type](/workspace/chat/api/reference/rest/v1/EventType) of user
+ *  interaction with the Chat app, such as `MESSAGE` or `ADDED_TO_SPACE`.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace A user adds
  *        the Chat app to a space, or a Google Workspace administrator installs
  *        the Chat app in direct message spaces for users in their organization.
+ *        Chat apps typically respond to this interaction event by posting a
+ *        welcome message in the space. When administrators install Chat apps,
+ *        the `space.adminInstalled` field is set to `true` and users can't
+ *        uninstall them. To learn about Chat apps installed by administrators,
+ *        see Google Workspace Admin Help's documentation, [Install Marketplace
+ *        apps in your domain](https://support.google.com/a/answer/172482).
  *        (Value: "ADDED_TO_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked A user clicks
  *        an interactive element of a card or dialog from a Chat app, such as a
- *        button. If a user interacts with a dialog, the `CARD_CLICKED`
- *        interaction event's `isDialogEvent` field is set to `true` and
- *        includes a
+ *        button. To receive an interaction event, the button must trigger
+ *        another interaction with the Chat app. For example, a Chat app doesn't
+ *        receive a `CARD_CLICKED` interaction event if a user clicks a button
+ *        that opens a link to a website, but receives interaction events in the
+ *        following examples: * The user clicks a `Send feedback` button on a
+ *        card, which opens a dialog for the user to input information. * The
+ *        user clicks a `Submit` button after inputting information into a card
+ *        or dialog. If a user clicks a button to open, submit, or cancel a
+ *        dialog, the `CARD_CLICKED` interaction event's `isDialogEvent` field
+ *        is set to `true` and includes a
  *        [`DialogEventType`](https://developers.google.com/workspace/chat/api/reference/rest/v1/DialogEventType).
  *        (Value: "CARD_CLICKED")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Message A user sends the
- *        Chat app a message, or invokes the Chat app in a space. (Value:
- *        "MESSAGE")
+ *        Chat app a message, or invokes the Chat app in a space, such as any of
+ *        the following examples: * Any message in a direct message (DM) space
+ *        with the Chat app. * A message in a multi-person space where a person
+ *        \@mentions the Chat app, or uses one of its slash commands. * If
+ *        you've configured link previews for your Chat app, a user posts a
+ *        message that contains a link that matches the configured URL pattern.
+ *        (Value: "MESSAGE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace A user
- *        removes the Chat app from a space. (Value: "REMOVED_FROM_SPACE")
+ *        removes the Chat app from a space, or a Google Workspace administrator
+ *        uninstalls the Chat app for a user in their organization. Chat apps
+ *        can't respond with messages to this event, because they have already
+ *        been removed. When administrators uninstall Chat apps, the
+ *        `space.adminInstalled` field is set to `false`. If a user installed
+ *        the Chat app before the administrator, the Chat app remains installed
+ *        for the user and the Chat app doesn't receive a `REMOVED_FROM_SPACE`
+ *        interaction event. (Value: "REMOVED_FROM_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified Default value
  *        for the enum. DO NOT USE. (Value: "UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_WidgetUpdated A user
@@ -2427,7 +2542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** The user that triggered the interaction event. */
+/** The user that interacted with the Chat app. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *user;
 
 @end
@@ -2682,7 +2797,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *cornerRadius;
 
-/** The colors to use when the type is `BORDER_TYPE_STROKE`. */
+/**
+ *  The colors to use when the type is `BORDER_TYPE_STROKE`. To set the stroke
+ *  color, specify a value for the `red`, `green`, and `blue` fields. The value
+ *  must be a float number between 0 and 1 based on the RGB color value, where
+ *  `0` (0/255) represents the absence of color and `1` (255/255) represents the
+ *  maximum intensity of the color. For example, the following sets the color to
+ *  red at its maximum intensity: ``` "color": { "red": 1, "green": 0, "blue":
+ *  0, } ``` The `alpha` field is unavailable for stroke color. If specified,
+ *  this field is ignored.
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Color *strokeColor;
 
 /**
@@ -2721,20 +2845,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *altText;
 
 /**
- *  If set, the button is filled with a solid background color and the font
- *  color changes to maintain contrast with the background color. For example,
- *  setting a blue background likely results in white text. If unset, the image
- *  background is white and the font color is blue. For red, green, and blue,
- *  the value of each field is a `float` number that you can express in either
- *  of two ways: as a number between 0 and 255 divided by 255 (153/255), or as a
- *  value between 0 and 1 (0.6). 0 represents the absence of a color and 1 or
- *  255/255 represent the full presence of that color on the RGB scale.
- *  Optionally set `alpha`, which sets a level of transparency using this
- *  equation: ``` pixel color = alpha * (this color) + (1.0 - alpha) *
- *  (background color) ``` For `alpha`, a value of `1` corresponds with a solid
- *  color, and a value of `0` corresponds with a completely transparent color.
- *  For example, the following color represents a half transparent red: ```
- *  "color": { "red": 1, "green": 0, "blue": 0, "alpha": 0.5 } ```
+ *  Optional. The color of the button. If set, the button `type` is set to
+ *  `FILLED` and the color of `text` and `icon` fields are set to a contrasting
+ *  color for readability. For example, if the button color is set to blue, any
+ *  text or icons in the button are set to white. To set the button color,
+ *  specify a value for the `red`, `green`, and `blue` fields. The value must be
+ *  a float number between 0 and 1 based on the RGB color value, where `0`
+ *  (0/255) represents the absence of color and `1` (255/255) represents the
+ *  maximum intensity of the color. For example, the following sets the color to
+ *  red at its maximum intensity: ``` "color": { "red": 1, "green": 0, "blue":
+ *  0, } ``` The `alpha` field is unavailable for button color. If specified,
+ *  this field is ignored.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Color *color;
 
@@ -2747,8 +2868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
- *  The icon image. If both `icon` and `text` are set, then the icon appears
- *  before the text.
+ *  An icon displayed inside the button. If both `icon` and `text` are set, then
+ *  the icon appears before the text.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon;
 
@@ -2880,10 +3001,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_DividerStyleUnspecified
  *        Don't use. Unspecified. (Value: "DIVIDER_STYLE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_NoDivider
- *        If set, no divider is rendered between sections. (Value: "NO_DIVIDER")
+ *        If set, no divider is rendered. This style completely removes the
+ *        divider from the layout. The result is equivalent to not adding a
+ *        divider at all. (Value: "NO_DIVIDER")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_SolidDivider
- *        Default option. Render a solid divider between sections. (Value:
- *        "SOLID_DIVIDER")
+ *        Default option. Render a solid divider. (Value: "SOLID_DIVIDER")
  */
 @property(nonatomic, copy, nullable) NSString *sectionDividerStyle;
 
@@ -2991,8 +3113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A column. [Google Workspace Add-ons and Chat
- *  apps](https://developers.google.com/workspace/extend): Columns for Google
- *  Workspace Add-ons are in Developer Preview.
+ *  apps](https://developers.google.com/workspace/extend)
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Column : GTLRObject
 
@@ -3074,8 +3195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  or equal to 300 pt. * On Android devices, the second column wraps if the
  *  screen width is less than or equal to 320 dp. To include more than 2
  *  columns, or to use rows, use the `Grid` widget. [Google Workspace Add-ons
- *  and Chat apps](https://developers.google.com/workspace/extend): Columns for
- *  Google Workspace Add-ons are in Developer Preview.
+ *  and Chat apps](https://developers.google.com/workspace/extend):
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Columns : GTLRObject
 
@@ -3621,8 +3741,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  a Google Workspace organization.
  *
  *  Likely values:
- *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Drive
- *        Represents a data source from Google Drive OnePick. (Value: "DRIVE")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_Unknown
  *        Default value. Don't use. (Value: "UNKNOWN")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource_CommonDataSource_User
@@ -3633,7 +3751,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A data source that's unique to a Google Workspace host application, such
- *  spaces in Google Chat.
+ *  spaces in Google Chat. This field supports the Google API Client Libraries
+ *  but isn't available in the Cloud Client Libraries. To learn more, see
+ *  [Install the client
+ *  libraries](https://developers.google.com/workspace/chat/libraries).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_HostAppDataSourceMarkup *hostAppDataSource;
 
@@ -3743,8 +3864,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *multiSelectMinQueryLength;
 
 /**
- *  The name that identifies the selection input in a form input event. For
- *  details about working with form inputs, see [Receive form
+ *  Required. The name that identifies the selection input in a form input
+ *  event. For details about working with form inputs, see [Receive form
  *  data](https://developers.google.com/workspace/chat/read-form-data).
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3788,8 +3909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        multiselect
  *        menu](https://developers.google.com/workspace/chat/design-interactive-card-dialog#multiselect-menu).
  *        [Google Workspace Add-ons and Chat
- *        apps](https://developers.google.com/workspace/extend): Multiselect for
- *        Google Workspace Add-ons are in Developer Preview. (Value:
+ *        apps](https://developers.google.com/workspace/extend): (Value:
  *        "MULTI_SELECT")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton
  *        A set of radio buttons. Users can select one radio button. (Value:
@@ -4078,9 +4198,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  A list of buttons. For example, the following JSON creates two buttons. The
  *  first is a blue text button and the second is an image button that opens a
  *  link: ``` "buttonList": { "buttons": [ { "text": "Edit", "color": { "red":
- *  0, "green": 0, "blue": 1, "alpha": 1 }, "disabled": true, }, { "icon": {
- *  "knownIcon": "INVITE", "altText": "check calendar" }, "onClick": {
- *  "openLink": { "url": "https://example.com/calendar" } } } ] } ```
+ *  0, "green": 0, "blue": 1, }, "disabled": true, }, { "icon": { "knownIcon":
+ *  "INVITE", "altText": "check calendar" }, "onClick": { "openLink": { "url":
+ *  "https://example.com/calendar" } } } ] } ```
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
 
@@ -4206,8 +4326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The supported widgets that you can include in a column. [Google Workspace
- *  Add-ons and Chat apps](https://developers.google.com/workspace/extend):
- *  Columns for Google Workspace Add-ons are in Developer Preview.
+ *  Add-ons and Chat apps](https://developers.google.com/workspace/extend)
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Widgets : GTLRObject
 
@@ -4681,11 +4800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
-/**
- *  The Google Group the membership corresponds to. Only supports read
- *  operations. Other operations, like creating or updating a membership, aren't
- *  currently supported.
- */
+/** The Google Group the membership corresponds to. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Group *groupMember;
 
 /**
@@ -4782,6 +4897,30 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  [Developer Preview](https://developers.google.com/workspace/preview).
+ *  Represents the count of memberships of a space, grouped into categories.
+ */
+@interface GTLRHangoutsChat_MembershipCount : GTLRObject
+
+/**
+ *  Count of human users that have directly joined the space, not counting users
+ *  joined by having membership in a joined group.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *joinedDirectHumanUserCount;
+
+/**
+ *  Count of all groups that have directly joined the space.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *joinedGroupCount;
+
+@end
+
+
+/**
  *  Event payload for a new membership. Event type:
  *  `google.workspace.chat.membership.v1.created`.
  */
@@ -4869,9 +5008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  [cards](https://developers.google.com/workspace/chat/api/reference/rest/v1/cards).
  *  Only Chat apps can create cards. If your Chat app [authenticates as a
  *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
- *  the messages can't contain cards. To learn about cards and how to create
- *  them, see [Send card
- *  messages](https://developers.google.com/workspace/chat/create-messages#create).
+ *  the messages can't contain cards. To learn how to create a message that
+ *  contains cards, see [Send a
+ *  message](https://developers.google.com/workspace/chat/create-messages).
  *  [Card builder](https://addons.gsuite.google.com/uikit/builder)
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CardWithId *> *cardsV2;
@@ -4968,8 +5107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  your Chat app [authenticates as a
  *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  to send a message, the message can't be private and must omit this field.
- *  For details, see [Send private messages to Google Chat
- *  users](https://developers.google.com/workspace/chat/private-messages).
+ *  For details, see [Send a message
+ *  privately](https://developers.google.com/workspace/chat/create-messages#private).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *privateMessageViewer;
 
@@ -5008,8 +5147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  also [\@mention a Google Chat
  *  user](https://developers.google.com/workspace/chat/format-messages#messages-\@mention),
  *  or everyone in the space. To learn about creating text messages, see [Send a
- *  text
- *  message](https://developers.google.com/workspace/chat/create-messages#create-text-messages).
+ *  message](https://developers.google.com/workspace/chat/create-messages).
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -5248,6 +5386,41 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Response with a list of spaces corresponding to the search spaces request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "spaces" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRHangoutsChat_SearchSpacesResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be used to retrieve the next page. If this field is empty,
+ *  there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A page of the requested spaces.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Space *> *spaces;
+
+/**
+ *  The total number of spaces that match the query, across all pages. If the
+ *  result is over 10,000 spaces, this value is an estimate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
  *  A section contains a collection of widgets that are rendered (vertically) in
  *  the order that they are specified. Across all platforms, cards have a narrow
  *  fixed width, so there's currently no need for layout properties (for
@@ -5295,9 +5468,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_SetUpSpaceRequest : GTLRObject
 
 /**
- *  Optional. The Google Chat users to invite to join the space. Omit the
- *  calling user, as they are added automatically. The set currently allows up
- *  to 20 memberships (in addition to the caller). For human membership, the
+ *  Optional. The Google Chat users or groups to invite to join the space. Omit
+ *  the calling user, as they are added automatically. The set currently allows
+ *  up to 20 memberships (in addition to the caller). For human membership, the
  *  `Membership.member` field must contain a `user` with `name` populated
  *  (format: `users/{user}`) and `type` set to `User.Type.HUMAN`. You can only
  *  add human users when setting up a space (adding Chat apps is only supported
@@ -5305,7 +5478,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  using the user's email as an alias for {user}. For example, the `user.name`
  *  can be `users/example\@gmail.com`. To invite Gmail users or users from
  *  external Google Workspace domains, user's email must be used for `{user}`.
- *  Optional when setting `Space.spaceType` to `SPACE`. Required when setting
+ *  For Google group membership, the `Membership.group_member` field must
+ *  contain a `group` with `name` populated (format `groups/{group}`). You can
+ *  only add Google groups when setting `Space.spaceType` to `SPACE`. Optional
+ *  when setting `Space.spaceType` to `SPACE`. Required when setting
  *  `Space.spaceType` to `GROUP_CHAT`, along with at least two memberships.
  *  Required when setting `Space.spaceType` to `DIRECT_MESSAGE` with a human
  *  user, along with exactly one membership. Must be empty when creating a 1:1
@@ -5409,6 +5585,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Space : GTLRObject
 
 /**
+ *  Optional. Specifies the [access
+ *  setting](https://support.google.com/chat/answer/11971020) of the space. Only
+ *  populated when the `space_type` is `SPACE`.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_AccessSettings *accessSettings;
+
+/**
  *  Output only. For direct message (DM) spaces with a Chat app, whether the
  *  space was created by a Google Workspace administrator. Administrators can
  *  install and set up a direct message with a Chat app on behalf of users in
@@ -5445,14 +5628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Input when creating a space in a Google Workspace organization. Omit this
  *  field when creating spaces in the following conditions: * The authenticated
  *  user uses a consumer account (unmanaged user account). By default, a space
- *  created by a consumer account permits any Google Chat user. * The space is
- *  used to [import data to Google Chat]
- *  (https://developers.google.com/chat/api/guides/import-data-overview) because
- *  import mode spaces must only permit members from the same Google Workspace
- *  organization. However, as part of the [Google Workspace Developer Preview
- *  Program](https://developers.google.com/workspace/preview), import mode
- *  spaces can permit any Google Chat user so this field can then be set for
- *  import mode spaces. For existing spaces, this field is output only.
+ *  created by a consumer account permits any Google Chat user. For existing
+ *  spaces, this field is output only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5467,7 +5644,29 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *importMode;
 
-/** Resource name of the space. Format: `spaces/{space}` */
+/**
+ *  Output only. Timestamp of the last message in the space. [Developer
+ *  Preview](https://developers.google.com/workspace/preview).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastActiveTime;
+
+/**
+ *  Output only. The count of joined memberships grouped by member type.
+ *  Populated when the `space_type` is `SPACE`, `DIRECT_MESSAGE` or
+ *  `GROUP_CHAT`. [Developer
+ *  Preview](https://developers.google.com/workspace/preview).
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_MembershipCount *membershipCount;
+
+/**
+ *  Resource name of the space. Format: `spaces/{space}` Where `{space}`
+ *  represents the system-assigned ID for the space. You can obtain the space ID
+ *  by calling the
+ *  [`spaces.list()`](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list)
+ *  method or from the space URL. For example, if the space URL is
+ *  `https://mail.google.com/mail/u/0/#chat/space/AAAAAAAAA`, the space ID is
+ *  `AAAAAAAAA`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -5534,6 +5733,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        (Value: "SPACE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *spaceType;
+
+/** Output only. The URI for a user to access the space. */
+@property(nonatomic, copy, nullable) NSString *spaceUri;
 
 /**
  *  Output only. Deprecated: Use `spaceThreadingState` instead. Whether messages
@@ -5903,10 +6105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_Thread : GTLRObject
 
-/**
- *  Output only. Resource name of the thread. Example:
- *  `spaces/{space}/threads/{thread}`
- */
+/** Resource name of the thread. Example: `spaces/{space}/threads/{thread}` */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

@@ -351,6 +351,52 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsEncryptionSpecInitialize
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:initialize";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsEncryptionSpecInitialize *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
+  query.loggingName = @"contactcenterinsights.projects.locations.encryptionSpec.initialize";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsGetEncryptionSpec
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsGetEncryptionSpec *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec class];
+  query.loggingName = @"contactcenterinsights.projects.locations.getEncryptionSpec";
+  return query;
+}
+
+@end
+
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsGetSettings
 
 @dynamic name;

@@ -1290,8 +1290,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesPatch : GTLRTranslateQuery
 
 /**
- *  Required. The resource name of the entry. Format: "projects/ * /locations/ *
- *  /glossaries/ * /glossaryEntries/ *"
+ *  Identifier. The resource name of the entry. Format: `projects/ * /locations/
+ *  * /glossaries/ * /glossaryEntries/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1301,8 +1301,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a glossary entry.
  *
  *  @param object The @c GTLRTranslate_GlossaryEntry to include in the query.
- *  @param name Required. The resource name of the entry. Format: "projects/ *
- *    /locations/ * /glossaries/ * /glossaryEntries/ *"
+ *  @param name Identifier. The resource name of the entry. Format: `projects/ *
+ *    /locations/ * /glossaries/ * /glossaryEntries/ *`
  *
  *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesPatch
  */
@@ -1387,6 +1387,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesPatch : GTLRTranslateQuery
 

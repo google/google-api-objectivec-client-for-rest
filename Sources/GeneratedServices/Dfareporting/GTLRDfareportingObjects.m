@@ -2264,6 +2264,34 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_CartData
+//
+
+@implementation GTLRDfareporting_CartData
+@dynamic items, merchantFeedLabel, merchantFeedLanguage, merchantId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRDfareporting_CartDataItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CartDataItem
+//
+
+@implementation GTLRDfareporting_CartDataItem
+@dynamic itemId, quantity, unitPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_ChangeLog
 //
 
@@ -2540,11 +2568,12 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_Conversion
-@dynamic adUserDataConsent, childDirectedTreatment, customVariables, dclid,
-         encryptedUserId, encryptedUserIdCandidates, floodlightActivityId,
-         floodlightConfigurationId, gclid, impressionId, kind, limitAdTracking,
-         matchId, mobileDeviceId, nonPersonalizedAd, ordinal, quantity,
-         timestampMicros, treatmentForUnderage, userIdentifiers, value;
+@dynamic adUserDataConsent, cartData, childDirectedTreatment, customVariables,
+         dclid, encryptedUserId, encryptedUserIdCandidates,
+         floodlightActivityId, floodlightConfigurationId, gclid, impressionId,
+         kind, limitAdTracking, matchId, mobileDeviceId, nonPersonalizedAd,
+         ordinal, quantity, timestampMicros, treatmentForUnderage,
+         userIdentifiers, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3488,7 +3517,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_DirectorySite
 @dynamic identifier, idDimensionValue, inpageTagFormats, interstitialTagFormats,
-         kind, name, settings, url;
+         kind, name, publisherSpecificationId, settings, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -4772,17 +4801,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_Placement
 @dynamic accountId, activeStatus, adBlockingOptOut, additionalSizes,
-         advertiserId, advertiserIdDimensionValue, campaignId,
-         campaignIdDimensionValue, comment, compatibility, contentCategoryId,
-         conversionDomainOverride, createInfo, directorySiteId,
-         directorySiteIdDimensionValue, externalId, identifier,
+         adServingPlatformId, advertiserId, advertiserIdDimensionValue,
+         campaignId, campaignIdDimensionValue, comment, compatibility,
+         contentCategoryId, conversionDomainOverride, createInfo,
+         directorySiteId, directorySiteIdDimensionValue, externalId, identifier,
          idDimensionValue, keyName, kind, lastModifiedInfo,
          lookbackConfiguration, name, partnerWrappingData, paymentApproved,
          paymentSource, placementGroupId, placementGroupIdDimensionValue,
          placementStrategyId, pricingSchedule, primary, publisherUpdateInfo,
-         siteId, siteIdDimensionValue, size, sslRequired, status, subaccountId,
-         tagFormats, tagSetting, videoActiveViewOptOut, videoSettings,
-         vpaidAdapterChoice, wrappingOptOut;
+         siteId, siteIdDimensionValue, siteServed, size, sslRequired, status,
+         subaccountId, tagFormats, tagSetting, videoActiveViewOptOut,
+         videoSettings, vpaidAdapterChoice, wrappingOptOut;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -5688,9 +5717,9 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_Site
-@dynamic accountId, approved, directorySiteId, directorySiteIdDimensionValue,
-         identifier, idDimensionValue, keyName, kind, name, siteContacts,
-         siteSettings, subaccountId, videoSettings;
+@dynamic accountId, adServingPlatformId, approved, directorySiteId,
+         directorySiteIdDimensionValue, identifier, idDimensionValue, keyName,
+         kind, name, siteContacts, siteSettings, subaccountId, videoSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

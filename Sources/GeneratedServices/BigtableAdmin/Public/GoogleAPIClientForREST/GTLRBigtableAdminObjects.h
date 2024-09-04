@@ -47,13 +47,29 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMin;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp;
 @class GTLRBigtableAdmin_HotTablet;
 @class GTLRBigtableAdmin_Instance;
 @class GTLRBigtableAdmin_Instance_Labels;
@@ -722,9 +738,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Required. The expiration time of the backup. When creating a backup or
- *  updating its `expire_time`, the new value must: - Be at most 90 days in the
- *  future - Be at least 6 hours in the future Once the `expire_time` has
- *  passed, Cloud Bigtable will delete the backup.
+ *  updating its `expire_time`, the value must be greater than the backup
+ *  creation time by: - At least 6 hours - At most 90 days Once the
+ *  `expire_time` has passed, Cloud Bigtable will delete the backup.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
@@ -1827,11 +1843,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate : GTLRObject
 
+/** HyperLogLogPlusPlusUniqueCount aggregator. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount *hllppUniqueCount;
+
 /**
  *  Type of the inputs that are accumulated by this `Aggregate`, which must
  *  specify a full encoding. Use `AddInput` mutations to accumulate new inputs.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *inputType;
+
+/** Max aggregator. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax *max;
+
+/** Min aggregator. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMin *min;
 
 /**
  *  Output only. Type that holds the internal accumulator state for the
@@ -1847,10 +1872,56 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Computes an approximate unique count over the input values. When using raw
+ *  data as input, be careful to use a consistent encoding. Otherwise the same
+ *  value encoded differently could count more than once, or two distinct values
+ *  could count as identical. Input: Any, or omit for Raw State: TBD Special
+ *  state conversions: `Int64` (the unique count estimate)
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount : GTLRObject
+@end
+
+
+/**
+ *  Computes the max of the input values. Allowed input: `Int64` State: same as
+ *  input
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax : GTLRObject
+@end
+
+
+/**
+ *  Computes the min of the input values. Allowed input: `Int64` State: same as
+ *  input
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMin : GTLRObject
+@end
+
+
+/**
  *  Computes the sum of the input values. Allowed input: `Int64` State: same as
  *  input
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum : GTLRObject
+@end
+
+
+/**
+ *  An ordered list of elements of a given type. Values of type `Array` are
+ *  stored in `Value.array_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray : GTLRObject
+
+/** The type of the elements in the array. This must not be `Array`. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *elementType;
+
+@end
+
+
+/**
+ *  bool Values of type `Bool` are stored in `Value.bool_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool : GTLRObject
 @end
 
 
@@ -1877,10 +1948,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Leaves the value "as-is" * Natural sort? Yes * Self-delimiting? No *
+ *  Leaves the value "as-is" * Order-preserving? Yes * Self-delimiting? No *
  *  Compatibility? N/A
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw : GTLRObject
+@end
+
+
+/**
+ *  Date Values of type `Date` are stored in `Value.date_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate : GTLRObject
+@end
+
+
+/**
+ *  Float32 Values of type `Float32` are stored in `Value.float_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32 : GTLRObject
+@end
+
+
+/**
+ *  Float64 Values of type `Float64` are stored in `Value.float_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64 : GTLRObject
 @end
 
 
@@ -1908,15 +2000,115 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Encodes the value as an 8-byte big endian twos complement `Bytes` value. *
- *  Natural sort? No (positive values only) * Self-delimiting? Yes *
+ *  Order-preserving? No (positive values only) * Self-delimiting? Yes *
  *  Compatibility? - BigQuery Federation `BINARY` encoding - HBase
  *  `Bytes.toBytes` - Java `ByteBuffer.putLong()` with `ByteOrder.BIG_ENDIAN`
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes : GTLRObject
 
-/** The underlying `Bytes` type, which may be able to encode further. */
+/** Deprecated: ignored if set. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes *bytesType;
 
+@end
+
+
+/**
+ *  A mapping of keys to values of a given type. Values of type `Map` are stored
+ *  in a `Value.array_value` where each entry is another `Value.array_value`
+ *  with two elements (the key and the value, in that order). Normally encoded
+ *  Map values won't have repeated keys, however, clients are expected to handle
+ *  the case in which they do. If the same key appears multiple times, the
+ *  _last_ value takes precedence.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap : GTLRObject
+
+/**
+ *  The type of a map key. Only `Bytes`, `String`, and `Int64` are allowed as
+ *  key types.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *keyType;
+
+/** The type of the values in a map. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *valueType;
+
+@end
+
+
+/**
+ *  String Values of type `String` are stored in `Value.string_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString : GTLRObject
+
+/** The encoding to use when converting to/from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding *encoding;
+
+@end
+
+
+/**
+ *  Rules used to convert to/from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding : GTLRObject
+
+/** Use `Utf8Bytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes *utf8Bytes;
+
+/** Deprecated: if set, converts to an empty `utf8_bytes`. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw *utf8Raw;
+
+@end
+
+
+/**
+ *  UTF-8 encoding * Order-preserving? Yes (code point order) * Self-delimiting?
+ *  No * Compatibility? - BigQuery Federation `TEXT` encoding - HBase
+ *  `Bytes.toBytes` - Java `String#getBytes(StandardCharsets.UTF_8)`
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes : GTLRObject
+@end
+
+
+/**
+ *  Deprecated: prefer the equivalent `Utf8Bytes`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw : GTLRObject
+@end
+
+
+/**
+ *  A structured data value, consisting of fields which map to dynamically typed
+ *  values. Values of type `Struct` are stored in `Value.array_value` where
+ *  entries are in the same order and number as `field_types`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct : GTLRObject
+
+/** The names and types of the fields in this struct. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField *> *fields;
+
+@end
+
+
+/**
+ *  A struct field and its type.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField : GTLRObject
+
+/**
+ *  The field name (optional). Fields without a `field_name` are considered
+ *  anonymous and cannot be referenced by name.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/** The type of values in this field. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *type;
+
+@end
+
+
+/**
+ *  Timestamp Values of type `Timestamp` are stored in `Value.timestamp_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp : GTLRObject
 @end
 
 
@@ -3229,37 +3421,59 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  in Bigtable. It is heavily based on the GoogleSQL standard to help maintain
  *  familiarity and consistency across products and features. For compatibility
  *  with Bigtable's existing untyped APIs, each `Type` includes an `Encoding`
- *  which describes how to convert to/from the underlying data. This might
- *  involve composing a series of steps into an "encoding chain," for example to
- *  convert from INT64 -> STRING -> raw bytes. In most cases, a "link" in the
- *  encoding chain will be based an on existing GoogleSQL conversion function
- *  like `CAST`. Each link in the encoding chain also defines the following
- *  properties: * Natural sort: Does the encoded value sort consistently with
- *  the original typed value? Note that Bigtable will always sort data based on
- *  the raw encoded value, *not* the decoded type. - Example: BYTES values sort
- *  in the same order as their raw encodings. - Counterexample: Encoding INT64
- *  to a fixed-width STRING does *not* preserve sort order when dealing with
- *  negative numbers. INT64(1) > INT64(-1), but STRING("-00001") >
- *  STRING("00001). - The overall encoding chain has this property if *every*
- *  link does. * Self-delimiting: If we concatenate two encoded values, can we
- *  always tell where the first one ends and the second one begins? - Example:
- *  If we encode INT64s to fixed-width STRINGs, the first value will always
- *  contain exactly N digits, possibly preceded by a sign. - Counterexample: If
- *  we concatenate two UTF-8 encoded STRINGs, we have no way to tell where the
- *  first one ends. - The overall encoding chain has this property if *any* link
- *  does. * Compatibility: Which other systems have matching encoding schemes?
- *  For example, does this encoding have a GoogleSQL equivalent? HBase? Java?
+ *  which describes how to convert to/from the underlying data. Each encoding
+ *  also defines the following properties: * Order-preserving: Does the encoded
+ *  value sort consistently with the original typed value? Note that Bigtable
+ *  will always sort data based on the raw encoded value, *not* the decoded
+ *  type. - Example: BYTES values sort in the same order as their raw encodings.
+ *  - Counterexample: Encoding INT64 as a fixed-width decimal string does *not*
+ *  preserve sort order when dealing with negative numbers. `INT64(1) >
+ *  INT64(-1)`, but `STRING("-00001") > STRING("00001)`. * Self-delimiting: If
+ *  we concatenate two encoded values, can we always tell where the first one
+ *  ends and the second one begins? - Example: If we encode INT64s to
+ *  fixed-width STRINGs, the first value will always contain exactly N digits,
+ *  possibly preceded by a sign. - Counterexample: If we concatenate two UTF-8
+ *  encoded STRINGs, we have no way to tell where the first one ends. *
+ *  Compatibility: Which other systems have matching encoding schemes? For
+ *  example, does this encoding have a GoogleSQL equivalent? HBase? Java?
  */
 @interface GTLRBigtableAdmin_Type : GTLRObject
 
 /** Aggregate */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate *aggregateType;
 
+/** Array */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray *arrayType;
+
+/** Bool */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool *boolType;
+
 /** Bytes */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes *bytesType;
 
+/** Date */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate *dateType;
+
+/** Float32 */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32 *float32Type;
+
+/** Float64 */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64 *float64Type;
+
 /** Int64 */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64 *int64Type;
+
+/** Map */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap *mapType;
+
+/** String */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString *stringType;
+
+/** Struct */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct *structType;
+
+/** Timestamp */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp *timestampType;
 
 @end
 

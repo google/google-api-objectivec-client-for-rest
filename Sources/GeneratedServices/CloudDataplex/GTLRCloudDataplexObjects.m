@@ -13,6 +13,75 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations.ziOrgPolicy
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiOrgPolicy_ZiNotRequired = @"ZI_NOT_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiOrgPolicy_ZiPreferred = @"ZI_PREFERRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiOrgPolicy_ZiRequired = @"ZI_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiOrgPolicy_ZiUnknown = @"ZI_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiOrgPolicy_ZiUnspecified = @"ZI_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations.ziRegionPolicy
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed = @"ZI_REGION_POLICY_FAIL_CLOSED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen = @"ZI_REGION_POLICY_FAIL_OPEN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet = @"ZI_REGION_POLICY_NOT_SET";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown = @"ZI_REGION_POLICY_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified = @"ZI_REGION_POLICY_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations.ziRegionState
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionState_ZiRegionEnabled = @"ZI_REGION_ENABLED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionState_ZiRegionNotEnabled = @"ZI_REGION_NOT_ENABLED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionState_ZiRegionUnknown = @"ZI_REGION_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZiRegionState_ZiRegionUnspecified = @"ZI_REGION_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations.zoneIsolation
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneIsolation_ZiNotRequired = @"ZI_NOT_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneIsolation_ZiPreferred = @"ZI_PREFERRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneIsolation_ZiRequired = @"ZI_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneIsolation_ZiUnknown = @"ZI_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneIsolation_ZiUnspecified = @"ZI_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations.zoneSeparation
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneSeparation_ZsNotRequired = @"ZS_NOT_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneSeparation_ZsRequired = @"ZS_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneSeparation_ZsUnknown = @"ZS_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZoneSeparation_ZsUnspecified = @"ZS_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations.zsOrgPolicy
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZsOrgPolicy_ZsNotRequired = @"ZS_NOT_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZsOrgPolicy_ZsRequired = @"ZS_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZsOrgPolicy_ZsUnknown = @"ZS_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZsOrgPolicy_ZsUnspecified = @"ZS_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations.zsRegionState
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZsRegionState_ZsRegionEnabled = @"ZS_REGION_ENABLED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZsRegionState_ZsRegionNotEnabled = @"ZS_REGION_NOT_ENABLED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZsRegionState_ZsRegionUnknown = @"ZS_REGION_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations_ZsRegionState_ZsRegionUnspecified = @"ZS_REGION_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride.ziOverride
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZiOverride_ZiNotRequired = @"ZI_NOT_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZiOverride_ZiPreferred = @"ZI_PREFERRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZiOverride_ZiRequired = @"ZI_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZiOverride_ZiUnknown = @"ZI_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZiOverride_ZiUnspecified = @"ZI_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride.zsOverride
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZsOverride_ZsNotRequired = @"ZS_NOT_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZsOverride_ZsRequired = @"ZS_REQUIRED";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZsOverride_ZsUnknown = @"ZS_UNKNOWN";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride_ZsOverride_ZsUnspecified = @"ZS_UNSPECIFIED";
+
+// GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment.locationType
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_CloudRegion = @"CLOUD_REGION";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_CloudZone = @"CLOUD_ZONE";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_Cluster = @"CLUSTER";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_Global = @"GLOBAL";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_MultiRegionGeo = @"MULTI_REGION_GEO";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_MultiRegionJurisdiction = @"MULTI_REGION_JURISDICTION";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_Other = @"OTHER";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_Pop = @"POP";
+NSString * const kGTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment_LocationType_Unspecified = @"UNSPECIFIED";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1Action.category
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Action_Category_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Action_Category_DataDiscovery = @"DATA_DISCOVERY";
@@ -28,11 +97,6 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ActionIncompatibleDataS
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ActionInvalidDataPartition_ExpectedStructure_ConsistentKeys = @"CONSISTENT_KEYS";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ActionInvalidDataPartition_ExpectedStructure_HiveStyleKeys = @"HIVE_STYLE_KEYS";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ActionInvalidDataPartition_ExpectedStructure_PartitionStructureUnspecified = @"PARTITION_STRUCTURE_UNSPECIFIED";
-
-// GTLRCloudDataplex_GoogleCloudDataplexV1AspectType.transferStatus
-NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusMigrated = @"TRANSFER_STATUS_MIGRATED";
-NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusTransferred = @"TRANSFER_STATUS_TRANSFERRED";
-NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusUnspecified = @"TRANSFER_STATUS_UNSPECIFIED";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1Asset.state
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Asset_State_ActionRequired = @"ACTION_REQUIRED";
@@ -202,11 +266,6 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entity_Type_Fileset = @
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entity_Type_Table = @"TABLE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entity_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup.transferStatus
-NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusMigrated = @"TRANSFER_STATUS_MIGRATED";
-NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusTransferred = @"TRANSFER_STATUS_TRANSFERRED";
-NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_TransferStatus_TransferStatusUnspecified = @"TRANSFER_STATUS_UNSPECIFIED";
-
 // GTLRCloudDataplex_GoogleCloudDataplexV1Environment.state
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_ActionRequired = @"ACTION_REQUIRED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Active = @"ACTIVE";
@@ -290,6 +349,35 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_Sta
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Ready = @"READY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Updating = @"UPDATING";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob.type
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Import = @"IMPORT";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec.aspectSyncMode
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Full = @"FULL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_Incremental = @"INCREMENTAL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_AspectSyncMode_SyncModeUnspecified = @"SYNC_MODE_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec.entrySyncMode
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Full = @"FULL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_Incremental = @"INCREMENTAL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_EntrySyncMode_SyncModeUnspecified = @"SYNC_MODE_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec.logLevel
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_LogLevel_Debug = @"DEBUG";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_LogLevel_Info = @"INFO";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec_LogLevel_LogLevelUnspecified = @"LOG_LEVEL_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus.state
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus_State_Canceled = @"CANCELED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus_State_Canceling = @"CANCELING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus_State_Queued = @"QUEUED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus_State_Running = @"RUNNING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus_State_SucceededWithErrors = @"SUCCEEDED_WITH_ERRORS";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1Schema.partitionStyle
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Schema_PartitionStyle_HiveCompatible = @"HIVE_COMPATIBLE";
@@ -419,6 +507,222 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocation
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocation
+@dynamic ccfeRmsPath, expected, extraParameters, locationData, parentAsset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraParameters" : [GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosExtraParameter class],
+    @"locationData" : [GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationData class],
+    @"parentAsset" : [GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosCloudAsset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectations
+@dynamic requirementOverride, ziOrgPolicy, ziRegionPolicy, ziRegionState,
+         zoneIsolation, zoneSeparation, zsOrgPolicy, zsRegionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosAssetLocationIsolationExpectationsRequirementOverride
+@dynamic ziOverride, zsOverride;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosBlobstoreLocation
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosBlobstoreLocation
+@dynamic policyId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosCloudAsset
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosCloudAsset
+@dynamic assetName, assetType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosCloudAssetComposition
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosCloudAssetComposition
+@dynamic childAsset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childAsset" : [GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosCloudAsset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosDirectLocationAssignment
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosDirectLocationAssignment
+@dynamic location;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"location" : [GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosExtraParameter
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosExtraParameter
+@dynamic regionalMigDistributionPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationAssignment
+@dynamic location, locationType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationData
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosLocationData
+@dynamic blobstoreLocation, childAssetLocation, directLocation, gcpProjectProxy,
+         placerLocation, spannerLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosPlacerLocation
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosPlacerLocation
+@dynamic placerConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosRegionalMigDistributionPolicy
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosRegionalMigDistributionPolicy
+@dynamic targetShape, zones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zones" : [GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosZoneConfiguration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosSpannerLocation
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosSpannerLocation
+@dynamic backupName, dbName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupName" : [NSString class],
+    @"dbName" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosTenantProjectProxy
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosTenantProjectProxy
+@dynamic projectNumbers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"projectNumbers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosZoneConfiguration
+//
+
+@implementation GTLRCloudDataplex_CloudReliabilityZicyWs3DataplaneProtosZoneConfiguration
+@dynamic zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -587,7 +891,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1AspectType
 @dynamic authorization, createTime, descriptionProperty, displayName, ETag,
-         labels, metadataTemplate, name, transferStatus, uid, updateTime;
+         labels, metadataTemplate, name, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -824,6 +1128,15 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1CancelJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1CancelMetadataJobRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1CancelMetadataJobRequest
 @end
 
 
@@ -1252,8 +1565,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 @dynamic column, descriptionProperty, dimension, ignoreNull, name,
          nonNullExpectation, rangeExpectation, regexExpectation,
          rowConditionExpectation, setExpectation, sqlAssertion,
-         statisticRangeExpectation, tableConditionExpectation, threshold,
-         uniquenessExpectation;
+         statisticRangeExpectation, suspended, tableConditionExpectation,
+         threshold, uniquenessExpectation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1648,8 +1961,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob
-@dynamic dataProfileResult, dataProfileSpec, dataQualityResult, dataQualitySpec,
-         endTime, message, name, startTime, state, type, uid;
+@dynamic createTime, dataProfileResult, dataProfileSpec, dataQualityResult,
+         dataQualitySpec, endTime, message, name, startTime, state, type, uid;
 @end
 
 
@@ -1843,8 +2156,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup
-@dynamic createTime, descriptionProperty, displayName, ETag, labels, name,
-         transferStatus, uid, updateTime;
+@dynamic createTime, descriptionProperty, displayName, ETag, labels, name, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2139,6 +2452,24 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity
 @dynamic entity, entityType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ImportItem
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ImportItem
+@dynamic aspectKeys, entry, updateMask;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aspectKeys" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2591,6 +2922,29 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataJobsResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataJobsResponse
+@dynamic metadataJobs, nextPageToken, unreachableLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metadataJobs" : [GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob class],
+    @"unreachableLocations" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"metadataJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1ListPartitionsResponse
 //
 
@@ -2675,6 +3029,83 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return @"zones";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob
+@dynamic createTime, importResult, importSpec, labels, name, status, type, uid,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobResult
+@dynamic createdEntries, deletedEntries, recreatedEntries, unchangedEntries,
+         updatedEntries, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpec
+@dynamic aspectSyncMode, entrySyncMode, logLevel, scope, sourceCreateTime,
+         sourceStorageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpecImportJobScope
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpecImportJobScope
+@dynamic aspectTypes, entryGroups, entryTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aspectTypes" : [NSString class],
+    @"entryGroups" : [NSString class],
+    @"entryTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus
+@dynamic completionPercent, message, state, updateTime;
 @end
 
 

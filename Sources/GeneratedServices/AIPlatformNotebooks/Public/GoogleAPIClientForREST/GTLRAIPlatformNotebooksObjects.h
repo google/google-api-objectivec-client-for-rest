@@ -42,6 +42,7 @@
 @class GTLRAIPlatformNotebooks_Policy;
 @class GTLRAIPlatformNotebooks_ServiceAccount;
 @class GTLRAIPlatformNotebooks_ShieldedInstanceConfig;
+@class GTLRAIPlatformNotebooks_Snapshot;
 @class GTLRAIPlatformNotebooks_Status;
 @class GTLRAIPlatformNotebooks_Status_Details_Item;
 @class GTLRAIPlatformNotebooks_SupportedValues;
@@ -1058,6 +1059,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_GceSetup_Metadata *metadata;
 
 /**
+ *  Optional. The minimum CPU platform to use for this instance. The list of
+ *  valid values can be found in
+ *  https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform#availablezones
+ */
+@property(nonatomic, copy, nullable) NSString *minCpuPlatform;
+
+/**
  *  Optional. The network interfaces for the VM. Supports only one interface.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_NetworkInterface *> *networkInterfaces;
@@ -1744,6 +1752,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Request for restoring the notebook instance from a BackupSource.
+ */
+@interface GTLRAIPlatformNotebooks_RestoreInstanceRequest : GTLRObject
+
+/** Snapshot to be used for restore. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Snapshot *snapshot;
+
+@end
+
+
+/**
  *  Request for rollbacking a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_RollbackInstanceRequest : GTLRObject
@@ -1827,6 +1846,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableVtpm;
+
+@end
+
+
+/**
+ *  Snapshot represents the snapshot of the data disk used to restore the
+ *  Workbench Instance from. Refers to:
+ *  compute/v1/projects/{project_id}/global/snapshots/{snapshot_id}
+ */
+@interface GTLRAIPlatformNotebooks_Snapshot : GTLRObject
+
+/** Required. The project ID of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The ID of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotId;
 
 @end
 

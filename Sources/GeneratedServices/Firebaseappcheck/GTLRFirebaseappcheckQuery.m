@@ -1079,4 +1079,146 @@
 
 @end
 
+@implementation GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesBatchUpdate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourcePolicies:batchUpdate";
+  GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesResponse class];
+  query.loggingName = @"firebaseappcheck.projects.services.resourcePolicies.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourcePolicies";
+  GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy class];
+  query.loggingName = @"firebaseappcheck.projects.services.resourcePolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleProtobufEmpty class];
+  query.loggingName = @"firebaseappcheck.projects.services.resourcePolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy class];
+  query.loggingName = @"firebaseappcheck.projects.services.resourcePolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourcePolicies";
+  GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListResourcePoliciesResponse class];
+  query.loggingName = @"firebaseappcheck.projects.services.resourcePolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy class];
+  query.loggingName = @"firebaseappcheck.projects.services.resourcePolicies.patch";
+  return query;
+}
+
+@end
+
 #pragma clang diagnostic pop

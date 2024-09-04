@@ -44,6 +44,7 @@
 @class GTLRWorkloadManager_Operation_Response;
 @class GTLRWorkloadManager_PlacerLocation;
 @class GTLRWorkloadManager_RegionalMigDistributionPolicy;
+@class GTLRWorkloadManager_RequirementOverride;
 @class GTLRWorkloadManager_Resource;
 @class GTLRWorkloadManager_ResourceFilter;
 @class GTLRWorkloadManager_ResourceFilter_InclusionLabels;
@@ -302,6 +303,40 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_Locat
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_RequirementOverride.ziOverride
+
+/** Value: "ZI_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiNotRequired;
+/** Value: "ZI_PREFERRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiPreferred;
+/** Value: "ZI_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiUnknown;
+/** Value: "ZI_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_RequirementOverride.zsOverride
+
+/** Value: "ZS_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsNotRequired;
+/** Value: "ZS_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsUnknown;
+/** Value: "ZS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_ResourceStatus.state
 
 /**
@@ -522,11 +557,62 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResource_Res
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAppServer;
 /**
+ *  Application server and database.
+ *
+ *  Value: "INSTANCE_ROLE_APP_SERVER_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAppServerDatabase;
+/**
  *  Application central services.
  *
  *  Value: "INSTANCE_ROLE_ASCS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscs;
+/**
+ *  Application central services and application server.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS_APP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsAppServer;
+/**
+ *  Application central services, application server and database.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS_APP_SERVER_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsAppServerDatabase;
+/**
+ *  Application central services and database.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsDatabase;
+/**
+ *  Combinations of roles. Application central services and enqueue replication
+ *  server.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS_ERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErs;
+/**
+ *  Application central services, enqueue replication server and application
+ *  server.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS_ERS_APP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsAppServer;
+/**
+ *  Application central services, enqueue replication server, application server
+ *  and database.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS_ERS_APP_SERVER_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsAppServerDatabase;
+/**
+ *  Application central services, enqueue replication server and database.
+ *
+ *  Value: "INSTANCE_ROLE_ASCS_ERS_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsDatabase;
 /**
  *  Database node.
  *
@@ -539,6 +625,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInst
  *  Value: "INSTANCE_ROLE_ERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErs;
+/**
+ *  Enqueue replication server and application server.
+ *
+ *  Value: "INSTANCE_ROLE_ERS_APP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsAppServer;
+/**
+ *  Enqueue replication server, application server and database.
+ *
+ *  Value: "INSTANCE_ROLE_ERS_APP_SERVER_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsAppServerDatabase;
+/**
+ *  Enqueue replication server and database.
+ *
+ *  Value: "INSTANCE_ROLE_ERS_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsDatabase;
 /**
  *  Unspecified instance role.
  *
@@ -724,6 +828,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  proxy that defines the location on its behalf.
  */
 @interface GTLRWorkloadManager_AssetLocation : GTLRObject
+
+/**
+ *  Spanner path of the CCFE RMS database. It is only applicable for CCFE
+ *  tenants that use CCFE RMS for storing resource metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *ccfeRmsPath;
 
 /**
  *  Defines the customer expectation around ZI/ZS for this asset and ZI/ZS state
@@ -1014,8 +1124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 @interface GTLRWorkloadManager_ExternalDataSources : GTLRObject
 
 /**
- *  Required. The asset type of the external data source must be one of
- *  go/cai-asset-types
+ *  Required. The asset type of the external data source this can be one of
+ *  go/cai-asset-types to override the default asset type or it can be a custom
+ *  type defined by the user custom type must match the asset type in the rule
  */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
@@ -1100,6 +1211,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  GTLRWorkloadManager_IsolationExpectations
  */
 @interface GTLRWorkloadManager_IsolationExpectations : GTLRObject
+
+/**
+ *  Explicit overrides for ZI and ZS requirements to be used for resources that
+ *  should be excluded from ZI/ZS verification logic.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_RequirementOverride *requirementOverride;
 
 /**
  *  ziOrgPolicy
@@ -1664,6 +1781,46 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 
 
 /**
+ *  GTLRWorkloadManager_RequirementOverride
+ */
+@interface GTLRWorkloadManager_RequirementOverride : GTLRObject
+
+/**
+ *  ziOverride
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiNotRequired
+ *        Value "ZI_NOT_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiPreferred
+ *        Value "ZI_PREFERRED"
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiRequired
+ *        Value "ZI_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiUnknown To
+ *        be used if tracking is not available (Value: "ZI_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiUnspecified
+ *        Value "ZI_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziOverride;
+
+/**
+ *  zsOverride
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsNotRequired
+ *        Value "ZS_NOT_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsRequired
+ *        Value "ZS_REQUIRED"
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsUnknown To
+ *        be used if tracking is not available (Value: "ZS_UNKNOWN")
+ *    @arg @c kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsUnspecified
+ *        Value "ZS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zsOverride;
+
+@end
+
+
+/**
  *  Message represent resource in execution result
  */
 @interface GTLRWorkloadManager_Resource : GTLRObject
@@ -2107,7 +2264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *instanceNumber;
+@property(nonatomic, strong, nullable) NSNumber *instanceNumber GTLR_DEPRECATED;
 
 /**
  *  Optional. Bitmask of instance role, a resource may have multiple roles at
@@ -2116,12 +2273,46 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAppServer
  *        Application server. (Value: "INSTANCE_ROLE_APP_SERVER")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAppServerDatabase
+ *        Application server and database. (Value:
+ *        "INSTANCE_ROLE_APP_SERVER_DATABASE")
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscs
  *        Application central services. (Value: "INSTANCE_ROLE_ASCS")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsAppServer
+ *        Application central services and application server. (Value:
+ *        "INSTANCE_ROLE_ASCS_APP_SERVER")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsAppServerDatabase
+ *        Application central services, application server and database. (Value:
+ *        "INSTANCE_ROLE_ASCS_APP_SERVER_DATABASE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsDatabase
+ *        Application central services and database. (Value:
+ *        "INSTANCE_ROLE_ASCS_DATABASE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErs
+ *        Combinations of roles. Application central services and enqueue
+ *        replication server. (Value: "INSTANCE_ROLE_ASCS_ERS")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsAppServer
+ *        Application central services, enqueue replication server and
+ *        application server. (Value: "INSTANCE_ROLE_ASCS_ERS_APP_SERVER")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsAppServerDatabase
+ *        Application central services, enqueue replication server, application
+ *        server and database. (Value:
+ *        "INSTANCE_ROLE_ASCS_ERS_APP_SERVER_DATABASE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleAscsErsDatabase
+ *        Application central services, enqueue replication server and database.
+ *        (Value: "INSTANCE_ROLE_ASCS_ERS_DATABASE")
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleDatabase
  *        Database node. (Value: "INSTANCE_ROLE_DATABASE")
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErs
  *        Enqueue replication server. (Value: "INSTANCE_ROLE_ERS")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsAppServer
+ *        Enqueue replication server and application server. (Value:
+ *        "INSTANCE_ROLE_ERS_APP_SERVER")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsAppServerDatabase
+ *        Enqueue replication server, application server and database. (Value:
+ *        "INSTANCE_ROLE_ERS_APP_SERVER_DATABASE")
+ *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsDatabase
+ *        Enqueue replication server and database. (Value:
+ *        "INSTANCE_ROLE_ERS_DATABASE")
  *    @arg @c kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleUnspecified
  *        Unspecified instance role. (Value: "INSTANCE_ROLE_UNSPECIFIED")
  */
@@ -2330,6 +2521,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
  */
 @interface GTLRWorkloadManager_SpannerLocation : GTLRObject
 
+/**
+ *  Set of backups used by the resource with name in the same format as what is
+ *  available at http://table/spanner_automon.backup_metadata
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *backupName;
+
+/** Set of databases used by the resource in format /span// */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dbName;
 
 @end

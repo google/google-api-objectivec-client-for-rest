@@ -18,6 +18,7 @@
 @class GTLRAccessApproval_AccessReason;
 @class GTLRAccessApproval_ApprovalRequest;
 @class GTLRAccessApproval_ApproveDecision;
+@class GTLRAccessApproval_AugmentedInfo;
 @class GTLRAccessApproval_DismissDecision;
 @class GTLRAccessApproval_EnrolledService;
 @class GTLRAccessApproval_ResourceProperties;
@@ -460,6 +461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** This field contains the augmented information of the request. */
+@property(nonatomic, strong, nullable) GTLRAccessApproval_AugmentedInfo *requestedAugmentedInfo;
+
 /** The requested access duration. */
 @property(nonatomic, strong, nullable) GTLRDuration *requestedDuration;
 
@@ -531,6 +535,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
 
 /** The signature for the ApprovalRequest and details on how it was signed. */
 @property(nonatomic, strong, nullable) GTLRAccessApproval_SignatureInfo *signatureInfo;
+
+@end
+
+
+/**
+ *  This field contains the augmented information of the request.
+ */
+@interface GTLRAccessApproval_AugmentedInfo : GTLRObject
+
+/**
+ *  For command-line tools, the full command-line exactly as entered by the
+ *  actor without adding any additional characters (such as quotation marks).
+ */
+@property(nonatomic, copy, nullable) NSString *command;
 
 @end
 

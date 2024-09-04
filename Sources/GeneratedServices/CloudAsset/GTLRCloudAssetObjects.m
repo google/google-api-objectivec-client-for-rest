@@ -61,7 +61,9 @@ NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_D
 // GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint.methodTypes
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Create = @"CREATE";
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Delete = @"DELETE";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_GovernTags = @"GOVERN_TAGS";
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_MethodTypeUnspecified = @"METHOD_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_RemoveGrant = @"REMOVE_GRANT";
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Update = @"UPDATE";
 
 // GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
@@ -355,6 +357,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AssetEnrichment
+//
+
+@implementation GTLRCloudAsset_AssetEnrichment
+@dynamic resourceOwners;
 @end
 
 
@@ -2007,13 +2019,31 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_ResourceOwners
+//
+
+@implementation GTLRCloudAsset_ResourceOwners
+@dynamic resourceOwners;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceOwners" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_ResourceSearchResult
 //
 
 @implementation GTLRCloudAsset_ResourceSearchResult
 @dynamic additionalAttributes, assetType, attachedResources, createTime,
-         descriptionProperty, displayName, effectiveTags, folders, kmsKey,
-         kmsKeys, labels, location, name, networkTags, organization,
+         descriptionProperty, displayName, effectiveTags, enrichments, folders,
+         kmsKey, kmsKeys, labels, location, name, networkTags, organization,
          parentAssetType, parentFullResourceName, project, relationships,
          sccSecurityMarks, state, tagKeys, tags, tagValueIds, tagValues,
          updateTime, versionedResources;
@@ -2026,6 +2056,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   NSDictionary<NSString *, Class> *map = @{
     @"attachedResources" : [GTLRCloudAsset_AttachedResource class],
     @"effectiveTags" : [GTLRCloudAsset_EffectiveTagDetails class],
+    @"enrichments" : [GTLRCloudAsset_AssetEnrichment class],
     @"folders" : [NSString class],
     @"kmsKeys" : [NSString class],
     @"networkTags" : [NSString class],

@@ -1219,7 +1219,7 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
 //
 
 @implementation GTLRMigrationCenterAPI_ImportRowError
-@dynamic errors, rowNumber, vmName, vmUuid;
+@dynamic csvError, errors, rowNumber, vmName, vmUuid, xlsxError;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1228,6 +1228,26 @@ NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferences_CommitmentPlan_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ImportRowErrorCsvErrorDetails
+//
+
+@implementation GTLRMigrationCenterAPI_ImportRowErrorCsvErrorDetails
+@dynamic rowNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ImportRowErrorXlsxErrorDetails
+//
+
+@implementation GTLRMigrationCenterAPI_ImportRowErrorXlsxErrorDetails
+@dynamic rowNumber, sheet;
 @end
 
 

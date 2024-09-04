@@ -54,6 +54,41 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesBatchGetDocumentsMetadata
+
+@dynamic matcherFhirMatcherFhirResources, matcherUrisMatcherUris, parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"matcherFhirMatcherFhirResources" : @"matcher.fhirMatcher.fhirResources",
+    @"matcherUrisMatcherUris" : @"matcher.urisMatcher.uris"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matcher.fhirMatcher.fhirResources" : [NSString class],
+    @"matcher.urisMatcher.uris" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/batchGetDocumentsMetadata";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesBatchGetDocumentsMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.branches.batchGetDocumentsMetadata";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsCreate
 
 @dynamic documentId, parent;
@@ -608,7 +643,8 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCreate
 
-@dynamic createAdvancedSiteSearch, dataStoreId, parent;
+@dynamic createAdvancedSiteSearch, dataStoreId, parent,
+         skipDefaultSchemaCreation;
 
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore *)object
                          parent:(NSString *)parent {
@@ -628,6 +664,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
   query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCustomModelsList
+
+@dynamic dataStore;
+
++ (instancetype)queryWithDataStore:(NSString *)dataStore {
+  NSArray *pathParams = @[ @"dataStore" ];
+  NSString *pathURITemplate = @"v1/{+dataStore}/customModels";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCustomModelsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.dataStore = dataStore;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListCustomModelsResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.customModels.list";
   return query;
 }
 
@@ -1567,6 +1622,33 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresTrainCustomModel
+
+@dynamic dataStore;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TrainCustomModelRequest *)object
+                      dataStore:(NSString *)dataStore {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"dataStore" ];
+  NSString *pathURITemplate = @"v1/{+dataStore}:trainCustomModel";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresTrainCustomModel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.dataStore = dataStore;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.trainCustomModel";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsCollect
 
 @dynamic ets, parent, uri, userEvent;
@@ -1608,6 +1690,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
   query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.userEvents.import";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsPurge
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeUserEventsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userEvents:purge";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsPurge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.userEvents.purge";
   return query;
 }
 
@@ -2287,6 +2396,41 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesBatchGetDocumentsMetadata
+
+@dynamic matcherFhirMatcherFhirResources, matcherUrisMatcherUris, parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"matcherFhirMatcherFhirResources" : @"matcher.fhirMatcher.fhirResources",
+    @"matcherUrisMatcherUris" : @"matcher.urisMatcher.uris"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matcher.fhirMatcher.fhirResources" : [NSString class],
+    @"matcher.urisMatcher.uris" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/batchGetDocumentsMetadata";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesBatchGetDocumentsMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.dataStores.branches.batchGetDocumentsMetadata";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsCreate
 
 @dynamic documentId, parent;
@@ -2841,7 +2985,8 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCreate
 
-@dynamic createAdvancedSiteSearch, dataStoreId, parent;
+@dynamic createAdvancedSiteSearch, dataStoreId, parent,
+         skipDefaultSchemaCreation;
 
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore *)object
                          parent:(NSString *)parent {
@@ -3686,6 +3831,33 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsPurge
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeUserEventsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userEvents:purge";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsPurge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.dataStores.userEvents.purge";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsWrite
 
 @dynamic parent, writeAsync;
@@ -3735,6 +3907,44 @@
   query.groundingConfig = groundingConfig;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CheckGroundingResponse class];
   query.loggingName = @"discoveryengine.projects.locations.groundingConfigs.check";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.identity_mapping_stores.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.identity_mapping_stores.operations.list";
   return query;
 }
 

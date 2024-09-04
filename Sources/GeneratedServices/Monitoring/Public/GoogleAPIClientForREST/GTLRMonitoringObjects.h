@@ -2287,8 +2287,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRMonitoring_MutationRecord *mutationRecord;
 
 /**
- *  Required if the policy exists. The resource name for this policy. The format
- *  is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+ *  Identifier. Required if the policy exists. The resource name for this
+ *  policy. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *  [ALERT_POLICY_ID] is assigned by Cloud Monitoring when the policy is
  *  created. When calling the alertPolicies.create method, do not include the
  *  name field in the alerting policy passed as part of the request.
@@ -2388,8 +2389,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_NotificationChannelStrategy *> *notificationChannelStrategy;
 
 /**
- *  Required for alert policies with a LogMatch condition.This limit is not
- *  implemented for alert policies that are not log-based.
+ *  Required for log-based alert policies, i.e. policies with a LogMatch
+ *  condition.This limit is not implemented for alert policies that do not have
+ *  a LogMatch condition.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_NotificationRateLimit *notificationRateLimit;
 
@@ -5377,7 +5379,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_MutationRecord *> *mutationRecords;
 
 /**
- *  The full REST resource name for this channel. The format is:
+ *  Identifier. The full REST resource name for this channel. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The
  *  [CHANNEL_ID] is automatically assigned by the server on creation.
  */
@@ -5923,6 +5925,7 @@ GTLR_DEPRECATED
 /**
  *  The QueryTimeSeries request.
  */
+GTLR_DEPRECATED
 @interface GTLRMonitoring_QueryTimeSeriesRequest : GTLRObject
 
 /**
@@ -5952,6 +5955,7 @@ GTLR_DEPRECATED
 /**
  *  The QueryTimeSeries response.
  */
+GTLR_DEPRECATED
 @interface GTLRMonitoring_QueryTimeSeriesResponse : GTLRObject
 
 /**
@@ -6555,6 +6559,15 @@ GTLR_DEPRECATED
 @interface GTLRMonitoring_TimeSeries : GTLRObject
 
 /**
+ *  Input only. A detailed description of the time series that will be
+ *  associated with the google.api.MetricDescriptor for the metric. Once set,
+ *  this field cannot be changed through CreateTimeSeries.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  Output only. The associated monitored resource metadata. When reading a time
  *  series, this field will include metadata labels that are explicitly named in
  *  the reduction. When creating a time series, this field is ignored.
@@ -6612,7 +6625,8 @@ GTLR_DEPRECATED
 /**
  *  The units in which the metric value is reported. It is only applicable if
  *  the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
- *  representation of the stored metric values.
+ *  representation of the stored metric values. This field can only be changed
+ *  through CreateTimeSeries when it is empty.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 

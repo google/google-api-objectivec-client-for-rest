@@ -306,7 +306,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @implementation GTLRAndroidEnterpriseQuery_EnterprisesGenerateSignupUrl
 
-@dynamic callbackUrl;
+@dynamic adminEmail, callbackUrl;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"androidenterprise/v1/enterprises/signupUrl";

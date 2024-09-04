@@ -662,7 +662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Permanently deletes an empty bucket.
+ *  Deletes an empty bucket. Deletions are permanent unless soft delete is
+ *  enabled on the bucket.
  *
  *  Method: storage.buckets.delete
  *
@@ -697,7 +698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Permanently deletes an empty bucket.
+ *  Deletes an empty bucket. Deletions are permanent unless soft delete is
+ *  enabled on the bucket.
  *
  *  @param bucket Name of a bucket.
  *
@@ -725,6 +727,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
+ *  If present, specifies the generation of the bucket. This is required if
+ *  softDeleted is true.
+ */
+@property(nonatomic, assign) long long generation;
+
+/**
  *  Makes the return of the bucket metadata conditional on whether the bucket's
  *  current metageneration matches the given value.
  */
@@ -745,6 +753,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        properties. (Value: "noAcl")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  If true, return the soft-deleted version of this bucket. The default is
+ *  false. For more information, see [Soft
+ *  Delete](https://cloud.google.com/storage/docs/soft-delete).
+ */
+@property(nonatomic, assign) BOOL softDeleted;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -980,6 +995,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
+/**
+ *  If true, only soft-deleted bucket versions will be returned. The default is
+ *  false. For more information, see [Soft
+ *  Delete](https://cloud.google.com/storage/docs/soft-delete).
+ */
+@property(nonatomic, assign) BOOL softDeleted;
+
 /** The project to be billed for this request. */
 @property(nonatomic, copy, nullable) NSString *userProject;
 
@@ -1141,6 +1163,46 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_Bucket *)object
                          bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Restores a soft-deleted bucket.
+ *
+ *  Method: storage.buckets.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_BucketsRestore : GTLRStorageQuery
+
+/** Name of a bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Generation of a bucket. */
+@property(nonatomic, assign) long long generation;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Restores a soft-deleted bucket.
+ *
+ *  @param bucket Name of a bucket.
+ *  @param generation Generation of a bucket.
+ *
+ *  @return GTLRStorageQuery_BucketsRestore
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                     generation:(long long)generation;
 
 @end
 
@@ -3142,7 +3204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  If true, only soft-deleted object versions will be listed. The default is
- *  false. For more information, see Soft Delete.
+ *  false. For more information, see [Soft
+ *  Delete](https://cloud.google.com/storage/docs/soft-delete).
  */
 @property(nonatomic, assign) BOOL softDeleted;
 
@@ -3445,7 +3508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  If true, only soft-deleted object versions will be listed. The default is
- *  false. For more information, see Soft Delete.
+ *  false. For more information, see [Soft
+ *  Delete](https://cloud.google.com/storage/docs/soft-delete).
  */
 @property(nonatomic, assign) BOOL softDeleted;
 
@@ -3464,7 +3528,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  If true, lists all versions of an object as distinct results. The default is
- *  false. For more information, see Object Versioning.
+ *  false. For more information, see [Object
+ *  Versioning](https://cloud.google.com/storage/docs/object-versioning).
  */
 @property(nonatomic, assign) BOOL versions;
 
@@ -3652,7 +3717,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -3679,7 +3745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  @param bucket Name of the bucket in which the object resides.
  *  @param object Name of the object. For information about how to URL encode
- *    object names to be path safe, see Encoding URI Path Parts.
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
  *  @param generation Selects a specific revision of this object.
  *
  *  @return GTLRStorageQuery_ObjectsRestore
@@ -4196,7 +4263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  If true, lists all versions of an object as distinct results. The default is
- *  false. For more information, see Object Versioning.
+ *  false. For more information, see [Object
+ *  Versioning](https://cloud.google.com/storage/docs/object-versioning).
  */
 @property(nonatomic, assign) BOOL versions;
 
@@ -4510,8 +4578,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Updates the state of an HMAC key. See the HMAC Key resource descriptor for
- *  valid states.
+ *  Updates the state of an HMAC key. See the [HMAC Key resource
+ *  descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body)
+ *  for valid states.
  *
  *  Method: storage.projects.hmacKeys.update
  *
@@ -4533,8 +4602,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_HmacKeyMetadata.
  *
- *  Updates the state of an HMAC key. See the HMAC Key resource descriptor for
- *  valid states.
+ *  Updates the state of an HMAC key. See the [HMAC Key resource
+ *  descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body)
+ *  for valid states.
  *
  *  @param object The @c GTLRStorage_HmacKeyMetadata to include in the query.
  *  @param projectId Project ID owning the service account of the updated key.

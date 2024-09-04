@@ -506,10 +506,11 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_HealthCheckTargets
-@dynamic internalLoadBalancer;
+@dynamic externalEndpoints, internalLoadBalancer;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"externalEndpoints" : [NSString class],
     @"internalLoadBalancer" : [GTLRCloudDomains_LoadBalancerTarget class]
   };
   return map;
@@ -991,7 +992,7 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_RRSetRoutingPolicy
-@dynamic geo, geoPolicy, primaryBackup, wrr, wrrPolicy;
+@dynamic geo, geoPolicy, healthCheck, primaryBackup, wrr, wrrPolicy;
 @end
 
 

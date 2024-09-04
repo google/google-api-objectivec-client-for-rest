@@ -11,6 +11,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRNetworkSecurity_AddressGroup.purpose
+NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_CloudArmor = @"CLOUD_ARMOR";
+NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_Default = @"DEFAULT";
+NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_PurposeUnspecified = @"PURPOSE_UNSPECIFIED";
+
 // GTLRNetworkSecurity_AddressGroup.type
 NSString * const kGTLRNetworkSecurity_AddressGroup_Type_Ipv4   = @"IPV4";
 NSString * const kGTLRNetworkSecurity_AddressGroup_Type_Ipv6   = @"IPV6";
@@ -124,7 +129,7 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 @implementation GTLRNetworkSecurity_AddressGroup
 @dynamic capacity, createTime, descriptionProperty, items, labels, name,
-         selfLink, type, updateTime;
+         purpose, selfLink, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -132,7 +137,8 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [NSString class]
+    @"items" : [NSString class],
+    @"purpose" : [NSString class]
   };
   return map;
 }

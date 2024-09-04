@@ -239,7 +239,8 @@
 @implementation GTLRTasksQuery_TasksList
 
 @dynamic completedMax, completedMin, dueMax, dueMin, maxResults, pageToken,
-         showCompleted, showDeleted, showHidden, tasklist, updatedMin;
+         showAssigned, showCompleted, showDeleted, showHidden, tasklist,
+         updatedMin;
 
 + (instancetype)queryWithTasklist:(NSString *)tasklist {
   NSArray *pathParams = @[ @"tasklist" ];
@@ -258,7 +259,7 @@
 
 @implementation GTLRTasksQuery_TasksMove
 
-@dynamic parent, previous, task, tasklist;
+@dynamic destinationTasklist, parent, previous, task, tasklist;
 
 + (instancetype)queryWithTasklist:(NSString *)tasklist
                              task:(NSString *)task {

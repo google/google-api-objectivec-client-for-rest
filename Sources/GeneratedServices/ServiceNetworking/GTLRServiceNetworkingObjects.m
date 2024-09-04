@@ -116,6 +116,12 @@ NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Lau
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRServiceNetworking_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -267,7 +273,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
          descriptionProperty, internalRange, ipPrefixLength,
          outsideAllocationPublicIpRange, privateIpv6GoogleAccess, purpose,
          region, requestedAddress, requestedRanges, role, secondaryIpRangeSpecs,
-         subnetwork, subnetworkUsers, useCustomComputeIdempotencyWindow;
+         skipRequestedAddressValidation, subnetwork, subnetworkUsers,
+         useCustomComputeIdempotencyWindow;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -917,6 +924,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_ExperimentalFeatures
+//
+
+@implementation GTLRServiceNetworking_ExperimentalFeatures
+@dynamic restAsyncIoEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Field
 //
 
@@ -1346,7 +1363,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1620,7 +1646,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_PythonSettings
-@dynamic common;
+@dynamic common, experimentalFeatures;
 @end
 
 

@@ -653,13 +653,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  OR operations are not supported in this filter. Supported filter fields: *
  *  app_name * app_type * install_type * number_of_permissions *
  *  total_install_count * latest_profile_active_date * permission_name * app_id
+ *  * manifest_versions
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field used to order results. Supported order by fields: * app_name *
  *  app_type * install_type * number_of_permissions * total_install_count *
- *  app_id
+ *  app_id * manifest_versions
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1134,7 +1135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  - user - audio_severe_underrun_event - usb_peripherals_event -
  *  https_latency_change_event - network_state_change_event -
  *  wifi_signal_strength_event - vpn_connection_state_change_event -
- *  app_install_event - app_uninstall_event - app_launch_event
+ *  app_install_event - app_uninstall_event - app_launch_event - os_crash_event
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1288,7 +1289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Read mask to specify which fields to return. Supported read_mask paths are:
  *  - name - org_unit_id - user_id - user_email - user_device.device_id -
  *  user_device.audio_status_report - user_device.device_activity_report -
- *  user_device.network_bandwidth_report - user_device.peripherals_report
+ *  user_device.network_bandwidth_report - user_device.peripherals_report -
+ *  user_device.app_report
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1342,7 +1344,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Read mask to specify which fields to return. Supported read_mask paths are:
  *  - name - org_unit_id - user_id - user_email - user_device.device_id -
  *  user_device.audio_status_report - user_device.device_activity_report -
- *  user_device.network_bandwidth_report - user_device.peripherals_report
+ *  user_device.network_bandwidth_report - user_device.peripherals_report -
+ *  user_device.app_report
  *
  *  String format is a comma-separated list of fields.
  */

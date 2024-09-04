@@ -102,6 +102,12 @@ NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncr
 NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnencrypted = @"CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED";
 NSString * const kGTLRVault_MailOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified = @"CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED";
 
+// GTLRVault_Matter.matterRegion
+NSString * const kGTLRVault_Matter_MatterRegion_Any            = @"ANY";
+NSString * const kGTLRVault_Matter_MatterRegion_Europe         = @"EUROPE";
+NSString * const kGTLRVault_Matter_MatterRegion_MatterRegionUnspecified = @"MATTER_REGION_UNSPECIFIED";
+NSString * const kGTLRVault_Matter_MatterRegion_Us             = @"US";
+
 // GTLRVault_Matter.state
 NSString * const kGTLRVault_Matter_State_Closed           = @"CLOSED";
 NSString * const kGTLRVault_Matter_State_Deleted          = @"DELETED";
@@ -804,7 +810,8 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 //
 
 @implementation GTLRVault_Matter
-@dynamic descriptionProperty, matterId, matterPermissions, name, state;
+@dynamic descriptionProperty, matterId, matterPermissions, matterRegion, name,
+         state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

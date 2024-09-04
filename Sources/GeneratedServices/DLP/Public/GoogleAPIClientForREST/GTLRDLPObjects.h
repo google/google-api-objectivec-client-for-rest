@@ -21,6 +21,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2AllInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherBigQueryTables;
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherDatabaseResources;
+@class GTLRDLP_GooglePrivacyDlpV2AllOtherResources;
 @class GTLRDLP_GooglePrivacyDlpV2AllText;
 @class GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails;
 @class GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable;
@@ -45,10 +46,13 @@
 @class GTLRDLP_GooglePrivacyDlpV2CloudSqlDiscoveryTarget;
 @class GTLRDLP_GooglePrivacyDlpV2CloudSqlIamCredential;
 @class GTLRDLP_GooglePrivacyDlpV2CloudSqlProperties;
+@class GTLRDLP_GooglePrivacyDlpV2CloudStorageDiscoveryTarget;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStoragePath;
+@class GTLRDLP_GooglePrivacyDlpV2CloudStorageRegex;
 @class GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet;
+@class GTLRDLP_GooglePrivacyDlpV2CloudStorageResourceReference;
 @class GTLRDLP_GooglePrivacyDlpV2Color;
 @class GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile;
 @class GTLRDLP_GooglePrivacyDlpV2Condition;
@@ -94,8 +98,13 @@
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlConditions;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlFilter;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlGenerationCadence;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageFilter;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryFileStoreConditions;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoverySchemaModifiedCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryStartingLocation;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryTableModifiedCadence;
@@ -111,7 +120,17 @@
 @class GTLRDLP_GooglePrivacyDlpV2Expressions;
 @class GTLRDLP_GooglePrivacyDlpV2FieldId;
 @class GTLRDLP_GooglePrivacyDlpV2FieldTransformation;
+@class GTLRDLP_GooglePrivacyDlpV2FileClusterSummary;
+@class GTLRDLP_GooglePrivacyDlpV2FileClusterType;
+@class GTLRDLP_GooglePrivacyDlpV2FileExtensionInfo;
 @class GTLRDLP_GooglePrivacyDlpV2FileSet;
+@class GTLRDLP_GooglePrivacyDlpV2FileStoreCollection;
+@class GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile;
+@class GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceAttributes;
+@class GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceLabels;
+@class GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary;
+@class GTLRDLP_GooglePrivacyDlpV2FileStoreRegex;
+@class GTLRDLP_GooglePrivacyDlpV2FileStoreRegexes;
 @class GTLRDLP_GooglePrivacyDlpV2Finding;
 @class GTLRDLP_GooglePrivacyDlpV2Finding_Labels;
 @class GTLRDLP_GooglePrivacyDlpV2FindingLimits;
@@ -232,7 +251,10 @@
 @class GTLRDLP_GooglePrivacyDlpV2TableLocation;
 @class GTLRDLP_GooglePrivacyDlpV2TableOptions;
 @class GTLRDLP_GooglePrivacyDlpV2TableReference;
+@class GTLRDLP_GooglePrivacyDlpV2TagCondition;
 @class GTLRDLP_GooglePrivacyDlpV2TaggedField;
+@class GTLRDLP_GooglePrivacyDlpV2TagResources;
+@class GTLRDLP_GooglePrivacyDlpV2TagValue;
 @class GTLRDLP_GooglePrivacyDlpV2ThrowError;
 @class GTLRDLP_GooglePrivacyDlpV2TimePartConfig;
 @class GTLRDLP_GooglePrivacyDlpV2TimespanConfig;
@@ -318,6 +340,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
 
 /**
+ *  Audio file types. Only used for profiling.
+ *
+ *  Value: "AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Audio;
+/**
  *  avro
  *
  *  Value: "AVRO"
@@ -341,6 +369,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  *  Value: "EXCEL_DOCUMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ExcelDocument;
+/**
+ *  Executable file types. Only used for profiling.
+ *
+ *  Value: "EXECUTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Executable;
 /**
  *  Any image type.
  *
@@ -395,6 +429,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  *  Value: "TSV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv;
+/**
+ *  Video file types. Only used for profiling.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Video;
 /**
  *  docx, docm, dotx, dotm
  *
@@ -1048,6 +1088,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Scor
  *  Value: "RISK_SCORE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskScoreUnspecified;
+/**
+ *  Unable to determine risk.
+ *
+ *  Value: "RISK_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DateTime.dayOfWeek
@@ -1301,6 +1347,128 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlG
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions.includedBucketAttributes
+
+/**
+ *  Scan buckets regardless of the attribute.
+ *
+ *  Value: "ALL_SUPPORTED_BUCKETS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedBucketAttributes_AllSupportedBuckets;
+/**
+ *  Buckets with autoclass disabled
+ *  (https://cloud.google.com/storage/docs/autoclass). Only one of
+ *  AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set.
+ *
+ *  Value: "AUTOCLASS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedBucketAttributes_AutoclassDisabled;
+/**
+ *  Buckets with autoclass enabled
+ *  (https://cloud.google.com/storage/docs/autoclass). Only one of
+ *  AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set. Scanning
+ *  Autoclass-enabled buckets can affect object storage classes.
+ *
+ *  Value: "AUTOCLASS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedBucketAttributes_AutoclassEnabled;
+/**
+ *  Unused.
+ *
+ *  Value: "CLOUD_STORAGE_BUCKET_ATTRIBUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedBucketAttributes_CloudStorageBucketAttributeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions.includedObjectAttributes
+
+/**
+ *  Scan objects regardless of the attribute.
+ *
+ *  Value: "ALL_SUPPORTED_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_AllSupportedObjects;
+/**
+ *  Scan objects with the archive storage class. This will incur retrieval fees.
+ *
+ *  Value: "ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_Archive;
+/**
+ *  Unused.
+ *
+ *  Value: "CLOUD_STORAGE_OBJECT_ATTRIBUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_CloudStorageObjectAttributeUnspecified;
+/**
+ *  Scan objects with the coldline storage class. This will incur retrieval
+ *  fees.
+ *
+ *  Value: "COLDLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_Coldline;
+/**
+ *  Scan objects with the dual-regional storage class. This will incur retrieval
+ *  fees.
+ *
+ *  Value: "DURABLE_REDUCED_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_DurableReducedAvailability;
+/**
+ *  Scan objects with the multi-regional storage class.
+ *
+ *  Value: "MULTI_REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_MultiRegional;
+/**
+ *  Scan objects with the nearline storage class. This will incur retrieval
+ *  fees.
+ *
+ *  Value: "NEARLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_Nearline;
+/**
+ *  Scan objects with the regional storage class.
+ *
+ *  Value: "REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_Regional;
+/**
+ *  Scan objects with the standard storage class.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedObjectAttributes_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence.refreshFrequency
+
+/**
+ *  The data profile can be updated up to once every 24 hours.
+ *
+ *  Value: "UPDATE_FREQUENCY_DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence_RefreshFrequency_UpdateFrequencyDaily;
+/**
+ *  The data profile can be updated up to once every 30 days. Default.
+ *
+ *  Value: "UPDATE_FREQUENCY_MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly;
+/**
+ *  After the data profile is created, it will never be updated.
+ *
+ *  Value: "UPDATE_FREQUENCY_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence_RefreshFrequency_UpdateFrequencyNever;
+/**
+ *  Unspecified.
+ *
+ *  Value: "UPDATE_FREQUENCY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig.status
 
 /**
@@ -1321,6 +1489,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryConfig_St
  *  Value: "STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryConfig_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence.refreshFrequency
+
+/**
+ *  The data profile can be updated up to once every 24 hours.
+ *
+ *  Value: "UPDATE_FREQUENCY_DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence_RefreshFrequency_UpdateFrequencyDaily;
+/**
+ *  The data profile can be updated up to once every 30 days. Default.
+ *
+ *  Value: "UPDATE_FREQUENCY_MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly;
+/**
+ *  After the data profile is created, it will never be updated.
+ *
+ *  Value: "UPDATE_FREQUENCY_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence_RefreshFrequency_UpdateFrequencyNever;
+/**
+ *  Unspecified.
+ *
+ *  Value: "UPDATE_FREQUENCY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence.frequency
+
+/**
+ *  The data profile can be updated up to once every 24 hours.
+ *
+ *  Value: "UPDATE_FREQUENCY_DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyDaily;
+/**
+ *  The data profile can be updated up to once every 30 days. Default.
+ *
+ *  Value: "UPDATE_FREQUENCY_MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyMonthly;
+/**
+ *  After the data profile is created, it will never be updated.
+ *
+ *  Value: "UPDATE_FREQUENCY_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyNever;
+/**
+ *  Unspecified.
+ *
+ *  Value: "UPDATE_FREQUENCY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DiscoverySchemaModifiedCadence.frequency
@@ -1491,6 +1715,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_Inspec
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2Error.extraInfo
+
+/**
+ *  Unused.
+ *
+ *  Value: "ERROR_INFO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_ErrorInfoUnspecified;
+/**
+ *  File store cluster is not supported for profile generation.
+ *
+ *  Value: "FILE_STORE_CLUSTER_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_FileStoreClusterUnsupported;
+/**
+ *  Image scan is not available in the region.
+ *
+ *  Value: "IMAGE_SCAN_UNAVAILABLE_IN_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_ImageScanUnavailableInRegion;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2ExclusionRule.matchingType
 
 /**
@@ -1539,6 +1785,124 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_Logica
  *  Value: "LOGICAL_OPERATOR_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_LogicalOperatorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2FileClusterType.cluster
+
+/**
+ *  Archives and containers like .zip, .tar etc.
+ *
+ *  Value: "CLUSTER_ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterArchive;
+/**
+ *  Executable files like .exe, .class, .apk etc.
+ *
+ *  Value: "CLUSTER_EXECUTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterExecutable;
+/**
+ *  Images like jpeg, bmp.
+ *
+ *  Value: "CLUSTER_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterImage;
+/**
+ *  Multimedia like .mp4, .avi etc.
+ *
+ *  Value: "CLUSTER_MULTIMEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterMultimedia;
+/**
+ *  Rich document like docx, xlsx etc.
+ *
+ *  Value: "CLUSTER_RICH_DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterRichDocument;
+/**
+ *  Source code.
+ *
+ *  Value: "CLUSTER_SOURCE_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterSourceCode;
+/**
+ *  Structured data like CSV, TSV etc.
+ *
+ *  Value: "CLUSTER_STRUCTURED_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterStructuredData;
+/**
+ *  Plain text.
+ *
+ *  Value: "CLUSTER_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterText;
+/**
+ *  Unsupported files.
+ *
+ *  Value: "CLUSTER_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterUnknown;
+/**
+ *  Unused.
+ *
+ *  Value: "CLUSTER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile.resourceVisibility
+
+/**
+ *  May contain public items. For example, if a Cloud Storage bucket has uniform
+ *  bucket level access disabled, some objects inside it may be public, but none
+ *  are known yet.
+ *
+ *  Value: "RESOURCE_VISIBILITY_INCONCLUSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceVisibility_ResourceVisibilityInconclusive;
+/**
+ *  Visible to any user.
+ *
+ *  Value: "RESOURCE_VISIBILITY_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceVisibility_ResourceVisibilityPublic;
+/**
+ *  Visible only to specific users.
+ *
+ *  Value: "RESOURCE_VISIBILITY_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceVisibility_ResourceVisibilityRestricted;
+/**
+ *  Unused.
+ *
+ *  Value: "RESOURCE_VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceVisibility_ResourceVisibilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile.state
+
+/**
+ *  The profile is no longer generating. If profile_status.status.code is 0, the
+ *  profile succeeded, otherwise, it failed.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_State_Done;
+/**
+ *  The profile is currently running. Once a profile has finished it will
+ *  transition to DONE.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_State_Running;
+/**
+ *  Unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Finding.likelihood
@@ -2299,6 +2663,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubExpressions_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_DetailLevelUnspecified;
 /**
+ *  The full file store data profile.
+ *
+ *  Value: "FILE_STORE_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_FileStoreProfile;
+/**
  *  The name of the profiled resource.
  *
  *  Value: "RESOURCE_NAME"
@@ -2428,6 +2798,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_S
  *  Value: "SENSITIVITY_SCORE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityScoreUnspecified;
+/**
+ *  Unable to determine sensitivity.
+ *
+ *  Value: "SENSITIVITY_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion.state
@@ -2515,7 +2891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_E
 
 /**
  *  May contain public items. For example, if a Cloud Storage bucket has uniform
- *  bucket level access disabled, some objects inside it may be public.
+ *  bucket level access disabled, some objects inside it may be public, but none
+ *  are known yet.
  *
  *  Value: "RESOURCE_VISIBILITY_INCONCLUSIVE"
  */
@@ -2562,6 +2939,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_S
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2TagResources.profileGenerationsToTag
+
+/**
+ *  The profile is the first profile for the resource.
+ *
+ *  Value: "PROFILE_GENERATION_NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TagResources_ProfileGenerationsToTag_ProfileGenerationNew;
+/**
+ *  Unused.
+ *
+ *  Value: "PROFILE_GENERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TagResources_ProfileGenerationsToTag_ProfileGenerationUnspecified;
+/**
+ *  The profile is an update to a previous profile.
+ *
+ *  Value: "PROFILE_GENERATION_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TagResources_ProfileGenerationsToTag_ProfileGenerationUpdate;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2TimePartConfig.partToExtract
@@ -2895,6 +3294,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Match database resources not covered by any other filter.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2AllOtherDatabaseResources : GTLRObject
+@end
+
+
+/**
+ *  Match discovery resources not covered by any other filter.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AllOtherResources : GTLRObject
 @end
 
 
@@ -3279,6 +3685,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  The type of data stored in the bytes string. Default will be TEXT_UTF8.
  *
  *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Audio Audio file
+ *        types. Only used for profiling. (Value: "AUDIO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro avro (Value:
  *        "AVRO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified
@@ -3287,6 +3695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        "CSV")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ExcelDocument
  *        xlsx, xlsm, xltx, xltm (Value: "EXCEL_DOCUMENT")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Executable
+ *        Executable file types. Only used for profiling. (Value: "EXECUTABLE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image Any image
  *        type. (Value: "IMAGE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp bmp
@@ -3305,6 +3715,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        text (Value: "TEXT_UTF8")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv tsv (Value:
  *        "TSV")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Video Video file
+ *        types. Only used for profiling. (Value: "VIDEO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument docx,
  *        docm, dotx, dotm (Value: "WORD_DOCUMENT")
  */
@@ -3568,6 +3980,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Target used to match against for discovery with Cloud Storage buckets.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2CloudStorageDiscoveryTarget : GTLRObject
+
+/**
+ *  Optional. In addition to matching the filter, these conditions must be true
+ *  before a profile is generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryFileStoreConditions *conditions;
+
+/** Optional. Disable profiling for buckets that match this filter. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Disabled *disabled;
+
+/**
+ *  Required. The buckets the generation_cadence applies to. The first target
+ *  with a matching filter will be the one to apply to a bucket.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageFilter *filter;
+
+/**
+ *  Optional. How often and when to update profiles. New buckets that match both
+ *  the filter and conditions are scanned as quickly as possible depending on
+ *  system capacity.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence *generationCadence;
+
+@end
+
+
+/**
  *  Message representing a set of files in Cloud Storage.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet : GTLRObject
@@ -3667,6 +4109,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  A pattern to match against one or more file stores. At least one pattern
+ *  must be specified. Regular expressions use RE2
+ *  [syntax](https://github.com/google/re2/wiki/Syntax); a guide can be found
+ *  under the google/re2 repository on GitHub.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2CloudStorageRegex : GTLRObject
+
+/**
+ *  Optional. Regex to test the bucket name against. If empty, all buckets
+ *  match. Example: "marketing2021" or "(marketing)\\d{4}" will both match the
+ *  bucket gs://marketing2021
+ */
+@property(nonatomic, copy, nullable) NSString *bucketNameRegex;
+
+/** Optional. For organizations, if unset, will match all projects. */
+@property(nonatomic, copy, nullable) NSString *projectIdRegex;
+
+@end
+
+
+/**
  *  Message representing a set of files in a Cloud Storage bucket. Regular
  *  expressions are used to allow fine-grained control over which files in the
  *  bucket to include. Included files are those that match at least one item in
@@ -3712,6 +4175,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  found under the google/re2 repository on GitHub.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeRegex;
+
+@end
+
+
+/**
+ *  Identifies a single Cloud Storage bucket.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2CloudStorageResourceReference : GTLRObject
+
+/** Required. The bucket to scan. */
+@property(nonatomic, copy, nullable) NSString *bucketName;
+
+/**
+ *  Required. If within a project-level config, then this must match the
+ *  config's project id.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
 
@@ -4455,8 +4935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Each character listed must appear only once. Number of characters must be in
  *  the range [2, 95]. This must be encoded as ASCII. The order of characters
  *  does not matter. The full list of allowed characters is:
- *  0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
- *  ~`!\@#$%^&*()_-+={[}]|\\:;"'<,>.?/
+ *  ``0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~`!\@#$%^&*()_-+={[}]|\\:;"'<,>.?/``
  */
 @property(nonatomic, copy, nullable) NSString *customAlphabet;
 
@@ -4683,6 +5162,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Publish a message into the Pub/Sub topic. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PubSubNotification *pubSubNotification;
 
+/** Tags the profiled resources with the specified tag values. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TagResources *tagResources;
+
 @end
 
 
@@ -4694,6 +5176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Column data profile column */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ColumnDataProfile *columnProfile;
+
+/** File store data profile column. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile *fileStoreProfile;
 
 /** Table data profile column */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TableDataProfile *tableProfile;
@@ -4778,7 +5263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DataProfileLocation : GTLRObject
 
 /**
- *  The ID of the Folder within an organization to scan.
+ *  The ID of the folder within an organization to scan.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4833,6 +5318,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *event;
 
 /**
+ *  If `DetailLevel` is `FILE_STORE_PROFILE` this will be fully populated.
+ *  Otherwise, if `DetailLevel` is `RESOURCE_NAME`, then only `name` and
+ *  `file_store_path` will be populated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile *fileStoreProfile;
+
+/**
  *  If `DetailLevel` is `TABLE_PROFILE` this will be fully populated. Otherwise,
  *  if `DetailLevel` is `RESOURCE_NAME`, then only `name` and `full_resource`
  *  will be populated.
@@ -4868,6 +5360,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        "RISK_MODERATE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskScoreUnspecified
  *        Unused. (Value: "RISK_SCORE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskUnknown Unable
+ *        to determine risk. (Value: "RISK_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *score;
 
@@ -4881,7 +5375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Output only. An identifying string to the type of resource being profiled.
- *  Current values: google/bigquery/table, google/project
+ *  Current values: * google/bigquery/table * google/project * google/sql/table
+ *  * google/gcs/bucket
  */
 @property(nonatomic, copy, nullable) NSString *dataSource;
 
@@ -5018,7 +5513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Required. User settable Cloud Storage bucket and folders to store
- *  de-identified files. This field must be set for cloud storage
+ *  de-identified files. This field must be set for Cloud Storage
  *  deidentification. The output Cloud Storage bucket must be different from the
  *  input bucket. De-identified files will overwrite files in the output path.
  *  Form of: gs://bucket/folder/ or gs://bucket
@@ -5027,11 +5522,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  List of user-specified file type groups to transform. If specified, only the
- *  files with these filetypes will be transformed. If empty, all supported
+ *  files with these file types will be transformed. If empty, all supported
  *  files will be transformed. Supported types may be automatically added over
  *  time. If a file type is set in this field that isn't supported by the
  *  Deidentify action then the job will fail and will not be successfully
- *  created/started. Currently the only filetypes supported are: IMAGES,
+ *  created/started. Currently the only file types supported are: IMAGES,
  *  TEXT_FILES, CSV, TSV.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypesToTransform;
@@ -5537,6 +6032,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlGenerationCadence : GTLRObject
 
 /**
+ *  Governs when to update data profiles when the inspection rules defined by
+ *  the `InspectTemplate` change. If not set, changing the template will not
+ *  cause a data profile to update.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence *inspectTemplateModifiedCadence;
+
+/**
  *  Data changes (non-schema changes) in Cloud SQL tables can't trigger
  *  reprofiling. If you set this field, profiles are refreshed at this frequency
  *  regardless of whether the underlying tables have changed. Defaults to never.
@@ -5558,6 +6060,95 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** When to reprofile if the schema has changed. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SchemaModifiedCadence *schemaModifiedCadence;
+
+@end
+
+
+/**
+ *  Requirements that must be true before a Cloud Storage bucket or object is
+ *  scanned in discovery for the first time. There is an AND relationship
+ *  between the top-level attributes.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions : GTLRObject
+
+/**
+ *  Required. Only objects with the specified attributes will be scanned.
+ *  Defaults to [ALL_SUPPORTED_BUCKETS] if unset.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedBucketAttributes;
+
+/**
+ *  Required. Only objects with the specified attributes will be scanned. If an
+ *  object has one of the specified attributes but is inside an excluded bucket,
+ *  it will not be scanned. Defaults to [ALL_SUPPORTED_OBJECTS]. A profile will
+ *  be created even if no objects match the included_object_attributes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedObjectAttributes;
+
+@end
+
+
+/**
+ *  Determines which buckets will have profiles generated within an organization
+ *  or project. Includes the ability to filter by regular expression patterns on
+ *  project ID and bucket name.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageFilter : GTLRObject
+
+/**
+ *  Optional. The bucket to scan. Targets including this can only include one
+ *  target (the target with this bucket). This enables profiling the contents of
+ *  a single bucket, while the other options allow for easy profiling of many
+ *  bucets within a project or an organization.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageResourceReference *cloudStorageResourceReference;
+
+/** Optional. A specific set of buckets for this filter to apply to. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileStoreCollection *collection;
+
+/**
+ *  Optional. Catch-all. This should always be the last target in the list
+ *  because anything above it will apply first. Should only appear once in a
+ *  configuration. If none is specified, a default one will be added
+ *  automatically.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AllOtherResources *others;
+
+@end
+
+
+/**
+ *  How often existing buckets should have their profiles refreshed. New buckets
+ *  are scanned as quickly as possible depending on system capacity.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence : GTLRObject
+
+/**
+ *  Optional. Governs when to update data profiles when the inspection rules
+ *  defined by the `InspectTemplate` change. If not set, changing the template
+ *  will not cause a data profile to update.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence *inspectTemplateModifiedCadence;
+
+/**
+ *  Optional. Data changes in Cloud Storage can't trigger reprofiling. If you
+ *  set this field, profiles are refreshed at this frequency regardless of
+ *  whether the underlying buckets have changed. Defaults to never.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence_RefreshFrequency_UpdateFrequencyDaily
+ *        The data profile can be updated up to once every 24 hours. (Value:
+ *        "UPDATE_FREQUENCY_DAILY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly
+ *        The data profile can be updated up to once every 30 days. Default.
+ *        (Value: "UPDATE_FREQUENCY_MONTHLY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence_RefreshFrequency_UpdateFrequencyNever
+ *        After the data profile is created, it will never be updated. (Value:
+ *        "UPDATE_FREQUENCY_NEVER")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified
+ *        Unspecified. (Value: "UPDATE_FREQUENCY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *refreshFrequency;
 
 @end
 
@@ -5640,17 +6231,96 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Requirements that must be true before a file store is scanned in discovery
+ *  for the first time. There is an AND relationship between the top-level
+ *  attributes.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryFileStoreConditions : GTLRObject
+
+/** Optional. Cloud Storage conditions. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions *cloudStorageConditions;
+
+/**
+ *  Optional. File store must have been created after this date. Used to avoid
+ *  backfilling.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAfter;
+
+/**
+ *  Optional. Minimum age a file store must have. If set, the value must be 1
+ *  hour or greater.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minAge;
+
+@end
+
+
+/**
  *  What must take place for a profile to be updated and how frequently it
  *  should occur. New tables are scanned as quickly as possible depending on
  *  system capacity.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence : GTLRObject
 
+/**
+ *  Governs when to update data profiles when the inspection rules defined by
+ *  the `InspectTemplate` change. If not set, changing the template will not
+ *  cause a data profile to update.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence *inspectTemplateModifiedCadence;
+
+/**
+ *  Frequency at which profiles should be updated, regardless of whether the
+ *  underlying resource has changed. Defaults to never.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence_RefreshFrequency_UpdateFrequencyDaily
+ *        The data profile can be updated up to once every 24 hours. (Value:
+ *        "UPDATE_FREQUENCY_DAILY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly
+ *        The data profile can be updated up to once every 30 days. Default.
+ *        (Value: "UPDATE_FREQUENCY_MONTHLY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence_RefreshFrequency_UpdateFrequencyNever
+ *        After the data profile is created, it will never be updated. (Value:
+ *        "UPDATE_FREQUENCY_NEVER")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified
+ *        Unspecified. (Value: "UPDATE_FREQUENCY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *refreshFrequency;
+
 /** Governs when to update data profiles when a schema is modified. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoverySchemaModifiedCadence *schemaModifiedCadence;
 
 /** Governs when to update data profiles when a table is modified. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryTableModifiedCadence *tableModifiedCadence;
+
+@end
+
+
+/**
+ *  The cadence at which to update data profiles when the inspection rules
+ *  defined by the `InspectTemplate` change.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence : GTLRObject
+
+/**
+ *  How frequently data profiles can be updated when the template is modified.
+ *  Defaults to never.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyDaily
+ *        The data profile can be updated up to once every 24 hours. (Value:
+ *        "UPDATE_FREQUENCY_DAILY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyMonthly
+ *        The data profile can be updated up to once every 30 days. Default.
+ *        (Value: "UPDATE_FREQUENCY_MONTHLY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyNever
+ *        After the data profile is created, it will never be updated. (Value:
+ *        "UPDATE_FREQUENCY_NEVER")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyUnspecified
+ *        Unspecified. (Value: "UPDATE_FREQUENCY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *frequency;
 
 @end
 
@@ -5695,7 +6365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DiscoveryStartingLocation : GTLRObject
 
 /**
- *  The ID of the Folder within an organization to scan.
+ *  The ID of the folder within an organization to be scanned.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5760,6 +6430,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  the one applied.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudSqlDiscoveryTarget *cloudSqlTarget;
+
+/**
+ *  Cloud Storage target for Discovery. The first target to match a table will
+ *  be the one applied.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageDiscoveryTarget *cloudStorageTarget;
 
 /**
  *  Discovery target that looks for credentials and secrets stored in cloud
@@ -5890,6 +6566,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Detailed error codes and messages. */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleRpcStatus *details;
+
+/**
+ *  Additional information about the error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_ErrorInfoUnspecified
+ *        Unused. (Value: "ERROR_INFO_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_FileStoreClusterUnsupported
+ *        File store cluster is not supported for profile generation. (Value:
+ *        "FILE_STORE_CLUSTER_UNSUPPORTED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_ImageScanUnavailableInRegion
+ *        Image scan is not available in the region. (Value:
+ *        "IMAGE_SCAN_UNAVAILABLE_IN_REGION")
+ */
+@property(nonatomic, copy, nullable) NSString *extraInfo;
 
 /**
  *  The times the error occurred. List includes the oldest timestamp and the
@@ -6080,6 +6771,107 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  The file cluster summary.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileClusterSummary : GTLRObject
+
+/**
+ *  The data risk level of this cluster. RISK_LOW if nothing has been scanned.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataRiskLevel *dataRiskLevel;
+
+/**
+ *  A list of errors detected while scanning this cluster. The list is truncated
+ *  to 10 per cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Error *> *errors;
+
+/** The file cluster type. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileClusterType *fileClusterType;
+
+/**
+ *  A sample of file types scanned in this cluster. Empty if no files were
+ *  scanned. File extensions can be derived from the file name or the file
+ *  content.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileExtensionInfo *> *fileExtensionsScanned;
+
+/**
+ *  A sample of file types seen in this cluster. Empty if no files were seen.
+ *  File extensions can be derived from the file name or the file content.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileExtensionInfo *> *fileExtensionsSeen;
+
+/** InfoTypes detected in this cluster. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary *> *fileStoreInfoTypeSummaries;
+
+/**
+ *  True if no files exist in this cluster. If the bucket had more files than
+ *  could be listed, this will be false even if no files for this cluster were
+ *  seen and file_extensions_seen is empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noFilesExist;
+
+/**
+ *  The sensitivity score of this cluster. The score will be SENSITIVITY_LOW if
+ *  nothing has been scanned.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
+@end
+
+
+/**
+ *  Message used to identify file cluster type being profiled.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileClusterType : GTLRObject
+
+/**
+ *  Cluster type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterArchive
+ *        Archives and containers like .zip, .tar etc. (Value:
+ *        "CLUSTER_ARCHIVE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterExecutable
+ *        Executable files like .exe, .class, .apk etc. (Value:
+ *        "CLUSTER_EXECUTABLE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterImage
+ *        Images like jpeg, bmp. (Value: "CLUSTER_IMAGE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterMultimedia
+ *        Multimedia like .mp4, .avi etc. (Value: "CLUSTER_MULTIMEDIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterRichDocument
+ *        Rich document like docx, xlsx etc. (Value: "CLUSTER_RICH_DOCUMENT")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterSourceCode
+ *        Source code. (Value: "CLUSTER_SOURCE_CODE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterStructuredData
+ *        Structured data like CSV, TSV etc. (Value: "CLUSTER_STRUCTURED_DATA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterText
+ *        Plain text. (Value: "CLUSTER_TEXT")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterUnknown
+ *        Unsupported files. (Value: "CLUSTER_UNKNOWN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterUnspecified
+ *        Unused. (Value: "CLUSTER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+@end
+
+
+/**
+ *  Information regarding the discovered file extension.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileExtensionInfo : GTLRObject
+
+/** The file extension if set. (aka .pdf, .jpg, .txt) */
+@property(nonatomic, copy, nullable) NSString *fileExtension;
+
+@end
+
+
+/**
  *  Set of files to scan.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FileSet : GTLRObject
@@ -6100,6 +6892,218 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Exactly one of `url` or `regex_file_set` must be set.
  */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Match file stores (e.g. buckets) using regex filters.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileStoreCollection : GTLRObject
+
+/**
+ *  Optional. A collection of regular expressions to match a file store against.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileStoreRegexes *includeRegexes;
+
+@end
+
+
+/**
+ *  The profile for a file store. * Cloud Storage: maps 1:1 with a bucket.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile : GTLRObject
+
+/** The snapshot of the configurations used to generate the profile. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileConfigSnapshot *configSnapshot;
+
+/** The time the file store was first created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The data risk level of this resource. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataRiskLevel *dataRiskLevel;
+
+/** The resource type that was profiled. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataSourceType *dataSourceType;
+
+/**
+ *  For resources that have multiple storage locations, these are those regions.
+ *  For Cloud Storage this is the list of regions chosen for dual-region
+ *  storage. `file_store_location` will normally be the corresponding
+ *  multi-region for the list of individual locations. The first region is
+ *  always picked as the processing and storage location for the data profile.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataStorageLocations;
+
+/** FileClusterSummary per each cluster. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileClusterSummary *> *fileClusterSummaries;
+
+/** InfoTypes detected in this file store. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary *> *fileStoreInfoTypeSummaries;
+
+/**
+ *  The file store does not have any files.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fileStoreIsEmpty;
+
+/**
+ *  The location of the file store. * Cloud Storage:
+ *  https://cloud.google.com/storage/docs/locations#available-locations
+ */
+@property(nonatomic, copy, nullable) NSString *fileStoreLocation;
+
+/** The file store path. * Cloud Storage: `gs://{bucket}` */
+@property(nonatomic, copy, nullable) NSString *fileStorePath;
+
+/**
+ *  The resource name of the resource profiled.
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *fullResource;
+
+/** The time the file store was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedTime;
+
+/**
+ *  The location type of the bucket (region, dual-region, multi-region, etc). If
+ *  dual-region, expect data_storage_locations to be populated.
+ */
+@property(nonatomic, copy, nullable) NSString *locationType;
+
+/** The name of the profile. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The last time the profile was generated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *profileLastGenerated;
+
+/**
+ *  Success or error status from the most recent profile generation attempt. May
+ *  be empty if the profile is still being generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ProfileStatus *profileStatus;
+
+/** The resource name of the project data profile for this file store. */
+@property(nonatomic, copy, nullable) NSString *projectDataProfile;
+
+/** The Google Cloud project ID that owns the resource. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Attributes of the resource being profiled. Currently used attributes: *
+ *  customer_managed_encryption: boolean - true: the resource is encrypted with
+ *  a customer-managed key. - false: the resource is encrypted with a
+ *  provider-managed key.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceAttributes *resourceAttributes;
+
+/**
+ *  The labels applied to the resource at the time the profile was generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceLabels *resourceLabels;
+
+/**
+ *  How broadly a resource has been shared.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceVisibility_ResourceVisibilityInconclusive
+ *        May contain public items. For example, if a Cloud Storage bucket has
+ *        uniform bucket level access disabled, some objects inside it may be
+ *        public, but none are known yet. (Value:
+ *        "RESOURCE_VISIBILITY_INCONCLUSIVE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceVisibility_ResourceVisibilityPublic
+ *        Visible to any user. (Value: "RESOURCE_VISIBILITY_PUBLIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceVisibility_ResourceVisibilityRestricted
+ *        Visible only to specific users. (Value:
+ *        "RESOURCE_VISIBILITY_RESTRICTED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceVisibility_ResourceVisibilityUnspecified
+ *        Unused. (Value: "RESOURCE_VISIBILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceVisibility;
+
+/** The sensitivity score of this resource. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
+/**
+ *  State of a profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_State_Done The
+ *        profile is no longer generating. If profile_status.status.code is 0,
+ *        the profile succeeded, otherwise, it failed. (Value: "DONE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_State_Running The
+ *        profile is currently running. Once a profile has finished it will
+ *        transition to DONE. (Value: "RUNNING")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_State_StateUnspecified
+ *        Unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Attributes of the resource being profiled. Currently used attributes: *
+ *  customer_managed_encryption: boolean - true: the resource is encrypted with
+ *  a customer-managed key. - false: the resource is encrypted with a
+ *  provider-managed key.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDLP_GooglePrivacyDlpV2Value. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceAttributes : GTLRObject
+@end
+
+
+/**
+ *  The labels applied to the resource at the time the profile was generated.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile_ResourceLabels : GTLRObject
+@end
+
+
+/**
+ *  Information regarding the discovered InfoType.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileStoreInfoTypeSummary : GTLRObject
+
+/** The InfoType seen. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
+
+@end
+
+
+/**
+ *  A pattern to match against one or more file stores.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileStoreRegex : GTLRObject
+
+/** Optional. Regex for Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageRegex *cloudStorageRegex;
+
+@end
+
+
+/**
+ *  A collection of regular expressions to determine what file store to match
+ *  against.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileStoreRegexes : GTLRObject
+
+/**
+ *  Required. The group of regular expression patterns to match against one or
+ *  more file stores. Maximum of 100 entries. The sum of all regular
+ *  expression's length can't exceed 10 KiB.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileStoreRegex *> *patterns;
 
 @end
 
@@ -7961,6 +8965,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  List of file store data profiles generated for a given organization or
+ *  project.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "fileStoreDataProfiles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ListFileStoreDataProfilesResponse : GTLRCollectionObject
+
+/**
+ *  List of data profiles.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile *> *fileStoreDataProfiles;
+
+/** The next page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response to the ListInfoTypes request.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse : GTLRObject
@@ -8467,6 +9496,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The data risk level of this project. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataRiskLevel *dataRiskLevel;
 
+/**
+ *  The number of file store data profiles generated for this project.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fileStoreDataProfileCount;
+
 /** The resource name of the profile. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8476,11 +9512,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Success or error status of the last attempt to profile the project. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ProfileStatus *profileStatus;
 
-/** Project ID that was profiled. */
+/** Project ID or account that was profiled. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** The sensitivity score of this project. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
+/**
+ *  The number of table data profiles generated for this project.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tableDataProfileCount;
 
 @end
 
@@ -8648,6 +9691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_DetailLevelUnspecified
  *        Unused. (Value: "DETAIL_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_FileStoreProfile
+ *        The full file store data profile. (Value: "FILE_STORE_PROFILE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_ResourceName
  *        The name of the profiled resource. (Value: "RESOURCE_NAME")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_TableProfile
@@ -9359,6 +10404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        access. (Value: "SENSITIVITY_MODERATE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityScoreUnspecified
  *        Unused. (Value: "SENSITIVITY_SCORE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityUnknown
+ *        Unable to determine sensitivity. (Value: "SENSITIVITY_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *score;
 
@@ -9707,7 +10754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ProfileStatus *profileStatus;
 
-/** The resource name to the project data profile for this table. */
+/** The resource name of the project data profile for this table. */
 @property(nonatomic, copy, nullable) NSString *projectDataProfile;
 
 /**
@@ -9722,7 +10769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityInconclusive
  *        May contain public items. For example, if a Cloud Storage bucket has
  *        uniform bucket level access disabled, some objects inside it may be
- *        public. (Value: "RESOURCE_VISIBILITY_INCONCLUSIVE")
+ *        public, but none are known yet. (Value:
+ *        "RESOURCE_VISIBILITY_INCONCLUSIVE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityPublic
  *        Visible to any user. (Value: "RESOURCE_VISIBILITY_PUBLIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityRestricted
@@ -9843,6 +10891,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  The tag to attach to profiles matching the condition. At most one
+ *  `TagCondition` can be specified per sensitivity level.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TagCondition : GTLRObject
+
+/**
+ *  Conditions attaching the tag to a resource on its profile having this
+ *  sensitivity score.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
+/** The tag value to attach to resources. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TagValue *tag;
+
+@end
+
+
+/**
  *  A column with a semantic tag attached.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TaggedField : GTLRObject
@@ -9871,6 +10937,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  supported_by=RISK_ANALYSIS filter.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
+
+@end
+
+
+/**
+ *  If set, attaches the [tags]
+ *  (https://cloud.google.com/resource-manager/docs/tags/tags-overview) provided
+ *  to profiled resources. Tags support [access
+ *  control](https://cloud.google.com/iam/docs/tags-access-control). You can
+ *  conditionally grant or deny access to a resource based on whether the
+ *  resource has a specific tag.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TagResources : GTLRObject
+
+/**
+ *  Whether applying a tag to a resource should lower the risk of the profile
+ *  for that resource. For example, in conjunction with an [IAM deny
+ *  policy](https://cloud.google.com/iam/docs/deny-overview), you can deny all
+ *  principals a permission if a tag value is present, mitigating the risk of
+ *  the resource. This also lowers the data risk of resources at the lower
+ *  levels of the resource hierarchy. For example, reducing the data risk of a
+ *  table data profile also reduces the data risk of the constituent column data
+ *  profiles.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lowerDataRiskToLow;
+
+/**
+ *  The profile generations for which the tag should be attached to resources.
+ *  If you attach a tag to only new profiles, then if the sensitivity score of a
+ *  profile subsequently changes, its tag doesn't change. By default, this field
+ *  includes only new profiles. To include both new and updated profiles for
+ *  tagging, this field should explicitly include both `PROFILE_GENERATION_NEW`
+ *  and `PROFILE_GENERATION_UPDATE`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *profileGenerationsToTag;
+
+/** The tags to associate with different conditions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2TagCondition *> *tagConditions;
+
+@end
+
+
+/**
+ *  A value of a tag.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TagValue : GTLRObject
+
+/**
+ *  The namespaced name for the tag value to attach to resources. Must be in the
+ *  format `{parent_id}/{tag_key_short_name}/{short_name}`, for example,
+ *  "123456/environment/prod".
+ */
+@property(nonatomic, copy, nullable) NSString *namespacedValue;
 
 @end
 
@@ -9949,7 +11070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Specification of the field containing the timestamp of scanned items. Used
- *  for data sources like Datastore and BigQuery. *For BigQuery* If this value
+ *  for data sources like Datastore and BigQuery. **For BigQuery** If this value
  *  is not specified and the table was modified between the given start and end
  *  times, the entire table will be scanned. If this value is specified, then
  *  rows are filtered based on the given start and end times. Rows with a `NULL`
@@ -9959,11 +11080,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
  *  you can use any of the following pseudo-columns as your timestamp field.
  *  When used with Cloud DLP, these pseudo-column names are case sensitive. -
- *  _PARTITIONTIME - _PARTITIONDATE - _PARTITION_LOAD_TIME *For Datastore* If
- *  this value is specified, then entities are filtered based on the given start
- *  and end times. If an entity does not contain the provided timestamp property
- *  or contains empty or invalid values, then it is included. Valid data types
- *  of the provided timestamp property are: `TIMESTAMP`. See the [known
+ *  `_PARTITIONTIME` - `_PARTITIONDATE` - `_PARTITION_LOAD_TIME` **For
+ *  Datastore** If this value is specified, then entities are filtered based on
+ *  the given start and end times. If an entity does not contain the provided
+ *  timestamp property or contains empty or invalid values, then it is included.
+ *  Valid data types of the provided timestamp property are: `TIMESTAMP`. See
+ *  the [known
  *  issue](https://cloud.google.com/sensitive-data-protection/docs/known-issues#bq-timespan)
  *  related to this operation.
  */

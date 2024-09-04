@@ -528,6 +528,11 @@ NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUs
 NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never = @"NEVER";
 NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly = @"WIFI_ONLY";
 
+// GTLRAndroidManagement_Policy.assistContentPolicy
+NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentAllowed = @"ASSIST_CONTENT_ALLOWED";
+NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentDisallowed = @"ASSIST_CONTENT_DISALLOWED";
+NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentPolicyUnspecified = @"ASSIST_CONTENT_POLICY_UNSPECIFIED";
+
 // GTLRAndroidManagement_Policy.autoDateAndTimeZone
 NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneEnforced = @"AUTO_DATE_AND_TIME_ZONE_ENFORCED";
 NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUnspecified = @"AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED";
@@ -654,6 +659,11 @@ NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_AllowPer
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageAllowed = @"PERSONAL_USAGE_ALLOWED";
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed = @"PERSONAL_USAGE_DISALLOWED";
 NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowedUserless = @"PERSONAL_USAGE_DISALLOWED_USERLESS";
+
+// GTLRAndroidManagement_SigninDetail.defaultStatus
+NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailDefaultStatusUnspecified = @"SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsDefault = @"SIGNIN_DETAIL_IS_DEFAULT";
+NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsNotDefault = @"SIGNIN_DETAIL_IS_NOT_DEFAULT";
 
 // GTLRAndroidManagement_StartLostModeStatus.status
 NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_AlreadyInLostMode = @"ALREADY_IN_LOST_MODE";
@@ -2226,18 +2236,19 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 @dynamic accountTypesWithManagementDisabled, addUserDisabled,
          adjustVolumeDisabled, advancedSecurityOverrides, alwaysOnVpnPackage,
          androidDevicePolicyTracks, appAutoUpdatePolicy, applications,
-         autoDateAndTimeZone, autoTimeRequired, blockApplicationsEnabled,
-         bluetoothConfigDisabled, bluetoothContactSharingDisabled,
-         bluetoothDisabled, cameraAccess, cameraDisabled,
-         cellBroadcastsConfigDisabled, choosePrivateKeyRules, complianceRules,
-         createWindowsDisabled, credentialProviderPolicyDefault,
-         credentialsConfigDisabled, crossProfilePolicies, dataRoamingDisabled,
-         debuggingFeaturesAllowed, defaultPermissionPolicy,
-         deviceConnectivityManagement, deviceOwnerLockScreenInfo,
-         deviceRadioState, displaySettings, encryptionPolicy,
-         ensureVerifyAppsEnabled, factoryResetDisabled, frpAdminEmails,
-         funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
-         keyguardDisabled, keyguardDisabledFeatures, kioskCustomization,
+         assistContentPolicy, autoDateAndTimeZone, autoTimeRequired,
+         blockApplicationsEnabled, bluetoothConfigDisabled,
+         bluetoothContactSharingDisabled, bluetoothDisabled, cameraAccess,
+         cameraDisabled, cellBroadcastsConfigDisabled, choosePrivateKeyRules,
+         complianceRules, createWindowsDisabled,
+         credentialProviderPolicyDefault, credentialsConfigDisabled,
+         crossProfilePolicies, dataRoamingDisabled, debuggingFeaturesAllowed,
+         defaultPermissionPolicy, deviceConnectivityManagement,
+         deviceOwnerLockScreenInfo, deviceRadioState, displaySettings,
+         encryptionPolicy, ensureVerifyAppsEnabled, factoryResetDisabled,
+         frpAdminEmails, funDisabled, installAppsDisabled,
+         installUnknownSourcesAllowed, keyguardDisabled,
+         keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,
          maximumTimeToLock, microphoneAccess, minimumApiLevel,
          mobileNetworksConfigDisabled, modifyAccountsDisabled,
@@ -2431,7 +2442,8 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 //
 
 @implementation GTLRAndroidManagement_SigninDetail
-@dynamic allowPersonalUsage, qrCode, signinEnrollmentToken, signinUrl, tokenTag;
+@dynamic allowPersonalUsage, defaultStatus, qrCode, signinEnrollmentToken,
+         signinUrl, tokenTag;
 @end
 
 
@@ -2598,7 +2610,7 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 //
 
 @implementation GTLRAndroidManagement_TelephonyInfo
-@dynamic carrierName, phoneNumber;
+@dynamic carrierName, iccId, phoneNumber;
 @end
 
 

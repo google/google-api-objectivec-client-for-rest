@@ -2815,7 +2815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 /**
  *  The *part* parameter specifies the liveChatComment resource parts that the
- *  API response will include. Supported values are id and snippet.
+ *  API response will include. Supported values are id, snippet, and
+ *  authorDetails.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
@@ -2835,8 +2836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @param liveChatId The id of the live chat for which comments should be
  *    returned.
  *  @param part The *part* parameter specifies the liveChatComment resource
- *    parts that the API response will include. Supported values are id and
- *    snippet.
+ *    parts that the API response will include. Supported values are id,
+ *    snippet, and authorDetails.
  *
  *  @return GTLRYouTubeQuery_LiveChatMessagesList
  *

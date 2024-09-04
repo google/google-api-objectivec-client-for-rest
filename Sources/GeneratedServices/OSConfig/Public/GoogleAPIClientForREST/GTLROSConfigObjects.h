@@ -488,7 +488,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_InventoryItem_Type_AvailablePac
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_InventoryItem_Type_InstalledPackage;
 /**
- *  Invalid. An type must be specified.
+ *  Invalid. A type must be specified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -1866,7 +1866,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *        "AVAILABLE_PACKAGE")
  *    @arg @c kGTLROSConfig_InventoryItem_Type_InstalledPackage This represents
  *        a package that is installed on the VM. (Value: "INSTALLED_PACKAGE")
- *    @arg @c kGTLROSConfig_InventoryItem_Type_TypeUnspecified Invalid. An type
+ *    @arg @c kGTLROSConfig_InventoryItem_Type_TypeUnspecified Invalid. A type
  *        must be specified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -3125,7 +3125,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  Only recorded for enforce Exec. Path to an output file (that is created by
  *  this Exec) whose content will be recorded in OSPolicyResourceCompliance
  *  after a successful run. Absence or failure to read this file will result in
- *  this ExecResource being non-compliant. Output file size is limited to 100K
+ *  this ExecResource being non-compliant. Output file size is limited to 500K
  *  bytes.
  */
 @property(nonatomic, copy, nullable) NSString *outputFilePath;

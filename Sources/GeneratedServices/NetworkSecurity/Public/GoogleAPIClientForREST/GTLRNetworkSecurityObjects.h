@@ -71,6 +71,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AddressGroup.purpose
+
+/**
+ *  Address Group is usable in Cloud Armor.
+ *
+ *  Value: "CLOUD_ARMOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_CloudArmor;
+/**
+ *  Address Group is distributed to VMC, and is usable in Firewall Policies and
+ *  other systems that rely on VMC.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_Default;
+/**
+ *  Default value. Should never happen.
+ *
+ *  Value: "PURPOSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_PurposeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_AddressGroup.type
 
 /**
@@ -581,6 +604,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  /locations/{location}/addressGroups/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. List of supported purposes of the Address Group. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *purpose;
 
 /** Output only. Server-defined fully-qualified URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -2057,8 +2083,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @interface GTLRNetworkSecurity_MTLSPolicy : GTLRObject
 
 /**
- *  Required if the policy is to be used with Traffic Director. For external
- *  HTTPS load balancers it must be empty. Defines the mechanism to obtain the
+ *  Required if the policy is to be used with Traffic Director. For Application
+ *  Load Balancers it must be empty. Defines the mechanism to obtain the
  *  Certificate Authority certificate to validate the client certificate.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_ValidationCA *> *clientValidationCa;
@@ -2067,7 +2093,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  When the client presents an invalid certificate or no certificate to the
  *  load balancer, the `client_validation_mode` specifies how the client
  *  connection is handled. Required if the policy is to be used with the
- *  external HTTPS load balancing. For Traffic Director it must be empty.
+ *  Application Load Balancers. For Traffic Director it must be empty.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowInvalidOrMissingClientCert
@@ -2093,7 +2119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  Reference to the TrustConfig from certificatemanager.googleapis.com
  *  namespace. If specified, the chain validation will be performed against
  *  certificates configured in the given TrustConfig. Allowed only if the policy
- *  is to be used with external HTTPS load balancers.
+ *  is to be used with Application Load Balancers.
  */
 @property(nonatomic, copy, nullable) NSString *clientValidationTrustConfig;
 
@@ -2271,7 +2297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  SecurityProfile is a resource that defines the behavior for one of many
- *  ProfileTypes. Next ID: 10
+ *  ProfileTypes. Next ID: 12
  */
 @interface GTLRNetworkSecurity_SecurityProfile : GTLRObject
 
@@ -2337,7 +2363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  SecurityProfileGroup is a resource that defines the behavior for various
- *  ProfileTypes. Next ID: 9
+ *  ProfileTypes. Next ID: 11
  */
 @interface GTLRNetworkSecurity_SecurityProfileGroup : GTLRObject
 
@@ -2370,8 +2396,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Reference to a SecurityProfile with the threat prevention
- *  configuration for the SecurityProfileGroup.
+ *  Optional. Reference to a SecurityProfile with the ThreatPrevention
+ *  configuration.
  */
 @property(nonatomic, copy, nullable) NSString *threatPreventionProfile;
 
@@ -2397,18 +2423,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  ServerTlsPolicy is a resource that specifies how a server should
  *  authenticate incoming requests. This resource itself does not affect
  *  configuration unless it is attached to a target HTTPS proxy or endpoint
- *  config selector resource. ServerTlsPolicy in the form accepted by external
- *  HTTPS load balancers can be attached only to TargetHttpsProxy with an
- *  `EXTERNAL` or `EXTERNAL_MANAGED` load balancing scheme. Traffic Director
- *  compatible ServerTlsPolicies can be attached to EndpointPolicy and
- *  TargetHttpsProxy with Traffic Director `INTERNAL_SELF_MANAGED` load
- *  balancing scheme.
+ *  config selector resource. ServerTlsPolicy in the form accepted by
+ *  Application Load Balancers can be attached only to TargetHttpsProxy with an
+ *  `EXTERNAL`, `EXTERNAL_MANAGED` or `INTERNAL_MANAGED` load balancing scheme.
+ *  Traffic Director compatible ServerTlsPolicies can be attached to
+ *  EndpointPolicy and TargetHttpsProxy with Traffic Director
+ *  `INTERNAL_SELF_MANAGED` load balancing scheme.
  */
 @interface GTLRNetworkSecurity_ServerTlsPolicy : GTLRObject
 
 /**
  *  This field applies only for Traffic Director policies. It is must be set to
- *  false for external HTTPS load balancer policies. Determines if server allows
+ *  false for Application Load Balancer policies. Determines if server allows
  *  plaintext connections. If set to true, server allows plain text connections.
  *  By default, it is set to false. This setting is not exclusive of other
  *  encryption modes. For example, if `allow_open` and `mtls_policy` are set,
@@ -2435,8 +2461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_ServerTlsPolicy_Labels *labels;
 
 /**
- *  This field is required if the policy is used with external HTTPS load
- *  balancers. This field can be empty for Traffic Director. Defines a mechanism
+ *  This field is required if the policy is used with Application Load
+ *  Balancers. This field can be empty for Traffic Director. Defines a mechanism
  *  to provision peer validation certificates for peer to peer authentication
  *  (Mutual TLS - mTLS). If not specified, client certificate will not be
  *  requested. The connection is treated as TLS and not mTLS. If `allow_open`
@@ -2452,10 +2478,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional if policy is to be used with Traffic Director. For external HTTPS
- *  load balancer must be empty. Defines a mechanism to provision server
- *  identity (public and private keys). Cannot be combined with `allow_open` as
- *  a permissive mode that allows both plain text and TLS is not supported.
+ *  Optional if policy is to be used with Traffic Director. For Application Load
+ *  Balancers must be empty. Defines a mechanism to provision server identity
+ *  (public and private keys). Cannot be combined with `allow_open` as a
+ *  permissive mode that allows both plain text and TLS is not supported.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider *serverCertificate;
 

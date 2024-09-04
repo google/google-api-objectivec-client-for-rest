@@ -19,6 +19,11 @@ NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogAllCalls = @"
 NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly = @"LOG_ERRORS_ONLY";
 NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogNone = @"LOG_NONE";
 
+// GTLRWorkflowExecutions_Execution.executionHistoryLevel
+NSString * const kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryBasic = @"EXECUTION_HISTORY_BASIC";
+NSString * const kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryDetailed = @"EXECUTION_HISTORY_DETAILED";
+NSString * const kGTLRWorkflowExecutions_Execution_ExecutionHistoryLevel_ExecutionHistoryLevelUnspecified = @"EXECUTION_HISTORY_LEVEL_UNSPECIFIED";
+
 // GTLRWorkflowExecutions_Execution.state
 NSString * const kGTLRWorkflowExecutions_Execution_State_Active = @"ACTIVE";
 NSString * const kGTLRWorkflowExecutions_Execution_State_Cancelled = @"CANCELLED";
@@ -97,6 +102,24 @@ NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_Progress
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkflowExecutions_DeleteExecutionHistoryRequest
+//
+
+@implementation GTLRWorkflowExecutions_DeleteExecutionHistoryRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_Empty
+//
+
+@implementation GTLRWorkflowExecutions_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkflowExecutions_Error
 //
 
@@ -123,8 +146,8 @@ NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_Progress
 @implementation GTLRWorkflowExecutions_Execution
 @dynamic argument, callLogLevel, createTime,
          disableConcurrencyQuotaOverflowBuffering, duration, endTime, error,
-         labels, name, result, startTime, state, stateError, status,
-         workflowRevisionId;
+         executionHistoryLevel, labels, name, result, startTime, state,
+         stateError, status, workflowRevisionId;
 @end
 
 
@@ -343,7 +366,7 @@ NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_Progress
 
 @implementation GTLRWorkflowExecutions_StepEntry
 @dynamic createTime, entryId, exception, name, navigationInfo, routine, state,
-         step, stepEntryMetadata, stepType, updateTime;
+         step, stepEntryMetadata, stepType, updateTime, variableData;
 @end
 
 
@@ -364,4 +387,28 @@ NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_ProgressType_Progress
 
 @implementation GTLRWorkflowExecutions_TriggerPubsubExecutionRequest
 @dynamic deliveryAttempt, GCPCloudEventsMode, message, subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_VariableData
+//
+
+@implementation GTLRWorkflowExecutions_VariableData
+@dynamic variables;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_VariableData_Variables
+//
+
+@implementation GTLRWorkflowExecutions_VariableData_Variables
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end

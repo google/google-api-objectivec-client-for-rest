@@ -272,6 +272,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaC
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringPermissionsDenylistViolation;
 /**
+ *  Checks if there were any PII leaked to device logs.
+ *
+ *  Value: "DATA_MONITORING_PII_LOGCAT_LEAK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringPiiLogcatLeak;
+/**
  *  Checks if any SDKs were detected that are specified in the denylist.
  *
  *  Value: "DATA_MONITORING_SDKS_DENYLIST_VIOLATION"
@@ -1857,6 +1863,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringPermissionsDenylistViolation
  *        Checks if any permissions were detected that are specified in the
  *        denylist. (Value: "DATA_MONITORING_PERMISSIONS_DENYLIST_VIOLATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringPiiLogcatLeak
+ *        Checks if there were any PII leaked to device logs. (Value:
+ *        "DATA_MONITORING_PII_LOGCAT_LEAK")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringSdksDenylistViolation
  *        Checks if any SDKs were detected that are specified in the denylist.
  *        (Value: "DATA_MONITORING_SDKS_DENYLIST_VIOLATION")

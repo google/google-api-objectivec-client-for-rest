@@ -43,6 +43,7 @@
 @class GTLRSQLAdmin_ExportContext_CsvExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions;
+@class GTLRSQLAdmin_ExportContext_SqlExportOptions_PostgresExportOptions;
 @class GTLRSQLAdmin_FailoverContext;
 @class GTLRSQLAdmin_Flag;
 @class GTLRSQLAdmin_GeminiInstanceConfig;
@@ -51,6 +52,7 @@
 @class GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions;
 @class GTLRSQLAdmin_ImportContext_CsvImportOptions;
 @class GTLRSQLAdmin_ImportContext_SqlImportOptions;
+@class GTLRSQLAdmin_ImportContext_SqlImportOptions_PostgresImportOptions;
 @class GTLRSQLAdmin_InsightsConfig;
 @class GTLRSQLAdmin_InstanceReference;
 @class GTLRSQLAdmin_IpConfiguration;
@@ -488,12 +490,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84;
 /**
- *  The database version is MySQL 8.4 and the patch version is 0.
- *
- *  Value: "MYSQL_8_4_0"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql840;
-/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -535,6 +531,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres16;
+/**
+ *  The database version is PostgreSQL 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres17;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -619,6 +621,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "SQLSERVER_2022_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_ConnectSettings.serverCaMode
+
+/**
+ *  CA mode is unknown.
+ *
+ *  Value: "CA_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_ServerCaMode_CaModeUnspecified;
+/**
+ *  Google-managed regional CA part of root CA hierarchy hosted on Google
+ *  Cloud's Certificate Authority Service (CAS).
+ *
+ *  Value: "GOOGLE_MANAGED_CAS_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_ServerCaMode_GoogleManagedCasCa;
+/**
+ *  Google-managed self-signed internal CA.
+ *
+ *  Value: "GOOGLE_MANAGED_INTERNAL_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_ServerCaMode_GoogleManagedInternalCa;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.backendType
@@ -784,12 +809,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84;
 /**
- *  The database version is MySQL 8.4 and the patch version is 0.
- *
- *  Value: "MYSQL_8_4_0"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql840;
-/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -831,6 +850,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres16;
+/**
+ *  The database version is PostgreSQL 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres17;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -1242,12 +1267,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql84;
 /**
- *  The database version is MySQL 8.4 and the patch version is 0.
- *
- *  Value: "MYSQL_8_4_0"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql840;
-/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -1289,6 +1308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres15;
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres16;
+/**
+ *  The database version is PostgreSQL 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres17;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -1478,6 +1503,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_
  *  Value: "TLOG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Tlog;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_IpConfiguration.serverCaMode
+
+/**
+ *  CA mode is unknown.
+ *
+ *  Value: "CA_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CaModeUnspecified;
+/**
+ *  Google-managed regional CA part of root CA hierarchy hosted on Google
+ *  Cloud's Certificate Authority Service (CAS).
+ *
+ *  Value: "GOOGLE_MANAGED_CAS_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedCasCa;
+/**
+ *  Google-managed self-signed internal CA.
+ *
+ *  Value: "GOOGLE_MANAGED_INTERNAL_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedInternalCa;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_IpConfiguration.sslMode
@@ -1748,6 +1796,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_LogClea
  *  Value: "MAINTENANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance;
+/**
+ *  Updates the major version of a Cloud SQL instance.
+ *
+ *  Value: "MAJOR_VERSION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVersionUpgrade;
 /**
  *  Promotes a Cloud SQL replica instance.
  *
@@ -2355,6 +2409,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat;
 /**
+ *  The source database has generated columns that can't be migrated. Please
+ *  change them to regular columns before migration.
+ *
+ *  Value: "UNSUPPORTED_COLUMNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedColumns;
+/**
  *  The source instance has unsupported database settings for migration.
  *
  *  Value: "UNSUPPORTED_DATABASE_SETTINGS"
@@ -2399,12 +2460,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedStorageEngine;
 /**
+ *  The selected objects include system objects that aren't supported for
+ *  migration.
+ *
+ *  Value: "UNSUPPORTED_SYSTEM_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedSystemObjects;
+/**
  *  The table definition is not support due to missing primary key or replica
  *  identity, applicable for postgres.
  *
  *  Value: "UNSUPPORTED_TABLE_DEFINITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition;
+/**
+ *  The source database has users that aren't created in the replica. First,
+ *  create all users, which are in the pg_user_mappings table of the source
+ *  database, in the destination instance. Then, perform the migration.
+ *
+ *  Value: "USERS_NOT_CREATED_IN_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UsersNotCreatedInReplica;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.migrationType
@@ -2614,19 +2690,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoModifyD
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_BuiltIn;
 /**
- *  Cloud IAM group non-login user.
+ *  Cloud IAM group. Not used for login.
  *
  *  Value: "CLOUD_IAM_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroup;
 /**
- *  Cloud IAM group login service account.
+ *  Read-only. Login for a service account that belongs to the Cloud IAM group.
  *
  *  Value: "CLOUD_IAM_GROUP_SERVICE_ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroupServiceAccount;
 /**
- *  Cloud IAM group login user.
+ *  Read-only. Login for a user that belongs to the Cloud IAM group.
  *
  *  Value: "CLOUD_IAM_GROUP_USER"
  */
@@ -2999,6 +3075,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** Location of the backups. */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/**
+ *  Output only. The maximum chargeable bytes for the backup.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxChargeableBytes;
+
 /** The URI of this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -3170,6 +3253,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRDateTime *pointInTime;
 
 /**
+ *  Optional. Copy clone and point-in-time recovery clone of a regional instance
+ *  in the specified zones. If not specified, clone to the same secondary zone
+ *  as the source instance. This value cannot be the same as the preferred_zone
+ *  field. This field applies to all DB types.
+ */
+@property(nonatomic, copy, nullable) NSString *preferredSecondaryZone;
+
+/**
  *  Optional. Copy clone and point-in-time recovery clone of an instance to the
  *  specified zone. If no zone is specified, clone to the same primary zone as
  *  the source instance. This field applies to all DB types.
@@ -3273,9 +3364,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        (Value: "MYSQL_8_0_40")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 The database
  *        version is MySQL 8.4. (Value: "MYSQL_8_4")
- *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql840 The
- *        database version is MySQL 8.4 and the patch version is 0. (Value:
- *        "MYSQL_8_4_0")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -3290,6 +3378,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres16 The
  *        database version is PostgreSQL 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres17 The
+ *        database version is PostgreSQL 17. (Value: "POSTGRES_17")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -3355,6 +3445,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** SSL configuration. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCert *serverCaCert;
+
+/**
+ *  Specify what type of CA is used for the server certificate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_ServerCaMode_CaModeUnspecified CA
+ *        mode is unknown. (Value: "CA_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_ServerCaMode_GoogleManagedCasCa
+ *        Google-managed regional CA part of root CA hierarchy hosted on Google
+ *        Cloud's Certificate Authority Service (CAS). (Value:
+ *        "GOOGLE_MANAGED_CAS_CA")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_ServerCaMode_GoogleManagedInternalCa
+ *        Google-managed self-signed internal CA. (Value:
+ *        "GOOGLE_MANAGED_INTERNAL_CA")
+ */
+@property(nonatomic, copy, nullable) NSString *serverCaMode;
 
 @end
 
@@ -3546,9 +3652,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        (Value: "MYSQL_8_0_40")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 The
  *        database version is MySQL 8.4. (Value: "MYSQL_8_4")
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql840 The
- *        database version is MySQL 8.4 and the patch version is 0. (Value:
- *        "MYSQL_8_4_0")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -3563,6 +3666,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres16 The
  *        database version is PostgreSQL 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres17 The
+ *        database version is PostgreSQL 17. (Value: "POSTGRES_17")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -3736,6 +3841,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *rootPassword;
 
 /**
+ *  Output only. This status indicates whether the instance satisfies PZI. The
+ *  status is reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
  *  This status indicates whether the instance satisfies PZS. The status is
  *  reserved for future use.
  *
@@ -3812,6 +3925,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** If the instance state is SUSPENDED, the reason for the suspension. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReason;
+
+/**
+ *  Input only. Whether Cloud SQL is enabled to switch storing point-in-time
+ *  recovery log files from a data disk to Cloud Storage.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *switchTransactionLogsToCloudStorageEnabled;
 
 /** Output only. All database versions that are available for upgrade. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AvailableDatabaseVersion *> *upgradableDatabaseVersions;
@@ -4167,6 +4288,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *differentialBase;
 
 /**
+ *  Optional. The end timestamp when transaction log will be included in the
+ *  export operation. [RFC 3339](https://tools.ietf.org/html/rfc3339) format
+ *  (for example, `2023-10-01T16:19:00.094`) in UTC. When omitted, all available
+ *  logs until current time will be included. Only applied to Cloud SQL for SQL
+ *  Server.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *exportLogEndTime;
+
+/**
+ *  Optional. The begin timestamp when transaction log will be included in the
+ *  export operation. [RFC 3339](https://tools.ietf.org/html/rfc3339) format
+ *  (for example, `2023-10-01T16:19:00.094`) in UTC. When omitted, all available
+ *  logs from the beginning of retention period will be included. Only applied
+ *  to Cloud SQL for SQL Server.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *exportLogStartTime;
+
+/**
  *  Option for specifying how many stripes to use for the export. If blank, and
  *  the value of the striped field is true, the number of stripes is
  *  automatically chosen.
@@ -4232,6 +4371,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *parallel;
 
+/** Options for exporting from a Cloud SQL for PostgreSQL instance. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_SqlExportOptions_PostgresExportOptions *postgresExportOptions;
+
 /**
  *  Export only schemas.
  *
@@ -4271,6 +4413,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *masterData;
+
+@end
+
+
+/**
+ *  Options for exporting from a Cloud SQL for PostgreSQL instance.
+ */
+@interface GTLRSQLAdmin_ExportContext_SqlExportOptions_PostgresExportOptions : GTLRObject
+
+/**
+ *  Optional. Use this option to include DROP SQL statements. These statements
+ *  are used to delete database objects before running the import operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clean;
+
+/**
+ *  Optional. Option to include an IF EXISTS SQL statement with each DROP
+ *  statement produced by clean.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ifExists;
 
 @end
 
@@ -4666,6 +4832,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *parallel;
 
 /**
+ *  Optional. Options for importing from a Cloud SQL for PostgreSQL instance.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_SqlImportOptions_PostgresImportOptions *postgresImportOptions;
+
+/**
  *  Optional. The number of threads to use for parallel import.
  *
  *  Uses NSNumber of intValue.
@@ -4696,6 +4867,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *pvkPath;
+
+@end
+
+
+/**
+ *  Optional. Options for importing from a Cloud SQL for PostgreSQL instance.
+ */
+@interface GTLRSQLAdmin_ImportContext_SqlImportOptions_PostgresImportOptions : GTLRObject
+
+/**
+ *  Optional. The --clean flag for the pg_restore utility. This flag applies
+ *  only if you enabled Cloud SQL to import files in parallel.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clean;
+
+/**
+ *  Optional. The --if-exists flag for the pg_restore utility. This flag applies
+ *  only if you enabled Cloud SQL to import files in parallel.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ifExists;
 
 @end
 
@@ -5002,6 +5197,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireSsl;
+
+/**
+ *  Specify what type of CA is used for the server certificate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CaModeUnspecified CA
+ *        mode is unknown. (Value: "CA_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedCasCa
+ *        Google-managed regional CA part of root CA hierarchy hosted on Google
+ *        Cloud's Certificate Authority Service (CAS). (Value:
+ *        "GOOGLE_MANAGED_CAS_CA")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedInternalCa
+ *        Google-managed self-signed internal CA. (Value:
+ *        "GOOGLE_MANAGED_INTERNAL_CA")
+ */
+@property(nonatomic, copy, nullable) NSString *serverCaMode;
 
 /**
  *  Specify how SSL/TLS is enforced in database connections. If you must use the
@@ -5415,6 +5626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Maintenance Indicates that
  *        the instance is currently in maintenance. Maintenance typically causes
  *        the instance to be unavailable for 1-3 minutes. (Value: "MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_MajorVersionUpgrade Updates
+ *        the major version of a Cloud SQL instance. (Value:
+ *        "MAJOR_VERSION_UPGRADE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PromoteReplica Promotes a
  *        Cloud SQL replica instance. (Value: "PROMOTE_REPLICA")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary
@@ -6344,6 +6558,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat
  *        The primary instance has unsupported binary log format. (Value:
  *        "UNSUPPORTED_BINLOG_FORMAT")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedColumns
+ *        The source database has generated columns that can't be migrated.
+ *        Please change them to regular columns before migration. (Value:
+ *        "UNSUPPORTED_COLUMNS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDatabaseSettings
  *        The source instance has unsupported database settings for migration.
  *        (Value: "UNSUPPORTED_DATABASE_SETTINGS")
@@ -6365,10 +6583,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedStorageEngine
  *        The primary instance has tables with unsupported storage engine.
  *        (Value: "UNSUPPORTED_STORAGE_ENGINE")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedSystemObjects
+ *        The selected objects include system objects that aren't supported for
+ *        migration. (Value: "UNSUPPORTED_SYSTEM_OBJECTS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition
  *        The table definition is not support due to missing primary key or
  *        replica identity, applicable for postgres. (Value:
  *        "UNSUPPORTED_TABLE_DEFINITION")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UsersNotCreatedInReplica
+ *        The source database has users that aren't created in the replica.
+ *        First, create all users, which are in the pg_user_mappings table of
+ *        the source database, in the destination instance. Then, perform the
+ *        migration. (Value: "USERS_NOT_CREATED_IN_REPLICA")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -7024,13 +7250,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_User_Type_BuiltIn The database's built-in user type.
  *        (Value: "BUILT_IN")
- *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroup Cloud IAM group non-login
- *        user. (Value: "CLOUD_IAM_GROUP")
- *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupServiceAccount Cloud IAM
- *        group login service account. (Value:
- *        "CLOUD_IAM_GROUP_SERVICE_ACCOUNT")
- *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupUser Cloud IAM group login
- *        user. (Value: "CLOUD_IAM_GROUP_USER")
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroup Cloud IAM group. Not used
+ *        for login. (Value: "CLOUD_IAM_GROUP")
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupServiceAccount Read-only.
+ *        Login for a service account that belongs to the Cloud IAM group.
+ *        (Value: "CLOUD_IAM_GROUP_SERVICE_ACCOUNT")
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamGroupUser Read-only. Login for a
+ *        user that belongs to the Cloud IAM group. (Value:
+ *        "CLOUD_IAM_GROUP_USER")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamServiceAccount Cloud IAM service
  *        account. (Value: "CLOUD_IAM_SERVICE_ACCOUNT")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamUser Cloud IAM user. (Value:

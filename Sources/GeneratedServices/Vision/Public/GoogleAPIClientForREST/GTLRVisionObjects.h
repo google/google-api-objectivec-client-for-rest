@@ -6288,7 +6288,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A face-specific landmark (for example, a face feature).
+ *  A face-specific landmark (for example, a face feature). Landmark positions
+ *  may fall outside the bounds of the image if the face is near one or more
+ *  edges of the image. Therefore it is NOT guaranteed that `0 <= x < width` or
+ *  `0 <= y < height`.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark : GTLRObject
 
@@ -7856,7 +7859,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A face-specific landmark (for example, a face feature).
+ *  A face-specific landmark (for example, a face feature). Landmark positions
+ *  may fall outside the bounds of the image if the face is near one or more
+ *  edges of the image. Therefore it is NOT guaranteed that `0 <= x < width` or
+ *  `0 <= y < height`.
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark : GTLRObject
 
@@ -9465,7 +9471,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A face-specific landmark (for example, a face feature).
+ *  A face-specific landmark (for example, a face feature). Landmark positions
+ *  may fall outside the bounds of the image if the face is near one or more
+ *  edges of the image. Therefore it is NOT guaranteed that `0 <= x < width` or
+ *  `0 <= y < height`.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark : GTLRObject
 
@@ -11184,7 +11193,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A face-specific landmark (for example, a face feature).
+ *  A face-specific landmark (for example, a face feature). Landmark positions
+ *  may fall outside the bounds of the image if the face is near one or more
+ *  edges of the image. Therefore it is NOT guaranteed that `0 <= x < width` or
+ *  `0 <= y < height`.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark : GTLRObject
 
@@ -12564,7 +12576,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A face-specific landmark (for example, a face feature).
+ *  A face-specific landmark (for example, a face feature). Landmark positions
+ *  may fall outside the bounds of the image if the face is near one or more
+ *  edges of the image. Therefore it is NOT guaranteed that `0 <= x < width` or
+ *  `0 <= y < height`.
  */
 @interface GTLRVision_Landmark : GTLRObject
 

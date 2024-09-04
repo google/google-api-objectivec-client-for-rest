@@ -32,6 +32,7 @@
 @class GTLRPagespeedInsights_LighthouseResultV5;
 @class GTLRPagespeedInsights_LighthouseResultV5_Audits;
 @class GTLRPagespeedInsights_LighthouseResultV5_CategoryGroups;
+@class GTLRPagespeedInsights_MetricSavings;
 @class GTLRPagespeedInsights_PagespeedApiLoadingExperienceV5;
 @class GTLRPagespeedInsights_PagespeedApiLoadingExperienceV5_Metrics;
 @class GTLRPagespeedInsights_PagespeedVersion;
@@ -318,6 +319,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/** The metric savings of the audit. */
+@property(nonatomic, strong, nullable) GTLRPagespeedInsights_MetricSavings *metricSavings;
+
 /**
  *  The unit of the numeric_value field. Used to format the numeric value for
  *  display.
@@ -506,6 +510,54 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRPagespeedInsights_LighthouseResultV5_CategoryGroups : GTLRObject
+@end
+
+
+/**
+ *  The metric savings of the audit.
+ */
+@interface GTLRPagespeedInsights_MetricSavings : GTLRObject
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  CLS metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *CLS;
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  FCP metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *FCP;
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  INP metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *INP;
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  LCP metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *LCP;
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  TBT metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *TBT;
+
 @end
 
 

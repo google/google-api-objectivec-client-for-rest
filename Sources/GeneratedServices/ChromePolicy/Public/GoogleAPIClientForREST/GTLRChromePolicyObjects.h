@@ -811,8 +811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /**
  *  Corresponding to deprecated_in_favor_of, the fully qualified namespace(s) of
  *  the old policies that will be deprecated because of introduction of this
- *  policy. This field should not be manually set but will be set and exposed
- *  through PolicyAPI automatically.
+ *  policy.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scheduledToDeprecatePolicies;
 

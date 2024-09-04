@@ -114,6 +114,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/AdSenseHost/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AdSenseHost/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'AdSensePlatform' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AdSensePlatform/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AdSensePlatform/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Advisorynotifications' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Advisorynotifications/**/*.{h,m}'
@@ -603,6 +608,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Contentwarehouse/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Contentwarehouse/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'Css' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Css/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Css/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'CustomSearchAPI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -31,6 +31,24 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
+ *  Includes all fields except for direct notebook inputs.
+ *
+ *  Value: "NOTEBOOK_EXECUTION_JOB_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewNotebookExecutionJobViewBasic;
+/**
+ *  Includes all fields.
+ *
+ *  Value: "NOTEBOOK_EXECUTION_JOB_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewNotebookExecutionJobViewFull;
+/**
+ *  When unspecified, the API defaults to the BASIC view.
+ *
+ *  Value: "NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewNotebookExecutionJobViewUnspecified;
+/**
  *  Include: VersionId, ModelVersionExternalName, and SupportedActions.
  *
  *  Value: "PUBLISHER_MODEL_VERSION_VIEW_BASIC"
@@ -66,6 +84,579 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a Dataset.
+ *
+ *  Method: aiplatform.datasets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the Dataset in.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a Dataset.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset to
+ *    include in the query.
+ *
+ *  @return GTLRAiplatformQuery_DatasetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Dataset *)object;
+
+@end
+
+/**
+ *  Create a version from a Dataset.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Dataset resource. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Create a version from a Dataset.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
+ *    include in the query.
+ *  @param parent Required. The name of the Dataset resource. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Dataset version.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Dataset version to delete. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a Dataset version.
+ *
+ *  @param name Required. The resource name of the Dataset version to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Dataset version.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Dataset version to delete. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion.
+ *
+ *  Gets a Dataset version.
+ *
+ *  @param name Required. The resource name of the Dataset version to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DatasetVersions in a Dataset.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsList : GTLRAiplatformQuery
+
+/** Optional. The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Dataset to list DatasetVersions from.
+ *  Format: `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListDatasetVersionsResponse.
+ *
+ *  Lists DatasetVersions in a Dataset.
+ *
+ *  @param parent Required. The resource name of the Dataset to list
+ *    DatasetVersions from. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DatasetVersion.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsPatch : GTLRAiplatformQuery
+
+/** Output only. Identifier. The resource name of the DatasetVersion. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask. Updatable fields: *
+ *  `display_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion.
+ *
+ *  Updates a DatasetVersion.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
+ *    include in the query.
+ *  @param name Output only. Identifier. The resource name of the
+ *    DatasetVersion.
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Restores a dataset version.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsRestore : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the DatasetVersion resource. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Restores a dataset version.
+ *
+ *  @param name Required. The name of the DatasetVersion resource. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsRestore
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a Dataset.
+ *
+ *  Method: aiplatform.datasets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Dataset to delete. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a Dataset.
+ *
+ *  @param name Required. The resource name of the Dataset to delete. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Dataset.
+ *
+ *  Method: aiplatform.datasets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsGet : GTLRAiplatformQuery
+
+/** Required. The name of the Dataset resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset.
+ *
+ *  Gets a Dataset.
+ *
+ *  @param name Required. The name of the Dataset resource.
+ *
+ *  @return GTLRAiplatformQuery_DatasetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Datasets in a Location.
+ *
+ *  Method: aiplatform.datasets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsList : GTLRAiplatformQuery
+
+/**
+ *  An expression for filtering the results of the request. For field names both
+ *  snake_case and camelCase are supported. * `display_name`: supports = and !=
+ *  * `metadata_schema_uri`: supports = and != * `labels` supports general map
+ *  functions that is: * `labels.key=value` - key:value equality * `labels.key:*
+ *  or labels:key - key existence * A key including a space must be quoted.
+ *  `labels."a key"`. Some examples: * `displayName="myDisplayName"` *
+ *  `labels.myKey="myValue"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields to order by, sorted in ascending order. Use
+ *  "desc" after a field name for descending. Supported fields: * `display_name`
+ *  * `create_time` * `update_time`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the Dataset's parent resource. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListDatasetsResponse.
+ *
+ *  Lists Datasets in a Location.
+ *
+ *  @return GTLRAiplatformQuery_DatasetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates a Dataset.
+ *
+ *  Method: aiplatform.datasets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsPatch : GTLRAiplatformQuery
+
+/** Output only. Identifier. The resource name of the Dataset. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask. Updatable fields: *
+ *  `display_name` * `description` * `labels`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset.
+ *
+ *  Updates a Dataset.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset to
+ *    include in the query.
+ *  @param name Output only. Identifier. The resource name of the Dataset.
+ *
+ *  @return GTLRAiplatformQuery_DatasetsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Dataset *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Return a list of tokens based on the input text.
+ *
+ *  Method: aiplatform.endpoints.computeTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_EndpointsComputeTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to get lists of tokens and
+ *  token ids.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse.
+ *
+ *  Return a list of tokens based on the input text.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest to include in
+ *    the query.
+ *  @param endpoint Required. The name of the Endpoint requested to get lists of
+ *    tokens and token ids.
+ *
+ *  @return GTLRAiplatformQuery_EndpointsComputeTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Perform a token counting.
+ *
+ *  Method: aiplatform.endpoints.countTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_EndpointsCountTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to perform token counting.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse.
+ *
+ *  Perform a token counting.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to perform
+ *    token counting. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsCountTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs.
+ *
+ *  Method: aiplatform.endpoints.generateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  Method: aiplatform.endpoints.streamGenerateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsStreamGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsStreamGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
 
 @end
 
@@ -1341,7 +1932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Lists Annotations belongs to a dataitem
+ *  Lists Annotations belongs to a dataitem This RPC is only available in
+ *  InternalDatasetService. It is only used for exporting conversation data to
+ *  CCAI Insights.
  *
  *  Method: aiplatform.projects.locations.datasets.dataItems.annotations.list
  *
@@ -1382,7 +1975,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListAnnotationsResponse.
  *
- *  Lists Annotations belongs to a dataitem
+ *  Lists Annotations belongs to a dataitem This RPC is only available in
+ *  InternalDatasetService. It is only used for exporting conversation data to
+ *  CCAI Insights.
  *
  *  @param parent Required. The resource name of the DataItem to list
  *    Annotations from. Format:
@@ -2012,7 +2607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch : GTLRAiplatformQuery
 
-/** Output only. The resource name of the DatasetVersion. */
+/** Output only. Identifier. The resource name of the DatasetVersion. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2031,7 +2626,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
  *    include in the query.
- *  @param name Output only. The resource name of the DatasetVersion.
+ *  @param name Output only. Identifier. The resource name of the
+ *    DatasetVersion.
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch
  */
@@ -2468,7 +3064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsPatch : GTLRAiplatformQuery
 
-/** Output only. The resource name of the Dataset. */
+/** Output only. Identifier. The resource name of the Dataset. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2487,7 +3083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset to
  *    include in the query.
- *  @param name Output only. The resource name of the Dataset.
+ *  @param name Output only. Identifier. The resource name of the Dataset.
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsPatch
  */
@@ -3244,6 +3840,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Update a DeploymentResourcePool.
+ *
+ *  Method: aiplatform.projects.locations.deploymentResourcePools.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsPatch : GTLRAiplatformQuery
+
+/**
+ *  Immutable. The resource name of the DeploymentResourcePool. Format:
+ *  `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Update a DeploymentResourcePool.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool to include in
+ *    the query.
+ *  @param name Immutable. The resource name of the DeploymentResourcePool.
+ *    Format:
+ *    `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  List DeployedModels that have been deployed on this DeploymentResourcePool.
  *
  *  Method: aiplatform.projects.locations.deploymentResourcePools.queryDeployedModels
@@ -3598,8 +4236,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsGenerateContent : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the publisher model requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -3611,9 +4252,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
  *    the query.
- *  @param model Required. The name of the publisher model requested to serve
- *    the prediction. Format:
- *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsGenerateContent
  */
@@ -4122,8 +4765,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the publisher model requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -4135,9 +4781,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
  *    the query.
- *  @param model Required. The name of the publisher model requested to serve
- *    the prediction. Format:
- *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent
  */
@@ -4721,7 +5369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  in the mask. If the user does not provide a mask then only the non-empty
  *  fields present in the request will be overwritten. Set the update_mask to
  *  `*` to override all fields. Updatable fields: * `description` * `labels` *
- *  `disable_monitoring` (Not supported for FeatureRegistry Feature)
+ *  `disable_monitoring` (Not supported for FeatureRegistryService Feature) *
+ *  `point_of_contact` (Not supported for FeaturestoreService FeatureStore)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -5020,6 +5669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  overwritten if it is in the mask. If the user does not provide a mask then
  *  only the non-empty fields present in the request will be overwritten. Set
  *  the update_mask to `*` to override all fields. Updatable fields: * `labels`
+ *  * `description` * `big_query` * `big_query.entity_id_columns`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -5369,6 +6019,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists FeatureViews in a given FeatureOnlineStore.
  *
  *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.list
@@ -5618,7 +6317,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  overwritten if it is in the mask. If the user does not provide a mask then
  *  only the non-empty fields present in the request will be overwritten. Set
  *  the update_mask to `*` to override all fields. Updatable fields: * `labels`
- *  * `serviceAgentType`
+ *  * `service_agent_type` * `big_query_source` * `big_query_source.uri` *
+ *  `big_query_source.entity_id_columns` * `feature_registry_source` *
+ *  `feature_registry_source.feature_groups` * `sync_config` *
+ *  `sync_config.cron`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -5681,6 +6383,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Triggers on-demand sync for the FeatureView.
  *
  *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.sync
@@ -5715,6 +6457,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsTestIamPermissions : GTLRAiplatformQuery
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsTestIamPermissions
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Gets details of a single FeatureOnlineStore.
  *
  *  Method: aiplatform.projects.locations.featureOnlineStores.get
@@ -5737,6 +6527,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -5986,7 +6825,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  be overwritten if it is in the mask. If the user does not provide a mask
  *  then only the non-empty fields present in the request will be overwritten.
  *  Set the update_mask to `*` to override all fields. Updatable fields: *
- *  `big_query_source` * `bigtable` * `labels` * `sync_config`
+ *  `labels` * `description` * `bigtable` * `bigtable.auto_scaling` *
+ *  `bigtable.enable_multi_region_replica`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -6007,6 +6847,94 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresSetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresTestIamPermissions : GTLRAiplatformQuery
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresTestIamPermissions
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -6767,7 +7695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  in the mask. If the user does not provide a mask then only the non-empty
  *  fields present in the request will be overwritten. Set the update_mask to
  *  `*` to override all fields. Updatable fields: * `description` * `labels` *
- *  `disable_monitoring` (Not supported for FeatureRegistry Feature)
+ *  `disable_monitoring` (Not supported for FeatureRegistryService Feature) *
+ *  `point_of_contact` (Not supported for FeaturestoreService FeatureStore)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -14071,6 +15000,191 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Creates a NotebookExecutionJob.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsCreate : GTLRAiplatformQuery
+
+/** Optional. User specified ID for the NotebookExecutionJob. */
+@property(nonatomic, copy, nullable) NSString *notebookExecutionJobId;
+
+/**
+ *  Required. The resource name of the Location to create the
+ *  NotebookExecutionJob. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a NotebookExecutionJob.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob to include in
+ *    the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    NotebookExecutionJob. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a NotebookExecutionJob.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsDelete : GTLRAiplatformQuery
+
+/** Required. The name of the NotebookExecutionJob resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a NotebookExecutionJob.
+ *
+ *  @param name Required. The name of the NotebookExecutionJob resource to be
+ *    deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a NotebookExecutionJob.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsGet : GTLRAiplatformQuery
+
+/** Required. The name of the NotebookExecutionJob resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The NotebookExecutionJob view. Defaults to BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewUnspecified When
+ *        unspecified, the API defaults to the BASIC view. (Value:
+ *        "NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewBasic Includes all
+ *        fields except for direct notebook inputs. (Value:
+ *        "NOTEBOOK_EXECUTION_JOB_VIEW_BASIC")
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewFull Includes all
+ *        fields. (Value: "NOTEBOOK_EXECUTION_JOB_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob.
+ *
+ *  Gets a NotebookExecutionJob.
+ *
+ *  @param name Required. The name of the NotebookExecutionJob resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists NotebookExecutionJobs in a Location.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. For field
+ *  names both snake_case and camelCase are supported. * `notebookExecutionJob`
+ *  supports = and !=. `notebookExecutionJob` represents the
+ *  NotebookExecutionJob ID. * `displayName` supports = and != and regex. *
+ *  `schedule` supports = and != and regex. Some examples: *
+ *  `notebookExecutionJob="123"` * `notebookExecutionJob="my-execution-job"` *
+ *  `displayName="myDisplayName"` and `displayName=~"myDisplayNameRegex"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  `display_name` * `create_time` * `update_time` Example: `display_name,
+ *  create_time desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  ListNotebookExecutionJobs.next_page_token of the previous
+ *  NotebookService.ListNotebookExecutionJobs call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location from which to list the
+ *  NotebookExecutionJobs. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The NotebookExecutionJob view. Defaults to BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewUnspecified When
+ *        unspecified, the API defaults to the BASIC view. (Value:
+ *        "NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewBasic Includes all
+ *        fields except for direct notebook inputs. (Value:
+ *        "NOTEBOOK_EXECUTION_JOB_VIEW_BASIC")
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewFull Includes all
+ *        fields. (Value: "NOTEBOOK_EXECUTION_JOB_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookExecutionJobsResponse.
+ *
+ *  Lists NotebookExecutionJobs in a Location.
+ *
+ *  @param parent Required. The resource name of the Location from which to list
+ *    the NotebookExecutionJobs. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -16473,8 +17587,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsGenerateContent : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the publisher model requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -16486,9 +17603,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
  *    the query.
- *  @param model Required. The name of the publisher model requested to serve
- *    the prediction. Format:
- *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsGenerateContent
  */
@@ -16623,8 +17742,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the publisher model requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -16636,9 +17758,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
  *    the query.
- *  @param model Required. The name of the publisher model requested to serve
- *    the prediction. Format:
- *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent
  */
@@ -21189,6 +22313,116 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Return a list of tokens based on the input text.
+ *
+ *  Method: aiplatform.publishers.models.computeTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_PublishersModelsComputeTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to get lists of tokens and
+ *  token ids.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse.
+ *
+ *  Return a list of tokens based on the input text.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest to include in
+ *    the query.
+ *  @param endpoint Required. The name of the Endpoint requested to get lists of
+ *    tokens and token ids.
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsComputeTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Perform a token counting.
+ *
+ *  Method: aiplatform.publishers.models.countTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_PublishersModelsCountTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to perform token counting.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse.
+ *
+ *  Perform a token counting.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to perform
+ *    token counting. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsCountTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs.
+ *
+ *  Method: aiplatform.publishers.models.generateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
+
+@end
+
+/**
  *  Gets a Model Garden publisher model.
  *
  *  Method: aiplatform.publishers.models.get
@@ -21198,9 +22432,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_PublishersModelsGet : GTLRAiplatformQuery
 
+/** Optional. Token used to access Hugging Face gated models. */
+@property(nonatomic, copy, nullable) NSString *huggingFaceToken;
+
+/**
+ *  Optional. Boolean indicates whether the requested model is a Hugging Face
+ *  model.
+ */
+@property(nonatomic, assign) BOOL isHuggingFaceModel;
+
 /**
  *  Optional. The IETF BCP-47 language code representing the language in which
- *  the publisher model's text information should be written in (see go/bcp47).
+ *  the publisher model's text information should be written in.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -21239,6 +22482,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_PublishersModelsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  Method: aiplatform.publishers.models.streamGenerateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsStreamGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsStreamGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
 
 @end
 

@@ -2131,7 +2131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
- *  Message for response when you revoke a subscription.
+ *  Message for response when you revoke a subscription. Empty for now.
  */
 @interface GTLRAnalyticsHub_RevokeSubscriptionResponse : GTLRObject
 @end

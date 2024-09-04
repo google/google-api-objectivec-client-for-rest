@@ -19,6 +19,33 @@
 
 @end
 
+@implementation GTLRPlayIntegrityQuery_DeviceRecallWrite
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRPlayIntegrity_WriteDeviceRecallRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"v1/{+packageName}/deviceRecall:write";
+  GTLRPlayIntegrityQuery_DeviceRecallWrite *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRPlayIntegrity_WriteDeviceRecallResponse class];
+  query.loggingName = @"playintegrity.deviceRecall.write";
+  return query;
+}
+
+@end
+
 @implementation GTLRPlayIntegrityQuery_V1DecodeIntegrityToken
 
 @dynamic packageName;

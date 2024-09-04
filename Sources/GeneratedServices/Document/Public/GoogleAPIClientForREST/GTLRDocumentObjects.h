@@ -258,6 +258,9 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionAlias;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfo;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest_Labels;
 @class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionMetadataDatasetValidation;
@@ -1731,6 +1734,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processo
  *  Value: "UNDEPLOYING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeploying;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo.customModelType
+
+/**
+ *  The model type is unspecified.
+ *
+ *  Value: "CUSTOM_MODEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_CustomModelTypeUnspecified;
+/**
+ *  The model is a finetuned foundation model.
+ *
+ *  Value: "FINE_TUNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_FineTuned;
+/**
+ *  The model is a versioned foundation model.
+ *
+ *  Value: "VERSIONED_FOUNDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_VersionedFoundation;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest.priority
@@ -10073,6 +10098,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
 
 /**
+ *  Output only. Information about Generative AI model-based processor versions.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfo *genAiModelInfo;
+
+/**
  *  Output only. Denotes that this `ProcessorVersion` is managed by Google.
  *
  *  Uses NSNumber of boolValue.
@@ -10185,6 +10215,71 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  Information about Generative AI model-based processor versions.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfo : GTLRObject
+
+/** Information for a custom Generative AI model created by the user. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo *customGenAiModelInfo;
+
+/** Information for a pretrained Google-managed foundation model. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo *foundationGenAiModelInfo;
+
+@end
+
+
+/**
+ *  Information for a custom Generative AI model created by the user. These are
+ *  created with `Create New Version` in either the `Call foundation model` or
+ *  `Fine tuning` tabs.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo : GTLRObject
+
+/** The base processor version ID for the custom model. */
+@property(nonatomic, copy, nullable) NSString *baseProcessorVersionId;
+
+/**
+ *  The type of custom model created by the user.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_CustomModelTypeUnspecified
+ *        The model type is unspecified. (Value:
+ *        "CUSTOM_MODEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_FineTuned
+ *        The model is a finetuned foundation model. (Value: "FINE_TUNED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoCustomGenAiModelInfo_CustomModelType_VersionedFoundation
+ *        The model is a versioned foundation model. (Value:
+ *        "VERSIONED_FOUNDATION")
+ */
+@property(nonatomic, copy, nullable) NSString *customModelType;
+
+@end
+
+
+/**
+ *  Information for a pretrained Google-managed foundation model.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo : GTLRObject
+
+/**
+ *  Whether finetuning is allowed for this base processor version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *finetuningAllowed;
+
+/**
+ *  The minimum number of labeled documents in the training dataset required for
+ *  finetuning.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTrainLabeledDocuments;
+
+@end
+
+
+/**
  *  Request message for the ProcessDocument method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest : GTLRObject
@@ -10200,6 +10295,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** A raw document on Google Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1GcsDocument *gcsDocument;
+
+/**
+ *  Optional. Option to remove images from the document.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imagelessMode;
 
 /** An inline document proto. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Document *inlineDocument;

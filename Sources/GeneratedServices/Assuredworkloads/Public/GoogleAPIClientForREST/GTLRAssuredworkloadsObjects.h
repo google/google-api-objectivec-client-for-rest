@@ -129,6 +129,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate;
 /**
+ *  Healthcare and Life Science Controls
+ *
+ *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControls;
+/**
+ *  Healthcare and Life Science Controls with US Support
+ *
+ *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport;
+/**
  *  Health Insurance Portability and Accountability Act controls
  *
  *  Value: "HIPAA"
@@ -183,7 +195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport;
 /**
- *  KSA R5 Controls.
+ *  Assured Workloads Sovereign Controls KSA
  *
  *  Value: "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS"
  */
@@ -194,42 +206,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "REGIONAL_CONTROLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls;
-/**
- *  Assured Workloads for Australia Regions and Support controls
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_AU"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumAu;
-/**
- *  Assured Workloads For Canada Regions and Support controls
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_CA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumCa;
-/**
- *  Assured Workloads For EU Regions and Support controls
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_EU"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumEu;
-/**
- *  Assured Workloads for Israel
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_ISR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumIsr;
-/**
- *  Assured Workloads for Japan Regions
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_JP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumJp;
-/**
- *  Assured Workloads For US Regions data protection controls
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_US"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumUs;
 /**
  *  Assured Workloads For US Regions data protection controls
  *
@@ -428,6 +404,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate;
 /**
+ *  Healthcare and Life Science Controls
+ *
+ *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControls;
+/**
+ *  Healthcare and Life Science Controls with US Support
+ *
+ *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport;
+/**
  *  Health Insurance Portability and Accountability Act controls
  *
  *  Value: "HIPAA"
@@ -482,7 +470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport;
 /**
- *  KSA R5 Controls.
+ *  Assured Workloads Sovereign Controls KSA
  *
  *  Value: "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS"
  */
@@ -493,42 +481,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "REGIONAL_CONTROLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls;
-/**
- *  Assured Workloads for Australia Regions and Support controls
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_AU"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumAu;
-/**
- *  Assured Workloads For Canada Regions and Support controls
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_CA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumCa;
-/**
- *  Assured Workloads For EU Regions and Support controls
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_EU"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumEu;
-/**
- *  Assured Workloads for Israel
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_ISR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumIsr;
-/**
- *  Assured Workloads for Japan Regions
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_JP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumJp;
-/**
- *  Assured Workloads For US Regions data protection controls
- *
- *  Value: "REGIONAL_CONTROLS_PREMIUM_US"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumUs;
 /**
  *  Assured Workloads For US Regions data protection controls
  *
@@ -569,6 +521,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns;
 /** Value: "PARTNER_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified;
+/**
+ *  Enum representing CNTXT (Kingdom of Saudi Arabia) partner.
+ *
+ *  Value: "SOVEREIGN_CONTROLS_BY_CNTXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxt;
+/**
+ *  Enum representing CNTXT (Kingdom of Saudi Arabia) partner offering without
+ *  EKM.
+ *
+ *  Value: "SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxtNoEkm;
 /**
  *  Enum representing PSN (TIM) partner.
  *
@@ -939,6 +904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControls
+ *        Healthcare and Life Science Controls (Value:
+ *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport
+ *        Healthcare and Life Science Controls with US Support (Value:
+ *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
  *        Health Insurance Portability and Accountability Act controls (Value:
  *        "HIPAA")
@@ -960,27 +931,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport
  *        Assured Workloads for Japan Regions (Value: "JP_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls
- *        KSA R5 Controls. (Value:
+ *        Assured Workloads Sovereign Controls KSA (Value:
  *        "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls
  *        Assured Workloads for Regional Controls (Value: "REGIONAL_CONTROLS")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumAu
- *        Assured Workloads for Australia Regions and Support controls (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_AU")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumCa
- *        Assured Workloads For Canada Regions and Support controls (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_CA")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumEu
- *        Assured Workloads For EU Regions and Support controls (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_EU")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumIsr
- *        Assured Workloads for Israel (Value: "REGIONAL_CONTROLS_PREMIUM_ISR")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumJp
- *        Assured Workloads for Japan Regions (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_JP")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumUs
- *        Assured Workloads For US Regions data protection controls (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_US")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -1471,6 +1425,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControls
+ *        Healthcare and Life Science Controls (Value:
+ *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport
+ *        Healthcare and Life Science Controls with US Support (Value:
+ *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa
  *        Health Insurance Portability and Accountability Act controls (Value:
  *        "HIPAA")
@@ -1492,27 +1452,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport
  *        Assured Workloads for Japan Regions (Value: "JP_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls
- *        KSA R5 Controls. (Value:
+ *        Assured Workloads Sovereign Controls KSA (Value:
  *        "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls
  *        Assured Workloads for Regional Controls (Value: "REGIONAL_CONTROLS")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumAu
- *        Assured Workloads for Australia Regions and Support controls (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_AU")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumCa
- *        Assured Workloads For Canada Regions and Support controls (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_CA")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumEu
- *        Assured Workloads For EU Regions and Support controls (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_EU")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumIsr
- *        Assured Workloads for Israel (Value: "REGIONAL_CONTROLS_PREMIUM_ISR")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumJp
- *        Assured Workloads for Japan Regions (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_JP")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumUs
- *        Assured Workloads For US Regions data protection controls (Value:
- *        "REGIONAL_CONTROLS_PREMIUM_US")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -1602,6 +1545,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        "LOCAL_CONTROLS_BY_S3NS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified
  *        Value "PARTNER_UNSPECIFIED"
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxt
+ *        Enum representing CNTXT (Kingdom of Saudi Arabia) partner. (Value:
+ *        "SOVEREIGN_CONTROLS_BY_CNTXT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxtNoEkm
+ *        Enum representing CNTXT (Kingdom of Saudi Arabia) partner offering
+ *        without EKM. (Value: "SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByPsn
  *        Enum representing PSN (TIM) partner. (Value:
  *        "SOVEREIGN_CONTROLS_BY_PSN")
@@ -1619,6 +1568,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  workload
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions *partnerPermissions;
+
+/**
+ *  Optional. Billing account necessary for purchasing services from Sovereign
+ *  Partners. This field is required for creating SIA/PSN/CNTXT partner
+ *  workloads. The caller should have 'billing.resourceAssociations.create' IAM
+ *  permission on this billing-account. The format of this string is
+ *  billingAccounts/AAAAAA-BBBBBB-CCCCCC
+ */
+@property(nonatomic, copy, nullable) NSString *partnerServicesBillingAccount;
 
 /**
  *  Input only. The parent resource for the resources managed by this Assured
@@ -1817,6 +1775,13 @@ GTLR_DEPRECATED
  *  Permissions granted to the AW Partner SA account for the customer workload
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions : GTLRObject
+
+/**
+ *  Optional. Allow partner to view support case details for an AXT log
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accessTransparencyLogsSupportCaseViewer;
 
 /**
  *  Optional. Allow partner to view violation alerts.

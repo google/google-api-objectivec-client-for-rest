@@ -2293,6 +2293,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
+ *  Response message for calling ShouldThrottle
+ */
+@interface GTLRBeyondCorp_ShouldThrottleResponse : GTLRObject
+
+/**
+ *  Whether the port should be throttled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shouldThrottle;
+
+@end
+
+
+/**
  *  TunnelerError is an error proto for errors returned by the connection
  *  manager.
  */

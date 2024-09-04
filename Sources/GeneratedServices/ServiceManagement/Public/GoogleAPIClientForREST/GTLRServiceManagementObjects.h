@@ -53,6 +53,7 @@
 @class GTLRServiceManagement_Endpoint;
 @class GTLRServiceManagement_Enum;
 @class GTLRServiceManagement_EnumValue;
+@class GTLRServiceManagement_ExperimentalFeatures;
 @class GTLRServiceManagement_Expr;
 @class GTLRServiceManagement_Field;
 @class GTLRServiceManagement_FieldPolicy;
@@ -835,6 +836,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetada
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceManagement_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_MonitoredResourceDescriptor.launchStage
@@ -1974,10 +2003,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
-/** A list of full type names of provided contexts. */
+/**
+ *  A list of full type names of provided contexts. It is used to support
+ *  propagating HTTP headers and ETags from the response extension.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
 
-/** A list of full type names of requested contexts. */
+/**
+ *  A list of full type names of requested contexts, only the requested context
+ *  will be made available to the backend.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requested;
 
 /**
@@ -2413,6 +2448,26 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /** Protocol buffer options. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Option *> *options;
+
+@end
+
+
+/**
+ *  Experimental features to be included during client library generation. These
+ *  fields will be deprecated once the feature graduates and is enabled by
+ *  default.
+ */
+@interface GTLRServiceManagement_ExperimentalFeatures : GTLRObject
+
+/**
+ *  Enables generation of asynchronous REST clients if `rest` transport is
+ *  enabled. By default, asynchronous REST clients will not be generated. This
+ *  feature will be enabled by default 1 month after launching the feature in
+ *  preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restAsyncIoEnabled;
 
 @end
 
@@ -2898,11 +2953,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  effect as the proto annotation. This can be particularly useful if you have
  *  a proto that is reused in multiple services. Note that any transcoding
  *  specified in the service config will override any matching transcoding
- *  configuration in the proto. Example below selects a gRPC method and applies
- *  HttpRule to it. http: rules: - selector: example.v1.Messaging.GetMessage
- *  get: /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC
- *  Transcoding is used to map a gRPC to JSON REST endpoints, the proto to JSON
- *  conversion must follow the [proto3
+ *  configuration in the proto. The following example selects a gRPC method and
+ *  applies an `HttpRule` to it: http: rules: - selector:
+ *  example.v1.Messaging.GetMessage get:
+ *  /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC Transcoding
+ *  is used to map a gRPC to JSON REST endpoints, the proto to JSON conversion
+ *  must follow the [proto3
  *  specification](https://developers.google.com/protocol-buffers/docs/proto3#json).
  *  While the single segment variable follows the semantics of [RFC
  *  6570](https://tools.ietf.org/html/rfc6570) Section 3.2.2 Simple String
@@ -3712,6 +3768,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
+
 @end
 
 
@@ -4422,6 +4481,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_CommonLanguageSettings *common;
+
+/** Experimental features to be included during client library generation. */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_ExperimentalFeatures *experimentalFeatures;
 
 @end
 

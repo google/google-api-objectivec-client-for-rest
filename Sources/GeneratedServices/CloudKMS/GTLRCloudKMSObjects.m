@@ -34,6 +34,12 @@ NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudKMS_AutokeyConfig.state
+NSString * const kGTLRCloudKMS_AutokeyConfig_State_Active      = @"ACTIVE";
+NSString * const kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted = @"KEY_PROJECT_DELETED";
+NSString * const kGTLRCloudKMS_AutokeyConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_AutokeyConfig_State_Uninitialized = @"UNINITIALIZED";
+
 // GTLRCloudKMS_CryptoKey.purpose
 NSString * const kGTLRCloudKMS_CryptoKey_Purpose_AsymmetricDecrypt = @"ASYMMETRIC_DECRYPT";
 NSString * const kGTLRCloudKMS_CryptoKey_Purpose_AsymmetricSign = @"ASYMMETRIC_SIGN";
@@ -406,7 +412,7 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 //
 
 @implementation GTLRCloudKMS_AutokeyConfig
-@dynamic keyProject, name;
+@dynamic keyProject, name, state;
 @end
 
 
@@ -819,13 +825,17 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 //
 
 @implementation GTLRCloudKMS_ListKeyHandlesResponse
-@dynamic keyHandles;
+@dynamic keyHandles, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"keyHandles" : [GTLRCloudKMS_KeyHandle class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"keyHandles";
 }
 
 @end

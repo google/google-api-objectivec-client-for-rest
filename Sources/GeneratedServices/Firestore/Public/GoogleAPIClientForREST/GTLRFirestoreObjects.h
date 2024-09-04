@@ -35,7 +35,6 @@
 @class GTLRFirestore_DocumentRemove;
 @class GTLRFirestore_DocumentsTarget;
 @class GTLRFirestore_DocumentTransform;
-@class GTLRFirestore_Empty;
 @class GTLRFirestore_ExecutionStats;
 @class GTLRFirestore_ExecutionStats_DebugStats;
 @class GTLRFirestore_ExistenceFilter;
@@ -49,15 +48,19 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1Backup;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
 @class GTLRFirestore_GoogleFirestoreAdminV1CmekConfig;
+@class GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database;
+@class GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
 @class GTLRFirestore_GoogleFirestoreAdminV1FlatIndex;
+@class GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1Index;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexField;
 @class GTLRFirestore_GoogleFirestoreAdminV1Progress;
+@class GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1Stats;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta;
@@ -88,7 +91,6 @@
 @class GTLRFirestore_Sum;
 @class GTLRFirestore_Target;
 @class GTLRFirestore_TargetChange;
-@class GTLRFirestore_TimeOfDay;
 @class GTLRFirestore_TransactionOptions;
 @class GTLRFirestore_UnaryFilter;
 @class GTLRFirestore_Value;
@@ -234,11 +236,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValu
 // GTLRFirestore_FindNearest.distanceMeasure
 
 /**
- *  Compares vectors based on the angle between them, which allows you to
- *  measure similarity that isn't based on the vectors magnitude. We recommend
- *  using DOT_PRODUCT with unit normalized vectors instead of COSINE distance,
- *  which is mathematically equivalent with better performance. See [Cosine
- *  Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to learn more.
+ *  COSINE distance compares vectors based on the angle between them, which
+ *  allows you to measure similarity that isn't based on the vectors magnitude.
+ *  We recommend using DOT_PRODUCT with unit normalized vectors instead of
+ *  COSINE distance, which is mathematically equivalent with better performance.
+ *  See [Cosine Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to
+ *  learn more about COSINE similarity and COSINE distance. The resulting COSINE
+ *  distance decreases the more similar two vectors are.
  *
  *  Value: "COSINE"
  */
@@ -251,14 +255,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Co
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified;
 /**
  *  Similar to cosine but is affected by the magnitude of the vectors. See [Dot
- *  Product](https://en.wikipedia.org/wiki/Dot_product) to learn more.
+ *  Product](https://en.wikipedia.org/wiki/Dot_product) to learn more. The
+ *  resulting distance increases the more similar two vectors are.
  *
  *  Value: "DOT_PRODUCT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DotProduct;
 /**
  *  Measures the EUCLIDEAN distance between the vectors. See
- *  [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn more
+ *  [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn more.
+ *  The resulting distance decreases the more similar two vectors are.
  *
  *  Value: "EUCLIDEAN"
  */
@@ -659,14 +665,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Ap
 /**
  *  Indexes with a collection query scope specified allow queries against a
  *  collection that is the child of a specific document, specified at query
- *  time, and that has the collection id specified by the index.
+ *  time, and that has the collection ID specified by the index.
  *
  *  Value: "COLLECTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection;
 /**
  *  Indexes with a collection group query scope specified allow queries against
- *  all collections that has the collection id specified by the index.
+ *  all collections that has the collection ID specified by the index.
  *
  *  Value: "COLLECTION_GROUP"
  */
@@ -1619,10 +1625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  A Document has changed. May be the result of multiple writes, including
  *  deletes, that ultimately resulted in a new value for the Document. Multiple
  *  DocumentChange messages may be returned for the same logical change, if
- *  multiple targets are affected. For PipelineQueryTargets, `document` will be
- *  in the new pipeline format, For a Listen stream with both QueryTargets and
- *  PipelineQueryTargets present, if a document matches both types of queries,
- *  then a separate DocumentChange messages will be sent out one for each set.
+ *  multiple targets are affected.
  */
 @interface GTLRFirestore_DocumentChange : GTLRObject
 
@@ -2074,7 +2077,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Nearest Neighbors search config.
+ *  Nearest Neighbors search config. The ordering provided by FindNearest
+ *  supersedes the order_by stage. If multiple documents have the same vector
+ *  distance, the returned document order is not guaranteed to be stable between
+ *  queries.
  */
 @interface GTLRFirestore_FindNearest : GTLRObject
 
@@ -2082,26 +2088,47 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Required. The distance measure to use, required.
  *
  *  Likely values:
- *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_Cosine Compares vectors
- *        based on the angle between them, which allows you to measure
- *        similarity that isn't based on the vectors magnitude. We recommend
- *        using DOT_PRODUCT with unit normalized vectors instead of COSINE
- *        distance, which is mathematically equivalent with better performance.
- *        See [Cosine
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_Cosine COSINE distance
+ *        compares vectors based on the angle between them, which allows you to
+ *        measure similarity that isn't based on the vectors magnitude. We
+ *        recommend using DOT_PRODUCT with unit normalized vectors instead of
+ *        COSINE distance, which is mathematically equivalent with better
+ *        performance. See [Cosine
  *        Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to learn
- *        more. (Value: "COSINE")
+ *        more about COSINE similarity and COSINE distance. The resulting COSINE
+ *        distance decreases the more similar two vectors are. (Value: "COSINE")
  *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified
  *        Should not be set. (Value: "DISTANCE_MEASURE_UNSPECIFIED")
  *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_DotProduct Similar to
  *        cosine but is affected by the magnitude of the vectors. See [Dot
- *        Product](https://en.wikipedia.org/wiki/Dot_product) to learn more.
- *        (Value: "DOT_PRODUCT")
+ *        Product](https://en.wikipedia.org/wiki/Dot_product) to learn more. The
+ *        resulting distance increases the more similar two vectors are. (Value:
+ *        "DOT_PRODUCT")
  *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_Euclidean Measures the
  *        EUCLIDEAN distance between the vectors. See
  *        [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn
- *        more (Value: "EUCLIDEAN")
+ *        more. The resulting distance decreases the more similar two vectors
+ *        are. (Value: "EUCLIDEAN")
  */
 @property(nonatomic, copy, nullable) NSString *distanceMeasure;
+
+/**
+ *  Optional. Optional name of the field to output the result of the vector
+ *  distance calculation. Must conform to document field name limitations.
+ */
+@property(nonatomic, copy, nullable) NSString *distanceResultField;
+
+/**
+ *  Optional. Option to specify a threshold for which no less similar documents
+ *  will be returned. The behavior of the specified `distance_measure` will
+ *  affect the meaning of the distance threshold. Since DOT_PRODUCT distances
+ *  increase when the vectors are more similar, the comparison is inverted. For
+ *  EUCLIDEAN, COSINE: WHERE distance <= distance_threshold For DOT_PRODUCT:
+ *  WHERE distance >= distance_threshold
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distanceThreshold;
 
 /**
  *  Required. The number of nearest neighbors to return. Must be a positive
@@ -2211,7 +2238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  At what relative time in the future, compared to its creation time, the
- *  backup should be deleted, e.g. keep backups for 7 days.
+ *  backup should be deleted, e.g. keep backups for 7 days. The maximum
+ *  supported retention period is 14 weeks.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *retention;
 
@@ -2234,7 +2262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata : GTLRObject
 
-/** The ids of the collection groups that are being deleted. */
+/** The IDs of the collection groups that are being deleted. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
@@ -2243,7 +2271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Which namespace ids are being deleted. */
+/** Which namespace IDs are being deleted. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
 /**
@@ -2357,16 +2385,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The configuration options for using CMEK (Customer Managed Encryption Key)
+ *  encryption.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions : GTLRObject
+
+/**
+ *  Required. Only keys in the same location as the database are allowed to be
+ *  used for encryption. For Firestore's nam5 multi-region, this corresponds to
+ *  Cloud KMS multi-region us. For Firestore's eur3 multi-region, this
+ *  corresponds to Cloud KMS multi-region europe. See
+ *  https://cloud.google.com/kms/docs/locations. The expected format is
+ *  `projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
  *  Represents a recurring schedule that runs every day. The time zone is UTC.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence : GTLRObject
-
-/**
- *  Time of the day. The first run scheduled will be either on the same day if
- *  schedule creation time precedes time_of_day or the next day otherwise.
- */
-@property(nonatomic, strong, nullable) GTLRFirestore_TimeOfDay *time;
-
 @end
 
 
@@ -2463,7 +2503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Output only. The key_prefix for this database. This key_prefix is used, in
- *  combination with the project id ("~") to construct the application id that
+ *  combination with the project ID ("~") to construct the application ID that
  *  is returned from the Cloud Datastore APIs in Google App Engine first
  *  generation runtimes. This value may be empty in which case the appid to use
  *  for URL-encoded keys is the project_id (eg: foo instead of v~foo).
@@ -2552,12 +2592,30 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Encryption configuration for a new database being created from another
+ *  source. The source could be a Backup .
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig : GTLRObject
+
+/** Use Customer Managed Encryption Keys (CMEK) for encryption. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions *customerManagedEncryption;
+
+/** Use Google default encryption. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions *googleDefaultEncryption;
+
+/** The database will use the same encryption configuration as the source. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions *useSourceEncryption;
+
+@end
+
+
+/**
  *  Metadata for google.longrunning.Operation results from
  *  FirestoreAdmin.ExportDocuments.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata : GTLRObject
 
-/** Which collection ids are being exported. */
+/** Which collection IDs are being exported. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
@@ -2566,7 +2624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Which namespace ids are being exported. */
+/** Which namespace IDs are being exported. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
 /**
@@ -2625,8 +2683,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest : GTLRObject
 
 /**
- *  Which collection ids to export. Unspecified means all collections. Each
- *  collection id in this list must be unique.
+ *  Which collection IDs to export. Unspecified means all collections. Each
+ *  collection ID in this list must be unique.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
@@ -2682,7 +2740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  Represents a single field in the database. Fields are grouped by their
  *  "Collection Group", which represent all collections in the database with the
- *  same id.
+ *  same ID.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Field : GTLRObject
 
@@ -2798,12 +2856,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The configuration options for using Google default encryption.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions : GTLRObject
+@end
+
+
+/**
  *  Metadata for google.longrunning.Operation results from
  *  FirestoreAdmin.ImportDocuments.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata : GTLRObject
 
-/** Which collection ids are being imported. */
+/** Which collection IDs are being imported. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
@@ -2815,7 +2880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /** The location of the documents being imported. */
 @property(nonatomic, copy, nullable) NSString *inputUriPrefix;
 
-/** Which namespace ids are being imported. */
+/** Which namespace IDs are being imported. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
 /**
@@ -2864,8 +2929,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest : GTLRObject
 
 /**
- *  Which collection ids to import. Unspecified means all collections included
- *  in the import. Each collection id in this list must be unique.
+ *  Which collection IDs to import. Unspecified means all collections included
+ *  in the import. Each collection ID in this list must be unique.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
@@ -2930,20 +2995,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  Indexes with a collection query scope specified allow queries against a
  *  collection that is the child of a specific document, specified at query
- *  time, and that has the same collection id. Indexes with a collection group
+ *  time, and that has the same collection ID. Indexes with a collection group
  *  query scope specified allow queries against all collections descended from a
  *  specific document, specified at query time, and that have the same
- *  collection id as this index.
+ *  collection ID as this index.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection
  *        Indexes with a collection query scope specified allow queries against
  *        a collection that is the child of a specific document, specified at
- *        query time, and that has the collection id specified by the index.
+ *        query time, and that has the collection ID specified by the index.
  *        (Value: "COLLECTION")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionGroup
  *        Indexes with a collection group query scope specified allow queries
- *        against all collections that has the collection id specified by the
+ *        against all collections that has the collection ID specified by the
  *        index. (Value: "COLLECTION_GROUP")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionRecursive
  *        Include all the collections's ancestor in the index. Only available
@@ -3348,42 +3413,39 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest : GTLRObject
 
 /**
- *  Backup to restore from. Must be from the same project as the parent. Format
- *  is: `projects/{project_id}/locations/{location}/backups/{backup}`
+ *  Required. Backup to restore from. Must be from the same project as the
+ *  parent. The restored database will be created in the same location as the
+ *  source backup. Format is:
+ *  `projects/{project_id}/locations/{location}/backups/{backup}`
  */
 @property(nonatomic, copy, nullable) NSString *backup;
 
 /**
  *  Required. The ID to use for the database, which will become the final
- *  component of the database's resource name. This database id must not be
+ *  component of the database's resource name. This database ID must not be
  *  associated with an existing database. This value should be 4-63 characters.
  *  Valid characters are /a-z-/ with first character a letter and the last a
  *  letter or a number. Must not be UUID-like
- *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also
  *  valid.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
- *  Use Customer Managed Encryption Keys (CMEK) for encryption. Only keys in the
- *  same location as this database are allowed to be used for encryption. For
- *  Firestore's nam5 multi-region, this corresponds to Cloud KMS multi-region
- *  us. For Firestore's eur3 multi-region, this corresponds to Cloud KMS
- *  multi-region europe. See https://cloud.google.com/kms/docs/locations. The
- *  expected format is
- *  `projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ *  Optional. Encryption configuration for the restored database. If this field
+ *  is not specified, the restored database will use the same encryption
+ *  configuration as the backup, namely use_source_encryption.
  */
-@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig *encryptionConfig;
+
+@end
+
 
 /**
- *  The restored database will use the same encryption configuration as the
- *  backup. This is the default option when no `encryption_config` is specified.
+ *  The configuration options for using the same encryption method as the
+ *  source.
  */
-@property(nonatomic, strong, nullable) GTLRFirestore_Empty *useBackupEncryption;
-
-/** Use Google default encryption. */
-@property(nonatomic, strong, nullable) GTLRFirestore_Empty *useGoogleDefaultEncryption;
-
+@interface GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions : GTLRObject
 @end
 
 
@@ -3529,12 +3591,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        Wednesday (Value: "WEDNESDAY")
  */
 @property(nonatomic, copy, nullable) NSString *day;
-
-/**
- *  Time of the day. If day is today, the first run will happen today if
- *  schedule creation time precedes time_of_day, and the next week otherwise.
- */
-@property(nonatomic, strong, nullable) GTLRFirestore_TimeOfDay *time;
 
 @end
 
@@ -4649,46 +4705,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *targetIds;
-
-@end
-
-
-/**
- *  Represents a time of day. The date and time zone are either not significant
- *  or are specified elsewhere. An API may choose to allow leap seconds. Related
- *  types are google.type.Date and `google.protobuf.Timestamp`.
- */
-@interface GTLRFirestore_TimeOfDay : GTLRObject
-
-/**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hours;
-
-/**
- *  Minutes of hour of day. Must be from 0 to 59.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minutes;
-
-/**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nanos;
-
-/**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *seconds;
 
 @end
 

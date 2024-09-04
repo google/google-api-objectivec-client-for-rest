@@ -99,8 +99,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Lists the user-managed instance config long-running operations in the given
- *  project. An instance config operation has a name of the form
+ *  Lists the user-managed instance configuration long-running operations in the
+ *  given project. An instance configuration operation has a name of the form
  *  `projects//instanceConfigs//operations/`. The long-running operation
  *  metadata field type `metadata.type_url` describes the type of the metadata.
  *  Operations returned include those that have completed/failed/canceled within
@@ -139,7 +139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  AND` \\ `(metadata.instance_config.name:custom-config) AND` \\
  *  `(metadata.progress.start_time < \\"2021-03-28T14:50:00Z\\") AND` \\
  *  `(error:*)` - Return operations where: * The operation's metadata type is
- *  CreateInstanceConfigMetadata. * The instance config name contains
+ *  CreateInstanceConfigMetadata. * The instance configuration name contains
  *  "custom-config". * The operation started before 2021-03-28T14:50:00Z. * The
  *  operation resulted in an error.
  */
@@ -159,16 +159,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The project of the instance config operations. Values are of the
- *  form `projects/`.
+ *  Required. The project of the instance configuration operations. Values are
+ *  of the form `projects/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRSpanner_ListInstanceConfigOperationsResponse.
  *
- *  Lists the user-managed instance config long-running operations in the given
- *  project. An instance config operation has a name of the form
+ *  Lists the user-managed instance configuration long-running operations in the
+ *  given project. An instance configuration operation has a name of the form
  *  `projects//instanceConfigs//operations/`. The long-running operation
  *  metadata field type `metadata.type_url` describes the type of the metadata.
  *  Operations returned include those that have completed/failed/canceled within
@@ -176,8 +176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  `operation.metadata.value.start_time` in descending order starting from the
  *  most recently started operation.
  *
- *  @param parent Required. The project of the instance config operations.
- *    Values are of the form `projects/`.
+ *  @param parent Required. The project of the instance configuration
+ *    operations. Values are of the form `projects/`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstanceConfigOperationsList
  *
@@ -190,21 +190,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Creates an instance config and begins preparing it to be used. The returned
- *  long-running operation can be used to track the progress of preparing the
- *  new instance config. The instance config name is assigned by the caller. If
- *  the named instance config already exists, `CreateInstanceConfig` returns
- *  `ALREADY_EXISTS`. Immediately after the request returns: * The instance
- *  config is readable via the API, with all requested attributes. The instance
- *  config's reconciling field is set to true. Its state is `CREATING`. While
- *  the operation is pending: * Cancelling the operation renders the instance
- *  config immediately unreadable via the API. * Except for deleting the
- *  creating resource, all other attempts to modify the instance config are
- *  rejected. Upon completion of the returned operation: * Instances can be
- *  created using the instance configuration. * The instance config's
- *  reconciling field becomes false. Its state becomes `READY`. The returned
- *  long-running operation will have a name of the format `/operations/` and can
- *  be used to track creation of the instance config. The metadata field type is
+ *  Creates an instance configuration and begins preparing it to be used. The
+ *  returned long-running operation can be used to track the progress of
+ *  preparing the new instance configuration. The instance configuration name is
+ *  assigned by the caller. If the named instance configuration already exists,
+ *  `CreateInstanceConfig` returns `ALREADY_EXISTS`. Immediately after the
+ *  request returns: * The instance configuration is readable via the API, with
+ *  all requested attributes. The instance configuration's reconciling field is
+ *  set to true. Its state is `CREATING`. While the operation is pending: *
+ *  Cancelling the operation renders the instance configuration immediately
+ *  unreadable via the API. * Except for deleting the creating resource, all
+ *  other attempts to modify the instance configuration are rejected. Upon
+ *  completion of the returned operation: * Instances can be created using the
+ *  instance configuration. * The instance configuration's reconciling field
+ *  becomes false. Its state becomes `READY`. The returned long-running
+ *  operation will have a name of the format `/operations/` and can be used to
+ *  track creation of the instance configuration. The metadata field type is
  *  CreateInstanceConfigMetadata. The response field type is InstanceConfig, if
  *  successful. Authorization requires `spanner.instanceConfigs.create`
  *  permission on the resource parent.
@@ -218,29 +219,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @interface GTLRSpannerQuery_ProjectsInstanceConfigsCreate : GTLRSpannerQuery
 
 /**
- *  Required. The name of the project in which to create the instance config.
- *  Values are of the form `projects/`.
+ *  Required. The name of the project in which to create the instance
+ *  configuration. Values are of the form `projects/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRSpanner_Operation.
  *
- *  Creates an instance config and begins preparing it to be used. The returned
- *  long-running operation can be used to track the progress of preparing the
- *  new instance config. The instance config name is assigned by the caller. If
- *  the named instance config already exists, `CreateInstanceConfig` returns
- *  `ALREADY_EXISTS`. Immediately after the request returns: * The instance
- *  config is readable via the API, with all requested attributes. The instance
- *  config's reconciling field is set to true. Its state is `CREATING`. While
- *  the operation is pending: * Cancelling the operation renders the instance
- *  config immediately unreadable via the API. * Except for deleting the
- *  creating resource, all other attempts to modify the instance config are
- *  rejected. Upon completion of the returned operation: * Instances can be
- *  created using the instance configuration. * The instance config's
- *  reconciling field becomes false. Its state becomes `READY`. The returned
- *  long-running operation will have a name of the format `/operations/` and can
- *  be used to track creation of the instance config. The metadata field type is
+ *  Creates an instance configuration and begins preparing it to be used. The
+ *  returned long-running operation can be used to track the progress of
+ *  preparing the new instance configuration. The instance configuration name is
+ *  assigned by the caller. If the named instance configuration already exists,
+ *  `CreateInstanceConfig` returns `ALREADY_EXISTS`. Immediately after the
+ *  request returns: * The instance configuration is readable via the API, with
+ *  all requested attributes. The instance configuration's reconciling field is
+ *  set to true. Its state is `CREATING`. While the operation is pending: *
+ *  Cancelling the operation renders the instance configuration immediately
+ *  unreadable via the API. * Except for deleting the creating resource, all
+ *  other attempts to modify the instance configuration are rejected. Upon
+ *  completion of the returned operation: * Instances can be created using the
+ *  instance configuration. * The instance configuration's reconciling field
+ *  becomes false. Its state becomes `READY`. The returned long-running
+ *  operation will have a name of the format `/operations/` and can be used to
+ *  track creation of the instance configuration. The metadata field type is
  *  CreateInstanceConfigMetadata. The response field type is InstanceConfig, if
  *  successful. Authorization requires `spanner.instanceConfigs.create`
  *  permission on the resource parent.
@@ -248,7 +250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  @param object The @c GTLRSpanner_CreateInstanceConfigRequest to include in
  *    the query.
  *  @param parent Required. The name of the project in which to create the
- *    instance config. Values are of the form `projects/`.
+ *    instance configuration. Values are of the form `projects/`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstanceConfigsCreate
  */
@@ -258,11 +260,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Deletes the instance config. Deletion is only allowed when no instances are
- *  using the configuration. If any instances are using the config, returns
- *  `FAILED_PRECONDITION`. Only user managed configurations can be deleted.
- *  Authorization requires `spanner.instanceConfigs.delete` permission on the
- *  resource name.
+ *  Deletes the instance configuration. Deletion is only allowed when no
+ *  instances are using the configuration. If any instances are using the
+ *  configuration, returns `FAILED_PRECONDITION`. Only user-managed
+ *  configurations can be deleted. Authorization requires
+ *  `spanner.instanceConfigs.delete` permission on the resource name.
  *
  *  Method: spanner.projects.instanceConfigs.delete
  *
@@ -274,11 +276,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Used for optimistic concurrency control as a way to help prevent
- *  simultaneous deletes of an instance config from overwriting each other. If
- *  not empty, the API only deletes the instance config when the etag provided
- *  matches the current status of the requested instance config. Otherwise,
- *  deletes the instance config without checking the current status of the
- *  requested instance config.
+ *  simultaneous deletes of an instance configuration from overwriting each
+ *  other. If not empty, the API only deletes the instance configuration when
+ *  the etag provided matches the current status of the requested instance
+ *  configuration. Otherwise, deletes the instance configuration without
+ *  checking the current status of the requested instance configuration.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -297,11 +299,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Empty.
  *
- *  Deletes the instance config. Deletion is only allowed when no instances are
- *  using the configuration. If any instances are using the config, returns
- *  `FAILED_PRECONDITION`. Only user managed configurations can be deleted.
- *  Authorization requires `spanner.instanceConfigs.delete` permission on the
- *  resource name.
+ *  Deletes the instance configuration. Deletion is only allowed when no
+ *  instances are using the configuration. If any instances are using the
+ *  configuration, returns `FAILED_PRECONDITION`. Only user-managed
+ *  configurations can be deleted. Authorization requires
+ *  `spanner.instanceConfigs.delete` permission on the resource name.
  *
  *  @param name Required. The name of the instance configuration to be deleted.
  *    Values are of the form `projects//instanceConfigs/`
@@ -345,7 +347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Lists the supported instance configurations for a given project. Returns
- *  both Google managed configs and user managed configs.
+ *  both Google-managed configurations and user-managed configurations.
  *
  *  Method: spanner.projects.instanceConfigs.list
  *
@@ -377,7 +379,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ListInstanceConfigsResponse.
  *
  *  Lists the supported instance configurations for a given project. Returns
- *  both Google managed configs and user managed configs.
+ *  both Google-managed configurations and user-managed configurations.
  *
  *  @param parent Required. The name of the project for which a list of
  *    supported instance configurations is requested. Values are of the form
@@ -543,24 +545,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Updates an instance config. The returned long-running operation can be used
- *  to track the progress of updating the instance. If the named instance config
- *  does not exist, returns `NOT_FOUND`. Only user managed configurations can be
- *  updated. Immediately after the request returns: * The instance config's
- *  reconciling field is set to true. While the operation is pending: *
- *  Cancelling the operation sets its metadata's cancel_time. The operation is
- *  guaranteed to succeed at undoing all changes, after which point it
- *  terminates with a `CANCELLED` status. * All other attempts to modify the
- *  instance config are rejected. * Reading the instance config via the API
- *  continues to give the pre-request values. Upon completion of the returned
- *  operation: * Creating instances using the instance configuration uses the
- *  new values. * The instance config's new values are readable via the API. *
- *  The instance config's reconciling field becomes false. The returned
+ *  Updates an instance configuration. The returned long-running operation can
+ *  be used to track the progress of updating the instance. If the named
+ *  instance configuration does not exist, returns `NOT_FOUND`. Only
+ *  user-managed configurations can be updated. Immediately after the request
+ *  returns: * The instance configuration's reconciling field is set to true.
+ *  While the operation is pending: * Cancelling the operation sets its
+ *  metadata's cancel_time. The operation is guaranteed to succeed at undoing
+ *  all changes, after which point it terminates with a `CANCELLED` status. *
+ *  All other attempts to modify the instance configuration are rejected. *
+ *  Reading the instance configuration via the API continues to give the
+ *  pre-request values. Upon completion of the returned operation: * Creating
+ *  instances using the instance configuration uses the new values. * The new
+ *  values of the instance configuration are readable via the API. * The
+ *  instance configuration's reconciling field becomes false. The returned
  *  long-running operation will have a name of the format `/operations/` and can
- *  be used to track the instance config modification. The metadata field type
- *  is UpdateInstanceConfigMetadata. The response field type is InstanceConfig,
- *  if successful. Authorization requires `spanner.instanceConfigs.update`
- *  permission on the resource name.
+ *  be used to track the instance configuration modification. The metadata field
+ *  type is UpdateInstanceConfigMetadata. The response field type is
+ *  InstanceConfig, if successful. Authorization requires
+ *  `spanner.instanceConfigs.update` permission on the resource name.
  *
  *  Method: spanner.projects.instanceConfigs.patch
  *
@@ -572,38 +575,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  A unique identifier for the instance configuration. Values are of the form
- *  `projects//instanceConfigs/a-z*`. User instance config must start with
- *  `custom-`.
+ *  `projects//instanceConfigs/a-z*`. User instance configuration must start
+ *  with `custom-`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRSpanner_Operation.
  *
- *  Updates an instance config. The returned long-running operation can be used
- *  to track the progress of updating the instance. If the named instance config
- *  does not exist, returns `NOT_FOUND`. Only user managed configurations can be
- *  updated. Immediately after the request returns: * The instance config's
- *  reconciling field is set to true. While the operation is pending: *
- *  Cancelling the operation sets its metadata's cancel_time. The operation is
- *  guaranteed to succeed at undoing all changes, after which point it
- *  terminates with a `CANCELLED` status. * All other attempts to modify the
- *  instance config are rejected. * Reading the instance config via the API
- *  continues to give the pre-request values. Upon completion of the returned
- *  operation: * Creating instances using the instance configuration uses the
- *  new values. * The instance config's new values are readable via the API. *
- *  The instance config's reconciling field becomes false. The returned
+ *  Updates an instance configuration. The returned long-running operation can
+ *  be used to track the progress of updating the instance. If the named
+ *  instance configuration does not exist, returns `NOT_FOUND`. Only
+ *  user-managed configurations can be updated. Immediately after the request
+ *  returns: * The instance configuration's reconciling field is set to true.
+ *  While the operation is pending: * Cancelling the operation sets its
+ *  metadata's cancel_time. The operation is guaranteed to succeed at undoing
+ *  all changes, after which point it terminates with a `CANCELLED` status. *
+ *  All other attempts to modify the instance configuration are rejected. *
+ *  Reading the instance configuration via the API continues to give the
+ *  pre-request values. Upon completion of the returned operation: * Creating
+ *  instances using the instance configuration uses the new values. * The new
+ *  values of the instance configuration are readable via the API. * The
+ *  instance configuration's reconciling field becomes false. The returned
  *  long-running operation will have a name of the format `/operations/` and can
- *  be used to track the instance config modification. The metadata field type
- *  is UpdateInstanceConfigMetadata. The response field type is InstanceConfig,
- *  if successful. Authorization requires `spanner.instanceConfigs.update`
- *  permission on the resource name.
+ *  be used to track the instance configuration modification. The metadata field
+ *  type is UpdateInstanceConfigMetadata. The response field type is
+ *  InstanceConfig, if successful. Authorization requires
+ *  `spanner.instanceConfigs.update` permission on the resource name.
  *
  *  @param object The @c GTLRSpanner_UpdateInstanceConfigRequest to include in
  *    the query.
  *  @param name A unique identifier for the instance configuration. Values are
- *    of the form `projects//instanceConfigs/a-z*`. User instance config must
- *    start with `custom-`.
+ *    of the form `projects//instanceConfigs/a-z*`. User instance configuration
+ *    must start with `custom-`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstanceConfigsPatch
  */
@@ -1151,18 +1155,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
  *  `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
  *  `version_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
- *  `size_bytes` You can combine multiple expressions by enclosing each
- *  expression in parentheses. By default, expressions are combined with AND
- *  logic, but you can specify AND, OR, and NOT logic explicitly. Here are a few
- *  examples: * `name:Howl` - The backup's name contains the string "howl". *
- *  `database:prod` - The database's name contains the string "prod". *
- *  `state:CREATING` - The backup is pending creation. * `state:READY` - The
- *  backup is fully created and ready for use. * `(name:howl) AND (create_time <
- *  \\"2018-03-28T14:50:00Z\\")` - The backup name contains the string "howl"
- *  and `create_time` of the backup is before 2018-03-28T14:50:00Z. *
- *  `expire_time < \\"2018-03-28T14:50:00Z\\"` - The backup `expire_time` is
- *  before 2018-03-28T14:50:00Z. * `size_bytes > 10000000000` - The backup's
- *  size is greater than 10GB
+ *  `size_bytes` * `backup_schedules` You can combine multiple expressions by
+ *  enclosing each expression in parentheses. By default, expressions are
+ *  combined with AND logic, but you can specify AND, OR, and NOT logic
+ *  explicitly. Here are a few examples: * `name:Howl` - The backup's name
+ *  contains the string "howl". * `database:prod` - The database's name contains
+ *  the string "prod". * `state:CREATING` - The backup is pending creation. *
+ *  `state:READY` - The backup is fully created and ready for use. *
+ *  `(name:howl) AND (create_time < \\"2018-03-28T14:50:00Z\\")` - The backup
+ *  name contains the string "howl" and `create_time` of the backup is before
+ *  2018-03-28T14:50:00Z. * `expire_time < \\"2018-03-28T14:50:00Z\\"` - The
+ *  backup `expire_time` is before 2018-03-28T14:50:00Z. * `size_bytes >
+ *  10000000000` - The backup's size is greater than 10GB *
+ *  `backup_schedules:daily` - The backup is created from a schedule with
+ *  "daily" in its name.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1652,12 +1658,345 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  ChangeQuorum is strictly restricted to databases that use dual region
- *  instance configurations. Initiates a background operation to change quorum a
- *  database from dual-region mode to single-region mode and vice versa. The
- *  returned long-running operation will have a name of the format
+ *  Creates a new backup schedule.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesCreate : GTLRSpannerQuery
+
+/**
+ *  Required. The Id to use for the backup schedule. The `backup_schedule_id`
+ *  appended to `parent` forms the full backup schedule name of the form
+ *  `projects//instances//databases//backupSchedules/`.
+ */
+@property(nonatomic, copy, nullable) NSString *backupScheduleId;
+
+/**
+ *  Required. The name of the database that this backup schedule applies to.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_BackupSchedule.
+ *
+ *  Creates a new backup schedule.
+ *
+ *  @param object The @c GTLRSpanner_BackupSchedule to include in the query.
+ *  @param parent Required. The name of the database that this backup schedule
+ *    applies to.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_BackupSchedule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a backup schedule.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesDelete : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the schedule to delete. Values are of the form
+ *  `projects//instances//databases//backupSchedules/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Empty.
+ *
+ *  Deletes a backup schedule.
+ *
+ *  @param name Required. The name of the schedule to delete. Values are of the
+ *    form `projects//instances//databases//backupSchedules/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets backup schedule for the input schedule name.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesGet : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the schedule to retrieve. Values are of the form
+ *  `projects//instances//databases//backupSchedules/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_BackupSchedule.
+ *
+ *  Gets backup schedule for the input schedule name.
+ *
+ *  @param name Required. The name of the schedule to retrieve. Values are of
+ *    the form `projects//instances//databases//backupSchedules/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a database or backup resource. Returns an
+ *  empty policy if a database or backup exists but does not have a policy set.
+ *  Authorization requires `spanner.databases.getIamPolicy` permission on
+ *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
+ *  permission on resource.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesGetIamPolicy : GTLRSpannerQuery
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which the policy is being
+ *  retrieved. The format is `projects//instances/` for instance resources and
+ *  `projects//instances//databases/` for database resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_Policy.
+ *
+ *  Gets the access control policy for a database or backup resource. Returns an
+ *  empty policy if a database or backup exists but does not have a policy set.
+ *  Authorization requires `spanner.databases.getIamPolicy` permission on
+ *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
+ *  permission on resource.
+ *
+ *  @param object The @c GTLRSpanner_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which the policy is
+ *    being retrieved. The format is `projects//instances/` for instance
+ *    resources and `projects//instances//databases/` for database resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists all the backup schedules for the database.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesList : GTLRSpannerQuery
+
+/**
+ *  Optional. Number of backup schedules to be returned in the response. If 0 or
+ *  less, defaults to the server's maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If non-empty, `page_token` should contain a next_page_token from a
+ *  previous ListBackupSchedulesResponse to the same `parent`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Database is the parent resource whose backup schedules should be
+ *  listed. Values are of the form projects//instances//databases/
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListBackupSchedulesResponse.
+ *
+ *  Lists all the backup schedules for the database.
+ *
+ *  @param parent Required. Database is the parent resource whose backup
+ *    schedules should be listed. Values are of the form
+ *    projects//instances//databases/
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a backup schedule.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesPatch : GTLRSpannerQuery
+
+/**
+ *  Identifier. Output only for the CreateBackupSchedule operation. Required for
+ *  the UpdateBackupSchedule operation. A globally unique identifier for the
+ *  backup schedule which cannot be changed. Values are of the form
+ *  `projects//instances//databases//backupSchedules/a-z*[a-z0-9]` The final
+ *  segment of the name must be between 2 and 60 characters in length.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A mask specifying which fields in the BackupSchedule resource
+ *  should be updated. This mask is relative to the BackupSchedule resource, not
+ *  to the request message. The field mask must always be specified; this
+ *  prevents any future fields from being erased accidentally.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSpanner_BackupSchedule.
+ *
+ *  Updates a backup schedule.
+ *
+ *  @param object The @c GTLRSpanner_BackupSchedule to include in the query.
+ *  @param name Identifier. Output only for the CreateBackupSchedule operation.
+ *    Required for the UpdateBackupSchedule operation. A globally unique
+ *    identifier for the backup schedule which cannot be changed. Values are of
+ *    the form `projects//instances//databases//backupSchedules/a-z*[a-z0-9]`
+ *    The final segment of the name must be between 2 and 60 characters in
+ *    length.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_BackupSchedule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on a database or backup resource. Replaces
+ *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
+ *  permission on resource. For backups, authorization requires
+ *  `spanner.backups.setIamPolicy` permission on resource.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesSetIamPolicy : GTLRSpannerQuery
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
+ *  format is `projects//instances/` for instance resources and
+ *  `projects//instances//databases/` for databases resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_Policy.
+ *
+ *  Sets the access control policy on a database or backup resource. Replaces
+ *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
+ *  permission on resource. For backups, authorization requires
+ *  `spanner.backups.setIamPolicy` permission on resource.
+ *
+ *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which the policy is
+ *    being set. The format is `projects//instances/` for instance resources and
+ *    `projects//instances//databases/` for databases resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified database or backup
+ *  resource. Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has `spanner.databases.list`
+ *  permission on the containing Cloud Spanner instance. Otherwise returns an
+ *  empty set of permissions. Calling this method on a backup that does not
+ *  exist will result in a NOT_FOUND error if the user has
+ *  `spanner.backups.list` permission on the containing instance.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesTestIamPermissions : GTLRSpannerQuery
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
+ *  The format is `projects//instances/` for instance resources and
+ *  `projects//instances//databases/` for database resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified database or backup
+ *  resource. Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has `spanner.databases.list`
+ *  permission on the containing Cloud Spanner instance. Otherwise returns an
+ *  empty set of permissions. Calling this method on a backup that does not
+ *  exist will result in a NOT_FOUND error if the user has
+ *  `spanner.backups.list` permission on the containing instance.
+ *
+ *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which permissions
+ *    are being tested. The format is `projects//instances/` for instance
+ *    resources and `projects//instances//databases/` for database resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  `ChangeQuorum` is strictly restricted to databases that use dual-region
+ *  instance configurations. Initiates a background operation to change the
+ *  quorum of a database from dual-region mode to single-region mode or vice
+ *  versa. The returned long-running operation has a name of the format
  *  `projects//instances//databases//operations/` and can be used to track
- *  execution of the ChangeQuorum. The metadata field type is
+ *  execution of the `ChangeQuorum`. The metadata field type is
  *  ChangeQuorumMetadata. Authorization requires
  *  `spanner.databases.changequorum` permission on the resource database.
  *
@@ -1670,27 +2009,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesChangequorum : GTLRSpannerQuery
 
 /**
- *  Required. Name of the database in which to apply the ChangeQuorum. Values
- *  are of the form `projects//instances//databases/`.
+ *  Required. Name of the database in which to apply `ChangeQuorum`. Values are
+ *  of the form `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRSpanner_Operation.
  *
- *  ChangeQuorum is strictly restricted to databases that use dual region
- *  instance configurations. Initiates a background operation to change quorum a
- *  database from dual-region mode to single-region mode and vice versa. The
- *  returned long-running operation will have a name of the format
+ *  `ChangeQuorum` is strictly restricted to databases that use dual-region
+ *  instance configurations. Initiates a background operation to change the
+ *  quorum of a database from dual-region mode to single-region mode or vice
+ *  versa. The returned long-running operation has a name of the format
  *  `projects//instances//databases//operations/` and can be used to track
- *  execution of the ChangeQuorum. The metadata field type is
+ *  execution of the `ChangeQuorum`. The metadata field type is
  *  ChangeQuorumMetadata. Authorization requires
  *  `spanner.databases.changequorum` permission on the resource database.
  *
  *  @param object The @c GTLRSpanner_ChangeQuorumRequest to include in the
  *    query.
- *  @param name Required. Name of the database in which to apply the
- *    ChangeQuorum. Values are of the form `projects//instances//databases/`.
+ *  @param name Required. Name of the database in which to apply `ChangeQuorum`.
+ *    Values are of the form `projects//instances//databases/`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesChangequorum
  */
@@ -1700,8 +2039,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Creates a new Cloud Spanner database and starts to prepare it for serving.
- *  The returned long-running operation will have a name of the format
+ *  Creates a new Spanner database and starts to prepare it for serving. The
+ *  returned long-running operation will have a name of the format
  *  `/operations/` and can be used to track preparation of the database. The
  *  metadata field type is CreateDatabaseMetadata. The response field type is
  *  Database, if successful.
@@ -1723,8 +2062,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Operation.
  *
- *  Creates a new Cloud Spanner database and starts to prepare it for serving.
- *  The returned long-running operation will have a name of the format
+ *  Creates a new Spanner database and starts to prepare it for serving. The
+ *  returned long-running operation will have a name of the format
  *  `/operations/` and can be used to track preparation of the database. The
  *  metadata field type is CreateDatabaseMetadata. The response field type is
  *  Database, if successful.
@@ -3899,35 +4238,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Moves the instance to the target instance config. The returned long-running
- *  operation can be used to track the progress of moving the instance.
- *  `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets any of
- *  the following criteria: * Has an ongoing move to a different instance config
- *  * Has backups * Has an ongoing update * Is under free trial * Contains any
- *  CMEK-enabled databases While the operation is pending: * All other attempts
- *  to modify the instance, including changes to its compute capacity, are
- *  rejected. * The following database and backup admin operations are rejected:
- *  * DatabaseAdmin.CreateDatabase, * DatabaseAdmin.UpdateDatabaseDdl (Disabled
- *  if default_leader is specified in the request.) *
- *  DatabaseAdmin.RestoreDatabase * DatabaseAdmin.CreateBackup *
- *  DatabaseAdmin.CopyBackup * Both the source and target instance configs are
- *  subject to hourly compute and storage charges. * The instance may experience
- *  higher read-write latencies and a higher transaction abort rate. However,
- *  moving an instance does not cause any downtime. The returned long-running
- *  operation will have a name of the format `/operations/` and can be used to
- *  track the move instance operation. The metadata field type is
- *  MoveInstanceMetadata. The response field type is Instance, if successful.
- *  Cancelling the operation sets its metadata's cancel_time. Cancellation is
- *  not immediate since it involves moving any data previously moved to target
- *  instance config back to the original instance config. The same operation can
- *  be used to track the progress of the cancellation. Upon successful
- *  completion of the cancellation, the operation terminates with CANCELLED
- *  status. Upon completion(if not cancelled) of the returned operation: *
- *  Instance would be successfully moved to the target instance config. * You
- *  are billed for compute and storage in target instance config. Authorization
- *  requires `spanner.instances.update` permission on the resource instance. For
- *  more details, please see
- *  [documentation](https://cloud.google.com/spanner/docs/move-instance).
+ *  Moves an instance to the target instance configuration. You can use the
+ *  returned long-running operation to track the progress of moving the
+ *  instance. `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets
+ *  any of the following criteria: * Is undergoing a move to a different
+ *  instance configuration * Has backups * Has an ongoing update * Contains any
+ *  CMEK-enabled databases * Is a free trial instance While the operation is
+ *  pending: * All other attempts to modify the instance, including changes to
+ *  its compute capacity, are rejected. * The following database and backup
+ *  admin operations are rejected: * `DatabaseAdmin.CreateDatabase` *
+ *  `DatabaseAdmin.UpdateDatabaseDdl` (disabled if default_leader is specified
+ *  in the request.) * `DatabaseAdmin.RestoreDatabase` *
+ *  `DatabaseAdmin.CreateBackup` * `DatabaseAdmin.CopyBackup` * Both the source
+ *  and target instance configurations are subject to hourly compute and storage
+ *  charges. * The instance might experience higher read-write latencies and a
+ *  higher transaction abort rate. However, moving an instance doesn't cause any
+ *  downtime. The returned long-running operation has a name of the format
+ *  `/operations/` and can be used to track the move instance operation. The
+ *  metadata field type is MoveInstanceMetadata. The response field type is
+ *  Instance, if successful. Cancelling the operation sets its metadata's
+ *  cancel_time. Cancellation is not immediate because it involves moving any
+ *  data previously moved to the target instance configuration back to the
+ *  original instance configuration. You can use this operation to track the
+ *  progress of the cancellation. Upon successful completion of the
+ *  cancellation, the operation terminates with `CANCELLED` status. If not
+ *  cancelled, upon completion of the returned operation: * The instance
+ *  successfully moves to the target instance configuration. * You are billed
+ *  for compute and storage in target instance configuration. Authorization
+ *  requires the `spanner.instances.update` permission on the resource instance.
+ *  For more details, see [Move an
+ *  instance](https://cloud.google.com/spanner/docs/move-instance).
  *
  *  Method: spanner.projects.instances.move
  *
@@ -3946,35 +4286,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Operation.
  *
- *  Moves the instance to the target instance config. The returned long-running
- *  operation can be used to track the progress of moving the instance.
- *  `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets any of
- *  the following criteria: * Has an ongoing move to a different instance config
- *  * Has backups * Has an ongoing update * Is under free trial * Contains any
- *  CMEK-enabled databases While the operation is pending: * All other attempts
- *  to modify the instance, including changes to its compute capacity, are
- *  rejected. * The following database and backup admin operations are rejected:
- *  * DatabaseAdmin.CreateDatabase, * DatabaseAdmin.UpdateDatabaseDdl (Disabled
- *  if default_leader is specified in the request.) *
- *  DatabaseAdmin.RestoreDatabase * DatabaseAdmin.CreateBackup *
- *  DatabaseAdmin.CopyBackup * Both the source and target instance configs are
- *  subject to hourly compute and storage charges. * The instance may experience
- *  higher read-write latencies and a higher transaction abort rate. However,
- *  moving an instance does not cause any downtime. The returned long-running
- *  operation will have a name of the format `/operations/` and can be used to
- *  track the move instance operation. The metadata field type is
- *  MoveInstanceMetadata. The response field type is Instance, if successful.
- *  Cancelling the operation sets its metadata's cancel_time. Cancellation is
- *  not immediate since it involves moving any data previously moved to target
- *  instance config back to the original instance config. The same operation can
- *  be used to track the progress of the cancellation. Upon successful
- *  completion of the cancellation, the operation terminates with CANCELLED
- *  status. Upon completion(if not cancelled) of the returned operation: *
- *  Instance would be successfully moved to the target instance config. * You
- *  are billed for compute and storage in target instance config. Authorization
- *  requires `spanner.instances.update` permission on the resource instance. For
- *  more details, please see
- *  [documentation](https://cloud.google.com/spanner/docs/move-instance).
+ *  Moves an instance to the target instance configuration. You can use the
+ *  returned long-running operation to track the progress of moving the
+ *  instance. `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets
+ *  any of the following criteria: * Is undergoing a move to a different
+ *  instance configuration * Has backups * Has an ongoing update * Contains any
+ *  CMEK-enabled databases * Is a free trial instance While the operation is
+ *  pending: * All other attempts to modify the instance, including changes to
+ *  its compute capacity, are rejected. * The following database and backup
+ *  admin operations are rejected: * `DatabaseAdmin.CreateDatabase` *
+ *  `DatabaseAdmin.UpdateDatabaseDdl` (disabled if default_leader is specified
+ *  in the request.) * `DatabaseAdmin.RestoreDatabase` *
+ *  `DatabaseAdmin.CreateBackup` * `DatabaseAdmin.CopyBackup` * Both the source
+ *  and target instance configurations are subject to hourly compute and storage
+ *  charges. * The instance might experience higher read-write latencies and a
+ *  higher transaction abort rate. However, moving an instance doesn't cause any
+ *  downtime. The returned long-running operation has a name of the format
+ *  `/operations/` and can be used to track the move instance operation. The
+ *  metadata field type is MoveInstanceMetadata. The response field type is
+ *  Instance, if successful. Cancelling the operation sets its metadata's
+ *  cancel_time. Cancellation is not immediate because it involves moving any
+ *  data previously moved to the target instance configuration back to the
+ *  original instance configuration. You can use this operation to track the
+ *  progress of the cancellation. Upon successful completion of the
+ *  cancellation, the operation terminates with `CANCELLED` status. If not
+ *  cancelled, upon completion of the returned operation: * The instance
+ *  successfully moves to the target instance configuration. * You are billed
+ *  for compute and storage in target instance configuration. Authorization
+ *  requires the `spanner.instances.update` permission on the resource instance.
+ *  For more details, see [Move an
+ *  instance](https://cloud.google.com/spanner/docs/move-instance).
  *
  *  @param object The @c GTLRSpanner_MoveInstanceRequest to include in the
  *    query.
