@@ -721,15 +721,7 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 //
 
 @implementation GTLRGames_GamePlayerToken
-@dynamic applicationId, token;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"token" : [GTLRGames_RecallToken class]
-  };
-  return map;
-}
-
+@dynamic applicationId, recallToken;
 @end
 
 
@@ -1382,7 +1374,7 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 //
 
 @implementation GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse
-@dynamic token;
+@dynamic gamePlayerToken;
 @end
 
 
@@ -1392,11 +1384,11 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 //
 
 @implementation GTLRGames_RetrieveGamesPlayerTokensResponse
-@dynamic applicationRecallTokens;
+@dynamic gamePlayerTokens;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"applicationRecallTokens" : [GTLRGames_GamePlayerToken class]
+    @"gamePlayerTokens" : [GTLRGames_GamePlayerToken class]
   };
   return map;
 }

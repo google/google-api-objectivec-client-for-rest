@@ -80,6 +80,8 @@
 @class GTLRMigrationCenterAPI_ImportJob;
 @class GTLRMigrationCenterAPI_ImportJob_Labels;
 @class GTLRMigrationCenterAPI_ImportRowError;
+@class GTLRMigrationCenterAPI_ImportRowErrorCsvErrorDetails;
+@class GTLRMigrationCenterAPI_ImportRowErrorXlsxErrorDetails;
 @class GTLRMigrationCenterAPI_Insight;
 @class GTLRMigrationCenterAPI_InsightList;
 @class GTLRMigrationCenterAPI_Location;
@@ -2887,6 +2889,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @interface GTLRMigrationCenterAPI_ImportRowError : GTLRObject
 
+/** Error details for a CSV file. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ImportRowErrorCsvErrorDetails *csvError;
+
 /** The list of errors detected in the row. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ImportError *> *errors;
 
@@ -2902,6 +2907,42 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 
 /** The VM UUID. */
 @property(nonatomic, copy, nullable) NSString *vmUuid;
+
+/** Error details for an XLSX file. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ImportRowErrorXlsxErrorDetails *xlsxError;
+
+@end
+
+
+/**
+ *  Error details for a CSV file.
+ */
+@interface GTLRMigrationCenterAPI_ImportRowErrorCsvErrorDetails : GTLRObject
+
+/**
+ *  The row number where the error was detected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowNumber;
+
+@end
+
+
+/**
+ *  Error details for an XLSX file.
+ */
+@interface GTLRMigrationCenterAPI_ImportRowErrorXlsxErrorDetails : GTLRObject
+
+/**
+ *  The row number where the error was detected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowNumber;
+
+/** The name of the sheet where the error was detected. */
+@property(nonatomic, copy, nullable) NSString *sheet;
 
 @end
 

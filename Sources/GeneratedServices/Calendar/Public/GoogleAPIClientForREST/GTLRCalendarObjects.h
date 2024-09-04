@@ -1118,7 +1118,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *recurringEventId;
 
-/** Information about the event's reminders for the authenticated user. */
+/**
+ *  Information about the event's reminders for the authenticated user. Note
+ *  that changing reminders does not also change the updated property of the
+ *  enclosing event.
+ */
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_Reminders *reminders;
 
 /**
@@ -1186,7 +1190,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *transparency;
 
 /**
- *  Last modification time of the event (as a RFC3339 timestamp). Read-only.
+ *  Last modification time of the main event data (as a RFC3339 timestamp).
+ *  Updating event reminders will not cause this to change. Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
@@ -1348,7 +1353,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Information about the event's reminders for the authenticated user.
+ *  Information about the event's reminders for the authenticated user. Note
+ *  that changing reminders does not also change the updated property of the
+ *  enclosing event.
  */
 @interface GTLRCalendar_Event_Reminders : GTLRObject
 

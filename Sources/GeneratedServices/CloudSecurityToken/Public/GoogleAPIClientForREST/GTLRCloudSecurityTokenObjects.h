@@ -410,6 +410,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenResponse : GTLRObject
 
 /**
+ *  The access boundary session key. This key is used along with the access
+ *  boundary intermediate token to generate Credential Access Boundary tokens at
+ *  client side. This field is absent when the `requested_token_type` from the
+ *  request is not
+ *  `urn:ietf:params:oauth:token-type:access_boundary_intermediate_token`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *accessBoundarySessionKey;
+
+/**
  *  An OAuth 2.0 security token, issued by Google, in response to the token
  *  exchange request. Tokens can vary in size, depending in part on the size of
  *  mapped claims, up to a maximum of 12288 bytes (12 KB). Google reserves the

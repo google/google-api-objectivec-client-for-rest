@@ -129,6 +129,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPollen_PlantInfo_Code_Graminales;
  */
 FOUNDATION_EXTERN NSString * const kGTLRPollen_PlantInfo_Code_Hazel;
 /**
+ *  Japanese cedar is classified as a tree pollen type.
+ *
+ *  Value: "JAPANESE_CEDAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPollen_PlantInfo_Code_JapaneseCedar;
+/**
+ *  Japanese cypress is classified as a tree pollen type.
+ *
+ *  Value: "JAPANESE_CYPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPollen_PlantInfo_Code_JapaneseCypress;
+/**
  *  Juniper is classified as a tree pollen type.
  *
  *  Value: "JUNIPER"
@@ -344,13 +356,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPollen_TypeInfo_Code_Weed;
 @property(nonatomic, strong, nullable) GTLRPollen_Date *date;
 
 /**
- *  This list will include (up to) 15 pollen species affecting the location
+ *  This list will include up to 15 pollen species affecting the location
  *  specified in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPollen_PlantInfo *> *plantInfo;
 
 /**
- *  This list will include (up to) three pollen types (grass, weed, tree)
+ *  This list will include up to three pollen types (GRASS, WEED, TREE)
  *  affecting the location specified in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPollen_TypeInfo *> *pollenTypeInfo;
@@ -581,6 +593,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPollen_TypeInfo_Code_Weed;
  *        a grass pollen type. (Value: "GRAMINALES")
  *    @arg @c kGTLRPollen_PlantInfo_Code_Hazel Hazel is classified as a tree
  *        pollen type. (Value: "HAZEL")
+ *    @arg @c kGTLRPollen_PlantInfo_Code_JapaneseCedar Japanese cedar is
+ *        classified as a tree pollen type. (Value: "JAPANESE_CEDAR")
+ *    @arg @c kGTLRPollen_PlantInfo_Code_JapaneseCypress Japanese cypress is
+ *        classified as a tree pollen type. (Value: "JAPANESE_CYPRESS")
  *    @arg @c kGTLRPollen_PlantInfo_Code_Juniper Juniper is classified as a tree
  *        pollen type. (Value: "JUNIPER")
  *    @arg @c kGTLRPollen_PlantInfo_Code_Maple Maple is classified as a tree

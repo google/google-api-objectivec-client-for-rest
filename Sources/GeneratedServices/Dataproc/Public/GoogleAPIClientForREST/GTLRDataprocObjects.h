@@ -141,6 +141,7 @@
 @class GTLRDataproc_SoftwareConfig;
 @class GTLRDataproc_SoftwareConfig_Properties;
 @class GTLRDataproc_SparkBatch;
+@class GTLRDataproc_SparkConnectConfig;
 @class GTLRDataproc_SparkHistoryServerConfig;
 @class GTLRDataproc_SparkJob;
 @class GTLRDataproc_SparkJob_Properties;
@@ -1032,8 +1033,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionStateHistory_State_Termi
 // GTLRDataproc_SoftwareConfig.optionalComponents
 
 /**
- *  The Anaconda python distribution. The Anaconda component is not supported in
- *  the Dataproc 2.0 image. The 2.0 image is pre-installed with Miniconda.
+ *  The Anaconda component is no longer supported or applicable to supported
+ *  Dataproc on Compute Engine image versions
+ *  (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-version-clusters#supported-dataproc-image-versions).
+ *  It cannot be activated on clusters created with supported Dataproc on
+ *  Compute Engine image versions.
  *
  *  Value: "ANACONDA"
  */
@@ -5842,6 +5846,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *sessionTemplate;
 
+/** Optional. Spark connect session config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkConnectConfig *sparkConnectSession;
+
 /**
  *  Output only. A state of the session.
  *
@@ -6038,6 +6045,9 @@ GTLR_DEPRECATED
 /** Optional. Runtime configuration for session execution. */
 @property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig *runtimeConfig;
 
+/** Optional. Spark connect session config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkConnectConfig *sparkConnectSession;
+
 /** Output only. The time the template was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -6120,7 +6130,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. The version of software inside the cluster. It must be one of the
  *  supported Dataproc Versions
- *  (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#supported_dataproc_versions),
+ *  (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#supported-dataproc-image-versions),
  *  such as "1.2" (including a subminor version, such as "1.2.29"), or the
  *  "preview" version
  *  (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#other_versions).
@@ -6205,6 +6215,13 @@ GTLR_DEPRECATED
 /** Optional. The HCFS URI of the jar file that contains the main class. */
 @property(nonatomic, copy, nullable) NSString *mainJarFileUri;
 
+@end
+
+
+/**
+ *  Spark connect configuration for an interactive session.
+ */
+@interface GTLRDataproc_SparkConnectConfig : GTLRObject
 @end
 
 

@@ -380,7 +380,7 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 @implementation GTLRCertificateAuthorityService_CertificateDescription
 @dynamic aiaIssuingCertificateUrls, authorityKeyId, certFingerprint,
          crlDistributionPoints, publicKey, subjectDescription, subjectKeyId,
-         x509Description;
+         tbsCertificateDigest, x509Description;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

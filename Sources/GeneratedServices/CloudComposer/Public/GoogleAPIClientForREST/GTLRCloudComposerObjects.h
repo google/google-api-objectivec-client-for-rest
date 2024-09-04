@@ -911,6 +911,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *
  *  Uses NSNumber of boolValue.
  */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**

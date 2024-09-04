@@ -1953,7 +1953,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_DataSourceSpec
-@dynamic bigQuery, parameters;
+@dynamic bigQuery, looker, parameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2660,6 +2660,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_Link
 @dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_LookerDataSourceSpec
+//
+
+@implementation GTLRSheets_LookerDataSourceSpec
+@dynamic explore, instanceUri, model;
 @end
 
 

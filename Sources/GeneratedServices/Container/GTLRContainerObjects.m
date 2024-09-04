@@ -276,12 +276,14 @@ NSString * const kGTLRContainer_PlacementPolicy_Type_Compact   = @"COMPACT";
 NSString * const kGTLRContainer_PlacementPolicy_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRContainer_ReleaseChannel.channel
+NSString * const kGTLRContainer_ReleaseChannel_Channel_Extended = @"EXTENDED";
 NSString * const kGTLRContainer_ReleaseChannel_Channel_Rapid   = @"RAPID";
 NSString * const kGTLRContainer_ReleaseChannel_Channel_Regular = @"REGULAR";
 NSString * const kGTLRContainer_ReleaseChannel_Channel_Stable  = @"STABLE";
 NSString * const kGTLRContainer_ReleaseChannel_Channel_Unspecified = @"UNSPECIFIED";
 
 // GTLRContainer_ReleaseChannelConfig.channel
+NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Extended = @"EXTENDED";
 NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Rapid = @"RAPID";
 NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Regular = @"REGULAR";
 NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Stable = @"STABLE";
@@ -439,7 +441,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          gcePersistentDiskCsiDriverConfig, gcpFilestoreCsiDriverConfig,
          gcsFuseCsiDriverConfig, gkeBackupAgentConfig, horizontalPodAutoscaling,
          httpLoadBalancing, kubernetesDashboard, networkPolicyConfig,
-         statefulHaConfig;
+         rayOperatorConfig, statefulHaConfig;
 @end
 
 
@@ -702,10 +704,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          monitoringService, name, network, networkConfig, networkPolicy,
          nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig, nodePoolDefaults,
          nodePools, notificationConfig, parentProductConfig,
-         privateClusterConfig, releaseChannel, resourceLabels,
-         resourceUsageExportConfig, satisfiesPzi, satisfiesPzs,
-         securityPostureConfig, selfLink, servicesIpv4Cidr, shieldedNodes,
-         status, statusMessage, subnetwork, tpuIpv4CidrBlock,
+         privateClusterConfig, rbacBindingConfig, releaseChannel,
+         resourceLabels, resourceUsageExportConfig, satisfiesPzi, satisfiesPzs,
+         secretManagerConfig, securityPostureConfig, selfLink, servicesIpv4Cidr,
+         shieldedNodes, status, statusMessage, subnetwork, tpuIpv4CidrBlock,
          verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -804,7 +806,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredNodePoolLoggingConfig, desiredNodeVersion,
          desiredNotificationConfig, desiredParentProductConfig,
          desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
-         desiredReleaseChannel, desiredResourceUsageExportConfig,
+         desiredRbacBindingConfig, desiredReleaseChannel,
+         desiredResourceUsageExportConfig, desiredSecretManagerConfig,
          desiredSecurityPostureConfig, desiredServiceExternalIpsConfig,
          desiredShieldedNodes, desiredStackType, desiredVerticalPodAutoscaling,
          desiredWorkloadIdentityConfig, enableK8sBetaApis, ETag,
@@ -1724,14 +1727,15 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          metadata, minCpuPlatform, nodeGroup, oauthScopes, preemptible,
          reservationAffinity, resourceLabels, resourceManagerTags,
          sandboxConfig, secondaryBootDisks, secondaryBootDiskUpdateStrategy,
-         serviceAccount, shieldedInstanceConfig, soleTenantConfig, spot, tags,
-         taints, windowsNodeConfig, workloadMetadataConfig;
+         serviceAccount, shieldedInstanceConfig, soleTenantConfig, spot,
+         storagePools, tags, taints, windowsNodeConfig, workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRContainer_AcceleratorConfig class],
     @"oauthScopes" : [NSString class],
     @"secondaryBootDisks" : [GTLRContainer_SecondaryBootDisk class],
+    @"storagePools" : [NSString class],
     @"tags" : [NSString class],
     @"taints" : [GTLRContainer_NodeTaint class]
   };
@@ -2137,6 +2141,47 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_RayClusterLoggingConfig
+//
+
+@implementation GTLRContainer_RayClusterLoggingConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_RayClusterMonitoringConfig
+//
+
+@implementation GTLRContainer_RayClusterMonitoringConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_RayOperatorConfig
+//
+
+@implementation GTLRContainer_RayOperatorConfig
+@dynamic enabled, rayClusterLoggingConfig, rayClusterMonitoringConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_RBACBindingConfig
+//
+
+@implementation GTLRContainer_RBACBindingConfig
+@dynamic enableInsecureBindingSystemAuthenticated,
+         enableInsecureBindingSystemUnauthenticated;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_RecurringTimeWindow
 //
 
@@ -2301,6 +2346,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_SecondaryBootDiskUpdateStrategy
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_SecretManagerConfig
+//
+
+@implementation GTLRContainer_SecretManagerConfig
+@dynamic enabled;
 @end
 
 
@@ -2746,7 +2801,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          kubeletConfig, labels, linuxNodeConfig, locations, loggingConfig,
          machineType, name, nodeNetworkConfig, nodePoolId, nodeVersion,
          projectId, queuedProvisioning, resourceLabels, resourceManagerTags,
-         tags, taints, upgradeSettings, windowsNodeConfig,
+         storagePools, tags, taints, upgradeSettings, windowsNodeConfig,
          workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -2760,7 +2815,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRContainer_AcceleratorConfig class],
-    @"locations" : [NSString class]
+    @"locations" : [NSString class],
+    @"storagePools" : [NSString class]
   };
   return map;
 }

@@ -98,6 +98,33 @@
 
 @end
 
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCertificateManager_CertificateIssuanceConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateManager_Operation class];
+  query.loggingName = @"certificatemanager.projects.locations.certificateIssuanceConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCertificateManagerQuery_ProjectsLocationsCertificateMapsCertificateMapEntriesCreate
 
 @dynamic certificateMapEntryId, parent;

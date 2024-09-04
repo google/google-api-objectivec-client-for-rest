@@ -207,6 +207,7 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_E
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeMicroad = @"EXCHANGE_MICROAD";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeMopub = @"EXCHANGE_MOPUB";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNend = @"EXCHANGE_NEND";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNetflix = @"EXCHANGE_NETFLIX";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNexstarDigital = @"EXCHANGE_NEXSTAR_DIGITAL";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeOneByAolDisplay = @"EXCHANGE_ONE_BY_AOL_DISPLAY";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeOneByAolMobile = @"EXCHANGE_ONE_BY_AOL_MOBILE";
@@ -1027,6 +1028,7 @@ NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeMicroad = @"EXCHANGE_MICROAD";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeMopub = @"EXCHANGE_MOPUB";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNend = @"EXCHANGE_NEND";
+NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNetflix = @"EXCHANGE_NETFLIX";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNexstarDigital = @"EXCHANGE_NEXSTAR_DIGITAL";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeOneByAolDisplay = @"EXCHANGE_ONE_BY_AOL_DISPLAY";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeOneByAolMobile = @"EXCHANGE_ONE_BY_AOL_MOBILE";
@@ -1111,6 +1113,7 @@ NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeMicroad = @"EXCHANGE_MICROAD";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeMopub = @"EXCHANGE_MOPUB";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNend = @"EXCHANGE_NEND";
+NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNetflix = @"EXCHANGE_NETFLIX";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNexstarDigital = @"EXCHANGE_NEXSTAR_DIGITAL";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeOneByAolDisplay = @"EXCHANGE_ONE_BY_AOL_DISPLAY";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeOneByAolMobile = @"EXCHANGE_ONE_BY_AOL_MOBILE";
@@ -1195,6 +1198,7 @@ NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeMediane
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeMicroad = @"EXCHANGE_MICROAD";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeMopub = @"EXCHANGE_MOPUB";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNend = @"EXCHANGE_NEND";
+NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNetflix = @"EXCHANGE_NETFLIX";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNexstarDigital = @"EXCHANGE_NEXSTAR_DIGITAL";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOneByAolDisplay = @"EXCHANGE_ONE_BY_AOL_DISPLAY";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOneByAolMobile = @"EXCHANGE_ONE_BY_AOL_MOBILE";
@@ -1285,6 +1289,7 @@ NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_Excha
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeMicroad = @"EXCHANGE_MICROAD";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeMopub = @"EXCHANGE_MOPUB";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNend = @"EXCHANGE_NEND";
+NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNetflix = @"EXCHANGE_NETFLIX";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNexstarDigital = @"EXCHANGE_NEXSTAR_DIGITAL";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOneByAolDisplay = @"EXCHANGE_ONE_BY_AOL_DISPLAY";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOneByAolMobile = @"EXCHANGE_ONE_BY_AOL_MOBILE";
@@ -1558,6 +1563,7 @@ NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMedianet = @
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMicroad = @"EXCHANGE_MICROAD";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMopub = @"EXCHANGE_MOPUB";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNend = @"EXCHANGE_NEND";
+NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNetflix = @"EXCHANGE_NETFLIX";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNexstarDigital = @"EXCHANGE_NEXSTAR_DIGITAL";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolDisplay = @"EXCHANGE_ONE_BY_AOL_DISPLAY";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolMobile = @"EXCHANGE_ONE_BY_AOL_MOBILE";
@@ -1794,6 +1800,7 @@ NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeMedianet = @
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeMicroad = @"EXCHANGE_MICROAD";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeMopub = @"EXCHANGE_MOPUB";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNend = @"EXCHANGE_NEND";
+NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNetflix = @"EXCHANGE_NETFLIX";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNexstarDigital = @"EXCHANGE_NEXSTAR_DIGITAL";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOneByAolDisplay = @"EXCHANGE_ONE_BY_AOL_DISPLAY";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOneByAolMobile = @"EXCHANGE_ONE_BY_AOL_MOBILE";
@@ -2073,9 +2080,11 @@ NSString * const kGTLRDisplayVideo_ParentalStatusTargetingOptionDetails_Parental
 // GTLRDisplayVideo_ParentEntityFilter.fileType
 NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeAd = @"FILE_TYPE_AD";
 NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeAdGroup = @"FILE_TYPE_AD_GROUP";
+NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeAdGroupQa = @"FILE_TYPE_AD_GROUP_QA";
 NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeCampaign = @"FILE_TYPE_CAMPAIGN";
 NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeInsertionOrder = @"FILE_TYPE_INSERTION_ORDER";
 NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeLineItem = @"FILE_TYPE_LINE_ITEM";
+NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeLineItemQa = @"FILE_TYPE_LINE_ITEM_QA";
 NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeMediaProduct = @"FILE_TYPE_MEDIA_PRODUCT";
 NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
 
@@ -4842,16 +4851,18 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_IdFilter
-@dynamic adGroupAdIds, adGroupIds, campaignIds, insertionOrderIds, lineItemIds,
-         mediaProductIds;
+@dynamic adGroupAdIds, adGroupIds, adGroupQaIds, campaignIds, insertionOrderIds,
+         lineItemIds, lineItemQaIds, mediaProductIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"adGroupAdIds" : [NSNumber class],
     @"adGroupIds" : [NSNumber class],
+    @"adGroupQaIds" : [NSNumber class],
     @"campaignIds" : [NSNumber class],
     @"insertionOrderIds" : [NSNumber class],
     @"lineItemIds" : [NSNumber class],
+    @"lineItemQaIds" : [NSNumber class],
     @"mediaProductIds" : [NSNumber class]
   };
   return map;

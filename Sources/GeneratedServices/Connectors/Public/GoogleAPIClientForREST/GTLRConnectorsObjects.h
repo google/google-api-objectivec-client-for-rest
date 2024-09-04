@@ -17,6 +17,7 @@
 
 @class GTLRConnectors_AccessCredentials;
 @class GTLRConnectors_Action;
+@class GTLRConnectors_AuthCodeData;
 @class GTLRConnectors_DailyCycle;
 @class GTLRConnectors_Date;
 @class GTLRConnectors_DenyMaintenancePeriod;
@@ -1737,6 +1738,30 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  AuthCodeData contains the data the runtime plane will give the connector
+ *  backend in exchange for access and refresh tokens.
+ */
+@interface GTLRConnectors_AuthCodeData : GTLRObject
+
+/** OAuth authorization code. */
+@property(nonatomic, copy, nullable) NSString *authCode;
+
+/**
+ *  OAuth PKCE verifier, needed if PKCE is enabled for this particular
+ *  connection.
+ */
+@property(nonatomic, copy, nullable) NSString *pkceVerifier;
+
+/**
+ *  OAuth redirect URI passed in during the auth code flow, required by some
+ *  OAuth backends.
+ */
+@property(nonatomic, copy, nullable) NSString *redirectUri;
+
+@end
+
+
+/**
  *  Response containing status of the connector for readiness prober.
  */
 @interface GTLRConnectors_CheckReadinessResponse : GTLRObject
@@ -1935,9 +1960,17 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
- *  ExchangeAuthCodeRequest currently includes no fields.
+ *  ExchangeAuthCodeRequest currently includes the auth code data.
  */
 @interface GTLRConnectors_ExchangeAuthCodeRequest : GTLRObject
+
+/**
+ *  Optional. AuthCodeData contains the data the runtime requires to exchange
+ *  for access and refresh tokens. If the data is not provided, the runtime will
+ *  read the data from the secret manager.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_AuthCodeData *authCodeData;
+
 @end
 
 
@@ -3313,9 +3346,16 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
- *  RefreshAccessTokenRequest currently includes no fields.
+ *  RefreshAccessTokenRequest includes the refresh token.
  */
 @interface GTLRConnectors_RefreshAccessTokenRequest : GTLRObject
+
+/**
+ *  Optional. Refresh Token String. If the Refresh Token is not provided, the
+ *  runtime will read the data from the secret manager.
+ */
+@property(nonatomic, copy, nullable) NSString *refreshToken;
+
 @end
 
 
@@ -3434,6 +3474,14 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 @property(nonatomic, copy, nullable) NSString *dataType;
 
 /**
+ *  The following field specifies the default value of the Parameter provided by
+ *  the external system if a value is not provided.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id defaultValue;
+
+/**
  *  A brief description of the metadata field.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -3447,6 +3495,13 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 /** Name of the metadata field. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specifies whether a null value is allowed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullable;
 
 @end
 

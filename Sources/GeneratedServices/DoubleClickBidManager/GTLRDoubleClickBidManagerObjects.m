@@ -38,8 +38,10 @@ NSString * const kGTLRDoubleClickBidManager_DataRange_Range_YearToDate = @"YEAR_
 // GTLRDoubleClickBidManager_Parameters.type
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_AudienceComposition = @"AUDIENCE_COMPOSITION";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Floodlight = @"FLOODLIGHT";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Type_FullPath = @"FULL_PATH";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Grp = @"GRP";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability = @"INVENTORY_AVAILABILITY";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution = @"PATH_ATTRIBUTION";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Reach = @"REACH";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_ReportTypeUnspecified = @"REPORT_TYPE_UNSPECIFIED";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Standard = @"STANDARD";

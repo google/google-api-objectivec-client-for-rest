@@ -25,10 +25,34 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// experiments
+
+/**
+ *  Expands the geographic region available for querying solar data.
+ *
+ *  Value: "EXPANDED_COVERAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolarExperimentsExpandedCoverage;
+/**
+ *  No experiments are specified.
+ *
+ *  Value: "EXPERIMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolarExperimentsExperimentUnspecified;
+
+// ----------------------------------------------------------------------------
 // requiredQuality
 
 /**
- *  The underlying imagery and DSM data were processed at 0.1 m/pixel.
+ *  Solar data is derived from enhanced satellite imagery processed at 0.25
+ *  m/pixel.
+ *
+ *  Value: "BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolarRequiredQualityBase;
+/**
+ *  Solar data is derived from aerial imagery captured at low-altitude and
+ *  processed at 0.1 m/pixel.
  *
  *  Value: "HIGH"
  */
@@ -40,13 +64,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarRequiredQualityHigh;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSolarRequiredQualityImageryQualityUnspecified;
 /**
- *  The underlying imagery and DSM data were processed at 0.5 m/pixel.
+ *  Solar data is derived from enhanced satellite imagery processed at 0.25
+ *  m/pixel.
  *
  *  Value: "LOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSolarRequiredQualityLow;
 /**
- *  The underlying imagery and DSM data were processed at 0.25 m/pixel.
+ *  Solar data is derived from enhanced aerial imagery captured at high-altitude
+ *  and processed at 0.25 m/pixel.
  *
  *  Value: "MEDIUM"
  */
@@ -118,6 +144,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  */
 @interface GTLRSolarQuery_BuildingInsightsFindClosest : GTLRSolarQuery
 
+/**
+ *  Optional. Specifies the pre-GA features to enable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSolarExperimentsExperimentUnspecified No experiments are
+ *        specified. (Value: "EXPERIMENT_UNSPECIFIED")
+ *    @arg @c kGTLRSolarExperimentsExpandedCoverage Expands the geographic
+ *        region available for querying solar data. (Value: "EXPANDED_COVERAGE")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
+
 /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */
 @property(nonatomic, assign) double locationLatitude;
 
@@ -132,12 +169,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *  Likely values:
  *    @arg @c kGTLRSolarRequiredQualityImageryQualityUnspecified No quality is
  *        known. (Value: "IMAGERY_QUALITY_UNSPECIFIED")
- *    @arg @c kGTLRSolarRequiredQualityHigh The underlying imagery and DSM data
- *        were processed at 0.1 m/pixel. (Value: "HIGH")
- *    @arg @c kGTLRSolarRequiredQualityMedium The underlying imagery and DSM
- *        data were processed at 0.25 m/pixel. (Value: "MEDIUM")
- *    @arg @c kGTLRSolarRequiredQualityLow The underlying imagery and DSM data
- *        were processed at 0.5 m/pixel. (Value: "LOW")
+ *    @arg @c kGTLRSolarRequiredQualityHigh Solar data is derived from aerial
+ *        imagery captured at low-altitude and processed at 0.1 m/pixel. (Value:
+ *        "HIGH")
+ *    @arg @c kGTLRSolarRequiredQualityMedium Solar data is derived from
+ *        enhanced aerial imagery captured at high-altitude and processed at
+ *        0.25 m/pixel. (Value: "MEDIUM")
+ *    @arg @c kGTLRSolarRequiredQualityLow Solar data is derived from enhanced
+ *        satellite imagery processed at 0.25 m/pixel. (Value: "LOW")
+ *    @arg @c kGTLRSolarRequiredQualityBase Solar data is derived from enhanced
+ *        satellite imagery processed at 0.25 m/pixel. (Value: "BASE")
  */
 @property(nonatomic, copy, nullable) NSString *requiredQuality;
 
@@ -175,6 +216,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  */
 @property(nonatomic, assign) BOOL exactQualityRequired;
 
+/**
+ *  Optional. Specifies the pre-GA experiments to enable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSolarExperimentsExperimentUnspecified No experiments are
+ *        specified. (Value: "EXPERIMENT_UNSPECIFIED")
+ *    @arg @c kGTLRSolarExperimentsExpandedCoverage Expands the geographic
+ *        region available for querying solar data. (Value: "EXPANDED_COVERAGE")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
+
 /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */
 @property(nonatomic, assign) double locationLatitude;
 
@@ -210,12 +262,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *  Likely values:
  *    @arg @c kGTLRSolarRequiredQualityImageryQualityUnspecified No quality is
  *        known. (Value: "IMAGERY_QUALITY_UNSPECIFIED")
- *    @arg @c kGTLRSolarRequiredQualityHigh The underlying imagery and DSM data
- *        were processed at 0.1 m/pixel. (Value: "HIGH")
- *    @arg @c kGTLRSolarRequiredQualityMedium The underlying imagery and DSM
- *        data were processed at 0.25 m/pixel. (Value: "MEDIUM")
- *    @arg @c kGTLRSolarRequiredQualityLow The underlying imagery and DSM data
- *        were processed at 0.5 m/pixel. (Value: "LOW")
+ *    @arg @c kGTLRSolarRequiredQualityHigh Solar data is derived from aerial
+ *        imagery captured at low-altitude and processed at 0.1 m/pixel. (Value:
+ *        "HIGH")
+ *    @arg @c kGTLRSolarRequiredQualityMedium Solar data is derived from
+ *        enhanced aerial imagery captured at high-altitude and processed at
+ *        0.25 m/pixel. (Value: "MEDIUM")
+ *    @arg @c kGTLRSolarRequiredQualityLow Solar data is derived from enhanced
+ *        satellite imagery processed at 0.25 m/pixel. (Value: "LOW")
+ *    @arg @c kGTLRSolarRequiredQualityBase Solar data is derived from enhanced
+ *        satellite imagery processed at 0.25 m/pixel. (Value: "BASE")
  */
 @property(nonatomic, copy, nullable) NSString *requiredQuality;
 

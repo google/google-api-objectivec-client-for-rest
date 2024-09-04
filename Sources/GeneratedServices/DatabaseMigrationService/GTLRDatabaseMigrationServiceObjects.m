@@ -61,6 +61,8 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8034 = @"MYSQL_8_0_34";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8037 = @"MYSQL_8_0_37";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -282,7 +284,6 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJob_DumpType_Physical = 
 
 // GTLRDatabaseMigrationService_MigrationJob.phase
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc = @"CDC";
-NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_DiffBackup = @"DIFF_BACKUP";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_FullDump = @"FULL_DUMP";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseUnspecified = @"PHASE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PreparingTheDump = @"PREPARING_THE_DUMP";
@@ -1651,12 +1652,23 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_OracleAsmConfig
+//
+
+@implementation GTLRDatabaseMigrationService_OracleAsmConfig
+@dynamic asmService, hostname, password, passwordSet, port, ssl, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_OracleConnectionProfile
 //
 
 @implementation GTLRDatabaseMigrationService_OracleConnectionProfile
-@dynamic databaseService, forwardSshConnectivity, host, password, passwordSet,
-         port, privateConnectivity, ssl, staticServiceIpConnectivity, username;
+@dynamic databaseService, forwardSshConnectivity, host, oracleAsmConfig,
+         password, passwordSet, port, privateConnectivity, ssl,
+         staticServiceIpConnectivity, username;
 @end
 
 
@@ -2172,7 +2184,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig
-@dynamic backupFilePattern, databaseBackups, useDiffBackup;
+@dynamic backupFilePattern, databaseBackups, promoteWhenReady, useDiffBackup;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

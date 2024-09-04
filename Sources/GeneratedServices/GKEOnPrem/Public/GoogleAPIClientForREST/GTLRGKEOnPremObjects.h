@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Anthos On-Prem API (gkeonprem/v1)
+//   GDC Virtual API (gkeonprem/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/clusters/docs/on-prem/
 
@@ -103,6 +103,8 @@
 @class GTLRGKEOnPrem_ValidationCheck;
 @class GTLRGKEOnPrem_ValidationCheckResult;
 @class GTLRGKEOnPrem_ValidationCheckStatus;
+@class GTLRGKEOnPrem_Version;
+@class GTLRGKEOnPrem_Versions;
 @class GTLRGKEOnPrem_VmwareAAGConfig;
 @class GTLRGKEOnPrem_VmwareAddressPool;
 @class GTLRGKEOnPrem_VmwareAdminAddonNodeConfig;
@@ -1735,6 +1737,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  BareMetalClusterUpgradePolicy defines the cluster upgrade policy.
  */
 @interface GTLRGKEOnPrem_BareMetalClusterUpgradePolicy : GTLRObject
+
+/**
+ *  Output only. Pause is used to show the upgrade pause status. It's view only
+ *  for now.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pause;
 
 /**
  *  Specifies which upgrade policy to use.
@@ -3672,6 +3682,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
+/** Reflect current version of the resource. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Shows the mapping of a given version to the number of machines under this
+ *  version.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_Versions *versions;
+
 @end
 
 
@@ -3875,6 +3894,39 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  Individual checks which failed as part of the Preflight check execution.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_ValidationCheckResult *> *result;
+
+@end
+
+
+/**
+ *  Version describes the number of nodes at a given version under a resource.
+ */
+@interface GTLRGKEOnPrem_Version : GTLRObject
+
+/**
+ *  Number of machines under the above version.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** Resource version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Versions describes the mapping of a given version to the number of machines
+ *  under this version.
+ */
+@interface GTLRGKEOnPrem_Versions : GTLRObject
+
+/**
+ *  Shows the mapping of a given version to the number of machines under this
+ *  version.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_Version *> *versions;
 
 @end
 
@@ -4092,6 +4144,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** Output only. The time at which VMware admin cluster was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. ValidationCheck represents the result of the preflight check
+ *  job.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_ValidationCheck *validationCheck;
 
 /** The VMware admin cluster VCenter configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminVCenterConfig *vcenter;

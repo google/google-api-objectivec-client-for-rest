@@ -209,6 +209,12 @@ NSString * const kGTLRBigquery_JobCreationReason_Code_LongRunning = @"LONG_RUNNI
 NSString * const kGTLRBigquery_JobCreationReason_Code_Other    = @"OTHER";
 NSString * const kGTLRBigquery_JobCreationReason_Code_Requested = @"REQUESTED";
 
+// GTLRBigquery_JobStatistics.edition
+NSString * const kGTLRBigquery_JobStatistics_Edition_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRBigquery_JobStatistics_Edition_EnterprisePlus = @"ENTERPRISE_PLUS";
+NSString * const kGTLRBigquery_JobStatistics_Edition_ReservationEditionUnspecified = @"RESERVATION_EDITION_UNSPECIFIED";
+NSString * const kGTLRBigquery_JobStatistics_Edition_Standard  = @"STANDARD";
+
 // GTLRBigquery_JoinRestrictionPolicy.joinCondition
 NSString * const kGTLRBigquery_JoinRestrictionPolicy_JoinCondition_JoinAll = @"JOIN_ALL";
 NSString * const kGTLRBigquery_JoinRestrictionPolicy_JoinCondition_JoinAny = @"JOIN_ANY";
@@ -1201,6 +1207,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_DataMaskingStatistics
 @dynamic dataMaskingApplied;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_DataPolicyOption
+//
+
+@implementation GTLRBigquery_DataPolicyOption
+@dynamic name;
 @end
 
 
@@ -2248,10 +2264,11 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, copyProperty, creationTime, dataMaskingStatistics,
-         endTime, extract, finalExecutionDurationMs, load, numChildJobs,
-         parentJobId, query, quotaDeferments, reservationId, reservationUsage,
-         rowLevelSecurityStatistics, scriptStatistics, sessionInfo, startTime,
-         totalBytesProcessed, totalSlotMs, transactionInfo;
+         edition, endTime, extract, finalExecutionDurationMs, load,
+         numChildJobs, parentJobId, query, quotaDeferments, reservationId,
+         reservationUsage, rowLevelSecurityStatistics, scriptStatistics,
+         sessionInfo, startTime, totalBytesProcessed, totalSlotMs,
+         transactionInfo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3898,9 +3915,10 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_TableFieldSchema
-@dynamic categories, collation, defaultValueExpression, descriptionProperty,
-         fields, foreignTypeDefinition, maxLength, mode, name, policyTags,
-         precision, rangeElementType, roundingMode, scale, type;
+@dynamic categories, collation, dataPolicies, defaultValueExpression,
+         descriptionProperty, fields, foreignTypeDefinition, maxLength, mode,
+         name, policyTags, precision, rangeElementType, roundingMode, scale,
+         type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3908,6 +3926,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"dataPolicies" : [GTLRBigquery_DataPolicyOption class],
     @"fields" : [GTLRBigquery_TableFieldSchema class]
   };
   return map;
@@ -4041,7 +4060,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_TableMetadataCacheUsage
-@dynamic explanation, tableReference, tableType, unusedReason;
+@dynamic explanation, staleness, tableReference, tableType, unusedReason;
 @end
 
 

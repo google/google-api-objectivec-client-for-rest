@@ -239,6 +239,12 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseP
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ProhibitedContent = @"PROHIBITED_CONTENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Safety = @"SAFETY";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode.modelRoutingPreference
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_Balanced = @"BALANCED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_PrioritizeCost = @"PRIORITIZE_COST";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_PrioritizeQuality = @"PRIORITIZE_QUALITY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_Unknown = @"UNKNOWN";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob_State_JobStateCancelled = @"JOB_STATE_CANCELLED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob_State_JobStateCancelling = @"JOB_STATE_CANCELLING";
@@ -384,6 +390,15 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTrial_State_StateUnsp
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTrial_State_Stopping = @"STOPPING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTrial_State_Succeeded = @"SUCCEEDED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter.op
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_Equal = @"EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_Greater = @"GREATER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_GreaterEqual = @"GREATER_EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_Less = @"LESS";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_LessEqual = @"LESS_EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_NotEqual = @"NOT_EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError.errorType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateNamespace = @"DUPLICATE_NAMESPACE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmbeddingSizeMismatch = @"EMBEDDING_SIZE_MISMATCH";
@@ -403,6 +418,20 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOpe
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_NamespaceMissing = @"NAMESPACE_MISSING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_OpInDatapoint = @"OP_IN_DATAPOINT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_ParsingError = @"PARSING_ERROR";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob.jobState
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateCancelled = @"JOB_STATE_CANCELLED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateCancelling = @"JOB_STATE_CANCELLING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateExpired = @"JOB_STATE_EXPIRED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateFailed = @"JOB_STATE_FAILED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStatePartiallySucceeded = @"JOB_STATE_PARTIALLY_SUCCEEDED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStatePaused = @"JOB_STATE_PAUSED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStatePending = @"JOB_STATE_PENDING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateQueued = @"JOB_STATE_QUEUED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateRunning = @"JOB_STATE_RUNNING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateSucceeded = @"JOB_STATE_SUCCEEDED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateUnspecified = @"JOB_STATE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateUpdating = @"JOB_STATE_UPDATING";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime.healthState
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_HealthState_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
@@ -428,6 +457,12 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeS
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_NotebookRuntimeTypeUnspecified = @"NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_OneClick = @"ONE_CLICK";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_UserDefined = @"USER_DEFINED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult.pairwiseChoice
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult_PairwiseChoice_Baseline = @"BASELINE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult_PairwiseChoice_Candidate = @"CANDIDATE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult_PairwiseChoice_PairwiseChoiceUnspecified = @"PAIRWISE_CHOICE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult_PairwiseChoice_Tie = @"TIE";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult.pairwiseChoice
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Baseline = @"BASELINE";
@@ -520,6 +555,12 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PublisherModel_VersionSt
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PublisherModel_VersionState_VersionStateUnspecified = @"VERSION_STATE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PublisherModel_VersionState_VersionStateUnstable = @"VERSION_STATE_UNSTABLE";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity.reservationAffinityType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_AnyReservation = @"ANY_RESERVATION";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_NoReservation = @"NO_RESERVATION";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_SpecificReservation = @"SPECIFIC_RESERVATION";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating.category
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryDangerousContent = @"HARM_CATEGORY_DANGEROUS_CONTENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryHarassment = @"HARM_CATEGORY_HARASSMENT";
@@ -569,6 +610,14 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schedule_State_Active = 
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schedule_State_Completed = @"COMPLETED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schedule_State_Paused = @"PAUSED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schedule_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1Scheduling.strategy
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_FlexStart = @"FLEX_START";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_LowCost = @"LOW_COST";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_OnDemand = @"ON_DEMAND";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_Spot = @"SPOT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_Standard = @"STANDARD";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1Schema.type
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema_Type_Array = @"ARRAY";
@@ -727,6 +776,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameter
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeFour = @"ADAPTER_SIZE_FOUR";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeOne = @"ADAPTER_SIZE_ONE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeSixteen = @"ADAPTER_SIZE_SIXTEEN";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeThirtyTwo = @"ADAPTER_SIZE_THIRTY_TWO";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeUnspecified = @"ADAPTER_SIZE_UNSPECIFIED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1Tensor.dtype
@@ -799,8 +849,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoResponse
-@dynamic generatedSamples, raiMediaFilteredCount, raiMediaFilteredReasons,
-         reportingMetrics;
+@dynamic generatedSamples, raiMediaFilteredCount, raiMediaFilteredReasons;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -819,8 +868,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionImage
-@dynamic encoding, image, imageRaiScores, raiInfo, semanticFilterResponse, text,
-         uri;
+@dynamic encoding, generationSeed, image, imageRaiScores, raiInfo,
+         semanticFilterResponse, text, uri;
 @end
 
 
@@ -1564,8 +1613,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
          explanationSpec, generateExplanation, inputConfig, instanceConfig,
          labels, manualBatchTuningParameters, model, modelParameters,
          modelVersionId, name, outputConfig, outputInfo, partialFailures,
-         resourcesConsumed, serviceAccount, startTime, state,
-         unmanagedContainerModel, updateTime;
+         resourcesConsumed, satisfiesPzi, satisfiesPzs, serviceAccount,
+         startTime, state, unmanagedContainerModel, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1807,6 +1856,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1BleuSpec
+@dynamic useEffectiveOrder;
 @end
 
 
@@ -1926,7 +1976,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Candidate
-@dynamic citationMetadata, content, finishMessage, finishReason,
+@dynamic avgLogprobs, citationMetadata, content, finishMessage, finishReason,
          groundingMetadata, index, safetyRatings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2063,10 +2113,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest
-@dynamic instances;
+@dynamic contents, instances, model;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class],
     @"instances" : [NSObject class]
   };
   return map;
@@ -2232,12 +2283,13 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest
-@dynamic contents, instances, model;
+@dynamic contents, instances, model, systemInstruction, tools;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"contents" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class],
-    @"instances" : [NSObject class]
+    @"instances" : [NSObject class],
+    @"tools" : [GTLRAiplatform_GoogleCloudAiplatformV1Tool class]
   };
   return map;
 }
@@ -2407,6 +2459,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobOperationMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobOperationMetadata
+@dynamic genericMetadata, progressMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookRuntimeTemplateOperationMetadata
 //
 
@@ -2512,7 +2574,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CustomJob
 @dynamic createTime, displayName, encryptionSpec, endTime, error, jobSpec,
-         labels, name, startTime, state, updateTime, webAccessUris;
+         labels, name, satisfiesPzi, satisfiesPzs, startTime, state, updateTime,
+         webAccessUris;
 @end
 
 
@@ -2573,7 +2636,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DataItem
-@dynamic createTime, ETag, labels, name, payload, updateTime;
+@dynamic createTime, ETag, labels, name, payload, satisfiesPzi, satisfiesPzs,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -2672,7 +2736,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Dataset
 @dynamic createTime, dataItemCount, descriptionProperty, displayName,
          encryptionSpec, ETag, labels, metadata, metadataArtifact,
-         metadataSchemaUri, modelReference, name, savedQueries, updateTime;
+         metadataSchemaUri, modelReference, name, satisfiesPzi, satisfiesPzs,
+         savedQueries, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2713,7 +2778,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion
 @dynamic bigQueryDatasetName, createTime, displayName, ETag, metadata,
-         modelReference, name, updateTime;
+         modelReference, name, satisfiesPzi, satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -2728,7 +2793,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DedicatedResources
-@dynamic autoscalingMetricSpecs, machineSpec, maxReplicaCount, minReplicaCount;
+@dynamic autoscalingMetricSpecs, machineSpec, maxReplicaCount, minReplicaCount,
+         spot;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2960,7 +3026,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool
 @dynamic createTime, dedicatedResources, disableContainerLogging,
-         encryptionSpec, name, serviceAccount;
+         encryptionSpec, name, satisfiesPzi, satisfiesPzs, serviceAccount;
 @end
 
 
@@ -3118,11 +3184,12 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Endpoint
-@dynamic createTime, deployedModels, descriptionProperty, displayName,
+@dynamic createTime, dedicatedEndpointDns, dedicatedEndpointEnabled,
+         deployedModels, descriptionProperty, displayName,
          enablePrivateServiceConnect, encryptionSpec, ETag, labels,
          modelDeploymentMonitoringJob, name, network,
          predictRequestResponseLoggingConfig, privateServiceConnectConfig,
-         trafficSplit, updateTime;
+         satisfiesPzi, satisfiesPzs, trafficSplit, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3187,7 +3254,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EntityType
 @dynamic createTime, descriptionProperty, ETag, labels, monitoringConfig, name,
-         offlineStorageTtlDays, updateTime;
+         offlineStorageTtlDays, satisfiesPzi, satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3291,14 +3358,15 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest
 @dynamic bleuInput, coherenceInput, exactMatchInput, fluencyInput,
-         fulfillmentInput, groundednessInput,
+         fulfillmentInput, groundednessInput, pairwiseMetricInput,
          pairwiseQuestionAnsweringQualityInput,
-         pairwiseSummarizationQualityInput, questionAnsweringCorrectnessInput,
-         questionAnsweringHelpfulnessInput, questionAnsweringQualityInput,
-         questionAnsweringRelevanceInput, rougeInput, safetyInput,
-         summarizationHelpfulnessInput, summarizationQualityInput,
-         summarizationVerbosityInput, toolCallValidInput, toolNameMatchInput,
-         toolParameterKeyMatchInput, toolParameterKvMatchInput;
+         pairwiseSummarizationQualityInput, pointwiseMetricInput,
+         questionAnsweringCorrectnessInput, questionAnsweringHelpfulnessInput,
+         questionAnsweringQualityInput, questionAnsweringRelevanceInput,
+         rougeInput, safetyInput, summarizationHelpfulnessInput,
+         summarizationQualityInput, summarizationVerbosityInput,
+         toolCallValidInput, toolNameMatchInput, toolParameterKeyMatchInput,
+         toolParameterKvMatchInput;
 @end
 
 
@@ -3309,15 +3377,15 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesResponse
 @dynamic bleuResults, coherenceResult, exactMatchResults, fluencyResult,
-         fulfillmentResult, groundednessResult,
+         fulfillmentResult, groundednessResult, pairwiseMetricResult,
          pairwiseQuestionAnsweringQualityResult,
-         pairwiseSummarizationQualityResult, questionAnsweringCorrectnessResult,
-         questionAnsweringHelpfulnessResult, questionAnsweringQualityResult,
-         questionAnsweringRelevanceResult, rougeResults, safetyResult,
-         summarizationHelpfulnessResult, summarizationQualityResult,
-         summarizationVerbosityResult, toolCallValidResults,
-         toolNameMatchResults, toolParameterKeyMatchResults,
-         toolParameterKvMatchResults;
+         pairwiseSummarizationQualityResult, pointwiseMetricResult,
+         questionAnsweringCorrectnessResult, questionAnsweringHelpfulnessResult,
+         questionAnsweringQualityResult, questionAnsweringRelevanceResult,
+         rougeResults, safetyResult, summarizationHelpfulnessResult,
+         summarizationQualityResult, summarizationVerbosityResult,
+         toolCallValidResults, toolNameMatchResults,
+         toolParameterKeyMatchResults, toolParameterKvMatchResults;
 @end
 
 
@@ -4033,7 +4101,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQuery
-@dynamic bigQuerySource, entityIdColumns;
+@dynamic bigQuerySource, dense, entityIdColumns, staticDataSource, timeSeries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4042,6 +4110,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQueryTimeSeries
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQueryTimeSeries
+@dynamic timestampColumn;
 @end
 
 
@@ -4090,7 +4168,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore
 @dynamic bigtable, createTime, dedicatedServingEndpoint, encryptionSpec, ETag,
-         labels, name, optimized, state, updateTime;
+         labels, name, optimized, satisfiesPzi, satisfiesPzs, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -4139,7 +4217,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreDedicatedServingEndpoint
-@dynamic publicEndpointDomainName;
+@dynamic privateServiceConnectConfig, publicEndpointDomainName,
+         serviceAttachment;
 @end
 
 
@@ -4180,7 +4259,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Featurestore
 @dynamic createTime, encryptionSpec, ETag, labels, name, onlineServingConfig,
-         onlineStorageTtlDays, state, updateTime;
+         onlineStorageTtlDays, satisfiesPzi, satisfiesPzs, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -4321,7 +4400,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureView
 @dynamic bigQuerySource, createTime, ETag, featureRegistrySource, indexConfig,
-         labels, name, syncConfig, updateTime;
+         labels, name, satisfiesPzi, satisfiesPzs, syncConfig, updateTime,
+         vertexRagSource;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -4470,7 +4550,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSync
-@dynamic createTime, finalStatus, name, runTime, syncSummary;
+@dynamic createTime, finalStatus, name, runTime, satisfiesPzi, satisfiesPzs,
+         syncSummary;
 @end
 
 
@@ -4490,7 +4571,17 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncSyncSummary
-@dynamic rowSynced, totalSlot;
+@dynamic rowSynced, systemWatermarkTime, totalSlot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewVertexRagSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewVertexRagSource
+@dynamic ragCorpusId, uri;
 @end
 
 
@@ -4803,7 +4894,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration
-@dynamic descriptionProperty, name, parameters;
+@dynamic descriptionProperty, name, parameters, response;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -4938,8 +5029,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig
 @dynamic candidateCount, frequencyPenalty, maxOutputTokens, presencePenalty,
-         responseMimeType, responseSchema, stopSequences, temperature, topK,
-         topP;
+         responseMimeType, responseSchema, routingConfig, seed, stopSequences,
+         temperature, topK, topP;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4948,6 +5039,36 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfig
+@dynamic autoMode, manualMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode
+@dynamic modelRoutingPreference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigManualRoutingMode
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigManualRoutingMode
+@dynamic modelName;
 @end
 
 
@@ -5030,15 +5151,66 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk
+@dynamic retrievedContext, web;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkRetrievedContext
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkRetrievedContext
+@dynamic title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkWeb
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkWeb
+@dynamic title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata
-@dynamic searchEntryPoint, webSearchQueries;
+@dynamic groundingChunks, groundingSupports, searchEntryPoint, webSearchQueries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"groundingChunks" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk class],
+    @"groundingSupports" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingSupport class],
     @"webSearchQueries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingSupport
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingSupport
+@dynamic confidenceScores, groundingChunkIndices, segment;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceScores" : [NSNumber class],
+    @"groundingChunkIndices" : [NSNumber class]
   };
   return map;
 }
@@ -5054,7 +5226,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob
 @dynamic createTime, displayName, encryptionSpec, endTime, error, labels,
          maxFailedTrialCount, maxTrialCount, name, parallelTrialCount,
-         startTime, state, studySpec, trialJobSpec, trials, updateTime;
+         satisfiesPzi, satisfiesPzs, startTime, state, studySpec, trialJobSpec,
+         trials, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5258,7 +5431,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Index
 @dynamic createTime, deployedIndexes, descriptionProperty, displayName,
          encryptionSpec, ETag, indexStats, indexUpdateMethod, labels, metadata,
-         metadataSchemaUri, name, updateTime;
+         metadataSchemaUri, name, satisfiesPzi, satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -5389,7 +5562,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 @dynamic createTime, deployedIndexes, descriptionProperty, displayName,
          enablePrivateServiceConnect, encryptionSpec, ETag, labels, name,
          network, privateServiceConnectConfig, publicEndpointDomainName,
-         publicEndpointEnabled, updateTime;
+         publicEndpointEnabled, satisfiesPzi, satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6205,6 +6378,28 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookExecutionJobsResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookExecutionJobsResponse
+@dynamic nextPageToken, notebookExecutionJobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notebookExecutionJobs" : [GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"notebookExecutionJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookRuntimesResponse
 //
 
@@ -6576,7 +6771,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec
-@dynamic acceleratorCount, acceleratorType, machineType, tpuTopology;
+@dynamic acceleratorCount, acceleratorType, machineType, reservationAffinity,
+         tpuTopology;
 @end
 
 
@@ -6847,10 +7043,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
          deployedModels, descriptionProperty, displayName, encryptionSpec, ETag,
          explanationSpec, labels, metadata, metadataArtifact, metadataSchemaUri,
          modelSourceInfo, name, originalModelInfo, pipelineJob, predictSchemata,
-         supportedDeploymentResourcesTypes, supportedExportFormats,
-         supportedInputStorageFormats, supportedOutputStorageFormats,
-         trainingPipeline, updateTime, versionAliases, versionCreateTime,
-         versionDescription, versionId, versionUpdateTime;
+         satisfiesPzi, satisfiesPzs, supportedDeploymentResourcesTypes,
+         supportedExportFormats, supportedInputStorageFormats,
+         supportedOutputStorageFormats, trainingPipeline, updateTime,
+         versionAliases, versionCreateTime, versionDescription, versionId,
+         versionUpdateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6958,8 +7155,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
          modelDeploymentMonitoringObjectiveConfigs,
          modelDeploymentMonitoringScheduleConfig, modelMonitoringAlertConfig,
          name, nextScheduleTime, predictInstanceSchemaUri,
-         samplePredictInstance, scheduleState, state,
-         statsAnomaliesBaseDirectory, updateTime;
+         samplePredictInstance, satisfiesPzi, satisfiesPzs, scheduleState,
+         state, statsAnomaliesBaseDirectory, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -7444,8 +7641,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NasJob
 @dynamic createTime, displayName, enableRestrictedImageTraining, encryptionSpec,
-         endTime, error, labels, name, nasJobOutput, nasJobSpec, startTime,
-         state, updateTime;
+         endTime, error, labels, name, nasJobOutput, nasJobSpec, satisfiesPzi,
+         satisfiesPzs, startTime, state, updateTime;
 @end
 
 
@@ -7574,11 +7771,12 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQuery
-@dynamic embedding, entityId, neighborCount, parameters,
+@dynamic embedding, entityId, neighborCount, numericFilters, parameters,
          perCrowdingAttributeNeighborCount, stringFilters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"numericFilters" : [GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter class],
     @"stringFilters" : [GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryStringFilter class]
   };
   return map;
@@ -7602,6 +7800,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter
+@dynamic name, op, valueDouble, valueFloat, valueInt;
 @end
 
 
@@ -7751,6 +7959,64 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob
+@dynamic createTime, dataformRepositorySource, directNotebookSource,
+         displayName, encryptionSpec, executionTimeout, executionUser,
+         gcsNotebookSource, gcsOutputUri, jobState, labels, name,
+         notebookRuntimeTemplateResourceName, scheduleResourceName,
+         serviceAccount, status, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_Labels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobDataformRepositorySource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobDataformRepositorySource
+@dynamic commitSha, dataformRepositoryResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobDirectNotebookSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobDirectNotebookSource
+@dynamic content;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobGcsNotebookSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobGcsNotebookSource
+@dynamic generation, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1NotebookIdleShutdownConfig
 //
 
@@ -7849,6 +8115,46 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplateRef
 @dynamic notebookRuntimeTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInstance
+@dynamic jsonInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult
+@dynamic explanation, pairwiseChoice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricSpec
+@dynamic metricPromptTemplate;
 @end
 
 
@@ -7979,7 +8285,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource
 @dynamic createTime, displayName, encryptionSpec, error, labels, name, network,
          reservedIpRanges, resourcePools, resourceRuntime, resourceRuntimeSpec,
-         startTime, state, updateTime;
+         satisfiesPzi, satisfiesPzs, startTime, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8270,6 +8576,46 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricInstance
+@dynamic jsonInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricResult
+@dynamic explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricSpec
+@dynamic metricPromptTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Port
 //
 
@@ -8371,7 +8717,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig
-@dynamic enablePrivateServiceConnect, projectAllowlist;
+@dynamic enablePrivateServiceConnect, projectAllowlist, serviceAttachment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8446,10 +8792,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToAction
-@dynamic createApplication, deploy, deployGke, openEvaluationPipeline,
-         openFineTuningPipeline, openFineTuningPipelines,
-         openGenerationAiStudio, openGenie, openNotebook, openNotebooks,
-         openPromptTuningPipeline, requestAccess, viewRestApi;
+@dynamic createApplication, deploy, deployGke, multiDeployVertex,
+         openEvaluationPipeline, openFineTuningPipeline,
+         openFineTuningPipelines, openGenerationAiStudio, openGenie,
+         openNotebook, openNotebooks, openPromptTuningPipeline, requestAccess,
+         viewRestApi;
 @end
 
 
@@ -8460,8 +8807,32 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy
 @dynamic artifactUri, automaticResources, containerSpec, dedicatedResources,
-         deployTaskName, largeModelReference, modelDisplayName,
+         deployMetadata, deployTaskName, largeModelReference, modelDisplayName,
          publicArtifactUri, sharedResources, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata
+@dynamic labels, sampleRequest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata_Labels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -8476,6 +8847,24 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"gkeYamlConfigs" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployVertex
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployVertex
+@dynamic multiDeployVertex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"multiDeployVertex" : [GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy class]
   };
   return map;
 }
@@ -8912,6 +9301,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1RayLogsSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RayLogsSpec
+@dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1RayMetricSpec
 //
 
@@ -8926,7 +9325,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1RaySpec
-@dynamic headNodeResourcePoolId, imageUri, rayMetricSpec, resourcePoolImages;
+@dynamic headNodeResourcePoolId, imageUri, rayLogsSpec, rayMetricSpec,
+         resourcePoolImages;
 @end
 
 
@@ -9226,6 +9626,24 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity
+@dynamic key, reservationAffinityType, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1ResourcePool
 //
 
@@ -9329,7 +9747,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Retrieval
-@dynamic disableAttribution, vertexAiSearch;
+@dynamic disableAttribution, vertexAiSearch, vertexRagStore;
 @end
 
 
@@ -9556,7 +9974,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Scheduling
-@dynamic disableRetries, restartJobOnWorkerRestart, timeout;
+@dynamic disableRetries, maxWaitDuration, restartJobOnWorkerRestart, strategy,
+         timeout;
 @end
 
 
@@ -11818,6 +12237,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1Segment
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Segment
+@dynamic endIndex, partIndex, startIndex, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1ServiceAccountSpec
 //
 
@@ -12441,7 +12870,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistribution
-@dynamic buckets, max, mean, median, min, p5, p95, sum;
+@dynamic billableSum, buckets, max, mean, median, min, p5, p95, sum;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -12469,13 +12898,15 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDataStats
-@dynamic totalBillableCharacterCount, totalTuningCharacterCount,
-         tuningDatasetExampleCount, tuningStepCount, userDatasetExamples,
-         userInputTokenDistribution, userMessagePerExampleDistribution,
-         userOutputTokenDistribution;
+@dynamic totalBillableCharacterCount, totalBillableTokenCount,
+         totalTruncatedExampleCount, totalTuningCharacterCount,
+         truncatedExampleIndices, tuningDatasetExampleCount, tuningStepCount,
+         userDatasetExamples, userInputTokenDistribution,
+         userMessagePerExampleDistribution, userOutputTokenDistribution;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"truncatedExampleIndices" : [NSNumber class],
     @"userDatasetExamples" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class]
   };
   return map;
@@ -12563,7 +12994,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Tensorboard
 @dynamic blobStoragePathPrefix, createTime, descriptionProperty, displayName,
-         encryptionSpec, ETag, isDefault, labels, name, runCount, updateTime;
+         encryptionSpec, ETag, isDefault, labels, name, runCount, satisfiesPzi,
+         satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -12795,7 +13227,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1TokensInfo
-@dynamic tokenIds, tokens;
+@dynamic role, tokenIds, tokens;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -13586,6 +14018,43 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStore
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStore
+@dynamic ragCorpora, ragResources, similarityTopK, vectorDistanceThreshold;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragCorpora" : [NSString class],
+    @"ragResources" : [GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource
+@dynamic ragCorpus, ragFileIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragFileIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1VideoMetadata
 //
 
@@ -14009,52 +14478,6 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobState
 
 @implementation GTLRAiplatform_GoogleTypeMoney
 @dynamic currencyCode, nanos, units;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry
-//
-
-@implementation GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry
-@dynamic argentumMetricId, doubleValue, int64Value, metricName, systemLabels;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"systemLabels" : [GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel
-//
-
-@implementation GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel
-@dynamic labelName, labelValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics
-//
-
-@implementation GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics
-@dynamic effectiveTrainingDuration, metricEntries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"metricEntries" : [GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry class]
-  };
-  return map;
-}
-
 @end
 
 #pragma clang diagnostic pop

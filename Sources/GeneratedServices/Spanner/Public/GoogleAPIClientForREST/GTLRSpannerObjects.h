@@ -20,12 +20,16 @@
 @class GTLRSpanner_AutoscalingTargets;
 @class GTLRSpanner_Backup;
 @class GTLRSpanner_BackupInfo;
+@class GTLRSpanner_BackupSchedule;
+@class GTLRSpanner_BackupScheduleSpec;
 @class GTLRSpanner_Binding;
 @class GTLRSpanner_ChangeQuorumRequest;
 @class GTLRSpanner_ChildLink;
 @class GTLRSpanner_CommitStats;
 @class GTLRSpanner_ContextValue;
 @class GTLRSpanner_CopyBackupEncryptionConfig;
+@class GTLRSpanner_CreateBackupEncryptionConfig;
+@class GTLRSpanner_CrontabSpec;
 @class GTLRSpanner_Database;
 @class GTLRSpanner_DatabaseRole;
 @class GTLRSpanner_DdlStatementActionInfo;
@@ -42,8 +46,10 @@
 @class GTLRSpanner_Expr;
 @class GTLRSpanner_Field;
 @class GTLRSpanner_FreeInstanceMetadata;
+@class GTLRSpanner_FullBackupSpec;
 @class GTLRSpanner_GetPolicyOptions;
 @class GTLRSpanner_IncludeReplicas;
+@class GTLRSpanner_IncrementalBackupSpec;
 @class GTLRSpanner_IndexAdvice;
 @class GTLRSpanner_IndexedHotKey;
 @class GTLRSpanner_IndexedHotKey_SparseHotKeys;
@@ -243,6 +249,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_Encry
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_CreateBackupEncryptionConfig.encryptionType
+
+/**
+ *  Use customer managed encryption. If specified, `kms_key_name` must contain a
+ *  valid Cloud KMS key.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateBackupEncryptionConfig_EncryptionType_CustomerManagedEncryption;
+/**
+ *  Unspecified. Do not use.
+ *
+ *  Value: "ENCRYPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateBackupEncryptionConfig_EncryptionType_EncryptionTypeUnspecified;
+/**
+ *  Use Google default encryption.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateBackupEncryptionConfig_EncryptionType_GoogleDefaultEncryption;
+/**
+ *  Use the same encryption configuration as the database. This is the default
+ *  option when encryption_config is empty. For example, if the database is
+ *  using `Customer_Managed_Encryption`, the backup will be using the same Cloud
+ *  KMS key as the database.
+ *
+ *  Value: "USE_DATABASE_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateBackupEncryptionConfig_EncryptionType_UseDatabaseEncryption;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_CreateDatabaseRequest.databaseDialect
 
 /**
@@ -423,7 +461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Norm
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan;
 /**
  *  This mode returns both the query plan and the execution statistics along
- *  with the results.
+ *  with the results. This has a performance overhead compared to the NORMAL
+ *  mode. It is not recommended to use this mode for production traffic.
  *
  *  Value: "PROFILE"
  */
@@ -452,6 +491,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehav
  *  Value: "REMOVE_AFTER_GRACE_PERIOD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_RemoveAfterGracePeriod;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_Instance.edition
+
+/**
+ *  Edition not specified.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_Edition_EditionUnspecified;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_Edition_Enterprise;
+/**
+ *  Enterprise Plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_Edition_EnterprisePlus;
+/**
+ *  Standard edition.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_Edition_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Instance.instanceType
@@ -506,7 +573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_StateUnspecified;
 // GTLRSpanner_InstanceConfig.configType
 
 /**
- *  Google managed configuration.
+ *  Google-managed configuration.
  *
  *  Value: "GOOGLE_MANAGED"
  */
@@ -518,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_ConfigType_Google
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_ConfigType_TypeUnspecified;
 /**
- *  User managed configuration.
+ *  User-managed configuration.
  *
  *  Value: "USER_MANAGED"
  */
@@ -529,14 +596,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_ConfigType_UserMa
 
 /**
  *  Indicates that free instances are available to be created in this instance
- *  config.
+ *  configuration.
  *
  *  Value: "AVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Available;
 /**
  *  Indicates that free instances are currently not available to be created in
- *  this instance config.
+ *  this instance configuration.
  *
  *  Value: "DISABLED"
  */
@@ -549,13 +616,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvail
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_FreeInstanceAvailabilityUnspecified;
 /**
  *  Indicates that additional free instances cannot be created in this instance
- *  config because the project has reached its limit of free instances.
+ *  configuration because the project has reached its limit of free instances.
  *
  *  Value: "QUOTA_EXCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_QuotaExceeded;
 /**
- *  Indicates that free instances are not supported in this instance config.
+ *  Indicates that free instances are not supported in this instance
+ *  configuration.
  *
  *  Value: "UNSUPPORTED"
  */
@@ -565,30 +633,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvail
 // GTLRSpanner_InstanceConfig.quorumType
 
 /**
- *  An instance configuration tagged with DUAL_REGION quorum type forms a write
- *  quorums with exactly two read-write regions in a multi-region configuration.
- *  This instance configurations requires reconfiguration in the event of
+ *  An instance configuration tagged with the `DUAL_REGION` quorum type forms a
+ *  write quorum with exactly two read-write regions in a multi-region
+ *  configuration. This instance configuration requires failover in the event of
  *  regional failures.
  *
  *  Value: "DUAL_REGION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_QuorumType_DualRegion;
 /**
- *  An instance configuration tagged with MULTI_REGION quorum type forms a write
- *  quorums from replicas are spread across more than one region in a
+ *  An instance configuration tagged with the `MULTI_REGION` quorum type forms a
+ *  write quorum from replicas that are spread across more than one region in a
  *  multi-region configuration.
  *
  *  Value: "MULTI_REGION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_QuorumType_MultiRegion;
 /**
- *  Not specified.
+ *  Quorum type not specified.
  *
  *  Value: "QUORUM_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_QuorumType_QuorumTypeUnspecified;
 /**
- *  An instance configuration tagged with REGION quorum type forms a write
+ *  An instance configuration tagged with `REGION` quorum type forms a write
  *  quorum in a single region.
  *
  *  Value: "REGION"
@@ -599,13 +667,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_QuorumType_Region
 // GTLRSpanner_InstanceConfig.state
 
 /**
- *  The instance config is still being created.
+ *  The instance configuration is still being created.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_State_Creating;
 /**
- *  The instance config is fully created and ready to be used to create
+ *  The instance configuration is fully created and ready to be used to create
  *  instances.
  *
  *  Value: "READY"
@@ -696,7 +764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Scalar;
 // GTLRSpanner_QuorumInfo.initiator
 
 /**
- *  ChangeQuorum initiated by Google.
+ *  `ChangeQuorum` initiated by Google.
  *
  *  Value: "GOOGLE"
  */
@@ -708,7 +776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_QuorumInfo_Initiator_Google;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_QuorumInfo_Initiator_InitiatorUnspecified;
 /**
- *  ChangeQuorum initiated by User.
+ *  `ChangeQuorum` initiated by User.
  *
  *  Value: "USER"
  */
@@ -1144,7 +1212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Key;
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified;
 
 /**
- *  Autoscaling config for an instance.
+ *  Autoscaling configuration for an instance.
  */
 @interface GTLRSpanner_AutoscalingConfig : GTLRObject
 
@@ -1236,6 +1304,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_Backup : GTLRObject
 
 /**
+ *  Output only. List of backup schedule URIs that are associated with creating
+ *  this backup. This is only applicable for scheduled backups, and is empty for
+ *  on-demand backups. To optimize for storage, whenever possible, multiple
+ *  schedules are collapsed together to create one backup. In such cases, this
+ *  field captures the list of all backup schedule URIs that are associated with
+ *  creating this backup. If collapsing is not done, then this field captures
+ *  the single backup schedule URI associated with creating this backup.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *backupSchedules;
+
+/**
  *  Output only. The time the CreateBackup request is received. If the request
  *  does not specify `version_time`, the `version_time` of the backup will be
  *  equivalent to the `create_time`.
@@ -1277,6 +1356,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_EncryptionInfo *> *encryptionInformation;
 
 /**
+ *  Output only. For a backup in an incremental backup chain, this is the
+ *  storage space needed to keep the data that has changed since the previous
+ *  backup. For all other backups, this is always the size of the backup. This
+ *  value may change if backups on the same chain get deleted or expired. This
+ *  field can be used to calculate the total storage space used by a set of
+ *  backups. For example, the total space used by all backups of a database can
+ *  be computed by summing up this field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exclusiveSizeBytes;
+
+/**
  *  Required for the CreateBackup operation. The expiration time of the backup,
  *  with microseconds granularity that must be at least 6 hours and at most 366
  *  days from the time the CreateBackup request is processed. Once the
@@ -1284,6 +1376,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  by Cloud Spanner to free the resources used by the backup.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. The number of bytes that will be freed by deleting this backup.
+ *  This value will be zero if, for example, this backup is part of an
+ *  incremental backup chain and younger backups in the chain require that we
+ *  keep its data. For backups not in an incremental backup chain, this is
+ *  always the size of the backup. This value may change if backups on the same
+ *  chain get created, deleted or expired.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeableSizeBytes;
+
+/**
+ *  Output only. Populated only for backups in an incremental backup chain.
+ *  Backups share the same chain id if and only if they belong to the same
+ *  incremental backup chain. Use this field to determine which backups are part
+ *  of the same incremental backup chain. The ordering of backups in the chain
+ *  can be determined by ordering the backup `version_time`.
+ */
+@property(nonatomic, copy, nullable) NSString *incrementalBackupChainId;
 
 /**
  *  Output only. The max allowed expiration time of the backup, with
@@ -1304,6 +1417,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  prefix of the backup name of the form `projects//instances/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Data deleted at a time older than this is guaranteed not to be
+ *  retained in order to support this backup. For a backup in an incremental
+ *  backup chain, this is the version time of the oldest backup that exists or
+ *  ever existed in the chain. For all other backups, this is the version time
+ *  of the backup. This field can be used to understand what data is being
+ *  retained by the backup system.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *oldestVersionTime;
 
 /**
  *  Output only. The names of the destination backups being created by copying
@@ -1327,7 +1450,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<NSString *> *referencingDatabases;
 
 /**
- *  Output only. Size of the backup in bytes.
+ *  Output only. Size of the backup in bytes. For a backup in an incremental
+ *  backup chain, this is the sum of the `exclusive_size_bytes` of itself and
+ *  all older backups in the chain.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1378,6 +1503,68 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  to the `create_time`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *versionTime;
+
+@end
+
+
+/**
+ *  BackupSchedule expresses the automated backup creation specification for a
+ *  Spanner database. Next ID: 10
+ */
+@interface GTLRSpanner_BackupSchedule : GTLRObject
+
+/**
+ *  Optional. The encryption configuration that will be used to encrypt the
+ *  backup. If this field is not specified, the backup will use the same
+ *  encryption configuration as the database.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_CreateBackupEncryptionConfig *encryptionConfig;
+
+/** The schedule creates only full backups. */
+@property(nonatomic, strong, nullable) GTLRSpanner_FullBackupSpec *fullBackupSpec;
+
+/** The schedule creates incremental backup chains. */
+@property(nonatomic, strong, nullable) GTLRSpanner_IncrementalBackupSpec *incrementalBackupSpec;
+
+/**
+ *  Identifier. Output only for the CreateBackupSchedule operation. Required for
+ *  the UpdateBackupSchedule operation. A globally unique identifier for the
+ *  backup schedule which cannot be changed. Values are of the form
+ *  `projects//instances//databases//backupSchedules/a-z*[a-z0-9]` The final
+ *  segment of the name must be between 2 and 60 characters in length.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The retention duration of a backup that must be at least 6 hours
+ *  and at most 366 days. The backup is eligible to be automatically deleted
+ *  once the retention period has elapsed.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *retentionDuration;
+
+/**
+ *  Optional. The schedule specification based on which the backup creations are
+ *  triggered.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_BackupScheduleSpec *spec;
+
+/**
+ *  Output only. The timestamp at which the schedule was last updated. If the
+ *  schedule has never been updated, this field contains the timestamp when the
+ *  schedule was first created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Defines specifications of the backup schedule.
+ */
+@interface GTLRSpanner_BackupScheduleSpec : GTLRObject
+
+/** Cron style schedule specification. */
+@property(nonatomic, strong, nullable) GTLRSpanner_CrontabSpec *cronSpec;
 
 @end
 
@@ -1601,21 +1788,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_ChangeQuorumRequest : GTLRObject
 
 /**
- *  Optional. The etag is the hash of the QuorumInfo. The ChangeQuorum operation
- *  will only be performed if the etag matches that of the QuorumInfo in the
- *  current database resource. Otherwise the API will return an `ABORTED` error.
+ *  Optional. The etag is the hash of the `QuorumInfo`. The `ChangeQuorum`
+ *  operation is only performed if the etag matches that of the `QuorumInfo` in
+ *  the current database resource. Otherwise the API returns an `ABORTED` error.
  *  The etag is used for optimistic concurrency control as a way to help prevent
  *  simultaneous change quorum requests that could create a race condition.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. Name of the database in which to apply the ChangeQuorum. Values
- *  are of the form `projects//instances//databases/`.
+ *  Required. Name of the database in which to apply `ChangeQuorum`. Values are
+ *  of the form `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Required. The type of this Quorum. */
+/** Required. The type of this quorum. */
 @property(nonatomic, strong, nullable) GTLRSpanner_QuorumType *quorumType;
 
 @end
@@ -1913,6 +2100,58 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  Encryption configuration for the backup to create.
+ */
+@interface GTLRSpanner_CreateBackupEncryptionConfig : GTLRObject
+
+/**
+ *  Required. The encryption type of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_CreateBackupEncryptionConfig_EncryptionType_CustomerManagedEncryption
+ *        Use customer managed encryption. If specified, `kms_key_name` must
+ *        contain a valid Cloud KMS key. (Value: "CUSTOMER_MANAGED_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_CreateBackupEncryptionConfig_EncryptionType_EncryptionTypeUnspecified
+ *        Unspecified. Do not use. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_CreateBackupEncryptionConfig_EncryptionType_GoogleDefaultEncryption
+ *        Use Google default encryption. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_CreateBackupEncryptionConfig_EncryptionType_UseDatabaseEncryption
+ *        Use the same encryption configuration as the database. This is the
+ *        default option when encryption_config is empty. For example, if the
+ *        database is using `Customer_Managed_Encryption`, the backup will be
+ *        using the same Cloud KMS key as the database. (Value:
+ *        "USE_DATABASE_ENCRYPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionType;
+
+/**
+ *  Optional. The Cloud KMS key that will be used to protect the backup. This
+ *  field should be set only when encryption_type is
+ *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Optional. Specifies the KMS configuration for the one or more keys used to
+ *  protect the backup. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`. The keys referenced by
+ *  kms_key_names must fully cover all regions of the backup's instance
+ *  configuration. Some examples: * For single region instance configs, specify
+ *  a single regional location KMS key. * For multi-regional instance configs of
+ *  type GOOGLE_MANAGED, either specify a multi-regional location KMS key or
+ *  multiple regional location KMS keys that cover all regions in the instance
+ *  config. * For an instance config of type USER_MANAGED, please specify only
+ *  regional location KMS keys to cover each region in the instance config.
+ *  Multi-regional location KMS keys are not supported for USER_MANAGED instance
+ *  configs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeyNames;
+
+@end
+
+
+/**
  *  Metadata type for the operation returned by CreateBackup.
  */
 @interface GTLRSpanner_CreateBackupMetadata : GTLRObject
@@ -1997,12 +2236,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraStatements;
 
 /**
- *  Optional. Proto descriptors used by CREATE/ALTER PROTO BUNDLE statements in
- *  'extra_statements' above. Contains a protobuf-serialized
- *  [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto).
- *  To generate it, [install](https://grpc.io/docs/protoc-installation/) and run
- *  `protoc` with --include_imports and --descriptor_set_out. For example, to
- *  generate for moon/shot/app.proto, run ``` $protoc --proto_path=/app_path
+ *  Optional. Proto descriptors used by `CREATE/ALTER PROTO BUNDLE` statements
+ *  in 'extra_statements'. Contains a protobuf-serialized
+ *  [`google.protobuf.FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto)
+ *  descriptor set. To generate it,
+ *  [install](https://grpc.io/docs/protoc-installation/) and run `protoc` with
+ *  --include_imports and --descriptor_set_out. For example, to generate for
+ *  moon/shot/app.proto, run ``` $protoc --proto_path=/app_path
  *  --proto_path=/lib_path \\ --include_imports \\
  *  --descriptor_set_out=descriptors.data \\ moon/shot/app.proto ``` For more
  *  details, see protobuffer [self
@@ -2024,7 +2264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /** The time at which this operation was cancelled. */
 @property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
 
-/** The target instance config end state. */
+/** The target instance configuration end state. */
 @property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig *instanceConfig;
 
 /** The progress of the CreateInstanceConfig operation. */
@@ -2039,18 +2279,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_CreateInstanceConfigRequest : GTLRObject
 
 /**
- *  Required. The InstanceConfig proto of the configuration to create.
- *  instance_config.name must be `/instanceConfigs/`.
- *  instance_config.base_config must be a Google managed configuration name,
+ *  Required. The `InstanceConfig` proto of the configuration to create.
+ *  `instance_config.name` must be `/instanceConfigs/`.
+ *  `instance_config.base_config` must be a Google-managed configuration name,
  *  e.g. /instanceConfigs/us-east1, /instanceConfigs/nam3.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig *instanceConfig;
 
 /**
- *  Required. The ID of the instance config to create. Valid identifiers are of
- *  the form `custom-[-a-z0-9]*[a-z0-9]` and must be between 2 and 64 characters
- *  in length. The `custom-` prefix is required to avoid name conflicts with
- *  Google managed configurations.
+ *  Required. The ID of the instance configuration to create. Valid identifiers
+ *  are of the form `custom-[-a-z0-9]*[a-z0-9]` and must be between 2 and 64
+ *  characters in length. The `custom-` prefix is required to avoid name
+ *  conflicts with Google-managed configurations.
  */
 @property(nonatomic, copy, nullable) NSString *instanceConfigId;
 
@@ -2181,6 +2421,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  CrontabSpec can be used to specify the version time and frequency at which
+ *  the backup should be created.
+ */
+@interface GTLRSpanner_CrontabSpec : GTLRObject
+
+/**
+ *  Output only. Schedule backups will contain an externally consistent copy of
+ *  the database at the version time specified in `schedule_spec.cron_spec`.
+ *  However, Spanner may not initiate the creation of the scheduled backups at
+ *  that version time. Spanner will initiate the creation of scheduled backups
+ *  within the time window bounded by the version_time specified in
+ *  `schedule_spec.cron_spec` and version_time + `creation_window`.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *creationWindow;
+
+/**
+ *  Required. Textual representation of the crontab. User can customize the
+ *  backup frequency and the backup version time using the cron expression. The
+ *  version time must be in UTC timzeone. The backup will contain an externally
+ *  consistent copy of the database at the version time. Allowed frequencies are
+ *  12 hour, 1 day, 1 week and 1 month. Examples of valid cron specifications: *
+ *  `0 2/12 * * * ` : every 12 hours at (2, 14) hours past midnight in UTC. * `0
+ *  2,14 * * * ` : every 12 hours at (2,14) hours past midnight in UTC. * `0 2 *
+ *  * * ` : once a day at 2 past midnight in UTC. * `0 2 * * 0 ` : once a week
+ *  every Sunday at 2 past midnight in UTC. * `0 2 8 * * ` : once a month on 8th
+ *  day at 2 past midnight in UTC.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Output only. The time zone of the times in `CrontabSpec.text`. Currently
+ *  only UTC is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
  *  A Cloud Spanner database.
  */
 @interface GTLRSpanner_Database : GTLRObject
@@ -2222,8 +2501,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRDateTime *earliestVersionTime;
 
 /**
- *  Whether drop protection is enabled for this database. Defaults to false, if
- *  not set. For more details, please see how to [prevent accidental database
+ *  Optional. Whether drop protection is enabled for this database. Defaults to
+ *  false, if not set. For more details, please see how to [prevent accidental
+ *  database
  *  deletion](https://cloud.google.com/spanner/docs/prevent-database-deletion).
  *
  *  Uses NSNumber of boolValue.
@@ -2258,7 +2538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Applicable only for databases that use dual region instance
+ *  Output only. Applicable only for databases that use dual-region instance
  *  configurations. Contains information about the quorum.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_QuorumInfo *quorumInfo;
@@ -2703,7 +2983,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        information. (Value: "PLAN")
  *    @arg @c kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile This mode returns
  *        both the query plan and the execution statistics along with the
- *        results. (Value: "PROFILE")
+ *        results. This has a performance overhead compared to the NORMAL mode.
+ *        It is not recommended to use this mode for production traffic. (Value:
+ *        "PROFILE")
  */
 @property(nonatomic, copy, nullable) NSString *queryMode;
 
@@ -2903,6 +3185,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  The specification for full backups. A full backup stores the entire contents
+ *  of the database at a given version time.
+ */
+@interface GTLRSpanner_FullBackupSpec : GTLRObject
+@end
+
+
+/**
  *  The response for GetDatabaseDdl.
  */
 @interface GTLRSpanner_GetDatabaseDdlResponse : GTLRObject
@@ -2983,6 +3273,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /** The directed read replica selector. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaSelection *> *replicaSelections;
 
+@end
+
+
+/**
+ *  The specification for incremental backup chains. An incremental backup
+ *  stores the delta of changes between a previous backup and the database
+ *  contents at a given version time. An incremental backup chain consists of a
+ *  full backup and zero or more successive incremental backups. The first
+ *  backup created for an incremental backup chain is always a full backup.
+ */
+@interface GTLRSpanner_IncrementalBackupSpec : GTLRObject
 @end
 
 
@@ -3097,6 +3398,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/**
+ *  Optional. The `Edition` of the current instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_Instance_Edition_EditionUnspecified Edition not
+ *        specified. (Value: "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_Instance_Edition_Enterprise Enterprise edition.
+ *        (Value: "ENTERPRISE")
+ *    @arg @c kGTLRSpanner_Instance_Edition_EnterprisePlus Enterprise Plus
+ *        edition. (Value: "ENTERPRISE_PLUS")
+ *    @arg @c kGTLRSpanner_Instance_Edition_Standard Standard edition. (Value:
+ *        "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
+
 /** Deprecated. This field is not populated. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *endpointUris;
 
@@ -3148,30 +3464,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The number of nodes allocated to this instance. At most one of either
- *  node_count or processing_units should be present in the message. Users can
- *  set the node_count field to specify the target number of nodes allocated to
- *  the instance. If autoscaling is enabled, node_count is treated as an
- *  OUTPUT_ONLY field and reflects the current number of nodes allocated to the
- *  instance. This may be zero in API responses for instances that are not yet
- *  in state `READY`. See [the
- *  documentation](https://cloud.google.com/spanner/docs/compute-capacity) for
- *  more information about nodes and processing units.
+ *  The number of nodes allocated to this instance. At most, one of either
+ *  `node_count` or `processing_units` should be present in the message. Users
+ *  can set the `node_count` field to specify the target number of nodes
+ *  allocated to the instance. If autoscaling is enabled, `node_count` is
+ *  treated as an `OUTPUT_ONLY` field and reflects the current number of nodes
+ *  allocated to the instance. This might be zero in API responses for instances
+ *  that are not yet in the `READY` state. For more information, see [Compute
+ *  capacity, nodes, and processing
+ *  units](https://cloud.google.com/spanner/docs/compute-capacity).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
 
 /**
- *  The number of processing units allocated to this instance. At most one of
- *  processing_units or node_count should be present in the message. Users can
- *  set the processing_units field to specify the target number of processing
- *  units allocated to the instance. If autoscaling is enabled, processing_units
- *  is treated as an OUTPUT_ONLY field and reflects the current number of
- *  processing units allocated to the instance. This may be zero in API
- *  responses for instances that are not yet in state `READY`. See [the
- *  documentation](https://cloud.google.com/spanner/docs/compute-capacity) for
- *  more information about nodes and processing units.
+ *  The number of processing units allocated to this instance. At most, one of
+ *  either `processing_units` or `node_count` should be present in the message.
+ *  Users can set the `processing_units` field to specify the target number of
+ *  processing units allocated to the instance. If autoscaling is enabled,
+ *  `processing_units` is treated as an `OUTPUT_ONLY` field and reflects the
+ *  current number of processing units allocated to the instance. This might be
+ *  zero in API responses for instances that are not yet in the `READY` state.
+ *  For more information, see [Compute capacity, nodes and processing
+ *  units](https://cloud.google.com/spanner/docs/compute-capacity).
  *
  *  Uses NSNumber of intValue.
  */
@@ -3234,22 +3550,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Base configuration name, e.g. projects//instanceConfigs/nam3, based on which
- *  this configuration is created. Only set for user managed configurations.
- *  `base_config` must refer to a configuration of type GOOGLE_MANAGED in the
+ *  this configuration is created. Only set for user-managed configurations.
+ *  `base_config` must refer to a configuration of type `GOOGLE_MANAGED` in the
  *  same project as this configuration.
  */
 @property(nonatomic, copy, nullable) NSString *baseConfig;
 
 /**
- *  Output only. Whether this instance config is a Google or User Managed
- *  Configuration.
+ *  Output only. Whether this instance configuration is a Google-managed or
+ *  user-managed configuration.
  *
  *  Likely values:
- *    @arg @c kGTLRSpanner_InstanceConfig_ConfigType_GoogleManaged Google
- *        managed configuration. (Value: "GOOGLE_MANAGED")
+ *    @arg @c kGTLRSpanner_InstanceConfig_ConfigType_GoogleManaged
+ *        Google-managed configuration. (Value: "GOOGLE_MANAGED")
  *    @arg @c kGTLRSpanner_InstanceConfig_ConfigType_TypeUnspecified
  *        Unspecified. (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRSpanner_InstanceConfig_ConfigType_UserManaged User managed
+ *    @arg @c kGTLRSpanner_InstanceConfig_ConfigType_UserManaged User-managed
  *        configuration. (Value: "USER_MANAGED")
  */
 @property(nonatomic, copy, nullable) NSString *configType;
@@ -3259,37 +3575,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  etag is used for optimistic concurrency control as a way to help prevent
- *  simultaneous updates of a instance config from overwriting each other. It is
- *  strongly suggested that systems make use of the etag in the
- *  read-modify-write cycle to perform instance config updates in order to avoid
- *  race conditions: An etag is returned in the response which contains instance
- *  configs, and systems are expected to put that etag in the request to update
- *  instance config to ensure that their change will be applied to the same
- *  version of the instance config. If no etag is provided in the call to update
- *  instance config, then the existing instance config is overwritten blindly.
+ *  simultaneous updates of a instance configuration from overwriting each
+ *  other. It is strongly suggested that systems make use of the etag in the
+ *  read-modify-write cycle to perform instance configuration updates in order
+ *  to avoid race conditions: An etag is returned in the response which contains
+ *  instance configurations, and systems are expected to put that etag in the
+ *  request to update instance configuration to ensure that their change is
+ *  applied to the same version of the instance configuration. If no etag is
+ *  provided in the call to update the instance configuration, then the existing
+ *  instance configuration is overwritten blindly.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. Describes whether free instances are available to be created in
- *  this instance config.
+ *  this instance configuration.
  *
  *  Likely values:
  *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Available
  *        Indicates that free instances are available to be created in this
- *        instance config. (Value: "AVAILABLE")
+ *        instance configuration. (Value: "AVAILABLE")
  *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Disabled
  *        Indicates that free instances are currently not available to be
- *        created in this instance config. (Value: "DISABLED")
+ *        created in this instance configuration. (Value: "DISABLED")
  *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_FreeInstanceAvailabilityUnspecified
  *        Not specified. (Value: "FREE_INSTANCE_AVAILABILITY_UNSPECIFIED")
  *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_QuotaExceeded
  *        Indicates that additional free instances cannot be created in this
- *        instance config because the project has reached its limit of free
- *        instances. (Value: "QUOTA_EXCEEDED")
+ *        instance configuration because the project has reached its limit of
+ *        free instances. (Value: "QUOTA_EXCEEDED")
  *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Unsupported
  *        Indicates that free instances are not supported in this instance
- *        config. (Value: "UNSUPPORTED")
+ *        configuration. (Value: "UNSUPPORTED")
  */
 @property(nonatomic, copy, nullable) NSString *freeInstanceAvailability;
 
@@ -3321,14 +3638,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  A unique identifier for the instance configuration. Values are of the form
- *  `projects//instanceConfigs/a-z*`. User instance config must start with
- *  `custom-`.
+ *  `projects//instanceConfigs/a-z*`. User instance configuration must start
+ *  with `custom-`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The available optional replicas to choose from for user managed
- *  configurations. Populated for Google managed configurations.
+ *  Output only. The available optional replicas to choose from for user-managed
+ *  configurations. Populated for Google-managed configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaInfo *> *optionalReplicas;
 
@@ -3337,25 +3654,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *
  *  Likely values:
  *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_DualRegion An instance
- *        configuration tagged with DUAL_REGION quorum type forms a write
- *        quorums with exactly two read-write regions in a multi-region
- *        configuration. This instance configurations requires reconfiguration
- *        in the event of regional failures. (Value: "DUAL_REGION")
+ *        configuration tagged with the `DUAL_REGION` quorum type forms a write
+ *        quorum with exactly two read-write regions in a multi-region
+ *        configuration. This instance configuration requires failover in the
+ *        event of regional failures. (Value: "DUAL_REGION")
  *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_MultiRegion An instance
- *        configuration tagged with MULTI_REGION quorum type forms a write
- *        quorums from replicas are spread across more than one region in a
+ *        configuration tagged with the `MULTI_REGION` quorum type forms a write
+ *        quorum from replicas that are spread across more than one region in a
  *        multi-region configuration. (Value: "MULTI_REGION")
- *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_QuorumTypeUnspecified Not
- *        specified. (Value: "QUORUM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_QuorumTypeUnspecified
+ *        Quorum type not specified. (Value: "QUORUM_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSpanner_InstanceConfig_QuorumType_Region An instance
- *        configuration tagged with REGION quorum type forms a write quorum in a
- *        single region. (Value: "REGION")
+ *        configuration tagged with `REGION` quorum type forms a write quorum in
+ *        a single region. (Value: "REGION")
  */
 @property(nonatomic, copy, nullable) NSString *quorumType;
 
 /**
- *  Output only. If true, the instance config is being created or updated. If
- *  false, there are no ongoing operations for the instance config.
+ *  Output only. If true, the instance configuration is being created or
+ *  updated. If false, there are no ongoing operations for the instance
+ *  configuration.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3363,7 +3681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The geographic placement of nodes in this instance configuration and their
- *  replication properties. To create user managed configurations, input
+ *  replication properties. To create user-managed configurations, input
  *  `replicas` must include all replicas in `replicas` of the `base_config` and
  *  include one or more replicas in the `optional_replicas` of the
  *  `base_config`.
@@ -3371,14 +3689,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaInfo *> *replicas;
 
 /**
- *  Output only. The current instance config state. Applicable only for
- *  USER_MANAGED configs.
+ *  Output only. The current instance configuration state. Applicable only for
+ *  `USER_MANAGED` configurations.
  *
  *  Likely values:
- *    @arg @c kGTLRSpanner_InstanceConfig_State_Creating The instance config is
- *        still being created. (Value: "CREATING")
- *    @arg @c kGTLRSpanner_InstanceConfig_State_Ready The instance config is
- *        fully created and ready to be used to create instances. (Value:
+ *    @arg @c kGTLRSpanner_InstanceConfig_State_Creating The instance
+ *        configuration is still being created. (Value: "CREATING")
+ *    @arg @c kGTLRSpanner_InstanceConfig_State_Ready The instance configuration
+ *        is fully created and ready to be used to create instances. (Value:
  *        "READY")
  *    @arg @c kGTLRSpanner_InstanceConfig_State_StateUnspecified Not specified.
  *        (Value: "STATE_UNSPECIFIED")
@@ -3494,7 +3812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The number of nodes allocated to this instance partition. Users can set the
- *  node_count field to specify the target number of nodes allocated to the
+ *  `node_count` field to specify the target number of nodes allocated to the
  *  instance partition. This may be zero in API responses for instance
  *  partitions that are not yet in state `READY`.
  *
@@ -3504,21 +3822,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The number of processing units allocated to this instance partition. Users
- *  can set the processing_units field to specify the target number of
- *  processing units allocated to the instance partition. This may be zero in
- *  API responses for instance partitions that are not yet in state `READY`.
+ *  can set the `processing_units` field to specify the target number of
+ *  processing units allocated to the instance partition. This might be zero in
+ *  API responses for instance partitions that are not yet in the `READY` state.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *processingUnits;
 
 /**
- *  Output only. The names of the backups that reference this instance
- *  partition. Referencing backups should share the parent instance. The
- *  existence of any referencing backup prevents the instance partition from
- *  being deleted.
+ *  Output only. Deprecated: This field is not populated. Output only. The names
+ *  of the backups that reference this instance partition. Referencing backups
+ *  should share the parent instance. The existence of any referencing backup
+ *  prevents the instance partition from being deleted.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *referencingBackups;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referencingBackups GTLR_DEPRECATED;
 
 /**
  *  Output only. The names of the databases that reference this instance
@@ -3771,6 +4089,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  The response for ListBackupSchedules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backupSchedules" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRSpanner_ListBackupSchedulesResponse : GTLRCollectionObject
+
+/**
+ *  The list of backup schedules for a database.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_BackupSchedule *> *backupSchedules;
+
+/**
+ *  `next_page_token` can be sent in a subsequent ListBackupSchedules call to
+ *  fetch more of the schedules.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response for ListBackups.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3898,10 +4243,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of matching instance config long-running operations. Each
- *  operation's name will be prefixed by the instance config's name. The
- *  operation's metadata field type `metadata.type_url` describes the type of
- *  the metadata.
+ *  The list of matching instance configuration long-running operations. Each
+ *  operation's name will be prefixed by the name of the instance configuration.
+ *  The operation's metadata field type `metadata.type_url` describes the type
+ *  of the metadata.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4301,8 +4646,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_MoveInstanceRequest : GTLRObject
 
 /**
- *  Required. The target instance config for the instance to move. Values are of
- *  the form `projects//instanceConfigs/`.
+ *  Required. The target instance configuration where to move the instance.
+ *  Values are of the form `projects//instanceConfigs/`.
  */
 @property(nonatomic, copy, nullable) NSString *targetConfig;
 
@@ -4666,16 +5011,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRSpanner_PartitionOptions *partitionOptions;
 
 /**
- *  Required. The query request to generate partitions for. The request will
- *  fail if the query is not root partitionable. For a query to be root
- *  partitionable, it needs to satisfy a few conditions. For example, if the
- *  query execution plan contains a distributed union operator, then it must be
- *  the first operator in the plan. For more information about other conditions,
- *  see [Read data in
+ *  Required. The query request to generate partitions for. The request fails if
+ *  the query is not root partitionable. For a query to be root partitionable,
+ *  it needs to satisfy a few conditions. For example, if the query execution
+ *  plan contains a distributed union operator, then it must be the first
+ *  operator in the plan. For more information about other conditions, see [Read
+ *  data in
  *  parallel](https://cloud.google.com/spanner/docs/reads#read_data_in_parallel).
- *  The query request must not contain DML commands, such as INSERT, UPDATE, or
- *  DELETE. Use ExecuteStreamingSql with a PartitionedDml transaction for large,
- *  partition-friendly DML operations.
+ *  The query request must not contain DML commands, such as `INSERT`, `UPDATE`,
+ *  or `DELETE`. Use `ExecuteStreamingSql` with a PartitionedDml transaction for
+ *  large, partition-friendly DML operations.
  */
 @property(nonatomic, copy, nullable) NSString *sql;
 
@@ -5077,26 +5422,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  Information about the dual region quorum.
+ *  Information about the dual-region quorum.
  */
 @interface GTLRSpanner_QuorumInfo : GTLRObject
 
 /**
  *  Output only. The etag is used for optimistic concurrency control as a way to
- *  help prevent simultaneous ChangeQuorum requests that could create a race
+ *  help prevent simultaneous `ChangeQuorum` requests that might create a race
  *  condition.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Whether this ChangeQuorum is a Google or User initiated.
+ *  Output only. Whether this `ChangeQuorum` is Google or User initiated.
  *
  *  Likely values:
- *    @arg @c kGTLRSpanner_QuorumInfo_Initiator_Google ChangeQuorum initiated by
- *        Google. (Value: "GOOGLE")
+ *    @arg @c kGTLRSpanner_QuorumInfo_Initiator_Google `ChangeQuorum` initiated
+ *        by Google. (Value: "GOOGLE")
  *    @arg @c kGTLRSpanner_QuorumInfo_Initiator_InitiatorUnspecified
  *        Unspecified. (Value: "INITIATOR_UNSPECIFIED")
- *    @arg @c kGTLRSpanner_QuorumInfo_Initiator_User ChangeQuorum initiated by
+ *    @arg @c kGTLRSpanner_QuorumInfo_Initiator_User `ChangeQuorum` initiated by
  *        User. (Value: "USER")
  */
 @property(nonatomic, copy, nullable) NSString *initiator;
@@ -5114,15 +5459,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  Information about the database quorum type. this applies only for dual
- *  region instance configs.
+ *  Information about the database quorum type. This only applies to dual-region
+ *  instance configs.
  */
 @interface GTLRSpanner_QuorumType : GTLRObject
 
-/** Dual region quorum type. */
+/** Dual-region quorum type. */
 @property(nonatomic, strong, nullable) GTLRSpanner_DualRegionQuorum *dualRegion;
 
-/** Single region quorum type. */
+/** Single-region quorum type. */
 @property(nonatomic, strong, nullable) GTLRSpanner_SingleRegionQuorum *singleRegion;
 
 @end
@@ -5538,17 +5883,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Optional. Specifies the KMS configuration for the one or more keys used to
- *  encrypt the database. Values are of the form
+ *  encrypt the database. Values have the form
  *  `projects//locations//keyRings//cryptoKeys/`. The keys referenced by
  *  kms_key_names must fully cover all regions of the database instance
- *  configuration. Some examples: * For single region database instance configs,
- *  specify a single regional location KMS key. * For multi-regional database
- *  instance configs of type GOOGLE_MANAGED, either specify a multi-regional
- *  location KMS key or multiple regional location KMS keys that cover all
- *  regions in the instance config. * For a database instance config of type
- *  USER_MANAGED, please specify only regional location KMS keys to cover each
- *  region in the instance config. Multi-regional location KMS keys are not
- *  supported for USER_MANAGED instance configs.
+ *  configuration. Some examples: * For single region database instance
+ *  configurations, specify a single regional location KMS key. * For
+ *  multi-regional database instance configurations of type `GOOGLE_MANAGED`,
+ *  either specify a multi-regional location KMS key or multiple regional
+ *  location KMS keys that cover all regions in the instance configuration. *
+ *  For a database instance configuration of type `USER_MANAGED`, please specify
+ *  only regional location KMS keys to cover each region in the instance
+ *  configuration. Multi-regional location KMS keys are not supported for
+ *  USER_MANAGED instance configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeyNames;
 
@@ -5986,10 +6332,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Required. The location of the serving region, e.g. "us-central1". The
- *  location must be one of the regions within the dual region instance
- *  configuration of your database. The list of valid locations is available via
- *  [GetInstanceConfig[InstanceAdmin.GetInstanceConfig] API. This should only be
- *  used if you plan to change quorum in single-region quorum type.
+ *  location must be one of the regions within the dual-region instance
+ *  configuration of your database. The list of valid locations is available
+ *  using the GetInstanceConfig API. This should only be used if you plan to
+ *  change quorum to the single-region quorum type.
  */
 @property(nonatomic, copy, nullable) NSString *servingLocation;
 
@@ -6714,7 +7060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /** The time at which this operation was cancelled. */
 @property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
 
-/** The desired instance config after updating. */
+/** The desired instance configuration after updating. */
 @property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig *instanceConfig;
 
 /** The progress of the UpdateInstanceConfig operation. */
@@ -6729,9 +7075,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_UpdateInstanceConfigRequest : GTLRObject
 
 /**
- *  Required. The user instance config to update, which must always include the
- *  instance config name. Otherwise, only fields mentioned in update_mask need
- *  be included. To prevent conflicts of concurrent updates, etag can be used.
+ *  Required. The user instance configuration to update, which must always
+ *  include the instance configuration name. Otherwise, only fields mentioned in
+ *  update_mask need be included. To prevent conflicts of concurrent updates,
+ *  etag can be used.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig *instanceConfig;
 

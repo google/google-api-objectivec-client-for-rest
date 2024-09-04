@@ -1039,6 +1039,10 @@ NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Private = @"priva
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted = @"unlisted";
 
+// GTLRYouTube_PlaylistStatus.podcastStatus
+NSString * const kGTLRYouTube_PlaylistStatus_PodcastStatus_Disabled = @"disabled";
+NSString * const kGTLRYouTube_PlaylistStatus_PodcastStatus_Enabled = @"enabled";
+
 // GTLRYouTube_PlaylistStatus.privacyStatus
 NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Public = @"public";
@@ -3263,7 +3267,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_PlaylistStatus
-@dynamic privacyStatus;
+@dynamic podcastStatus, privacyStatus;
 @end
 
 

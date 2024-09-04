@@ -606,6 +606,75 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Initializes a location-level encryption key specification. An error will be
+ *  thrown if the location has resources already created before the
+ *  initialization. Once the encryption specification is initialized at a
+ *  location, it is immutable and all newly created resources under the location
+ *  will be encrypted with the existing specification.
+ *
+ *  Method: contactcenterinsights.projects.locations.encryptionSpec.initialize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsEncryptionSpecInitialize : GTLRContactcenterinsightsQuery
+
+/**
+ *  Immutable. The resource name of the encryption key specification resource.
+ *  Format: projects/{project}/locations/{location}/encryptionSpec
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Initializes a location-level encryption key specification. An error will be
+ *  thrown if the location has resources already created before the
+ *  initialization. Once the encryption specification is initialized at a
+ *  location, it is immutable and all newly created resources under the location
+ *  will be encrypted with the existing specification.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest
+ *    to include in the query.
+ *  @param name Immutable. The resource name of the encryption key specification
+ *    resource. Format: projects/{project}/locations/{location}/encryptionSpec
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsEncryptionSpecInitialize
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets location-level encryption key specification.
+ *
+ *  Method: contactcenterinsights.projects.locations.getEncryptionSpec
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsGetEncryptionSpec : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the encryption spec resource to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec.
+ *
+ *  Gets location-level encryption key specification.
+ *
+ *  @param name Required. The name of the encryption spec resource to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsGetEncryptionSpec
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets project-level settings.
  *
  *  Method: contactcenterinsights.projects.locations.getSettings

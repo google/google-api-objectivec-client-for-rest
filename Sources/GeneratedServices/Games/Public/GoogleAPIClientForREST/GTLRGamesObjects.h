@@ -1469,7 +1469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
 /** Recall token data. */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_RecallToken *> *token;
+@property(nonatomic, strong, nullable) GTLRGames_RecallToken *recallToken;
 
 @end
 
@@ -2738,7 +2738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
  *  be unset if there is no recall token associated with the requested
  *  principal.
  */
-@property(nonatomic, strong, nullable) GTLRGames_RecallToken *token;
+@property(nonatomic, strong, nullable) GTLRGames_GamePlayerToken *gamePlayerToken;
 
 @end
 
@@ -2753,7 +2753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
  *  the player does not have recall tokens for an application, that application
  *  is not included in the response.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_GamePlayerToken *> *applicationRecallTokens;
+@property(nonatomic, strong, nullable) NSArray<GTLRGames_GamePlayerToken *> *gamePlayerTokens;
 
 @end
 

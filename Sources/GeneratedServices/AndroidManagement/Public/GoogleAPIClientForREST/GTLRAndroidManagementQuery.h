@@ -528,10 +528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Creates an enrollment token for a given enterprise. It's up to the caller's
  *  responsibility to manage the lifecycle of newly created tokens and deleting
- *  them when they're not intended to be used anymore. Once an enrollment token
- *  has been created, it's not possible to retrieve the token's content anymore
- *  using AM API. It is recommended for EMMs to securely store the token if it's
- *  intended to be reused.
+ *  them when they're not intended to be used anymore.
  *
  *  Method: androidmanagement.enterprises.enrollmentTokens.create
  *
@@ -548,10 +545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *
  *  Creates an enrollment token for a given enterprise. It's up to the caller's
  *  responsibility to manage the lifecycle of newly created tokens and deleting
- *  them when they're not intended to be used anymore. Once an enrollment token
- *  has been created, it's not possible to retrieve the token's content anymore
- *  using AM API. It is recommended for EMMs to securely store the token if it's
- *  intended to be reused.
+ *  them when they're not intended to be used anymore.
  *
  *  @param object The @c GTLRAndroidManagement_EnrollmentToken to include in the
  *    query.

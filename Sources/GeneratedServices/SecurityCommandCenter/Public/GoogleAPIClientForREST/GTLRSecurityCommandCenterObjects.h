@@ -39,6 +39,7 @@
 @class GTLRSecurityCommandCenter_AzureMetadata;
 @class GTLRSecurityCommandCenter_AzureResourceGroup;
 @class GTLRSecurityCommandCenter_AzureSubscription;
+@class GTLRSecurityCommandCenter_AzureTenant;
 @class GTLRSecurityCommandCenter_BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_Binding;
 @class GTLRSecurityCommandCenter_CloudArmor;
@@ -55,9 +56,12 @@
 @class GTLRSecurityCommandCenter_CustomModuleValidationErrors;
 @class GTLRSecurityCommandCenter_Cve;
 @class GTLRSecurityCommandCenter_Cvssv3;
+@class GTLRSecurityCommandCenter_DataAccessEvent;
 @class GTLRSecurityCommandCenter_Database;
+@class GTLRSecurityCommandCenter_DataFlowEvent;
 @class GTLRSecurityCommandCenter_Detection;
 @class GTLRSecurityCommandCenter_DiskPath;
+@class GTLRSecurityCommandCenter_DynamicMuteRecord;
 @class GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule;
 @class GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule_Config;
 @class GTLRSecurityCommandCenter_Empty;
@@ -110,6 +114,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureMetadata;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureResourceGroup;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureSubscription;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureTenant;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2BackupDisasterRecovery;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Binding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2CloudArmor;
@@ -123,9 +128,12 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Container;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cve;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cvssv3;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Database;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiskPath;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DynamicMuteRecord;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2EnvironmentVariable;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExfilResource;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Exfiltration;
@@ -147,6 +155,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2LogEntry;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MemoryHashSignature;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteInfo;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Node;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2NodePool;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Notebook;
@@ -171,6 +180,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityPosture;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ServiceAccountDelegationInfo;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Subject;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2TicketInfo;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ToxicCombination;
@@ -191,6 +201,7 @@
 @class GTLRSecurityCommandCenter_LogEntry;
 @class GTLRSecurityCommandCenter_MemoryHashSignature;
 @class GTLRSecurityCommandCenter_MitreAttack;
+@class GTLRSecurityCommandCenter_MuteInfo;
 @class GTLRSecurityCommandCenter_Node;
 @class GTLRSecurityCommandCenter_NodePool;
 @class GTLRSecurityCommandCenter_Notebook;
@@ -226,6 +237,7 @@
 @class GTLRSecurityCommandCenter_SimulatedResource_ResourceData;
 @class GTLRSecurityCommandCenter_SimulatedResult;
 @class GTLRSecurityCommandCenter_Source;
+@class GTLRSecurityCommandCenter_StaticMute;
 @class GTLRSecurityCommandCenter_Status;
 @class GTLRSecurityCommandCenter_Status_Details_Item;
 @class GTLRSecurityCommandCenter_StreamingConfig;
@@ -356,6 +368,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_Log
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_BulkMuteFindingsRequest.muteState
+
+/**
+ *  Matching findings will be muted (default).
+ *
+ *  Value: "MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_BulkMuteFindingsRequest_MuteState_Muted;
+/**
+ *  Unused.
+ *
+ *  Value: "MUTE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_BulkMuteFindingsRequest_MuteState_MuteStateUnspecified;
+/**
+ *  Matching findings will have their mute state cleared.
+ *
+ *  Value: "UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_BulkMuteFindingsRequest_MuteState_Undefined;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_CloudDlpDataProfile.parentType
@@ -759,6 +793,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInterac
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_DataAccessEvent.operation
+
+/**
+ *  Represents a copy operation.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataAccessEvent_Operation_Copy;
+/**
+ *  Represents a move operation.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataAccessEvent_Operation_Move;
+/**
+ *  The operation is unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataAccessEvent_Operation_OperationUnspecified;
+/**
+ *  Represents a read operation.
+ *
+ *  Value: "READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataAccessEvent_Operation_Read;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_DataFlowEvent.operation
+
+/**
+ *  Represents a copy operation.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Copy;
+/**
+ *  Represents a move operation.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Move;
+/**
+ *  The operation is unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_OperationUnspecified;
+/**
+ *  Represents a read operation.
+ *
+ *  Value: "READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Read;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.enablementState
 
 /**
@@ -842,6 +932,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingCla
  *  Value: "SCC_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_SccError;
+/**
+ *  Describes a potential security risk to data assets that contain sensitive
+ *  data.
+ *
+ *  Value: "SENSITIVE_DATA_RISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_SensitiveDataRisk;
 /**
  *  Describes unwanted or malicious activity.
  *
@@ -1062,6 +1159,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule_EnablementState_EnablementStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig.type
+
+/**
+ *  A dynamic mute config, which is applied to existing and future matching
+ *  findings, setting their dynamic mute state to "muted". If the config is
+ *  updated or deleted, or a matching finding is updated, such that the finding
+ *  doesn't match the config, the config will be removed from the finding, and
+ *  the finding's dynamic mute state may become "unmuted" (unless other configs
+ *  still match).
+ *
+ *  Value: "DYNAMIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig_Type_Dynamic;
+/**
+ *  Unused.
+ *
+ *  Value: "MUTE_CONFIG_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig_Type_MuteConfigTypeUnspecified;
+/**
+ *  A static mute config, which sets the static mute state of future matching
+ *  findings to muted. Once the static mute state has been set, finding or
+ *  config modifications will not affect the state.
+ *
+ *  Value: "STATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig_Type_Static;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.severity
@@ -1762,6 +1888,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Cvssv3_UserInteraction_UserInteractionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent.operation
+
+/**
+ *  Represents a copy operation.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent_Operation_Copy;
+/**
+ *  Represents a move operation.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent_Operation_Move;
+/**
+ *  The operation is unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent_Operation_OperationUnspecified;
+/**
+ *  Represents a read operation.
+ *
+ *  Value: "READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent_Operation_Read;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent.operation
+
+/**
+ *  Represents a copy operation.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_Copy;
+/**
+ *  Represents a move operation.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_Move;
+/**
+ *  The operation is unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_OperationUnspecified;
+/**
+ *  Represents a read operation.
+ *
+ *  Value: "READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_Read;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding.findingClass
 
 /**
@@ -1795,6 +1977,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "SCC_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_SccError;
+/**
+ *  Describes a potential security risk to data assets that contain sensitive
+ *  data.
+ *
+ *  Value: "SENSITIVE_DATA_RISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_SensitiveDataRisk;
 /**
  *  Describes unwanted or malicious activity.
  *
@@ -2156,7 +2345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_CommandAndScriptingInterpreter;
 /**
- *  T1613
+ *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
  */
@@ -2234,6 +2423,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1068
+ *
+ *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExploitationForPrivilegeEscalation;
+/**
  *  T1190
  *
  *  Value: "EXPLOIT_PUBLIC_FACING_APPLICATION"
@@ -2251,6 +2446,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "IMPAIR_DEFENSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ImpairDefenses;
+/**
+ *  T1070.004
+ *
+ *  Value: "INDICATOR_REMOVAL_FILE_DELETION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_IndicatorRemovalFileDeletion;
 /**
  *  T1105
  *
@@ -2632,7 +2833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_CommandAndScriptingInterpreter;
 /**
- *  T1613
+ *  T1609
  *
  *  Value: "CONTAINER_ADMINISTRATION_COMMAND"
  */
@@ -2710,6 +2911,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1068
+ *
+ *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExploitationForPrivilegeEscalation;
+/**
  *  T1190
  *
  *  Value: "EXPLOIT_PUBLIC_FACING_APPLICATION"
@@ -2727,6 +2934,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "IMPAIR_DEFENSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ImpairDefenses;
+/**
+ *  T1070.004
+ *
+ *  Value: "INDICATOR_REMOVAL_FILE_DELETION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_IndicatorRemovalFileDeletion;
 /**
  *  T1105
  *
@@ -2923,6 +3136,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteConfig.type
 
+/**
+ *  A dynamic mute config, which is applied to existing and future matching
+ *  findings, setting their dynamic mute state to "muted". If the config is
+ *  updated or deleted, or a matching finding is updated, such that the finding
+ *  doesn't match the config, the config will be removed from the finding, and
+ *  the finding's dynamic mute state may become "unmuted" (unless other configs
+ *  still match).
+ *
+ *  Value: "DYNAMIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteConfig_Type_Dynamic;
 /**
  *  Unused.
  *
@@ -3203,6 +3427,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "RESOURCE_VALUE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping_MediumSensitivityMapping_ResourceValueUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute.state
+
+/**
+ *  Finding has been muted.
+ *
+ *  Value: "MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute_State_Muted;
+/**
+ *  Unspecified.
+ *
+ *  Value: "MUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute_State_MuteUnspecified;
+/**
+ *  Finding has never been muted/unmuted.
+ *
+ *  Value: "UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute_State_Undefined;
+/**
+ *  Finding has been unmuted.
+ *
+ *  Value: "UNMUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute_State_Unmuted;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Subject.kind
@@ -3601,6 +3853,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1068
+ *
+ *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitationForPrivilegeEscalation;
+/**
  *  T1190
  *
  *  Value: "EXPLOIT_PUBLIC_FACING_APPLICATION"
@@ -3618,6 +3876,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "IMPAIR_DEFENSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ImpairDefenses;
+/**
+ *  T1070.004
+ *
+ *  Value: "INDICATOR_REMOVAL_FILE_DELETION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IndicatorRemovalFileDeletion;
 /**
  *  T1105
  *
@@ -4077,6 +4341,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1068
+ *
+ *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitationForPrivilegeEscalation;
+/**
  *  T1190
  *
  *  Value: "EXPLOIT_PUBLIC_FACING_APPLICATION"
@@ -4094,6 +4364,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "IMPAIR_DEFENSES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ImpairDefenses;
+/**
+ *  T1070.004
+ *
+ *  Value: "INDICATOR_REMOVAL_FILE_DELETION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IndicatorRemovalFileDeletion;
 /**
  *  T1105
  *
@@ -4503,6 +4779,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Simulation_CloudPr
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Simulation_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_StaticMute.state
+
+/**
+ *  Finding has been muted.
+ *
+ *  Value: "MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_StaticMute_State_Muted;
+/**
+ *  Unspecified.
+ *
+ *  Value: "MUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_StaticMute_State_MuteUnspecified;
+/**
+ *  Finding has never been muted/unmuted.
+ *
+ *  Value: "UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_StaticMute_State_Undefined;
+/**
+ *  Finding has been unmuted.
+ *
+ *  Value: "UNMUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_StaticMute_State_Unmuted;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Subject.kind
 
 /**
@@ -4884,7 +5188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  The resource name of the attack path simulation result that contains the
  *  details regarding this attack exposure score. Example:
- *  organizations/123/simulations/456/attackExposureResults/789
+ *  `organizations/123/simulations/456/attackExposureResults/789`
  */
 @property(nonatomic, copy, nullable) NSString *attackExposureResult;
 
@@ -4993,13 +5297,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  The name of the resource at this point in the attack path. The format of the
  *  name follows the Cloud Asset Inventory [resource name
- *  format]("https://cloud.google.com/asset-inventory/docs/resource-name-format")
+ *  format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  The [supported resource
- *  type](https://cloud.google.com/asset-inventory/docs/supported-asset-types")
+ *  type](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -5220,7 +5524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  The UUID of the Azure management group, for example,
- *  "20000000-0001-0000-0000-000000000000".
+ *  `20000000-0001-0000-0000-000000000000`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5247,6 +5551,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** The Azure subscription associated with the resource. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AzureSubscription *subscription;
 
+/** The Azure Entra tenant associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AzureTenant *tenant;
+
 @end
 
 
@@ -5271,7 +5578,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  The UUID of the Azure subscription, for example,
- *  "291bba3f-e0a5-47bc-a099-3bdcb2a50a05".
+ *  `291bba3f-e0a5-47bc-a099-3bdcb2a50a05`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Represents a Microsoft Entra tenant.
+ */
+@interface GTLRSecurityCommandCenter_AzureTenant : GTLRObject
+
+/**
+ *  The ID of the Microsoft Entra tenant, for example,
+ *  "a11aaa11-aa11-1aa1-11aa-1aaa11a".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5499,6 +5822,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  findings based on the filter.
  */
 @property(nonatomic, copy, nullable) NSString *muteAnnotation GTLR_DEPRECATED;
+
+/**
+ *  Optional. All findings matching the given filter will have their mute state
+ *  set to this value. The default value is `MUTED`. Setting this to `UNDEFINED`
+ *  will clear the mute state on all matching findings.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_BulkMuteFindingsRequest_MuteState_Muted
+ *        Matching findings will be muted (default). (Value: "MUTED")
+ *    @arg @c kGTLRSecurityCommandCenter_BulkMuteFindingsRequest_MuteState_MuteStateUnspecified
+ *        Unused. (Value: "MUTE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_BulkMuteFindingsRequest_MuteState_Undefined
+ *        Matching findings will have their mute state cleared. (Value:
+ *        "UNDEFINED")
+ */
+@property(nonatomic, copy, nullable) NSString *muteState;
 
 @end
 
@@ -5913,6 +6252,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *exploitationActivity;
 
+/** Date the first publicly available exploit or PoC was released. */
+@property(nonatomic, strong, nullable) GTLRDateTime *exploitReleaseDate;
+
+/** Date of the earliest known exploitation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstExploitationDate;
+
 /**
  *  The unique identifier for the vulnerability. e.g. CVE-2021-34527
  *
@@ -6145,6 +6490,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about a data access attempt made by a principal not authorized under
+ *  applicable data security policy.
+ */
+@interface GTLRSecurityCommandCenter_DataAccessEvent : GTLRObject
+
+/** Unique identifier for data access event. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** Timestamp of data access event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  The operation performed by the principal to access the data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_DataAccessEvent_Operation_Copy
+ *        Represents a copy operation. (Value: "COPY")
+ *    @arg @c kGTLRSecurityCommandCenter_DataAccessEvent_Operation_Move
+ *        Represents a move operation. (Value: "MOVE")
+ *    @arg @c kGTLRSecurityCommandCenter_DataAccessEvent_Operation_OperationUnspecified
+ *        The operation is unspecified. (Value: "OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_DataAccessEvent_Operation_Read
+ *        Represents a read operation. (Value: "READ")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  The email address of the principal that accessed the data. The principal
+ *  could be a user account, service account, Google group, or other.
+ */
+@property(nonatomic, copy, nullable) NSString *principalEmail;
+
+@end
+
+
+/**
  *  Represents database access information, such as queries. A database may be a
  *  sub-resource of an instance (as in the case of Cloud SQL instances or Cloud
  *  Spanner instances), or the database instance itself. Some database resources
@@ -6194,6 +6575,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about a data flow event, in which either the data is moved to or is
+ *  accessed from a non-compliant geo-location, as defined in the applicable
+ *  data security policy.
+ */
+@interface GTLRSecurityCommandCenter_DataFlowEvent : GTLRObject
+
+/** Unique identifier for data flow event. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** Timestamp of data flow event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  The operation performed by the principal for the data flow event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Copy Represents
+ *        a copy operation. (Value: "COPY")
+ *    @arg @c kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Move Represents
+ *        a move operation. (Value: "MOVE")
+ *    @arg @c kGTLRSecurityCommandCenter_DataFlowEvent_Operation_OperationUnspecified
+ *        The operation is unspecified. (Value: "OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Read Represents
+ *        a read operation. (Value: "READ")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  The email address of the principal that initiated the data flow event. The
+ *  principal could be a user account, service account, Google group, or other.
+ */
+@property(nonatomic, copy, nullable) NSString *principalEmail;
+
+/** Non-compliant location of the principal or the data destination. */
+@property(nonatomic, copy, nullable) NSString *violatedLocation;
+
+@end
+
+
+/**
  *  Memory hash detection contributing to the binary family match.
  */
 @interface GTLRSecurityCommandCenter_Detection : GTLRObject
@@ -6229,6 +6650,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Example: /home/user1/executable_file.sh
  */
 @property(nonatomic, copy, nullable) NSString *relativePath;
+
+@end
+
+
+/**
+ *  The record of a dynamic mute rule that matches the finding.
+ */
+@interface GTLRSecurityCommandCenter_DynamicMuteRecord : GTLRObject
+
+/** When the dynamic mute rule first matched the finding. */
+@property(nonatomic, strong, nullable) GTLRDateTime *matchTime;
+
+/**
+ *  The relative resource name of the mute rule, represented by a mute config,
+ *  that created this record, for example
+ *  `organizations/123/muteConfigs/mymuteconfig` or
+ *  `organizations/123/locations/global/muteConfigs/mymuteconfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *muteConfig;
 
 @end
 
@@ -6276,11 +6716,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  Output only. The resource name of the effective ETD custom module. Its
  *  format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *  *
- *  "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *  *
- *  "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6381,9 +6821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  Immutable. The resource name of the Event Threat Detection custom module.
  *  Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6642,8 +7082,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** The time at which the finding was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Data access events associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_DataAccessEvent *> *dataAccessEvents;
+
 /** Database associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Database *database;
+
+/** Data flow events associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_DataFlowEvent *> *dataFlowEvents;
 
 /**
  *  Contains more details about the finding.
@@ -6699,6 +7145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        posture. (Value: "POSTURE_VIOLATION")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_SccError Describes
  *        an error that prevents some SCC functionality. (Value: "SCC_ERROR")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_SensitiveDataRisk
+ *        Describes a potential security risk to data assets that contain
+ *        sensitive data. (Value: "SENSITIVE_DATA_RISK")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Threat Describes
  *        unwanted or malicious activity. (Value: "THREAT")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_ToxicCombination
@@ -6771,6 +7220,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        unmuted. (Value: "UNMUTED")
  */
 @property(nonatomic, copy, nullable) NSString *mute;
+
+/** Output only. The mute information regarding this finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_MuteInfo *muteInfo;
 
 /**
  *  Records additional information about the mute operation, for example, the
@@ -7413,6 +7865,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
 
 /**
+ *  Optional. The expiry of the mute config. Only applicable for dynamic
+ *  configs. If the expiry is set, when the config expires, it is removed from
+ *  all findings.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expiryTime;
+
+/**
  *  Required. An expression that defines the filter to apply across
  *  create/update events of findings. While creating a filter string, be mindful
  *  of the scope in which the mute configuration is being created. E.g., If a
@@ -7436,14 +7895,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  This field will be ignored if provided on config creation. Format
- *  "organizations/{organization}/muteConfigs/{mute_config}"
- *  "folders/{folder}/muteConfigs/{mute_config}"
- *  "projects/{project}/muteConfigs/{mute_config}"
- *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *  `organizations/{organization}/muteConfigs/{mute_config}`
+ *  `folders/{folder}/muteConfigs/{mute_config}`
+ *  `projects/{project}/muteConfigs/{mute_config}`
+ *  `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *  `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *  `projects/{project}/locations/global/muteConfigs/{mute_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The type of the mute config, which determines what type of mute
+ *  state the config affects. The static mute state takes precedence over the
+ *  dynamic mute state. Immutable after creation. STATIC by default if not set
+ *  during creation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig_Type_Dynamic
+ *        A dynamic mute config, which is applied to existing and future
+ *        matching findings, setting their dynamic mute state to "muted". If the
+ *        config is updated or deleted, or a matching finding is updated, such
+ *        that the finding doesn't match the config, the config will be removed
+ *        from the finding, and the finding's dynamic mute state may become
+ *        "unmuted" (unless other configs still match). (Value: "DYNAMIC")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig_Type_MuteConfigTypeUnspecified
+ *        Unused. (Value: "MUTE_CONFIG_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig_Type_Static
+ *        A static mute config, which sets the static mute state of future
+ *        matching findings to muted. Once the static mute state has been set,
+ *        finding or config modifications will not affect the state. (Value:
+ *        "STATIC")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Output only. The most recent time at which the mute config was updated. This
@@ -7857,12 +8340,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  A string representation of the resource path. For Google Cloud, it has the
  *  format of
- *  organizations/{organization_id}/folders/{folder_id}/folders/{folder_id}/projects/{project_id}
+ *  `organizations/{organization_id}/folders/{folder_id}/folders/{folder_id}/projects/{project_id}`
  *  where there can be any number of folders. For AWS, it has the format of
- *  org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}
+ *  `org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}`
  *  where there can be any number of organizational units. For Azure, it has the
  *  format of
- *  mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}
+ *  `mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}`
  *  where there can be any number of management groups.
  */
 @property(nonatomic, copy, nullable) NSString *resourcePathString;
@@ -7928,16 +8411,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  List of resource labels to search for, evaluated with AND. For example,
- *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
- *  resources with labels "key": "value" AND "env": "prod"
+ *  List of resource labels to search for, evaluated with `AND`. For example,
+ *  `"resource_labels_selector": {"key": "value", "env": "prod"}` will match
+ *  resources with labels "key": "value" `AND` "env": "prod"
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceLabelsSelector *resourceLabelsSelector;
 
 /**
  *  Apply resource_value only to resources that match resource_type.
- *  resource_type will be checked with AND of other resources. For example,
+ *  resource_type will be checked with `AND` of other resources. For example,
  *  "storage.googleapis.com/Bucket" with resource_value "HIGH" will apply "HIGH"
  *  value only to "storage.googleapis.com/Bucket" resources.
  */
@@ -7963,7 +8446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  Project or folder to scope this configuration to. For example, "project/456"
  *  would apply this configuration only to resources in "project/456" scope will
- *  be checked with AND of other resources.
+ *  be checked with `AND` of other resources.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -7976,9 +8459,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping *sensitiveDataProtectionMapping;
 
 /**
- *  Required. Tag values combined with AND to check against. Values in the form
- *  "tagValues/123" Example: [ "tagValues/123", "tagValues/456", "tagValues/789"
- *  ]
+ *  Required. Tag values combined with `AND` to check against. Values in the
+ *  form "tagValues/123" Example: `[ "tagValues/123", "tagValues/456",
+ *  "tagValues/789" ]`
  *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
@@ -7992,9 +8475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
- *  List of resource labels to search for, evaluated with AND. For example,
- *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
- *  resources with labels "key": "value" AND "env": "prod"
+ *  List of resource labels to search for, evaluated with `AND`. For example,
+ *  `"resource_labels_selector": {"key": "value", "env": "prod"}` will match
+ *  resources with labels "key": "value" `AND` "env": "prod"
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -8339,7 +8822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  The resource name of the attack path simulation result that contains the
  *  details regarding this attack exposure score. Example:
- *  organizations/123/simulations/456/attackExposureResults/789
+ *  `organizations/123/simulations/456/attackExposureResults/789`
  */
 @property(nonatomic, copy, nullable) NSString *attackExposureResult;
 
@@ -8488,7 +8971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  The UUID of the Azure management group, for example,
- *  "20000000-0001-0000-0000-000000000000".
+ *  `20000000-0001-0000-0000-000000000000`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -8515,6 +8998,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** The Azure subscription associated with the resource. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureSubscription *subscription;
 
+/** The Azure Entra tenant associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureTenant *tenant;
+
 @end
 
 
@@ -8539,7 +9025,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  The UUID of the Azure subscription, for example,
- *  "291bba3f-e0a5-47bc-a099-3bdcb2a50a05".
+ *  `291bba3f-e0a5-47bc-a099-3bdcb2a50a05`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Represents a Microsoft Entra tenant.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureTenant : GTLRObject
+
+/**
+ *  The ID of the Microsoft Entra tenant, for example,
+ *  "a11aaa11-aa11-1aa1-11aa-1aaa11a".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -8645,7 +9147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  The dataset to write findings' updates to. Its format is
- *  "projects/[project_id]/datasets/[bigquery_dataset_id]". BigQuery Dataset
+ *  "projects/[project_id]/datasets/[bigquery_dataset_id]". BigQuery dataset
  *  unique ID must contain only letters (a-z, A-Z), numbers (0-9), or
  *  underscores (_).
  */
@@ -8680,7 +9182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *mostRecentEditor;
 
 /**
- *  The relative resource name of this export. See:
+ *  Identifier. The relative resource name of this export. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name.
  *  The following list shows some examples: +
  *  `organizations/{organization_id}/locations/{location_id}/bigQueryExports/{export_id}`
@@ -9036,6 +9538,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *exploitationActivity;
 
+/** Date the first publicly available exploit or PoC was released. */
+@property(nonatomic, strong, nullable) GTLRDateTime *exploitReleaseDate;
+
+/** Date of the earliest known exploitation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstExploitationDate;
+
 /**
  *  The unique identifier for the vulnerability. e.g. CVE-2021-34527
  *
@@ -9270,6 +9778,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about a data access attempt made by a principal not authorized under
+ *  applicable data security policy.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent : GTLRObject
+
+/** Unique identifier for data access event. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** Timestamp of data access event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  The operation performed by the principal to access the data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent_Operation_Copy
+ *        Represents a copy operation. (Value: "COPY")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent_Operation_Move
+ *        Represents a move operation. (Value: "MOVE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent_Operation_OperationUnspecified
+ *        The operation is unspecified. (Value: "OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent_Operation_Read
+ *        Represents a read operation. (Value: "READ")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  The email address of the principal that accessed the data. The principal
+ *  could be a user account, service account, Google group, or other.
+ */
+@property(nonatomic, copy, nullable) NSString *principalEmail;
+
+@end
+
+
+/**
  *  Represents database access information, such as queries. A database may be a
  *  sub-resource of an instance (as in the case of Cloud SQL instances or Cloud
  *  Spanner instances), or the database instance itself. Some database resources
@@ -9319,6 +9863,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about a data flow event, in which either the data is moved to or is
+ *  accessed from a non-compliant geo-location, as defined in the applicable
+ *  data security policy.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent : GTLRObject
+
+/** Unique identifier for data flow event. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** Timestamp of data flow event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  The operation performed by the principal for the data flow event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_Copy
+ *        Represents a copy operation. (Value: "COPY")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_Move
+ *        Represents a move operation. (Value: "MOVE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_OperationUnspecified
+ *        The operation is unspecified. (Value: "OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent_Operation_Read
+ *        Represents a read operation. (Value: "READ")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  The email address of the principal that initiated the data flow event. The
+ *  principal could be a user account, service account, Google group, or other.
+ */
+@property(nonatomic, copy, nullable) NSString *principalEmail;
+
+/** Non-compliant location of the principal or the data destination. */
+@property(nonatomic, copy, nullable) NSString *violatedLocation;
+
+@end
+
+
+/**
  *  Memory hash detection contributing to the binary family match.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection : GTLRObject
@@ -9354,6 +9938,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Example: /home/user1/executable_file.sh
  */
 @property(nonatomic, copy, nullable) NSString *relativePath;
+
+@end
+
+
+/**
+ *  The record of a dynamic mute rule that matches the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DynamicMuteRecord : GTLRObject
+
+/** When the dynamic mute rule first matched the finding. */
+@property(nonatomic, strong, nullable) GTLRDateTime *matchTime;
+
+/**
+ *  The relative resource name of the mute rule, represented by a mute config,
+ *  that created this record, for example
+ *  `organizations/123/muteConfigs/mymuteconfig` or
+ *  `organizations/123/locations/global/muteConfigs/mymuteconfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *muteConfig;
 
 @end
 
@@ -9627,8 +10230,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Data access events associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataAccessEvent *> *dataAccessEvents;
+
 /** Database associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Database *database;
+
+/** Data flow events associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowEvent *> *dataFlowEvents;
 
 /**
  *  Contains more details about the finding.
@@ -9685,6 +10294,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_SccError
  *        Describes an error that prevents some SCC functionality. (Value:
  *        "SCC_ERROR")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_SensitiveDataRisk
+ *        Describes a potential security risk to data assets that contain
+ *        sensitive data. (Value: "SENSITIVE_DATA_RISK")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Threat
  *        Describes unwanted or malicious activity. (Value: "THREAT")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_ToxicCombination
@@ -9756,6 +10368,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        Finding has been unmuted. (Value: "UNMUTED")
  */
 @property(nonatomic, copy, nullable) NSString *mute;
+
+/** Output only. The mute information regarding this finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteInfo *muteInfo;
 
 /**
  *  Records additional information about the mute operation, for example, the
@@ -10358,6 +10973,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. The expiry of the mute config. Only applicable for dynamic
+ *  configs. If the expiry is set, when the config expires, it is removed from
+ *  all findings.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expiryTime;
+
+/**
  *  Required. An expression that defines the filter to apply across
  *  create/update events of findings. While creating a filter string, be mindful
  *  of the scope in which the mute configuration is being created. E.g., If a
@@ -10380,8 +11002,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *mostRecentEditor;
 
 /**
- *  This field will be ignored if provided on config creation. The following
- *  list shows some examples of the format: +
+ *  Identifier. This field will be ignored if provided on config creation. The
+ *  following list shows some examples of the format: +
  *  `organizations/{organization}/muteConfigs/{mute_config}` +
  *  `organizations/{organization}locations/{location}//muteConfigs/{mute_config}`
  *  + `folders/{folder}/muteConfigs/{mute_config}` +
@@ -10396,6 +11018,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  state the config affects. Immutable after creation.
  *
  *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteConfig_Type_Dynamic
+ *        A dynamic mute config, which is applied to existing and future
+ *        matching findings, setting their dynamic mute state to "muted". If the
+ *        config is updated or deleted, or a matching finding is updated, such
+ *        that the finding doesn't match the config, the config will be removed
+ *        from the finding, and the finding's dynamic mute state may become
+ *        "unmuted" (unless other configs still match). (Value: "DYNAMIC")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteConfig_Type_MuteConfigTypeUnspecified
  *        Unused. (Value: "MUTE_CONFIG_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteConfig_Type_Static
@@ -10412,6 +11041,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  creation or update.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Mute information about the finding, including whether the finding has a
+ *  static mute or any matching dynamic mute rules.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MuteInfo : GTLRObject
+
+/** The list of dynamic mute rules that currently match the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DynamicMuteRecord *> *dynamicMuteRecords;
+
+/**
+ *  If set, the static mute applied to this finding. Static mutes override
+ *  dynamic mutes. If unset, there is no static mute.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute *staticMute;
 
 @end
 
@@ -10795,12 +11442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  A string representation of the resource path. For Google Cloud, it has the
  *  format of
- *  organizations/{organization_id}/folders/{folder_id}/folders/{folder_id}/projects/{project_id}
+ *  `organizations/{organization_id}/folders/{folder_id}/folders/{folder_id}/projects/{project_id}`
  *  where there can be any number of folders. For AWS, it has the format of
- *  org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}
+ *  `org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}`
  *  where there can be any number of organizational units. For Azure, it has the
  *  format of
- *  mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}
+ *  `mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}`
  *  where there can be any number of management groups.
  */
 @property(nonatomic, copy, nullable) NSString *resourcePathString;
@@ -10915,20 +11562,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Name for the resource value configuration */
+/** Identifier. Name for the resource value configuration */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  List of resource labels to search for, evaluated with AND. For example,
+ *  List of resource labels to search for, evaluated with `AND`. For example,
  *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
- *  resources with labels "key": "value" AND "env": "prod"
+ *  resources with labels "key": "value" `AND` "env": "prod"
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_ResourceLabelsSelector *resourceLabelsSelector;
 
 /**
  *  Apply resource_value only to resources that match resource_type.
- *  resource_type will be checked with AND of other resources. For example,
+ *  resource_type will be checked with `AND` of other resources. For example,
  *  "storage.googleapis.com/Bucket" with resource_value "HIGH" will apply "HIGH"
  *  value only to "storage.googleapis.com/Bucket" resources.
  */
@@ -10936,7 +11583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  Resource value level this expression represents Only required when there is
- *  no SDP mapping in the request
+ *  no Sensitive Data Protection mapping in the request
  *
  *  Likely values:
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_ResourceValue_High
@@ -10954,8 +11601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  Project or folder to scope this configuration to. For example, "project/456"
- *  would apply this configuration only to resources in "project/456" scope will
- *  be checked with AND of other resources.
+ *  would apply this configuration only to resources in "project/456" scope and
+ *  will be checked with `AND` of other resources.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -10968,9 +11615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping *sensitiveDataProtectionMapping;
 
 /**
- *  Required. Tag values combined with AND to check against. Values in the form
- *  "tagValues/123" Example: [ "tagValues/123", "tagValues/456", "tagValues/789"
- *  ]
+ *  Tag values combined with `AND` to check against. Values in the form
+ *  "tagValues/123" Example: `[ "tagValues/123", "tagValues/456",
+ *  "tagValues/789" ]`
  *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
@@ -10984,9 +11631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
- *  List of resource labels to search for, evaluated with AND. For example,
+ *  List of resource labels to search for, evaluated with `AND`. For example,
  *  "resource_labels_selector": {"key": "value", "env": "prod"} will match
- *  resources with labels "key": "value" AND "env": "prod"
+ *  resources with labels "key": "value" `AND` "env": "prod"
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -11257,6 +11904,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Information about the static mute state. A static mute state overrides any
+ *  dynamic mute rules that apply to this finding. The static mute state can be
+ *  set by a static mute rule or by muting the finding directly.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute : GTLRObject
+
+/** When the static mute was applied. */
+@property(nonatomic, strong, nullable) GTLRDateTime *applyTime;
+
+/**
+ *  The static mute state. If the value is `MUTED` or `UNMUTED`, then the
+ *  finding's overall mute state will have the same value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute_State_Muted
+ *        Finding has been muted. (Value: "MUTED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute_State_MuteUnspecified
+ *        Unspecified. (Value: "MUTE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute_State_Undefined
+ *        Finding has never been muted/unmuted. (Value: "UNDEFINED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute_State_Unmuted
+ *        Finding has been unmuted. (Value: "UNMUTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Represents a Kubernetes subject.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Subject : GTLRObject
@@ -11342,7 +12018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  List of resource names of findings associated with this toxic combination.
- *  For example, organizations/123/sources/456/findings/789.
+ *  For example, `organizations/123/sources/456/findings/789`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFindings;
 
@@ -12566,6 +13242,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Mute information about the finding, including whether the finding has a
+ *  static mute or any matching dynamic mute rules.
+ */
+@interface GTLRSecurityCommandCenter_MuteInfo : GTLRObject
+
+/** The list of dynamic mute rules that currently match the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_DynamicMuteRecord *> *dynamicMuteRecords;
+
+/**
+ *  If set, the static mute applied to this finding. Static mutes override
+ *  dynamic mutes. If unset, there is no static mute.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_StaticMute *staticMute;
+
+@end
+
+
+/**
  *  Kubernetes nodes associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_Node : GTLRObject
@@ -12839,7 +13533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  Canonical name of the associated findings. Example:
- *  organizations/123/sources/456/findings/789
+ *  `organizations/123/sources/456/findings/789`
  */
 @property(nonatomic, copy, nullable) NSString *canonicalFinding;
 
@@ -13229,12 +13923,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  A string representation of the resource path. For Google Cloud, it has the
  *  format of
- *  org/{organization_id}/folder/{folder_id}/folder/{folder_id}/project/{project_id}
+ *  `org/{organization_id}/folder/{folder_id}/folder/{folder_id}/project/{project_id}`
  *  where there can be any number of folders. For AWS, it has the format of
- *  org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}
+ *  `org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}`
  *  where there can be any number of organizational units. For Azure, it has the
  *  format of
- *  mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}
+ *  `mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}`
  *  where there can be any number of management groups.
  */
 @property(nonatomic, copy, nullable) NSString *resourcePathString;
@@ -13775,7 +14469,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** Output only. Time simulation was created */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Full resource name of the Simulation: organizations/123/simulations/456 */
+/**
+ *  Full resource name of the Simulation: `organizations/123/simulations/456`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -13828,6 +14524,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Example: "organizations/{organization_id}/sources/{source_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Information about the static mute state. A static mute state overrides any
+ *  dynamic mute rules that apply to this finding. The static mute state can be
+ *  set by a static mute rule or by muting the finding directly.
+ */
+@interface GTLRSecurityCommandCenter_StaticMute : GTLRObject
+
+/** When the static mute was applied. */
+@property(nonatomic, strong, nullable) GTLRDateTime *applyTime;
+
+/**
+ *  The static mute state. If the value is `MUTED` or `UNMUTED`, then the
+ *  finding's overall mute state will have the same value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_StaticMute_State_Muted Finding has been
+ *        muted. (Value: "MUTED")
+ *    @arg @c kGTLRSecurityCommandCenter_StaticMute_State_MuteUnspecified
+ *        Unspecified. (Value: "MUTE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_StaticMute_State_Undefined Finding has
+ *        never been muted/unmuted. (Value: "UNDEFINED")
+ *    @arg @c kGTLRSecurityCommandCenter_StaticMute_State_Unmuted Finding has
+ *        been unmuted. (Value: "UNMUTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -14015,7 +14740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  List of resource names of findings associated with this toxic combination.
- *  For example, organizations/123/sources/456/findings/789.
+ *  For example, `organizations/123/sources/456/findings/789`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFindings;
 

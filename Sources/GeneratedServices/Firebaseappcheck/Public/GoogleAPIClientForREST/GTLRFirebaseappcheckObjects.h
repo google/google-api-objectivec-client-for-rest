@@ -23,8 +23,10 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwk;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateResourcePolicyRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateServiceRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -37,6 +39,56 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy.enforcementMode
+
+/**
+ *  Firebase App Check is enforced for the service. The service will reject any
+ *  request that attempts to access your project's resources if it does not have
+ *  valid App Check token attached, with some exceptions depending on the
+ *  service; for example, some services will still allow requests bearing the
+ *  developer's privileged service account credentials without an App Check
+ *  token. App Check metrics continue to be collected to help you detect issues
+ *  with your App Check integration and monitor the composition of your callers.
+ *  While the service is protected by App Check, other applicable protections,
+ *  such as user authorization, continue to be enforced at the same time. Use
+ *  caution when choosing to enforce App Check on a Firebase service. If your
+ *  users have not updated to an App Check capable version of your app, their
+ *  apps will no longer be able to use your Firebase services that are enforcing
+ *  App Check. App Check metrics can help you decide whether to enforce App
+ *  Check on your Firebase services. If your app has not launched yet, you
+ *  should enable enforcement immediately, since there are no outdated clients
+ *  in use. Some services require certain conditions to be met before they will
+ *  work with App Check, such as requiring you to upgrade to a specific service
+ *  tier. Until those requirements are met for a service, this `ENFORCED`
+ *  setting will have no effect and App Check will not work with that service.
+ *
+ *  Value: "ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Enforced;
+/**
+ *  Firebase App Check is not enforced for the service, nor are App Check
+ *  metrics collected. Though the service is not protected by App Check in this
+ *  mode, other applicable protections, such as user authorization, are still
+ *  enforced. An unconfigured service is in this mode by default.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Off;
+/**
+ *  Firebase App Check is not enforced for the service. App Check metrics are
+ *  collected to help you decide when to turn on enforcement for the service.
+ *  Though the service is not protected by App Check in this mode, other
+ *  applicable protections, such as user authorization, are still enforced. Some
+ *  services require certain conditions to be met before they will work with App
+ *  Check, such as requiring you to upgrade to a specific service tier. Until
+ *  those requirements are met for a service, this `UNENFORCED` setting will
+ *  have no effect and App Check will not work with that service.
+ *
+ *  Value: "UNENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Unenforced;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service.enforcementMode
@@ -206,6 +258,42 @@ GTLR_DEPRECATED
 
 /** SafetyNetConfigs retrieved. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig *> *configs;
+
+@end
+
+
+/**
+ *  Request message for the BatchUpdateResourcePolicies method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesRequest : GTLRObject
+
+/**
+ *  Required. The request messages specifying the ResourcePolicy objects to
+ *  update. A maximum of 100 objects can be updated in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateResourcePolicyRequest *> *requests;
+
+/**
+ *  Optional. A comma-separated list of names of fields in the ResourcePolicy
+ *  objects to update. Example: `enforcement_mode`. If this field is present,
+ *  the `update_mask` field in the UpdateResourcePolicyRequest messages must all
+ *  match this field, or the entire batch fails and no updates will be
+ *  committed.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Response message for the BatchUpdateResourcePolicies method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesResponse : GTLRObject
+
+/** ResourcePolicy objects after the updates have been applied. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy *> *resourcePolicies;
 
 @end
 
@@ -693,6 +781,36 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for the ListResourcePolicies method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resourcePolicies" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListResourcePoliciesResponse : GTLRCollectionObject
+
+/**
+ *  If the result list is too large to fit in a single response, then a token is
+ *  returned. If the string is empty or omitted, then this response is the last
+ *  page of results. This token can be used in a subsequent call to
+ *  ListResourcePolicies to find the next group of ResourcePolicy objects. Page
+ *  tokens are short-lived and should not be persisted.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The ResourcePolicy objects retrieved.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy *> *resourcePolicies;
+
+@end
+
+
+/**
  *  Response message for the ListServices method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -890,6 +1008,100 @@ GTLR_DEPRECATED
 
 
 /**
+ *  App Check enforcement policy for a specific resource of a Firebase service
+ *  supported by App Check. Note that this policy will override the
+ *  service-level configuration.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy : GTLRObject
+
+/**
+ *  Required. The App Check enforcement mode for this resource. This will
+ *  override the EnforcementMode setting on the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Enforced
+ *        Firebase App Check is enforced for the service. The service will
+ *        reject any request that attempts to access your project's resources if
+ *        it does not have valid App Check token attached, with some exceptions
+ *        depending on the service; for example, some services will still allow
+ *        requests bearing the developer's privileged service account
+ *        credentials without an App Check token. App Check metrics continue to
+ *        be collected to help you detect issues with your App Check integration
+ *        and monitor the composition of your callers. While the service is
+ *        protected by App Check, other applicable protections, such as user
+ *        authorization, continue to be enforced at the same time. Use caution
+ *        when choosing to enforce App Check on a Firebase service. If your
+ *        users have not updated to an App Check capable version of your app,
+ *        their apps will no longer be able to use your Firebase services that
+ *        are enforcing App Check. App Check metrics can help you decide whether
+ *        to enforce App Check on your Firebase services. If your app has not
+ *        launched yet, you should enable enforcement immediately, since there
+ *        are no outdated clients in use. Some services require certain
+ *        conditions to be met before they will work with App Check, such as
+ *        requiring you to upgrade to a specific service tier. Until those
+ *        requirements are met for a service, this `ENFORCED` setting will have
+ *        no effect and App Check will not work with that service. (Value:
+ *        "ENFORCED")
+ *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Off
+ *        Firebase App Check is not enforced for the service, nor are App Check
+ *        metrics collected. Though the service is not protected by App Check in
+ *        this mode, other applicable protections, such as user authorization,
+ *        are still enforced. An unconfigured service is in this mode by
+ *        default. (Value: "OFF")
+ *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Unenforced
+ *        Firebase App Check is not enforced for the service. App Check metrics
+ *        are collected to help you decide when to turn on enforcement for the
+ *        service. Though the service is not protected by App Check in this
+ *        mode, other applicable protections, such as user authorization, are
+ *        still enforced. Some services require certain conditions to be met
+ *        before they will work with App Check, such as requiring you to upgrade
+ *        to a specific service tier. Until those requirements are met for a
+ *        service, this `UNENFORCED` setting will have no effect and App Check
+ *        will not work with that service. (Value: "UNENFORCED")
+ */
+@property(nonatomic, copy, nullable) NSString *enforcementMode;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding. This etag is strongly validated as
+ *  defined by RFC 7232.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. Identifier. The relative name of the resource policy object, in
+ *  the format: ```
+ *  projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
+ *  ``` Note that the `service_id` element must be a supported service ID.
+ *  Currently, the following service IDs are supported: *
+ *  `oauth2.googleapis.com` (Google Identity for iOS) `resource_policy_id` is a
+ *  system-generated UID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Service specific name of the resource object to which this policy
+ *  applies, in the format: *
+ *  `//oauth2.googleapis.com/projects/{project_number}/oauthClients/{oauth_client_id}`
+ *  (Google Identity for iOS) Note that the resource must belong to the service
+ *  specified in the `name` and be from the same project as this policy, but the
+ *  resource is allowed to be missing at the time of creation of this policy; in
+ *  that case, we make a best-effort attempt at respecting this policy, but it
+ *  may not have any effect until the resource is fully created.
+ */
+@property(nonatomic, copy, nullable) NSString *targetResource;
+
+/**
+ *  Output only. Timestamp when this resource policy configuration object was
+ *  most recently updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  An app's SafetyNet configuration object. This configuration controls certain
  *  properties of the `AppCheckToken` returned by ExchangeSafetyNetToken, such
  *  as its ttl. Note that your registered SHA-256 certificate fingerprints are
@@ -977,6 +1189,33 @@ GTLR_DEPRECATED
  *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Request message for the UpdateResourcePolicy method as well as an individual
+ *  update message for the BatchUpdateResourcePolicies method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateResourcePolicyRequest : GTLRObject
+
+/**
+ *  Required. The ResourcePolicy to update. The ResourcePolicy's `name` field is
+ *  used to identify the ResourcePolicy to be updated, in the format: ```
+ *  projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
+ *  ``` Note that the `service_id` element must be a supported service ID.
+ *  Currently, the following service IDs are supported: *
+ *  `oauth2.googleapis.com` (Google Identity for iOS)
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy *resourcePolicy;
+
+/**
+ *  Required. A comma-separated list of names of fields in the ResourcePolicy to
+ *  update. Example: `enforcement_mode`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

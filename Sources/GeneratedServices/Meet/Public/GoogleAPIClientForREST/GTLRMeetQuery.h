@@ -76,8 +76,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. User specified filtering condition in [EBNF
  *  format](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
  *  The following are the filterable fields: * `space.meeting_code` *
- *  `space.name` * `start_time` * `end_time` For example, `space.meeting_code =
- *  "abc-mnop-xyz"`.
+ *  `space.name` * `start_time` * `end_time` For example, consider the following
+ *  filters: * `space.name = "spaces/NAME"` * `space.meeting_code =
+ *  "abc-mnop-xyz"` * `start_time>="2024-01-01T00:00:00.000Z" AND
+ *  start_time<="2024-01-02T00:00:00.000Z"` * `end_time IS NULL`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -537,7 +539,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Ends an active conference (if there's one).
+ *  Ends an active conference (if there's one). For an example, see [End active
+ *  conference](https://developers.google.com/meet/api/guides/meeting-spaces#end-active-conference).
  *
  *  Method: meet.spaces.endActiveConference
  *
@@ -546,17 +549,28 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRMeetQuery_SpacesEndActiveConference : GTLRMeetQuery
 
-/** Required. Resource name of the space. */
+/**
+ *  Required. Resource name of the space. Format: `spaces/{space}`. `{space}` is
+ *  the resource identifier for the space. It's a unique, server-generated ID
+ *  and is case sensitive. For example, `jQCFfuBOdN5z`. For more information,
+ *  see [How Meet identifies a meeting
+ *  space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMeet_Empty.
  *
- *  Ends an active conference (if there's one).
+ *  Ends an active conference (if there's one). For an example, see [End active
+ *  conference](https://developers.google.com/meet/api/guides/meeting-spaces#end-active-conference).
  *
  *  @param object The @c GTLRMeet_EndActiveConferenceRequest to include in the
  *    query.
- *  @param name Required. Resource name of the space.
+ *  @param name Required. Resource name of the space. Format: `spaces/{space}`.
+ *    `{space}` is the resource identifier for the space. It's a unique,
+ *    server-generated ID and is case sensitive. For example, `jQCFfuBOdN5z`.
+ *    For more information, see [How Meet identifies a meeting
+ *    space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
  *
  *  @return GTLRMeetQuery_SpacesEndActiveConference
  */
@@ -566,7 +580,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a space by `space_id` or `meeting_code`.
+ *  Gets details about a meeting space. For an example, see [Get a meeting
+ *  space](https://developers.google.com/meet/api/guides/meeting-spaces#get-meeting-space).
  *
  *  Method: meet.spaces.get
  *
@@ -576,15 +591,42 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRMeetQuery_SpacesGet : GTLRMeetQuery
 
-/** Required. Resource name of the space. */
+/**
+ *  Required. Resource name of the space. Format: `spaces/{space}` or
+ *  `spaces/{meetingCode}`. `{space}` is the resource identifier for the space.
+ *  It's a unique, server-generated ID and is case sensitive. For example,
+ *  `jQCFfuBOdN5z`. `{meetingCode}` is an alias for the space. It's a typeable,
+ *  unique character string and is non-case sensitive. For example,
+ *  `abc-mnop-xyz`. The maximum length is 128 characters. A `meetingCode`
+ *  shouldn't be stored long term as it can become dissociated from a meeting
+ *  space and can be reused for different meeting spaces in the future.
+ *  Generally, a `meetingCode` expires 365 days after last use. For more
+ *  information, see [Learn about meeting codes in Google
+ *  Meet](https://support.google.com/meet/answer/10710509). For more
+ *  information, see [How Meet identifies a meeting
+ *  space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMeet_Space.
  *
- *  Gets a space by `space_id` or `meeting_code`.
+ *  Gets details about a meeting space. For an example, see [Get a meeting
+ *  space](https://developers.google.com/meet/api/guides/meeting-spaces#get-meeting-space).
  *
- *  @param name Required. Resource name of the space.
+ *  @param name Required. Resource name of the space. Format: `spaces/{space}`
+ *    or `spaces/{meetingCode}`. `{space}` is the resource identifier for the
+ *    space. It's a unique, server-generated ID and is case sensitive. For
+ *    example, `jQCFfuBOdN5z`. `{meetingCode}` is an alias for the space. It's a
+ *    typeable, unique character string and is non-case sensitive. For example,
+ *    `abc-mnop-xyz`. The maximum length is 128 characters. A `meetingCode`
+ *    shouldn't be stored long term as it can become dissociated from a meeting
+ *    space and can be reused for different meeting spaces in the future.
+ *    Generally, a `meetingCode` expires 365 days after last use. For more
+ *    information, see [Learn about meeting codes in Google
+ *    Meet](https://support.google.com/meet/answer/10710509). For more
+ *    information, see [How Meet identifies a meeting
+ *    space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
  *
  *  @return GTLRMeetQuery_SpacesGet
  */
@@ -593,7 +635,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a space.
+ *  Updates details about a meeting space. For an example, see [Update a meeting
+ *  space](https://developers.google.com/meet/api/guides/meeting-spaces#update-meeting-space).
  *
  *  Method: meet.spaces.patch
  *
@@ -602,13 +645,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRMeetQuery_SpacesPatch : GTLRMeetQuery
 
-/** Immutable. Resource name of the space. Format: `spaces/{space}` */
+/**
+ *  Immutable. Resource name of the space. Format: `spaces/{space}`. `{space}`
+ *  is the resource identifier for the space. It's a unique, server-generated ID
+ *  and is case sensitive. For example, `jQCFfuBOdN5z`. For more information,
+ *  see [How Meet identifies a meeting
+ *  space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. Field mask used to specify the fields to be updated in the space.
- *  If update_mask isn't provided, it defaults to '*' and updates all fields
- *  provided in the request, including deleting fields not set in the request.
+ *  If update_mask isn't provided(not set, set with empty paths, or only has ""
+ *  as paths), it defaults to update all fields provided with values in the
+ *  request. Using "*" as update_mask will update all fields, including deleting
+ *  fields not set in the request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -617,10 +668,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_Space.
  *
- *  Updates a space.
+ *  Updates details about a meeting space. For an example, see [Update a meeting
+ *  space](https://developers.google.com/meet/api/guides/meeting-spaces#update-meeting-space).
  *
  *  @param object The @c GTLRMeet_Space to include in the query.
- *  @param name Immutable. Resource name of the space. Format: `spaces/{space}`
+ *  @param name Immutable. Resource name of the space. Format: `spaces/{space}`.
+ *    `{space}` is the resource identifier for the space. It's a unique,
+ *    server-generated ID and is case sensitive. For example, `jQCFfuBOdN5z`.
+ *    For more information, see [How Meet identifies a meeting
+ *    space](https://developers.google.com/meet/api/guides/meeting-spaces#identify-meeting-space).
  *
  *  @return GTLRMeetQuery_SpacesPatch
  */

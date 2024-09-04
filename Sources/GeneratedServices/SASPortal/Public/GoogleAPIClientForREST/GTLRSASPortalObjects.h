@@ -85,6 +85,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechno
 FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_DoodleCbrs;
 /** Value: "E_UTRA" */
 FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_EUtra;
+/** Value: "FAROS" */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Faros;
 /** Value: "FOUR_G_BBW_SAA_1" */
 FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_FourGBbwSaa1;
 /** Value: "NR" */
@@ -460,6 +462,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnsp
  *        "DOODLE_CBRS"
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_EUtra Value
  *        "E_UTRA"
+ *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Faros Value
+ *        "FAROS"
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_FourGBbwSaa1
  *        Value "FOUR_G_BBW_SAA_1"
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Nr Value "NR"

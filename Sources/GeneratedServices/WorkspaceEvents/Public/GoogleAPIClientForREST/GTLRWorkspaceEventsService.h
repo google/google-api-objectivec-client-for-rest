@@ -33,8 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatBot;
 /**
- *  Authorization scope: View, add, update, and remove members from
- *  conversations in Google Chat
+ *  Authorization scope: See, add, update, and remove members from conversations
+ *  and spaces in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.memberships"
  */
@@ -46,14 +46,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMemberships;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly;
 /**
- *  Authorization scope: View, compose, send, update, and delete messages, and
- *  add, view, and delete reactions to messages.
+ *  Authorization scope: See, compose, send, update, and delete messages and
+ *  their associated attachments, and add, see, and delete reactions to
+ *  messages.
  *
  *  Value "https://www.googleapis.com/auth/chat.messages"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessages;
 /**
- *  Authorization scope: View, add, and delete reactions to messages in Google
+ *  Authorization scope: See, add, and delete reactions to messages in Google
  *  Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions"
@@ -66,13 +67,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReac
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactionsReadonly;
 /**
- *  Authorization scope: View messages and reactions in Google Chat
+ *  Authorization scope: See messages and their associated reactions and
+ *  attachments in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly;
 /**
- *  Authorization scope: Create conversations and spaces and see or edit
+ *  Authorization scope: Create conversations and spaces and see or update
  *  metadata (including history settings and access settings) in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.spaces"

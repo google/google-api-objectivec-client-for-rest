@@ -21,6 +21,7 @@ NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_LogTypeUnspecif
 
 // GTLRNetworkconnectivity_ConsumerPscConfig.state
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConnectionPolicyMissing = @"CONNECTION_POLICY_MISSING";
+NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConsumerInstanceProjectNotAllowlisted = @"CONSUMER_INSTANCE_PROJECT_NOT_ALLOWLISTED";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_PolicyLimitReached = @"POLICY_LIMIT_REACHED";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_Valid = @"VALID";
@@ -662,12 +663,13 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedVpcNetwork
-@dynamic excludeExportRanges, includeExportRanges, uri;
+@dynamic excludeExportRanges, includeExportRanges, producerVpcSpokes, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludeExportRanges" : [NSString class],
-    @"includeExportRanges" : [NSString class]
+    @"includeExportRanges" : [NSString class],
+    @"producerVpcSpokes" : [NSString class]
   };
   return map;
 }

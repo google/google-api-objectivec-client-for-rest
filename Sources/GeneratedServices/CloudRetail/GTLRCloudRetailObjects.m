@@ -1582,15 +1582,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacet
-@dynamic mergedFacetKey, mergedFacetValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"mergedFacetValues" : [GTLRCloudRetail_GoogleCloudRetailV2CatalogAttributeFacetConfigMergedFacetValue class]
-  };
-  return map;
-}
-
+@dynamic mergedFacetKey;
 @end
 
 
@@ -1655,12 +1647,45 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse
-@dynamic attributionToken, completionResults, recentSearchResults;
+@dynamic attributeResults, attributionToken, completionResults,
+         recentSearchResults;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"completionResults" : [GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult class],
     @"recentSearchResults" : [GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse_AttributeResults
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse_AttributeResults
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseAttributeResult class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseAttributeResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseAttributeResult
+@dynamic suggestions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestions" : [NSString class]
   };
   return map;
 }

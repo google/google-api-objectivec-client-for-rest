@@ -21,10 +21,13 @@
 @class GTLRCloudRedis_CertChain;
 @class GTLRCloudRedis_Cluster;
 @class GTLRCloudRedis_Cluster_RedisConfigs;
+@class GTLRCloudRedis_ClusterMaintenancePolicy;
+@class GTLRCloudRedis_ClusterMaintenanceSchedule;
 @class GTLRCloudRedis_ClusterPersistenceConfig;
+@class GTLRCloudRedis_ClusterWeeklyMaintenanceWindow;
 @class GTLRCloudRedis_Compliance;
+@class GTLRCloudRedis_CrossClusterReplicationConfig;
 @class GTLRCloudRedis_CustomMetadataData;
-@class GTLRCloudRedis_DatabaseMetadata;
 @class GTLRCloudRedis_DatabaseResourceHealthSignalData;
 @class GTLRCloudRedis_DatabaseResourceHealthSignalData_AdditionalMetadata;
 @class GTLRCloudRedis_DatabaseResourceId;
@@ -41,6 +44,7 @@
 @class GTLRCloudRedis_Instance;
 @class GTLRCloudRedis_Instance_Labels;
 @class GTLRCloudRedis_Instance_RedisConfigs;
+@class GTLRCloudRedis_InternalResourceMetadata;
 @class GTLRCloudRedis_Location;
 @class GTLRCloudRedis_Location_Labels;
 @class GTLRCloudRedis_Location_Metadata;
@@ -48,6 +52,7 @@
 @class GTLRCloudRedis_MaintenancePolicy;
 @class GTLRCloudRedis_MaintenanceSchedule;
 @class GTLRCloudRedis_ManagedCertificateAuthority;
+@class GTLRCloudRedis_Membership;
 @class GTLRCloudRedis_NodeInfo;
 @class GTLRCloudRedis_ObservabilityMetricData;
 @class GTLRCloudRedis_Operation;
@@ -60,6 +65,7 @@
 @class GTLRCloudRedis_PscConfig;
 @class GTLRCloudRedis_PscConnection;
 @class GTLRCloudRedis_RDBConfig;
+@class GTLRCloudRedis_RemoteCluster;
 @class GTLRCloudRedis_RetentionSettings;
 @class GTLRCloudRedis_StateInfo;
 @class GTLRCloudRedis_Status;
@@ -87,8 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudRedis_AOFConfig.appendFsync
 
 /**
- *  fsync every time new commands are appended to the AOF. It has the best data
- *  loss protection at the cost of performance
+ *  fsync every time new write commands are appended to the AOF. It has the best
+ *  data loss protection at the cost of performance
  *
  *  Value: "ALWAYS"
  */
@@ -299,6 +305,88 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterPersistenceConfig_Mode
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterPersistenceConfig_Mode_Rdb;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_ClusterWeeklyMaintenanceWindow.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_CrossClusterReplicationConfig.clusterRole
+
+/**
+ *  Cluster role is not set. The behavior is equivalent to NONE.
+ *
+ *  Value: "CLUSTER_ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_ClusterRoleUnspecified;
+/**
+ *  This cluster does not participate in cross cluster replication. It is an
+ *  independent cluster and does not replicate to or from any other clusters.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_None;
+/**
+ *  A cluster that allows both reads and writes. Any data written to this
+ *  cluster is also replicated to the attached secondary clusters.
+ *
+ *  Value: "PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_Primary;
+/**
+ *  A cluster that allows only reads and replicates data from a primary cluster.
+ *
+ *  Value: "SECONDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_Secondary;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_DatabaseResourceFeed.feedType
 
 /** Value: "FEEDTYPE_UNSPECIFIED" */
@@ -416,6 +504,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "VULNERABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalClass_Vulnerability;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_DatabaseResourceHealthSignalData.signalSeverity
+
+/**
+ *  A critical vulnerability is easily discoverable by an external actor,
+ *  exploitable.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Critical;
+/**
+ *  A high risk vulnerability can be easily discovered and exploited in
+ *  combination with other vulnerabilities.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_High;
+/**
+ *  A low risk vulnerability hampers a security organization's ability to detect
+ *  vulnerabilities or active threats in their deployment.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Low;
+/**
+ *  A medium risk vulnerability could be used by an actor to gain access to
+ *  resources or privileges that enable them to eventually gain access and the
+ *  ability to execute arbitrary code or exfiltrate data.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Medium;
+/**
+ *  This value is used for findings when a source doesn't write a severity
+ *  value.
+ *
+ *  Value: "SIGNAL_SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_SignalSeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_DatabaseResourceHealthSignalData.signalType
@@ -2124,6 +2252,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineCloudSpa
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithPostgresDialect;
 /**
+ *  Firestore with datastore mode.
+ *
+ *  Value: "ENGINE_FIRESTORE_WITH_DATASTORE_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode;
+/**
+ *  Firestore with native mode.
+ *
+ *  Value: "ENGINE_FIRESTORE_WITH_NATIVE_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode;
+/**
  *  Memorystore with Redis dialect.
  *
  *  Value: "ENGINE_MEMORYSTORE_FOR_REDIS"
@@ -2237,6 +2377,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeBigta
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeCloudSql;
 /**
+ *  Firestore product area in GCP.
+ *
+ *  Value: "PRODUCT_TYPE_FIRESTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeFirestore;
+/**
  *  Memorystore product area in GCP
  *
  *  Value: "PRODUCT_TYPE_MEMORYSTORE"
@@ -2328,6 +2474,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ReconciliationOperationMetada
  *  Value: "UNKNOWN_REPAIR_ACTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_RescheduleClusterMaintenanceRequest.rescheduleType
+
+/**
+ *  If the user wants to schedule the maintenance to happen now.
+ *
+ *  Value: "IMMEDIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_Immediate;
+/**
+ *  Not set.
+ *
+ *  Value: "RESCHEDULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified;
+/**
+ *  If the user wants to reschedule the maintenance to a specific time.
+ *
+ *  Value: "SPECIFIC_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_SpecificTime;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_RescheduleMaintenanceRequest.rescheduleType
@@ -2471,8 +2639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_AOFConfig_AppendFsync_Always fsync every time new
- *        commands are appended to the AOF. It has the best data loss protection
- *        at the cost of performance (Value: "ALWAYS")
+ *        write commands are appended to the AOF. It has the best data loss
+ *        protection at the cost of performance (Value: "ALWAYS")
  *    @arg @c kGTLRCloudRedis_AOFConfig_AppendFsync_AppendFsyncUnspecified Not
  *        set. Default: EVERYSEC (Value: "APPEND_FSYNC_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_AOFConfig_AppendFsync_Everysec fsync every second.
@@ -2491,6 +2659,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Configuration for availability of database instance
  */
 @interface GTLRCloudRedis_AvailabilityConfiguration : GTLRObject
+
+/**
+ *  Checks for existence of (multi-cluster) routing configuration that allows
+ *  automatic failover to a different zone/region in case of an outage.
+ *  Applicable to Bigtable resources.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automaticFailoverRoutingConfigured;
 
 /**
  *  Availability type. Potential values: * `ZONAL`: The instance serves data
@@ -2649,6 +2826,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Optional. Cross cluster replication config. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_CrossClusterReplicationConfig *crossClusterReplicationConfig;
+
 /**
  *  Optional. The delete operation will fail when the value is set to true.
  *
@@ -2661,6 +2841,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  connect to the cluster. Currently only one discovery endpoint is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_DiscoveryEndpoint *> *discoveryEndpoints;
+
+/**
+ *  Optional. ClusterMaintenancePolicy determines when to allow or deny updates.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_ClusterMaintenancePolicy *maintenancePolicy;
+
+/**
+ *  Output only. ClusterMaintenanceSchedule Output only Published maintenance
+ *  schedule.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_ClusterMaintenanceSchedule *maintenanceSchedule;
 
 /**
  *  Required. Identifier. Unique name of the resource in this scope including
@@ -2724,7 +2915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) NSNumber *replicaCount;
 
 /**
- *  Required. Number of shards for the Redis cluster.
+ *  Optional. Number of shards for the Redis cluster.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2803,6 +2994,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  Maintenance policy per cluster.
+ */
+@interface GTLRCloudRedis_ClusterMaintenancePolicy : GTLRObject
+
+/**
+ *  Output only. The time when the policy was created i.e. Maintenance Window or
+ *  Deny Period was assigned.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The time when the policy was updated i.e. Maintenance Window or
+ *  Deny Period was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. Maintenance window that is applied to resources covered by this
+ *  policy. Minimum 1. For the current version, the maximum number of
+ *  weekly_maintenance_window is expected to be one.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ClusterWeeklyMaintenanceWindow *> *weeklyMaintenanceWindow;
+
+@end
+
+
+/**
+ *  Upcoming maitenance schedule.
+ */
+@interface GTLRCloudRedis_ClusterMaintenanceSchedule : GTLRObject
+
+/**
+ *  Output only. The end time of any upcoming scheduled maintenance for this
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The deadline that the maintenance schedule start time can not
+ *  go beyond, including reschedule.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
+
+/**
+ *  Output only. The start time of any upcoming scheduled maintenance for this
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Configuration of the persistence functionality.
  */
 @interface GTLRCloudRedis_ClusterPersistenceConfig : GTLRObject
@@ -2836,6 +3080,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  Time window specified for weekly operations.
+ */
+@interface GTLRCloudRedis_ClusterWeeklyMaintenanceWindow : GTLRObject
+
+/**
+ *  Allows to define schedule that runs specified day of the week.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Saturday
+ *        Saturday (Value: "SATURDAY")
+ *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Thursday
+ *        Thursday (Value: "THURSDAY")
+ *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRCloudRedis_ClusterWeeklyMaintenanceWindow_Day_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/** Duration of the time window. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** Start time of the window in UTC. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *startTime;
+
+@end
+
+
+/**
  *  Contains compliance information about a security standard indicating unmet
  *  recommendations.
  */
@@ -2854,37 +3135,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Any custom metadata associated with the resource. i.e. A spanner instance
- *  can have multiple databases with its own unique metadata. Information for
- *  these individual databases can be captured in custom metadata data
+ *  Cross cluster replication config.
  */
-@interface GTLRCloudRedis_CustomMetadataData : GTLRObject
+@interface GTLRCloudRedis_CrossClusterReplicationConfig : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_DatabaseMetadata *> *databaseMetadata;
+/**
+ *  The role of the cluster in cross cluster replication.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_ClusterRoleUnspecified
+ *        Cluster role is not set. The behavior is equivalent to NONE. (Value:
+ *        "CLUSTER_ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_None
+ *        This cluster does not participate in cross cluster replication. It is
+ *        an independent cluster and does not replicate to or from any other
+ *        clusters. (Value: "NONE")
+ *    @arg @c kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_Primary
+ *        A cluster that allows both reads and writes. Any data written to this
+ *        cluster is also replicated to the attached secondary clusters. (Value:
+ *        "PRIMARY")
+ *    @arg @c kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_Secondary
+ *        A cluster that allows only reads and replicates data from a primary
+ *        cluster. (Value: "SECONDARY")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterRole;
+
+/**
+ *  Output only. An output only view of all the member clusters participating in
+ *  the cross cluster replication. This view will be provided by every member
+ *  cluster irrespective of its cluster role(primary or secondary). A primary
+ *  cluster can provide information about all the secondary clusters replicating
+ *  from it. However, a secondary cluster only knows about the primary cluster
+ *  from which it is replicating. However, for scenarios, where the primary
+ *  cluster is unavailable(e.g. regional outage), a GetCluster request can be
+ *  sent to any other member cluster and this field will list all the member
+ *  clusters participating in cross cluster replication.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Membership *membership;
+
+/**
+ *  Details of the primary cluster that is used as the replication source for
+ *  this secondary cluster. This field is only set for a secondary cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_RemoteCluster *primaryCluster;
+
+/**
+ *  List of secondary clusters that are replicating from this primary cluster.
+ *  This field is only set for a primary cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_RemoteCluster *> *secondaryClusters;
+
+/**
+ *  Output only. The last time cross cluster replication config was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Metadata for individual databases created in an instance. i.e. spanner
- *  instance can have multiple databases with unique configuration settings.
+ *  Any custom metadata associated with the resource. e.g. A spanner instance
+ *  can have multiple databases with its own unique metadata. Information for
+ *  these individual databases can be captured in custom metadata data
  */
-@interface GTLRCloudRedis_DatabaseMetadata : GTLRObject
-
-/** Backup configuration for this database */
-@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupConfiguration *backupConfiguration;
-
-/** Information about the last backup attempt for this database */
-@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupRun *backupRun;
-
-@property(nonatomic, strong, nullable) GTLRCloudRedis_Product *product;
-@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId;
+@interface GTLRCloudRedis_CustomMetadataData : GTLRObject
 
 /**
- *  Required. Database name. Resource name to follow CAIS resource_name format
- *  as noted here go/condor-common-datamodel
+ *  Metadata for individual internal resources in an instance. e.g. spanner
+ *  instance can have multiple databases with unique configuration.
  */
-@property(nonatomic, copy, nullable) NSString *resourceName;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_InternalResourceMetadata *> *internalResourceMetadata;
 
 @end
 
@@ -2918,9 +3238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *feedType;
 
-/** More feed data would be added in subsequent CLs */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ObservabilityMetricData *observabilityMetricData;
-
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceRecommendationSignalData *recommendationSignalData;
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceHealthSignalData *resourceHealthSignalData;
 
@@ -3049,6 +3367,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  be mainatined by partner to identify a signal.
  */
 @property(nonatomic, copy, nullable) NSString *signalId;
+
+/**
+ *  The severity of the signal, such as if it's a HIGH or LOW severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Critical
+ *        A critical vulnerability is easily discoverable by an external actor,
+ *        exploitable. (Value: "CRITICAL")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_High
+ *        A high risk vulnerability can be easily discovered and exploited in
+ *        combination with other vulnerabilities. (Value: "HIGH")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Low
+ *        A low risk vulnerability hampers a security organization's ability to
+ *        detect vulnerabilities or active threats in their deployment. (Value:
+ *        "LOW")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_Medium
+ *        A medium risk vulnerability could be used by an actor to gain access
+ *        to resources or privileges that enable them to eventually gain access
+ *        and the ability to execute arbitrary code or exfiltrate data. (Value:
+ *        "MEDIUM")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalSeverity_SignalSeverityUnspecified
+ *        This value is used for findings when a source doesn't write a severity
+ *        value. (Value: "SIGNAL_SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signalSeverity;
 
 /**
  *  Required. Type of signal, for example, `AVAILABLE_IN_MULTIPLE_ZONES`,
@@ -3398,8 +3741,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Required. The type of resource this ID is identifying. Ex
  *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
  *  alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
- *  spanner.googleapis.com/Instance REQUIRED Please refer
- *  go/condor-common-datamodel
+ *  spanner.googleapis.com/Instance, spanner.googleapis.com/Database,
+ *  firestore.googleapis.com/Database, sqladmin.googleapis.com/Instance,
+ *  bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance
+ *  REQUIRED Please refer go/condor-common-datamodel
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -4516,6 +4861,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  Metadata for individual internal resources in an instance. e.g. spanner
+ *  instance can have multiple databases with unique configuration settings.
+ *  Similarly bigtable can have multiple clusters within same bigtable instance.
+ */
+@interface GTLRCloudRedis_InternalResourceMetadata : GTLRObject
+
+/** Backup configuration for this database */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupConfiguration *backupConfiguration;
+
+/** Information about the last backup attempt for this database */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupRun *backupRun;
+
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Product *product;
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId;
+
+/**
+ *  Required. internal resource name for spanner this will be database name
+ *  e.g."spanner.googleapis.com/projects/123/abc/instances/inst1/databases/db1"
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  Response for ListClusters.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4802,6 +5172,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  authentication
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_CertChain *> *caCerts;
+
+@end
+
+
+/**
+ *  An output only view of all the member clusters participating in the cross
+ *  cluster replication.
+ */
+@interface GTLRCloudRedis_Membership : GTLRObject
+
+/**
+ *  Output only. The primary cluster that acts as the source of replication for
+ *  the secondary clusters.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_RemoteCluster *primaryCluster;
+
+/**
+ *  Output only. The list of secondary clusters replicating from the primary
+ *  cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_RemoteCluster *> *secondaryClusters;
 
 @end
 
@@ -5138,6 +5529,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineCloudSpannerWithPostgresDialect
  *        Cloud Spanner with PostgreSQL dialect. (Value:
  *        "ENGINE_CLOUD_SPANNER_WITH_POSTGRES_DIALECT")
+ *    @arg @c kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode
+ *        Firestore with datastore mode. (Value:
+ *        "ENGINE_FIRESTORE_WITH_DATASTORE_MODE")
+ *    @arg @c kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode
+ *        Firestore with native mode. (Value:
+ *        "ENGINE_FIRESTORE_WITH_NATIVE_MODE")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedis
  *        Memorystore with Redis dialect. (Value:
  *        "ENGINE_MEMORYSTORE_FOR_REDIS")
@@ -5184,6 +5581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        area in GCP (Value: "PRODUCT_TYPE_BIGTABLE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeCloudSql Cloud SQL product
  *        area in GCP (Value: "PRODUCT_TYPE_CLOUD_SQL")
+ *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeFirestore Firestore
+ *        product area in GCP. (Value: "PRODUCT_TYPE_FIRESTORE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeMemorystore Memorystore
  *        product area in GCP (Value: "PRODUCT_TYPE_MEMORYSTORE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeOnPrem On premises
@@ -5322,6 +5721,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Unknown repair action. (Value: "UNKNOWN_REPAIR_ACTION")
  */
 @property(nonatomic, copy, nullable) NSString *exclusiveAction;
+
+@end
+
+
+/**
+ *  Details of the remote cluster associated with this cluster in a cross
+ *  cluster replication setup.
+ */
+@interface GTLRCloudRedis_RemoteCluster : GTLRObject
+
+/**
+ *  The full resource path of the remote cluster in the format:
+ *  projects//locations//clusters/
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+/** Output only. The unique identifier of the remote cluster. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  Request for rescheduling a cluster maintenance.
+ */
+@interface GTLRCloudRedis_RescheduleClusterMaintenanceRequest : GTLRObject
+
+/**
+ *  Required. If reschedule type is SPECIFIC_TIME, must set up schedule_time as
+ *  well.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_Immediate
+ *        If the user wants to schedule the maintenance to happen now. (Value:
+ *        "IMMEDIATE")
+ *    @arg @c kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified
+ *        Not set. (Value: "RESCHEDULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_SpecificTime
+ *        If the user wants to reschedule the maintenance to a specific time.
+ *        (Value: "SPECIFIC_TIME")
+ */
+@property(nonatomic, copy, nullable) NSString *rescheduleType;
+
+/**
+ *  Optional. Timestamp when the maintenance shall be rescheduled to if
+ *  reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for example
+ *  `2012-11-15T16:19:00.094Z`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
 
 @end
 

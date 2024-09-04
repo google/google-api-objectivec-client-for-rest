@@ -35,6 +35,8 @@
 @class GTLRDfareporting_Campaign;
 @class GTLRDfareporting_CampaignCreativeAssociation;
 @class GTLRDfareporting_CampaignSummary;
+@class GTLRDfareporting_CartData;
+@class GTLRDfareporting_CartDataItem;
 @class GTLRDfareporting_ChangeLog;
 @class GTLRDfareporting_City;
 @class GTLRDfareporting_ClickTag;
@@ -5924,6 +5926,77 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains additional information about cart data.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDfareporting_CartData : GTLRCollectionObject
+
+/**
+ *  Data of the items purchased.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CartDataItem *> *items;
+
+/**
+ *  The feed labels associated with the feed where your items are uploaded. For
+ *  more information, please refer to
+ *  https://support.google.com/merchants/answer/12453549. This is a required
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *merchantFeedLabel;
+
+/**
+ *  The language associated with the feed where your items are uploaded. Use ISO
+ *  639-1 language codes. This field is needed only when item IDs are not unique
+ *  across multiple Merchant Center feeds.
+ */
+@property(nonatomic, copy, nullable) NSString *merchantFeedLanguage;
+
+/**
+ *  The Merchant Center ID where the items are uploaded.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+@end
+
+
+/**
+ *  Contains data of the items purchased.
+ */
+@interface GTLRDfareporting_CartDataItem : GTLRObject
+
+/**
+ *  The shopping id of the item. Must be equal to the Merchant Center product
+ *  identifier. This is a required field.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Number of items sold. This is a required field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  Unit price excluding tax, shipping, and any transaction level discounts.
+ *  Interpreted in CM360 Floodlight config parent advertiser's currency code.
+ *  This is a required field.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unitPrice;
+
+@end
+
+
+/**
  *  Describes a change that a user has made to a resource.
  */
 @interface GTLRDfareporting_ChangeLog : GTLRObject
@@ -6420,6 +6493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        (Value: "GRANTED")
  */
 @property(nonatomic, copy, nullable) NSString *adUserDataConsent;
+
+/** The cart data associated with this conversion. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CartData *cartData;
 
 /**
  *  Whether this particular request may come from a user under the age of 13,
@@ -9453,6 +9529,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /** Name of this directory site. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Default publisher specification ID of video placements under
+ *  this directory site. Possible values are: * `1`, Hulu * `2`, NBC * `3`, CBS
+ *  * `4`, CBS Desktop * `5`, Discovery * `6`, VEVO HD * `7`, VEVO Vertical *
+ *  `8`, Fox * `9`, CW Network * `10`, Disney * `11`, IGN * `12`, NFL.com *
+ *  `13`, Turner Broadcasting * `14`, Tubi on Fox * `15`, Hearst Corporation *
+ *  `16`, Twitch Desktop * `17`, ABC * `18`, Univision * `19`, MLB.com * `20`,
+ *  MLB.com Mobile * `21`, MLB.com OTT * `22`, Polsat * `23`, TVN * `24`,
+ *  Mediaset * `25`, Antena 3 * `26`, Mediamond * `27`, Sky Italia * `28`, Tubi
+ *  on CBS * `29`, Spotify * `30`, Paramount * `31`, Max
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *publisherSpecificationId;
+
 /** Directory site settings. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DirectorySiteSettings *settings;
 
@@ -12419,6 +12510,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *additionalSizes;
 
 /**
+ *  Optional. Ad serving platform ID to identify the ad serving platform used by
+ *  the placement. Measurement partners can use this field to add ad-server
+ *  specific macros. Possible values are: * `1`, Adelphic * `2`, Adform * `3`,
+ *  Adobe * `4`, Amobee * `5`, Basis (Centro) * `6`, Beeswax * `7`, Amazon *
+ *  `8`, DV360 (DBM) * `9`, Innovid * `10`, MediaMath * `11`, Roku OneView DSP *
+ *  `12`, TabMo Hawk * `13`, The Trade Desk * `14`, Xandr Invest DSP * `15`,
+ *  Yahoo DSP * `16`, Zeta Global * `17`, Scaleout * `18`, Bidtellect * `19`,
+ *  Unicorn * `20`, Teads * `21`, Quantcast * `22`, Cognitiv
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adServingPlatformId;
+
+/**
  *  Advertiser ID of this placement. This field can be left blank.
  *
  *  Uses NSNumber of longLongValue.
@@ -12620,6 +12725,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  field.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *siteIdDimensionValue;
+
+/**
+ *  Optional. Whether the ads in the placement are served by another platform
+ *  and CM is only used for tracking or they are served by CM. A false value
+ *  indicates the ad is served by CM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteServed;
 
 /**
  *  Size associated with this placement. When inserting or updating a placement,
@@ -14761,6 +14875,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /**
+ *  Optional. Ad serving platform ID to identify the ad serving platform used by
+ *  the site. Measurement partners can use this field to add ad-server specific
+ *  macros. If set, this value acts as the default during placement creation.
+ *  Possible values are: * `1`, Adelphic * `2`, Adform * `3`, Adobe * `4`,
+ *  Amobee * `5`, Basis (Centro) * `6`, Beeswax * `7`, Amazon * `8`, DV360 (DBM)
+ *  * `9`, Innovid * `10`, MediaMath * `11`, Roku OneView DSP * `12`, TabMo Hawk
+ *  * `13`, The Trade Desk * `14`, Xandr Invest DSP * `15`, Yahoo DSP * `16`,
+ *  Zeta Global * `17`, Scaleout * `18`, Bidtellect * `19`, Unicorn * `20`,
+ *  Teads * `21`, Quantcast * `22`, Cognitiv
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adServingPlatformId;
+
+/**
  *  Whether this site is approved.
  *
  *  Uses NSNumber of boolValue.
@@ -15118,7 +15247,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Publisher specification ID used to identify site-associated publisher
  *  requirements and automatically populate transcode settings. If publisher
  *  specification ID is specified, it will take precedence over transcode
- *  settings.
+ *  settings. Possible values are: * `1`, Hulu * `2`, NBC * `3`, CBS * `4`, CBS
+ *  Desktop * `5`, Discovery * `6`, VEVO HD * `7`, VEVO Vertical * `8`, Fox *
+ *  `9`, CW Network * `10`, Disney * `11`, IGN * `12`, NFL.com * `13`, Turner
+ *  Broadcasting * `14`, Tubi on Fox * `15`, Hearst Corporation * `16`, Twitch
+ *  Desktop * `17`, ABC * `18`, Univision * `19`, MLB.com * `20`, MLB.com Mobile
+ *  * `21`, MLB.com OTT * `22`, Polsat * `23`, TVN * `24`, Mediaset * `25`,
+ *  Antena 3 * `26`, Mediamond * `27`, Sky Italia * `28`, Tubi on CBS * `29`,
+ *  Spotify * `30`, Paramount * `31`, Max
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16658,7 +16794,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *orientation;
 
 /**
- *  Publisher specification ID of a video placement.
+ *  Publisher specification ID of a video placement. Possible values are: * `1`,
+ *  Hulu * `2`, NBC * `3`, CBS * `4`, CBS Desktop * `5`, Discovery * `6`, VEVO
+ *  HD * `7`, VEVO Vertical * `8`, Fox * `9`, CW Network * `10`, Disney * `11`,
+ *  IGN * `12`, NFL.com * `13`, Turner Broadcasting * `14`, Tubi on Fox * `15`,
+ *  Hearst Corporation * `16`, Twitch Desktop * `17`, ABC * `18`, Univision *
+ *  `19`, MLB.com * `20`, MLB.com Mobile * `21`, MLB.com OTT * `22`, Polsat *
+ *  `23`, TVN * `24`, Mediaset * `25`, Antena 3 * `26`, Mediamond * `27`, Sky
+ *  Italia * `28`, Tubi on CBS * `29`, Spotify * `30`, Paramount * `31`, Max
  *
  *  Uses NSNumber of longLongValue.
  */

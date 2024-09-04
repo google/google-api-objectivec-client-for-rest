@@ -96,9 +96,9 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 //
 
 @implementation GTLRAccessApproval_ApprovalRequest
-@dynamic approve, dismiss, name, requestedDuration, requestedExpiration,
-         requestedLocations, requestedReason, requestedResourceName,
-         requestedResourceProperties, requestTime;
+@dynamic approve, dismiss, name, requestedAugmentedInfo, requestedDuration,
+         requestedExpiration, requestedLocations, requestedReason,
+         requestedResourceName, requestedResourceProperties, requestTime;
 @end
 
 
@@ -119,6 +119,16 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 
 @implementation GTLRAccessApproval_ApproveDecision
 @dynamic approveTime, autoApproved, expireTime, invalidateTime, signatureInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessApproval_AugmentedInfo
+//
+
+@implementation GTLRAccessApproval_AugmentedInfo
+@dynamic command;
 @end
 
 

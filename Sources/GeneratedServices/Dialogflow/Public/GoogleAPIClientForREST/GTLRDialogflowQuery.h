@@ -616,7 +616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Required. The environment to list results for. Format:
- *  `projects//locations//agents// environments/`.
+ *  `projects//locations//agents//environments/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -627,7 +627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Fetches a list of continuous test results for a given environment.
  *
  *  @param parent Required. The environment to list results for. Format:
- *    `projects//locations//agents// environments/`.
+ *    `projects//locations//agents//environments/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList
  *
@@ -732,7 +732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Required. The environment to deploy the flow to. Format:
- *  `projects//locations//agents// environments/`.
+ *  `projects//locations//agents//environments/`.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
@@ -748,7 +748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest to include in
  *    the query.
  *  @param environment Required. The environment to deploy the flow to. Format:
- *    `projects//locations//agents// environments/`.
+ *    `projects//locations//agents//environments/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeployFlow
  */
@@ -987,7 +987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  The name of the experiment. Format:
- *  projects//locations//agents//environments//experiments/..
+ *  projects//locations//agents//environments//experiments/.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1006,7 +1006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment to
  *    include in the query.
  *  @param name The name of the experiment. Format:
- *    projects//locations//agents//environments//experiments/..
+ *    projects//locations//agents//environments//experiments/.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsPatch
  */
@@ -2816,7 +2816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Required. Name of the base flow version to compare with the target version.
  *  Use version ID `0` to indicate the draft version of the specified flow.
- *  Format: `projects//locations//agents/ /flows//versions/`.
+ *  Format: `projects//locations//agents//flows//versions/`.
  */
 @property(nonatomic, copy, nullable) NSString *baseVersion;
 
@@ -2831,8 +2831,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    in the query.
  *  @param baseVersion Required. Name of the base flow version to compare with
  *    the target version. Use version ID `0` to indicate the draft version of
- *    the specified flow. Format: `projects//locations//agents/
- *    /flows//versions/`.
+ *    the specified flow. Format:
+ *    `projects//locations//agents//flows//versions/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCompareVersions
  */
@@ -4379,7 +4379,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesBatchRun : GTLRDialogflowQuery
 
-/** Required. Agent name. Format: `projects//locations//agents/ `. */
+/** Required. Agent name. Format: `projects//locations//agents/`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -4394,7 +4394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3BatchRunTestCasesRequest to
  *    include in the query.
- *  @param parent Required. Agent name. Format: `projects//locations//agents/ `.
+ *  @param parent Required. Agent name. Format: `projects//locations//agents/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesBatchRun
  */
@@ -4679,7 +4679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The unique identifier of the test case. TestCases.CreateTestCase will
  *  populate the name automatically. Otherwise use format:
- *  `projects//locations//agents/ /testCases/`.
+ *  `projects//locations//agents//testCases/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4700,7 +4700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    include in the query.
  *  @param name The unique identifier of the test case. TestCases.CreateTestCase
  *    will populate the name automatically. Otherwise use format:
- *    `projects//locations//agents/ /testCases/`.
+ *    `projects//locations//agents//testCases/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesPatch
  */
@@ -4779,7 +4779,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Required. The test case to list results for. Format:
- *  `projects//locations//agents// testCases/`. Specify a `-` as a wildcard for
+ *  `projects//locations//agents//testCases/`. Specify a `-` as a wildcard for
  *  TestCase ID to list results across multiple test cases.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4792,8 +4792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  results are kept for each test case.
  *
  *  @param parent Required. The test case to list results for. Format:
- *    `projects//locations//agents// testCases/`. Specify a `-` as a wildcard
- *    for TestCase ID to list results across multiple test cases.
+ *    `projects//locations//agents//testCases/`. Specify a `-` as a wildcard for
+ *    TestCase ID to list results across multiple test cases.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsList
  *
@@ -4820,8 +4820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun : GTLRDialogflowQuery
 
 /**
- *  Required. Format of test case name to run: `projects//locations/
- *  /agents//testCases/`.
+ *  Required. Format of test case name to run:
+ *  `projects//locations//agents//testCases/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4836,8 +4836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest to include in
  *    the query.
- *  @param name Required. Format of test case name to run: `projects//locations/
- *    /agents//testCases/`.
+ *  @param name Required. Format of test case name to run:
+ *    `projects//locations//agents//testCases/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun
  */

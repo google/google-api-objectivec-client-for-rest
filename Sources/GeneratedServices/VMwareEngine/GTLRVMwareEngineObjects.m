@@ -249,6 +249,42 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_AutoscalingPolicy
+//
+
+@implementation GTLRVMwareEngine_AutoscalingPolicy
+@dynamic consumedMemoryThresholds, cpuThresholds, grantedMemoryThresholds,
+         nodeTypeId, scaleOutSize, storageThresholds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_AutoscalingSettings
+//
+
+@implementation GTLRVMwareEngine_AutoscalingSettings
+@dynamic autoscalingPolicies, coolDownPeriod, maxClusterNodeCount,
+         minClusterNodeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_AutoscalingSettings_AutoscalingPolicies
+//
+
+@implementation GTLRVMwareEngine_AutoscalingSettings_AutoscalingPolicies
+
++ (Class)classForAdditionalProperties {
+  return [GTLRVMwareEngine_AutoscalingPolicy class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_Binding
 //
 
@@ -271,8 +307,8 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRVMwareEngine_Cluster
-@dynamic createTime, management, name, nodeTypeConfigs, state,
-         stretchedClusterConfig, uid, updateTime;
+@dynamic autoscalingSettings, createTime, management, name, nodeTypeConfigs,
+         state, stretchedClusterConfig, uid, updateTime;
 @end
 
 
@@ -1402,6 +1438,16 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_Thresholds
+//
+
+@implementation GTLRVMwareEngine_Thresholds
+@dynamic scaleIn, scaleOut;
 @end
 
 

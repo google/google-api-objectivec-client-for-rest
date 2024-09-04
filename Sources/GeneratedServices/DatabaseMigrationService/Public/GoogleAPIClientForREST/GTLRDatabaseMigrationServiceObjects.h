@@ -83,6 +83,7 @@
 @class GTLRDatabaseMigrationService_Operation;
 @class GTLRDatabaseMigrationService_Operation_Metadata;
 @class GTLRDatabaseMigrationService_Operation_Response;
+@class GTLRDatabaseMigrationService_OracleAsmConfig;
 @class GTLRDatabaseMigrationService_OracleConnectionProfile;
 @class GTLRDatabaseMigrationService_PackageEntity;
 @class GTLRDatabaseMigrationService_PackageEntity_CustomFeatures;
@@ -395,6 +396,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8036;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 37.
+ *
+ *  Value: "MYSQL_8_0_37"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8037;
+/**
+ *  MySQL 8.4.
+ *
+ *  Value: "MYSQL_8_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql84;
+/**
  *  PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -515,7 +528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql;
 /**
- *  Use this value for on-premise source database instances.
+ *  Use this value for on-premise source database instances and ORACLE.
  *
  *  Value: "DATABASE_PROVIDER_UNSPECIFIED"
  */
@@ -797,7 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Pr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql;
 /**
- *  Use this value for on-premise source database instances.
+ *  Use this value for on-premise source database instances and ORACLE.
  *
  *  Value: "DATABASE_PROVIDER_UNSPECIFIED"
  */
@@ -1537,12 +1550,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Du
  *  Value: "CDC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc;
-/**
- *  The migration job is in the differential backup phase.
- *
- *  Value: "DIFF_BACKUP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_DiffBackup;
 /**
  *  The migration job is in the full dump phase.
  *
@@ -2730,6 +2737,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8036
  *        The database major version is MySQL 8.0 and the minor version is 36.
  *        (Value: "MYSQL_8_0_36")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql8037
+ *        The database major version is MySQL 8.0 and the minor version is 37.
+ *        (Value: "MYSQL_8_0_37")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql84
+ *        MySQL 8.4. (Value: "MYSQL_8_4")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10
  *        PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11
@@ -3117,8 +3129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql
  *        Cloud SQL is the source instance provider. (Value: "CLOUDSQL")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified
- *        Use this value for on-premise source database instances. (Value:
- *        "DATABASE_PROVIDER_UNSPECIFIED")
+ *        Use this value for on-premise source database instances and ORACLE.
+ *        (Value: "DATABASE_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Rds
  *        Amazon RDS is the source instance provider. (Value: "RDS")
  */
@@ -3597,8 +3609,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql Cloud
  *        SQL is the source instance provider. (Value: "CLOUDSQL")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified
- *        Use this value for on-premise source database instances. (Value:
- *        "DATABASE_PROVIDER_UNSPECIFIED")
+ *        Use this value for on-premise source database instances and ORACLE.
+ *        (Value: "DATABASE_PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Rds Amazon RDS
  *        is the source instance provider. (Value: "RDS")
  */
@@ -5037,9 +5049,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc The migration
  *        job is CDC phase. (Value: "CDC")
- *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_DiffBackup The
- *        migration job is in the differential backup phase. (Value:
- *        "DIFF_BACKUP")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_FullDump The
  *        migration job is in the full dump phase. (Value: "FULL_DUMP")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseUnspecified
@@ -5530,6 +5539,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Configuration for Oracle Automatic Storage Management (ASM) connection.
+ */
+@interface GTLRDatabaseMigrationService_OracleAsmConfig : GTLRObject
+
+/** Required. ASM service name for the Oracle ASM connection. */
+@property(nonatomic, copy, nullable) NSString *asmService;
+
+/** Required. Hostname for the Oracle ASM connection. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/** Required. Input only. Password for the Oracle ASM connection. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Output only. Indicates whether a new password is included in the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passwordSet;
+
+/**
+ *  Required. Port for the Oracle ASM connection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/** Optional. SSL configuration for the Oracle connection. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SslConfig *ssl;
+
+/** Required. Username for the Oracle ASM connection. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
  *  Specifies connection parameters required specifically for Oracle databases.
  */
 @interface GTLRDatabaseMigrationService_OracleConnectionProfile : GTLRObject
@@ -5542,6 +5588,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Required. The IP or hostname of the source Oracle database. */
 @property(nonatomic, copy, nullable) NSString *host;
+
+/** Optional. Configuration for Oracle ASM connection. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_OracleAsmConfig *oracleAsmConfig;
 
 /**
  *  Required. Input only. The password for the user that Database Migration
@@ -6777,6 +6826,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Required. Backup details per database in Cloud Storage. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_SqlServerDatabaseBackup *> *databaseBackups;
+
+/**
+ *  Optional. Promote databases when ready.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *promoteWhenReady;
 
 /**
  *  Optional. Enable differential backups.

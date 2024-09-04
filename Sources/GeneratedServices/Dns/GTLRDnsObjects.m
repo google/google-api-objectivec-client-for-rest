@@ -763,13 +763,13 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 @implementation GTLRDns_Quota
 @dynamic dnsKeysPerManagedZone, gkeClustersPerManagedZone, gkeClustersPerPolicy,
-         gkeClustersPerResponsePolicy, itemsPerRoutingPolicy, kind,
-         managedZones, managedZonesPerGkeCluster, managedZonesPerNetwork,
-         nameserversPerDelegation, networksPerManagedZone, networksPerPolicy,
-         networksPerResponsePolicy, peeringZonesPerTargetNetwork, policies,
-         resourceRecordsPerRrset, responsePolicies,
-         responsePolicyRulesPerResponsePolicy, rrsetAdditionsPerChange,
-         rrsetDeletionsPerChange, rrsetsPerManagedZone,
+         gkeClustersPerResponsePolicy, internetHealthChecksPerManagedZone,
+         itemsPerRoutingPolicy, kind, managedZones, managedZonesPerGkeCluster,
+         managedZonesPerNetwork, nameserversPerDelegation,
+         networksPerManagedZone, networksPerPolicy, networksPerResponsePolicy,
+         peeringZonesPerTargetNetwork, policies, resourceRecordsPerRrset,
+         responsePolicies, responsePolicyRulesPerResponsePolicy,
+         rrsetAdditionsPerChange, rrsetDeletionsPerChange, rrsetsPerManagedZone,
          targetNameServersPerManagedZone, targetNameServersPerPolicy,
          totalRrdataSizePerChange, whitelistedKeySpecs;
 
@@ -1013,7 +1013,7 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_RRSetRoutingPolicy
-@dynamic geo, kind, primaryBackup, wrr;
+@dynamic geo, healthCheck, kind, primaryBackup, wrr;
 @end
 
 
@@ -1060,10 +1060,11 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_RRSetRoutingPolicyHealthCheckTargets
-@dynamic internalLoadBalancers;
+@dynamic externalEndpoints, internalLoadBalancers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"externalEndpoints" : [NSString class],
     @"internalLoadBalancers" : [GTLRDns_RRSetRoutingPolicyLoadBalancerTarget class]
   };
   return map;

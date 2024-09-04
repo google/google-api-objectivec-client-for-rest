@@ -170,7 +170,7 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 //
 
 @implementation GTLRPlayIntegrity_DeviceIntegrity
-@dynamic deviceRecognitionVerdict, recentDeviceActivity;
+@dynamic deviceRecall, deviceRecognitionVerdict, recentDeviceActivity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -179,6 +179,16 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_DeviceRecall
+//
+
+@implementation GTLRPlayIntegrity_DeviceRecall
+@dynamic values, writeDates;
 @end
 
 
@@ -230,4 +240,43 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 @implementation GTLRPlayIntegrity_TokenPayloadExternal
 @dynamic accountDetails, appIntegrity, deviceIntegrity, environmentDetails,
          requestDetails, testingDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_Values
+//
+
+@implementation GTLRPlayIntegrity_Values
+@dynamic bitFirst, bitSecond, bitThird;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_WriteDates
+//
+
+@implementation GTLRPlayIntegrity_WriteDates
+@dynamic yyyymmFirst, yyyymmSecond, yyyymmThird;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_WriteDeviceRecallRequest
+//
+
+@implementation GTLRPlayIntegrity_WriteDeviceRecallRequest
+@dynamic integrityToken, newValues;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_WriteDeviceRecallResponse
+//
+
+@implementation GTLRPlayIntegrity_WriteDeviceRecallResponse
 @end

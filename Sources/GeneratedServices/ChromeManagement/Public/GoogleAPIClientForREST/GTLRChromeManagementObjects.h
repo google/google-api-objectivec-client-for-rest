@@ -1363,6 +1363,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSmartTextContextMenu;
 /**
+ *  Application launched from experimental feature Sparky.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SPARKY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSparky;
+/**
  *  Application launched from system tray calendar.
  *
  *  Value: "APPLICATION_LAUNCH_SOURCE_SYSTEM_TRAY_CALENDAR"
@@ -1675,6 +1681,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkStateChange;
 /**
+ *  Triggered when a crash occurs.
+ *
+ *  Value: "OS_CRASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_OsCrash;
+/**
  *  Triggered when USB devices are added.
  *
  *  Value: "USB_ADDED"
@@ -1753,6 +1765,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "NETWORK_STATE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkStateChange;
+/**
+ *  Triggered when a crash occurs.
+ *
+ *  Value: "OS_CRASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_OsCrash;
 /**
  *  Triggered when USB devices are added.
  *
@@ -4843,6 +4861,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSmartTextContextMenu
  *        Application launched from a smart text selection context menu. (Value:
  *        "APPLICATION_LAUNCH_SOURCE_SMART_TEXT_CONTEXT_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSparky
+ *        Application launched from experimental feature Sparky. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SPARKY")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSystemTrayCalendar
  *        Application launched from system tray calendar. (Value:
  *        "APPLICATION_LAUNCH_SOURCE_SYSTEM_TRAY_CALENDAR")
@@ -5200,6 +5221,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkStateChange
  *        Triggered immediately on any changes to a network connection. (Value:
  *        "NETWORK_STATE_CHANGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_OsCrash
+ *        Triggered when a crash occurs. (Value: "OS_CRASH")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded
  *        Triggered when USB devices are added. (Value: "USB_ADDED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved

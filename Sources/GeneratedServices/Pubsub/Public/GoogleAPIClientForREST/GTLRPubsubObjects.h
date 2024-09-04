@@ -670,6 +670,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, strong, nullable) GTLRDuration *maxDuration;
 
 /**
+ *  Optional. The maximum number of messages that can be written to a Cloud
+ *  Storage file before a new file is created. Min 1000 messages.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxMessages;
+
+/**
  *  Optional. The service account to use to write to Cloud Storage. The
  *  subscription creator or updater that specifies this field must have
  *  `iam.serviceAccounts.actAs` permission on the service account. If not

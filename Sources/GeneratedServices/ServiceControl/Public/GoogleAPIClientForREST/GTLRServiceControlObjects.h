@@ -1928,6 +1928,15 @@ GTLR_DEPRECATED
 @interface GTLRServiceControl_V2ResourceEvent : GTLRObject
 
 /**
+ *  The ESF unique context id of the api request, from which this resource event
+ *  originated. This field is only needed for CAIS integration via api
+ *  annotation. See go/cais-lro-delete for more details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextId;
+
+/**
  *  The destinations field determines which backend services should handle the
  *  event. This should be specified as a comma-delimited string.
  */

@@ -103,6 +103,20 @@
 @class GTLRContentwarehouse_GoogleCloudDocumentaiV1Barcode;
 @class GTLRContentwarehouse_GoogleCloudDocumentaiV1BoundingPoly;
 @class GTLRContentwarehouse_GoogleCloudDocumentaiV1Document;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocument;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayout;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow;
+@class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock;
 @class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentEntity;
 @class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentEntityNormalizedValue;
 @class GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentEntityRelation;
@@ -4493,6 +4507,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContentwarehouse_GoogleIamV1AuditLogConf
  */
 @interface GTLRContentwarehouse_GoogleCloudDocumentaiV1Document : GTLRObject
 
+/** Document chunked based on chunking config. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocument *chunkedDocument;
+
 /**
  *  Optional. Inline document content, represented as a stream of bytes. Note:
  *  As with all `bytes` fields, protobuffers use a pure binary representation,
@@ -4502,6 +4519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContentwarehouse_GoogleIamV1AuditLogConf
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/** Parsed layout of the document. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayout *documentLayout;
 
 /**
  *  A list of entities detected on Document.text. For document shards, entities
@@ -4553,6 +4573,262 @@ FOUNDATION_EXTERN NSString * const kGTLRContentwarehouse_GoogleIamV1AuditLogConf
  *  URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents the chunks that the document is divided into.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocument : GTLRObject
+
+/** List of chunks. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk *> *chunks;
+
+@end
+
+
+/**
+ *  Represents a chunk.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk : GTLRObject
+
+/** ID of the chunk. */
+@property(nonatomic, copy, nullable) NSString *chunkId;
+
+/** Text content of the chunk. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Page footers associated with the chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter *> *pageFooters;
+
+/** Page headers associated with the chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader *> *pageHeaders;
+
+/** Page span of the chunk. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Unused. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceBlockIds;
+
+@end
+
+
+/**
+ *  Represents the page footer associated with the chunk.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter : GTLRObject
+
+/** Page span of the footer. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Footer in text format. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents the page header associated with the chunk.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader : GTLRObject
+
+/** Page span of the header. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan *pageSpan;
+
+/** Header in text format. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents where the chunk starts and ends in the document.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan : GTLRObject
+
+/**
+ *  Page where chunk ends in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageEnd;
+
+/**
+ *  Page where chunk starts in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  Represents the parsed layout of a document as a collection of blocks that
+ *  the document is divided into.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayout : GTLRObject
+
+/** List of blocks in the document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+@end
+
+
+/**
+ *  Represents a block. A block could be one of the various types (text, table,
+ *  list) supported.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock : GTLRObject
+
+/** ID of the block. */
+@property(nonatomic, copy, nullable) NSString *blockId;
+
+/** Block consisting of list content/structure. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock *listBlock;
+
+/** Page span of the block. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan *pageSpan;
+
+/** Block consisting of table content/structure. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock *tableBlock;
+
+/** Block consisting of text content. */
+@property(nonatomic, strong, nullable) GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock *textBlock;
+
+@end
+
+
+/**
+ *  Represents a list type block.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock : GTLRObject
+
+/** List entries that constitute a list block. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry *> *listEntries;
+
+/**
+ *  Type of the list_entries (if exist). Available options are `ordered` and
+ *  `unordered`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents an entry in the list.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry : GTLRObject
+
+/**
+ *  A list entry is a list of blocks. Repeated blocks support further
+ *  hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+@end
+
+
+/**
+ *  Represents where the block starts and ends in the document.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan : GTLRObject
+
+/**
+ *  Page where block ends in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageEnd;
+
+/**
+ *  Page where block starts in the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageStart;
+
+@end
+
+
+/**
+ *  Represents a table type block.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock : GTLRObject
+
+/** Body rows containing main table content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *bodyRows;
+
+/** Table caption/title. */
+@property(nonatomic, copy, nullable) NSString *caption;
+
+/** Header rows at the top of the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *headerRows;
+
+@end
+
+
+/**
+ *  Represents a cell in a table row.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell : GTLRObject
+
+/**
+ *  A table cell is a list of blocks. Repeated blocks support further
+ *  hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+/**
+ *  How many columns this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colSpan;
+
+/**
+ *  How many rows this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowSpan;
+
+@end
+
+
+/**
+ *  Represents a row in a table.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow : GTLRObject
+
+/** A table row is a list of table cells. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableCell *> *cells;
+
+@end
+
+
+/**
+ *  Represents a text type block.
+ */
+@interface GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock : GTLRObject
+
+/**
+ *  A text block could further have child blocks. Repeated blocks support
+ *  further hierarchies and nested blocks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContentwarehouse_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock *> *blocks;
+
+/** Text content stored in the block. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Type of the text in the block. Available options are: `paragraph`,
+ *  `subtitle`, `heading-1`, `heading-2`, `heading-3`, `heading-4`, `heading-5`,
+ *  `header`, `footer`.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

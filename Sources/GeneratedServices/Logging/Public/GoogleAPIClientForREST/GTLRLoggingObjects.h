@@ -1784,8 +1784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Required. The LogEntry field path to index.Note that some paths are
  *  automatically indexed, and other paths are not eligible for indexing. See
  *  indexing documentation(
- *  https://cloud.google.com/logging/docs/view/advanced-queries#indexed-fields)
- *  for details.For example: jsonPayload.request.status
+ *  https://cloud.google.com/logging/docs/analyze/custom-index) for details.For
+ *  example: jsonPayload.request.status
  */
 @property(nonatomic, copy, nullable) NSString *fieldPath;
 
@@ -2149,9 +2149,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Required. Names of one or more parent resources from which to retrieve log
- *  entries: projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
- *  billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]May alternatively be
- *  one or more views:
+ *  entries. Resources may either be resource containers or specific LogViews.
+ *  For the case of resource containers, all logs ingested into that container
+ *  will be returned regardless of which LogBuckets they are actually stored in
+ *  - i.e. these queries may fan out to multiple regions. In the event of region
+ *  unavailability, specify a specific set of LogViews that do not include the
+ *  unavailable region. projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]

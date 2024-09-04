@@ -62,6 +62,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AdSenseHost"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AdSensePlatform",
+            targets: ["GoogleAPIClientForREST_AdSensePlatform"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Advisorynotifications",
             targets: ["GoogleAPIClientForREST_Advisorynotifications"]
         ),
@@ -452,6 +456,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Contentwarehouse",
             targets: ["GoogleAPIClientForREST_Contentwarehouse"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Css",
+            targets: ["GoogleAPIClientForREST_Css"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CustomSearchAPI",
@@ -1262,6 +1270,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_AdSensePlatform",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AdSensePlatform",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Advisorynotifications",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Advisorynotifications",
@@ -1847,6 +1861,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Contentwarehouse",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Contentwarehouse",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Css",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Css",
             publicHeadersPath: "Public"
         ),
         .target(

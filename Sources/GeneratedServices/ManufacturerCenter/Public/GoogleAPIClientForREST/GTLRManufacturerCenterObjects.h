@@ -347,6 +347,15 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestination;
 
 /**
+ *  Optional. List of countries to show this product in. Countries provided in
+ *  this attribute will override any of the countries configured at feed level.
+ *  The values should be: the [CLDR territory
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml) of
+ *  the countries in which this item will be shown.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *intendedCountry;
+
+/**
  *  The item group id of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#itemgroupid.
  */
@@ -558,8 +567,26 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  */
 @interface GTLRManufacturerCenter_DestinationStatus : GTLRObject
 
+/**
+ *  Output only. List of country codes (ISO 3166-1 alpha-2) where the offer is
+ *  approved.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *approvedCountries;
+
 /** The name of the destination. */
 @property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  Output only. List of country codes (ISO 3166-1 alpha-2) where the offer is
+ *  disapproved.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disapprovedCountries;
+
+/**
+ *  Output only. List of country codes (ISO 3166-1 alpha-2) where the offer is
+ *  pending approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pendingCountries;
 
 /**
  *  The status of the destination.
@@ -748,6 +775,12 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *  Product issue.
  */
 @interface GTLRManufacturerCenter_Issue : GTLRObject
+
+/**
+ *  Output only. List of country codes (ISO 3166-1 alpha-2) where issue applies
+ *  to the manufacturer product.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applicableCountries;
 
 /**
  *  If present, the attribute that triggered the issue. For more information
@@ -1102,6 +1135,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 /** The status of the destinations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_DestinationStatus *> *destinationStatuses;
+
+/** Optional. The feed label for the product. */
+@property(nonatomic, copy, nullable) NSString *feedLabel;
 
 /** A server-generated list of issues associated with the product. */
 @property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_Issue *> *issues;

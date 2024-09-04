@@ -19,6 +19,7 @@
 @class GTLRCloudAsset_AnalyzerOrgPolicy;
 @class GTLRCloudAsset_AnalyzerOrgPolicyConstraint;
 @class GTLRCloudAsset_Asset;
+@class GTLRCloudAsset_AssetEnrichment;
 @class GTLRCloudAsset_AttachedResource;
 @class GTLRCloudAsset_AuditConfig;
 @class GTLRCloudAsset_AuditLogConfig;
@@ -120,6 +121,7 @@
 @class GTLRCloudAsset_RelationshipAttributes;
 @class GTLRCloudAsset_Resource;
 @class GTLRCloudAsset_Resource_Data;
+@class GTLRCloudAsset_ResourceOwners;
 @class GTLRCloudAsset_ResourceSearchResult;
 @class GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes;
 @class GTLRCloudAsset_ResourceSearchResult_Labels;
@@ -386,11 +388,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConst
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Delete;
 /**
+ *  Constraint applied when enforcing forced tagging.
+ *
+ *  Value: "GOVERN_TAGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_GovernTags;
+/**
  *  Unspecified. Will results in user error.
  *
  *  Value: "METHOD_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_MethodTypeUnspecified;
+/**
+ *  Constraint applied when removing an IAM grant.
+ *
+ *  Value: "REMOVE_GRANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_RemoveGrant;
 /**
  *  Constraint applied when updating the resource.
  *
@@ -835,7 +849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Item_Type_AvailablePackage;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Item_Type_InstalledPackage;
 /**
- *  Invalid. An type must be specified.
+ *  Invalid. A type must be specified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -1277,6 +1291,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  create/update/delete operation is performed.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The enhanced metadata information for a resource.
+ */
+@interface GTLRCloudAsset_AssetEnrichment : GTLRObject
+
+/**
+ *  The resource owners for a resource. Note that this field only contains the
+ *  members that have "roles/owner" role in the resource's IAM Policy.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceOwners *resourceOwners;
 
 @end
 
@@ -3481,8 +3509,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  A list of identities that are allowed access through [EgressPolicy].
  *  Identities can be an individual user, service account, Google group, or
- *  third-party identity. The `v1` identities that have the prefix `user`,
- *  `group`, `serviceAccount`, `principal`, and `principalSet` in
+ *  third-party identity. For third-party identity, only single identities are
+ *  supported and other identity types are not supported. The `v1` identities
+ *  that have the prefix `user`, `group`, `serviceAccount`, and `principal` in
  *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
@@ -3643,8 +3672,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  A list of identities that are allowed access through [IngressPolicy].
  *  Identities can be an individual user, service account, Google group, or
- *  third-party identity. The `v1` identities that have the prefix `user`,
- *  `group`, `serviceAccount`, `principal`, and `principalSet` in
+ *  third-party identity. For third-party identity, only single identities are
+ *  supported and other identity types are not supported. The `v1` identities
+ *  that have the prefix `user`, `group`, `serviceAccount`, and `principal` in
  *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
@@ -4455,7 +4485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        update that is available for a package. (Value: "AVAILABLE_PACKAGE")
  *    @arg @c kGTLRCloudAsset_Item_Type_InstalledPackage This represents a
  *        package that is installed on the VM. (Value: "INSTALLED_PACKAGE")
- *    @arg @c kGTLRCloudAsset_Item_Type_TypeUnspecified Invalid. An type must be
+ *    @arg @c kGTLRCloudAsset_Item_Type_TypeUnspecified Invalid. A type must be
  *        specified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -5116,9 +5146,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The query response, which can be either an `error` or a valid `response`. If
- *  `done` == `false` and the query result is being saved in a output, the
+ *  `done` == `false` and the query result is being saved in an output, the
  *  output_config field will be set. If `done` == `true`, exactly one of
- *  `error`, `query_result` or `output_config` will be set.
+ *  `error`, `query_result` or `output_config` will be set. [done] is unset
+ *  unless the [QueryAssetsResponse] contains a
+ *  [QueryAssetsResponse.job_reference].
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5131,8 +5163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *jobReference;
 
 /**
- *  Output configuration which indicates instead of being returned in API
- *  response on the fly, the query result will be saved in a specific output.
+ *  Output configuration, which indicates that instead of being returned in an
+ *  API response on the fly, the query result will be saved in a specific
+ *  output.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_QueryAssetsOutputConfig *outputConfig;
 
@@ -5394,6 +5427,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The resource owners information.
+ */
+@interface GTLRCloudAsset_ResourceOwners : GTLRObject
+
+/** List of resource owners. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceOwners;
+
+@end
+
+
+/**
  *  A result of Resource Search, containing information of a cloud resource.
  */
 @interface GTLRCloudAsset_ResourceSearchResult : GTLRObject
@@ -5477,6 +5521,18 @@ GTLR_DEPRECATED
  *  `effectiveTagValueIds="tagValues/456"`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_EffectiveTagDetails *> *effectiveTags;
+
+/**
+ *  Enrichments of the asset. Currently supported enrichment types with
+ *  SearchAllResources API: * RESOURCE_OWNERS The corresponding read masks in
+ *  order to get the enrichment: * enrichments.resource_owners The corresponding
+ *  required permissions: * cloudasset.assets.searchEnrichmentResourceOwners
+ *  Example query to get resource owner enrichment: ``` scope:
+ *  "projects/my-project" query: "name: my-project" assetTypes:
+ *  "cloudresourcemanager.googleapis.com/Project" readMask: { paths:
+ *  "asset_type" paths: "name" paths: "enrichments.resource_owners" } ```
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AssetEnrichment *> *enrichments;
 
 /**
  *  The folder(s) that this resource belongs to, in the form of

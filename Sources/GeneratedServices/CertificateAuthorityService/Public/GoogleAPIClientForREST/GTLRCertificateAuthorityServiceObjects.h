@@ -1406,6 +1406,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_KeyId *subjectKeyId;
 
+/**
+ *  The hash of the pre-signed certificate, which will be signed by the CA.
+ *  Corresponds to the TBS Certificate in
+ *  https://tools.ietf.org/html/rfc5280#section-4.1.2. The field will always be
+ *  populated.
+ */
+@property(nonatomic, copy, nullable) NSString *tbsCertificateDigest;
+
 /** Describes some of the technical X.509 fields in a certificate. */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_X509Parameters *x509Description;
 

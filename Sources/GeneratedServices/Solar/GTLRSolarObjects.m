@@ -14,12 +14,14 @@
 // Constants
 
 // GTLRSolar_BuildingInsights.imageryQuality
+NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Base = @"BASE";
 NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_High = @"HIGH";
 NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_ImageryQualityUnspecified = @"IMAGERY_QUALITY_UNSPECIFIED";
 NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Low = @"LOW";
 NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Medium = @"MEDIUM";
 
 // GTLRSolar_DataLayers.imageryQuality
+NSString * const kGTLRSolar_DataLayers_ImageryQuality_Base     = @"BASE";
 NSString * const kGTLRSolar_DataLayers_ImageryQuality_High     = @"HIGH";
 NSString * const kGTLRSolar_DataLayers_ImageryQuality_ImageryQualityUnspecified = @"IMAGERY_QUALITY_UNSPECIFIED";
 NSString * const kGTLRSolar_DataLayers_ImageryQuality_Low      = @"LOW";

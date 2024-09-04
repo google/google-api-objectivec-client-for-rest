@@ -129,6 +129,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConnectionPolicyMissing;
 /**
+ *  The consumer instance project is not in
+ *  AllowedGoogleProducersResourceHierarchyLevels of the matching
+ *  ServiceConnectionPolicy.
+ *
+ *  Value: "CONSUMER_INSTANCE_PROJECT_NOT_ALLOWLISTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConsumerInstanceProjectNotAllowlisted;
+/**
  *  Service Connection Policy limit reached for this network and Service Class
  *
  *  Value: "POLICY_LIMIT_REACHED"
@@ -1350,6 +1358,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConnectionPolicyMissing
  *        No Service Connection Policy found for this network and Service Class
  *        (Value: "CONNECTION_POLICY_MISSING")
+ *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_ConsumerInstanceProjectNotAllowlisted
+ *        The consumer instance project is not in
+ *        AllowedGoogleProducersResourceHierarchyLevels of the matching
+ *        ServiceConnectionPolicy. (Value:
+ *        "CONSUMER_INSTANCE_PROJECT_NOT_ALLOWLISTED")
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConfig_State_PolicyLimitReached
  *        Service Connection Policy limit reached for this network and Service
  *        Class (Value: "POLICY_LIMIT_REACHED")
@@ -2288,6 +2301,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /** Optional. IP ranges allowed to be included from peering. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeExportRanges;
+
+/**
+ *  Output only. The list of Producer VPC spokes that this VPC spoke is a
+ *  service consumer VPC spoke for. These producer VPCs are connected through
+ *  VPC peering to this spoke's backing VPC network.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *producerVpcSpokes;
 
 /** Required. The URI of the VPC network resource. */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -3911,8 +3931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  The service class identifier for which this ServiceConnectionPolicy is for.
  *  The service class identifier is a unique, symbolic representation of a
  *  ServiceClass. It is provided by the Service Producer. Google services have a
- *  prefix of gcp. For example, gcp-cloud-sql. 3rd party services do not. For
- *  example, test-service-a3dfcx.
+ *  prefix of gcp or google-cloud. For example, gcp-memorystore-redis or
+ *  google-cloud-sql. 3rd party services do not. For example,
+ *  test-service-a3dfcx.
  */
 @property(nonatomic, copy, nullable) NSString *serviceClass;
 

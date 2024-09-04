@@ -110,6 +110,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  ListApiObservationTags lists all extant tags on any observation in the given
+ *  project.
+ *
+ *  Method: apim.projects.locations.listApiObservationTags
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIManagementCloudPlatform
+ */
+@interface GTLRAPIManagementQuery_ProjectsLocationsListApiObservationTags : GTLRAPIManagementQuery
+
+/**
+ *  Optional. The maximum number of tags to return. The service may return fewer
+ *  than this value. If unspecified, at most 10 tags will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListApiObservationTags`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListApiObservationTags` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of tags. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAPIManagement_ListApiObservationTagsResponse.
+ *
+ *  ListApiObservationTags lists all extant tags on any observation in the given
+ *  project.
+ *
+ *  @param parent Required. The parent, which owns this collection of tags.
+ *    Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRAPIManagementQuery_ProjectsLocationsListApiObservationTags
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  GetApiOperation retrieves a single ApiOperation by name.
  *
  *  Method: apim.projects.locations.observationJobs.apiObservations.apiOperations.get
@@ -141,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  ListApiOperations gets all ApiOperations for a given project and location
- *  and ObservationJob and ApiObservation
+ *  and ObservationJob and ApiObservation.
  *
  *  Method: apim.projects.locations.observationJobs.apiObservations.apiOperations.list
  *
@@ -176,7 +223,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAPIManagement_ListApiOperationsResponse.
  *
  *  ListApiOperations gets all ApiOperations for a given project and location
- *  and ObservationJob and ApiObservation
+ *  and ObservationJob and ApiObservation.
  *
  *  @param parent Required. The parent, which owns this collection of
  *    ApiOperations. Format:
@@ -189,6 +236,41 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  BatchEditTagsApiObservations adds or removes Tags for ApiObservations.
+ *
+ *  Method: apim.projects.locations.observationJobs.apiObservations.batchEditTags
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIManagementCloudPlatform
+ */
+@interface GTLRAPIManagementQuery_ProjectsLocationsObservationJobsApiObservationsBatchEditTags : GTLRAPIManagementQuery
+
+/**
+ *  Required. The parent resource shared by all ApiObservations being edited.
+ *  Format:
+ *  projects/{project}/locations/{location}/observationJobs/{observation_job}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAPIManagement_BatchEditTagsApiObservationsResponse.
+ *
+ *  BatchEditTagsApiObservations adds or removes Tags for ApiObservations.
+ *
+ *  @param object The @c GTLRAPIManagement_BatchEditTagsApiObservationsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource shared by all ApiObservations
+ *    being edited. Format:
+ *    projects/{project}/locations/{location}/observationJobs/{observation_job}
+ *
+ *  @return GTLRAPIManagementQuery_ProjectsLocationsObservationJobsApiObservationsBatchEditTags
+ */
++ (instancetype)queryWithObject:(GTLRAPIManagement_BatchEditTagsApiObservationsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -224,7 +306,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  ListApiObservations gets all ApiObservations for a given project and
- *  location and ObservationJob
+ *  location and ObservationJob.
  *
  *  Method: apim.projects.locations.observationJobs.apiObservations.list
  *
@@ -259,7 +341,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAPIManagement_ListApiObservationsResponse.
  *
  *  ListApiObservations gets all ApiObservations for a given project and
- *  location and ObservationJob
+ *  location and ObservationJob.
  *
  *  @param parent Required. The parent, which owns this collection of
  *    ApiObservations. Format:
@@ -465,7 +547,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  ListObservationJobs gets all ObservationJobs for a given project and
- *  location
+ *  location.
  *
  *  Method: apim.projects.locations.observationJobs.list
  *
@@ -500,7 +582,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAPIManagement_ListObservationJobsResponse.
  *
  *  ListObservationJobs gets all ObservationJobs for a given project and
- *  location
+ *  location.
  *
  *  @param parent Required. The parent, which owns this collection of
  *    ObservationJobs. Format: projects/{project}/locations/{location}
@@ -635,7 +717,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  ListObservationSources gets all ObservationSources for a given project and
- *  location
+ *  location.
  *
  *  Method: apim.projects.locations.observationSources.list
  *
@@ -670,7 +752,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAPIManagement_ListObservationSourcesResponse.
  *
  *  ListObservationSources gets all ObservationSources for a given project and
- *  location
+ *  location.
  *
  *  @param parent Required. The parent, which owns this collection of
  *    ObservationSources. Format: projects/{project}/locations/{location}

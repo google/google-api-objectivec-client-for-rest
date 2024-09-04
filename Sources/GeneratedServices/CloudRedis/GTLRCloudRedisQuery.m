@@ -146,6 +146,33 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersRescheduleClusterMaintenance
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_RescheduleClusterMaintenanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:rescheduleClusterMaintenance";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersRescheduleClusterMaintenance *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.rescheduleClusterMaintenance";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsGet
 
 @dynamic name;

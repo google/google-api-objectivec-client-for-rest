@@ -33,6 +33,20 @@ NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataRead = @"DATA_R
 NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudHealthcare_BlobStorageInfo.storageClass
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Archive = @"ARCHIVE";
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_BlobStorageClassUnspecified = @"BLOB_STORAGE_CLASS_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Coldline = @"COLDLINE";
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Nearline = @"NEARLINE";
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Standard = @"STANDARD";
+
+// GTLRCloudHealthcare_BlobStorageSettings.blobStorageClass
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Archive = @"ARCHIVE";
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_BlobStorageClassUnspecified = @"BLOB_STORAGE_CLASS_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Coldline = @"COLDLINE";
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Nearline = @"NEARLINE";
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Standard = @"STANDARD";
+
 // GTLRCloudHealthcare_CheckDataAccessRequest.responseView
 NSString * const kGTLRCloudHealthcare_CheckDataAccessRequest_ResponseView_Basic = @"BASIC";
 NSString * const kGTLRCloudHealthcare_CheckDataAccessRequest_ResponseView_Full = @"FULL";
@@ -131,6 +145,13 @@ NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Ch
 NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Create = @"CREATE";
 NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Delete = @"DELETE";
 NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Update = @"UPDATE";
+
+// GTLRCloudHealthcare_RollbackHl7V2MessagesRequest.changeType
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_All = @"ALL";
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Create = @"CREATE";
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Delete = @"DELETE";
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Update = @"UPDATE";
 
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics = @"ANALYTICS";
@@ -320,6 +341,26 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_BlobStorageInfo
+//
+
+@implementation GTLRCloudHealthcare_BlobStorageInfo
+@dynamic sizeBytes, storageClass, storageClassUpdateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_BlobStorageSettings
+//
+
+@implementation GTLRCloudHealthcare_BlobStorageSettings
+@dynamic blobStorageClass;
 @end
 
 
@@ -1345,7 +1386,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ImportDicomDataRequest
-@dynamic gcsSource;
+@dynamic blobStorageSettings, gcsSource;
 @end
 
 
@@ -2136,6 +2177,45 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_RollbackHL7MessagesFilteringFields
+//
+
+@implementation GTLRCloudHealthcare_RollbackHL7MessagesFilteringFields
+@dynamic operationIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_RollbackHl7V2MessagesRequest
+//
+
+@implementation GTLRCloudHealthcare_RollbackHl7V2MessagesRequest
+@dynamic changeType, excludeRollbacks, filteringFields, force, inputGcsObject,
+         resultGcsBucket, rollbackTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_RollbackHl7V2MessagesResponse
+//
+
+@implementation GTLRCloudHealthcare_RollbackHl7V2MessagesResponse
+@dynamic hl7v2Store;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_SchemaConfig
 //
 
@@ -2249,6 +2329,25 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_SetBlobStorageSettingsRequest
+//
+
+@implementation GTLRCloudHealthcare_SetBlobStorageSettingsRequest
+@dynamic blobStorageSettings, filterConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_SetBlobStorageSettingsResponse
+//
+
+@implementation GTLRCloudHealthcare_SetBlobStorageSettingsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_SetIamPolicyRequest
 //
 
@@ -2315,6 +2414,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_StorageInfo
+//
+
+@implementation GTLRCloudHealthcare_StorageInfo
+@dynamic blobStorageInfo, referencedResource, structuredStorageInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_StreamConfig
 //
 
@@ -2328,6 +2437,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_StructuredStorageInfo
+//
+
+@implementation GTLRCloudHealthcare_StructuredStorageInfo
+@dynamic sizeBytes;
 @end
 
 

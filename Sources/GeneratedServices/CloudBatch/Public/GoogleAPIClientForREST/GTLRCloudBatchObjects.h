@@ -27,6 +27,8 @@
 @class GTLRCloudBatch_AgentScript;
 @class GTLRCloudBatch_AgentTask;
 @class GTLRCloudBatch_AgentTaskInfo;
+@class GTLRCloudBatch_AgentTaskLoggingOption;
+@class GTLRCloudBatch_AgentTaskLoggingOption_Labels;
 @class GTLRCloudBatch_AgentTaskRunnable;
 @class GTLRCloudBatch_AgentTaskSpec;
 @class GTLRCloudBatch_AgentTaskUserAccount;
@@ -942,6 +944,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
+ *  AgentTaskLoggingOption contains the options for the logging of the task.
+ */
+@interface GTLRCloudBatch_AgentTaskLoggingOption : GTLRObject
+
+/**
+ *  Labels to be added to the log entry. Now only cloud logging is supported.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentTaskLoggingOption_Labels *labels;
+
+@end
+
+
+/**
+ *  Labels to be added to the log entry. Now only cloud logging is supported.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBatch_AgentTaskLoggingOption_Labels : GTLRObject
+@end
+
+
+/**
  *  AgentTaskRunnable is the Runnable representation between Agent and CLH
  *  communication.
  */
@@ -1002,6 +1029,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /** Environment variables to set before running the Task. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_AgentEnvironment *environment;
+
+/** Logging option for the task. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentTaskLoggingOption *loggingOption;
 
 /**
  *  Maximum duration the task should run before being automatically retried (if
@@ -1165,7 +1195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Barrier runnable blocks until all tasks in a taskgroup reach it.
+ *  A barrier runnable automatically blocks the execution of subsequent
+ *  runnables until all the tasks in the task group reach the barrier.
  */
 @interface GTLRCloudBatch_Barrier : GTLRObject
 
@@ -1280,9 +1311,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *blockExternalNetwork;
 
 /**
- *  Overrides the `CMD` specified in the container. If there is an ENTRYPOINT
- *  (either in the container image or with the entrypoint field below) then
- *  commands are appended as arguments to the ENTRYPOINT.
+ *  Required for some container images. Overrides the `CMD` specified in the
+ *  container. If there is an `ENTRYPOINT` (either in the container image or
+ *  with the `entrypoint` field below) then these commands are appended as
+ *  arguments to the `ENTRYPOINT`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *commands;
 
@@ -1303,15 +1335,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  */
 @property(nonatomic, strong, nullable) NSNumber *enableImageStreaming;
 
-/** Overrides the `ENTRYPOINT` specified in the container. */
+/**
+ *  Required for some container images. Overrides the `ENTRYPOINT` specified in
+ *  the container.
+ */
 @property(nonatomic, copy, nullable) NSString *entrypoint;
 
-/** The URI to pull the container image from. */
+/** Required. The URI to pull the container image from. */
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
 /**
- *  Arbitrary additional options to include in the "docker run" command when
- *  running this container, e.g. "--network host".
+ *  Required for some container images. Arbitrary additional options to include
+ *  in the `docker run` command when running this container—for example,
+ *  `--network host`. For the `--volume` option, use the `volumes` field for the
+ *  container.
  */
 @property(nonatomic, copy, nullable) NSString *options;
 
@@ -1346,14 +1383,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /**
  *  Volumes to mount (bind mount) from the host machine files or directories
- *  into the container, formatted to match docker run's --volume option, e.g.
- *  /foo:/bar, or /foo:/bar:ro If the `TaskSpec.Volumes` field is specified but
- *  this field is not, Batch will mount each volume from the host machine to the
- *  container with the same mount path by default. In this case, the default
- *  mount option for containers will be read-only (ro) for existing persistent
- *  disks and read-write (rw) for other volume types, regardless of the original
- *  mount options specified in `TaskSpec.Volumes`. If you need different mount
- *  settings, you can explicitly configure them in this field.
+ *  into the container, formatted to match `--volume` option for the `docker
+ *  run` command—for example, `/foo:/bar` or `/foo:/bar:ro`. If the
+ *  `TaskSpec.Volumes` field is specified but this field is not, Batch will
+ *  mount each volume from the host machine to the container with the same mount
+ *  path by default. In this case, the default mount option for containers will
+ *  be read-only (`ro`) for existing persistent disks and read-write (`rw`) for
+ *  other volume types, regardless of the original mount options specified in
+ *  `TaskSpec.Volumes`. If you need different mount settings, you can explicitly
+ *  configure them in this field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *volumes;
 
@@ -1383,9 +1421,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  version: projects/{project}/global/images/{image_version} You can also use
  *  Batch customized image in short names. The following image values are
  *  supported for a boot disk: * `batch-debian`: use Batch Debian images. *
- *  `batch-centos`: use Batch CentOS images. * `batch-cos`: use Batch
- *  Container-Optimized images. * `batch-hpc-centos`: use Batch HPC CentOS
- *  images. * `batch-hpc-rocky`: use Batch HPC Rocky Linux images.
+ *  `batch-cos`: use Batch Container-Optimized images. * `batch-hpc-rocky`: use
+ *  Batch HPC Rocky Linux images.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -1566,6 +1603,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  resources such as GPUs and extra disks.
  */
 @interface GTLRCloudBatch_InstancePolicyOrTemplate : GTLRObject
+
+/**
+ *  Optional. Set this field to `true` if you want Batch to block project-level
+ *  SSH keys from accessing this job's VMs. Alternatively, you can configure the
+ *  job to specify a VM instance template that blocks project-level SSH keys. In
+ *  either case, Batch blocks project-level SSH keys while creating the VMs for
+ *  this job. Batch allows project-level SSH keys for a job's VMs only if all
+ *  the following are true: + This field is undefined or set to `false`. + The
+ *  job's VM instance template (if any) doesn't block project-level SSH keys.
+ *  Notably, you can override this behavior by manually updating a VM to block
+ *  or allow project-level SSH keys. For more information about blocking
+ *  project-level SSH keys, see the Compute Engine documentation:
+ *  https://cloud.google.com/compute/docs/connect/restrict-ssh-keys#block-keys
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blockProjectSshKeys;
 
 /**
  *  Set this field true if you want Batch to help fetch drivers from a third
@@ -2407,9 +2461,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *alwaysRun;
 
 /**
- *  This flag allows a Runnable to continue running in the background while the
- *  Task executes subsequent Runnables. This is useful to provide services to
- *  other Runnables (or to provide debugging support tools like SSH servers).
+ *  Normally, a runnable that doesn't exit causes its task to fail. However, you
+ *  can set this field to `true` to configure a background runnable. Background
+ *  runnables are allowed continue running in the background while the task
+ *  executes subsequent runnables. For example, background runnables are useful
+ *  for providing services to other runnables or providing debugging-support
+ *  tools like SSH servers. Specifically, background runnables are killed
+ *  automatically (if they have not already exited) a short time after all
+ *  foreground runnables have completed. Even though this is likely to result in
+ *  a non-zero exit status for the background runnable, these automatic kills
+ *  are not treated as task failures.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2436,8 +2497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Environment *environment;
 
 /**
- *  Normally, a non-zero exit status causes the Task to fail. This flag allows
- *  execution of other Runnables to continue instead.
+ *  Normally, a runnable that returns a non-zero exit status fails and causes
+ *  the task to fail. However, you can set this field to `true` to allow the
+ *  task to continue executing its other runnables even if this runnable fails.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2473,22 +2535,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @interface GTLRCloudBatch_Script : GTLRObject
 
 /**
- *  Script file path on the host VM. To specify an interpreter, please add a
- *  `#!`(also known as [shebang
- *  line](https://en.wikipedia.org/wiki/Shebang_(Unix))) as the first line of
- *  the file.(For example, to execute the script using bash, `#!/bin/bash`
- *  should be the first line of the file. To execute the script using`Python3`,
- *  `#!/usr/bin/env python3` should be the first line of the file.) Otherwise,
- *  the file will by default be executed by `/bin/sh`.
+ *  The path to a script file that is accessible from the host VM(s). Unless the
+ *  script file supports the default `#!/bin/sh` shell interpreter, you must
+ *  specify an interpreter by including a [shebang
+ *  line](https://en.wikipedia.org/wiki/Shebang_(Unix) as the first line of the
+ *  file. For example, to execute the script using bash, include `#!/bin/bash`
+ *  as the first line of the file. Alternatively, to execute the script using
+ *  Python3, include `#!/usr/bin/env python3` as the first line of the file.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Shell script text. To specify an interpreter, please add a `#!\\n` at the
- *  beginning of the text.(For example, to execute the script using bash,
- *  `#!/bin/bash\\n` should be added. To execute the script using`Python3`,
- *  `#!/usr/bin/env python3\\n` should be added.) Otherwise, the script will by
- *  default be executed by `/bin/sh`.
+ *  The text for a script. Unless the script text supports the default
+ *  `#!/bin/sh` shell interpreter, you must specify an interpreter by including
+ *  a [shebang line](https://en.wikipedia.org/wiki/Shebang_(Unix) at the
+ *  beginning of the text. For example, to execute the script using bash,
+ *  include `#!/bin/bash\\n` at the beginning of the text. Alternatively, to
+ *  execute the script using Python3, include `#!/usr/bin/env python3\\n` at the
+ *  beginning of the text.
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -2555,7 +2619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Status event
+ *  Status event.
  */
 @interface GTLRCloudBatch_StatusEvent : GTLRObject
 
@@ -2569,11 +2633,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** The time this event occurred. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
-/** Task Execution */
+/**
+ *  Task Execution. This field is only defined for task-level status events
+ *  where the task fails.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_TaskExecution *taskExecution;
 
 /**
- *  Task State
+ *  Task State. This field is only defined for task-level status events.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBatch_StatusEvent_TaskState_Assigned The Task is
@@ -2815,14 +2882,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
 
 /**
- *  The sequence of scripts or containers to run for this Task. Each Task using
- *  this TaskSpec executes its list of runnables in order. The Task succeeds if
- *  all of its runnables either exit with a zero status or any that exit with a
- *  non-zero status have the ignore_exit_status flag. Background runnables are
- *  killed automatically (if they have not already exited) a short time after
- *  all foreground runnables have completed. Even though this is likely to
- *  result in a non-zero exit status for the background runnable, these
- *  automatic kills are not treated as Task failures.
+ *  Required. The sequence of one or more runnables (executable scripts,
+ *  executable containers, and/or barriers) for each task in this task group to
+ *  run. Each task runs this list of runnables in order. For a task to succeed,
+ *  all of its script and container runnables each must meet at least one of the
+ *  following conditions: + The runnable exited with a zero status. + The
+ *  runnable didn't finish, but you enabled its `background` subfield. + The
+ *  runnable exited with a non-zero status, but you enabled its
+ *  `ignore_exit_status` subfield.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_Runnable *> *runnables;
 
@@ -2846,12 +2913,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  Status of a task
+ *  Status of a task.
  */
 @interface GTLRCloudBatch_TaskStatus : GTLRObject
 
 /**
- *  Task state
+ *  Task state.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBatch_TaskStatus_State_Assigned The Task is assigned to

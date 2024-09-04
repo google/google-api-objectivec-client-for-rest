@@ -723,7 +723,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_FindNearest
-@dynamic distanceMeasure, limit, queryVector, vectorField;
+@dynamic distanceMeasure, distanceResultField, distanceThreshold, limit,
+         queryVector, vectorField;
 @end
 
 
@@ -816,11 +817,20 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions
+@dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence
-@dynamic time;
 @end
 
 
@@ -848,6 +858,17 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1DeleteDatabaseMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig
+@dynamic customerManagedEncryption, googleDefaultEncryption,
+         useSourceEncryption;
 @end
 
 
@@ -935,6 +956,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1FlatIndex
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions
 @end
 
 
@@ -1179,8 +1209,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest
-@dynamic backup, databaseId, kmsKeyName, useBackupEncryption,
-         useGoogleDefaultEncryption;
+@dynamic backup, databaseId, encryptionConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions
 @end
 
 
@@ -1239,7 +1277,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence
-@dynamic day, time;
+@dynamic day;
 @end
 
 
@@ -1778,16 +1816,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_TimeOfDay
-//
-
-@implementation GTLRFirestore_TimeOfDay
-@dynamic hours, minutes, nanos, seconds;
 @end
 
 

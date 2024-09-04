@@ -2294,8 +2294,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_Session
 @dynamic createTime, creator, environmentConfig, jupyterSession, labels, name,
-         runtimeConfig, runtimeInfo, sessionTemplate, state, stateHistory,
-         stateMessage, stateTime, user, uuid;
+         runtimeConfig, runtimeInfo, sessionTemplate, sparkConnectSession,
+         state, stateHistory, stateMessage, stateTime, user, uuid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2375,7 +2375,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_SessionTemplate
 @dynamic createTime, creator, descriptionProperty, environmentConfig,
-         jupyterSession, labels, name, runtimeConfig, updateTime, uuid;
+         jupyterSession, labels, name, runtimeConfig, sparkConnectSession,
+         updateTime, uuid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2468,6 +2469,15 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkConnectConfig
+//
+
+@implementation GTLRDataproc_SparkConnectConfig
 @end
 
 

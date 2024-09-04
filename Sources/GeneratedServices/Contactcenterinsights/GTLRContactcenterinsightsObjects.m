@@ -87,6 +87,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_MediumUnspecified = @"MEDIUM_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall = @"PHONE_CALL";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput.querySource
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_AgentQuery = @"AGENT_QUERY";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_QuerySourceUnspecified = @"QUERY_SOURCE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput_QuerySource_SuggestedQuery = @"SUGGESTED_QUERY";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig.summarizationModel
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModel = @"BASELINE_MODEL";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig_SummarizationModel_BaselineModelV20 = @"BASELINE_MODEL_V2_0";
@@ -179,6 +184,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_AllOf = @"ALL_OF";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_AnyOf = @"ANY_OF";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroup_Type_PhraseMatchRuleGroupTypeUnspecified = @"PHRASE_MATCH_RULE_GROUP_TYPE_UNSPECIFIED";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput.querySource
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_AgentQuery = @"AGENT_QUERY";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_QuerySourceUnspecified = @"QUERY_SOURCE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput_QuerySource_SuggestedQuery = @"SUGGESTED_QUERY";
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -765,6 +775,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec
+@dynamic kmsKey, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity
 //
 
@@ -1054,6 +1074,43 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecMetadata
+@dynamic createTime, endTime, partialErrors, request;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialErrors" : [GTLRContactcenterinsights_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecRequest
+@dynamic encryptionSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1InitializeEncryptionSpecResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Intent
 //
 
@@ -1218,7 +1275,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotationUserInput
-@dynamic generatorName, query;
+@dynamic generatorName, query, querySource;
 @end
 
 
@@ -2036,6 +2093,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec
+@dynamic kmsKey, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Entity
 //
 
@@ -2335,6 +2402,43 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecMetadata
+@dynamic createTime, endTime, partialErrors, request;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialErrors" : [GTLRContactcenterinsights_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest
+@dynamic encryptionSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Intent
 //
 
@@ -2373,7 +2477,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Issue
-@dynamic createTime, displayName, name, sampleUtterances, updateTime;
+@dynamic createTime, displayDescription, displayName, name, sampleUtterances,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2699,7 +2804,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput
-@dynamic generatorName, query;
+@dynamic generatorName, query, querySource;
 @end
 
 

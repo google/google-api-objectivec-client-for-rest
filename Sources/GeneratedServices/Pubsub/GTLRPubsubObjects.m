@@ -147,8 +147,8 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_CloudStorageConfig
 @dynamic avroConfig, bucket, filenameDatetimeFormat, filenamePrefix,
-         filenameSuffix, maxBytes, maxDuration, serviceAccountEmail, state,
-         textConfig;
+         filenameSuffix, maxBytes, maxDuration, maxMessages,
+         serviceAccountEmail, state, textConfig;
 @end
 
 

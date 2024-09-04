@@ -2037,9 +2037,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ProjectsAlertPoliciesList : GTLRMonitoringQuery
 
 /**
- *  If provided, this field specifies the criteria that must be met by alert
- *  policies to be included in the response.For more details, see sorting and
- *  filtering
+ *  Optional. If provided, this field specifies the criteria that must be met by
+ *  alert policies to be included in the response.For more details, see sorting
+ *  and filtering
  *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2055,21 +2055,21 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A comma-separated list of fields by which to sort the result. Supports the
- *  same set of field references as the filter field. Entries can be prefixed
- *  with a minus sign to sort by the field in descending order.For more details,
- *  see sorting and filtering
+ *  Optional. A comma-separated list of fields by which to sort the result.
+ *  Supports the same set of field references as the filter field. Entries can
+ *  be prefixed with a minus sign to sort by the field in descending order.For
+ *  more details, see sorting and filtering
  *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** The maximum number of results to return in a single response. */
+/** Optional. The maximum number of results to return in a single response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If this field is not empty then it must contain the nextPageToken value
- *  returned by a previous call to this method. Using this field causes the
- *  method to return more results from the previous method call.
+ *  Optional. If this field is not empty then it must contain the nextPageToken
+ *  value returned by a previous call to this method. Using this field causes
+ *  the method to return more results from the previous method call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2112,8 +2112,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ProjectsAlertPoliciesPatch : GTLRMonitoringQuery
 
 /**
- *  Required if the policy exists. The resource name for this policy. The format
- *  is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+ *  Identifier. Required if the policy exists. The resource name for this
+ *  policy. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *  [ALERT_POLICY_ID] is assigned by Cloud Monitoring when the policy is
  *  created. When calling the alertPolicies.create method, do not include the
  *  name field in the alerting policy passed as part of the request.
@@ -2152,8 +2153,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
  *
  *  @param object The @c GTLRMonitoring_AlertPolicy to include in the query.
- *  @param name Required if the policy exists. The resource name for this
- *    policy. The format is:
+ *  @param name Identifier. Required if the policy exists. The resource name for
+ *    this policy. The format is:
  *    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *    [ALERT_POLICY_ID] is assigned by Cloud Monitoring when the policy is
  *    created. When calling the alertPolicies.create method, do not include the
@@ -3094,7 +3095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsList : GTLRMonitoringQuery
 
 /**
- *  If provided, this field specifies the criteria that must be met by
+ *  Optional. If provided, this field specifies the criteria that must be met by
  *  notification channels to be included in the response.For more details, see
  *  sorting and filtering
  *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
@@ -3112,22 +3113,23 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A comma-separated list of fields by which to sort the result. Supports the
- *  same set of fields as in filter. Entries can be prefixed with a minus sign
- *  to sort in descending rather than ascending order.For more details, see
- *  sorting and filtering
+ *  Optional. A comma-separated list of fields by which to sort the result.
+ *  Supports the same set of fields as in filter. Entries can be prefixed with a
+ *  minus sign to sort in descending rather than ascending order.For more
+ *  details, see sorting and filtering
  *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of results to return in a single response. If not set to
- *  a positive number, a reasonable value will be chosen by the service.
+ *  Optional. The maximum number of results to return in a single response. If
+ *  not set to a positive number, a reasonable value will be chosen by the
+ *  service.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If non-empty, page_token must contain a value returned as the
+ *  Optional. If non-empty, page_token must contain a value returned as the
  *  next_page_token in a previous response to request the next set of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3172,14 +3174,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsPatch : GTLRMonitoringQuery
 
 /**
- *  The full REST resource name for this channel. The format is:
+ *  Identifier. The full REST resource name for this channel. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The
  *  [CHANNEL_ID] is automatically assigned by the server on creation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The fields to update.
+ *  Optional. The fields to update.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -3196,7 +3198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_NotificationChannel to include in the
  *    query.
- *  @param name The full REST resource name for this channel. The format is:
+ *  @param name Identifier. The full REST resource name for this channel. The
+ *    format is:
  *    projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The
  *    [CHANNEL_ID] is automatically assigned by the server on creation.
  *
@@ -4176,6 +4179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  *    @c kGTLRAuthScopeMonitoringRead
  */
+GTLR_DEPRECATED
 @interface GTLRMonitoringQuery_ProjectsTimeSeriesQuery : GTLRMonitoringQuery
 
 /**

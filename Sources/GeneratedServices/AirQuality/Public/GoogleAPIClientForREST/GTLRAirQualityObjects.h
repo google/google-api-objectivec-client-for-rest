@@ -447,7 +447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAirQuality_LookupHistoryRequest_UaqiColo
 @property(nonatomic, copy, nullable) NSString *units;
 
 /**
- *  Value of pollutant concentration.
+ *  Value of the pollutant concentration.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1140,9 +1140,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAirQuality_LookupHistoryRequest_UaqiColo
 @property(nonatomic, strong, nullable) GTLRAirQuality_AdditionalInfo *additionalInfo;
 
 /**
- *  The pollutant's code name. For example: "so2". A list of all available codes
- *  could be found
- *  [here](/maps/documentation/air-quality/pollutants#reported_pollutants).
+ *  The pollutant's code name (for example, "so2"). For a list of supported
+ *  pollutant codes, see [Reported
+ *  pollutants](/maps/documentation/air-quality/pollutants#reported_pollutants).
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -1158,7 +1158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAirQuality_LookupHistoryRequest_UaqiColo
 /**
  *  The pollutant's full name. For chemical compounds, this is the IUPAC name.
  *  Example: "Sulfur Dioxide". For more information about the IUPAC names table,
- *  see https://iupac.org/what-we-do/periodic-table-of-elements/
+ *  see https://iupac.org/what-we-do/periodic-table-of-elements/.
  */
 @property(nonatomic, copy, nullable) NSString *fullName;
 

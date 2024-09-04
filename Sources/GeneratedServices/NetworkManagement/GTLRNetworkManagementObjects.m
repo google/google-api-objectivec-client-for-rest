@@ -74,6 +74,7 @@ NSString * const kGTLRNetworkManagement_DeliverInfo_Target_StorageBucket = @"STO
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
 
 // GTLRNetworkManagement_DropInfo.cause
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_BackendServiceNamedPortNotDefined = @"BACKEND_SERVICE_NAMED_PORT_NOT_DEFINED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified = @"CAUSE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive = @"CLOUD_FUNCTION_NOT_ACTIVE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudNatNoAddresses = @"CLOUD_NAT_NO_ADDRESSES";
@@ -85,6 +86,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotConfig
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotRunning = @"CLOUD_SQL_INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthorizedAccess = @"CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlPscNegUnsupported = @"CLOUD_SQL_PSC_NEG_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_DestinationIsPrivateNatIpRange = @"DESTINATION_IS_PRIVATE_NAT_IP_RANGE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService = @"DROPPED_INSIDE_CLOUD_SQL_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService = @"DROPPED_INSIDE_GKE_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGoogleManagedService = @"DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE";
@@ -105,6 +107,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPsc
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonDynamicRouteMatched = @"HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched = @"HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning = @"INSTANCE_NOT_RUNNING";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvalidNetwork = @"LOAD_BALANCER_BACKEND_INVALID_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet = @"LOAD_BALANCER_HAS_NO_PROXY_SUBNET";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_EXTERNAL_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment = @"NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT";
@@ -120,6 +123,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerForwardingR
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscTransitivityNotPropagated = @"PSC_TRANSITIVITY_NOT_PROPAGATED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicCloudSqlInstanceToPrivateDestination = @"PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination = @"PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNotRunning = @"REDIS_INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole = @"ROUTE_BLACKHOLE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleIpMismatch = @"ROUTE_NEXT_HOP_FORWARDING_RULE_IP_MISMATCH";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleTypeInvalid = @"ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID";
@@ -308,6 +312,7 @@ NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance = @"START_F
 NSString * const kGTLRNetworkManagement_Step_State_StartFromInternet = @"START_FROM_INTERNET";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork = @"START_FROM_PRIVATE_NETWORK";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromPscPublishedService = @"START_FROM_PSC_PUBLISHED_SERVICE";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromRedisInstance = @"START_FROM_REDIS_INSTANCE";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromServerlessNeg = @"START_FROM_SERVERLESS_NEG";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromStorageBucket = @"START_FROM_STORAGE_BUCKET";
 NSString * const kGTLRNetworkManagement_Step_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -593,7 +598,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_FirewallInfo
 @dynamic action, direction, displayName, firewallRuleType, networkUri, policy,
-         priority, targetServiceAccounts, targetTags, uri;
+         policyUri, priority, targetServiceAccounts, targetTags, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -655,7 +660,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_InstanceInfo
 @dynamic displayName, externalIp, interface, internalIp, networkTags,
-         networkUri, serviceAccount, uri;
+         networkUri, pscNetworkAttachmentUri, serviceAccount, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -988,6 +993,17 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_RedisInstanceInfo
+//
+
+@implementation GTLRNetworkManagement_RedisInstanceInfo
+@dynamic displayName, networkUri, primaryEndpointIp, readEndpointIp, region,
+         uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_RerunConnectivityTestRequest
 //
 
@@ -1080,8 +1096,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
          cloudSqlInstance, deliver, descriptionProperty, drop, endpoint,
          firewall, forward, forwardingRule, gkeMaster, googleService, instance,
          loadBalancer, loadBalancerBackendInfo, nat, network, projectId,
-         proxyConnection, route, serverlessNeg, state, storageBucket,
-         vpcConnector, vpnGateway, vpnTunnel;
+         proxyConnection, redisInstance, route, serverlessNeg, state,
+         storageBucket, vpcConnector, vpnGateway, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

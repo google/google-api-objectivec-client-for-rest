@@ -158,6 +158,7 @@
 @class GTLRSheets_KeyValueFormat;
 @class GTLRSheets_LineStyle;
 @class GTLRSheets_Link;
+@class GTLRSheets_LookerDataSourceSpec;
 @class GTLRSheets_ManualRule;
 @class GTLRSheets_ManualRuleGroup;
 @class GTLRSheets_MatchedDeveloperMetadata;
@@ -3606,7 +3607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Adds a data source. After the data source is added successfully, an
  *  associated DATA_SOURCE sheet is created and an execution is triggered to
  *  refresh the sheet to read data from the data source. The request requires an
- *  additional `bigquery.readonly` OAuth scope.
+ *  additional `bigquery.readonly` OAuth scope if you are adding a BigQuery data
+ *  source.
  */
 @interface GTLRSheets_AddDataSourceRequest : GTLRObject
 
@@ -5412,7 +5414,9 @@ GTLR_DEPRECATED
 
 /**
  *  Cancels one or multiple refreshes of data source objects in the spreadsheet
- *  by the specified references.
+ *  by the specified references. The request requires an additional
+ *  `bigquery.readonly` OAuth scope if you are cancelling a refresh on a
+ *  BigQuery data source.
  */
 @interface GTLRSheets_CancelDataSourceRefreshRequest : GTLRObject
 
@@ -7022,6 +7026,9 @@ GTLR_DEPRECATED
 
 /** A BigQueryDataSourceSpec. */
 @property(nonatomic, strong, nullable) GTLRSheets_BigQueryDataSourceSpec *bigQuery;
+
+/** A LookerDatasourceSpec. */
+@property(nonatomic, strong, nullable) GTLRSheets_LookerDataSourceSpec *looker;
 
 /** The parameters of the data source, used when querying the data source. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataSourceParameter *> *parameters;
@@ -8845,6 +8852,23 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The specification of a Looker data source.
+ */
+@interface GTLRSheets_LookerDataSourceSpec : GTLRObject
+
+/** Name of a Looker model explore. */
+@property(nonatomic, copy, nullable) NSString *explore;
+
+/** A Looker instance URL. */
+@property(nonatomic, copy, nullable) NSString *instanceUri;
+
+/** Name of a Looker model. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
  *  Allows you to manually organize the values in a source data column into
  *  buckets with names of your choosing. For example, a pivot table that
  *  aggregates population by state: +-------+-------------------+ | State | SUM
@@ -9878,9 +9902,10 @@ GTLR_DEPRECATED
 /**
  *  Refreshes one or multiple data source objects in the spreadsheet by the
  *  specified references. The request requires an additional `bigquery.readonly`
- *  OAuth scope. If there are multiple refresh requests referencing the same
- *  data source objects in one batch, only the last refresh request is
- *  processed, and all those requests will have the same response accordingly.
+ *  OAuth scope if you are refreshing a BigQuery data source. If there are
+ *  multiple refresh requests referencing the same data source objects in one
+ *  batch, only the last refresh request is processed, and all those requests
+ *  will have the same response accordingly.
  */
 @interface GTLRSheets_RefreshDataSourceRequest : GTLRObject
 
@@ -10817,7 +10842,8 @@ GTLR_DEPRECATED
 
 /**
  *  Whether to allow external URL access for image and import functions. Read
- *  only when true. When false, you can set to true.
+ *  only when true. When false, you can set to true. This value will be bypassed
+ *  and always return true if the admin has enabled the allowlisting feature.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -11520,7 +11546,7 @@ GTLR_DEPRECATED
  *  Updates a data source. After the data source is updated successfully, an
  *  execution is triggered to refresh the associated DATA_SOURCE sheet to read
  *  data from the updated data source. The request requires an additional
- *  `bigquery.readonly` OAuth scope.
+ *  `bigquery.readonly` OAuth scope if you are updating a BigQuery data source.
  */
 @interface GTLRSheets_UpdateDataSourceRequest : GTLRObject
 

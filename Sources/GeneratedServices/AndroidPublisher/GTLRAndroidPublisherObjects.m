@@ -1395,6 +1395,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails
+//
+
+@implementation GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails
+@dynamic externalTransactionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ExternalSubscription
 //
 
@@ -1410,8 +1420,9 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ExternalTransaction
 @dynamic createTime, currentPreTaxAmount, currentTaxAmount,
-         externalTransactionId, oneTimeTransaction, originalPreTaxAmount,
-         originalTaxAmount, packageName, recurringTransaction, testPurchase,
+         externalOfferInitialAcquisitionDetails, externalTransactionId,
+         oneTimeTransaction, originalPreTaxAmount, originalTaxAmount,
+         packageName, recurringTransaction, testPurchase,
          transactionProgramCode, transactionState, transactionTime,
          userTaxAddress;
 @end
@@ -2594,7 +2605,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_RevocationContext
-@dynamic proratedRefund;
+@dynamic fullRefund, proratedRefund;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RevocationContextFullRefund
+//
+
+@implementation GTLRAndroidPublisher_RevocationContextFullRefund
 @end
 
 

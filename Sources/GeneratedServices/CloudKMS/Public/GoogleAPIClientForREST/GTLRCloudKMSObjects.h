@@ -151,6 +151,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataWrit
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_AutokeyConfig.state
+
+/**
+ *  The AutokeyConfig is currently active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_Active;
+/**
+ *  A previously configured key project has been deleted and the current
+ *  AutokeyConfig is unusable.
+ *
+ *  Value: "KEY_PROJECT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted;
+/**
+ *  The state of the AutokeyConfig is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_StateUnspecified;
+/**
+ *  The AutokeyConfig is not yet initialized or has been reset to its default
+ *  uninitialized state.
+ *
+ *  Value: "UNINITIALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_Uninitialized;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKey.purpose
 
 /**
@@ -2146,6 +2176,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The state for the AutokeyConfig.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_Active The AutokeyConfig is
+ *        currently active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted A previously
+ *        configured key project has been deleted and the current AutokeyConfig
+ *        is unusable. (Value: "KEY_PROJECT_DELETED")
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_StateUnspecified The state of
+ *        the AutokeyConfig is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_Uninitialized The AutokeyConfig
+ *        is not yet initialized or has been reset to its default uninitialized
+ *        state. (Value: "UNINITIALIZED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -2344,7 +2391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 /**
  *  Immutable. The period of time that versions of this key spend in the
  *  DESTROY_SCHEDULED state before transitioning to DESTROYED. If not specified
- *  at creation time, the default duration is 24 hours.
+ *  at creation time, the default duration is 30 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *destroyScheduledDuration;
 
@@ -3118,9 +3165,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A list of ServiceResolvers where the EKM can be reached. There should be one
- *  ServiceResolver per EKM replica. Currently, only a single ServiceResolver is
- *  supported.
+ *  Optional. A list of ServiceResolvers where the EKM can be reached. There
+ *  should be one ServiceResolver per EKM replica. Currently, only a single
+ *  ServiceResolver is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_ServiceResolver *> *serviceResolvers;
 
@@ -3983,11 +4030,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 /**
  *  Response message for Autokey.ListKeyHandles.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "keyHandles" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRCloudKMS_ListKeyHandlesResponse : GTLRObject
+@interface GTLRCloudKMS_ListKeyHandlesResponse : GTLRCollectionObject
 
-/** Resulting KeyHandles. */
+/**
+ *  Resulting KeyHandles.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_KeyHandle *> *keyHandles;
+
+/**
+ *  A token to retrieve next page of results. Pass this value in
+ *  ListKeyHandlesRequest.page_token to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

@@ -1124,6 +1124,52 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesGetStorageInfo
+
+@dynamic resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getStorageInfo";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesGetStorageInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_StorageInfo class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.getStorageInfo";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSetBlobStorageSettings
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetBlobStorageSettingsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setBlobStorageSettings";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSetBlobStorageSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.setBlobStorageSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresExport
 
 @dynamic name;
@@ -1349,6 +1395,33 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
   query.dicomWebPath = dicomWebPath;
   query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
   query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.searchForStudies";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetBlobStorageSettings
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetBlobStorageSettingsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setBlobStorageSettings";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetBlobStorageSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.setBlobStorageSettings";
   return query;
 }
 
@@ -2951,6 +3024,33 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
   query.name = name;
   query.expectedObjectClass = [GTLRCloudHealthcare_Hl7V2Store class];
   query.loggingName = @"healthcare.projects.locations.datasets.hl7V2Stores.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresRollback
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_RollbackHl7V2MessagesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:rollback";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresRollback *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.hl7V2Stores.rollback";
   return query;
 }
 

@@ -59,11 +59,12 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 @dynamic additionalImageLink, ageGroup, brand, capacity, certification, color,
          count, descriptionProperty, disclosureDate, excludedDestination,
          featureDescription, flavor, format, gender, grocery, gtin, imageLink,
-         includedDestination, itemGroupId, material, mpn, nutrition, pattern,
-         productDetail, productHighlight, productLine, productName,
-         productPageUrl, productType, releaseDate, richProductContent, scent,
-         size, sizeSystem, sizeType, suggestedRetailPrice, targetClientId,
-         theme, title, videoLink, virtualModelLink;
+         includedDestination, intendedCountry, itemGroupId, material, mpn,
+         nutrition, pattern, productDetail, productHighlight, productLine,
+         productName, productPageUrl, productType, releaseDate,
+         richProductContent, scent, size, sizeSystem, sizeType,
+         suggestedRetailPrice, targetClientId, theme, title, videoLink,
+         virtualModelLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -77,6 +78,7 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
     @"featureDescription" : [GTLRManufacturerCenter_FeatureDescription class],
     @"gtin" : [NSString class],
     @"includedDestination" : [NSString class],
+    @"intendedCountry" : [NSString class],
     @"productDetail" : [GTLRManufacturerCenter_ProductDetail class],
     @"productHighlight" : [NSString class],
     @"productType" : [NSString class],
@@ -126,7 +128,18 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 //
 
 @implementation GTLRManufacturerCenter_DestinationStatus
-@dynamic destination, status;
+@dynamic approvedCountries, destination, disapprovedCountries, pendingCountries,
+         status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"approvedCountries" : [NSString class],
+    @"disapprovedCountries" : [NSString class],
+    @"pendingCountries" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -206,11 +219,18 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 //
 
 @implementation GTLRManufacturerCenter_Issue
-@dynamic attribute, descriptionProperty, destination, resolution, severity,
-         timestamp, title, type;
+@dynamic applicableCountries, attribute, descriptionProperty, destination,
+         resolution, severity, timestamp, title, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applicableCountries" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -307,8 +327,8 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 //
 
 @implementation GTLRManufacturerCenter_Product
-@dynamic attributes, contentLanguage, destinationStatuses, issues, name, parent,
-         productId, targetCountry;
+@dynamic attributes, contentLanguage, destinationStatuses, feedLabel, issues,
+         name, parent, productId, targetCountry;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

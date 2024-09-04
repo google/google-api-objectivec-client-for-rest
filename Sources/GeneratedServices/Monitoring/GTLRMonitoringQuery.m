@@ -97,6 +97,9 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 // Query Classes
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 @implementation GTLRMonitoringQuery
 
 @dynamic fields;
@@ -1401,3 +1404,5 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 }
 
 @end
+
+#pragma clang diagnostic pop

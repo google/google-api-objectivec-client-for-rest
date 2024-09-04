@@ -2593,13 +2593,13 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @interface GTLRConfig_TerraformBlueprint : GTLRObject
 
 /**
- *  Required. URI of an object in Google Cloud Storage. Format:
- *  `gs://{bucket}/{object}` URI may also specify an object version for zipped
- *  objects. Format: `gs://{bucket}/{object}#{version}`
+ *  URI of an object in Google Cloud Storage. Format: `gs://{bucket}/{object}`
+ *  URI may also specify an object version for zipped objects. Format:
+ *  `gs://{bucket}/{object}#{version}`
  */
 @property(nonatomic, copy, nullable) NSString *gcsSource;
 
-/** Required. URI of a public Git repo. */
+/** URI of a public Git repo. */
 @property(nonatomic, strong, nullable) GTLRConfig_GitSource *gitSource;
 
 /** Input variable values for the Terraform blueprint. */

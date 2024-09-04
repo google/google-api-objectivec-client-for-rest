@@ -61,6 +61,62 @@ NSString * const kGTLRDataFusion_Instance_Type_Developer       = @"DEVELOPER";
 NSString * const kGTLRDataFusion_Instance_Type_Enterprise      = @"ENTERPRISE";
 NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDataFusion_IsolationExpectations.ziOrgPolicy
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiNotRequired = @"ZI_NOT_REQUIRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiPreferred = @"ZI_PREFERRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiRequired = @"ZI_REQUIRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiUnknown = @"ZI_UNKNOWN";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiOrgPolicy_ZiUnspecified = @"ZI_UNSPECIFIED";
+
+// GTLRDataFusion_IsolationExpectations.ziRegionPolicy
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed = @"ZI_REGION_POLICY_FAIL_CLOSED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen = @"ZI_REGION_POLICY_FAIL_OPEN";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet = @"ZI_REGION_POLICY_NOT_SET";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown = @"ZI_REGION_POLICY_UNKNOWN";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified = @"ZI_REGION_POLICY_UNSPECIFIED";
+
+// GTLRDataFusion_IsolationExpectations.ziRegionState
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionEnabled = @"ZI_REGION_ENABLED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled = @"ZI_REGION_NOT_ENABLED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionUnknown = @"ZI_REGION_UNKNOWN";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZiRegionState_ZiRegionUnspecified = @"ZI_REGION_UNSPECIFIED";
+
+// GTLRDataFusion_IsolationExpectations.zoneIsolation
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiNotRequired = @"ZI_NOT_REQUIRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiPreferred = @"ZI_PREFERRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiRequired = @"ZI_REQUIRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiUnknown = @"ZI_UNKNOWN";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneIsolation_ZiUnspecified = @"ZI_UNSPECIFIED";
+
+// GTLRDataFusion_IsolationExpectations.zoneSeparation
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsNotRequired = @"ZS_NOT_REQUIRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsRequired = @"ZS_REQUIRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsUnknown = @"ZS_UNKNOWN";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZoneSeparation_ZsUnspecified = @"ZS_UNSPECIFIED";
+
+// GTLRDataFusion_IsolationExpectations.zsOrgPolicy
+NSString * const kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsNotRequired = @"ZS_NOT_REQUIRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsRequired = @"ZS_REQUIRED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsUnknown = @"ZS_UNKNOWN";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZsOrgPolicy_ZsUnspecified = @"ZS_UNSPECIFIED";
+
+// GTLRDataFusion_IsolationExpectations.zsRegionState
+NSString * const kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionEnabled = @"ZS_REGION_ENABLED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled = @"ZS_REGION_NOT_ENABLED";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionUnknown = @"ZS_REGION_UNKNOWN";
+NSString * const kGTLRDataFusion_IsolationExpectations_ZsRegionState_ZsRegionUnspecified = @"ZS_REGION_UNSPECIFIED";
+
+// GTLRDataFusion_LocationAssignment.locationType
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_CloudRegion = @"CLOUD_REGION";
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_CloudZone = @"CLOUD_ZONE";
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Cluster = @"CLUSTER";
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Global = @"GLOBAL";
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_MultiRegionGeo = @"MULTI_REGION_GEO";
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_MultiRegionJurisdiction = @"MULTI_REGION_JURISDICTION";
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Other = @"OTHER";
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Pop = @"POP";
+NSString * const kGTLRDataFusion_LocationAssignment_LocationType_Unspecified = @"UNSPECIFIED";
+
 // GTLRDataFusion_NetworkConfig.connectionType
 NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_PrivateServiceConnectInterfaces = @"PRIVATE_SERVICE_CONNECT_INTERFACES";
@@ -78,6 +134,26 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 @implementation GTLRDataFusion_Accelerator
 @dynamic acceleratorType, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_AssetLocation
+//
+
+@implementation GTLRDataFusion_AssetLocation
+@dynamic expected, extraParameters, locationData, parentAsset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraParameters" : [GTLRDataFusion_ExtraParameter class],
+    @"locationData" : [GTLRDataFusion_LocationData class],
+    @"parentAsset" : [GTLRDataFusion_CloudAsset class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -137,10 +213,56 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_BlobstoreLocation
+//
+
+@implementation GTLRDataFusion_BlobstoreLocation
+@dynamic policyId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_CancelOperationRequest
 //
 
 @implementation GTLRDataFusion_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_CloudAsset
+//
+
+@implementation GTLRDataFusion_CloudAsset
+@dynamic assetName, assetType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_CloudAssetComposition
+//
+
+@implementation GTLRDataFusion_CloudAssetComposition
+@dynamic childAsset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childAsset" : [GTLRDataFusion_CloudAsset class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -151,6 +273,24 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 @implementation GTLRDataFusion_CryptoKeyConfig
 @dynamic keyReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_DirectLocationAssignment
+//
+
+@implementation GTLRDataFusion_DirectLocationAssignment
+@dynamic location;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"location" : [GTLRDataFusion_LocationAssignment class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -200,6 +340,16 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_ExtraParameter
+//
+
+@implementation GTLRDataFusion_ExtraParameter
+@dynamic regionalMigDistributionPolicy;
 @end
 
 
@@ -265,6 +415,17 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_IsolationExpectations
+//
+
+@implementation GTLRDataFusion_IsolationExpectations
+@dynamic ziOrgPolicy, ziRegionPolicy, ziRegionState, zoneIsolation,
+         zoneSeparation, zsOrgPolicy, zsRegionState;
 @end
 
 
@@ -419,6 +580,27 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_LocationAssignment
+//
+
+@implementation GTLRDataFusion_LocationAssignment
+@dynamic location, locationType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_LocationData
+//
+
+@implementation GTLRDataFusion_LocationData
+@dynamic blobstoreLocation, childAssetLocation, directLocation, gcpProjectProxy,
+         placerLocation, spannerLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_MaintenancePolicy
 //
 
@@ -512,6 +694,16 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_PlacerLocation
+//
+
+@implementation GTLRDataFusion_PlacerLocation
+@dynamic placerConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_Policy
 //
 
@@ -555,6 +747,24 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_RegionalMigDistributionPolicy
+//
+
+@implementation GTLRDataFusion_RegionalMigDistributionPolicy
+@dynamic targetShape, zones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zones" : [GTLRDataFusion_ZoneConfiguration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_RestartInstanceRequest
 //
 
@@ -569,6 +779,25 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 @implementation GTLRDataFusion_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_SpannerLocation
+//
+
+@implementation GTLRDataFusion_SpannerLocation
+@dynamic backupName, dbName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupName" : [NSString class],
+    @"dbName" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -599,6 +828,24 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_TenantProjectProxy
+//
+
+@implementation GTLRDataFusion_TenantProjectProxy
+@dynamic projectNumbers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"projectNumbers" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -663,6 +910,21 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
     @"availableFeatures" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_ZoneConfiguration
+//
+
+@implementation GTLRDataFusion_ZoneConfiguration
+@dynamic zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
 }
 
 @end

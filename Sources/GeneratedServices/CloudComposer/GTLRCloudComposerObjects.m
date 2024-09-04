@@ -282,8 +282,8 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_Environment
-@dynamic config, createTime, labels, name, satisfiesPzs, state, storageConfig,
-         updateTime, uuid;
+@dynamic config, createTime, labels, name, satisfiesPzi, satisfiesPzs, state,
+         storageConfig, updateTime, uuid;
 @end
 
 

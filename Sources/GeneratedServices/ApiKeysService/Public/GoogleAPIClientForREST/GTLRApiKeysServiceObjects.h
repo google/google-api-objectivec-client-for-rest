@@ -210,8 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The service for this restriction. It should be the canonical service name,
  *  for example: `translate.googleapis.com`. You can use [`gcloud services
- *  list`](/sdk/gcloud/reference/services/list) to get a list of services that
- *  are enabled in the project.
+ *  list`](https://cloud.google.com/sdk/gcloud/reference/services/list) to get a
+ *  list of services that are enabled in the project.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 

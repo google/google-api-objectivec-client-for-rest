@@ -473,8 +473,9 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 //
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, operationType,
-         requestResource, sourceToken, stages, statusDetail, target, verb;
+@dynamic apiVersion, buildName, cancelRequested, createTime, endTime,
+         operationType, requestResource, sourceToken, stages, statusDetail,
+         target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -552,8 +553,9 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 //
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, operationType,
-         requestResource, sourceToken, stages, statusDetail, target, verb;
+@dynamic apiVersion, buildName, cancelRequested, createTime, endTime,
+         operationType, requestResource, sourceToken, stages, statusDetail,
+         target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -631,8 +633,9 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 //
 
 @implementation GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, operationType,
-         requestResource, sourceToken, stages, statusDetail, target, verb;
+@dynamic apiVersion, buildName, cancelRequested, createTime, endTime,
+         operationType, requestResource, sourceToken, stages, statusDetail,
+         target, verb;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

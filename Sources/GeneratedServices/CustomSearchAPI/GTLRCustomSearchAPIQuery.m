@@ -84,10 +84,10 @@ NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearchFilterUndefined =
 
 @implementation GTLRCustomSearchAPIQuery_CseList
 
-@dynamic c2coff, cr, cx, dateRestrict, exactTerms, excludeTerms, fileType,
-         filter, gl, googlehost, highRange, hl, hq, imgColorType,
-         imgDominantColor, imgSize, imgType, linkSite, lowRange, lr, num,
-         orTerms, q, relatedSite, rights, safe, searchType, siteSearch,
+@dynamic c2coff, cr, cx, dateRestrict, enableAlternateSearchHandler, exactTerms,
+         excludeTerms, fileType, filter, gl, googlehost, highRange, hl, hq,
+         imgColorType, imgDominantColor, imgSize, imgType, linkSite, lowRange,
+         lr, num, orTerms, q, relatedSite, rights, safe, searchType, siteSearch,
          siteSearchFilter, snippetLength, sort, start;
 
 + (instancetype)query {
@@ -105,10 +105,10 @@ NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearchFilterUndefined =
 
 @implementation GTLRCustomSearchAPIQuery_CseSiterestrictList
 
-@dynamic c2coff, cr, cx, dateRestrict, exactTerms, excludeTerms, fileType,
-         filter, gl, googlehost, highRange, hl, hq, imgColorType,
-         imgDominantColor, imgSize, imgType, linkSite, lowRange, lr, num,
-         orTerms, q, relatedSite, rights, safe, searchType, siteSearch,
+@dynamic c2coff, cr, cx, dateRestrict, enableAlternateSearchHandler, exactTerms,
+         excludeTerms, fileType, filter, gl, googlehost, highRange, hl, hq,
+         imgColorType, imgDominantColor, imgSize, imgType, linkSite, lowRange,
+         lr, num, orTerms, q, relatedSite, rights, safe, searchType, siteSearch,
          siteSearchFilter, snippetLength, sort, start;
 
 + (instancetype)query {

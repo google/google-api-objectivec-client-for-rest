@@ -20,6 +20,79 @@
 
 @end
 
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesBatchCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_BatchCreateNotesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notes:batchCreate";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainerAnalysis_BatchCreateNotesResponse class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.batchCreate";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesCreate
+
+@dynamic noteId, parent;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_Note *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notes";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Note class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Empty class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesGet
 
 @dynamic name;
@@ -34,6 +107,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRContainerAnalysis_Note class];
   query.loggingName = @"containeranalysis.projects.locations.notes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Policy class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.getIamPolicy";
   return query;
 }
 
@@ -77,6 +177,160 @@
 
 @end
 
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_Note *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Note class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Policy class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsNotesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRContainerAnalysisQuery_ProjectsLocationsNotesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRContainerAnalysis_TestIamPermissionsResponse class];
+  query.loggingName = @"containeranalysis.projects.locations.notes.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesBatchCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_BatchCreateOccurrencesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/occurrences:batchCreate";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainerAnalysis_BatchCreateOccurrencesResponse class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.batchCreate";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_Occurrence *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/occurrences";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Occurrence class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Empty class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGet
 
 @dynamic name;
@@ -91,6 +345,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRContainerAnalysis_Occurrence class];
   query.loggingName = @"containeranalysis.projects.locations.occurrences.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Policy class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.getIamPolicy";
   return query;
 }
 
@@ -148,6 +429,87 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRContainerAnalysis_ListOccurrencesResponse class];
   query.loggingName = @"containeranalysis.projects.locations.occurrences.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_Occurrence *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Occurrence class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Policy class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRContainerAnalysisQuery_ProjectsLocationsOccurrencesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRContainerAnalysis_TestIamPermissionsResponse class];
+  query.loggingName = @"containeranalysis.projects.locations.occurrences.testIamPermissions";
   return query;
 }
 

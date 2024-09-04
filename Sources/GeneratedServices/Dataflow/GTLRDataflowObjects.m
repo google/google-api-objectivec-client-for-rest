@@ -1485,7 +1485,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_LeaseWorkItemRequest
-@dynamic currentWorkerTime, location, requestedLeaseDuration,
+@dynamic currentWorkerTime, location, projectNumber, requestedLeaseDuration,
          unifiedWorkerRequest, workerCapabilities, workerId, workItemTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2084,8 +2084,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ReportWorkItemStatusRequest
-@dynamic currentWorkerTime, location, unifiedWorkerRequest, workerId,
-         workItemStatuses;
+@dynamic currentWorkerTime, location, projectNumber, unifiedWorkerRequest,
+         workerId, workItemStatuses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3024,7 +3024,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @implementation GTLRDataflow_StreamingConfigTask
 @dynamic commitStreamChunkSizeBytes, getDataStreamChunkSizeBytes,
          maxWorkItemCommitBytes, operationalLimits, streamingComputationConfigs,
-         userStepToStateFamilyNameMap, windmillServiceEndpoint,
+         userStepToStateFamilyNameMap, userWorkerRunnerV1Settings,
+         userWorkerRunnerV2Settings, windmillServiceEndpoint,
          windmillServicePort;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

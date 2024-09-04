@@ -139,7 +139,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesDelete
 
-@dynamic name;
+@dynamic name, useAdminAccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -175,7 +175,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesGet
 
-@dynamic name;
+@dynamic name, useAdminAccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -211,7 +211,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersCreate
 
-@dynamic parent;
+@dynamic parent, useAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Membership *)object
                          parent:(NSString *)parent {
@@ -238,7 +238,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersDelete
 
-@dynamic name;
+@dynamic name, useAdminAccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -257,7 +257,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersGet
 
-@dynamic name;
+@dynamic name, useAdminAccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -276,7 +276,8 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersList
 
-@dynamic filter, pageSize, pageToken, parent, showGroups, showInvited;
+@dynamic filter, pageSize, pageToken, parent, showGroups, showInvited,
+         useAdminAccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -295,7 +296,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersPatch
 
-@dynamic name, updateMask;
+@dynamic name, updateMask, useAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Membership *)object
                            name:(NSString *)name {
@@ -544,7 +545,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesPatch
 
-@dynamic name, updateMask;
+@dynamic name, updateMask, useAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Space *)object
                            name:(NSString *)name {
@@ -564,6 +565,23 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
   query.name = name;
   query.expectedObjectClass = [GTLRHangoutsChat_Space class];
   query.loggingName = @"chat.spaces.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesSearch
+
+@dynamic orderBy, pageSize, pageToken, query, useAdminAccess;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/spaces:search";
+  GTLRHangoutsChatQuery_SpacesSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRHangoutsChat_SearchSpacesResponse class];
+  query.loggingName = @"chat.spaces.search";
   return query;
 }
 

@@ -4854,6 +4854,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/**
+ *  Optional. The project number of the project this worker belongs to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *projectNumber;
+
 /** The initial lease period. */
 @property(nonatomic, strong, nullable) GTLRDuration *requestedLeaseDuration;
 
@@ -5995,6 +6002,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  contains the WorkItem's job.
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Optional. The project number of the project which owns the WorkItem's job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *projectNumber;
 
 /** Untranslated bag-of-bytes WorkProgressUpdateRequest from UnifiedWorker. */
 @property(nonatomic, strong, nullable) GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest *unifiedWorkerRequest;
@@ -7621,6 +7635,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Map from user step names to state families. */
 @property(nonatomic, strong, nullable) GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap *userStepToStateFamilyNameMap;
+
+/**
+ *  Binary encoded proto to control runtime behavior of the java runner v1 user
+ *  worker.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *userWorkerRunnerV1Settings;
+
+/**
+ *  Binary encoded proto to control runtime behavior of the runner v2 user
+ *  worker.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *userWorkerRunnerV2Settings;
 
 /**
  *  If present, the worker must use this endpoint to communicate with Windmill

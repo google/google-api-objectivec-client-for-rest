@@ -1769,7 +1769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  Optional. API group string of a Kubernetes resource, e.g.
  *  "apiextensions.k8s.io", "storage.k8s.io", etc. Note: use empty string for
- *  core API group
+ *  core API group.
  */
 @property(nonatomic, copy, nullable) NSString *resourceGroup;
 
@@ -2095,11 +2095,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  A list of Kubernetes Namespaces
+ *  A list of Kubernetes Namespaces.
  */
 @interface GTLRBackupforGKE_Namespaces : GTLRObject
 
-/** Optional. A list of Kubernetes Namespaces */
+/** Optional. A list of Kubernetes Namespaces. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaces;
 
 @end
@@ -2380,9 +2380,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  Optional. Immutable. Filters resources for `Restore`. If not specified, the
  *  scope of the restore will remain the same as defined in the `RestorePlan`.
- *  If this is specified, and no resources are matched by the
- *  `inclusion_filters` or everyting is excluded by the `exclusion_filters`,
- *  nothing will be restored. This filter can only be specified if the value of
+ *  If this is specified and no resources are matched by the `inclusion_filters`
+ *  or everyting is excluded by the `exclusion_filters`, nothing will be
+ *  restored. This filter can only be specified if the value of
  *  namespaced_resource_restore_mode is set to `MERGE_SKIP_ON_CONFLICT`,
  *  `MERGE_REPLACE_VOLUME_ON_CONFLICT` or `MERGE_REPLACE_ON_CONFLICT`.
  */

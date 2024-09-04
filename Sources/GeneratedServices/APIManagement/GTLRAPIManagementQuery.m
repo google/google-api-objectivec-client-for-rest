@@ -55,6 +55,25 @@
 
 @end
 
+@implementation GTLRAPIManagementQuery_ProjectsLocationsListApiObservationTags
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}:listApiObservationTags";
+  GTLRAPIManagementQuery_ProjectsLocationsListApiObservationTags *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAPIManagement_ListApiObservationTagsResponse class];
+  query.loggingName = @"apim.projects.locations.listApiObservationTags";
+  return query;
+}
+
+@end
+
 @implementation GTLRAPIManagementQuery_ProjectsLocationsObservationJobsApiObservationsApiOperationsGet
 
 @dynamic name;
@@ -88,6 +107,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRAPIManagement_ListApiOperationsResponse class];
   query.loggingName = @"apim.projects.locations.observationJobs.apiObservations.apiOperations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIManagementQuery_ProjectsLocationsObservationJobsApiObservationsBatchEditTags
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAPIManagement_BatchEditTagsApiObservationsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/apiObservations:batchEditTags";
+  GTLRAPIManagementQuery_ProjectsLocationsObservationJobsApiObservationsBatchEditTags *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAPIManagement_BatchEditTagsApiObservationsResponse class];
+  query.loggingName = @"apim.projects.locations.observationJobs.apiObservations.batchEditTags";
   return query;
 }
 

@@ -176,7 +176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsDeleteSnapshots : GTLRDataflowQuery
 
@@ -212,7 +211,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsAggregated : GTLRDataflowQuery
 
@@ -313,7 +311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsCreate : GTLRDataflowQuery
 
@@ -383,7 +380,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsDebugGetConfig : GTLRDataflowQuery
 
@@ -419,7 +415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsDebugSendCapture : GTLRDataflowQuery
 
@@ -460,7 +455,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsGet : GTLRDataflowQuery
 
@@ -534,7 +528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsGetMetrics : GTLRDataflowQuery
 
@@ -591,7 +584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsList : GTLRDataflowQuery
 
@@ -697,7 +689,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsMessagesList : GTLRDataflowQuery
 
@@ -802,7 +793,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsSnapshot : GTLRDataflowQuery
 
@@ -843,7 +833,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsUpdate : GTLRDataflowQuery
 
@@ -903,7 +892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsWorkItemsLease : GTLRDataflowQuery
 
@@ -939,7 +927,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsJobsWorkItemsReportStatus : GTLRDataflowQuery
 
@@ -975,7 +962,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsFlexTemplatesLaunch : GTLRDataflowQuery
 
@@ -1023,7 +1009,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsCreate : GTLRDataflowQuery
 
@@ -1097,7 +1082,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsDebugGetConfig : GTLRDataflowQuery
 
@@ -1144,7 +1128,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsDebugSendCapture : GTLRDataflowQuery
 
@@ -1196,7 +1179,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsGet : GTLRDataflowQuery
 
@@ -1271,7 +1253,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsGetExecutionDetails : GTLRDataflowQuery
 
@@ -1337,7 +1318,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics : GTLRDataflowQuery
 
@@ -1398,7 +1378,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsList : GTLRDataflowQuery
 
@@ -1508,7 +1487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsMessagesList : GTLRDataflowQuery
 
@@ -1617,7 +1595,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsSnapshot : GTLRDataflowQuery
 
@@ -1658,7 +1635,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsSnapshotsList : GTLRDataflowQuery
 
@@ -1697,7 +1673,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsStagesGetExecutionDetails : GTLRDataflowQuery
 
@@ -1775,7 +1750,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsUpdate : GTLRDataflowQuery
 
@@ -1839,7 +1813,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsLease : GTLRDataflowQuery
 
@@ -1886,7 +1859,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsJobsWorkItemsReportStatus : GTLRDataflowQuery
 
@@ -1933,7 +1905,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsSnapshotsDelete : GTLRDataflowQuery
 
@@ -1972,7 +1943,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsSnapshotsGet : GTLRDataflowQuery
 
@@ -2011,7 +1981,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsSnapshotsList : GTLRDataflowQuery
 
@@ -2041,14 +2010,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Creates a Cloud Dataflow job from a template. Do not enter confidential
- *  information when you supply string values using the API.
+ *  information when you supply string values using the API. To create a job, we
+ *  recommend using `projects.locations.templates.create` with a [regional
+ *  endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.create` is not recommended, because your job will always
+ *  start in `us-central1`.
  *
  *  Method: dataflow.projects.locations.templates.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesCreate : GTLRDataflowQuery
 
@@ -2066,7 +2039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Creates a Cloud Dataflow job from a template. Do not enter confidential
- *  information when you supply string values using the API.
+ *  information when you supply string values using the API. To create a job, we
+ *  recommend using `projects.locations.templates.create` with a [regional
+ *  endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.create` is not recommended, because your job will always
+ *  start in `us-central1`.
  *
  *  @param object The @c GTLRDataflow_CreateJobFromTemplateRequest to include in
  *    the query.
@@ -2085,14 +2063,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Get the template associated with a template.
+ *  Get the template associated with a template. To get the template, we
+ *  recommend using `projects.locations.templates.get` with a [regional
+ *  endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.get` is not recommended, because only templates that are
+ *  running in `us-central1` are retrieved.
  *
  *  Method: dataflow.projects.locations.templates.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesGet : GTLRDataflowQuery
 
@@ -2124,7 +2106,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_GetTemplateResponse.
  *
- *  Get the template associated with a template.
+ *  Get the template associated with a template. To get the template, we
+ *  recommend using `projects.locations.templates.get` with a [regional
+ *  endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.get` is not recommended, because only templates that are
+ *  running in `us-central1` are retrieved.
  *
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
@@ -2140,14 +2127,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Launch a template.
+ *  Launches a template. To launch a template, we recommend using
+ *  `projects.locations.templates.launch` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.launch` is not recommended, because jobs launched from
+ *  the template will always start in `us-central1`.
  *
  *  Method: dataflow.projects.locations.templates.launch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsTemplatesLaunch : GTLRDataflowQuery
 
@@ -2188,7 +2178,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_LaunchTemplateResponse.
  *
- *  Launch a template.
+ *  Launches a template. To launch a template, we recommend using
+ *  `projects.locations.templates.launch` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.launch` is not recommended, because jobs launched from
+ *  the template will always start in `us-central1`.
  *
  *  @param object The @c GTLRDataflow_LaunchTemplateParameters to include in the
  *    query.
@@ -2214,7 +2208,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsLocationsWorkerMessages : GTLRDataflowQuery
 
@@ -2256,7 +2249,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsSnapshotsGet : GTLRDataflowQuery
 
@@ -2293,7 +2285,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsSnapshotsList : GTLRDataflowQuery
 
@@ -2321,14 +2312,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Creates a Cloud Dataflow job from a template. Do not enter confidential
- *  information when you supply string values using the API.
+ *  information when you supply string values using the API. To create a job, we
+ *  recommend using `projects.locations.templates.create` with a [regional
+ *  endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.create` is not recommended, because your job will always
+ *  start in `us-central1`.
  *
  *  Method: dataflow.projects.templates.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesCreate : GTLRDataflowQuery
 
@@ -2339,7 +2334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_Job.
  *
  *  Creates a Cloud Dataflow job from a template. Do not enter confidential
- *  information when you supply string values using the API.
+ *  information when you supply string values using the API. To create a job, we
+ *  recommend using `projects.locations.templates.create` with a [regional
+ *  endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.create` is not recommended, because your job will always
+ *  start in `us-central1`.
  *
  *  @param object The @c GTLRDataflow_CreateJobFromTemplateRequest to include in
  *    the query.
@@ -2354,14 +2354,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Get the template associated with a template.
+ *  Get the template associated with a template. To get the template, we
+ *  recommend using `projects.locations.templates.get` with a [regional
+ *  endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.get` is not recommended, because only templates that are
+ *  running in `us-central1` are retrieved.
  *
  *  Method: dataflow.projects.templates.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesGet : GTLRDataflowQuery
 
@@ -2393,7 +2397,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_GetTemplateResponse.
  *
- *  Get the template associated with a template.
+ *  Get the template associated with a template. To get the template, we
+ *  recommend using `projects.locations.templates.get` with a [regional
+ *  endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.get` is not recommended, because only templates that are
+ *  running in `us-central1` are retrieved.
  *
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
@@ -2405,14 +2414,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Launch a template.
+ *  Launches a template. To launch a template, we recommend using
+ *  `projects.locations.templates.launch` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.launch` is not recommended, because jobs launched from
+ *  the template will always start in `us-central1`.
  *
  *  Method: dataflow.projects.templates.launch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsTemplatesLaunch : GTLRDataflowQuery
 
@@ -2453,7 +2465,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_LaunchTemplateResponse.
  *
- *  Launch a template.
+ *  Launches a template. To launch a template, we recommend using
+ *  `projects.locations.templates.launch` with a [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
+ *  `projects.templates.launch` is not recommended, because jobs launched from
+ *  the template will always start in `us-central1`.
  *
  *  @param object The @c GTLRDataflow_LaunchTemplateParameters to include in the
  *    query.
@@ -2475,7 +2491,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataflowCloudPlatform
  *    @c kGTLRAuthScopeDataflowCompute
- *    @c kGTLRAuthScopeDataflowComputeReadonly
  */
 @interface GTLRDataflowQuery_ProjectsWorkerMessages : GTLRDataflowQuery
 

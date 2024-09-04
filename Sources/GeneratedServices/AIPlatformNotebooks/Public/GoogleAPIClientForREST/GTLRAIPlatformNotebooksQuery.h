@@ -498,6 +498,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  RestoreInstance restores an Instance from a BackupSource.
+ *
+ *  Method: notebooks.projects.locations.instances.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRestore : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  RestoreInstance restores an Instance from a BackupSource.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_RestoreInstanceRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRestore
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_RestoreInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Rollbacks a notebook instance to the previous version.
  *
  *  Method: notebooks.projects.locations.instances.rollback

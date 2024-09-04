@@ -55,12 +55,13 @@
 
 @implementation GTLRStorage_Bucket
 @dynamic acl, autoclass, billing, cors, customPlacementConfig,
-         defaultEventBasedHold, defaultObjectAcl, encryption, ETag,
-         hierarchicalNamespace, iamConfiguration, identifier, kind, labels,
-         lifecycle, location, locationType, logging, metageneration, name,
-         objectRetention, owner, projectNumber, retentionPolicy, rpo,
-         satisfiesPZS, selfLink, softDeletePolicy, storageClass, timeCreated,
-         updated, versioning, website;
+         defaultEventBasedHold, defaultObjectAcl, encryption, ETag, generation,
+         hardDeleteTime, hierarchicalNamespace, iamConfiguration, identifier,
+         ipFilter, kind, labels, lifecycle, location, locationType, logging,
+         metageneration, name, objectRetention, owner, projectNumber,
+         retentionPolicy, rpo, satisfiesPZI, satisfiesPZS, selfLink,
+         softDeletePolicy, softDeleteTime, storageClass, timeCreated, updated,
+         versioning, website;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -168,6 +169,24 @@
 
 @implementation GTLRStorage_Bucket_IamConfiguration
 @dynamic bucketPolicyOnly, publicAccessPrevention, uniformBucketLevelAccess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IpFilter
+//
+
+@implementation GTLRStorage_Bucket_IpFilter
+@dynamic mode, publicNetworkSource, vpcNetworkSources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vpcNetworkSources" : [GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -290,6 +309,42 @@
 
 @implementation GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess
 @dynamic enabled, lockedTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IpFilter_PublicNetworkSource
+//
+
+@implementation GTLRStorage_Bucket_IpFilter_PublicNetworkSource
+@dynamic allowedIpCidrRanges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedIpCidrRanges" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item
+//
+
+@implementation GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item
+@dynamic allowedIpCidrRanges, network;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedIpCidrRanges" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

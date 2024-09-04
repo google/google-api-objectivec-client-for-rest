@@ -2329,14 +2329,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue;
 /**
- *  The management mode (profile owner, device owner, etc.) doesn't support the
- *  setting.
+ *  The management mode (such as fully managed or work profile) doesn't support
+ *  the setting.
  *
  *  Value: "MANAGEMENT_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode;
 /**
- *  This value is disallowed.
+ *  This value is not used.
  *
  *  Value: "NON_COMPLIANCE_REASON_UNSPECIFIED"
  */
@@ -2484,14 +2484,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue;
 /**
- *  The management mode (profile owner, device owner, etc.) doesn't support the
- *  setting.
+ *  The management mode (such as fully managed or work profile) doesn't support
+ *  the setting.
  *
  *  Value: "MANAGEMENT_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode;
 /**
- *  This value is disallowed.
+ *  This value is not used.
  *
  *  Value: "NON_COMPLIANCE_REASON_UNSPECIFIED"
  */
@@ -2973,6 +2973,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePo
  *  Value: "WIFI_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.assistContentPolicy
+
+/**
+ *  Assist content is allowed to be sent to a privileged app.Supported on
+ *  Android 15 and above.
+ *
+ *  Value: "ASSIST_CONTENT_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentAllowed;
+/**
+ *  Assist content is blocked from being sent to a privileged app.Supported on
+ *  Android 15 and above. A nonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 15.
+ *
+ *  Value: "ASSIST_CONTENT_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentDisallowed;
+/**
+ *  Unspecified. Defaults to ASSIST_CONTENT_ALLOWED.
+ *
+ *  Value: "ASSIST_CONTENT_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.autoDateAndTimeZone
@@ -3655,6 +3680,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPers
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowedUserless;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_SigninDetail.defaultStatus
+
+/**
+ *  Equivalent to SIGNIN_DETAIL_IS_NOT_DEFAULT.
+ *
+ *  Value: "SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailDefaultStatusUnspecified;
+/**
+ *  The sign-in URL will be used by default for the enterprise.
+ *
+ *  Value: "SIGNIN_DETAIL_IS_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsDefault;
+/**
+ *  The sign-in URL will not be used by default for the enterprise.
+ *
+ *  Value: "SIGNIN_DETAIL_IS_NOT_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsNotDefault;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_StartLostModeStatus.status
 
 /**
@@ -4227,10 +4274,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsi
  *  (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode
  *  increases certain security components on a device, including AES-GCM
  *  encryption of Bluetooth Long Term Keys, and Wi-Fi configuration
- *  stores.Warning: Common Criteria Mode enforces a strict security model
- *  typically only required for IT products used in national security systems
- *  and other highly sensitive organizations. Standard device use may be
- *  affected. Only enabled if required.
+ *  stores.Common Criteria Mode is only supported on company-owned devices
+ *  running Android 11 or above.Warning: Common Criteria Mode enforces a strict
+ *  security model typically only required for IT products used in national
+ *  security systems and other highly sensitive organizations. Standard device
+ *  use may be affected. Only enabled if required.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeDisabled
@@ -5927,7 +5975,7 @@ GTLR_DEPRECATED
  *  Common Criteria for Information Technology Security Evaluation
  *  (https://www.commoncriteriaportal.org/) (CC).This information is only
  *  available if statusReportingSettings.commonCriteriaModeEnabled is true in
- *  the device's policy.
+ *  the device's policy the device is company-owned.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_CommonCriteriaModeInfo *commonCriteriaModeInfo;
 
@@ -8150,10 +8198,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue
  *        The setting has an invalid value. (Value: "INVALID_VALUE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode
- *        The management mode (profile owner, device owner, etc.) doesn't
+ *        The management mode (such as fully managed or work profile) doesn't
  *        support the setting. (Value: "MANAGEMENT_MODE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified
- *        This value is disallowed. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
+ *        This value is not used. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending
  *        The setting hasn't been applied at the time of the report, but is
  *        expected to be applied shortly. (Value: "PENDING")
@@ -8269,10 +8317,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue
  *        The setting has an invalid value. (Value: "INVALID_VALUE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode
- *        The management mode (profile owner, device owner, etc.) doesn't
+ *        The management mode (such as fully managed or work profile) doesn't
  *        support the setting. (Value: "MANAGEMENT_MODE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified
- *        This value is disallowed. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
+ *        This value is not used. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending
  *        The setting hasn't been applied at the time of the report, but is
  *        expected to be applied shortly. (Value: "PENDING")
@@ -8973,6 +9021,28 @@ GTLR_DEPRECATED
 
 /** Policy applied to apps. This can have at most 3,000 elements. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPolicy *> *applications;
+
+/**
+ *  Optional. Controls whether AssistContent
+ *  (https://developer.android.com/reference/android/app/assist/AssistContent)
+ *  is allowed to be sent to a privileged app such as an assistant app.
+ *  AssistContent includes screenshots and information about an app, such as
+ *  package name. This is supported on Android 15 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentAllowed
+ *        Assist content is allowed to be sent to a privileged app.Supported on
+ *        Android 15 and above. (Value: "ASSIST_CONTENT_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentDisallowed
+ *        Assist content is blocked from being sent to a privileged
+ *        app.Supported on Android 15 and above. A nonComplianceDetail with
+ *        API_LEVEL is reported if the Android version is less than 15. (Value:
+ *        "ASSIST_CONTENT_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentPolicyUnspecified
+ *        Unspecified. Defaults to ASSIST_CONTENT_ALLOWED. (Value:
+ *        "ASSIST_CONTENT_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *assistContentPolicy;
 
 /**
  *  Whether auto date, time, and time zone are enabled on a company-owned
@@ -9758,7 +9828,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *wifiConfigDisabled GTLR_DEPRECATED;
 
 /**
- *  DEPRECATED - Use wifi_config_disabled.
+ *  This is deprecated.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10220,6 +10290,30 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
 
 /**
+ *  Optional. Whether the sign-in URL should be used by default for the
+ *  enterprise. The SigninDetail with defaultStatus set to
+ *  SIGNIN_DETAIL_IS_DEFAULT is used for Google account enrollment method. Only
+ *  one of an enterprise's signinDetails can have defaultStatus set to
+ *  SIGNIN_DETAIL_IS_DEFAULT. If an Enterprise has at least one signinDetails
+ *  and none of them have defaultStatus set to SIGNIN_DETAIL_IS_DEFAULT then the
+ *  first one from the list is selected and has set defaultStatus to
+ *  SIGNIN_DETAIL_IS_DEFAULT. If no signinDetails specified for the Enterprise
+ *  then the Google Account device enrollment will fail.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailDefaultStatusUnspecified
+ *        Equivalent to SIGNIN_DETAIL_IS_NOT_DEFAULT. (Value:
+ *        "SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsDefault
+ *        The sign-in URL will be used by default for the enterprise. (Value:
+ *        "SIGNIN_DETAIL_IS_DEFAULT")
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsNotDefault
+ *        The sign-in URL will not be used by default for the enterprise.
+ *        (Value: "SIGNIN_DETAIL_IS_NOT_DEFAULT")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultStatus;
+
+/**
  *  A JSON string whose UTF-8 representation can be used to generate a QR code
  *  to enroll a device with this enrollment token. To enroll a device using NFC,
  *  the NFC record must contain a serialized java.util.Properties representation
@@ -10471,7 +10565,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *applicationReportsEnabled;
 
 /**
- *  Whether Common Criteria Mode reporting is enabled.
+ *  Whether Common Criteria Mode reporting is enabled. This is supported only on
+ *  company-owned devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10705,6 +10800,9 @@ GTLR_DEPRECATED
 
 /** The carrier name associated with this SIM card. */
 @property(nonatomic, copy, nullable) NSString *carrierName;
+
+/** Output only. The ICCID associated with this SIM card. */
+@property(nonatomic, copy, nullable) NSString *iccId;
 
 /** The phone number associated with this SIM card. */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;

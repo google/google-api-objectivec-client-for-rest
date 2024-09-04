@@ -15,6 +15,9 @@
 // Constants
 
 // view
+NSString * const kGTLRAiplatformViewNotebookExecutionJobViewBasic = @"NOTEBOOK_EXECUTION_JOB_VIEW_BASIC";
+NSString * const kGTLRAiplatformViewNotebookExecutionJobViewFull = @"NOTEBOOK_EXECUTION_JOB_VIEW_FULL";
+NSString * const kGTLRAiplatformViewNotebookExecutionJobViewUnspecified = @"NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED";
 NSString * const kGTLRAiplatformViewPublisherModelVersionViewBasic = @"PUBLISHER_MODEL_VERSION_VIEW_BASIC";
 NSString * const kGTLRAiplatformViewPublisherModelViewBasic    = @"PUBLISHER_MODEL_VIEW_BASIC";
 NSString * const kGTLRAiplatformViewPublisherModelViewFull     = @"PUBLISHER_MODEL_VIEW_FULL";
@@ -27,6 +30,350 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 @implementation GTLRAiplatformQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Dataset *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/datasets";
+  GTLRAiplatformQuery_DatasetsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.datasets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsDatasetVersionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/datasetVersions";
+  GTLRAiplatformQuery_DatasetsDatasetVersionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.datasets.datasetVersions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsDatasetVersionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_DatasetsDatasetVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.datasets.datasetVersions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsDatasetVersionsGet
+
+@dynamic name, readMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_DatasetsDatasetVersionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion class];
+  query.loggingName = @"aiplatform.datasets.datasetVersions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsDatasetVersionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, readMask;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/datasetVersions";
+  GTLRAiplatformQuery_DatasetsDatasetVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ListDatasetVersionsResponse class];
+  query.loggingName = @"aiplatform.datasets.datasetVersions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsDatasetVersionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_DatasetsDatasetVersionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion class];
+  query.loggingName = @"aiplatform.datasets.datasetVersions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsDatasetVersionsRestore
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:restore";
+  GTLRAiplatformQuery_DatasetsDatasetVersionsRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.datasets.datasetVersions.restore";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_DatasetsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.datasets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsGet
+
+@dynamic name, readMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_DatasetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1Dataset class];
+  query.loggingName = @"aiplatform.datasets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, readMask;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/datasets";
+  GTLRAiplatformQuery_DatasetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ListDatasetsResponse class];
+  query.loggingName = @"aiplatform.datasets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_DatasetsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Dataset *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_DatasetsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1Dataset class];
+  query.loggingName = @"aiplatform.datasets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_EndpointsComputeTokens
+
+@dynamic endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}:computeTokens";
+  GTLRAiplatformQuery_EndpointsComputeTokens *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse class];
+  query.loggingName = @"aiplatform.endpoints.computeTokens";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_EndpointsCountTokens
+
+@dynamic endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}:countTokens";
+  GTLRAiplatformQuery_EndpointsCountTokens *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse class];
+  query.loggingName = @"aiplatform.endpoints.countTokens";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_EndpointsGenerateContent
+
+@dynamic model;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"model" ];
+  NSString *pathURITemplate = @"v1/{+model}:generateContent";
+  GTLRAiplatformQuery_EndpointsGenerateContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.model = model;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse class];
+  query.loggingName = @"aiplatform.endpoints.generateContent";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_EndpointsStreamGenerateContent
+
+@dynamic model;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"model" ];
+  NSString *pathURITemplate = @"v1/{+model}:streamGenerateContent";
+  GTLRAiplatformQuery_EndpointsStreamGenerateContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.model = model;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse class];
+  query.loggingName = @"aiplatform.endpoints.streamGenerateContent";
+  return query;
+}
 
 @end
 
@@ -1634,6 +1981,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.projects.locations.deploymentResourcePools.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsQueryDeployedModels
 
 @dynamic deploymentResourcePool, pageSize, pageToken;
@@ -2815,6 +3189,29 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1Policy class];
+  query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.featureViews.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -2964,6 +3361,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1Policy class];
+  query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.featureViews.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSync
 
 @dynamic featureView;
@@ -2991,6 +3415,32 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsTestIamPermissions
+
+@dynamic permissions, resource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.featureViews.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGet
 
 @dynamic name;
@@ -3005,6 +3455,29 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore class];
   query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1Policy class];
+  query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.getIamPolicy";
   return query;
 }
 
@@ -3127,6 +3600,59 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
   query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1Policy class];
+  query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresTestIamPermissions
+
+@dynamic permissions, resource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"aiplatform.projects.locations.featureOnlineStores.testIamPermissions";
   return query;
 }
 
@@ -7341,6 +7867,90 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsCreate
+
+@dynamic notebookExecutionJobId, parent;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notebookExecutionJobs";
+  GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.projects.locations.notebookExecutionJobs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.projects.locations.notebookExecutionJobs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob class];
+  query.loggingName = @"aiplatform.projects.locations.notebookExecutionJobs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notebookExecutionJobs";
+  GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookExecutionJobsResponse class];
+  query.loggingName = @"aiplatform.projects.locations.notebookExecutionJobs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsCancel
 
 @dynamic name;
@@ -11191,9 +11801,90 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_PublishersModelsComputeTokens
+
+@dynamic endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}:computeTokens";
+  GTLRAiplatformQuery_PublishersModelsComputeTokens *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse class];
+  query.loggingName = @"aiplatform.publishers.models.computeTokens";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_PublishersModelsCountTokens
+
+@dynamic endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}:countTokens";
+  GTLRAiplatformQuery_PublishersModelsCountTokens *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse class];
+  query.loggingName = @"aiplatform.publishers.models.countTokens";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_PublishersModelsGenerateContent
+
+@dynamic model;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"model" ];
+  NSString *pathURITemplate = @"v1/{+model}:generateContent";
+  GTLRAiplatformQuery_PublishersModelsGenerateContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.model = model;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse class];
+  query.loggingName = @"aiplatform.publishers.models.generateContent";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_PublishersModelsGet
 
-@dynamic languageCode, name, view;
+@dynamic huggingFaceToken, isHuggingFaceModel, languageCode, name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -11205,6 +11896,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1PublisherModel class];
   query.loggingName = @"aiplatform.publishers.models.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_PublishersModelsStreamGenerateContent
+
+@dynamic model;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"model" ];
+  NSString *pathURITemplate = @"v1/{+model}:streamGenerateContent";
+  GTLRAiplatformQuery_PublishersModelsStreamGenerateContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.model = model;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse class];
+  query.loggingName = @"aiplatform.publishers.models.streamGenerateContent";
   return query;
 }
 

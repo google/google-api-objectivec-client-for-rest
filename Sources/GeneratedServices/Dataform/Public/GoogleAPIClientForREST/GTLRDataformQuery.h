@@ -194,6 +194,32 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get default config for a given project and location.
+ *
+ *  Method: dataform.projects.locations.getConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsGetConfig : GTLRDataformQuery
+
+/** Required. The config name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Config.
+ *
+ *  Get default config for a given project and location.
+ *
+ *  @param name Required. The config name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsGetConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: dataform.projects.locations.list
@@ -2545,6 +2571,41 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataform_WriteFileRequest *)object
                       workspace:(NSString *)workspace;
+
+@end
+
+/**
+ *  Update default config for a given project and location.
+ *
+ *  Method: dataform.projects.locations.updateConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsUpdateConfig : GTLRDataformQuery
+
+/** Identifier. The config name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specifies the fields to be updated in the config.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataform_Config.
+ *
+ *  Update default config for a given project and location.
+ *
+ *  @param object The @c GTLRDataform_Config to include in the query.
+ *  @param name Identifier. The config name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsUpdateConfig
+ */
++ (instancetype)queryWithObject:(GTLRDataform_Config *)object
+                           name:(NSString *)name;
 
 @end
 

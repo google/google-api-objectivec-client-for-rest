@@ -22,11 +22,14 @@
 @class GTLRPlayIntegrity_AppAccessRiskVerdict;
 @class GTLRPlayIntegrity_AppIntegrity;
 @class GTLRPlayIntegrity_DeviceIntegrity;
+@class GTLRPlayIntegrity_DeviceRecall;
 @class GTLRPlayIntegrity_EnvironmentDetails;
 @class GTLRPlayIntegrity_RecentDeviceActivity;
 @class GTLRPlayIntegrity_RequestDetails;
 @class GTLRPlayIntegrity_TestingDetails;
 @class GTLRPlayIntegrity_TokenPayloadExternal;
+@class GTLRPlayIntegrity_Values;
+@class GTLRPlayIntegrity_WriteDates;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -632,15 +635,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
 
 
 /**
- *  Contains the device attestation information. Next tag: 4
+ *  Contains the device attestation information.
  */
 @interface GTLRPlayIntegrity_DeviceIntegrity : GTLRObject
+
+/** Details about the device recall bits set by the developer. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_DeviceRecall *deviceRecall;
 
 /** Details about the integrity of the device the app is running on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceRecognitionVerdict;
 
 /** Details about the device activity of the device the app is running on. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_RecentDeviceActivity *recentDeviceActivity;
+
+@end
+
+
+/**
+ *  Contains the recall bits per device set by the developer.
+ */
+@interface GTLRPlayIntegrity_DeviceRecall : GTLRObject
+
+/** Required. Contains the recall bits values. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_Values *values;
+
+/** Required. Contains the recall bits write dates. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_WriteDates *writeDates;
 
 @end
 
@@ -790,6 +810,88 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_TestingDetails *testingDetails;
 
+@end
+
+
+/**
+ *  Contains the recall bits values.
+ */
+@interface GTLRPlayIntegrity_Values : GTLRObject
+
+/**
+ *  Required. First recall bit value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitFirst;
+
+/**
+ *  Required. Second recall bit value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitSecond;
+
+/**
+ *  Required. Third recall bit value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitThird;
+
+@end
+
+
+/**
+ *  Contains the recall bits write dates.
+ */
+@interface GTLRPlayIntegrity_WriteDates : GTLRObject
+
+/**
+ *  Optional. Write time in YYYYMM format (in UTC, e.g. 202402) for the first
+ *  bit. Note that this value won't be set if the first bit is false.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *yyyymmFirst;
+
+/**
+ *  Optional. Write time in YYYYMM format (in UTC, e.g. 202402) for the second
+ *  bit. Note that this value won't be set if the second bit is false.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *yyyymmSecond;
+
+/**
+ *  Optional. Write time in YYYYMM format (in UTC, e.g. 202402) for the third
+ *  bit. Note that this value won't be set if the third bit is false.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *yyyymmThird;
+
+@end
+
+
+/**
+ *  Request to write device recall bits.
+ */
+@interface GTLRPlayIntegrity_WriteDeviceRecallRequest : GTLRObject
+
+/** Required. Integrity token obtained from calling Play Integrity API. */
+@property(nonatomic, copy, nullable) NSString *integrityToken;
+
+/** Required. The new values for the device recall bits to be written. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_Values *newValues NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  Response for the Write Device Recall action. Currently empty.
+ */
+@interface GTLRPlayIntegrity_WriteDeviceRecallResponse : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

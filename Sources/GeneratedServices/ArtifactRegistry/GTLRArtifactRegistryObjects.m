@@ -1071,7 +1071,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_ProjectSettings
-@dynamic legacyRedirectionState, name;
+@dynamic legacyRedirectionState, name, pullPercent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_PromoteArtifactMetadata
+//
+
+@implementation GTLRArtifactRegistry_PromoteArtifactMetadata
 @end
 
 

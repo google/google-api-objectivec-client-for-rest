@@ -1842,9 +1842,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateCon
 @interface GTLRTranscoder_Output : GTLRObject
 
 /**
- *  URI for the output file(s). For example, `gs://my-bucket/outputs/`. If
- *  empty, the value is populated from Job.output_uri. See [Supported input and
- *  output
+ *  URI for the output file(s). For example, `gs://my-bucket/outputs/`. Must be
+ *  a directory and not a top-level bucket. If empty, the value is populated
+ *  from Job.output_uri. See [Supported input and output
  *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats).
  */
 @property(nonatomic, copy, nullable) NSString *uri;

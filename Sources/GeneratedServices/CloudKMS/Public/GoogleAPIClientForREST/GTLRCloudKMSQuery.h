@@ -816,6 +816,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Optional. Optional limit on the number of KeyHandles to include in the
+ *  response. The service may return fewer than this value. Further KeyHandles
+ *  can subsequently be obtained by including the
+ *  ListKeyHandlesResponse.next_page_token in a subsequent request. If
+ *  unspecified, at most KeyHandles 100 will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Optional pagination token, returned earlier via
+ *  ListKeyHandlesResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
  *  Required. Name of the resource project and location from which to list
  *  KeyHandles, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
  */
@@ -830,6 +845,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    to list KeyHandles, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

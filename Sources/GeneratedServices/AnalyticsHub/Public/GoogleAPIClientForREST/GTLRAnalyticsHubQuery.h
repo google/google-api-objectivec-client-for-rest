@@ -793,8 +793,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a Subscription to a Data Exchange. This is a long-running operation
- *  as it will create one or more linked datasets.
+ *  Creates a Subscription to a Data Clean Room. This is a long-running
+ *  operation as it will create one or more linked datasets.
  *
  *  Method: analyticshub.projects.locations.dataExchanges.subscribe
  *
@@ -813,8 +813,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAnalyticsHub_Operation.
  *
- *  Creates a Subscription to a Data Exchange. This is a long-running operation
- *  as it will create one or more linked datasets.
+ *  Creates a Subscription to a Data Clean Room. This is a long-running
+ *  operation as it will create one or more linked datasets.
  *
  *  @param object The @c GTLRAnalyticsHub_SubscribeDataExchangeRequest to
  *    include in the query.

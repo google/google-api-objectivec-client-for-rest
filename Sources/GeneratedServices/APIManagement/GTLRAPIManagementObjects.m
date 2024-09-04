@@ -73,6 +73,11 @@ NSString * const kGTLRAPIManagement_ObservationSource_State_Deleting = @"DELETIN
 NSString * const kGTLRAPIManagement_ObservationSource_State_Error = @"ERROR";
 NSString * const kGTLRAPIManagement_ObservationSource_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAPIManagement_TagAction.action
+NSString * const kGTLRAPIManagement_TagAction_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRAPIManagement_TagAction_Action_Add       = @"ADD";
+NSString * const kGTLRAPIManagement_TagAction_Action_Remove    = @"REMOVE";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAPIManagement_ApiObservation
@@ -106,6 +111,42 @@ NSString * const kGTLRAPIManagement_ObservationSource_State_StateUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIManagement_BatchEditTagsApiObservationsRequest
+//
+
+@implementation GTLRAPIManagement_BatchEditTagsApiObservationsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAPIManagement_EditTagsApiObservationsRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIManagement_BatchEditTagsApiObservationsResponse
+//
+
+@implementation GTLRAPIManagement_BatchEditTagsApiObservationsResponse
+@dynamic apiObservations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apiObservations" : [GTLRAPIManagement_ApiObservation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIManagement_CancelOperationRequest
 //
 
@@ -119,6 +160,24 @@ NSString * const kGTLRAPIManagement_ObservationSource_State_StateUnspecified = @
 //
 
 @implementation GTLRAPIManagement_DisableObservationJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIManagement_EditTagsApiObservationsRequest
+//
+
+@implementation GTLRAPIManagement_EditTagsApiObservationsRequest
+@dynamic apiObservationId, tagActions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagActions" : [GTLRAPIManagement_TagAction class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -309,6 +368,24 @@ NSString * const kGTLRAPIManagement_ObservationSource_State_StateUnspecified = @
 
 + (NSString *)collectionItemsKey {
   return @"apiObservations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIManagement_ListApiObservationTagsResponse
+//
+
+@implementation GTLRAPIManagement_ListApiObservationTagsResponse
+@dynamic apiObservationTags, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apiObservationTags" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -570,4 +647,14 @@ NSString * const kGTLRAPIManagement_ObservationSource_State_StateUnspecified = @
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIManagement_TagAction
+//
+
+@implementation GTLRAPIManagement_TagAction
+@dynamic action, tag;
 @end

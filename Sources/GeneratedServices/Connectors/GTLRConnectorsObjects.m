@@ -331,6 +331,16 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_AuthCodeData
+//
+
+@implementation GTLRConnectors_AuthCodeData
+@dynamic authCode, pkceVerifier, redirectUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_CheckReadinessResponse
 //
 
@@ -442,6 +452,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExchangeAuthCodeRequest
+@dynamic authCodeData;
 @end
 
 
@@ -1026,6 +1037,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_RefreshAccessTokenRequest
+@dynamic refreshToken;
 @end
 
 
@@ -1045,7 +1057,8 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ResultMetadata
-@dynamic dataType, descriptionProperty, jsonSchema, name;
+@dynamic dataType, defaultValue, descriptionProperty, jsonSchema, name,
+         nullable;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -261,9 +261,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_CompilationResult
-@dynamic codeCompilationConfig, compilationErrors, dataEncryptionState,
-         dataformCoreVersion, gitCommitish, name, releaseConfig,
-         resolvedGitCommitSha, workspace;
+@dynamic codeCompilationConfig, compilationErrors, createTime,
+         dataEncryptionState, dataformCoreVersion, gitCommitish, name,
+         releaseConfig, resolvedGitCommitSha, workspace;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -281,8 +281,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_CompilationResultAction
-@dynamic assertion, canonicalTarget, declaration, filePath, notebook,
-         operations, relation, target;
+@dynamic assertion, canonicalTarget, dataPreparation, declaration, filePath,
+         notebook, operations, relation, target;
 @end
 
 
@@ -298,11 +298,40 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_Config
+//
+
+@implementation GTLRDataform_Config
+@dynamic defaultKmsKeyName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_DataEncryptionState
 //
 
 @implementation GTLRDataform_DataEncryptionState
 @dynamic kmsKeyVersionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_DataPreparation
+//
+
+@implementation GTLRDataform_DataPreparation
+@dynamic contents, dependencyTargets, disabled, tags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dependencyTargets" : [GTLRDataform_Target class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1350,8 +1379,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_WorkflowConfig
-@dynamic cronSchedule, invocationConfig, name, recentScheduledExecutionRecords,
-         releaseConfig, timeZone;
+@dynamic createTime, cronSchedule, invocationConfig, name,
+         recentScheduledExecutionRecords, releaseConfig, timeZone, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

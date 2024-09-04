@@ -17,6 +17,9 @@
 
 @class GTLRVMwareEngine_AuditConfig;
 @class GTLRVMwareEngine_AuditLogConfig;
+@class GTLRVMwareEngine_AutoscalingPolicy;
+@class GTLRVMwareEngine_AutoscalingSettings;
+@class GTLRVMwareEngine_AutoscalingSettings_AutoscalingPolicies;
 @class GTLRVMwareEngine_Binding;
 @class GTLRVMwareEngine_Cluster;
 @class GTLRVMwareEngine_Cluster_NodeTypeConfigs;
@@ -55,6 +58,7 @@
 @class GTLRVMwareEngine_Status_Details_Item;
 @class GTLRVMwareEngine_StretchedClusterConfig;
 @class GTLRVMwareEngine_Subnet;
+@class GTLRVMwareEngine_Thresholds;
 @class GTLRVMwareEngine_Vcenter;
 @class GTLRVMwareEngine_VpcNetwork;
 
@@ -1093,6 +1097,115 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 
 
 /**
+ *  Autoscaling policy describes the behavior of the autoscaling with respect to
+ *  the resource utilization. The scale-out operation is initiated if the
+ *  utilization exceeds ANY of the respective thresholds. The scale-in operation
+ *  is initiated if the utilization is below ALL of the respective thresholds.
+ */
+@interface GTLRVMwareEngine_AutoscalingPolicy : GTLRObject
+
+/**
+ *  Optional. Utilization thresholds pertaining to amount of consumed memory.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_Thresholds *consumedMemoryThresholds;
+
+/** Optional. Utilization thresholds pertaining to CPU utilization. */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_Thresholds *cpuThresholds;
+
+/**
+ *  Optional. Utilization thresholds pertaining to amount of granted memory.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_Thresholds *grantedMemoryThresholds;
+
+/**
+ *  Required. The canonical identifier of the node type to add or remove.
+ *  Corresponds to the `NodeType`.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeTypeId;
+
+/**
+ *  Required. Number of nodes to add to a cluster during a scale-out operation.
+ *  Must be divisible by 2 for stretched clusters. During a scale-in operation
+ *  only one node (or 2 for stretched clusters) are removed in a single
+ *  iteration.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleOutSize;
+
+/**
+ *  Optional. Utilization thresholds pertaining to amount of consumed storage.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_Thresholds *storageThresholds;
+
+@end
+
+
+/**
+ *  Autoscaling settings define the rules used by VMware Engine to automatically
+ *  scale-out and scale-in the clusters in a private cloud.
+ */
+@interface GTLRVMwareEngine_AutoscalingSettings : GTLRObject
+
+/**
+ *  Required. The map with autoscaling policies applied to the cluster. The key
+ *  is the identifier of the policy. It must meet the following requirements: *
+ *  Only contains 1-63 alphanumeric characters and hyphens * Begins with an
+ *  alphabetical character * Ends with a non-hyphen character * Not formatted as
+ *  a UUID * Complies with [RFC
+ *  1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5) Currently
+ *  there map must contain only one element that describes the autoscaling
+ *  policy for compute nodes.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_AutoscalingSettings_AutoscalingPolicies *autoscalingPolicies;
+
+/**
+ *  Optional. The minimum duration between consecutive autoscale operations. It
+ *  starts once addition or removal of nodes is fully completed. Defaults to 30
+ *  minutes if not specified. Cool down period must be in whole minutes (for
+ *  example, 30, 31, 50, 180 minutes).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *coolDownPeriod;
+
+/**
+ *  Optional. Maximum number of nodes of any type in a cluster. If not specified
+ *  the default limits apply.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxClusterNodeCount;
+
+/**
+ *  Optional. Minimum number of nodes of any type in a cluster. If not specified
+ *  the default limits apply.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minClusterNodeCount;
+
+@end
+
+
+/**
+ *  Required. The map with autoscaling policies applied to the cluster. The key
+ *  is the identifier of the policy. It must meet the following requirements: *
+ *  Only contains 1-63 alphanumeric characters and hyphens * Begins with an
+ *  alphabetical character * Ends with a non-hyphen character * Not formatted as
+ *  a UUID * Complies with [RFC
+ *  1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5) Currently
+ *  there map must contain only one element that describes the autoscaling
+ *  policy for compute nodes.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRVMwareEngine_AutoscalingPolicy. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRVMwareEngine_AutoscalingSettings_AutoscalingPolicies : GTLRObject
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRVMwareEngine_Binding : GTLRObject
@@ -1182,6 +1295,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  A cluster in a private cloud.
  */
 @interface GTLRVMwareEngine_Cluster : GTLRObject
+
+/** Optional. Configuration of the autoscaling applied to this cluster. */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_AutoscalingSettings *autoscalingSettings;
 
 /** Output only. Creation time of this resource. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -3972,6 +4088,29 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Thresholds define the utilization of resources triggering scale-out and
+ *  scale-in operations.
+ */
+@interface GTLRVMwareEngine_Thresholds : GTLRObject
+
+/**
+ *  Required. The utilization triggering the scale-in operation in percent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleIn;
+
+/**
+ *  Required. The utilization triggering the scale-out operation in percent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleOut;
 
 @end
 

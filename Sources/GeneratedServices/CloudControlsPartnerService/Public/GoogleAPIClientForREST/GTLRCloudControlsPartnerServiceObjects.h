@@ -241,6 +241,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_PartnerPermi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_PartnerPermissions_PartnerPermissions_AccessTransparencyAndEmergencyAccessLogs;
 /**
+ *  Permission for support case details for Access Transparency log entries
+ *
+ *  Value: "ACCESS_TRANSPARENCY_LOGS_SUPPORT_CASE_VIEWER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_PartnerPermissions_PartnerPermissions_AccessTransparencyLogsSupportCaseViewer;
+/**
  *  Permission for External Key Manager connection status
  *
  *  Value: "ASSURED_WORKLOADS_EKM_CONNECTION_STATUS"
@@ -548,14 +554,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_WorkloadOnbo
  */
 @interface GTLRCloudControlsPartnerService_Customer : GTLRObject
 
-/** Container for customer onboarding steps */
+/** Output only. Container for customer onboarding steps */
 @property(nonatomic, strong, nullable) GTLRCloudControlsPartnerService_CustomerOnboardingState *customerOnboardingState;
 
-/** The customer organization's display name. E.g. "google.com". */
+/** The customer organization's display name. E.g. "Google". */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Indicates whether a customer is fully onboarded
+ *  Output only. Indicates whether a customer is fully onboarded
  *
  *  Uses NSNumber of boolValue.
  */

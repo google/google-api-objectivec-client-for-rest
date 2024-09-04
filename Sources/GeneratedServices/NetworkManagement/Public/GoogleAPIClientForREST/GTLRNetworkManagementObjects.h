@@ -57,6 +57,7 @@
 @class GTLRNetworkManagement_ProbingDetails;
 @class GTLRNetworkManagement_ProxyConnectionInfo;
 @class GTLRNetworkManagement_ReachabilityDetails;
+@class GTLRNetworkManagement_RedisInstanceInfo;
 @class GTLRNetworkManagement_RouteInfo;
 @class GTLRNetworkManagement_ServerlessNegInfo;
 @class GTLRNetworkManagement_Status;
@@ -440,6 +441,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Tar
 // GTLRNetworkManagement_DropInfo.cause
 
 /**
+ *  Packet is dropped due to a backend service named port not being defined on
+ *  the instance group level.
+ *
+ *  Value: "BACKEND_SERVICE_NAMED_PORT_NOT_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_BackendServiceNamedPortNotDefined;
+/**
  *  Cause is unspecified.
  *
  *  Value: "CAUSE_UNSPECIFIED"
@@ -516,6 +524,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSq
  *  Value: "CLOUD_SQL_PSC_NEG_UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlPscNegUnsupported;
+/**
+ *  Packet is dropped due to a destination IP range being part of a Private NAT
+ *  IP range.
+ *
+ *  Value: "DESTINATION_IS_PRIVATE_NAT_IP_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DestinationIsPrivateNatIpRange;
 /**
  *  Packet was dropped inside Cloud SQL Service.
  *
@@ -654,6 +669,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridN
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning;
 /**
+ *  Packet is dropped due to a load balancer backend instance not having a
+ *  network interface in the network expected by the load balancer.
+ *
+ *  Value: "LOAD_BALANCER_BACKEND_INVALID_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvalidNetwork;
+/**
  *  Packet sent to a load balancer, which requires a proxy-only subnet and the
  *  subnet is not found.
  *
@@ -757,6 +779,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicC
  *  Value: "PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination;
+/**
+ *  Packet sent from or to a Redis Instance that is not in running state.
+ *
+ *  Value: "REDIS_INSTANCE_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNotRunning;
 /**
  *  Dropped due to invalid route. Route's next hop is a blackhole.
  *
@@ -1830,6 +1858,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPr
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPscPublishedService;
 /**
+ *  Initial state: packet originating from a Redis instance. A RedisInstanceInfo
+ *  is populated with starting instance information.
+ *
+ *  Value: "START_FROM_REDIS_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromRedisInstance;
+/**
  *  Initial state: packet originating from a serverless network endpoint group
  *  backend. Used only for return traces. The serverless_neg information is
  *  populated.
@@ -2510,6 +2545,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Cause that the packet is dropped.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_BackendServiceNamedPortNotDefined
+ *        Packet is dropped due to a backend service named port not being
+ *        defined on the instance group level. (Value:
+ *        "BACKEND_SERVICE_NAMED_PORT_NOT_DEFINED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified Cause is
  *        unspecified. (Value: "CAUSE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive
@@ -2550,6 +2589,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        endpoint group) targeting a Cloud SQL service attachment, but this
  *        configuration is not supported. (Value:
  *        "CLOUD_SQL_PSC_NEG_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DestinationIsPrivateNatIpRange
+ *        Packet is dropped due to a destination IP range being part of a
+ *        Private NAT IP range. (Value: "DESTINATION_IS_PRIVATE_NAT_IP_RANGE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService
  *        Packet was dropped inside Cloud SQL Service. (Value:
  *        "DROPPED_INSIDE_CLOUD_SQL_SERVICE")
@@ -2625,6 +2667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning Packet is
  *        sent from or to a Compute Engine instance that is not in a running
  *        state. (Value: "INSTANCE_NOT_RUNNING")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvalidNetwork
+ *        Packet is dropped due to a load balancer backend instance not having a
+ *        network interface in the network expected by the load balancer.
+ *        (Value: "LOAD_BALANCER_BACKEND_INVALID_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet
  *        Packet sent to a load balancer, which requires a proxy-only subnet and
  *        the subnet is not found. (Value: "LOAD_BALANCER_HAS_NO_PROXY_SUBNET")
@@ -2680,6 +2726,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination
  *        Packet sent from a public GKE cluster control plane to a private IP
  *        address. (Value: "PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNotRunning
+ *        Packet sent from or to a Redis Instance that is not in running state.
+ *        (Value: "REDIS_INSTANCE_NOT_RUNNING")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole Dropped due
  *        to invalid route. Route's next hop is a blackhole. (Value:
  *        "ROUTE_BLACKHOLE")
@@ -3032,7 +3081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  For display only. Metadata associated with a VPC firewall rule, an implied
- *  VPC firewall rule, or a hierarchical firewall policy rule.
+ *  VPC firewall rule, or a firewall policy rule.
  */
 @interface GTLRNetworkManagement_FirewallInfo : GTLRObject
 
@@ -3043,8 +3092,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *direction;
 
 /**
- *  The display name of the VPC firewall rule. This field is not applicable to
- *  hierarchical firewall policy rules.
+ *  The display name of the firewall rule. This field might be empty for
+ *  firewall policy rules.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3104,10 +3153,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /**
- *  The hierarchical firewall policy that this rule is associated with. This
- *  field is not applicable to VPC firewall rules.
+ *  The name of the firewall policy that this rule is associated with. This
+ *  field is not applicable to VPC firewall rules and implied VPC firewall
+ *  rules.
  */
 @property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  The URI of the firewall policy that this rule is associated with. This field
+ *  is not applicable to VPC firewall rules and implied VPC firewall rules.
+ */
+@property(nonatomic, copy, nullable) NSString *policyUri;
 
 /**
  *  The priority of the firewall rule.
@@ -3121,13 +3177,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  The target tags defined by the VPC firewall rule. This field is not
- *  applicable to hierarchical firewall policy rules.
+ *  applicable to firewall policy rules.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetTags;
 
 /**
- *  The URI of the VPC firewall rule. This field is not applicable to implied
- *  firewall rules or hierarchical firewall policy rules.
+ *  The URI of the firewall rule. This field is not applicable to implied VPC
+ *  firewall rules.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -3316,6 +3372,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** URI of a Compute Engine network. */
 @property(nonatomic, copy, nullable) NSString *networkUri;
+
+/** URI of the PSC network attachment the NIC is attached to (if relevant). */
+@property(nonatomic, copy, nullable) NSString *pscNetworkAttachmentUri;
 
 /** Service account authorized for the instance. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
@@ -4189,6 +4248,32 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with a Cloud Redis Instance.
+ */
+@interface GTLRNetworkManagement_RedisInstanceInfo : GTLRObject
+
+/** Name of a Cloud Redis Instance. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** URI of a Cloud Redis Instance network. */
+@property(nonatomic, copy, nullable) NSString *networkUri;
+
+/** Primary endpoint IP address of a Cloud Redis Instance. */
+@property(nonatomic, copy, nullable) NSString *primaryEndpointIp;
+
+/** Read endpoint IP address of a Cloud Redis Instance (if applicable). */
+@property(nonatomic, copy, nullable) NSString *readEndpointIp;
+
+/** Region in which the Cloud Redis Instance is defined. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** URI of a Cloud Redis Instance. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Request for the `RerunConnectivityTest` method.
  */
 @interface GTLRNetworkManagement_RerunConnectivityTestRequest : GTLRObject
@@ -4498,6 +4583,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a ProxyConnection. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_ProxyConnectionInfo *proxyConnection;
 
+/** Display information of a Redis Instance. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_RedisInstanceInfo *redisInstance;
+
 /** Display information of a Compute Engine route. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_RouteInfo *route;
 
@@ -4597,6 +4685,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Initial state: packet originating from a published service that uses
  *        Private Service Connect. Used only for return traces. (Value:
  *        "START_FROM_PSC_PUBLISHED_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromRedisInstance Initial
+ *        state: packet originating from a Redis instance. A RedisInstanceInfo
+ *        is populated with starting instance information. (Value:
+ *        "START_FROM_REDIS_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromServerlessNeg Initial
  *        state: packet originating from a serverless network endpoint group
  *        backend. Used only for return traces. The serverless_neg information

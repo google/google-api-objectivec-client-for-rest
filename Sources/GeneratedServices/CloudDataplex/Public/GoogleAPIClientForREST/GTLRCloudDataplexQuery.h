@@ -30,8 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  Returns all aspects. If the number of aspects would exceed 100, the first
- *  100 will be returned.
+ *  Returns all aspects. If the number of aspects exceeds 100, the first 100
+ *  will be returned.
  *
  *  Value: "ALL"
  */
@@ -47,7 +47,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewBasic;
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewContentViewUnspecified;
 /**
  *  Returns aspects matching custom fields in GetEntryRequest. If the number of
- *  aspects would exceed 100, the first 100 will be returned.
+ *  aspects exceeds 100, the first 100 will be returned.
  *
  *  Value: "CUSTOM"
  */
@@ -108,7 +108,290 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Creates an AspectType
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.organizations.locations.encryptionConfigs.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.organizations.locations.encryptionConfigs.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.organizations.locations.encryptionConfigs.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  Method: dataplex.organizations.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsCancel : GTLRCloudDataplexQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleLongrunningCancelOperationRequest to include in
+ *    the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED.
+ *
+ *  Method: dataplex.organizations.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsDelete : GTLRCloudDataplexQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: dataplex.organizations.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsGet : GTLRCloudDataplexQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
+ *
+ *  Method: dataplex.organizations.locations.operations.listOperations
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsListOperations : GTLRCloudDataplexQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRCloudDataplexQuery_OrganizationsLocationsOperationsListOperations
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an AspectType.
  *
  *  Method: dataplex.projects.locations.aspectTypes.create
  *
@@ -123,26 +406,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Required. The resource name of the AspectType, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Only validate the request, but do not perform mutations. The
- *  default is false.
+ *  Optional. The service validates the request without performing any
+ *  mutations. The default is false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Creates an AspectType
+ *  Creates an AspectType.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1AspectType to
  *    include in the query.
  *  @param parent Required. The resource name of the AspectType, of the form:
  *    projects/{project_number}/locations/{location_id} where location_id refers
- *    to a GCP region.
+ *    to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesCreate
  */
@@ -152,7 +435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Deletes a AspectType resource.
+ *  Deletes an AspectType.
  *
  *  Method: dataplex.projects.locations.aspectTypes.delete
  *
@@ -163,7 +446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Optional. If the client provided etag value does not match the current etag
- *  value, the DeleteAspectTypeRequest method returns an ABORTED error response
+ *  value, the DeleteAspectTypeRequest method returns an ABORTED error response.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -176,7 +459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Deletes a AspectType resource.
+ *  Deletes an AspectType.
  *
  *  @param name Required. The resource name of the AspectType:
  *    projects/{project_number}/locations/{location_id}/aspectTypes/{aspect_type_id}.
@@ -188,7 +471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Retrieves a AspectType resource.
+ *  Gets an AspectType.
  *
  *  Method: dataplex.projects.locations.aspectTypes.get
  *
@@ -206,7 +489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1AspectType.
  *
- *  Retrieves a AspectType resource.
+ *  Gets an AspectType.
  *
  *  @param name Required. The resource name of the AspectType:
  *    projects/{project_number}/locations/{location_id}/aspectTypes/{aspect_type_id}.
@@ -278,22 +561,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Filter request. Filters are case-sensitive. The following formats
- *  are supported:labels.key1 = "value1" labels:key1 name = "value" These
- *  restrictions can be coinjoined with AND, OR and NOT conjunctions.
+ *  Optional. Filter request. Filters are case-sensitive. The service supports
+ *  the following formats: labels.key1 = "value1" labels:key1 name =
+ *  "value"These restrictions can be conjoined with AND, OR, and NOT
+ *  conjunctions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Order by fields (name or create_time) for the result. If not
- *  specified, the ordering is undefined.
+ *  Optional. Orders the result by name or create_time fields. If not specified,
+ *  the ordering is undefined.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. Maximum number of AspectTypes to return. The service may return
- *  fewer than this value. If unspecified, at most 10 AspectTypes will be
- *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  fewer than this value. If unspecified, the service returns at most 10
+ *  AspectTypes. The maximum value is 1000; values above 1000 will be coerced to
  *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -301,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Optional. Page token received from a previous ListAspectTypes call. Provide
  *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to ListAspectTypes must match the call that provided the page
+ *  you provide to ListAspectTypes must match the call that provided the page
  *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -309,7 +593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Required. The resource name of the AspectType location, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -320,7 +604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  @param parent Required. The resource name of the AspectType location, of the
  *    form: projects/{project_number}/locations/{location_id} where location_id
- *    refers to a GCP region.
+ *    refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesList
  *
@@ -333,7 +617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Updates a AspectType resource.
+ *  Updates an AspectType.
  *
  *  Method: dataplex.projects.locations.aspectTypes.patch
  *
@@ -364,7 +648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Updates a AspectType resource.
+ *  Updates an AspectType.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1AspectType to
  *    include in the query.
@@ -2146,7 +2430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Creates an EntryGroup
+ *  Creates an EntryGroup.
  *
  *  Method: dataplex.projects.locations.entryGroups.create
  *
@@ -2166,15 +2450,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Only validate the request, but do not perform mutations. The
- *  default is false.
+ *  Optional. The service validates the request without performing any
+ *  mutations. The default is false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Creates an EntryGroup
+ *  Creates an EntryGroup.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup to
  *    include in the query.
@@ -2190,7 +2474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Deletes a EntryGroup resource.
+ *  Deletes an EntryGroup.
  *
  *  Method: dataplex.projects.locations.entryGroups.delete
  *
@@ -2201,7 +2485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Optional. If the client provided etag value does not match the current etag
- *  value, the DeleteEntryGroupRequest method returns an ABORTED error response
+ *  value, the DeleteEntryGroupRequest method returns an ABORTED error response.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -2214,7 +2498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Deletes a EntryGroup resource.
+ *  Deletes an EntryGroup.
  *
  *  @param name Required. The resource name of the EntryGroup:
  *    projects/{project_number}/locations/{location_id}/entryGroups/{entry_group_id}.
@@ -2237,17 +2521,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. Entry identifier. It has to be unique within an Entry
- *  Group.Entries corresponding to Google Cloud resources use Entry ID format
- *  based on Full Resource Names
+ *  Group.Entries corresponding to Google Cloud resources use an Entry ID format
+ *  based on full resource names
  *  (https://cloud.google.com/apis/design/resource_names#full_resource_name).
- *  The format is a Full Resource Name of the resource without the prefix double
- *  slashes in the API Service Name part of Full Resource Name. This allows
- *  retrieval of entries using their associated resource name.For example if the
- *  Full Resource Name of a resource is
+ *  The format is a full resource name of the resource without the prefix double
+ *  slashes in the API service name part of the full resource name. This allows
+ *  retrieval of entries using their associated resource name.For example, if
+ *  the full resource name of a resource is
  *  //library.googleapis.com/shelves/shelf1/books/book2, then the suggested
  *  entry_id is library.googleapis.com/shelves/shelf1/books/book2.It is also
  *  suggested to follow the same convention for entries corresponding to
- *  resources from other providers or systems than Google Cloud.The maximum size
+ *  resources from providers or systems other than Google Cloud.The maximum size
  *  of the field is 4000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *entryId;
@@ -2306,7 +2590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Gets a single entry.
+ *  Gets an Entry.
  *
  *  Method: dataplex.projects.locations.entryGroups.entries.get
  *
@@ -2316,8 +2600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesGet : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Limits the aspects returned to the provided aspect types. Only
- *  works if the CUSTOM view is selected.
+ *  Optional. Limits the aspects returned to the provided aspect types. It only
+ *  works for CUSTOM view.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aspectTypes;
 
@@ -2329,12 +2613,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Optional. Limits the aspects returned to those associated with the provided
- *  paths within the Entry. Only works if the CUSTOM view is selected.
+ *  paths within the Entry. It only works for CUSTOM view.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
 /**
- *  Optional. View for controlling which parts of an entry are to be returned.
+ *  Optional. View to control which parts of an entry the service should return.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplexViewEntryViewUnspecified Unspecified EntryView.
@@ -2344,18 +2628,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *    @arg @c kGTLRCloudDataplexViewFull Returns all required aspects as well as
  *        the keys of all non-required aspects. (Value: "FULL")
  *    @arg @c kGTLRCloudDataplexViewCustom Returns aspects matching custom
- *        fields in GetEntryRequest. If the number of aspects would exceed 100,
- *        the first 100 will be returned. (Value: "CUSTOM")
+ *        fields in GetEntryRequest. If the number of aspects exceeds 100, the
+ *        first 100 will be returned. (Value: "CUSTOM")
  *    @arg @c kGTLRCloudDataplexViewAll Returns all aspects. If the number of
- *        aspects would exceed 100, the first 100 will be returned. (Value:
- *        "ALL")
+ *        aspects exceeds 100, the first 100 will be returned. (Value: "ALL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
  *
- *  Gets a single entry.
+ *  Gets an Entry.
  *
  *  @param name Required. The resource name of the Entry:
  *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}.
@@ -2367,7 +2650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Lists entries within an entry group.
+ *  Lists Entries within an EntryGroup.
  *
  *  Method: dataplex.projects.locations.entryGroups.entries.list
  *
@@ -2377,12 +2660,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. A filter on the entries to return. Filters are case-sensitive. The
- *  request can be filtered by the following fields: entry_type,
- *  entry_source.display_name. The comparison operators are =, !=, <, >, <=, >=
- *  (strings are compared according to lexical order) The logical operators AND,
- *  OR, NOT can be used in the filter. Wildcard "*" can be used, but for
- *  entry_type the full project id or number needs to be provided. Example
+ *  Optional. A filter on the entries to return. Filters are case-sensitive. You
+ *  can filter the request by the following fields: entry_type
+ *  entry_source.display_nameThe comparison operators are =, !=, <, >, <=, >=.
+ *  The service compares strings according to lexical order.You can use the
+ *  logical operators AND, OR, NOT in the filter.You can use Wildcard "*", but
+ *  for entry_type you need to provide the full project id or number.Example
  *  filter expressions: "entry_source.display_name=AnExampleDisplayName"
  *  "entry_type=projects/example-project/locations/global/entryTypes/example-entry_type"
  *  "entry_type=projects/example-project/locations/us/entryTypes/a* OR
@@ -2391,9 +2674,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
+/**
+ *  Optional. Number of items to return per page. If there are remaining
+ *  results, the service returns a next_page_token. If unspecified, the service
+ *  returns at most 10 Entries. The maximum value is 100; values above 100 will
+ *  be coerced to 100.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Optional. The pagination token returned by a previous request. */
+/**
+ *  Optional. Page token received from a previous ListEntries call. Provide this
+ *  to retrieve the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -2405,7 +2697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ListEntriesResponse.
  *
- *  Lists entries within an entry group.
+ *  Lists Entries within an EntryGroup.
  *
  *  @param parent Required. The resource name of the parent Entry Group:
  *    projects/{project}/locations/{location}/entryGroups/{entry_group}.
@@ -2431,38 +2723,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesPatch : GTLRCloudDataplexQuery
 
 /**
- *  Optional. If set to true and the entry does not exist, it will be created.
+ *  Optional. If set to true and the entry doesn't exist, the service will
+ *  create it.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Optional. The map keys of the Aspects which should be modified. Supports the
- *  following syntaxes: * - matches aspect on given type and empty path * \@path
- *  - matches aspect on given type and specified path * * - matches aspects on
- *  given type for all paths * *\@path - matches aspects of all types on the
- *  given pathExisting aspects matching the syntax will not be removed unless
- *  delete_missing_aspects is set to true.If this field is left empty, it will
- *  be treated as specifying exactly those Aspects present in the request.
+ *  Optional. The map keys of the Aspects which the service should modify. It
+ *  supports the following syntaxes: - matches an aspect of the given type and
+ *  empty path. \@path - matches an aspect of the given type and specified path.
+ *  * - matches aspects of the given type for all paths. *\@path - matches
+ *  aspects of all types on the given path.The service will not remove existing
+ *  aspects matching the syntax unless delete_missing_aspects is set to true.If
+ *  this field is left empty, the service treats it as specifying exactly those
+ *  Aspects present in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aspectKeys;
 
 /**
- *  Optional. If set to true and the aspect_keys specify aspect ranges, any
- *  existing aspects from that range not provided in the request will be
- *  deleted.
+ *  Optional. If set to true and the aspect_keys specify aspect ranges, the
+ *  service deletes any existing aspects from that range that weren't provided
+ *  in the request.
  */
 @property(nonatomic, assign) BOOL deleteMissingAspects;
 
 /**
- *  Identifier. The relative resource name of the Entry, of the form:
- *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}.
+ *  Identifier. The relative resource name of the entry, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. Mask of fields to update. To update Aspects, the update_mask must
- *  contain the value "aspects".If the update_mask is empty, all modifiable
- *  fields present in the request will be updated.
+ *  contain the value "aspects".If the update_mask is empty, the service will
+ *  update all modifiable fields present in the request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2475,9 +2769,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry to include
  *    in the query.
- *  @param name Identifier. The relative resource name of the Entry, of the
- *    form:
- *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}.
+ *  @param name Identifier. The relative resource name of the entry, in the
+ *    format
+ *    projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesPatch
  */
@@ -2487,7 +2781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Retrieves a EntryGroup resource.
+ *  Gets an EntryGroup.
  *
  *  Method: dataplex.projects.locations.entryGroups.get
  *
@@ -2505,7 +2799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup.
  *
- *  Retrieves a EntryGroup resource.
+ *  Gets an EntryGroup.
  *
  *  @param name Required. The resource name of the EntryGroup:
  *    projects/{project_number}/locations/{location_id}/entryGroups/{entry_group_id}.
@@ -2584,8 +2878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Optional. Maximum number of EntryGroups to return. The service may return
- *  fewer than this value. If unspecified, at most 10 EntryGroups will be
- *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  fewer than this value. If unspecified, the service returns at most 10
+ *  EntryGroups. The maximum value is 1000; values above 1000 will be coerced to
  *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -2593,7 +2887,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Optional. Page token received from a previous ListEntryGroups call. Provide
  *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to ListEntryGroups must match the call that provided the page
+ *  you provide to ListEntryGroups must match the call that provided the page
  *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2601,7 +2895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Required. The resource name of the entryGroup location, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2612,7 +2906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  @param parent Required. The resource name of the entryGroup location, of the
  *    form: projects/{project_number}/locations/{location_id} where location_id
- *    refers to a GCP region.
+ *    refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsList
  *
@@ -2625,7 +2919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Updates a EntryGroup resource.
+ *  Updates an EntryGroup.
  *
  *  Method: dataplex.projects.locations.entryGroups.patch
  *
@@ -2635,8 +2929,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsPatch : GTLRCloudDataplexQuery
 
 /**
- *  Output only. The relative resource name of the EntryGroup, of the form:
- *  projects/{project_number}/locations/{location_id}/entryGroups/{entry_group_id}.
+ *  Output only. The relative resource name of the EntryGroup, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2648,21 +2942,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Optional. Only validate the request, but do not perform mutations. The
- *  default is false.
+ *  Optional. The service validates the request, without performing any
+ *  mutations. The default is false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Updates a EntryGroup resource.
+ *  Updates an EntryGroup.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup to
  *    include in the query.
- *  @param name Output only. The relative resource name of the EntryGroup, of
- *    the form:
- *    projects/{project_number}/locations/{location_id}/entryGroups/{entry_group_id}.
+ *  @param name Output only. The relative resource name of the EntryGroup, in
+ *    the format
+ *    projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsPatch
  */
@@ -2756,7 +3050,141 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Creates an EntryType
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.entryLinkTypes.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.projects.locations.entryLinkTypes.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.entryLinkTypes.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates an EntryType.
  *
  *  Method: dataplex.projects.locations.entryTypes.create
  *
@@ -2771,26 +3199,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Required. The resource name of the EntryType, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Only validate the request, but do not perform mutations. The
- *  default is false.
+ *  Optional. The service validates the request without performing any
+ *  mutations. The default is false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Creates an EntryType
+ *  Creates an EntryType.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryType to
  *    include in the query.
  *  @param parent Required. The resource name of the EntryType, of the form:
  *    projects/{project_number}/locations/{location_id} where location_id refers
- *    to a GCP region.
+ *    to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesCreate
  */
@@ -2800,7 +3228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Deletes a EntryType resource.
+ *  Deletes an EntryType.
  *
  *  Method: dataplex.projects.locations.entryTypes.delete
  *
@@ -2811,7 +3239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Optional. If the client provided etag value does not match the current etag
- *  value, the DeleteEntryTypeRequest method returns an ABORTED error response
+ *  value, the DeleteEntryTypeRequest method returns an ABORTED error response.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -2824,7 +3252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Deletes a EntryType resource.
+ *  Deletes an EntryType.
  *
  *  @param name Required. The resource name of the EntryType:
  *    projects/{project_number}/locations/{location_id}/entryTypes/{entry_type_id}.
@@ -2836,7 +3264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Retrieves a EntryType resource.
+ *  Gets an EntryType.
  *
  *  Method: dataplex.projects.locations.entryTypes.get
  *
@@ -2854,7 +3282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryType.
  *
- *  Retrieves a EntryType resource.
+ *  Gets an EntryType.
  *
  *  @param name Required. The resource name of the EntryType:
  *    projects/{project_number}/locations/{location_id}/entryTypes/{entry_type_id}.
@@ -2926,22 +3354,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Filter request. Filters are case-sensitive. The following formats
- *  are supported:labels.key1 = "value1" labels:key1 name = "value" These
- *  restrictions can be coinjoined with AND, OR and NOT conjunctions.
+ *  Optional. Filter request. Filters are case-sensitive. The service supports
+ *  the following formats: labels.key1 = "value1" labels:key1 name =
+ *  "value"These restrictions can be conjoined with AND, OR, and NOT
+ *  conjunctions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Order by fields (name or create_time) for the result. If not
- *  specified, the ordering is undefined.
+ *  Optional. Orders the result by name or create_time fields. If not specified,
+ *  the ordering is undefined.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. Maximum number of EntryTypes to return. The service may return
- *  fewer than this value. If unspecified, at most 10 EntryTypes will be
- *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  fewer than this value. If unspecified, the service returns at most 10
+ *  EntryTypes. The maximum value is 1000; values above 1000 will be coerced to
  *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -2949,14 +3378,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Optional. Page token received from a previous ListEntryTypes call. Provide
  *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to ListEntryTypes must match the call that provided the page token.
+ *  you provided to ListEntryTypes must match the call that provided the page
+ *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The resource name of the EntryType location, of the form:
  *  projects/{project_number}/locations/{location_id} where location_id refers
- *  to a GCP region.
+ *  to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2967,7 +3397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  @param parent Required. The resource name of the EntryType location, of the
  *    form: projects/{project_number}/locations/{location_id} where location_id
- *    refers to a GCP region.
+ *    refers to a Google Cloud region.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesList
  *
@@ -2980,7 +3410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Updates a EntryType resource.
+ *  Updates an EntryType.
  *
  *  Method: dataplex.projects.locations.entryTypes.patch
  *
@@ -3003,15 +3433,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Optional. Only validate the request, but do not perform mutations. The
- *  default is false.
+ *  Optional. The service validates the request without performing any
+ *  mutations. The default is false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Updates a EntryType resource.
+ *  Updates an EntryType.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1EntryType to
  *    include in the query.
@@ -3133,6 +3563,408 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.glossaries.categories.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.projects.locations.glossaries.categories.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.glossaries.categories.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.glossaries.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.projects.locations.glossaries.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.glossaries.terms.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.projects.locations.glossaries.terms.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.glossaries.terms.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.glossaries.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -6511,7 +7343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Looks up a single entry.
+ *  Looks up a single Entry by name using the permission on the source system.
  *
  *  Method: dataplex.projects.locations.lookupEntry
  *
@@ -6521,8 +7353,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLookupEntry : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Limits the aspects returned to the provided aspect types. Only
- *  works if the CUSTOM view is selected.
+ *  Optional. Limits the aspects returned to the provided aspect types. It only
+ *  works for CUSTOM view.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aspectTypes;
 
@@ -6540,12 +7372,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Optional. Limits the aspects returned to those associated with the provided
- *  paths within the Entry. Only works if the CUSTOM view is selected.
+ *  paths within the Entry. It only works for CUSTOM view.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
 /**
- *  Optional. View for controlling which parts of an entry are to be returned.
+ *  Optional. View to control which parts of an entry the service should return.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplexViewEntryViewUnspecified Unspecified EntryView.
@@ -6555,18 +7387,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *    @arg @c kGTLRCloudDataplexViewFull Returns all required aspects as well as
  *        the keys of all non-required aspects. (Value: "FULL")
  *    @arg @c kGTLRCloudDataplexViewCustom Returns aspects matching custom
- *        fields in GetEntryRequest. If the number of aspects would exceed 100,
- *        the first 100 will be returned. (Value: "CUSTOM")
+ *        fields in GetEntryRequest. If the number of aspects exceeds 100, the
+ *        first 100 will be returned. (Value: "CUSTOM")
  *    @arg @c kGTLRCloudDataplexViewAll Returns all aspects. If the number of
- *        aspects would exceed 100, the first 100 will be returned. (Value:
- *        "ALL")
+ *        aspects exceeds 100, the first 100 will be returned. (Value: "ALL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
  *
- *  Looks up a single entry.
+ *  Looks up a single Entry by name using the permission on the source system.
  *
  *  @param name Required. The project to which the request should be attributed
  *    in the following form: projects/{project}/locations/{location}.
@@ -6574,6 +7405,180 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLookupEntry
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Cancels a metadata job.If you cancel a metadata import job that is in
+ *  progress, the changes in the job might be partially applied. We recommend
+ *  that you reset the state of the entry groups in your project by running
+ *  another metadata job that reverts the changes from the canceled job.
+ *
+ *  Method: dataplex.projects.locations.metadataJobs.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsCancel : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the job, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/metadataJobs/{metadata_job_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_Empty.
+ *
+ *  Cancels a metadata job.If you cancel a metadata import job that is in
+ *  progress, the changes in the job might be partially applied. We recommend
+ *  that you reset the state of the entry groups in your project by running
+ *  another metadata job that reverts the changes from the canceled job.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1CancelMetadataJobRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the job, in the format
+ *    projects/{project_id_or_number}/locations/{location_id}/metadataJobs/{metadata_job_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1CancelMetadataJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a metadata job. For example, use a metadata job to import Dataplex
+ *  Catalog entries and aspects from a third-party system into Dataplex.
+ *
+ *  Method: dataplex.projects.locations.metadataJobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The metadata job ID. If not provided, a unique ID is generated
+ *  with the prefix metadata-job-.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataJobId;
+
+/**
+ *  Required. The resource name of the parent location, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Creates a metadata job. For example, use a metadata job to import Dataplex
+ *  Catalog entries and aspects from a third-party system into Dataplex.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob to
+ *    include in the query.
+ *  @param parent Required. The resource name of the parent location, in the
+ *    format projects/{project_id_or_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a metadata job.
+ *
+ *  Method: dataplex.projects.locations.metadataJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the metadata job, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/metadataJobs/{metadata_job_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob.
+ *
+ *  Gets a metadata job.
+ *
+ *  @param name Required. The resource name of the metadata job, in the format
+ *    projects/{project_id_or_number}/locations/{location_id}/metadataJobs/{metadata_job_id}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists metadata jobs.
+ *
+ *  Method: dataplex.projects.locations.metadataJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter request. Filters are case-sensitive. The service supports
+ *  the following formats: labels.key1 = "value1" labels:key1 name = "value"You
+ *  can combine filters with AND, OR, and NOT operators.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The field to sort the results by, either name or create_time. If
+ *  not specified, the ordering is undefined.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of metadata jobs to return. The service might
+ *  return fewer jobs than this value. If unspecified, at most 10 jobs are
+ *  returned. The maximum value is 1,000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token received from a previous ListMetadataJobs call.
+ *  Provide this token to retrieve the subsequent page of results. When
+ *  paginating, all other parameters that are provided to the ListMetadataJobs
+ *  request must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent location, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataJobsResponse.
+ *
+ *  Lists metadata jobs.
+ *
+ *  @param parent Required. The resource name of the parent location, in the
+ *    format projects/{project_id_or_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -6727,7 +7732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Searches for entries matching given query and scope.
+ *  Searches for Entries matching the given query and scope.
  *
  *  Method: dataplex.projects.locations.searchEntries
  *
@@ -6742,28 +7747,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. Ordering of the results. Supported options to be added later. */
+/** Optional. Specifies the ordering of results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Optional. Pagination. */
+/**
+ *  Optional. Number of results in the search page. If <=0, then defaults to 10.
+ *  Max limit for page_size is 1000. Throws an invalid argument for page_size >
+ *  1000.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
+/**
+ *  Optional. Page token received from a previous SearchEntries call. Provide
+ *  this to retrieve the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /** Required. The query against which entries in scope should be matched. */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Optional. The scope under which the search should be operating. Should
- *  either be organizations/ or projects/. If left unspecified, it will default
- *  to the organization where the project provided in name is located.
+ *  Optional. The scope under which the search should be operating. It must
+ *  either be organizations/ or projects/. If it is unspecified, it defaults to
+ *  the organization where the project provided in name is located.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResponse.
  *
- *  Searches for entries matching given query and scope.
+ *  Searches for Entries matching the given query and scope.
  *
  *  @param name Required. The project to which the request should be attributed
  *    in the following form: projects/{project}/locations/{location}.

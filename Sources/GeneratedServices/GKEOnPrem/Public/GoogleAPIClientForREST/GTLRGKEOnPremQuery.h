@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Anthos On-Prem API (gkeonprem/v1)
+//   GDC Virtual API (gkeonprem/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/clusters/docs/on-prem/
 
@@ -69,6 +69,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
  *    @c kGTLRAuthScopeGKEOnPremCloudPlatform
  */
 @interface GTLRGKEOnPremQuery_ProjectsLocationsBareMetalAdminClustersCreate : GTLRGKEOnPremQuery
+
+/**
+ *  Optional. If set to true, CLM will force CCFE to persist the cluster
+ *  resource in RMS when the creation fails during standalone preflight checks.
+ *  In that case the subsequent create call will fail with "cluster already
+ *  exists" error and hence a update cluster is required to fix the cluster.
+ */
+@property(nonatomic, assign) BOOL allowPreflightFailure;
 
 /**
  *  Required. User provided identifier that is used as part of the resource
@@ -155,6 +163,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
  *    @c kGTLRAuthScopeGKEOnPremCloudPlatform
  */
 @interface GTLRGKEOnPremQuery_ProjectsLocationsBareMetalAdminClustersGet : GTLRGKEOnPremQuery
+
+/**
+ *  Optional. If true, return BareMetal Admin Cluster including the one that
+ *  only exists in RMS.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
 
 /**
  *  Required. Name of the bare metal admin cluster to get. Format:
@@ -252,6 +266,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
  *    @c kGTLRAuthScopeGKEOnPremCloudPlatform
  */
 @interface GTLRGKEOnPremQuery_ProjectsLocationsBareMetalAdminClustersList : GTLRGKEOnPremQuery
+
+/**
+ *  Optional. If true, return list of BareMetal Admin Clusters including the
+ *  ones that only exists in RMS.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
 
 /**
  *  Requested page size. Server may return fewer items than requested. If
@@ -1189,6 +1209,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 @interface GTLRGKEOnPremQuery_ProjectsLocationsBareMetalClustersCreate : GTLRGKEOnPremQuery
 
 /**
+ *  Optional. If set to true, CLM will force CCFE to persist the cluster
+ *  resource in RMS when the creation fails during standalone preflight checks.
+ *  In that case the subsequent create call will fail with "cluster already
+ *  exists" error and hence a update cluster is required to fix the cluster.
+ */
+@property(nonatomic, assign) BOOL allowPreflightFailure;
+
+/**
  *  Required. User provided identifier that is used as part of the resource
  *  name; must conform to RFC-1034 and additionally restrict to lower-cased
  *  letters. This comes out roughly to: /^a-z+[a-z0-9]$/
@@ -1333,6 +1361,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 @interface GTLRGKEOnPremQuery_ProjectsLocationsBareMetalClustersGet : GTLRGKEOnPremQuery
 
 /**
+ *  Optional. If true, return BareMetal Cluster including the one that only
+ *  exists in RMS.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
  *  Required. Name of the bare metal user cluster to get. Format:
  *  "projects/{project}/locations/{location}/bareMetalClusters/{bare_metal_cluster}"
  */
@@ -1428,6 +1462,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
  *    @c kGTLRAuthScopeGKEOnPremCloudPlatform
  */
 @interface GTLRGKEOnPremQuery_ProjectsLocationsBareMetalClustersList : GTLRGKEOnPremQuery
+
+/**
+ *  Optional. If true, return list of BareMetal Clusters including the ones that
+ *  only exists in RMS.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
 
 /**
  *  A resource filtering expression following https://google.aip.dev/160. When
@@ -2082,6 +2122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 @interface GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersGet : GTLRGKEOnPremQuery
 
 /**
+ *  Optional. If true, return Vmware Admin Cluster including the one that only
+ *  exists in RMS.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
  *  Required. Name of the VMware admin cluster to be returned. Format:
  *  "projects/{project}/locations/{location}/vmwareAdminClusters/{vmware_admin_cluster}"
  */
@@ -2178,6 +2224,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
  *    @c kGTLRAuthScopeGKEOnPremCloudPlatform
  */
 @interface GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersList : GTLRGKEOnPremQuery
+
+/**
+ *  Optional. If true, return list of Vmware Admin Clusters including the ones
+ *  that only exists in RMS.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
 
 /**
  *  Requested page size. Server may return fewer items than requested. If
@@ -2497,6 +2549,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 @interface GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersCreate : GTLRGKEOnPremQuery
 
 /**
+ *  Optional. If set to true, CLM will force CCFE to persist the cluster
+ *  resource in RMS when the creation fails during standalone preflight checks.
+ *  In that case the subsequent create call will fail with "cluster already
+ *  exists" error and hence a update cluster is required to fix the cluster.
+ */
+@property(nonatomic, assign) BOOL allowPreflightFailure;
+
+/**
  *  Required. The parent of the project and location where this cluster is
  *  created in. Format: "projects/{project}/locations/{location}"
  */
@@ -2640,6 +2700,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 @interface GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersGet : GTLRGKEOnPremQuery
 
 /**
+ *  Optional. If true, return Vmware Cluster including the one that only exists
+ *  in RMS.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
  *  Required. Name of the VMware user cluster to be returned. Format:
  *  "projects/{project}/locations/{location}/vmwareClusters/{vmware_cluster}"
  */
@@ -2736,6 +2802,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
  *    @c kGTLRAuthScopeGKEOnPremCloudPlatform
  */
 @interface GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersList : GTLRGKEOnPremQuery
+
+/**
+ *  Optional. If true, return list of Vmware Clusters including the ones that
+ *  only exists in RMS.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
 
 /**
  *  A resource filtering expression following https://google.aip.dev/160. When

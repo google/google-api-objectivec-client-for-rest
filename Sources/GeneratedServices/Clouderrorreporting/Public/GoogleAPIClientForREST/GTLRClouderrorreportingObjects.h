@@ -159,14 +159,18 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
- *  The group resource name. Written as
- *  `projects/{projectID}/groups/{group_id}`. Example:
- *  `projects/my-project-123/groups/my-group` In the group resource name, the
- *  `group_id` is a unique identifier for a particular error group. The
- *  identifier is derived from key parts of the error-log content and is treated
- *  as Service Data. For information about how Service Data is handled, see
- *  [Google Cloud Privacy
- *  Notice](https://cloud.google.com/terms/cloud-privacy-notice).
+ *  The group resource name. Written as `projects/{projectID}/groups/{group_id}`
+ *  or `projects/{projectID}/locations/{location}/groups/{group_id}` Examples:
+ *  `projects/my-project-123/groups/my-group`,
+ *  `projects/my-project-123/locations/us-central1/groups/my-group` In the group
+ *  resource name, the `group_id` is a unique identifier for a particular error
+ *  group. The identifier is derived from key parts of the error-log content and
+ *  is treated as Service Data. For information about how Service Data is
+ *  handled, see [Google Cloud Privacy
+ *  Notice](https://cloud.google.com/terms/cloud-privacy-notice). For a list of
+ *  supported locations, see [Supported
+ *  Regions](https://cloud.google.com/logging/docs/region-support). `global` is
+ *  the default when unspecified.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -423,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
  *  error|Warning): "` and contain the result of
  *  [`(string)$exception`](https://php.net/manual/en/exception.tostring.php). *
  *  **Go**: Must be the return value of
- *  [`runtime.Stack()`](https://golang.org/pkg/runtime/debug/#Stack).
+ *  [`debug.Stack()`](https://pkg.go.dev/runtime/debug#Stack).
  */
 @property(nonatomic, copy, nullable) NSString *message;
 

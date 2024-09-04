@@ -19,6 +19,7 @@
 @class GTLRDocs_Background;
 @class GTLRDocs_BackgroundSuggestionState;
 @class GTLRDocs_Body;
+@class GTLRDocs_BookmarkLink;
 @class GTLRDocs_Bullet;
 @class GTLRDocs_BulletSuggestionState;
 @class GTLRDocs_Color;
@@ -55,6 +56,16 @@
 @class GTLRDocs_Document_SuggestedNamedStylesChanges;
 @class GTLRDocs_DocumentStyle;
 @class GTLRDocs_DocumentStyleSuggestionState;
+@class GTLRDocs_DocumentTab;
+@class GTLRDocs_DocumentTab_Footers;
+@class GTLRDocs_DocumentTab_Footnotes;
+@class GTLRDocs_DocumentTab_Headers;
+@class GTLRDocs_DocumentTab_InlineObjects;
+@class GTLRDocs_DocumentTab_Lists;
+@class GTLRDocs_DocumentTab_NamedRanges;
+@class GTLRDocs_DocumentTab_PositionedObjects;
+@class GTLRDocs_DocumentTab_SuggestedDocumentStyleChanges;
+@class GTLRDocs_DocumentTab_SuggestedNamedStylesChanges;
 @class GTLRDocs_EmbeddedDrawingProperties;
 @class GTLRDocs_EmbeddedDrawingPropertiesSuggestionState;
 @class GTLRDocs_EmbeddedObject;
@@ -68,6 +79,7 @@
 @class GTLRDocs_FootnoteReference;
 @class GTLRDocs_FootnoteReference_SuggestedTextStyleChanges;
 @class GTLRDocs_Header;
+@class GTLRDocs_HeadingLink;
 @class GTLRDocs_HorizontalRule;
 @class GTLRDocs_HorizontalRule_SuggestedTextStyleChanges;
 @class GTLRDocs_ImageProperties;
@@ -158,6 +170,7 @@
 @class GTLRDocs_SuggestedTableCellStyle;
 @class GTLRDocs_SuggestedTableRowStyle;
 @class GTLRDocs_SuggestedTextStyle;
+@class GTLRDocs_Tab;
 @class GTLRDocs_Table;
 @class GTLRDocs_TableCell;
 @class GTLRDocs_TableCell_SuggestedTableCellStyleChanges;
@@ -173,6 +186,8 @@
 @class GTLRDocs_TableRowStyle;
 @class GTLRDocs_TableRowStyleSuggestionState;
 @class GTLRDocs_TableStyle;
+@class GTLRDocs_TabProperties;
+@class GTLRDocs_TabsCriteria;
 @class GTLRDocs_TabStop;
 @class GTLRDocs_TextRun;
 @class GTLRDocs_TextRun_SuggestedTextStyleChanges;
@@ -1294,6 +1309,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
+ *  A reference to a bookmark in this document.
+ */
+@interface GTLRDocs_BookmarkLink : GTLRObject
+
+/**
+ *  The ID of a bookmark in this document.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The ID of the tab containing this bookmark. */
+@property(nonatomic, copy, nullable) NSString *tabId;
+
+@end
+
+
+/**
  *  Describes the bullet of a paragraph.
  */
 @interface GTLRDocs_Bullet : GTLRObject
@@ -1780,6 +1813,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @property(nonatomic, copy, nullable) NSString *footerId;
 
+/**
+ *  The tab that contains the footer to delete. When omitted, the request is
+ *  applied to the first tab. In a document containing a single tab: - If
+ *  provided, must match the singular tab's ID. - If omitted, the request
+ *  applies to the singular tab. In a document containing multiple tabs: - If
+ *  provided, the request applies to the specified tab. - If omitted, the
+ *  request applies to the first tab in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
+
 @end
 
 
@@ -1797,6 +1840,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @property(nonatomic, copy, nullable) NSString *headerId;
 
+/**
+ *  The tab containing the header to delete. When omitted, the request is
+ *  applied to the first tab. In a document containing a single tab: - If
+ *  provided, must match the singular tab's ID. - If omitted, the request
+ *  applies to the singular tab. In a document containing multiple tabs: - If
+ *  provided, the request applies to the specified tab. - If omitted, the
+ *  request applies to the first tab in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
+
 @end
 
 
@@ -1813,6 +1866,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /** The ID of the named range to delete. */
 @property(nonatomic, copy, nullable) NSString *namedRangeId;
+
+/**
+ *  Optional. The criteria used to specify which tab(s) the range deletion
+ *  should occur in. When omitted, the range deletion is applied to all tabs. In
+ *  a document containing a single tab: - If provided, must match the singular
+ *  tab's ID. - If omitted, the range deletion applies to the singular tab. In a
+ *  document containing multiple tabs: - If provided, the range deletion applies
+ *  to the specified tabs. - If not provided, the range deletion applies to all
+ *  tabs.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TabsCriteria *tabsCriteria;
 
 @end
 
@@ -1837,6 +1901,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /** The ID of the positioned object to delete. */
 @property(nonatomic, copy, nullable) NSString *objectId;
+
+/**
+ *  The tab that the positioned object to delete is in. When omitted, the
+ *  request is applied to the first tab. In a document containing a single tab:
+ *  - If provided, must match the singular tab's ID. - If omitted, the request
+ *  applies to the singular tab. In a document containing multiple tabs: - If
+ *  provided, the request applies to the specified tab. - If omitted, the
+ *  request applies to the first tab in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
 
 @end
 
@@ -1904,38 +1978,96 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @interface GTLRDocs_Document : GTLRObject
 
-/** Output only. The main body of the document. */
+/**
+ *  Output only. The main body of the document. Legacy field: Instead, use
+ *  Document.tabs.documentTab.body, which exposes the actual document content
+ *  from all tabs when the includeTabsContent parameter is set to `true`. If
+ *  `false` or unset, this field contains information about the first tab in the
+ *  document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Body *body;
 
 /** Output only. The ID of the document. */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
-/** Output only. The style of the document. */
+/**
+ *  Output only. The style of the document. Legacy field: Instead, use
+ *  Document.tabs.documentTab.documentStyle, which exposes the actual document
+ *  content from all tabs when the includeTabsContent parameter is set to
+ *  `true`. If `false` or unset, this field contains information about the first
+ *  tab in the document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_DocumentStyle *documentStyle;
 
-/** Output only. The footers in the document, keyed by footer ID. */
+/**
+ *  Output only. The footers in the document, keyed by footer ID. Legacy field:
+ *  Instead, use Document.tabs.documentTab.footers, which exposes the actual
+ *  document content from all tabs when the includeTabsContent parameter is set
+ *  to `true`. If `false` or unset, this field contains information about the
+ *  first tab in the document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_Footers *footers;
 
-/** Output only. The footnotes in the document, keyed by footnote ID. */
+/**
+ *  Output only. The footnotes in the document, keyed by footnote ID. Legacy
+ *  field: Instead, use Document.tabs.documentTab.footnotes, which exposes the
+ *  actual document content from all tabs when the includeTabsContent parameter
+ *  is set to `true`. If `false` or unset, this field contains information about
+ *  the first tab in the document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_Footnotes *footnotes;
 
-/** Output only. The headers in the document, keyed by header ID. */
+/**
+ *  Output only. The headers in the document, keyed by header ID. Legacy field:
+ *  Instead, use Document.tabs.documentTab.headers, which exposes the actual
+ *  document content from all tabs when the includeTabsContent parameter is set
+ *  to `true`. If `false` or unset, this field contains information about the
+ *  first tab in the document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_Headers *headers;
 
-/** Output only. The inline objects in the document, keyed by object ID. */
+/**
+ *  Output only. The inline objects in the document, keyed by object ID. Legacy
+ *  field: Instead, use Document.tabs.documentTab.inlineObjects, which exposes
+ *  the actual document content from all tabs when the includeTabsContent
+ *  parameter is set to `true`. If `false` or unset, this field contains
+ *  information about the first tab in the document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_InlineObjects *inlineObjects;
 
-/** Output only. The lists in the document, keyed by list ID. */
+/**
+ *  Output only. The lists in the document, keyed by list ID. Legacy field:
+ *  Instead, use Document.tabs.documentTab.lists, which exposes the actual
+ *  document content from all tabs when the includeTabsContent parameter is set
+ *  to `true`. If `false` or unset, this field contains information about the
+ *  first tab in the document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_Lists *lists;
 
-/** Output only. The named ranges in the document, keyed by name. */
+/**
+ *  Output only. The named ranges in the document, keyed by name. Legacy field:
+ *  Instead, use Document.tabs.documentTab.namedRanges, which exposes the actual
+ *  document content from all tabs when the includeTabsContent parameter is set
+ *  to `true`. If `false` or unset, this field contains information about the
+ *  first tab in the document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_NamedRanges *namedRanges;
 
-/** Output only. The named styles of the document. */
+/**
+ *  Output only. The named styles of the document. Legacy field: Instead, use
+ *  Document.tabs.documentTab.namedStyles, which exposes the actual document
+ *  content from all tabs when the includeTabsContent parameter is set to
+ *  `true`. If `false` or unset, this field contains information about the first
+ *  tab in the document.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_NamedStyles *namedStyles;
 
 /**
  *  Output only. The positioned objects in the document, keyed by object ID.
+ *  Legacy field: Instead, use Document.tabs.documentTab.positionedObjects,
+ *  which exposes the actual document content from all tabs when the
+ *  includeTabsContent parameter is set to `true`. If `false` or unset, this
+ *  field contains information about the first tab in the document.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_PositionedObjects *positionedObjects;
 
@@ -1956,13 +2088,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  Output only. The suggested changes to the style of the document, keyed by
- *  suggestion ID.
+ *  suggestion ID. Legacy field: Instead, use
+ *  Document.tabs.documentTab.suggestedDocumentStyleChanges, which exposes the
+ *  actual document content from all tabs when the includeTabsContent parameter
+ *  is set to `true`. If `false` or unset, this field contains information about
+ *  the first tab in the document.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_SuggestedDocumentStyleChanges *suggestedDocumentStyleChanges;
 
 /**
  *  Output only. The suggested changes to the named styles of the document,
- *  keyed by suggestion ID.
+ *  keyed by suggestion ID. Legacy field: Instead, use
+ *  Document.tabs.documentTab.suggestedNamedStylesChanges, which exposes the
+ *  actual document content from all tabs when the includeTabsContent parameter
+ *  is set to `true`. If `false` or unset, this field contains information about
+ *  the first tab in the document.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_SuggestedNamedStylesChanges *suggestedNamedStylesChanges;
 
@@ -1996,6 +2136,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @property(nonatomic, copy, nullable) NSString *suggestionsViewMode;
 
+/**
+ *  Tabs that are part of a document. Tabs can contain child tabs, a tab nested
+ *  within another tab. Child tabs are represented by the Tab.childTabs field.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocs_Tab *> *tabs;
+
 /** The title of the document. */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -2003,7 +2149,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  Output only. The footers in the document, keyed by footer ID.
+ *  Output only. The footers in the document, keyed by footer ID. Legacy field:
+ *  Instead, use Document.tabs.documentTab.footers, which exposes the actual
+ *  document content from all tabs when the includeTabsContent parameter is set
+ *  to `true`. If `false` or unset, this field contains information about the
+ *  first tab in the document.
  *
  *  @note This class is documented as having more properties of GTLRDocs_Footer.
  *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
@@ -2015,7 +2165,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  Output only. The footnotes in the document, keyed by footnote ID.
+ *  Output only. The footnotes in the document, keyed by footnote ID. Legacy
+ *  field: Instead, use Document.tabs.documentTab.footnotes, which exposes the
+ *  actual document content from all tabs when the includeTabsContent parameter
+ *  is set to `true`. If `false` or unset, this field contains information about
+ *  the first tab in the document.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_Footnote. Use @c -additionalJSONKeys and @c
@@ -2027,7 +2181,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  Output only. The headers in the document, keyed by header ID.
+ *  Output only. The headers in the document, keyed by header ID. Legacy field:
+ *  Instead, use Document.tabs.documentTab.headers, which exposes the actual
+ *  document content from all tabs when the includeTabsContent parameter is set
+ *  to `true`. If `false` or unset, this field contains information about the
+ *  first tab in the document.
  *
  *  @note This class is documented as having more properties of GTLRDocs_Header.
  *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
@@ -2039,7 +2197,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  Output only. The inline objects in the document, keyed by object ID.
+ *  Output only. The inline objects in the document, keyed by object ID. Legacy
+ *  field: Instead, use Document.tabs.documentTab.inlineObjects, which exposes
+ *  the actual document content from all tabs when the includeTabsContent
+ *  parameter is set to `true`. If `false` or unset, this field contains
+ *  information about the first tab in the document.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_InlineObject. Use @c -additionalJSONKeys and @c
@@ -2051,7 +2213,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  Output only. The lists in the document, keyed by list ID.
+ *  Output only. The lists in the document, keyed by list ID. Legacy field:
+ *  Instead, use Document.tabs.documentTab.lists, which exposes the actual
+ *  document content from all tabs when the includeTabsContent parameter is set
+ *  to `true`. If `false` or unset, this field contains information about the
+ *  first tab in the document.
  *
  *  @note This class is documented as having more properties of GTLRDocs_List.
  *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
@@ -2063,7 +2229,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  Output only. The named ranges in the document, keyed by name.
+ *  Output only. The named ranges in the document, keyed by name. Legacy field:
+ *  Instead, use Document.tabs.documentTab.namedRanges, which exposes the actual
+ *  document content from all tabs when the includeTabsContent parameter is set
+ *  to `true`. If `false` or unset, this field contains information about the
+ *  first tab in the document.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_NamedRanges. Use @c -additionalJSONKeys and @c
@@ -2076,6 +2246,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  Output only. The positioned objects in the document, keyed by object ID.
+ *  Legacy field: Instead, use Document.tabs.documentTab.positionedObjects,
+ *  which exposes the actual document content from all tabs when the
+ *  includeTabsContent parameter is set to `true`. If `false` or unset, this
+ *  field contains information about the first tab in the document.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_PositionedObject. Use @c -additionalJSONKeys and @c
@@ -2088,7 +2262,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  Output only. The suggested changes to the style of the document, keyed by
- *  suggestion ID.
+ *  suggestion ID. Legacy field: Instead, use
+ *  Document.tabs.documentTab.suggestedDocumentStyleChanges, which exposes the
+ *  actual document content from all tabs when the includeTabsContent parameter
+ *  is set to `true`. If `false` or unset, this field contains information about
+ *  the first tab in the document.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_SuggestedDocumentStyle. Use @c -additionalJSONKeys and @c
@@ -2101,7 +2279,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  Output only. The suggested changes to the named styles of the document,
- *  keyed by suggestion ID.
+ *  keyed by suggestion ID. Legacy field: Instead, use
+ *  Document.tabs.documentTab.suggestedNamedStylesChanges, which exposes the
+ *  actual document content from all tabs when the includeTabsContent parameter
+ *  is set to `true`. If `false` or unset, this field contains information about
+ *  the first tab in the document.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_SuggestedNamedStyles. Use @c -additionalJSONKeys and @c
@@ -2398,6 +2580,166 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
+ *  A tab with document contents.
+ */
+@interface GTLRDocs_DocumentTab : GTLRObject
+
+/** The main body of the document tab. */
+@property(nonatomic, strong, nullable) GTLRDocs_Body *body;
+
+/** The style of the document tab. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentStyle *documentStyle;
+
+/** The footers in the document tab, keyed by footer ID. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_Footers *footers;
+
+/** The footnotes in the document tab, keyed by footnote ID. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_Footnotes *footnotes;
+
+/** The headers in the document tab, keyed by header ID. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_Headers *headers;
+
+/** The inline objects in the document tab, keyed by object ID. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_InlineObjects *inlineObjects;
+
+/** The lists in the document tab, keyed by list ID. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_Lists *lists;
+
+/** The named ranges in the document tab, keyed by name. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_NamedRanges *namedRanges;
+
+/** The named styles of the document tab. */
+@property(nonatomic, strong, nullable) GTLRDocs_NamedStyles *namedStyles;
+
+/** The positioned objects in the document tab, keyed by object ID. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_PositionedObjects *positionedObjects;
+
+/**
+ *  The suggested changes to the style of the document tab, keyed by suggestion
+ *  ID.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_SuggestedDocumentStyleChanges *suggestedDocumentStyleChanges;
+
+/**
+ *  The suggested changes to the named styles of the document tab, keyed by
+ *  suggestion ID.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab_SuggestedNamedStylesChanges *suggestedNamedStylesChanges;
+
+@end
+
+
+/**
+ *  The footers in the document tab, keyed by footer ID.
+ *
+ *  @note This class is documented as having more properties of GTLRDocs_Footer.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_Footers : GTLRObject
+@end
+
+
+/**
+ *  The footnotes in the document tab, keyed by footnote ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_Footnote. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_Footnotes : GTLRObject
+@end
+
+
+/**
+ *  The headers in the document tab, keyed by header ID.
+ *
+ *  @note This class is documented as having more properties of GTLRDocs_Header.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_Headers : GTLRObject
+@end
+
+
+/**
+ *  The inline objects in the document tab, keyed by object ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_InlineObject. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_InlineObjects : GTLRObject
+@end
+
+
+/**
+ *  The lists in the document tab, keyed by list ID.
+ *
+ *  @note This class is documented as having more properties of GTLRDocs_List.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_Lists : GTLRObject
+@end
+
+
+/**
+ *  The named ranges in the document tab, keyed by name.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_NamedRanges. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_NamedRanges : GTLRObject
+@end
+
+
+/**
+ *  The positioned objects in the document tab, keyed by object ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_PositionedObject. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_PositionedObjects : GTLRObject
+@end
+
+
+/**
+ *  The suggested changes to the style of the document tab, keyed by suggestion
+ *  ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_SuggestedDocumentStyle. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_SuggestedDocumentStyleChanges : GTLRObject
+@end
+
+
+/**
+ *  The suggested changes to the named styles of the document tab, keyed by
+ *  suggestion ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_SuggestedNamedStyles. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_DocumentTab_SuggestedNamedStylesChanges : GTLRObject
+@end
+
+
+/**
  *  The properties of an embedded drawing and used to differentiate the object
  *  type. An embedded drawing is one that's created and edited within a
  *  document. Note that extensive details are not supported.
@@ -2647,6 +2989,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @property(nonatomic, copy, nullable) NSString *segmentId;
 
+/**
+ *  The tab that the location is in. When omitted, the request is applied to the
+ *  first tab. In a document containing a single tab: - If provided, must match
+ *  the singular tab's ID. - If omitted, the request applies to the singular
+ *  tab. In a document containing multiple tabs: - If provided, the request
+ *  applies to the specified tab. - If omitted, the request applies to the first
+ *  tab in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
+
 @end
 
 
@@ -2771,6 +3123,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /** The ID of the header. */
 @property(nonatomic, copy, nullable) NSString *headerId;
+
+@end
+
+
+/**
+ *  A reference to a heading in this document.
+ */
+@interface GTLRDocs_HeadingLink : GTLRObject
+
+/**
+ *  The ID of a heading in this document.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The ID of the tab containing this heading. */
+@property(nonatomic, copy, nullable) NSString *tabId;
 
 @end
 
@@ -3326,11 +3696,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @interface GTLRDocs_Link : GTLRObject
 
-/** The ID of a bookmark in this document. */
+/**
+ *  A bookmark in this document. In documents containing a single tab, links to
+ *  bookmarks within the singular tab continue to return Link.bookmarkId when
+ *  the includeTabsContent parameter is set to `false` or unset. Otherwise, this
+ *  field is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_BookmarkLink *bookmark;
+
+/**
+ *  The ID of a bookmark in this document. Legacy field: Instead, set
+ *  includeTabsContent to `true` and use Link.bookmark for read and write
+ *  operations. This field is only returned when includeTabsContent is set to
+ *  `false` in documents containing a single tab and links to a bookmark within
+ *  the singular tab. Otherwise, Link.bookmark is returned. If this field is
+ *  used in a write request, the bookmark is considered to be from the tab ID
+ *  specified in the request. If a tab ID is not specified in the request, it is
+ *  considered to be from the first tab in the document.
+ */
 @property(nonatomic, copy, nullable) NSString *bookmarkId;
 
-/** The ID of a heading in this document. */
+/**
+ *  A heading in this document. In documents containing a single tab, links to
+ *  headings within the singular tab continue to return Link.headingId when the
+ *  includeTabsContent parameter is set to `false` or unset. Otherwise, this
+ *  field is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_HeadingLink *heading;
+
+/**
+ *  The ID of a heading in this document. Legacy field: Instead, set
+ *  includeTabsContent to `true` and use Link.heading for read and write
+ *  operations. This field is only returned when includeTabsContent is set to
+ *  `false` in documents containing a single tab and links to a heading within
+ *  the singular tab. Otherwise, Link.heading is returned. If this field is used
+ *  in a write request, the heading is considered to be from the tab ID
+ *  specified in the request. If a tab ID is not specified in the request, it is
+ *  considered to be from the first tab in the document.
+ */
 @property(nonatomic, copy, nullable) NSString *headingId;
+
+/** The ID of a tab in this document. */
+@property(nonatomic, copy, nullable) NSString *tabId;
 
 /** An external URL. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -3459,6 +3866,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  segment ID signifies the document's body.
  */
 @property(nonatomic, copy, nullable) NSString *segmentId;
+
+/**
+ *  The tab that the location is in. When omitted, the request is applied to the
+ *  first tab. In a document containing a single tab: - If provided, must match
+ *  the singular tab's ID. - If omitted, the request applies to the singular
+ *  tab. In a document containing multiple tabs: - If provided, the request
+ *  applies to the specified tab. - If omitted, the request applies to the first
+ *  tab in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
 
 @end
 
@@ -4743,6 +5160,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
 
+/**
+ *  The tab that contains this range. When omitted, the request applies to the
+ *  first tab. In a document containing a single tab: - If provided, must match
+ *  the singular tab's ID. - If omitted, the request applies to the singular
+ *  tab. In a document containing multiple tabs: - If provided, the request
+ *  applies to the specified tab. - If omitted, the request applies to the first
+ *  tab in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
+
 @end
 
 
@@ -4756,6 +5183,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /** The text that will replace the matched text. */
 @property(nonatomic, copy, nullable) NSString *replaceText;
+
+/**
+ *  Optional. The criteria used to specify in which tabs the replacement occurs.
+ *  When omitted, the replacement applies to all tabs. In a document containing
+ *  a single tab: - If provided, must match the singular tab's ID. - If omitted,
+ *  the replacement applies to the singular tab. In a document containing
+ *  multiple tabs: - If provided, the replacement applies to the specified tabs.
+ *  - If omitted, the replacement applies to all tabs.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TabsCriteria *tabsCriteria;
 
 @end
 
@@ -4804,6 +5241,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, copy, nullable) NSString *imageReplaceMethod;
 
 /**
+ *  The tab that the image to be replaced is in. When omitted, the request is
+ *  applied to the first tab. In a document containing a single tab: - If
+ *  provided, must match the singular tab's ID. - If omitted, the request
+ *  applies to the singular tab. In a document containing multiple tabs: - If
+ *  provided, the request applies to the specified tab. - If omitted, the
+ *  request applies to the first tab in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
+
+/**
  *  The URI of the new image. The image is fetched once at insertion time and a
  *  copy is stored for display inside the document. Images must be less than
  *  50MB, cannot exceed 25 megapixels, and must be in PNG, JPEG, or GIF format.
@@ -4838,6 +5285,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  request will be a no-op.
  */
 @property(nonatomic, copy, nullable) NSString *namedRangeName;
+
+/**
+ *  Optional. The criteria used to specify in which tabs the replacement occurs.
+ *  When omitted, the replacement applies to all tabs. In a document containing
+ *  a single tab: - If provided, must match the singular tab's ID. - If omitted,
+ *  the replacement applies to the singular tab. In a document containing
+ *  multiple tabs: - If provided, the replacement applies to the specified tabs.
+ *  - If omitted, the replacement applies to all tabs.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TabsCriteria *tabsCriteria;
 
 /**
  *  Replaces the content of the specified named range(s) with the given text.
@@ -5724,6 +6181,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
+ *  A tab in a document.
+ */
+@interface GTLRDocs_Tab : GTLRObject
+
+/** The child tabs nested within this tab. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocs_Tab *> *childTabs;
+
+/** A tab with document contents, like text and images. */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentTab *documentTab;
+
+/** The properties of the tab, like ID and title. */
+@property(nonatomic, strong, nullable) GTLRDocs_TabProperties *tabProperties;
+
+@end
+
+
+/**
  *  A StructuralElement representing a table.
  */
 @interface GTLRDocs_Table : GTLRObject
@@ -6255,6 +6729,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
+ *  Properties of a tab.
+ */
+@interface GTLRDocs_TabProperties : GTLRObject
+
+/**
+ *  The zero-based index of the tab within the parent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  Output only. The depth of the tab within the document. Root-level tabs start
+ *  at 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nestingLevel;
+
+/**
+ *  Optional. The ID of the parent tab. Empty when the current tab is a
+ *  root-level tab, which means it doesn't have any parents.
+ */
+@property(nonatomic, copy, nullable) NSString *parentTabId;
+
+/** Output only. The ID of the tab. This field can't be changed. */
+@property(nonatomic, copy, nullable) NSString *tabId;
+
+/** The user-visible name of the tab. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A criteria that specifies in which tabs a request executes.
+ */
+@interface GTLRDocs_TabsCriteria : GTLRObject
+
+/** The list of tab IDs in which the request executes. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tabIds;
+
+@end
+
+
+/**
  *  A tab stop within a paragraph.
  */
 @interface GTLRDocs_TabStop : GTLRObject
@@ -6570,6 +7090,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+/**
+ *  The tab that contains the style to update. When omitted, the request applies
+ *  to the first tab. In a document containing a single tab: - If provided, must
+ *  match the singular tab's ID. - If omitted, the request applies to the
+ *  singular tab. In a document containing multiple tabs: - If provided, the
+ *  request applies to the specified tab. - If not provided, the request applies
+ *  to the first tab in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
 
 @end
 

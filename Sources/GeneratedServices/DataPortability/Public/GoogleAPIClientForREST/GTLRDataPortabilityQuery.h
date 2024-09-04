@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataportability.archiveJobs.getPortabilityArchiveState
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
@@ -92,6 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
  *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
@@ -138,6 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataportability.archiveJobs.retry
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
@@ -188,6 +191,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
  *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
@@ -239,6 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataportability.authorization.reset
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
@@ -289,6 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
  *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
@@ -329,6 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataportability.portabilityArchive.initiate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataPortabilityAlertsSubscriptions
  *    @c kGTLRAuthScopeDataPortabilityBusinessmessagingConversations
  *    @c kGTLRAuthScopeDataPortabilityChromeAutofill
  *    @c kGTLRAuthScopeDataPortabilityChromeBookmarks
@@ -379,6 +386,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityShoppingReviews
  *    @c kGTLRAuthScopeDataPortabilityStreetviewImagery
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic

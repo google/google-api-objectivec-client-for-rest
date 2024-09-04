@@ -87,7 +87,6 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8038 = @"MYS
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
-NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql840 = @"MYSQL_8_4_0";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -95,6 +94,7 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13 = @"PO
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres15 = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -109,6 +109,11 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Ente
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+
+// GTLRSQLAdmin_ConnectSettings.serverCaMode
+NSString * const kGTLRSQLAdmin_ConnectSettings_ServerCaMode_CaModeUnspecified = @"CA_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_ConnectSettings_ServerCaMode_GoogleManagedCasCa = @"GOOGLE_MANAGED_CAS_CA";
+NSString * const kGTLRSQLAdmin_ConnectSettings_ServerCaMode_GoogleManagedInternalCa = @"GOOGLE_MANAGED_INTERNAL_CA";
 
 // GTLRSQLAdmin_DatabaseInstance.backendType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_External = @"EXTERNAL";
@@ -139,7 +144,6 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8038 = @"MY
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
-NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql840 = @"MYSQL_8_4_0";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -147,6 +151,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres13 = @"P
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres15 = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres16 = @"POSTGRES_16";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -225,7 +230,6 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8038        = @"MYSQL_8_0_38"
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8039        = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040        = @"MYSQL_8_0_40";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql84          = @"MYSQL_8_4";
-NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql840         = @"MYSQL_8_4_0";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
@@ -233,6 +237,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres13       = @"POSTGRES_13";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres14       = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres15       = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres16       = @"POSTGRES_16";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres17       = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96       = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -269,6 +274,11 @@ NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_BakTypeUns
 NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Diff = @"DIFF";
 NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Full = @"FULL";
 NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_BakType_Tlog = @"TLOG";
+
+// GTLRSQLAdmin_IpConfiguration.serverCaMode
+NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CaModeUnspecified = @"CA_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedCasCa = @"GOOGLE_MANAGED_CAS_CA";
+NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedInternalCa = @"GOOGLE_MANAGED_INTERNAL_CA";
 
 // GTLRSQLAdmin_IpConfiguration.sslMode
 NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted = @"ALLOW_UNENCRYPTED_AND_ENCRYPTED";
@@ -315,6 +325,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_Import  = @"IMPORT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_InjectUser = @"INJECT_USER";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_LogCleanup = @"LOG_CLEANUP";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance = @"MAINTENANCE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVersionUpgrade = @"MAJOR_VERSION_UPGRADE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica = @"PROMOTE_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary = @"RECONFIGURE_OLD_PRIMARY";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica = @"RECREATE_REPLICA";
@@ -431,6 +442,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SubscriptionCalc
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_TurnOnPitrAfterPromote = @"TURN_ON_PITR_AFTER_PROMOTE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnableToVerifyDefiners = @"UNABLE_TO_VERIFY_DEFINERS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat = @"UNSUPPORTED_BINLOG_FORMAT";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedColumns = @"UNSUPPORTED_COLUMNS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDatabaseSettings = @"UNSUPPORTED_DATABASE_SETTINGS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
@@ -438,7 +450,9 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExten
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedStorageEngine = @"UNSUPPORTED_STORAGE_ENGINE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedSystemObjects = @"UNSUPPORTED_SYSTEM_OBJECTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UsersNotCreatedInReplica = @"USERS_NOT_CREATED_IN_REPLICA";
 
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.migrationType
 NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Logical = @"LOGICAL";
@@ -612,8 +626,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_BackupRun
 @dynamic backupKind, descriptionProperty, diskEncryptionConfiguration,
          diskEncryptionStatus, endTime, enqueuedTime, error, identifier,
-         instance, kind, location, selfLink, startTime, status, timeZone, type,
-         windowStartTime;
+         instance, kind, location, maxChargeableBytes, selfLink, startTime,
+         status, timeZone, type, windowStartTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -681,7 +695,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_CloneContext
 @dynamic allocatedIpRange, binLogCoordinates, databaseNames,
          destinationInstanceName, kind, pitrTimestampMs, pointInTime,
-         preferredZone;
+         preferredSecondaryZone, preferredZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -706,7 +720,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_ConnectSettings
 @dynamic backendType, databaseVersion, dnsName, ipAddresses, kind, pscEnabled,
-         region, serverCaCert;
+         region, serverCaCert, serverCaMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -769,10 +783,12 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          ipv6Address, kind, maintenanceVersion, masterInstanceName, maxDiskSize,
          name, onPremisesConfiguration, outOfDiskReport, primaryDnsName,
          project, pscServiceAttachmentLink, region, replicaConfiguration,
-         replicaNames, replicationCluster, rootPassword, satisfiesPzs,
-         scheduledMaintenance, secondaryGceZone, selfLink, serverCaCert,
-         serviceAccountEmailAddress, settings, sqlNetworkArchitecture, state,
-         suspensionReason, upgradableDatabaseVersions, writeEndpoint;
+         replicaNames, replicationCluster, rootPassword, satisfiesPzi,
+         satisfiesPzs, scheduledMaintenance, secondaryGceZone, selfLink,
+         serverCaCert, serviceAccountEmailAddress, settings,
+         sqlNetworkArchitecture, state, suspensionReason,
+         switchTransactionLogsToCloudStorageEnabled, upgradableDatabaseVersions,
+         writeEndpoint;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -995,7 +1011,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ExportContext_BakExportOptions
-@dynamic bakType, copyOnly, differentialBase, stripeCount, striped;
+@dynamic bakType, copyOnly, differentialBase, exportLogEndTime,
+         exportLogStartTime, stripeCount, striped;
 @end
 
 
@@ -1016,7 +1033,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ExportContext_SqlExportOptions
-@dynamic mysqlExportOptions, parallel, schemaOnly, tables, threads;
+@dynamic mysqlExportOptions, parallel, postgresExportOptions, schemaOnly,
+         tables, threads;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1035,6 +1053,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions
 @dynamic masterData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ExportContext_SqlExportOptions_PostgresExportOptions
+//
+
+@implementation GTLRSQLAdmin_ExportContext_SqlExportOptions_PostgresExportOptions
+@dynamic clean, ifExists;
 @end
 
 
@@ -1200,7 +1228,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ImportContext_SqlImportOptions
-@dynamic parallel, threads;
+@dynamic parallel, postgresImportOptions, threads;
 @end
 
 
@@ -1211,6 +1239,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions
 @dynamic certPath, pvkPassword, pvkPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ImportContext_SqlImportOptions_PostgresImportOptions
+//
+
+@implementation GTLRSQLAdmin_ImportContext_SqlImportOptions_PostgresImportOptions
+@dynamic clean, ifExists;
 @end
 
 
@@ -1402,7 +1440,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_IpConfiguration
 @dynamic allocatedIpRange, authorizedNetworks,
          enablePrivatePathForGoogleCloudServices, ipv4Enabled, privateNetwork,
-         pscConfig, requireSsl, sslMode;
+         pscConfig, requireSsl, serverCaMode, sslMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -37,6 +37,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Submits a build in a given project.
+ *
+ *  Method: run.projects.locations.builds.submit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsBuildsSubmit : GTLRCloudRunQuery
+
+/**
+ *  Required. The project and location to build in. Location must be a region,
+ *  e.g., 'us-central1' or 'global' if the global builder is to be used. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2SubmitBuildResponse.
+ *
+ *  Submits a build in a given project.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest to
+ *    include in the query.
+ *  @param parent Required. The project and location to build in. Location must
+ *    be a region, e.g., 'us-central1' or 'global' if the global builder is to
+ *    be used. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsBuildsSubmit
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Export image for a given resource.
  *
  *  Method: run.projects.locations.exportImage
@@ -152,6 +187,38 @@ NS_ASSUME_NONNULL_BEGIN
  *    for Execution
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsExportMetadata
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Export generated customer metadata for a given project.
+ *
+ *  Method: run.projects.locations.exportProjectMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsExportProjectMetadata : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the project of which metadata should be exported.
+ *  Format: `projects/{project_id_or_number}/locations/{location}` for Project
+ *  in a given location.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2Metadata.
+ *
+ *  Export generated customer metadata for a given project.
+ *
+ *  @param name Required. The name of the project of which metadata should be
+ *    exported. Format: `projects/{project_id_or_number}/locations/{location}`
+ *    for Project in a given location.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsExportProjectMetadata
  */
 + (instancetype)queryWithName:(NSString *)name;
 

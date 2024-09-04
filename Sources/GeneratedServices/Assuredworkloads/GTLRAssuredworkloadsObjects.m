@@ -26,6 +26,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorklo
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport = @"EU_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampHigh = @"FEDRAMP_HIGH";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate = @"FEDRAMP_MODERATE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControls = @"HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport = @"HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il2 = @"IL2";
@@ -37,12 +39,6 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorklo
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport = @"JP_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls = @"KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls = @"REGIONAL_CONTROLS";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumAu = @"REGIONAL_CONTROLS_PREMIUM_AU";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumCa = @"REGIONAL_CONTROLS_PREMIUM_CA";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumEu = @"REGIONAL_CONTROLS_PREMIUM_EU";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumIsr = @"REGIONAL_CONTROLS_PREMIUM_ISR";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumJp = @"REGIONAL_CONTROLS_PREMIUM_JP";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControlsPremiumUs = @"REGIONAL_CONTROLS_PREMIUM_US";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest.restrictionType
@@ -81,6 +77,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport = @"EU_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampHigh = @"FEDRAMP_HIGH";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate = @"FEDRAMP_MODERATE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControls = @"HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport = @"HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il2 = @"IL2";
@@ -92,12 +90,6 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport = @"JP_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls = @"KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls = @"REGIONAL_CONTROLS";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumAu = @"REGIONAL_CONTROLS_PREMIUM_AU";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumCa = @"REGIONAL_CONTROLS_PREMIUM_CA";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumEu = @"REGIONAL_CONTROLS_PREMIUM_EU";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumIsr = @"REGIONAL_CONTROLS_PREMIUM_ISR";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumJp = @"REGIONAL_CONTROLS_PREMIUM_JP";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControlsPremiumUs = @"REGIONAL_CONTROLS_PREMIUM_US";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.kajEnrollmentState
@@ -108,6 +100,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Kaj
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.partner
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns = @"LOCAL_CONTROLS_BY_S3NS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified = @"PARTNER_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxt = @"SOVEREIGN_CONTROLS_BY_CNTXT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxtNoEkm = @"SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByPsn = @"SOVEREIGN_CONTROLS_BY_PSN";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsBySiaMinsait = @"SOVEREIGN_CONTROLS_BY_SIA_MINSAIT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems = @"SOVEREIGN_CONTROLS_BY_T_SYSTEMS";
@@ -471,9 +465,9 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
          compliantButDisallowedServices, createTime, displayName,
          ekmProvisioningResponse, enableSovereignControls, ETag,
          kajEnrollmentState, kmsSettings, labels, name, partner,
-         partnerPermissions, provisionedResourcesParent,
-         resourceMonitoringEnabled, resources, resourceSettings,
-         saaEnrollmentResponse, violationNotificationsEnabled;
+         partnerPermissions, partnerServicesBillingAccount,
+         provisionedResourcesParent, resourceMonitoringEnabled, resources,
+         resourceSettings, saaEnrollmentResponse, violationNotificationsEnabled;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -543,7 +537,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions
-@dynamic assuredWorkloadsMonitoring, dataLogsViewer, serviceAccessApprover;
+@dynamic accessTransparencyLogsSupportCaseViewer, assuredWorkloadsMonitoring,
+         dataLogsViewer, serviceAccessApprover;
 @end
 
 

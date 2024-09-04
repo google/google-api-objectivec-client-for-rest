@@ -42,11 +42,13 @@ NSString * const kGTLRCloudBuild_InstallationState_Stage_StageUnspecified = @"ST
 
 // GTLRCloudBuild_ParamSpec.type
 NSString * const kGTLRCloudBuild_ParamSpec_Type_Array          = @"ARRAY";
+NSString * const kGTLRCloudBuild_ParamSpec_Type_Object         = @"OBJECT";
 NSString * const kGTLRCloudBuild_ParamSpec_Type_String         = @"STRING";
 NSString * const kGTLRCloudBuild_ParamSpec_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudBuild_ParamValue.type
 NSString * const kGTLRCloudBuild_ParamValue_Type_Array         = @"ARRAY";
+NSString * const kGTLRCloudBuild_ParamValue_Type_Object        = @"OBJECT";
 NSString * const kGTLRCloudBuild_ParamValue_Type_String        = @"STRING";
 NSString * const kGTLRCloudBuild_ParamValue_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
@@ -801,13 +803,27 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 //
 
 @implementation GTLRCloudBuild_ParamValue
-@dynamic arrayVal, stringVal, type;
+@dynamic arrayVal, objectVal, stringVal, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"arrayVal" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ParamValue_ObjectVal
+//
+
+@implementation GTLRCloudBuild_ParamValue_ObjectVal
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

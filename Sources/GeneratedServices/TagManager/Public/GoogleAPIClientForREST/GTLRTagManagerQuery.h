@@ -793,7 +793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
 @end
 
 /**
- *  Looks up a Container by destination ID.
+ *  Looks up a Container by destination ID or tag ID.
  *
  *  Method: tagmanager.accounts.containers.lookup
  *
@@ -805,14 +805,22 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
 
 /**
  *  Destination ID linked to a GTM Container, e.g. AW-123456789. Example:
- *  accounts/containers:lookup?destination_id={destination_id}.
+ *  accounts/containers:lookup?destination_id={destination_id}. Only one of
+ *  destination_id or tag_id should be set.
  */
 @property(nonatomic, copy, nullable) NSString *destinationId;
 
 /**
+ *  Tag ID for a GTM Container, e.g. GTM-123456789. Example:
+ *  accounts/containers:lookup?tag_id={tag_id}. Only one of destination_id or
+ *  tag_id should be set.
+ */
+@property(nonatomic, copy, nullable) NSString *tagId;
+
+/**
  *  Fetches a @c GTLRTagManager_Container.
  *
- *  Looks up a Container by destination ID.
+ *  Looks up a Container by destination ID or tag ID.
  *
  *  @return GTLRTagManagerQuery_AccountsContainersLookup
  */

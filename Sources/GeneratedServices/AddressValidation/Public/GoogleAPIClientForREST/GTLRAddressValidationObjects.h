@@ -764,7 +764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAddressValidation_GoogleMapsAddressvalid
  *  Returns a single character. * `Y`: Address was DPV confirmed for primary and
  *  any secondary numbers. * `N`: Primary and any secondary number information
  *  failed to DPV confirm. * `S`: Address was DPV confirmed for the primary
- *  number only, and the secondary number information was present by not
+ *  number only, and the secondary number information was present but not
  *  confirmed, or a single trailing alpha on a primary number was dropped to
  *  make a DPV match and secondary information required. * `D`: Address was DPV
  *  confirmed for the primary number only, and the secondary number information

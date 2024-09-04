@@ -45,8 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *customTargetTypeId;
 
 /**
- *  Required. The parent collection in which the `CustomTargetType` should be
- *  created. Format should be `projects/{project_id}/locations/{location_name}`.
+ *  Required. The parent collection in which the `CustomTargetType` must be
+ *  created. The format is `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -78,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_CustomTargetType to include in the
  *    query.
  *  @param parent Required. The parent collection in which the
- *    `CustomTargetType` should be created. Format should be
+ *    `CustomTargetType` must be created. The format is
  *    `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesCreate
@@ -332,8 +332,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  `CustomTargetType` resource by the update. The fields specified in the
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `CustomTargetType` resource. The fields specified in the
  *  update_mask are relative to the resource, not the full request. A field will
  *  be overwritten if it's in the mask. If the user doesn't provide a mask then
  *  all fields are overwritten.
@@ -548,8 +548,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *automationId;
 
 /**
- *  Required. The parent collection in which the `Automation` should be created.
- *  Format should be
+ *  Required. The parent collection in which the `Automation` must be created.
+ *  The format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -580,8 +580,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Automation in a given project and location.
  *
  *  @param object The @c GTLRCloudDeploy_Automation to include in the query.
- *  @param parent Required. The parent collection in which the `Automation`
- *    should be created. Format should be
+ *  @param parent Required. The parent collection in which the `Automation` must
+ *    be created. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsCreate
@@ -616,7 +616,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. The name of the `Automation` to delete. Format should be
+ *  Required. The name of the `Automation` to delete. The format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/automations/{automation_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -646,8 +646,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single Automation resource.
  *
- *  @param name Required. The name of the `Automation` to delete. Format should
- *    be
+ *  @param name Required. The name of the `Automation` to delete. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/automations/{automation_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsDelete
@@ -781,8 +780,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  `Automation` resource by the update. The fields specified in the update_mask
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `Automation` resource. The fields specified in the update_mask
  *  are relative to the resource, not the full request. A field will be
  *  overwritten if it's in the mask. If the user doesn't provide a mask then all
  *  fields are overwritten.
@@ -827,8 +826,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *deliveryPipelineId;
 
 /**
- *  Required. The parent collection in which the `DeliveryPipeline` should be
- *  created. Format should be `projects/{project_id}/locations/{location_name}`.
+ *  Required. The parent collection in which the `DeliveryPipeline` must be
+ *  created. The format is `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -860,7 +859,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_DeliveryPipeline to include in the
  *    query.
  *  @param parent Required. The parent collection in which the
- *    `DeliveryPipeline` should be created. Format should be
+ *    `DeliveryPipeline` must be created. The format is
  *    `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesCreate
@@ -901,7 +900,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The name of the `DeliveryPipeline` to delete. Format should be
+ *  Required. The name of the `DeliveryPipeline` to delete. The format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -931,8 +930,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single DeliveryPipeline.
  *
- *  @param name Required. The name of the `DeliveryPipeline` to delete. Format
- *    should be
+ *  @param name Required. The name of the `DeliveryPipeline` to delete. The
+ *    format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesDelete
@@ -1118,8 +1117,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  `DeliveryPipeline` resource by the update. The fields specified in the
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `DeliveryPipeline` resource. The fields specified in the
  *  update_mask are relative to the resource, not the full request. A field will
  *  be overwritten if it's in the mask. If the user doesn't provide a mask then
  *  all fields are overwritten.
@@ -1197,8 +1196,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesCreate : GTLRCloudDeployQuery
 
 /**
- *  Required. The parent collection in which the `Release` should be created.
- *  Format should be
+ *  Required. The parent collection in which the `Release` is created. The
+ *  format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1232,8 +1231,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Release in a given project and location.
  *
  *  @param object The @c GTLRCloudDeploy_Release to include in the query.
- *  @param parent Required. The parent collection in which the `Release` should
- *    be created. Format should be
+ *  @param parent Required. The parent collection in which the `Release` is
+ *    created. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesCreate
@@ -1444,8 +1443,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCreate : GTLRCloudDeployQuery
 
 /**
- *  Required. The parent collection in which the `Rollout` should be created.
- *  Format should be
+ *  Required. The parent collection in which the `Rollout` must be created. The
+ *  format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1485,8 +1484,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Rollout in a given project and location.
  *
  *  @param object The @c GTLRCloudDeploy_Rollout to include in the query.
- *  @param parent Required. The parent collection in which the `Rollout` should
- *    be created. Format should be
+ *  @param parent Required. The parent collection in which the `Rollout` must be
+ *    created. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCreate
@@ -1784,8 +1783,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget : GTLRCloudDeployQuery
 
 /**
- *  Required. The `DeliveryPipeline` for which the rollback `Rollout` should be
- *  created. Format should be
+ *  Required. The `DeliveryPipeline` for which the rollback `Rollout` must be
+ *  created. The format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1798,7 +1797,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_RollbackTargetRequest to include in the
  *    query.
  *  @param name Required. The `DeliveryPipeline` for which the rollback
- *    `Rollout` should be created. Format should be
+ *    `Rollout` must be created. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget
@@ -2152,8 +2151,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsTargetsCreate : GTLRCloudDeployQuery
 
 /**
- *  Required. The parent collection in which the `Target` should be created.
- *  Format should be `projects/{project_id}/locations/{location_name}`.
+ *  Required. The parent collection in which the `Target` must be created. The
+ *  format is `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2186,9 +2185,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Target in a given project and location.
  *
  *  @param object The @c GTLRCloudDeploy_Target to include in the query.
- *  @param parent Required. The parent collection in which the `Target` should
- *    be created. Format should be
- *    `projects/{project_id}/locations/{location_name}`.
+ *  @param parent Required. The parent collection in which the `Target` must be
+ *    created. The format is `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsCreate
  */
@@ -2221,7 +2219,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. The name of the `Target` to delete. Format should be
+ *  Required. The name of the `Target` to delete. The format is
  *  `projects/{project_id}/locations/{location_name}/targets/{target_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2251,7 +2249,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single Target.
  *
- *  @param name Required. The name of the `Target` to delete. Format should be
+ *  @param name Required. The name of the `Target` to delete. The format is
  *    `projects/{project_id}/locations/{location_name}/targets/{target_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsDelete
@@ -2438,8 +2436,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  Target resource by the update. The fields specified in the update_mask are
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `Target` resource. The fields specified in the update_mask are
  *  relative to the resource, not the full request. A field will be overwritten
  *  if it's in the mask. If the user doesn't provide a mask then all fields are
  *  overwritten.

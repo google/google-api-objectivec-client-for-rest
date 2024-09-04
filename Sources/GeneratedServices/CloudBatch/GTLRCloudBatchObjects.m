@@ -288,6 +288,30 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBatch_AgentTaskLoggingOption
+//
+
+@implementation GTLRCloudBatch_AgentTaskLoggingOption
+@dynamic labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentTaskLoggingOption_Labels
+//
+
+@implementation GTLRCloudBatch_AgentTaskLoggingOption_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBatch_AgentTaskRunnable
 //
 
@@ -303,7 +327,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_AgentTaskSpec
-@dynamic environment, maxRunDuration, runnables, userAccount;
+@dynamic environment, loggingOption, maxRunDuration, runnables, userAccount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -530,7 +554,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_InstancePolicyOrTemplate
-@dynamic installGpuDrivers, installOpsAgent, instanceTemplate, policy;
+@dynamic blockProjectSshKeys, installGpuDrivers, installOpsAgent,
+         instanceTemplate, policy;
 @end
 
 

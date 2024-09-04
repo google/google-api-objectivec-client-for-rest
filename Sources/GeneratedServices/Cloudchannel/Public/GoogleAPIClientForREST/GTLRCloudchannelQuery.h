@@ -2776,8 +2776,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  */
 @interface GTLRCloudchannelQuery_AccountsListSubscribers : GTLRCloudchannelQuery
 
-/** Required. Resource name of the account. */
+/** Optional. Resource name of the account. */
 @property(nonatomic, copy, nullable) NSString *account;
+
+/** Optional. Resource name of the integrator. */
+@property(nonatomic, copy, nullable) NSString *integrator;
 
 /**
  *  Optional. The maximum number of service accounts to return. The service may
@@ -2809,7 +2812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  in the backend. Contact Cloud Channel support. Return value: A list of
  *  service email addresses.
  *
- *  @param account Required. Resource name of the account.
+ *  @param account Optional. Resource name of the account.
  *
  *  @return GTLRCloudchannelQuery_AccountsListSubscribers
  */
@@ -3008,7 +3011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  */
 @interface GTLRCloudchannelQuery_AccountsRegister : GTLRCloudchannelQuery
 
-/** Required. Resource name of the account. */
+/** Optional. Resource name of the account. */
 @property(nonatomic, copy, nullable) NSString *account;
 
 /**
@@ -3029,7 +3032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest to include
  *    in the query.
- *  @param account Required. Resource name of the account.
+ *  @param account Optional. Resource name of the account.
  *
  *  @return GTLRCloudchannelQuery_AccountsRegister
  */
@@ -3364,7 +3367,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudchannelQuery_AccountsUnregister : GTLRCloudchannelQuery
 
-/** Required. Resource name of the account. */
+/** Optional. Resource name of the account. */
 @property(nonatomic, copy, nullable) NSString *account;
 
 /**
@@ -3388,12 +3391,188 @@ GTLR_DEPRECATED
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest to
  *    include in the query.
- *  @param account Required. Resource name of the account.
+ *  @param account Optional. Resource name of the account.
  *
  *  @return GTLRCloudchannelQuery_AccountsUnregister
  */
 + (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest *)object
                         account:(NSString *)account;
+
+@end
+
+/**
+ *  Lists service accounts with subscriber privileges on the Cloud Pub/Sub topic
+ *  created for this Channel Services account. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request and the provided
+ *  reseller account are different, or the impersonated user is not a super
+ *  admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any
+ *  non-user error related to a technical issue in the backend. Contact Cloud
+ *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. Return value: A list of
+ *  service email addresses.
+ *
+ *  Method: cloudchannel.integrators.listSubscribers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_IntegratorsListSubscribers : GTLRCloudchannelQuery
+
+/** Optional. Resource name of the account. */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/** Optional. Resource name of the integrator. */
+@property(nonatomic, copy, nullable) NSString *integrator;
+
+/**
+ *  Optional. The maximum number of service accounts to return. The service may
+ *  return fewer than this value. If unspecified, returns at most 100 service
+ *  accounts. The maximum value is 1000; the server will coerce values above
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListSubscribers` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListSubscribers` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListSubscribersResponse.
+ *
+ *  Lists service accounts with subscriber privileges on the Cloud Pub/Sub topic
+ *  created for this Channel Services account. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request and the provided
+ *  reseller account are different, or the impersonated user is not a super
+ *  admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any
+ *  non-user error related to a technical issue in the backend. Contact Cloud
+ *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. Return value: A list of
+ *  service email addresses.
+ *
+ *  @param integrator Optional. Resource name of the integrator.
+ *
+ *  @return GTLRCloudchannelQuery_IntegratorsListSubscribers
+ */
++ (instancetype)queryWithIntegrator:(NSString *)integrator;
+
+@end
+
+/**
+ *  Registers a service account with subscriber privileges on the Cloud Pub/Sub
+ *  topic for this Channel Services account. After you create a subscriber, you
+ *  get the events through SubscriberEvent Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request and the provided
+ *  reseller account are different, or the impersonated user is not a super
+ *  admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * INTERNAL: Any non-user error related to a technical issue in the
+ *  backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The topic name with the registered service email address.
+ *
+ *  Method: cloudchannel.integrators.register
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_IntegratorsRegister : GTLRCloudchannelQuery
+
+/** Optional. Resource name of the account. */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/** Optional. Resource name of the integrator. */
+@property(nonatomic, copy, nullable) NSString *integrator;
+
+/**
+ *  Required. Service account that provides subscriber access to the registered
+ *  topic.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberResponse.
+ *
+ *  Registers a service account with subscriber privileges on the Cloud Pub/Sub
+ *  topic for this Channel Services account. After you create a subscriber, you
+ *  get the events through SubscriberEvent Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request and the provided
+ *  reseller account are different, or the impersonated user is not a super
+ *  admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * INTERNAL: Any non-user error related to a technical issue in the
+ *  backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The topic name with the registered service email address.
+ *
+ *  @param integrator Optional. Resource name of the integrator.
+ *
+ *  @return GTLRCloudchannelQuery_IntegratorsRegister
+ */
++ (instancetype)queryWithIntegrator:(NSString *)integrator;
+
+@end
+
+/**
+ *  Unregisters a service account with subscriber privileges on the Cloud
+ *  Pub/Sub topic created for this Channel Services account. If there are no
+ *  service accounts left with subscriber privileges, this deletes the topic.
+ *  You can call ListSubscribers to check for these accounts. Possible error
+ *  codes: * PERMISSION_DENIED: The reseller account making the request and the
+ *  provided reseller account are different, or the impersonated user is not a
+ *  super admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any
+ *  non-user error related to a technical issue in the backend. Contact Cloud
+ *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. Return value: The topic name
+ *  that unregistered the service email address. Returns a success response if
+ *  the service email address wasn't registered with the topic.
+ *
+ *  Method: cloudchannel.integrators.unregister
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_IntegratorsUnregister : GTLRCloudchannelQuery
+
+/** Optional. Resource name of the account. */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/** Optional. Resource name of the integrator. */
+@property(nonatomic, copy, nullable) NSString *integrator;
+
+/**
+ *  Required. Service account to unregister from subscriber access to the topic.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberResponse.
+ *
+ *  Unregisters a service account with subscriber privileges on the Cloud
+ *  Pub/Sub topic created for this Channel Services account. If there are no
+ *  service accounts left with subscriber privileges, this deletes the topic.
+ *  You can call ListSubscribers to check for these accounts. Possible error
+ *  codes: * PERMISSION_DENIED: The reseller account making the request and the
+ *  provided reseller account are different, or the impersonated user is not a
+ *  super admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any
+ *  non-user error related to a technical issue in the backend. Contact Cloud
+ *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. Return value: The topic name
+ *  that unregistered the service email address. Returns a success response if
+ *  the service email address wasn't registered with the topic.
+ *
+ *  @param integrator Optional. Resource name of the integrator.
+ *
+ *  @return GTLRCloudchannelQuery_IntegratorsUnregister
+ */
++ (instancetype)queryWithIntegrator:(NSString *)integrator;
 
 @end
 

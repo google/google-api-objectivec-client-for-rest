@@ -84,7 +84,6 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes;
-@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GCSLocation;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfig;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfigHttpConfig;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource;
@@ -191,7 +190,6 @@
 @class GTLRContainerAnalysis_VexAssessment;
 @class GTLRContainerAnalysis_Volume;
 @class GTLRContainerAnalysis_VulnerabilityAssessmentNote;
-@class GTLRContainerAnalysis_VulnerabilityAttestation;
 @class GTLRContainerAnalysis_VulnerabilityNote;
 @class GTLRContainerAnalysis_VulnerabilityOccurrence;
 @class GTLRContainerAnalysis_WindowsDetail;
@@ -1746,28 +1744,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_St
  *  Value: "UNDER_INVESTIGATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VexAssessment_State_UnderInvestigation;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_VulnerabilityAttestation.state
-
-/**
- *  Attestation was unsuccessfully generated and stored.
- *
- *  Value: "FAILURE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_Failure;
-/**
- *  Attestation was successfully generated and stored.
- *
- *  Value: "SUCCESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_Success;
-/**
- *  Default unknown state.
- *
- *  Value: "VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityAttestation_State_VulnerabilityAttestationStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityNote.cvssVersion
@@ -3468,9 +3444,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** The status of an SBOM generation. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SBOMStatus *sbomStatus;
 
-/** The status of an vulnerability attestation generation. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityAttestation *vulnerabilityAttestation;
-
 @end
 
 
@@ -4856,34 +4829,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  Represents a storage location in Cloud Storage
- */
-@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GCSLocation : GTLRObject
-
-/**
- *  Cloud Storage bucket. See
- *  https://cloud.google.com/storage/docs/naming#requirements
- */
-@property(nonatomic, copy, nullable) NSString *bucket;
-
-/**
- *  Cloud Storage generation for the object. If the generation is omitted, the
- *  latest generation will be used.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *generation;
-
-/**
- *  Cloud Storage object. See
- *  https://cloud.google.com/storage/docs/naming#objectnames
- */
-@property(nonatomic, copy, nullable) NSString *object;
-
-@end
-
-
-/**
  *  GitConfig is a configuration for git operations.
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfig : GTLRObject
@@ -4900,16 +4845,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfigHttpConfig : GTLRObject
 
 /**
- *  SecretVersion resource of the HTTP proxy URL. The proxy URL should be in
- *  format protocol://\@]proxyhost[:port].
+ *  SecretVersion resource of the HTTP proxy URL. The Service Account used in
+ *  the build (either the default Service Account or user-specified Service
+ *  Account) should have `secretmanager.versions.access` permissions on this
+ *  secret. The proxy URL should be in format `protocol://\@]proxyhost[:port]`.
  */
 @property(nonatomic, copy, nullable) NSString *proxySecretVersionName;
-
-/**
- *  Optional. Cloud Storage object storing the certificate to use with the HTTP
- *  proxy.
- */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GCSLocation *proxySslCaInfo;
 
 @end
 
@@ -7844,35 +7785,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The title of the note. E.g. `Vex-Debian-11.4` */
 @property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
- *  The status of an vulnerability attestation generation.
- */
-@interface GTLRContainerAnalysis_VulnerabilityAttestation : GTLRObject
-
-/** If failure, the error reason for why the attestation generation failed. */
-@property(nonatomic, copy, nullable) NSString *error;
-
-/** The last time we attempted to generate an attestation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastAttemptTime;
-
-/**
- *  The success/failure state of the latest attestation attempt.
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_VulnerabilityAttestation_State_Failure
- *        Attestation was unsuccessfully generated and stored. (Value:
- *        "FAILURE")
- *    @arg @c kGTLRContainerAnalysis_VulnerabilityAttestation_State_Success
- *        Attestation was successfully generated and stored. (Value: "SUCCESS")
- *    @arg @c kGTLRContainerAnalysis_VulnerabilityAttestation_State_VulnerabilityAttestationStateUnspecified
- *        Default unknown state. (Value:
- *        "VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

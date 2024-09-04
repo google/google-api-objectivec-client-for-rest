@@ -19,6 +19,33 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_ProjectsLocationsBuildsSubmit
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/builds:submit";
+  GTLRCloudRunQuery_ProjectsLocationsBuildsSubmit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2SubmitBuildResponse class];
+  query.loggingName = @"run.projects.locations.builds.submit";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsLocationsExportImage
 
 @dynamic name;
@@ -79,6 +106,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Metadata class];
   query.loggingName = @"run.projects.locations.exportMetadata";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsExportProjectMetadata
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:exportProjectMetadata";
+  GTLRCloudRunQuery_ProjectsLocationsExportProjectMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Metadata class];
+  query.loggingName = @"run.projects.locations.exportProjectMetadata";
   return query;
 }
 

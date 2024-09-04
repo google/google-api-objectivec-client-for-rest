@@ -767,7 +767,7 @@
 
 @implementation GTLRLoggingQuery_BillingAccountsLocationsSavedQueriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -2025,7 +2025,7 @@
 
 @implementation GTLRLoggingQuery_FoldersLocationsSavedQueriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -3744,7 +3744,7 @@
 
 @implementation GTLRLoggingQuery_OrganizationsLocationsSavedQueriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -4857,7 +4857,7 @@
 
 @implementation GTLRLoggingQuery_ProjectsLocationsSavedQueriesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

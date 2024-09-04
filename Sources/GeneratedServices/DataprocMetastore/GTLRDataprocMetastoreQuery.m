@@ -515,6 +515,60 @@
 
 @end
 
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCancelMigration
+
+@dynamic service;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelMigrationRequest *)object
+                        service:(NSString *)service {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"service" ];
+  NSString *pathURITemplate = @"v1/{+service}:cancelMigration";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCancelMigration *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.service = service;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.cancelMigration";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCompleteMigration
+
+@dynamic service;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CompleteMigrationRequest *)object
+                        service:(NSString *)service {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"service" ];
+  NSString *pathURITemplate = @"v1/{+service}:completeMigration";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCompleteMigration *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.service = service;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.completeMigration";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCreate
 
 @dynamic parent, requestId, serviceId;
@@ -841,6 +895,63 @@
 
 @end
 
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.migrationExecutions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_MigrationExecution class];
+  query.loggingName = @"metastore.projects.locations.services.migrationExecutions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/migrationExecutions";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataprocMetastore_ListMigrationExecutionsResponse class];
+  query.loggingName = @"metastore.projects.locations.services.migrationExecutions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMoveTableToDatabase
 
 @dynamic service;
@@ -971,6 +1082,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
   query.loggingName = @"metastore.projects.locations.services.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesStartMigration
+
+@dynamic service;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_StartMigrationRequest *)object
+                        service:(NSString *)service {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"service" ];
+  NSString *pathURITemplate = @"v1/{+service}:startMigration";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesStartMigration *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.service = service;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.startMigration";
   return query;
 }
 

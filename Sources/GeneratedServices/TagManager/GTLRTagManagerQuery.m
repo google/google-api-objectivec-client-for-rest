@@ -443,7 +443,7 @@ NSString * const kGTLRTagManagerTypeVisitorRegion              = @"visitorRegion
 
 @implementation GTLRTagManagerQuery_AccountsContainersLookup
 
-@dynamic destinationId;
+@dynamic destinationId, tagId;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"tagmanager/v2/accounts/containers:lookup";

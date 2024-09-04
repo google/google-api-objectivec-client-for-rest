@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   GKE Hub API (gkehub/v1)
+//   GKE Hub API (gkehub/v2)
 // Documentation:
 //   https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster
 

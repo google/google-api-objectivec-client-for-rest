@@ -874,9 +874,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *addOnToken;
 
 /**
- *  Optional. The identifier of the attachment. This field is required for
- *  student users and optional for teacher users. If not provided in the student
- *  case, an error is returned.
+ *  Optional. The identifier of the attachment. This field is required for all
+ *  requests except when the user is in the [Attachment Discovery
+ *  iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
  */
 @property(nonatomic, copy, nullable) NSString *attachmentId;
 
@@ -1725,9 +1725,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *addOnToken;
 
 /**
- *  Optional. The identifier of the attachment. This field is required for
- *  student users and optional for teacher users. If not provided in the student
- *  case, an error is returned.
+ *  Optional. The identifier of the attachment. This field is required for all
+ *  requests except when the user is in the [Attachment Discovery
+ *  iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
  */
 @property(nonatomic, copy, nullable) NSString *attachmentId;
 
@@ -2323,9 +2323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *addOnToken;
 
 /**
- *  Optional. The identifier of the attachment. This field is required for
- *  student users and optional for teacher users. If not provided in the student
- *  case, an error is returned.
+ *  Optional. The identifier of the attachment. This field is required for all
+ *  requests except when the user is in the [Attachment Discovery
+ *  iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
  */
 @property(nonatomic, copy, nullable) NSString *attachmentId;
 
@@ -2602,7 +2602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  the requested modification to the student submission, or for access errors.
  *  * `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if
  *  the requested course work has already been deleted. * `NOT_FOUND` if the
- *  requested course, course work, or student submission does not exist.
+ *  requested course or course work does not exist.
  *
  *  Method: classroom.courses.courseWork.patch
  *
@@ -2633,7 +2633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  the `CourseWork` object, an `INVALID_ARGUMENT` error is returned. The
  *  following fields may be specified by teachers: * `title` * `description` *
  *  `state` * `due_date` * `due_time` * `max_points` * `scheduled_time` *
- *  `submission_modification_mode` * `topic_id`
+ *  `submission_modification_mode` * `topic_id` * `grading_period_id` Available
+ *  in
+ *  [V1_20240401_PREVIEW](https://developers.google.com/classroom/reference/preview)
+ *  and later.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2653,7 +2656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  the requested modification to the student submission, or for access errors.
  *  * `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if
  *  the requested course work has already been deleted. * `NOT_FOUND` if the
- *  requested course, course work, or student submission does not exist.
+ *  requested course or course work does not exist.
  *
  *  @param object The @c GTLRClassroom_CourseWork to include in the query.
  *  @param courseId Identifier of the course. This identifier can be either the
@@ -3911,9 +3914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *addOnToken;
 
 /**
- *  Optional. The identifier of the attachment. This field is required for
- *  student users and optional for teacher users. If not provided in the student
- *  case, an error is returned.
+ *  Optional. The identifier of the attachment. This field is required for all
+ *  requests except when the user is in the [Attachment Discovery
+ *  iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe).
  */
 @property(nonatomic, copy, nullable) NSString *attachmentId;
 

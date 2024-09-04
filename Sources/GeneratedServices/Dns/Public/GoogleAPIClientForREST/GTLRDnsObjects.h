@@ -1791,6 +1791,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) NSNumber *gkeClustersPerResponsePolicy;
 
 /**
+ *  internetHealthChecksPerManagedZone
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *internetHealthChecksPerManagedZone;
+
+/**
  *  Maximum allowed number of items per routing policy.
  *
  *  Uses NSNumber of intValue.
@@ -2295,6 +2302,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @interface GTLRDns_RRSetRoutingPolicy : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyGeoPolicy *geo;
+
+/**
+ *  The selfLink attribute of the HealthCheck resource to use for this
+ *  RRSetRoutingPolicy.
+ *  https://cloud.google.com/compute/docs/reference/rest/v1/healthChecks
+ */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
 @property(nonatomic, copy, nullable) NSString *kind;
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyPrimaryBackupPolicy *primaryBackup;
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyWrrPolicy *wrr;
@@ -2377,6 +2392,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  response.
  */
 @interface GTLRDns_RRSetRoutingPolicyHealthCheckTargets : GTLRObject
+
+/**
+ *  The Internet IP addresses to be health checked. The format matches the
+ *  format of ResourceRecordSet.rrdata as defined in RFC 1035 (section 5) and
+ *  RFC 1034 (section 3.6.1)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalEndpoints;
 
 /** Configuration for internal load balancers to be health checked. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyLoadBalancerTarget *> *internalLoadBalancers;

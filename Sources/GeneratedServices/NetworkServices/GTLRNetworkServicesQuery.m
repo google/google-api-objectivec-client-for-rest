@@ -310,29 +310,6 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.endpointPolicies.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesList
 
 @dynamic pageSize, pageToken, parent;
@@ -374,60 +351,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkServices_Operation class];
   query.loggingName = @"networkservices.projects.locations.endpointPolicies.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.endpointPolicies.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.endpointPolicies.testIamPermissions";
   return query;
 }
 
@@ -498,29 +421,6 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.gateways.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysList
 
 @dynamic pageSize, pageToken, parent;
@@ -562,60 +462,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkServices_Operation class];
   query.loggingName = @"networkservices.projects.locations.gateways.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsGatewaysSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.gateways.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsGatewaysTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.gateways.testIamPermissions";
   return query;
 }
 
@@ -1168,29 +1014,6 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsMeshesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.meshes.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesList
 
 @dynamic pageSize, pageToken, parent;
@@ -1232,60 +1055,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkServices_Operation class];
   query.loggingName = @"networkservices.projects.locations.meshes.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsMeshesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.meshes.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsMeshesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.meshes.testIamPermissions";
   return query;
 }
 
@@ -1440,29 +1209,6 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.serviceBindings.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsList
 
 @dynamic pageSize, pageToken, parent;
@@ -1477,60 +1223,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRNetworkServices_ListServiceBindingsResponse class];
   query.loggingName = @"networkservices.projects.locations.serviceBindings.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.serviceBindings.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.serviceBindings.testIamPermissions";
   return query;
 }
 

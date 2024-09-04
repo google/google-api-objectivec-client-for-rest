@@ -1007,6 +1007,78 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Cancels the ongoing Managed Migration process.
+ *
+ *  Method: metastore.projects.locations.services.cancelMigration
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCancelMigration : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to cancel the
+ *  ongoing migration to, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Cancels the ongoing Managed Migration process.
+ *
+ *  @param object The @c GTLRDataprocMetastore_CancelMigrationRequest to include
+ *    in the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to cancel the ongoing migration to, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCancelMigration
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelMigrationRequest *)object
+                        service:(NSString *)service;
+
+@end
+
+/**
+ *  Completes the managed migration process. The Dataproc Metastore service will
+ *  switch to using its own backend database after successful migration.
+ *
+ *  Method: metastore.projects.locations.services.completeMigration
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCompleteMigration : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to complete
+ *  the migration to, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Completes the managed migration process. The Dataproc Metastore service will
+ *  switch to using its own backend database after successful migration.
+ *
+ *  @param object The @c GTLRDataprocMetastore_CompleteMigrationRequest to
+ *    include in the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to complete the migration to, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCompleteMigration
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CompleteMigrationRequest *)object
+                        service:(NSString *)service;
+
+@end
+
+/**
  *  Creates a metastore service in a project and location.
  *
  *  Method: metastore.projects.locations.services.create
@@ -1675,6 +1747,147 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a single migration execution.
+ *
+ *  Method: metastore.projects.locations.services.migrationExecutions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsDelete : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the migrationExecution to delete, in
+ *  the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Deletes a single migration execution.
+ *
+ *  @param name Required. The relative resource name of the migrationExecution
+ *    to delete, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single migration execution.
+ *
+ *  Method: metastore.projects.locations.services.migrationExecutions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsGet : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the migration execution to retrieve,
+ *  in the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_MigrationExecution.
+ *
+ *  Gets details of a single migration execution.
+ *
+ *  @param name Required. The relative resource name of the migration execution
+ *    to retrieve, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists migration executions on a service.
+ *
+ *  Method: metastore.projects.locations.services.migrationExecutions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsList : GTLRDataprocMetastoreQuery
+
+/** Optional. The filter to apply to list results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify the ordering of results as described in Sorting Order
+ *  (https://cloud.google.com/apis/design/design_patterns#sorting_order). If not
+ *  specified, the results will be sorted in the default order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of migration executions to return. The response
+ *  may contain less than the maximum number. If unspecified, no more than 500
+ *  migration executions are returned. The maximum value is 1000; values above
+ *  1000 are changed to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  DataprocMetastore.ListMigrationExecutions call. Provide this token to
+ *  retrieve the subsequent page.To retrieve the first page, supply an empty
+ *  page token.When paginating, other parameters provided to
+ *  DataprocMetastore.ListMigrationExecutions must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The relative resource name of the service whose migration
+ *  executions to list, in the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_ListMigrationExecutionsResponse.
+ *
+ *  Lists migration executions on a service.
+ *
+ *  @param parent Required. The relative resource name of the service whose
+ *    migration executions to list, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Move a table to another database.
  *
  *  Method: metastore.projects.locations.services.moveTableToDatabase
@@ -1873,6 +2086,41 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Starts the Managed Migration process.
+ *
+ *  Method: metastore.projects.locations.services.startMigration
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesStartMigration : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to start
+ *  migrating to, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Starts the Managed Migration process.
+ *
+ *  @param object The @c GTLRDataprocMetastore_StartMigrationRequest to include
+ *    in the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to start migrating to, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesStartMigration
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_StartMigrationRequest *)object
+                        service:(NSString *)service;
 
 @end
 

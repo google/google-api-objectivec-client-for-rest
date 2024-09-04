@@ -2383,10 +2383,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  If false or unspecified, each row with all metrics equal to 0 will not be
  *  returned. If true, these rows will be returned if they are not separately
  *  removed by a filter. Regardless of this `keep_empty_rows` setting, only data
- *  recorded by the Google Analytics (GA4) property can be displayed in a
- *  report. For example if a property never logs a `purchase` event, then a
- *  query for the `eventName` dimension and `eventCount` metric will not have a
- *  row eventName: "purchase" and eventCount: 0.
+ *  recorded by the Google Analytics property can be displayed in a report. For
+ *  example if a property never logs a `purchase` event, then a query for the
+ *  `eventName` dimension and `eventCount` metric will not have a row eventName:
+ *  "purchase" and eventCount: 0.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2415,9 +2415,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Pivot *> *pivots;
 
 /**
- *  A Google Analytics GA4 property identifier whose events are tracked.
- *  Specified in the URL path and not the body. To learn more, see [where to
- *  find your Property
+ *  A Google Analytics property identifier whose events are tracked. Specified
+ *  in the URL path and not the body. To learn more, see [where to find your
+ *  Property
  *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
  *  Within a batch request, this property should either be unspecified or
  *  consistent with the batch-level property. Example: properties/1234
@@ -2425,8 +2425,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, copy, nullable) NSString *property;
 
 /**
- *  Toggles whether to return the current state of this Analytics Property's
- *  quota. Quota is returned in [PropertyQuota](#PropertyQuota).
+ *  Toggles whether to return the current state of this Google Analytics
+ *  property's quota. Quota is returned in [PropertyQuota](#PropertyQuota).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2483,7 +2483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_PivotHeader *> *pivotHeaders;
 
-/** This Analytics Property's quota state including this request. */
+/** This Google Analytics property's quota state including this request. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_PropertyQuota *propertyQuota;
 
 /** Rows of dimension value combinations and metric values in the report. */
@@ -2544,8 +2544,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_OrderBy *> *orderBys;
 
 /**
- *  Toggles whether to return the current state of this Analytics Property's
- *  Realtime quota. Quota is returned in [PropertyQuota](#PropertyQuota).
+ *  Toggles whether to return the current state of this Google Analytics
+ *  property's Realtime quota. Quota is returned in
+ *  [PropertyQuota](#PropertyQuota).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2584,7 +2585,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 /** If requested, the minimum values of metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *minimums;
 
-/** This Analytics Property's Realtime quota state including this request. */
+/**
+ *  This Google Analytics property's Realtime quota state including this
+ *  request.
+ */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_PropertyQuota *propertyQuota;
 
 /**
@@ -2655,10 +2659,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  If false or unspecified, each row with all metrics equal to 0 will not be
  *  returned. If true, these rows will be returned if they are not separately
  *  removed by a filter. Regardless of this `keep_empty_rows` setting, only data
- *  recorded by the Google Analytics (GA4) property can be displayed in a
- *  report. For example if a property never logs a `purchase` event, then a
- *  query for the `eventName` dimension and `eventCount` metric will not have a
- *  row eventName: "purchase" and eventCount: 0.
+ *  recorded by the Google Analytics property can be displayed in a report. For
+ *  example if a property never logs a `purchase` event, then a query for the
+ *  `eventName` dimension and `eventCount` metric will not have a row eventName:
+ *  "purchase" and eventCount: 0.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2681,7 +2685,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  Aggregation of metrics. Aggregated metric values will be shown in rows where
- *  the dimension_values are set to "RESERVED_(MetricAggregation)".
+ *  the dimension_values are set to "RESERVED_(MetricAggregation)". Aggregates
+ *  including both comparisons and multiple date ranges will be aggregated based
+ *  on the date ranges.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metricAggregations;
 
@@ -2707,13 +2713,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  */
 @property(nonatomic, strong, nullable) NSNumber *offset;
 
-/** Specifies how rows are ordered in the response. */
+/**
+ *  Specifies how rows are ordered in the response. Requests including both
+ *  comparisons and multiple date ranges will have order bys applied on the
+ *  comparisons.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_OrderBy *> *orderBys;
 
 /**
- *  A Google Analytics GA4 property identifier whose events are tracked.
- *  Specified in the URL path and not the body. To learn more, see [where to
- *  find your Property
+ *  A Google Analytics property identifier whose events are tracked. Specified
+ *  in the URL path and not the body. To learn more, see [where to find your
+ *  Property
  *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
  *  Within a batch request, this property should either be unspecified or
  *  consistent with the batch-level property. Example: properties/1234
@@ -2721,8 +2731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, copy, nullable) NSString *property;
 
 /**
- *  Toggles whether to return the current state of this Analytics Property's
- *  quota. Quota is returned in [PropertyQuota](#PropertyQuota).
+ *  Toggles whether to return the current state of this Google Analytics
+ *  property's quota. Quota is returned in [PropertyQuota](#PropertyQuota).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2764,7 +2774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 /** If requested, the minimum values of metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *minimums;
 
-/** This Analytics Property's quota state including this request. */
+/** This Google Analytics property's quota state including this request. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_PropertyQuota *propertyQuota;
 
 /**

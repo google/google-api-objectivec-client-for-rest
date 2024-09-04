@@ -144,8 +144,8 @@
 
 @implementation GTLRPagespeedInsights_LighthouseAuditResultV5
 @dynamic descriptionProperty, details, displayValue, errorMessage, explanation,
-         identifier, numericUnit, numericValue, score, scoreDisplayMode, title,
-         warnings;
+         identifier, metricSavings, numericUnit, numericValue, score,
+         scoreDisplayMode, title, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -247,6 +247,16 @@
   return [GTLRPagespeedInsights_CategoryGroupV5 class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPagespeedInsights_MetricSavings
+//
+
+@implementation GTLRPagespeedInsights_MetricSavings
+@dynamic CLS, FCP, INP, LCP, TBT;
 @end
 
 

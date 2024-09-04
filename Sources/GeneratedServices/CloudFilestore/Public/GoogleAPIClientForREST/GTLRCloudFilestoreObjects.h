@@ -75,6 +75,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFilestore_Backup.fileSystemProtocol
+
+/**
+ *  FILE_PROTOCOL_UNSPECIFIED serves a "not set" default value when a
+ *  FileProtocol is a separate field in a message.
+ *
+ *  Value: "FILE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_FileProtocolUnspecified;
+/**
+ *  NFS 3.0.
+ *
+ *  Value: "NFS_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV3;
+/**
+ *  NFS 4.1.
+ *
+ *  Value: "NFS_V4_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV41;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Backup.sourceInstanceTier
 
 /**
@@ -225,6 +248,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasaccelerato
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_Instance.protocol
+
+/**
+ *  FILE_PROTOCOL_UNSPECIFIED serves a "not set" default value when a
+ *  FileProtocol is a separate field in a message.
+ *
+ *  Value: "FILE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Protocol_FileProtocolUnspecified;
+/**
+ *  NFS 3.0.
+ *
+ *  Value: "NFS_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Protocol_NfsV3;
+/**
+ *  NFS 4.1.
+ *
+ *  Value: "NFS_V4_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Protocol_NfsV41;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Instance.state
@@ -547,8 +593,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReason
 // GTLRCloudFilestore_Replication.role
 
 /**
- *  The instance is a Active replication member, functions as the replication
- *  source instance.
+ *  The instance is the `ACTIVE` replication member, functions as the
+ *  replication source instance.
  *
  *  Value: "ACTIVE"
  */
@@ -560,8 +606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Replication_Role_Active;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Replication_Role_RoleUnspecified;
 /**
- *  The instance is a Standby replication member, functions as the replication
- *  destination instance.
+ *  The instance is the `STANDBY` replication member, functions as the
+ *  replication destination instance.
  *
  *  Value: "STANDBY"
  */
@@ -727,6 +773,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSNumber *downloadBytes;
 
+/**
+ *  Output only. The file system protocol of the source Filestore instance that
+ *  this backup is created from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_Backup_FileSystemProtocol_FileProtocolUnspecified
+ *        FILE_PROTOCOL_UNSPECIFIED serves a "not set" default value when a
+ *        FileProtocol is a separate field in a message. (Value:
+ *        "FILE_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV3 NFS 3.0.
+ *        (Value: "NFS_V3")
+ *    @arg @c kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV41 NFS 4.1.
+ *        (Value: "NFS_V4_1")
+ */
+@property(nonatomic, copy, nullable) NSString *fileSystemProtocol;
+
 /** Immutable. KMS key name used for data encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
@@ -832,7 +894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, strong, nullable) NSNumber *storageBytes;
 
 /**
- *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
  *  "marketing"
  */
@@ -854,7 +916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
  *  "marketing"
  *
@@ -1509,6 +1571,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. Indicates whether the instance is protected against deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtectionEnabled;
+
+/** Optional. The reason for enabling deletion protection. */
+@property(nonatomic, copy, nullable) NSString *deletionProtectionReason;
+
+/**
  *  The description of the instance (2048 characters or less).
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1545,7 +1617,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
 
-/** Optional. Replicaition configuration. */
+/**
+ *  Immutable. The protocol indicates the access protocol for all shares in the
+ *  instance. This field is immutable and it cannot be changed after the
+ *  instance has been created. Default value: `NFS_V3`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_Instance_Protocol_FileProtocolUnspecified
+ *        FILE_PROTOCOL_UNSPECIFIED serves a "not set" default value when a
+ *        FileProtocol is a separate field in a message. (Value:
+ *        "FILE_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Instance_Protocol_NfsV3 NFS 3.0. (Value:
+ *        "NFS_V3")
+ *    @arg @c kGTLRCloudFilestore_Instance_Protocol_NfsV41 NFS 4.1. (Value:
+ *        "NFS_V4_1")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/** Optional. Replication configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Replication *replication;
 
 /**
@@ -1610,7 +1699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
 
 /**
- *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
  *  "marketing"
  */
@@ -1663,7 +1752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
  *  "marketing"
  *
@@ -2269,8 +2358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @interface GTLRCloudFilestore_Replication : GTLRObject
 
 /**
- *  Optional. Replicas configuration on the instance. For now, only a single
- *  replica config is supported.
+ *  Optional. Replication configuration for the replica instance associated with
+ *  this instance. Only a single replica is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_ReplicaConfig *> *replicas;
 
@@ -2278,13 +2367,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  Optional. The replication role.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudFilestore_Replication_Role_Active The instance is a
- *        Active replication member, functions as the replication source
+ *    @arg @c kGTLRCloudFilestore_Replication_Role_Active The instance is the
+ *        `ACTIVE` replication member, functions as the replication source
  *        instance. (Value: "ACTIVE")
  *    @arg @c kGTLRCloudFilestore_Replication_Role_RoleUnspecified Role not set.
  *        (Value: "ROLE_UNSPECIFIED")
- *    @arg @c kGTLRCloudFilestore_Replication_Role_Standby The instance is a
- *        Standby replication member, functions as the replication destination
+ *    @arg @c kGTLRCloudFilestore_Replication_Role_Standby The instance is the
+ *        `STANDBY` replication member, functions as the replication destination
  *        instance. (Value: "STANDBY")
  */
 @property(nonatomic, copy, nullable) NSString *role;
@@ -2412,7 +2501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
  *  "marketing"
  */
@@ -2434,7 +2523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  Optional. Input only. Immutable. Tag key-value pairs are bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
  *  "marketing"
  *

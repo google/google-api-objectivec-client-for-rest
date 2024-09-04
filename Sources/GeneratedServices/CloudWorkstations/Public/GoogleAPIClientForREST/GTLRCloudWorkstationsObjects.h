@@ -27,6 +27,7 @@
 @class GTLRCloudWorkstations_Expr;
 @class GTLRCloudWorkstations_GceConfidentialInstanceConfig;
 @class GTLRCloudWorkstations_GceInstance;
+@class GTLRCloudWorkstations_GceInstance_VmTags;
 @class GTLRCloudWorkstations_GcePersistentDisk;
 @class GTLRCloudWorkstations_GceRegionalPersistentDisk;
 @class GTLRCloudWorkstations_GceShieldedInstanceConfig;
@@ -39,6 +40,7 @@
 @class GTLRCloudWorkstations_Operation_Response;
 @class GTLRCloudWorkstations_PersistentDirectory;
 @class GTLRCloudWorkstations_Policy;
+@class GTLRCloudWorkstations_PortRange;
 @class GTLRCloudWorkstations_PrivateClusterConfig;
 @class GTLRCloudWorkstations_ReadinessCheck;
 @class GTLRCloudWorkstations_Status;
@@ -418,11 +420,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  Configuration options for private workstation clusters.
+ *  Configuration options for a custom domain.
  */
 @interface GTLRCloudWorkstations_DomainConfig : GTLRObject
 
-/** Immutable. Whether Workstations endpoint is private. */
+/** Immutable. Domain used by Workstations for HTTP ingress. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 @end
@@ -551,11 +553,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Optional. Whether to enable nested virtualization on Cloud Workstations VMs
- *  created using this workstation configuration. Nested virtualization lets you
- *  run virtual machine (VM) instances inside your workstation. Before enabling
- *  nested virtualization, consider the following important considerations.
- *  Cloud Workstations instances are subject to the [same restrictions as
- *  Compute Engine
+ *  created using this workstation configuration. Defaults to false. Nested
+ *  virtualization lets you run virtual machine (VM) instances inside your
+ *  workstation. Before enabling nested virtualization, consider the following
+ *  important considerations. Cloud Workstations instances are subject to the
+ *  [same restrictions as Compute Engine
  *  instances](https://cloud.google.com/compute/docs/instances/nested-virtualization/overview#restrictions):
  *  * **Organization policy**: projects, folders, or organizations may be
  *  restricted from creating nested VMs if the **Disable VM nested
@@ -567,14 +569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  performance for workloads that are CPU-bound and possibly greater than a 10%
  *  decrease for workloads that are input/output bound. * **Machine Type**:
  *  nested virtualization can only be enabled on workstation configurations that
- *  specify a machine_type in the N1 or N2 machine series. * **GPUs**: nested
- *  virtualization may not be enabled on workstation configurations with
- *  accelerators. * **Operating System**: because [Container-Optimized
- *  OS](https://cloud.google.com/compute/docs/images/os-details#container-optimized_os_cos)
- *  does not support nested virtualization, when nested virtualization is
- *  enabled, the underlying Compute Engine VM instances boot from an [Ubuntu
- *  LTS](https://cloud.google.com/compute/docs/images/os-details#ubuntu_lts)
- *  image.
+ *  specify a machine_type in the N1 or N2 machine series.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -643,6 +638,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
+/**
+ *  Optional. Resource manager tags to be bound to this instance. Tag keys and
+ *  values have the same definition as [resource manager
+ *  tags](https://cloud.google.com/resource-manager/docs/tags/tags-overview).
+ *  Keys must be in the format `tagKeys/{tag_key_id}`, and values are in the
+ *  format `tagValues/456`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceInstance_VmTags *vmTags;
+
+@end
+
+
+/**
+ *  Optional. Resource manager tags to be bound to this instance. Tag keys and
+ *  values have the same definition as [resource manager
+ *  tags](https://cloud.google.com/resource-manager/docs/tags/tags-overview).
+ *  Keys must be in the format `tagKeys/{tag_key_id}`, and values are in the
+ *  format `tagValues/456`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudWorkstations_GceInstance_VmTags : GTLRObject
 @end
 
 
@@ -782,6 +802,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  time will be set to a default value of 1 hour in the future.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Optional. Port for which the access token should be generated. If specified,
+ *  the generated access token grants access only to the specified port of the
+ *  workstation. If specified, values must be within the range [1 - 65535]. If
+ *  not specified, the generated access token grants access to all ports of the
+ *  workstation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
  *  Desired lifetime duration of the access token. This value must be at most 24
@@ -1313,20 +1344,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
- *  GTLRCloudWorkstations_PrivateClusterConfig
+ *  A PortRange defines a range of ports. Both first and last are inclusive. To
+ *  specify a single port, both first and last should be the same.
+ */
+@interface GTLRCloudWorkstations_PortRange : GTLRObject
+
+/**
+ *  Required. Starting port number for the current range of ports. Valid ports
+ *  are 22, 80, and ports within the range 1024-65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *first;
+
+/**
+ *  Required. Ending port number for the current range of ports. Valid ports are
+ *  22, 80, and ports within the range 1024-65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last;
+
+@end
+
+
+/**
+ *  Configuration options for private workstation clusters.
  */
 @interface GTLRCloudWorkstations_PrivateClusterConfig : GTLRObject
 
+/**
+ *  Optional. Additional projects that are allowed to attach to the workstation
+ *  cluster's service attachment. By default, the workstation cluster's project
+ *  and the VPC host project (if different) are allowed.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedProjects;
+
+/**
+ *  Output only. Hostname for the workstation cluster. This field will be
+ *  populated only when private endpoint is enabled. To access workstations in
+ *  the workstation cluster, create a new DNS zone mapping this domain name to
+ *  an internal IP address and a forwarding rule mapping that address to the
+ *  service attachment.
+ */
 @property(nonatomic, copy, nullable) NSString *clusterHostname;
 
 /**
- *  enablePrivateEndpoint
+ *  Immutable. Whether Workstations endpoint is private.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePrivateEndpoint;
 
+/**
+ *  Output only. Service attachment URI for the workstation cluster. The service
+ *  attachemnt is created when private endpoint is enabled. To access
+ *  workstations in the workstation cluster, configure access to the managed
+ *  service using [Private Service
+ *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services).
+ */
 @property(nonatomic, copy, nullable) NSString *serviceAttachmentUri;
 
 @end
@@ -1772,6 +1848,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @interface GTLRCloudWorkstations_WorkstationConfig : GTLRObject
 
+/**
+ *  Optional. A list of PortRanges specifying single ports or ranges of ports
+ *  that are externally accessible in the workstation. Allowed ports must be one
+ *  of 22, 80, or within range 1024-65535. If not specified defaults to ports
+ *  22, 80, and ports 1024-65535.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_PortRange *> *allowedPorts;
+
 /** Optional. Client-specified annotations. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_WorkstationConfig_Annotations *annotations;
 
@@ -1814,10 +1898,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Optional. Whether to enable Linux `auditd` logging on the workstation. When
- *  enabled, a service account must also be specified that has
- *  `logging.buckets.write` permission on the project. Operating system audit
- *  logging is distinct from [Cloud Audit
- *  Logs](https://cloud.google.com/workstations/docs/audit-logging).
+ *  enabled, a service_account must also be specified that has
+ *  `roles/logging.logWriter` and `roles/monitoring.metricWriter` on the
+ *  project. Operating system audit logging is distinct from [Cloud Audit
+ *  Logs](https://cloud.google.com/workstations/docs/audit-logging) and
+ *  [Container output
+ *  logging](http://cloud/workstations/docs/container-output-logging#overview).
+ *  Operating system audit logs are available in the [Cloud
+ *  Logging](https://cloud.google.com/logging/docs) console by querying:
+ *  resource.type="gce_instance" log_name:"/logs/linux-auditd"
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1852,6 +1941,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
+/**
+ *  Optional. Grant creator of a workstation `roles/workstations.policyAdmin`
+ *  role along with `roles/workstations.user` role on the workstation created by
+ *  them. This allows workstation users to share access to either their entire
+ *  workstation, or individual ports. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *grantWorkstationAdminRoleOnCreate;
+
 /** Optional. Runtime host for the workstation. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_Host *host;
 
@@ -1873,6 +1972,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  the underlying Compute Engine resources.
  */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_WorkstationConfig_Labels *labels;
+
+/**
+ *  Optional. Maximum number of workstations under this config a user can have
+ *  `workstations.workstation.use` permission on. Only enforced on
+ *  CreateWorkstation API calls on the user issuing the API request. Can be
+ *  overridden by: - granting a user
+ *  workstations.workstationConfigs.exemptMaxUsableWorkstationLimit permission,
+ *  or - having a user with that permission create a workstation and granting
+ *  another user `workstations.workstation.use` permission on that workstation.
+ *  If not specified defaults to 0 which indicates unlimited.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxUsableWorkstations;
 
 /** Identifier. Full name of this workstation configuration. */
 @property(nonatomic, copy, nullable) NSString *name;

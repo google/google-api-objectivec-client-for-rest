@@ -637,6 +637,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Channel
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Suspended;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount.customerType
+
+/**
+ *  Not used.
+ *
+ *  Value: "CUSTOMER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_CustomerTypeUnspecified;
+/**
+ *  Domain-owning customer which needs domain verification to use services.
+ *
+ *  Value: "DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Domain;
+/**
+ *  Team customer which needs email verification to use services.
+ *
+ *  Value: "TEAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Team;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo.customerType
 
 /**
@@ -2835,6 +2857,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
+/**
+ *  Optional. Primary admin email to fetch for Cloud Identity account domainless
+ *  customer.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryAdminEmail;
+
 @end
 
 
@@ -2855,6 +2883,12 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount : GTLRObject
 
+/**
+ *  If existing = true, and is 2-tier customer, the channel partner of the
+ *  customer.
+ */
+@property(nonatomic, copy, nullable) NSString *channelPartnerCloudIdentityId;
+
 /** If existing = true, the Cloud Identity ID of the customer. */
 @property(nonatomic, copy, nullable) NSString *customerCloudIdentityId;
 
@@ -2864,6 +2898,21 @@ GTLR_DEPRECATED
  *  accounts/{account_id}/customers/{customer_id}
  */
 @property(nonatomic, copy, nullable) NSString *customerName;
+
+/**
+ *  If existing = true, the type of the customer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_CustomerTypeUnspecified
+ *        Not used. (Value: "CUSTOMER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Domain
+ *        Domain-owning customer which needs domain verification to use
+ *        services. (Value: "DOMAIN")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Team
+ *        Team customer which needs email verification to use services. (Value:
+ *        "TEAM")
+ */
+@property(nonatomic, copy, nullable) NSString *customerType;
 
 /**
  *  Returns true if a Cloud Identity account exists for a specific domain.
@@ -3755,6 +3804,9 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *overwriteIfExists;
+
+/** Optional. Customer's primary admin email. */
+@property(nonatomic, copy, nullable) NSString *primaryAdminEmail;
 
 @end
 
@@ -4866,6 +4918,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest : GTLRObject
 
+/** Optional. Resource name of the integrator. */
+@property(nonatomic, copy, nullable) NSString *integrator;
+
 /**
  *  Required. Service account that provides subscriber access to the registered
  *  topic.
@@ -5563,6 +5618,9 @@ GTLR_DEPRECATED
  *  Request Message for UnregisterSubscriber.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest : GTLRObject
+
+/** Optional. Resource name of the integrator. */
+@property(nonatomic, copy, nullable) NSString *integrator;
 
 /**
  *  Required. Service account to unregister from subscriber access to the topic.

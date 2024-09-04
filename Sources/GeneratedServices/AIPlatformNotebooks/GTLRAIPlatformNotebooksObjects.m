@@ -286,8 +286,8 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 @implementation GTLRAIPlatformNotebooks_GceSetup
 @dynamic acceleratorConfigs, bootDisk, containerImage, dataDisks,
          disablePublicIp, enableIpForwarding, gpuDriverConfig, machineType,
-         metadata, networkInterfaces, serviceAccounts, shieldedInstanceConfig,
-         tags, vmImage;
+         metadata, minCpuPlatform, networkInterfaces, serviceAccounts,
+         shieldedInstanceConfig, tags, vmImage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -616,6 +616,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_RestoreInstanceRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_RestoreInstanceRequest
+@dynamic snapshot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_RollbackInstanceRequest
 //
 
@@ -659,6 +669,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_ShieldedInstanceConfig
 @dynamic enableIntegrityMonitoring, enableSecureBoot, enableVtpm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_Snapshot
+//
+
+@implementation GTLRAIPlatformNotebooks_Snapshot
+@dynamic projectId, snapshotId;
 @end
 
 

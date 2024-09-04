@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudFilestore_Backup.fileSystemProtocol
+NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_FileProtocolUnspecified = @"FILE_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV3 = @"NFS_V3";
+NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV41 = @"NFS_V4_1";
+
 // GTLRCloudFilestore_Backup.sourceInstanceTier
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_BasicHdd = @"BASIC_HDD";
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_BasicSsd = @"BASIC_SSD";
@@ -41,6 +46,11 @@ NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvide
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing = @"REPAIRING";
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating = @"UPDATING";
+
+// GTLRCloudFilestore_Instance.protocol
+NSString * const kGTLRCloudFilestore_Instance_Protocol_FileProtocolUnspecified = @"FILE_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_Instance_Protocol_NfsV3   = @"NFS_V3";
+NSString * const kGTLRCloudFilestore_Instance_Protocol_NfsV41  = @"NFS_V4_1";
 
 // GTLRCloudFilestore_Instance.state
 NSString * const kGTLRCloudFilestore_Instance_State_Creating   = @"CREATING";
@@ -141,9 +151,10 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Backup
-@dynamic capacityGb, createTime, descriptionProperty, downloadBytes, kmsKey,
-         labels, name, satisfiesPzi, satisfiesPzs, sourceFileShare,
-         sourceInstance, sourceInstanceTier, state, storageBytes, tags;
+@dynamic capacityGb, createTime, descriptionProperty, downloadBytes,
+         fileSystemProtocol, kmsKey, labels, name, satisfiesPzi, satisfiesPzs,
+         sourceFileShare, sourceInstance, sourceInstanceTier, state,
+         storageBytes, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -483,8 +494,9 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Instance
-@dynamic createTime, descriptionProperty, ETag, fileShares, kmsKeyName, labels,
-         name, networks, replication, satisfiesPzi, satisfiesPzs, state,
+@dynamic createTime, deletionProtectionEnabled, deletionProtectionReason,
+         descriptionProperty, ETag, fileShares, kmsKeyName, labels, name,
+         networks, protocol, replication, satisfiesPzi, satisfiesPzs, state,
          statusMessage, suspensionReasons, tags, tier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

@@ -19,9 +19,11 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction;
@@ -39,6 +41,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment;
@@ -390,6 +393,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "VIRTUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals_CardLabels_Virtual;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData.overrideType
+
+/**
+ *  Allowlist the IP address; i.e. give a `risk_analysis.score` of 0.9 for all
+ *  valid assessments.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_Allow;
+/**
+ *  Default override type that indicates this enum hasn't been specified.
+ *
+ *  Value: "OVERRIDE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_OverrideTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
@@ -886,6 +906,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  The AddIpOverride request message.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest : GTLRObject
+
+/** Required. IP override added to the key. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData *ipOverrideData;
+
+@end
+
+
+/**
+ *  Response for AddIpOverride.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideResponse : GTLRObject
+@end
+
+
+/**
  *  Settings specific to keys that can be used by Android apps.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings : GTLRObject
@@ -1026,6 +1064,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo *accountVerification;
 
+/**
+ *  Optional. The environment creating the assessment. This describes your
+ *  environment (the system invoking CreateAssessment), NOT the environment of
+ *  your user.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment *assessmentEnvironment;
+
 /** Optional. The event being assessed. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event *event;
 
@@ -1072,6 +1117,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /** Output only. Properties of the provided event token. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties *tokenProperties;
+
+@end
+
+
+/**
+ *  The environment creating the assessment. This describes your environment
+ *  (the system invoking CreateAssessment), NOT the environment of your user.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment : GTLRObject
+
+/**
+ *  Optional. Identifies the client module initiating the CreateAssessment
+ *  request. This can be the link to the client module's project. Examples
+ *  include: -
+ *  "github.com/GoogleCloudPlatform/recaptcha-enterprise-google-tag-manager" -
+ *  "cloud.google.com/recaptcha/docs/implement-waf-akamai" -
+ *  "cloud.google.com/recaptcha/docs/implement-waf-cloudflare" -
+ *  "wordpress.org/plugins/recaptcha-something"
+ */
+@property(nonatomic, copy, nullable) NSString *client;
+
+/** Optional. The version of the client module. For example, "1.0.0". */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1159,8 +1227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Flag for a reCAPTCHA express request for an assessment without a
- *  token. If enabled, `site_key` must reference a SCORE key with WAF feature
- *  set to EXPRESS.
+ *  token. If enabled, `site_key` must reference an Express site key.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1263,6 +1330,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) NSNumber *wafTokenAssessment;
 
+@end
+
+
+/**
+ *  Settings specific to keys that can be used for reCAPTCHA Express.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings : GTLRObject
 @end
 
 
@@ -1612,6 +1686,36 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Information about the IP or IP range override.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData : GTLRObject
+
+/**
+ *  Required. The IP address to override (can be IPv4, IPv6 or CIDR). The IP
+ *  override must be a valid IPv4 or IPv6 address, or a CIDR range. The IP
+ *  override must be a public IP address. Example of IPv4: 168.192.5.6 Example
+ *  of IPv6: 2001:0000:130F:0000:0000:09C0:876A:130B Example of IPv4 with CIDR:
+ *  168.192.5.0/24 Example of IPv6 with CIDR: 2001:0DB8:1234::/48
+ */
+@property(nonatomic, copy, nullable) NSString *ip;
+
+/**
+ *  Required. Describes the type of IP override.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_Allow
+ *        Allowlist the IP address; i.e. give a `risk_analysis.score` of 0.9 for
+ *        all valid assessments. (Value: "ALLOW")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_OverrideTypeUnspecified
+ *        Default override type that indicates this enum hasn't been specified.
+ *        (Value: "OVERRIDE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *overrideType;
+
+@end
+
+
+/**
  *  A key used to identify and configure applications (web and/or mobile) that
  *  use reCAPTCHA Enterprise.
  */
@@ -1626,12 +1730,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** Required. Human-readable display name of this key. Modifiable by user. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Settings for keys that can be used by reCAPTCHA Express. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings *expressSettings;
+
 /** Settings for keys that can be used by iOS apps. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings *iosSettings;
 
 /**
  *  Optional. See [Creating and managing labels]
- *  (https://cloud.google.com/recaptcha-enterprise/docs/labels).
+ *  (https://cloud.google.com/recaptcha/docs/labels).
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels *labels;
 
@@ -1655,7 +1762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. See [Creating and managing labels]
- *  (https://cloud.google.com/recaptcha-enterprise/docs/labels).
+ *  (https://cloud.google.com/recaptcha/docs/labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1687,6 +1794,33 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Token to retrieve the next page of results. It is set to empty if no
  *  policies remain in results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for ListIpOverrides.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "ipOverrides" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListIpOverridesResponse : GTLRCollectionObject
+
+/**
+ *  IP Overrides details.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData *> *ipOverrides;
+
+/**
+ *  Token to retrieve the next page of results. If this field is empty, no keys
+ *  remain in the results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1813,11 +1947,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Optional. If true, skips the billing check. A reCAPTCHA Enterprise key or
  *  migrated key behaves differently than a reCAPTCHA (non-Enterprise version)
  *  key when you reach a quota limit (see
- *  https://cloud.google.com/recaptcha-enterprise/quotas#quota_limit). To avoid
- *  any disruption of your usage, we check that a billing account is present. If
+ *  https://cloud.google.com/recaptcha/quotas#quota_limit). To avoid any
+ *  disruption of your usage, we check that a billing account is present. If
  *  your usage of reCAPTCHA is under the free quota, you can safely skip the
  *  billing check and proceed with the migration. See
- *  https://cloud.google.com/recaptcha-enterprise/docs/billing-information.
+ *  https://cloud.google.com/recaptcha/docs/billing-information.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1928,6 +2062,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@end
+
+
+/**
+ *  The removeIpOverride request message.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest : GTLRObject
+
+/** Required. IP override to be removed from the key. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData *ipOverrideData;
+
+@end
+
+
+/**
+ *  Response for RemoveIpOverride.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideResponse : GTLRObject
 @end
 
 

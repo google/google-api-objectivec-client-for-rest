@@ -311,7 +311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @property(nonatomic, copy, nullable) NSString *details;
 
-/** Domain name of the authorization attempt. */
+/** Output only. Domain name of the authorization attempt. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
@@ -371,7 +371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  One or more paragraphs of text description of a certificate.
+ *  Optional. One or more paragraphs of text description of a certificate.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -380,15 +380,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 /** Output only. The expiry timestamp of a Certificate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
-/** Set of labels associated with a Certificate. */
+/** Optional. Set of labels associated with a Certificate. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_Certificate_Labels *labels;
 
 /** If set, contains configuration and state of a managed certificate. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_ManagedCertificate *managed;
 
 /**
- *  A user-defined name of the certificate. Certificate names must be unique
- *  globally and match pattern `projects/ * /locations/ * /certificates/ *`.
+ *  Identifier. A user-defined name of the certificate. Certificate names must
+ *  be unique globally and match pattern `projects/ * /locations/ *
+ *  /certificates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -404,7 +405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sanDnsnames;
 
 /**
- *  Immutable. The scope of the certificate.
+ *  Optional. Immutable. The scope of the certificate.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateManager_Certificate_Scope_AllRegions Certificates
@@ -432,7 +433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  Set of labels associated with a Certificate.
+ *  Optional. Set of labels associated with a Certificate.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -485,7 +486,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  One or more paragraphs of text description of a CertificateIssuanceConfig.
+ *  Optional. One or more paragraphs of text description of a
+ *  CertificateIssuanceConfig.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -504,14 +506,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @property(nonatomic, copy, nullable) NSString *keyAlgorithm;
 
-/** Set of labels associated with a CertificateIssuanceConfig. */
+/** Optional. Set of labels associated with a CertificateIssuanceConfig. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_CertificateIssuanceConfig_Labels *labels;
 
 /** Required. Workload certificate lifetime requested. */
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  A user-defined name of the certificate issuance config.
+ *  Identifier. A user-defined name of the certificate issuance config.
  *  CertificateIssuanceConfig names must be unique globally and match pattern
  *  `projects/ * /locations/ * /certificateIssuanceConfigs/ *`.
  */
@@ -533,7 +535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  Set of labels associated with a CertificateIssuanceConfig.
+ *  Optional. Set of labels associated with a CertificateIssuanceConfig.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -553,7 +555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  One or more paragraphs of text description of a certificate map.
+ *  Optional. One or more paragraphs of text description of a certificate map.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -565,12 +567,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_GclbTarget *> *gclbTargets;
 
-/** Set of labels associated with a Certificate Map. */
+/** Optional. Set of labels associated with a Certificate Map. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_CertificateMap_Labels *labels;
 
 /**
- *  A user-defined name of the Certificate Map. Certificate Map names must be
- *  unique globally and match pattern `projects/ * /locations/ *
+ *  Identifier. A user-defined name of the Certificate Map. Certificate Map
+ *  names must be unique globally and match pattern `projects/ * /locations/ *
  *  /certificateMaps/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -582,7 +584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  Set of labels associated with a Certificate Map.
+ *  Optional. Set of labels associated with a Certificate Map.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -599,9 +601,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @interface GTLRCertificateManager_CertificateMapEntry : GTLRObject
 
 /**
- *  A set of Certificates defines for the given `hostname`. There can be defined
- *  up to four certificates in each Certificate Map Entry. Each certificate must
- *  match pattern `projects/ * /locations/ * /certificates/ *`.
+ *  Optional. A set of Certificates defines for the given `hostname`. There can
+ *  be defined up to four certificates in each Certificate Map Entry. Each
+ *  certificate must match pattern `projects/ * /locations/ * /certificates/ *`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *certificates;
 
@@ -609,7 +611,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  One or more paragraphs of text description of a certificate map entry.
+ *  Optional. One or more paragraphs of text description of a certificate map
+ *  entry.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -622,7 +625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
-/** Set of labels associated with a Certificate Map Entry. */
+/** Optional. Set of labels associated with a Certificate Map Entry. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_CertificateMapEntry_Labels *labels;
 
 /**
@@ -638,9 +641,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, copy, nullable) NSString *matcher;
 
 /**
- *  A user-defined name of the Certificate Map Entry. Certificate Map Entry
- *  names must be unique globally and match pattern `projects/ * /locations/ *
- *  /certificateMaps/ * /certificateMapEntries/ *`.
+ *  Identifier. A user-defined name of the Certificate Map Entry. Certificate
+ *  Map Entry names must be unique globally and match pattern `projects/ *
+ *  /locations/ * /certificateMaps/ * /certificateMapEntries/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -665,7 +668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  Set of labels associated with a Certificate Map Entry.
+ *  Optional. Set of labels associated with a Certificate Map Entry.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -686,7 +689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  One or more paragraphs of text description of a DnsAuthorization.
+ *  Optional. One or more paragraphs of text description of a DnsAuthorization.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -706,19 +709,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
-/** Set of labels associated with a DnsAuthorization. */
+/** Optional. Set of labels associated with a DnsAuthorization. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_DnsAuthorization_Labels *labels;
 
 /**
- *  A user-defined name of the dns authorization. DnsAuthorization names must be
- *  unique globally and match pattern `projects/ * /locations/ *
+ *  Identifier. A user-defined name of the dns authorization. DnsAuthorization
+ *  names must be unique globally and match pattern `projects/ * /locations/ *
  *  /dnsAuthorizations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. Type of DnsAuthorization. If unset during resource creation the
- *  following default will be used: - in location global: FIXED_RECORD.
+ *  Optional. Immutable. Type of DnsAuthorization. If unset during resource
+ *  creation the following default will be used: - in location `global`:
+ *  FIXED_RECORD, - in other locations: PER_PROJECT_RECORD.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateManager_DnsAuthorization_Type_FixedRecord
@@ -740,7 +744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  Set of labels associated with a DnsAuthorization.
+ *  Optional. Set of labels associated with a DnsAuthorization.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1152,23 +1156,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_AuthorizationAttemptInfo *> *authorizationAttemptInfo;
 
 /**
- *  Immutable. Authorizations that will be used for performing domain
+ *  Optional. Immutable. Authorizations that will be used for performing domain
  *  authorization.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dnsAuthorizations;
 
 /**
- *  Immutable. The domains for which a managed SSL certificate will be
+ *  Optional. Immutable. The domains for which a managed SSL certificate will be
  *  generated. Wildcard domains are only supported with DNS challenge
  *  resolution.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
 
 /**
- *  Immutable. The resource name for a CertificateIssuanceConfig used to
- *  configure private PKI certificates in the format `projects/ * /locations/ *
- *  /certificateIssuanceConfigs/ *`. If this field is not set, the certificates
- *  will instead be publicly signed as documented at
+ *  Optional. Immutable. The resource name for a CertificateIssuanceConfig used
+ *  to configure private PKI certificates in the format `projects/ * /locations/
+ *  * /certificateIssuanceConfigs/ *`. If this field is not set, the
+ *  certificates will instead be publicly signed as documented at
  *  https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
  */
 @property(nonatomic, copy, nullable) NSString *issuanceConfig;
@@ -1359,12 +1363,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @interface GTLRCertificateManager_SelfManagedCertificate : GTLRObject
 
 /**
- *  Input only. The PEM-encoded certificate chain. Leaf certificate comes first,
- *  followed by intermediate ones if any.
+ *  Optional. Input only. The PEM-encoded certificate chain. Leaf certificate
+ *  comes first, followed by intermediate ones if any.
  */
 @property(nonatomic, copy, nullable) NSString *pemCertificate;
 
-/** Input only. The PEM-encoded private key of the leaf certificate. */
+/**
+ *  Optional. Input only. The PEM-encoded private key of the leaf certificate.
+ */
 @property(nonatomic, copy, nullable) NSString *pemPrivateKey;
 
 @end
@@ -1446,7 +1452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  One or more paragraphs of text description of a TrustConfig.
+ *  Optional. One or more paragraphs of text description of a TrustConfig.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1459,20 +1465,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Set of labels associated with a TrustConfig. */
+/** Optional. Set of labels associated with a TrustConfig. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_TrustConfig_Labels *labels;
 
 /**
- *  A user-defined name of the trust config. TrustConfig names must be unique
- *  globally and match pattern `projects/ * /locations/ * /trustConfigs/ *`.
+ *  Identifier. A user-defined name of the trust config. TrustConfig names must
+ *  be unique globally and match pattern `projects/ * /locations/ *
+ *  /trustConfigs/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Set of trust stores to perform validation against. This field is supported
- *  when TrustConfig is configured with Load Balancers, currently not supported
- *  for SPIFFE certificate validation. Only one TrustStore specified is
- *  currently allowed.
+ *  Optional. Set of trust stores to perform validation against. This field is
+ *  supported when TrustConfig is configured with Load Balancers, currently not
+ *  supported for SPIFFE certificate validation. Only one TrustStore specified
+ *  is currently allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_TrustStore *> *trustStores;
 
@@ -1483,7 +1490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  Set of labels associated with a TrustConfig.
+ *  Optional. Set of labels associated with a TrustConfig.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1500,15 +1507,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @interface GTLRCertificateManager_TrustStore : GTLRObject
 
 /**
- *  Set of intermediate CA certificates used for the path building phase of
- *  chain validation. The field is currently not supported if TrustConfig is
- *  used for the workload certificate feature.
+ *  Optional. Set of intermediate CA certificates used for the path building
+ *  phase of chain validation. The field is currently not supported if
+ *  TrustConfig is used for the workload certificate feature.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_IntermediateCA *> *intermediateCas;
 
 /**
- *  List of Trust Anchors to be used while performing validation against a given
- *  TrustStore.
+ *  Optional. List of Trust Anchors to be used while performing validation
+ *  against a given TrustStore.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_TrustAnchor *> *trustAnchors;
 

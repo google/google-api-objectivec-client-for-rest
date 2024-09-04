@@ -671,19 +671,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_Indu
 // GTLRGoogleAnalyticsAdmin_V1betaProperty.propertyType
 
 /**
- *  Ordinary GA4 property
+ *  Ordinary Google Analytics property
  *
  *  Value: "PROPERTY_TYPE_ORDINARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeOrdinary;
 /**
- *  GA4 rollup property
+ *  Google Analytics rollup property
  *
  *  Value: "PROPERTY_TYPE_ROLLUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeRollup;
 /**
- *  GA4 subproperty
+ *  Google Analytics subproperty
  *
  *  Value: "PROPERTY_TYPE_SUBPROPERTY"
  */
@@ -721,19 +721,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_Serv
 // GTLRGoogleAnalyticsAdmin_V1betaPropertySummary.propertyType
 
 /**
- *  Ordinary GA4 property
+ *  Ordinary Google Analytics property
  *
  *  Value: "PROPERTY_TYPE_ORDINARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeOrdinary;
 /**
- *  GA4 rollup property
+ *  Google Analytics rollup property
  *
  *  Value: "PROPERTY_TYPE_ROLLUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeRollup;
 /**
- *  GA4 subproperty
+ *  Google Analytics subproperty
  *
  *  Value: "PROPERTY_TYPE_SUBPROPERTY"
  */
@@ -1329,7 +1329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 /**
  *  A virtual resource representing an overview of an account and all its child
- *  GA4 properties.
+ *  Google Analytics properties.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaAccountSummary : GTLRObject
 
@@ -1990,7 +1990,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
- *  A link between a GA4 property and a Firebase project.
+ *  A link between a Google Analytics property and a Firebase project.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink : GTLRObject
 
@@ -2013,7 +2013,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
- *  A link between a GA4 property and a Google Ads account.
+ *  A link between a Google Analytics property and a Google Ads account.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink : GTLRObject
 
@@ -2491,7 +2491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
- *  A resource message representing a Google Analytics GA4 property.
+ *  A resource message representing a Google Analytics property.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaProperty : GTLRObject
 
@@ -2612,11 +2612,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeOrdinary
- *        Ordinary GA4 property (Value: "PROPERTY_TYPE_ORDINARY")
+ *        Ordinary Google Analytics property (Value: "PROPERTY_TYPE_ORDINARY")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeRollup
- *        GA4 rollup property (Value: "PROPERTY_TYPE_ROLLUP")
+ *        Google Analytics rollup property (Value: "PROPERTY_TYPE_ROLLUP")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeSubproperty
- *        GA4 subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
+ *        Google Analytics subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeUnspecified
  *        Unknown or unspecified property type (Value:
  *        "PROPERTY_TYPE_UNSPECIFIED")
@@ -2656,7 +2656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
- *  A virtual resource representing metadata for a GA4 property.
+ *  A virtual resource representing metadata for a Google Analytics property.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaPropertySummary : GTLRObject
 
@@ -2681,11 +2681,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeOrdinary
- *        Ordinary GA4 property (Value: "PROPERTY_TYPE_ORDINARY")
+ *        Ordinary Google Analytics property (Value: "PROPERTY_TYPE_ORDINARY")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeRollup
- *        GA4 rollup property (Value: "PROPERTY_TYPE_ROLLUP")
+ *        Google Analytics rollup property (Value: "PROPERTY_TYPE_ROLLUP")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeSubproperty
- *        GA4 subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
+ *        Google Analytics subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeUnspecified
  *        Unknown or unspecified property type (Value:
  *        "PROPERTY_TYPE_UNSPECIFIED")
@@ -2719,21 +2719,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 /** The param to be passed in the ToS link. */
 @property(nonatomic, copy, nullable) NSString *accountTicketId;
-
-@end
-
-
-/**
- *  Request message for ReorderEventEditRules RPC.
- */
-@interface GTLRGoogleAnalyticsAdmin_V1betaReorderEventEditRulesRequest : GTLRObject
-
-/**
- *  Required. EventEditRule resource names for the specified data stream, in the
- *  needed processing order. All EventEditRules for the stream must be present
- *  in the list.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *eventEditRules;
 
 @end
 
@@ -2942,7 +2927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 /**
  *  Optional. Resource name for a child property. If set, only return changes
  *  made to this property or its child resources. Format:
- *  properties/{propertyId} Example: "properties/100"
+ *  properties/{propertyId} Example: `properties/100`
  */
 @property(nonatomic, copy, nullable) NSString *property;
 

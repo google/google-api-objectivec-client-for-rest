@@ -326,6 +326,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_Type
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDeploy_CustomTargetTypeNotificationEvent.type
+
+/**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeProcessAborted;
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Deprecated: This field is never used. Use release_render log type instead.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
+/**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceDeleted;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRolloutUpdate;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
 
 /**
@@ -426,6 +478,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_Fa
  *  Value: "MISSING_RESOURCES_FOR_CANARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_MissingResourcesForCanary;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_DeployPolicyNotificationEvent.type
+
+/**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeProcessAborted;
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Deprecated: This field is never used. Use release_render log type instead.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
+/**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceDeleted;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRolloutUpdate;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_ExecutionConfig.usages
@@ -2767,6 +2871,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Payload proto for "clouddeploy.googleapis.com/customtargettype_notification"
+ *  Platform Log event that describes the failure to send a custom target type
+ *  status change Pub/Sub notification.
+ */
+@interface GTLRCloudDeploy_CustomTargetTypeNotificationEvent : GTLRObject
+
+/** The name of the `CustomTargetType`. */
+@property(nonatomic, copy, nullable) NSString *customTargetType;
+
+/** Unique identifier of the `CustomTargetType`. */
+@property(nonatomic, copy, nullable) NSString *customTargetTypeUid;
+
+/** Debug message for when a notification fails to send. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeProcessAborted
+ *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRenderStatuesChange
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeUnspecified
+ *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
@@ -3151,6 +3299,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Payload proto for "clouddeploy.googleapis.com/deploypolicy_notification".
+ *  Platform Log event that describes the failure to send a pub/sub notification
+ *  when there is a DeployPolicy status change.
+ */
+@interface GTLRCloudDeploy_DeployPolicyNotificationEvent : GTLRObject
+
+/** The name of the `DeployPolicy`. */
+@property(nonatomic, copy, nullable) NSString *deployPolicy;
+
+/** Unique identifier of the deploy policy. */
+@property(nonatomic, copy, nullable) NSString *deployPolicyUid;
+
+/**
+ *  Debug message for when a deploy policy fails to send a pub/sub notification.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeProcessAborted
+ *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRenderStatuesChange
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeUnspecified
+ *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -3276,6 +3470,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Required. Name of the Gateway API HTTPRoute. */
 @property(nonatomic, copy, nullable) NSString *httpRoute;
+
+/**
+ *  Optional. The label to use when selecting Pods for the Deployment and
+ *  Service resources. This label must already be present in both resources.
+ */
+@property(nonatomic, copy, nullable) NSString *podSelectorLabel;
 
 /**
  *  Optional. The time to wait for route updates to propagate. The maximum
@@ -4536,8 +4736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  `PromoteRelease` rule will automatically promote a release from the current
- *  target to a specified target.
+ *  The `PromoteRelease` rule will automatically promote a release from the
+ *  current target to a specified target.
  */
 @interface GTLRCloudDeploy_PromoteReleaseRule : GTLRObject
 
@@ -4554,9 +4754,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Optional. The ID of the stage in the pipeline to which this `Release` is
  *  deploying. If unspecified, default it to the next stage in the promotion
  *  flow. The value of this field could be one of the following: * The last
- *  segment of a target name. It only needs the ID to determine if the target is
- *  one of the stages in the promotion sequence defined in the pipeline. *
- *  "\@next", the next target in the promotion sequence.
+ *  segment of a target name * "\@next", the next target in the promotion
+ *  sequence
  */
 @property(nonatomic, copy, nullable) NSString *destinationTargetId;
 
@@ -5650,6 +5849,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) NSNumber *disablePodOverprovisioning;
 
+/**
+ *  Optional. The label to use when selecting Pods for the Deployment resource.
+ *  This label must already be present in the Deployment.
+ */
+@property(nonatomic, copy, nullable) NSString *podSelectorLabel;
+
 /** Required. Name of the Kubernetes Service. */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -6136,8 +6341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  ID of the `Target`. The value of this field could be one of the following: *
- *  The last segment of a target name. It only needs the ID to determine which
- *  target is being referred to * "*", all targets in a location.
+ *  The last segment of a target name * "*", all targets in a location
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

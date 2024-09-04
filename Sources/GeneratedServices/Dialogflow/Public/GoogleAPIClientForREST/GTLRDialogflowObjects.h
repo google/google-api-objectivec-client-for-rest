@@ -22,6 +22,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsSpeechSettings_Models;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Agent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentAnswerFeedbackSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentClientCertificateSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGenAppBuilderSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AgentGitIntegrationSettingsGithubSettings;
@@ -62,7 +63,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCasesCaseCaseContent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentSetParameterAction;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GcsDestination;
-@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportIntentsResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InlineDestination;
@@ -126,6 +126,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookServiceDirectoryConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpec;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpec;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpecControlPoint;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult;
@@ -182,7 +184,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GenerativeSettingsKnowledgeConnectorSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Generator;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3GeneratorPlaceholder;
-@class GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportIntentsResponseConflictingResources;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3InlineDestination;
@@ -297,6 +298,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1DialogflowAssistAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput;
@@ -305,6 +307,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage;
@@ -370,6 +373,15 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_WebhookPayload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessage;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessage_Payload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageEndInteraction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageLiveAgentHandoff;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageLiveAgentHandoff_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageMixedAudio;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageMixedAudioSegment;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageTelephonyTransferCall;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageText;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType;
@@ -383,6 +395,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
@@ -391,6 +404,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InputDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentFollowupIntentInfo;
@@ -451,7 +465,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
-@class GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals;
 @class GTLRDialogflow_GoogleCloudLocationLocation;
 @class GTLRDialogflow_GoogleCloudLocationLocation_Labels;
@@ -545,34 +558,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  Value: "UNSTRUCTURED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1DataStoreConnection_DataStoreType_Unstructured;
-
-// ----------------------------------------------------------------------------
-// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata.state
-
-/**
- *  The operation is done, either cancelled or completed.
- *
- *  Value: "DONE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_Done;
-/**
- *  The operation has been created.
- *
- *  Value: "PENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_Pending;
-/**
- *  The operation is currently running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_Running;
-/**
- *  State unspecified.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1InputAudioConfig.audioEncoding
@@ -925,6 +910,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Replace;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec.attributeType
+
+/**
+ *  Unspecified AttributeType.
+ *
+ *  Value: "ATTRIBUTE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_AttributeType_AttributeTypeUnspecified;
+/**
+ *  For the freshness use case the attribute value will be the duration between
+ *  the current time and the date in the datetime field specified. The value
+ *  must be formatted as an XSD `dayTimeDuration` value (a restricted subset of
+ *  an ISO 8601 duration value). The pattern for this is: `nDnM]`. E.g. `5D`,
+ *  `3DT12H30M`, `T24H`.
+ *
+ *  Value: "FRESHNESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_AttributeType_Freshness;
+/**
+ *  The value of the numerical field will be used to dynamically update the
+ *  boost amount. In this case, the attribute_value (the x value) of the control
+ *  point will be the actual value of the numerical field for which the
+ *  boost_amount is specified.
+ *
+ *  Value: "NUMERICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_AttributeType_Numerical;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec.interpolationType
+
+/**
+ *  Interpolation type is unspecified. In this case, it defaults to Linear.
+ *
+ *  Value: "INTERPOLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_InterpolationType_InterpolationTypeUnspecified;
+/**
+ *  Piecewise linear interpolation will be applied.
+ *
+ *  Value: "LINEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_InterpolationType_Linear;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult.result
@@ -1428,34 +1458,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Flow
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy_GlobalImportStrategy_ImportStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata.state
-
-/**
- *  The operation is done, either cancelled or completed.
- *
- *  Value: "DONE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Done;
-/**
- *  The operation has been created.
- *
- *  Value: "PENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Pending;
-/**
- *  The operation is currently running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Running;
-/**
- *  State unspecified.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ImportEntityTypesRequest.mergeOption
 
 /**
@@ -1706,6 +1708,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Matc
  *  Value: "INTENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Intent;
+/**
+ *  The query was matched to a Knowledge Connector answer.
+ *
+ *  Value: "KNOWLEDGE_CONNECTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_KnowledgeConnector;
 /**
  *  Not specified. Should never be used.
  *
@@ -3995,34 +4003,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartR
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyDualEncoderModel;
 
 // ----------------------------------------------------------------------------
-// GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata.state
-
-/**
- *  The operation is done, either cancelled or completed.
- *
- *  Value: "DONE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_Done;
-/**
- *  The operation has been created.
- *
- *  Value: "PENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_Pending;
-/**
- *  The operation is currently running.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_Running;
-/**
- *  State unspecified.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals.failureReasons
 
 /**
@@ -4127,6 +4107,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings : GTLRObject
 
 /**
+ *  Enables consent-based end-user input redaction, if true, a pre-defined
+ *  session parameter `$session.params.conversation-redaction` will be used to
+ *  determine if the utterance should be redacted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConsentBasedRedaction;
+
+/**
  *  Enables DF Interaction logging.
  *
  *  Uses NSNumber of boolValue.
@@ -4134,7 +4123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *enableInteractionLogging;
 
 /**
- *  Enables StackDriver logging.
+ *  Enables Google Cloud Logging.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4219,6 +4208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  integration.
  */
 @property(nonatomic, copy, nullable) NSString *avatarUri;
+
+/** Optional. Settings for custom client certificates. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AgentClientCertificateSettings *clientCertificateSettings;
 
 /**
  *  Required. Immutable. The default language of the agent as a language tag.
@@ -4341,6 +4333,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableAnswerFeedback;
+
+@end
+
+
+/**
+ *  Settings for custom client certificates.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3AgentClientCertificateSettings : GTLRObject
+
+/**
+ *  Optional. The name of the SecretManager secret version resource storing the
+ *  passphrase. 'passphrase' should be left unset if the private key is not
+ *  encrypted. Format: `projects/{project}/secrets/{secret}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *passphrase;
+
+/**
+ *  Required. The name of the SecretManager secret version resource storing the
+ *  private key encoded in PEM format. Format:
+ *  `projects/{project}/secrets/{secret}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *privateKey;
+
+/**
+ *  Required. The ssl certificate encoded in PEM format. This string must
+ *  include the begin header and end footer lines.
+ */
+@property(nonatomic, copy, nullable) NSString *sslCertificate;
 
 @end
 
@@ -4564,8 +4584,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3BatchDeleteTestCasesRequest : GTLRObject
 
 /**
- *  Required. Format of test case names: `projects//locations/
- *  /agents//testCases/`.
+ *  Required. Format of test case names:
+ *  `projects//locations//agents//testCases/`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -4698,6 +4718,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettingsLoggingSettings : GTLRObject
 
 /**
+ *  Enables consent-based end-user input redaction, if true, a pre-defined
+ *  session parameter `$session.params.conversation-redaction` will be used to
+ *  determine if the utterance should be redacted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConsentBasedRedaction;
+
+/**
  *  Enables DF Interaction logging.
  *
  *  Uses NSNumber of boolValue.
@@ -4705,7 +4734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *enableInteractionLogging;
 
 /**
- *  Enables StackDriver logging.
+ *  Enables Google Cloud Logging.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5026,17 +5055,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for CreateDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1CreateDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
  *  Metadata associated with the long running operation for
  *  Versions.CreateVersion.
  */
@@ -5087,17 +5105,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for DeleteDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DeleteDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
  *  Metadata returned for the Environments.DeployFlow long running operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DeployFlowMetadata : GTLRObject
@@ -5115,7 +5122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The name of the flow version deployment. Format:
- *  `projects//locations//agents// environments//deployments/`.
+ *  `projects//locations//agents//environments//deployments/`.
  */
 @property(nonatomic, copy, nullable) NSString *deployment;
 
@@ -5213,7 +5220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  A list of test case names to run. They should be under the same agent.
- *  Format of each test case name: `projects//locations/ /agents//testCases/`
+ *  Format of each test case name: `projects//locations//agents//testCases/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *testCases;
 
@@ -5225,7 +5232,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig : GTLRObject
 
-/** Required. Format: projects//locations//agents//flows//versions/. */
+/**
+ *  Required. Both flow and playbook versions are supported. Format for flow
+ *  version: projects//locations//agents//flows//versions/. Format for playbook
+ *  version: projects//locations//agents//playbooks//versions/.
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -5274,6 +5285,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//locations//agents//flows//pages/`.
  */
 @property(nonatomic, copy, nullable) NSString *targetPage;
+
+/**
+ *  The target playbook to transition to. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetPlaybook;
 
 /**
  *  The fulfillment to call when the event occurs. Handling webhook errors with
@@ -5690,51 +5707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  just a prefix, its usage depends on the Dialogflow operation.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Metadata in google::longrunning::Operation for Knowledge operations.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata : GTLRObject
-
-/**
- *  Required. Output only. The current state of this operation.
- *
- *  Likely values:
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_Done
- *        The operation is done, either cancelled or completed. (Value: "DONE")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_Pending
- *        The operation has been created. (Value: "PENDING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_Running
- *        The operation is currently running. (Value: "RUNNING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_StateUnspecified
- *        State unspecified. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  Metadata for ImportDocuments operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportDocumentsOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
- *  Response message for Documents.ImportDocuments.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportDocumentsResponse : GTLRObject
-
-/** Includes details about skipped documents or any other warnings. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
 
 @end
 
@@ -6524,17 +6496,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for ReloadDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ReloadDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
  *  Represents a response message that can be returned by a conversational
  *  agent. Response messages are also used for output audio synthesis. The
  *  approach is as follows: * If at least one OutputAudioText response is
@@ -6837,7 +6798,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
 
-/** Required. A collection of text responses. */
+/**
+ *  Required. A collection of text response variants. If multiple variants are
+ *  defined, only one text response variant is returned at runtime.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *text;
 
 @end
@@ -6947,7 +6911,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  The unique identifier of the test case. TestCases.CreateTestCase will
  *  populate the name automatically. Otherwise use format:
- *  `projects//locations//agents/ /testCases/`.
+ *  `projects//locations//agents//testCases/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7007,7 +6971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The resource name for the test case result. Format:
- *  `projects//locations//agents//testCases/ /results/`.
+ *  `projects//locations//agents//testCases//results/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7039,18 +7003,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Flow name to start the test case with. Format:
  *  `projects//locations//agents//flows/`. Only one of `flow` and `page` should
- *  be set to indicate the starting point of the test case. If both are set,
- *  `page` takes precedence over `flow`. If neither is set, the test case will
- *  start with start page on the default start flow.
+ *  be set to indicate the starting point of the test case. If neither is set,
+ *  the test case will start with start page on the default start flow.
  */
 @property(nonatomic, copy, nullable) NSString *flow;
 
 /**
  *  The page to start the test case with. Format:
  *  `projects//locations//agents//flows//pages/`. Only one of `flow` and `page`
- *  should be set to indicate the starting point of the test case. If both are
- *  set, `page` takes precedence over `flow`. If neither is set, the test case
- *  will start with start page on the default start flow.
+ *  should be set to indicate the starting point of the test case. If neither is
+ *  set, the test case will start with start page on the default start flow.
  */
 @property(nonatomic, copy, nullable) NSString *page;
 
@@ -7336,17 +7298,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Human-readable statuses of the webhooks triggered during this turn. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *webhookStatuses;
-
-@end
-
-
-/**
- *  Metadata for UpdateDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1UpdateDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata *genericMetadata;
 
 @end
 
@@ -7916,12 +7867,104 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *boost;
 
 /**
+ *  Optional. Complex specification for custom ranking based on customer defined
+ *  attribute value.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec *boostControlSpec;
+
+/**
  *  Optional. An expression which specifies a boost condition. The syntax and
  *  supported fields are the same as a filter expression. Examples: * To boost
  *  documents with document ID "doc_1" or "doc_2", and color "Red" or "Blue": *
  *  (id: ANY("doc_1", "doc_2")) AND (color: ANY("Red","Blue"))
  */
 @property(nonatomic, copy, nullable) NSString *condition;
+
+@end
+
+
+/**
+ *  Specification for custom ranking based on customer specified attribute
+ *  value. It provides more controls for customized ranking than the simple
+ *  (condition, boost) combination above.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec : GTLRObject
+
+/**
+ *  Optional. The attribute type to be used to determine the boost amount. The
+ *  attribute value can be derived from the field value of the specified
+ *  field_name. In the case of numerical it is straightforward i.e.
+ *  attribute_value = numerical_field_value. In the case of freshness however,
+ *  attribute_value = (time.now() - datetime_field_value).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_AttributeType_AttributeTypeUnspecified
+ *        Unspecified AttributeType. (Value: "ATTRIBUTE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_AttributeType_Freshness
+ *        For the freshness use case the attribute value will be the duration
+ *        between the current time and the date in the datetime field specified.
+ *        The value must be formatted as an XSD `dayTimeDuration` value (a
+ *        restricted subset of an ISO 8601 duration value). The pattern for this
+ *        is: `nDnM]`. E.g. `5D`, `3DT12H30M`, `T24H`. (Value: "FRESHNESS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_AttributeType_Numerical
+ *        The value of the numerical field will be used to dynamically update
+ *        the boost amount. In this case, the attribute_value (the x value) of
+ *        the control point will be the actual value of the numerical field for
+ *        which the boost_amount is specified. (Value: "NUMERICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *attributeType;
+
+/**
+ *  Optional. The control points used to define the curve. The monotonic
+ *  function (defined through the interpolation_type above) passes through the
+ *  control points listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpecControlPoint *> *controlPoints;
+
+/**
+ *  Optional. The name of the field whose value will be used to determine the
+ *  boost amount.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/**
+ *  Optional. The interpolation type to be applied to connect the control points
+ *  listed below.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_InterpolationType_InterpolationTypeUnspecified
+ *        Interpolation type is unspecified. In this case, it defaults to
+ *        Linear. (Value: "INTERPOLATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpec_InterpolationType_Linear
+ *        Piecewise linear interpolation will be applied. (Value: "LINEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *interpolationType;
+
+@end
+
+
+/**
+ *  The control points used to define the curve. The curve defined through these
+ *  control points can only be monotonically increasing or decreasing(constant
+ *  values are acceptable).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpecControlPoint : GTLRObject
+
+/**
+ *  Optional. Can be one of: 1. The numerical field value. 2. The duration spec
+ *  for freshness: The value must be formatted as an XSD `dayTimeDuration` value
+ *  (a restricted subset of an ISO 8601 duration value). The pattern for this
+ *  is: `nDnM]`.
+ */
+@property(nonatomic, copy, nullable) NSString *attributeValue;
+
+/**
+ *  Optional. The value between -1 to 1 by which to boost the score if the
+ *  attribute_value evaluates to the value specified above.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boostAmount;
 
 @end
 
@@ -8222,17 +8265,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for CreateDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3CreateDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
  *  Metadata associated with the long running operation for
  *  Versions.CreateVersion.
  */
@@ -8331,6 +8363,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsAnswerGenerationModelCallSignals : GTLRObject
 
+/**
+ *  Name of the generative model. For example, "gemini-ultra", "gemini-pro",
+ *  "gemini-1.5-flash" etc. Defaults to "Other" if the model is unknown.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
 /** Output of the generative model. */
 @property(nonatomic, copy, nullable) NSString *modelOutput;
 
@@ -8424,6 +8462,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3DataStoreConnectionSignalsRewriterModelCallSignals : GTLRObject
 
+/**
+ *  Name of the generative model. For example, "gemini-ultra", "gemini-pro",
+ *  "gemini-1.5-flash" etc. Defaults to "Other" if the model is unknown.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
 /** Output of the generative model. */
 @property(nonatomic, copy, nullable) NSString *modelOutput;
 
@@ -8495,17 +8539,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for DeleteDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3DeleteDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
  *  Metadata returned for the Environments.DeployFlow long running operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowMetadata : GTLRObject
@@ -8522,8 +8555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest : GTLRObject
 
 /**
- *  Required. The flow version to deploy. Format: `projects//locations//agents//
- *  flows//versions/`.
+ *  Required. The flow version to deploy. Format:
+ *  `projects//locations//agents//flows//versions/`.
  */
 @property(nonatomic, copy, nullable) NSString *flowVersion;
 
@@ -8537,7 +8570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The name of the flow version Deployment. Format:
- *  `projects//locations//agents// environments//deployments/`.
+ *  `projects//locations//agents//environments//deployments/`.
  */
 @property(nonatomic, copy, nullable) NSString *deployment;
 
@@ -8915,7 +8948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  A list of test case names to run. They should be under the same agent.
- *  Format of each test case name: `projects//locations/ /agents//testCases/`
+ *  Format of each test case name: `projects//locations//agents//testCases/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *testCases;
 
@@ -8927,7 +8960,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig : GTLRObject
 
-/** Required. Format: projects//locations//agents//flows//versions/. */
+/**
+ *  Required. Both flow and playbook versions are supported. Format for flow
+ *  version: projects//locations//agents//flows//versions/. Format for playbook
+ *  version: projects//locations//agents//playbooks//versions/.
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -8976,6 +9013,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//locations//agents//flows//pages/`.
  */
 @property(nonatomic, copy, nullable) NSString *targetPage;
+
+/**
+ *  The target playbook to transition to. Format:
+ *  `projects//locations//agents//playbooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetPlaybook;
 
 /**
  *  The fulfillment to call when the event occurs. Handling webhook errors with
@@ -9037,7 +9080,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The name of the experiment. Format:
- *  projects//locations//agents//environments//experiments/..
+ *  projects//locations//agents//environments//experiments/.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -9707,6 +9750,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Optional. Knowledge connector configuration. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3KnowledgeConnectorSettings *knowledgeConnectorSettings;
 
+/**
+ *  Indicates whether the flow is locked for changes. If the flow is locked,
+ *  modifications to the flow will be rejected.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *locked;
+
 /** Optional. Multi-lingual agent settings for this flow. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3FlowMultiLanguageSettings *multiLanguageSettings;
 
@@ -9723,8 +9774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  A flow's transition route group serve two purposes: * They are responsible
  *  for matching the user's first utterances in the flow. * They are inherited
  *  by every page's transition route groups. Transition route groups defined in
- *  the page have higher priority than those defined in the flow.
- *  Format:`projects//locations//agents//flows//transitionRouteGroups/` or
+ *  the page have higher priority than those defined in the flow. Format:
+ *  `projects//locations//agents//flows//transitionRouteGroups/` or
  *  `projects//locations//agents//transitionRouteGroups/` for agent-level
  *  groups.
  */
@@ -10296,51 +10347,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Custom placeholder value in the prompt text. */
 @property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Metadata in google::longrunning::Operation for Knowledge operations.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata : GTLRObject
-
-/**
- *  Required. Output only. The current state of this operation.
- *
- *  Likely values:
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Done
- *        The operation is done, either cancelled or completed. (Value: "DONE")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Pending
- *        The operation has been created. (Value: "PENDING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Running
- *        The operation is currently running. (Value: "RUNNING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_StateUnspecified
- *        State unspecified. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  Metadata for ImportDocuments operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportDocumentsOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
- *  Response message for Documents.ImportDocuments.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportDocumentsResponse : GTLRObject
-
-/** Includes details about skipped documents or any other warnings. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
 
 @end
 
@@ -11728,6 +11734,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        query directly triggered an event. (Value: "EVENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_Intent
  *        The query was matched to an intent. (Value: "INTENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_KnowledgeConnector
+ *        The query was matched to a Knowledge Connector answer. (Value:
+ *        "KNOWLEDGE_CONNECTOR")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_MatchTypeUnspecified
  *        Not specified. Should never be used. (Value: "MATCH_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Match_MatchType_NoInput
@@ -12610,17 +12619,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for ReloadDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ReloadDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
  *  Resource name and display name.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResourceName : GTLRObject
@@ -12950,7 +12948,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
 
-/** Required. A collection of text responses. */
+/**
+ *  Required. A collection of text response variants. If multiple variants are
+ *  defined, only one text response variant is returned at runtime.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *text;
 
 @end
@@ -13634,7 +13635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  The unique identifier of the test case. TestCases.CreateTestCase will
  *  populate the name automatically. Otherwise use format:
- *  `projects//locations//agents/ /testCases/`.
+ *  `projects//locations//agents//testCases/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -13694,7 +13695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The resource name for the test case result. Format:
- *  `projects//locations//agents//testCases/ /results/`.
+ *  `projects//locations//agents//testCases//results/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -13726,18 +13727,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Flow name to start the test case with. Format:
  *  `projects//locations//agents//flows/`. Only one of `flow` and `page` should
- *  be set to indicate the starting point of the test case. If both are set,
- *  `page` takes precedence over `flow`. If neither is set, the test case will
- *  start with start page on the default start flow.
+ *  be set to indicate the starting point of the test case. If neither is set,
+ *  the test case will start with start page on the default start flow.
  */
 @property(nonatomic, copy, nullable) NSString *flow;
 
 /**
  *  The page to start the test case with. Format:
  *  `projects//locations//agents//flows//pages/`. Only one of `flow` and `page`
- *  should be set to indicate the starting point of the test case. If both are
- *  set, `page` takes precedence over `flow`. If neither is set, the test case
- *  will start with start page on the default start flow.
+ *  should be set to indicate the starting point of the test case. If neither is
+ *  set, the test case will start with start page on the default start flow.
  */
 @property(nonatomic, copy, nullable) NSString *page;
 
@@ -14154,17 +14153,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Human-readable statuses of the webhooks triggered during this turn. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *webhookStatuses;
-
-@end
-
-
-/**
- *  Metadata for UpdateDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3UpdateDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata *genericMetadata;
 
 @end
 
@@ -15369,6 +15357,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  A customer-managed encryption key specification that can be applied to all
+ *  created resources (e.g. Conversation).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec : GTLRObject
+
+/**
+ *  Required. The name of customer-managed encryption key that is used to secure
+ *  a resource and its sub-resources. If empty, the resource is secured by the
+ *  default Google encryption key. Only the key in the same location as this
+ *  resource is allowed to be used for encryption. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Immutable. The resource name of the encryption key specification resource.
+ *  Format: projects/{project}/locations/{location}/encryptionSpec
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Each intent parameter has a type, called the entity type, which dictates
  *  exactly how data from an end-user expression is extracted. Dialogflow
  *  provides predefined system entities that can match many common types of
@@ -15664,6 +15676,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata for initializing a location-level encryption specification.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecMetadata : GTLRObject
+
+/** Output only. The original request for initialization. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest *request;
+
+@end
+
+
+/**
+ *  The request to initialize a location-level encryption specification.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest : GTLRObject
+
+/**
+ *  Required. The encryption spec used for CMEK encryption. It is required that
+ *  the kms key is in the same region as the endpoint. The same key will be used
+ *  for all provisioned resources, if encryption is available. If the
+ *  kms_key_name is left empty, no encryption will be enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EncryptionSpec *encryptionSpec;
 
 @end
 
@@ -17269,6 +17308,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *participantRole;
 
+/** Optional. Automated agent responses. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessage *> *responseMessages;
+
 /** Optional. The time when the message was sent. */
 @property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
 
@@ -17539,6 +17581,167 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_WebhookPayload : GTLRObject
+@end
+
+
+/**
+ *  Response messages from an automated agent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessage : GTLRObject
+
+/**
+ *  A signal that indicates the interaction with the Dialogflow agent has ended.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageEndInteraction *endInteraction;
+
+/** Hands off conversation to a live agent. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageLiveAgentHandoff *liveAgentHandoff;
+
+/**
+ *  An audio response message composed of both the synthesized Dialogflow agent
+ *  responses and the audios hosted in places known to the client.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageMixedAudio *mixedAudio;
+
+/** Returns a response containing a custom, platform-specific payload. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessage_Payload *payload;
+
+/**
+ *  A signal that the client should transfer the phone call connected to this
+ *  agent to a third-party endpoint.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageTelephonyTransferCall *telephonyTransferCall;
+
+/** Returns a text response. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageText *text;
+
+@end
+
+
+/**
+ *  Returns a response containing a custom, platform-specific payload.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessage_Payload : GTLRObject
+@end
+
+
+/**
+ *  Indicates that interaction with the Dialogflow agent has ended.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageEndInteraction : GTLRObject
+@end
+
+
+/**
+ *  Indicates that the conversation should be handed off to a human agent.
+ *  Dialogflow only uses this to determine which conversations were handed off
+ *  to a human agent for measurement purposes. What else to do with this signal
+ *  is up to you and your handoff procedures. You may set this, for example: *
+ *  In the entry fulfillment of a CX Page if entering the page indicates
+ *  something went extremely wrong in the conversation. * In a webhook response
+ *  when you determine that the customer issue can only be handled by a human.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageLiveAgentHandoff : GTLRObject
+
+/**
+ *  Custom metadata for your handoff procedure. Dialogflow doesn't impose any
+ *  structure on this.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageLiveAgentHandoff_Metadata *metadata;
+
+@end
+
+
+/**
+ *  Custom metadata for your handoff procedure. Dialogflow doesn't impose any
+ *  structure on this.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageLiveAgentHandoff_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents an audio message that is composed of both segments synthesized
+ *  from the Dialogflow agent prompts and ones hosted externally at the
+ *  specified URIs.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageMixedAudio : GTLRObject
+
+/** Segments this audio response is composed of. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageMixedAudioSegment *> *segments;
+
+@end
+
+
+/**
+ *  Represents one segment of audio.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageMixedAudioSegment : GTLRObject
+
+/**
+ *  Whether the playback of this segment can be interrupted by the end user's
+ *  speech and the client should then start the next Dialogflow request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
+
+/**
+ *  Raw audio synthesized from the Dialogflow agent's response using the output
+ *  config specified in the request.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *audio;
+
+/**
+ *  Client-specific URI that points to an audio clip accessible to the client.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents the signal that telles the client to transfer the phone call
+ *  connected to the agent to a third-party endpoint.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageTelephonyTransferCall : GTLRObject
+
+/**
+ *  Transfer the call to a phone number in [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164).
+ */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/** Transfer the call to a SIP endpoint. */
+@property(nonatomic, copy, nullable) NSString *sipUri;
+
+@end
+
+
+/**
+ *  The text response message.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageText : GTLRObject
+
+/**
+ *  A collection of text response variants. If multiple variants are defined,
+ *  only one text response variant is returned at runtime.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
 @end
 
 
@@ -18467,6 +18670,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  A customer-managed encryption key specification that can be applied to all
+ *  created resources (e.g. Conversation).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec : GTLRObject
+
+/**
+ *  Required. The name of customer-managed encryption key that is used to secure
+ *  a resource and its sub-resources. If empty, the resource is secured by the
+ *  default Google encryption key. Only the key in the same location as this
+ *  resource is allowed to be used for encryption. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Immutable. The resource name of the encryption key specification resource.
+ *  Format: projects/{project}/locations/{location}/encryptionSpec
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Each intent parameter has a type, called the entity type, which dictates
  *  exactly how data from an end-user expression is extracted. Dialogflow
  *  provides predefined system entities that can match many common types of
@@ -18803,6 +19030,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata for initializing a location-level encryption specification.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecMetadata : GTLRObject
+
+/** Output only. The original request for initialization. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest *request;
+
+@end
+
+
+/**
+ *  The request to initialize a location-level encryption specification.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest : GTLRObject
+
+/**
+ *  Required. The encryption spec used for CMEK encryption. It is required that
+ *  the kms key is in the same region as the endpoint. The same key will be used
+ *  for all provisioned resources, if encryption is available. If the
+ *  kms_key_name is left empty, no encryption will be enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec *encryptionSpec;
 
 @end
 
@@ -20743,84 +20997,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata for CreateDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
- *  Metadata for DeleteDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1DeleteDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
- *  Metadata in google::longrunning::Operation for Knowledge operations.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata : GTLRObject
-
-/**
- *  Required. Output only. The current state of this operation.
- *
- *  Likely values:
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_Done
- *        The operation is done, either cancelled or completed. (Value: "DONE")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_Pending
- *        The operation has been created. (Value: "PENDING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_Running
- *        The operation is currently running. (Value: "RUNNING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_StateUnspecified
- *        State unspecified. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  Metadata for ImportDocuments operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportDocumentsOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
- *  Response message for Documents.ImportDocuments.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportDocumentsResponse : GTLRObject
-
-/** Includes details about skipped documents or any other warnings. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
-
-@end
-
-
-/**
- *  Metadata for ReloadDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ReloadDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata *genericMetadata;
-
-@end
-
-
-/**
  *  Collection of all signals that were extracted for a single turn of the
  *  conversation.
  */
@@ -20899,17 +21075,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Human-readable statuses of the webhooks triggered during this turn. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *webhookStatuses;
-
-@end
-
-
-/**
- *  Metadata for UpdateDocument operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1UpdateDocumentOperationMetadata : GTLRObject
-
-/** The generic information of the operation. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata *genericMetadata;
 
 @end
 

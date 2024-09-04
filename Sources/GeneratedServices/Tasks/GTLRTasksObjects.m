@@ -11,13 +11,53 @@
 #import <GoogleAPIClientForREST/GTLRTasksObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRTasks_AssignmentInfo.surfaceType
+NSString * const kGTLRTasks_AssignmentInfo_SurfaceType_ContextTypeUnspecified = @"CONTEXT_TYPE_UNSPECIFIED";
+NSString * const kGTLRTasks_AssignmentInfo_SurfaceType_Document = @"DOCUMENT";
+NSString * const kGTLRTasks_AssignmentInfo_SurfaceType_Gmail   = @"GMAIL";
+NSString * const kGTLRTasks_AssignmentInfo_SurfaceType_Space   = @"SPACE";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTasks_AssignmentInfo
+//
+
+@implementation GTLRTasks_AssignmentInfo
+@dynamic driveResourceInfo, linkToTask, spaceInfo, surfaceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTasks_DriveResourceInfo
+//
+
+@implementation GTLRTasks_DriveResourceInfo
+@dynamic driveFileId, resourceKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTasks_SpaceInfo
+//
+
+@implementation GTLRTasks_SpaceInfo
+@dynamic space;
+@end
+
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRTasks_Task
 //
 
 @implementation GTLRTasks_Task
-@dynamic completed, deleted, due, ETag, hidden, identifier, kind, links, notes,
-         parent, position, selfLink, status, title, updated, webViewLink;
+@dynamic assignmentInfo, completed, deleted, due, ETag, hidden, identifier,
+         kind, links, notes, parent, position, selfLink, status, title, updated,
+         webViewLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

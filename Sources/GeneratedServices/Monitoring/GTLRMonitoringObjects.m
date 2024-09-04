@@ -2071,7 +2071,12 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_TimeSeries
-@dynamic metadata, metric, metricKind, points, resource, unit, valueType;
+@dynamic descriptionProperty, metadata, metric, metricKind, points, resource,
+         unit, valueType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -65,6 +65,14 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Thursday = @"THURSDAY";
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Tuesday = @"TUESDAY";
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY";
 
+// GTLRLooker_ServiceAttachment.connectionStatus
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Accepted = @"ACCEPTED";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Closed = @"CLOSED";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Pending = @"PENDING";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Rejected = @"REJECTED";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKNOWN";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRLooker_AdminSettings
@@ -280,8 +288,8 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
          ingressPrivateIp, ingressPublicIp, lastDenyMaintenancePeriod,
          linkedLspProjectNumber, lookerUri, lookerVersion, maintenanceSchedule,
          maintenanceWindow, name, oauthConfig, platformEdition,
-         privateIpEnabled, publicIpEnabled, reservedRange, state, updateTime,
-         userMetadata;
+         privateIpEnabled, pscConfig, pscEnabled, publicIpEnabled,
+         reservedRange, state, updateTime, userMetadata;
 @end
 
 
@@ -494,10 +502,39 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLooker_PscConfig
+//
+
+@implementation GTLRLooker_PscConfig
+@dynamic allowedVpcs, lookerServiceAttachmentUri, serviceAttachments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedVpcs" : [NSString class],
+    @"serviceAttachments" : [GTLRLooker_ServiceAttachment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLooker_RestartInstanceRequest
 //
 
 @implementation GTLRLooker_RestartInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_ServiceAttachment
+//
+
+@implementation GTLRLooker_ServiceAttachment
+@dynamic connectionStatus, localFqdn, targetServiceAttachmentUri;
 @end
 
 

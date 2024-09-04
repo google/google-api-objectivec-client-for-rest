@@ -84,6 +84,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogError
 FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogNone;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkflows_Workflow.executionHistoryLevel
+
+/**
+ *  Enable execution history basic feature.
+ *
+ *  Value: "EXECUTION_HISTORY_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryBasic;
+/**
+ *  Enable execution history detailed feature.
+ *
+ *  Value: "EXECUTION_HISTORY_DETAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryDetailed;
+/**
+ *  The default/unset value.
+ *
+ *  Value: "EXECUTION_HISTORY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkflows_Workflow.state
 
 /**
@@ -452,7 +474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 
 
 /**
- *  Workflow program to be executed by Workflows.
+ *  LINT.IfChange Workflow program to be executed by Workflows.
  */
 @interface GTLRWorkflows_Workflow : GTLRObject
 
@@ -518,6 +540,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Describes the level of the execution history feature to apply to
+ *  this workflow.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryBasic
+ *        Enable execution history basic feature. (Value:
+ *        "EXECUTION_HISTORY_BASIC")
+ *    @arg @c kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryDetailed
+ *        Enable execution history detailed feature. (Value:
+ *        "EXECUTION_HISTORY_DETAILED")
+ *    @arg @c kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryLevelUnspecified
+ *        The default/unset value. (Value:
+ *        "EXECUTION_HISTORY_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *executionHistoryLevel;
 
 /**
  *  Labels associated with this workflow. Labels can contain at most 64 entries.

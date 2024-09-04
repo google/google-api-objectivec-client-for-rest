@@ -1365,6 +1365,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNend;
 /**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNetflix;
+/**
  *  Nexstar Digital.
  *
  *  Value: "EXCHANGE_NEXSTAR_DIGITAL"
@@ -6006,6 +6012,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNend;
 /**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNetflix;
+/**
  *  Nexstar Digital.
  *
  *  Value: "EXCHANGE_NEXSTAR_DIGITAL"
@@ -6502,6 +6514,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNend;
 /**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNetflix;
+/**
  *  Nexstar Digital.
  *
  *  Value: "EXCHANGE_NEXSTAR_DIGITAL"
@@ -6997,6 +7015,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -7521,6 +7545,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -9074,6 +9104,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNend;
 /**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNetflix;
+/**
  *  Nexstar Digital.
  *
  *  Value: "EXCHANGE_NEXSTAR_DIGITAL"
@@ -10309,6 +10345,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -11810,6 +11852,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeAdGroup;
 /**
+ *  YouTube Ad Group - QA format.
+ *
+ *  Value: "FILE_TYPE_AD_GROUP_QA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeAdGroupQa;
+/**
  *  Campaign.
  *
  *  Value: "FILE_TYPE_CAMPAIGN"
@@ -11827,6 +11875,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType
  *  Value: "FILE_TYPE_LINE_ITEM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeLineItem;
+/**
+ *  Line Item - QA format.
+ *
+ *  Value: "FILE_TYPE_LINE_ITEM_QA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeLineItemQa;
 /**
  *  Media Product.
  *
@@ -11861,8 +11915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FilterTy
  *  Insertion Order ID. If selected, all filter IDs must be Insertion Order IDs
  *  that belong to the Advertiser or Partner specified in
  *  CreateSdfDownloadTaskRequest. Can only be used for downloading
- *  `FILE_TYPE_INSERTION_ORDER`, `FILE_TYPE_LINE_ITEM`, `FILE_TYPE_AD_GROUP`,
- *  and `FILE_TYPE_AD`.
+ *  `FILE_TYPE_INSERTION_ORDER`, `FILE_TYPE_LINE_ITEM`,
+ *  `FILE_TYPE_LINE_ITEM_QA`, `FILE_TYPE_AD_GROUP`, `FILE_TYPE_AD_GROUP_QA`, and
+ *  `FILE_TYPE_AD`.
  *
  *  Value: "FILTER_TYPE_INSERTION_ORDER_ID"
  */
@@ -11870,8 +11925,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FilterTy
 /**
  *  Line Item ID. If selected, all filter IDs must be Line Item IDs that belong
  *  to the Advertiser or Partner specified in CreateSdfDownloadTaskRequest. Can
- *  only be used for downloading `FILE_TYPE_LINE_ITEM`, `FILE_TYPE_AD_GROUP`,
- *  and `FILE_TYPE_AD`.
+ *  only be used for downloading `FILE_TYPE_LINE_ITEM`,
+ *  `FILE_TYPE_LINE_ITEM_QA`,`FILE_TYPE_AD_GROUP`, `FILE_TYPE_AD_GROUP_QA`, and
+ *  `FILE_TYPE_AD`.
  *
  *  Value: "FILTER_TYPE_LINE_ITEM_ID"
  */
@@ -15345,6 +15401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNend
  *        Nend. (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeOneByAolDisplay
@@ -21511,6 +21569,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNend
  *        Nend. (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeOneByAolDisplay
@@ -21708,6 +21768,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNend
  *        Nend. (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeOneByAolDisplay
@@ -21906,6 +21968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNend Nend.
  *        (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOneByAolDisplay
@@ -22107,6 +22171,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNend
  *        Nend. (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOneByAolDisplay
@@ -23428,6 +23494,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNend Nend.
  *        (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolDisplay
@@ -23756,6 +23824,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *adGroupIds;
 
 /**
+ *  Optional. YouTube Ad Groups, by ID, to download in QA format. All IDs must
+ *  belong to the same Advertiser or Partner specified in
+ *  CreateSdfDownloadTaskRequest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *adGroupQaIds;
+
+/**
  *  Campaigns to download by ID. All IDs must belong to the same Advertiser or
  *  Partner specified in CreateSdfDownloadTaskRequest.
  *
@@ -23778,6 +23855,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *lineItemIds;
+
+/**
+ *  Optional. Line Items, by ID, to download in QA format. All IDs must belong
+ *  to the same Advertiser or Partner specified in CreateSdfDownloadTaskRequest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *lineItemQaIds;
 
 /**
  *  Media Products to download by ID. All IDs must belong to the same Advertiser
@@ -24498,6 +24583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNend Nend.
  *        (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOneByAolDisplay
@@ -27664,14 +27751,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Order IDs that belong to the Advertiser or Partner specified in
  *        CreateSdfDownloadTaskRequest. Can only be used for downloading
  *        `FILE_TYPE_INSERTION_ORDER`, `FILE_TYPE_LINE_ITEM`,
- *        `FILE_TYPE_AD_GROUP`, and `FILE_TYPE_AD`. (Value:
+ *        `FILE_TYPE_LINE_ITEM_QA`, `FILE_TYPE_AD_GROUP`,
+ *        `FILE_TYPE_AD_GROUP_QA`, and `FILE_TYPE_AD`. (Value:
  *        "FILTER_TYPE_INSERTION_ORDER_ID")
  *    @arg @c kGTLRDisplayVideo_ParentEntityFilter_FilterType_FilterTypeLineItemId
  *        Line Item ID. If selected, all filter IDs must be Line Item IDs that
  *        belong to the Advertiser or Partner specified in
  *        CreateSdfDownloadTaskRequest. Can only be used for downloading
- *        `FILE_TYPE_LINE_ITEM`, `FILE_TYPE_AD_GROUP`, and `FILE_TYPE_AD`.
- *        (Value: "FILTER_TYPE_LINE_ITEM_ID")
+ *        `FILE_TYPE_LINE_ITEM`, `FILE_TYPE_LINE_ITEM_QA`,`FILE_TYPE_AD_GROUP`,
+ *        `FILE_TYPE_AD_GROUP_QA`, and `FILE_TYPE_AD`. (Value:
+ *        "FILTER_TYPE_LINE_ITEM_ID")
  *    @arg @c kGTLRDisplayVideo_ParentEntityFilter_FilterType_FilterTypeMediaProductId
  *        Media Product ID. If selected, all filter IDs must be Media Product
  *        IDs that belong to the Advertiser or Partner specified in
@@ -28744,14 +28833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Exchange review statuses for the creative. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ExchangeReviewStatus *> *exchangeReviewStatuses;
 
-/**
- *  Publisher review statuses for the creative. **Warning:** This field will be
- *  deprecated on June 26th, 2024. After this date, this field will be empty.
- *  Read our [feature deprecation
- *  announcement](/display-video/api/deprecations#features.creative_publisher_review_statuses)
- *  for more information.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PublisherReviewStatus *> *publisherReviewStatuses;
+/** Publisher review statuses for the creative. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PublisherReviewStatus *> *publisherReviewStatuses GTLR_DEPRECATED;
 
 @end
 

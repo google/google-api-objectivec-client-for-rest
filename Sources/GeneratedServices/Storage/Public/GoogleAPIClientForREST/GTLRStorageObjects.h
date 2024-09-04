@@ -25,6 +25,9 @@
 @class GTLRStorage_Bucket_IamConfiguration;
 @class GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly;
 @class GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess;
+@class GTLRStorage_Bucket_IpFilter;
+@class GTLRStorage_Bucket_IpFilter_PublicNetworkSource;
+@class GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item;
 @class GTLRStorage_Bucket_Labels;
 @class GTLRStorage_Bucket_Lifecycle;
 @class GTLRStorage_Bucket_Lifecycle_Rule_Item;
@@ -216,6 +219,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** HTTP 1.1 Entity tag for the bucket. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
+/**
+ *  The generation of this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/** The hard delete time of the bucket in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *hardDeleteTime;
+
 /** The bucket's hierarchical namespace configuration. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_HierarchicalNamespace *hierarchicalNamespace;
 
@@ -229,6 +242,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/**
+ *  The bucket's IP filter configuration. Specifies the network sources that are
+ *  allowed to access the operations on the bucket, as well as its underlying
+ *  objects. Only enforced when the mode is set to 'Enabled'.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_IpFilter *ipFilter;
+
 /** The kind of item this is. For buckets, this is always storage#bucket. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -236,15 +256,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Labels *labels;
 
 /**
- *  The bucket's lifecycle configuration. See lifecycle management for more
+ *  The bucket's lifecycle configuration. See [Lifecycle
+ *  Management](https://cloud.google.com/storage/docs/lifecycle) for more
  *  information.
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Lifecycle *lifecycle;
 
 /**
  *  The location of the bucket. Object data for objects in the bucket resides in
- *  physical storage within this region. Defaults to US. See the developer's
- *  guide for the authoritative list.
+ *  physical storage within this region. Defaults to US. See the [Developer's
+ *  Guide](https://cloud.google.com/storage/docs/locations) for the
+ *  authoritative list.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -304,6 +326,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPZI;
+
+/**
+ *  Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPZS;
 
 /** The URI of this bucket. */
@@ -315,14 +344,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_SoftDeletePolicy *softDeletePolicy;
 
+/** The soft delete time of the bucket in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *softDeleteTime;
+
 /**
  *  The bucket's default storage class, used whenever no storageClass is
  *  specified for a newly-created object. This defines how objects in the bucket
  *  are stored and determines the SLA and the cost of storage. Values include
  *  MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, ARCHIVE, and
  *  DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket
- *  is created, it will default to STANDARD. For more information, see storage
- *  classes.
+ *  is created, it will default to STANDARD. For more information, see [Storage
+ *  Classes](https://cloud.google.com/storage/docs/storage-classes).
  */
 @property(nonatomic, copy, nullable) NSString *storageClass;
 
@@ -337,8 +369,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The bucket's website configuration, controlling how the service behaves when
- *  accessing bucket contents as a web site. See the Static Website Examples for
- *  more information.
+ *  accessing bucket contents as a web site. See the [Static Website
+ *  Examples](https://cloud.google.com/storage/docs/static-website) for more
+ *  information.
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Website *website;
 
@@ -496,6 +529,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The bucket's IP filter configuration. Specifies the network sources that are
+ *  allowed to access the operations on the bucket, as well as its underlying
+ *  objects. Only enforced when the mode is set to 'Enabled'.
+ */
+@interface GTLRStorage_Bucket_IpFilter : GTLRObject
+
+/** The mode of the IP filter. Valid values are 'Enabled' and 'Disabled'. */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/** The public network source of the bucket's IP filter. */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_IpFilter_PublicNetworkSource *publicNetworkSource;
+
+/**
+ *  The list of [VPC network](https://cloud.google.com/vpc/docs/vpc) sources of
+ *  the bucket's IP filter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item *> *vpcNetworkSources;
+
+@end
+
+
+/**
  *  User-provided labels, in key/value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -508,7 +563,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The bucket's lifecycle configuration. See lifecycle management for more
+ *  The bucket's lifecycle configuration. See [Lifecycle
+ *  Management](https://cloud.google.com/storage/docs/lifecycle) for more
  *  information.
  */
 @interface GTLRStorage_Bucket_Lifecycle : GTLRObject
@@ -644,8 +700,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The bucket's website configuration, controlling how the service behaves when
- *  accessing bucket contents as a web site. See the Static Website Examples for
- *  more information.
+ *  accessing bucket contents as a web site. See the [Static Website
+ *  Examples](https://cloud.google.com/storage/docs/static-website) for more
+ *  information.
  */
 @interface GTLRStorage_Bucket_Website : GTLRObject
 
@@ -713,6 +770,40 @@ NS_ASSUME_NONNULL_BEGIN
  *  to false until the locked time, after which the field is immutable.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lockedTime;
+
+@end
+
+
+/**
+ *  The public network source of the bucket's IP filter.
+ */
+@interface GTLRStorage_Bucket_IpFilter_PublicNetworkSource : GTLRObject
+
+/**
+ *  The list of public IPv4, IPv6 cidr ranges that are allowed to access the
+ *  bucket.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedIpCidrRanges;
+
+@end
+
+
+/**
+ *  GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item
+ */
+@interface GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item : GTLRObject
+
+/**
+ *  The list of IPv4, IPv6 cidr ranges subnetworks that are allowed to access
+ *  the bucket.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedIpCidrRanges;
+
+/**
+ *  Name of the network. Format:
+ *  projects/{PROJECT_ID}/global/networks/{NETWORK_NAME}
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 @end
 
@@ -1828,7 +1919,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  CRC32c checksum, as described in RFC 4960, Appendix B; encoded using base64
  *  in big-endian byte order. For more information about using the CRC32c
- *  checksum, see Hashes and ETags: Best Practices.
+ *  checksum, see [Data Validation and Change
+ *  Detection](https://cloud.google.com/storage/docs/data-validation).
  */
 @property(nonatomic, copy, nullable) NSString *crc32c;
 
@@ -1894,7 +1986,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  MD5 hash of the data; encoded using base64. For more information about using
- *  the MD5 hash, see Hashes and ETags: Best Practices.
+ *  the MD5 hash, see [Data Validation and Change
+ *  Detection](https://cloud.google.com/storage/docs/data-validation).
  */
 @property(nonatomic, copy, nullable) NSString *md5Hash;
 

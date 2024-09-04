@@ -95,6 +95,22 @@ NSString * const kGTLRDataprocMetastore_MetadataImport_State_StateUnspecified = 
 NSString * const kGTLRDataprocMetastore_MetadataImport_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRDataprocMetastore_MetadataImport_State_Updating = @"UPDATING";
 
+// GTLRDataprocMetastore_MigrationExecution.phase
+NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_Cutover = @"CUTOVER";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_PhaseUnspecified = @"PHASE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_Replication = @"REPLICATION";
+
+// GTLRDataprocMetastore_MigrationExecution.state
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_AwaitingUserAction = @"AWAITING_USER_ACTION";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Deleting = @"DELETING";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Running = @"RUNNING";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Starting = @"STARTING";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Succeeded = @"SUCCEEDED";
+
 // GTLRDataprocMetastore_Restore.state
 NSString * const kGTLRDataprocMetastore_Restore_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRDataprocMetastore_Restore_State_Failed   = @"FAILED";
@@ -132,9 +148,11 @@ NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_Stable = @"STABLE
 
 // GTLRDataprocMetastore_Service.state
 NSString * const kGTLRDataprocMetastore_Service_State_Active   = @"ACTIVE";
+NSString * const kGTLRDataprocMetastore_Service_State_Autoscaling = @"AUTOSCALING";
 NSString * const kGTLRDataprocMetastore_Service_State_Creating = @"CREATING";
 NSString * const kGTLRDataprocMetastore_Service_State_Deleting = @"DELETING";
 NSString * const kGTLRDataprocMetastore_Service_State_Error    = @"ERROR";
+NSString * const kGTLRDataprocMetastore_Service_State_Migrating = @"MIGRATING";
 NSString * const kGTLRDataprocMetastore_Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_Service_State_Suspended = @"SUSPENDED";
 NSString * const kGTLRDataprocMetastore_Service_State_Suspending = @"SUSPENDING";
@@ -231,6 +249,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_AutoscalingConfig
+//
+
+@implementation GTLRDataprocMetastore_AutoscalingConfig
+@dynamic autoscalingEnabled, autoscalingFactor, limitConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_AuxiliaryVersionConfig
 //
 
@@ -306,10 +334,60 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_CancelMigrationRequest
+//
+
+@implementation GTLRDataprocMetastore_CancelMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_CancelOperationRequest
 //
 
 @implementation GTLRDataprocMetastore_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CdcConfig
+//
+
+@implementation GTLRDataprocMetastore_CdcConfig
+@dynamic bucket, password, reverseProxySubnet, rootPath, subnetIpRange,
+         username, vpcNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CloudSQLConnectionConfig
+//
+
+@implementation GTLRDataprocMetastore_CloudSQLConnectionConfig
+@dynamic hiveDatabaseName, instanceConnectionName, ipAddress, natSubnet,
+         password, port, proxySubnet, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CloudSQLMigrationConfig
+//
+
+@implementation GTLRDataprocMetastore_CloudSQLMigrationConfig
+@dynamic cdcConfig, cloudSqlConnectionConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CompleteMigrationRequest
+//
+
+@implementation GTLRDataprocMetastore_CompleteMigrationRequest
 @end
 
 
@@ -320,6 +398,25 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 @implementation GTLRDataprocMetastore_Consumer
 @dynamic endpointLocation, endpointUri, subnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CustomRegionMetadata
+//
+
+@implementation GTLRDataprocMetastore_CustomRegionMetadata
+@dynamic optionalReadOnlyRegions, requiredReadWriteRegions, witnessRegion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"optionalReadOnlyRegions" : [NSString class],
+    @"requiredReadWriteRegions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -521,6 +618,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_LimitConfig
+//
+
+@implementation GTLRDataprocMetastore_LimitConfig
+@dynamic maxScalingFactor, minScalingFactor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_ListBackupsResponse
 //
 
@@ -605,6 +712,29 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 + (NSString *)collectionItemsKey {
   return @"metadataImports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListMigrationExecutionsResponse
+//
+
+@implementation GTLRDataprocMetastore_ListMigrationExecutionsResponse
+@dynamic migrationExecutions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"migrationExecutions" : [GTLRDataprocMetastore_MigrationExecution class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"migrationExecutions";
 }
 
 @end
@@ -699,10 +829,12 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_LocationMetadata
-@dynamic multiRegionMetadata, supportedHiveMetastoreVersions;
+@dynamic customRegionMetadata, multiRegionMetadata,
+         supportedHiveMetastoreVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"customRegionMetadata" : [GTLRDataprocMetastore_CustomRegionMetadata class],
     @"supportedHiveMetastoreVersions" : [GTLRDataprocMetastore_HiveMetastoreVersion class]
   };
   return map;
@@ -773,6 +905,17 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MigrationExecution
+//
+
+@implementation GTLRDataprocMetastore_MigrationExecution
+@dynamic cloudSqlMigrationConfig, createTime, endTime, name, phase, state,
+         stateMessage;
 @end
 
 
@@ -949,7 +1092,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_ScalingConfig
-@dynamic instanceSize, scalingFactor;
+@dynamic autoscalingConfig, instanceSize, scalingFactor;
 @end
 
 
@@ -1010,6 +1153,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 @implementation GTLRDataprocMetastore_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_StartMigrationRequest
+//
+
+@implementation GTLRDataprocMetastore_StartMigrationRequest
+@dynamic migrationExecution, requestId;
 @end
 
 
