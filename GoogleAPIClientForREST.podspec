@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'GoogleAPIClientForREST'
-  s.version      = '3.5.5'
+  s.version      = '4.0.0'
   s.author       = 'Google Inc.'
   s.homepage     = 'https://github.com/google/google-api-objectivec-client-for-rest'
   s.license      = { :type => 'Apache', :file => 'LICENSE' }
@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
   # bundle for the privacy manifest.
   s.cocoapods_version = '>= 1.12.0'
 
-  ios_deployment_target = '10.0'
-  osx_deployment_target = '10.12'
-  tvos_deployment_target = '10.0'
+  ios_deployment_target = '13.0'
+  osx_deployment_target = '10.15'
+  tvos_deployment_target = '13.0'
   visionos_deployment_target = '1.0'
-  watchos_deployment_target = '6.0'
+  watchos_deployment_target = '7.0'
 
   s.ios.deployment_target = ios_deployment_target
   s.osx.deployment_target = osx_deployment_target
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.visionos.deployment_target = visionos_deployment_target
   s.watchos.deployment_target = watchos_deployment_target
 
-  s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 4.0'
+  s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 5.0'
 
   s.prefix_header_file = false
 
