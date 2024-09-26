@@ -5,10 +5,10 @@ import PackageDescription
 let package = Package(
     name: "GoogleAPIClientForREST",
     platforms: [
-        .iOS(.v10),
-        .macOS(.v10_12),
-        .tvOS(.v10),
-        .watchOS(.v6)
+        .iOS(.v13),
+        .macOS(.v10_15),
+        .tvOS(.v13),
+        .watchOS(.v7)
     ],
     products: [
         // The main library, only thing you need to use your own services.
@@ -1176,7 +1176,7 @@ let package = Package(
         // End of products.
     ],
     dependencies: [
-        .package(url: "https://github.com/google/gtm-session-fetcher.git", "1.6.1" ..< "4.0.0"),
+        .package(url: "https://github.com/google/gtm-session-fetcher.git", "1.6.1" ..< "5.0.0"),
     ],
     targets: [
         .target(
