@@ -183,7 +183,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
   [openPanel beginSheetModalForWindow:self.window
                     completionHandler:^(NSInteger result) {
     // Callback
-    if (result == NSFileHandlingPanelOKButton) {
+    if (result == NSModalResponseOK) {
       // The user chose a file.
       NSString *path = openPanel.URL.path;
       self->_uploadPathField.stringValue = path;

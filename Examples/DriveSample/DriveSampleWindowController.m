@@ -242,7 +242,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
   savePanel.nameFieldStringValue = suggestedName;
   [savePanel beginSheetModalForWindow:[self window]
                     completionHandler:^(NSInteger result) {
-    if (result == NSFileHandlingPanelOKButton) {
+    if (result == NSModalResponseOK) {
       [self downloadFile:file
         isExportingToPDF:isExportingToPDF
         toDestinationURL:savePanel.URL];
@@ -345,7 +345,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"DriveSample: Google Drive. GTMAp
   [openPanel beginSheetModalForWindow:[self window]
                     completionHandler:^(NSInteger result) {
     // Callback.
-    if (result == NSFileHandlingPanelOKButton) {
+    if (result == NSModalResponseOK) {
       // The user chose a file and clicked OK.
       //
       // Start uploading (deferred briefly since

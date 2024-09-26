@@ -183,7 +183,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
   [savePanel beginSheetModalForWindow:self.window
                     completionHandler:^(NSInteger result) {
     // Callback
-    if (result == NSFileHandlingPanelOKButton) {
+    if (result == NSModalResponseOK) {
       NSURL *destinationURL = [savePanel URL];
       GTLRStorageQuery_ObjectsGet *query =
           [GTLRStorageQuery_ObjectsGet queryForMediaWithBucket:storageObject.bucket
@@ -226,7 +226,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
                    }
                  }];
                }];
-    }  // result == NSFileHandlingPanelOKButton
+    }  // result == NSModalResponseOK
   }];  // beginSheetModalForWindow:
 }
 
@@ -272,7 +272,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
   [openPanel beginSheetModalForWindow:self.window
                     completionHandler:^(NSInteger result) {
     // Callback.
-    if (result == NSFileHandlingPanelOKButton) {
+    if (result == NSModalResponseOK) {
       // The user chose a file and clicked OK.
       //
       // Start uploading (deferred briefly since
