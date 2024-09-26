@@ -15,6 +15,19 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions.bucketTypes
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_BucketTypes_TypeAllSupported = @"TYPE_ALL_SUPPORTED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_BucketTypes_TypeGeneralPurpose = @"TYPE_GENERAL_PURPOSE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_BucketTypes_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions.objectStorageClasses
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_AllSupportedClasses = @"ALL_SUPPORTED_CLASSES";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_GlacierInstantRetrieval = @"GLACIER_INSTANT_RETRIEVAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_IntelligentTiering = @"INTELLIGENT_TIERING";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_Standard = @"STANDARD";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_StandardInfrequentAccess = @"STANDARD_INFREQUENT_ACCESS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_Unspecified = @"UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2BigQueryOptions.sampleMethod
 NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_RandomStart = @"RANDOM_START";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified = @"SAMPLE_METHOD_UNSPECIFIED";
@@ -251,6 +264,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCade
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyMonthly = @"UPDATE_FREQUENCY_MONTHLY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyNever = @"UPDATE_FREQUENCY_NEVER";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyUnspecified = @"UPDATE_FREQUENCY_UNSPECIFIED";
+
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence.refreshFrequency
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyDaily = @"UPDATE_FREQUENCY_DAILY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly = @"UPDATE_FREQUENCY_MONTHLY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyNever = @"UPDATE_FREQUENCY_NEVER";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified = @"UPDATE_FREQUENCY_UNSPECIFIED";
 
 // GTLRDLP_GooglePrivacyDlpV2DiscoverySchemaModifiedCadence.frequency
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoverySchemaModifiedCadence_Frequency_UpdateFrequencyDaily = @"UPDATE_FREQUENCY_DAILY";
@@ -659,6 +678,45 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2AmazonS3Bucket
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AmazonS3Bucket
+@dynamic awsAccount, bucketName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions
+@dynamic bucketTypes, objectStorageClasses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bucketTypes" : [NSString class],
+    @"objectStorageClasses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketRegex
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketRegex
+@dynamic awsAccountRegex, bucketNameRegex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails
 //
 
@@ -685,6 +743,36 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AwsAccount
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AwsAccount
+@dynamic accountId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AwsAccountRegex
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AwsAccountRegex
+@dynamic accountIdRegex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AwsDiscoveryStartingLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AwsDiscoveryStartingLocation
+@dynamic accountId, allAssetInventoryAssets;
 @end
 
 
@@ -1354,7 +1442,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DataProfileAction
-@dynamic exportData, pubSubNotification, tagResources;
+@dynamic exportData, publishToChronicle, publishToScc, pubSubNotification,
+         tagResources;
 @end
 
 
@@ -1385,7 +1474,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig
-@dynamic dataProfileActions, inspectTemplates, location, projectId;
+@dynamic dataProfileActions, inspectTemplates, location,
+         otherCloudStartingLocation, projectId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1784,7 +1874,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig
 @dynamic actions, createTime, displayName, errors, inspectTemplates,
-         lastRunTime, name, orgConfig, status, targets, updateTime;
+         lastRunTime, name, orgConfig, otherCloudStartingLocation, status,
+         targets, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1827,6 +1918,36 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence
 @dynamic frequency;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudConditions
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudConditions
+@dynamic amazonS3BucketConditions, minAge;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudFilter
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudFilter
+@dynamic collection, others, singleResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence
+@dynamic inspectTemplateModifiedCadence, refreshFrequency;
 @end
 
 
@@ -1882,7 +2003,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DiscoveryTarget
-@dynamic bigQueryTarget, cloudSqlTarget, cloudStorageTarget, secretsTarget;
+@dynamic bigQueryTarget, cloudSqlTarget, cloudStorageTarget, otherCloudTarget,
+         secretsTarget;
 @end
 
 
@@ -3356,6 +3478,74 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation
+@dynamic awsLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryTarget
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryTarget
+@dynamic conditions, dataSourceType, disabled, filter, generationCadence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceCollection
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceCollection
+@dynamic includeRegexes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegex
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegex
+@dynamic amazonS3BucketRegex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegexes
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegexes
+@dynamic patterns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"patterns" : [GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegex class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2OtherCloudSingleResourceReference
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2OtherCloudSingleResourceReference
+@dynamic amazonS3Bucket;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary
 //
 
@@ -3481,11 +3671,29 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2PublishToChronicle
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PublishToChronicle
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2PublishToPubSub
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2PublishToPubSub
 @dynamic topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter
 @end
 
 

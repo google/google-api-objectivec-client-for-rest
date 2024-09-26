@@ -4914,7 +4914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Required. The ID to use for this FeatureGroup, which will become the final
- *  component of the FeatureGroup's resource name. This value may be up to 60
+ *  component of the FeatureGroup's resource name. This value may be up to 128
  *  characters, and valid characters are `[a-z0-9_]`. The first character cannot
  *  be a number. The value must be unique within the project and location.
  */
@@ -22242,6 +22242,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -22309,6 +22341,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Rebase a TunedModel.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.rebaseTunedModel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsRebaseTunedModel : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location into which to rebase the Model.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Rebase a TunedModel.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest to include
+ *    in the query.
+ *  @param parent Required. The resource name of the Location into which to
+ *    rebase the Model. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsRebaseTunedModel
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

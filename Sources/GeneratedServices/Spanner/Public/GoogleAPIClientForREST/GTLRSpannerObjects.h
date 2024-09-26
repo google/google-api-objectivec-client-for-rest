@@ -72,6 +72,7 @@
 @class GTLRSpanner_Metric_IndexedKeyRangeInfos;
 @class GTLRSpanner_MetricMatrix;
 @class GTLRSpanner_MetricMatrixRow;
+@class GTLRSpanner_MultiplexedSessionPrecommitToken;
 @class GTLRSpanner_Mutation;
 @class GTLRSpanner_MutationGroup;
 @class GTLRSpanner_Operation;
@@ -4655,6 +4656,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  When a read-write transaction is executed on a multiplexed session, this
+ *  precommit token is sent back to the client as a part of the [Transaction]
+ *  message in the BeginTransaction response and also as a part of the
+ *  [ResultSet] and [PartialResultSet] responses.
+ */
+@interface GTLRSpanner_MultiplexedSessionPrecommitToken : GTLRObject
+
+/**
+ *  Opaque precommit token.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *precommitToken;
+
+/**
+ *  An incrementing seq number is generated on every precommit token that is
+ *  returned. Clients should remember the precommit token with the highest
+ *  sequence number from the current transaction attempt.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seqNum;
+
+@end
+
+
+/**
  *  A modification to one or more Cloud Spanner rows. Mutations can be applied
  *  to a Cloud Spanner database by sending them in a Commit call.
  */
@@ -6514,6 +6543,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A precommit token will be included in the response of a BeginTransaction
+ *  request if the read-write transaction is on a multiplexed session and a
+ *  mutation_key was specified in the BeginTransaction. The precommit token with
+ *  the highest sequence number from this transaction attempt should be passed
+ *  to the Commit request for this transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_MultiplexedSessionPrecommitToken *precommitToken;
 
 /**
  *  For snapshot read-only transactions, the read timestamp chosen for the

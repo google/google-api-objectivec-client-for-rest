@@ -797,7 +797,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_ComputeInstanceBackupProperties
 @dynamic canIpForward, descriptionProperty, disk, guestAccelerator,
-         keyRevocationActionType, machineType, metadata, minCpuPlatform,
+         keyRevocationActionType, labels, machineType, metadata, minCpuPlatform,
          networkInterface, scheduling, serviceAccount, sourceInstance, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -812,6 +812,20 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
     @"serviceAccount" : [GTLRBackupdr_ServiceAccount class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_ComputeInstanceBackupProperties_Labels
+//
+
+@implementation GTLRBackupdr_ComputeInstanceBackupProperties_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

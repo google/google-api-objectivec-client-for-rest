@@ -17,7 +17,11 @@
 @class GTLRDeveloperConnect_Connection;
 @class GTLRDeveloperConnect_Connection_Annotations;
 @class GTLRDeveloperConnect_Connection_Labels;
+@class GTLRDeveloperConnect_CryptoKeyConfig;
 @class GTLRDeveloperConnect_GitHubConfig;
+@class GTLRDeveloperConnect_GitHubEnterpriseConfig;
+@class GTLRDeveloperConnect_GitLabConfig;
+@class GTLRDeveloperConnect_GitLabEnterpriseConfig;
 @class GTLRDeveloperConnect_GitRepositoryLink;
 @class GTLRDeveloperConnect_GitRepositoryLink_Annotations;
 @class GTLRDeveloperConnect_GitRepositoryLink_Labels;
@@ -31,8 +35,10 @@
 @class GTLRDeveloperConnect_Operation;
 @class GTLRDeveloperConnect_Operation_Metadata;
 @class GTLRDeveloperConnect_Operation_Response;
+@class GTLRDeveloperConnect_ServiceDirectoryConfig;
 @class GTLRDeveloperConnect_Status;
 @class GTLRDeveloperConnect_Status_Details_Item;
+@class GTLRDeveloperConnect_UserCredential;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -119,6 +125,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 /** Output only. [Output only] Create timestamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Optional. The crypto key configuration. This field is used by the
+ *  Customer-Managed Encryption Keys (CMEK) feature.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_CryptoKeyConfig *cryptoKeyConfig;
+
 /** Output only. [Output only] Delete timestamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
@@ -140,6 +152,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 
 /** Configuration for connections to github.com. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_GitHubConfig *githubConfig;
+
+/** Configuration for connections to an instance of GitHub Enterprise. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_GitHubEnterpriseConfig *githubEnterpriseConfig;
+
+/** Configuration for connections to gitlab.com. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_GitLabConfig *gitlabConfig;
+
+/** Configuration for connections to an instance of GitLab Enterprise. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_GitLabEnterpriseConfig *gitlabEnterpriseConfig;
 
 /** Output only. Installation state of the Connection. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_InstallationState *installationState;
@@ -194,6 +215,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
  *        fetch them all at once.
  */
 @interface GTLRDeveloperConnect_Connection_Labels : GTLRObject
+@end
+
+
+/**
+ *  The crypto key configuration. This field is used by the Customer-managed
+ *  encryption keys (CMEK) feature.
+ */
+@interface GTLRDeveloperConnect_CryptoKeyConfig : GTLRObject
+
+/**
+ *  Required. The name of the key which is used to encrypt/decrypt customer
+ *  data. For key in Cloud KMS, the key should be in the format of `projects/ *
+ *  /locations/ * /keyRings/ * /cryptoKeys/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *keyReference;
+
 @end
 
 
@@ -356,6 +393,153 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 
 
 /**
+ *  Configuration for connections to an instance of GitHub Enterprise.
+ */
+@interface GTLRDeveloperConnect_GitHubEnterpriseConfig : GTLRObject
+
+/**
+ *  Optional. ID of the GitHub App created from the manifest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *appId;
+
+/**
+ *  Optional. ID of the installation of the GitHub App.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *appInstallationId;
+
+/** Output only. The URL-friendly name of the GitHub App. */
+@property(nonatomic, copy, nullable) NSString *appSlug;
+
+/** Required. The URI of the GitHub Enterprise host this connection is for. */
+@property(nonatomic, copy, nullable) NSString *hostUri;
+
+/**
+ *  Output only. The URI to navigate to in order to manage the installation
+ *  associated with this GitHubEnterpriseConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *installationUri;
+
+/**
+ *  Optional. SecretManager resource containing the private key of the GitHub
+ *  App, formatted as `projects/ * /secrets/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *privateKeySecretVersion;
+
+/** Output only. GitHub Enterprise version installed at the host_uri. */
+@property(nonatomic, copy, nullable) NSString *serverVersion;
+
+/**
+ *  Optional. Configuration for using Service Directory to privately connect to
+ *  a GitHub Enterprise server. This should only be set if the GitHub Enterprise
+ *  server is hosted on-premises and not reachable by public internet. If this
+ *  field is left empty, calls to the GitHub Enterprise server will be made over
+ *  the public internet.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_ServiceDirectoryConfig *serviceDirectoryConfig;
+
+/** Optional. SSL certificate to use for requests to GitHub Enterprise. */
+@property(nonatomic, copy, nullable) NSString *sslCaCertificate;
+
+/**
+ *  Optional. SecretManager resource containing the webhook secret of the GitHub
+ *  App, formatted as `projects/ * /secrets/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
+
+@end
+
+
+/**
+ *  Configuration for connections to gitlab.com.
+ */
+@interface GTLRDeveloperConnect_GitLabConfig : GTLRObject
+
+/**
+ *  Required. A GitLab personal access token with the minimum `api` scope access
+ *  and a minimum role of `maintainer`. The GitLab Projects visible to this
+ *  Personal Access Token will control which Projects Developer Connect has
+ *  access to.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_UserCredential *authorizerCredential;
+
+/**
+ *  Required. A GitLab personal access token with the minimum `read_api` scope
+ *  access and a minimum role of `reporter`. The GitLab Projects visible to this
+ *  Personal Access Token will control which Projects Developer Connect has
+ *  access to.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_UserCredential *readAuthorizerCredential;
+
+/**
+ *  Required. Immutable. SecretManager resource containing the webhook secret of
+ *  a GitLab project, formatted as `projects/ * /secrets/ * /versions/ *`. This
+ *  is used to validate webhooks.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
+
+@end
+
+
+/**
+ *  Configuration for connections to an instance of GitLab Enterprise.
+ */
+@interface GTLRDeveloperConnect_GitLabEnterpriseConfig : GTLRObject
+
+/**
+ *  Required. A GitLab personal access token with the minimum `api` scope access
+ *  and a minimum role of `maintainer`. The GitLab Projects visible to this
+ *  Personal Access Token will control which Projects Developer Connect has
+ *  access to.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_UserCredential *authorizerCredential;
+
+/** Required. The URI of the GitLab Enterprise host this connection is for. */
+@property(nonatomic, copy, nullable) NSString *hostUri;
+
+/**
+ *  Required. A GitLab personal access token with the minimum `read_api` scope
+ *  access and a minimum role of `reporter`. The GitLab Projects visible to this
+ *  Personal Access Token will control which Projects Developer Connect has
+ *  access to.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_UserCredential *readAuthorizerCredential;
+
+/**
+ *  Output only. Version of the GitLab Enterprise server running on the
+ *  `host_uri`.
+ */
+@property(nonatomic, copy, nullable) NSString *serverVersion;
+
+/**
+ *  Optional. Configuration for using Service Directory to privately connect to
+ *  a GitLab Enterprise instance. This should only be set if the GitLab
+ *  Enterprise server is hosted on-premises and not reachable by public
+ *  internet. If this field is left empty, calls to the GitLab Enterprise server
+ *  will be made over the public internet.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_ServiceDirectoryConfig *serviceDirectoryConfig;
+
+/**
+ *  Optional. SSL Certificate Authority certificate to use for requests to
+ *  GitLab Enterprise instance.
+ */
+@property(nonatomic, copy, nullable) NSString *sslCaCertificate;
+
+/**
+ *  Required. Immutable. SecretManager resource containing the webhook secret of
+ *  a GitLab project, formatted as `projects/ * /secrets/ * /versions/ *`. This
+ *  is used to validate webhooks.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
+
+@end
+
+
+/**
  *  Message describing the GitRepositoryLink object
  */
 @interface GTLRDeveloperConnect_GitRepositoryLink : GTLRObject
@@ -404,6 +588,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 
 /** Output only. [Output only] Update timestamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. External ID of the webhook created for the repository. */
+@property(nonatomic, copy, nullable) NSString *webhookId;
 
 @end
 
@@ -809,6 +996,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 
 
 /**
+ *  ServiceDirectoryConfig represents Service Directory configuration for a
+ *  connection.
+ */
+@interface GTLRDeveloperConnect_ServiceDirectoryConfig : GTLRObject
+
+/**
+ *  Required. The Service Directory service name. Format:
+ *  projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -850,6 +1052,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDeveloperConnect_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents a personal access token that authorized the Connection, and
+ *  associated metadata.
+ */
+@interface GTLRDeveloperConnect_UserCredential : GTLRObject
+
+/** Output only. The username associated with this token. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+/**
+ *  Required. A SecretManager resource containing the user token that authorizes
+ *  the Developer Connect connection. Format: `projects/ * /secrets/ *
+ *  /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *userTokenSecretVersion;
+
 @end
 
 NS_ASSUME_NONNULL_END

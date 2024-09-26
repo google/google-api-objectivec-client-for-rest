@@ -153,6 +153,11 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_LaunchStageUn
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRCloudRun_GoogleCloudRunV2ServiceScaling.scalingMode
+NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Automatic = @"AUTOMATIC";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Manual = @"MANUAL";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_ScalingModeUnspecified = @"SCALING_MODE_UNSPECIFIED";
+
 // GTLRCloudRun_GoogleCloudRunV2Task.executionEnvironment
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen1 = @"EXECUTION_ENVIRONMENT_GEN1";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
@@ -1185,7 +1190,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2ServiceScaling
-@dynamic minInstanceCount;
+@dynamic minInstanceCount, scalingMode;
 @end
 
 
@@ -1224,7 +1229,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2SubmitBuildResponse
-@dynamic baseImageUri, buildOperation;
+@dynamic baseImageUri, baseImageWarning, buildOperation;
 @end
 
 

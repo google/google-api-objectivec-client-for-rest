@@ -4334,7 +4334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Path of Cloud Storage bucket Required for `gcs` target_type. */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/** Required. GCP project in which the datastore exists */
+/** Required. Google Cloud project in which the datastore exists */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Prefix of BigQuery table Required for `bigquery` target_type. */
@@ -9670,6 +9670,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Allow a request through if it matches this SecurityAction. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityActionAllow *allow;
+
+/**
+ *  Optional. If unset, this would apply to all proxies in the environment. If
+ *  set, this action is enforced only if at least one proxy in the repeated list
+ *  is deployed at the time of enforcement. If set, several restrictions are
+ *  enforced on SecurityActions. There can be at most 100 enabled actions with
+ *  proxies set in an env. Several other restrictions apply on conditions and
+ *  are detailed later.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiProxies;
 
 /** Required. A valid SecurityAction must contain at least one condition. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig *conditionConfig;

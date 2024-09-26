@@ -182,6 +182,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_EventDrivenSchedule
+//
+
+@implementation GTLRBigQueryDataTransfer_EventDrivenSchedule
+@dynamic pubsubSubscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_ListDataSourcesResponse
 //
 
@@ -330,11 +340,30 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_ManualSchedule
+//
+
+@implementation GTLRBigQueryDataTransfer_ManualSchedule
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_ScheduleOptions
 //
 
 @implementation GTLRBigQueryDataTransfer_ScheduleOptions
 @dynamic disableAutoScheduling, endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_ScheduleOptionsV2
+//
+
+@implementation GTLRBigQueryDataTransfer_ScheduleOptionsV2
+@dynamic eventDrivenSchedule, manualSchedule, timeBasedSchedule;
 @end
 
 
@@ -428,6 +457,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_TimeBasedSchedule
+//
+
+@implementation GTLRBigQueryDataTransfer_TimeBasedSchedule
+@dynamic endTime, schedule, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_TimeRange
 //
 
@@ -444,9 +483,9 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 @implementation GTLRBigQueryDataTransfer_TransferConfig
 @dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
          destinationDatasetId, disabled, displayName, emailPreferences,
-         encryptionConfiguration, name, nextRunTime, notificationPubsubTopic,
-         ownerInfo, params, schedule, scheduleOptions, state, updateTime,
-         userId;
+         encryptionConfiguration, error, name, nextRunTime,
+         notificationPubsubTopic, ownerInfo, params, schedule, scheduleOptions,
+         scheduleOptionsV2, state, updateTime, userId;
 @end
 
 

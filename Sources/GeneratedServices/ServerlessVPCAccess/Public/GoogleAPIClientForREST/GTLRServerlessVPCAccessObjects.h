@@ -84,8 +84,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
 @property(nonatomic, strong, nullable) NSArray<NSString *> *connectedProjects;
 
 /**
- *  The range of internal addresses that follows RFC 4632 notation. Example:
- *  `10.132.0.0/28`.
+ *  Optional. The range of internal addresses that follows RFC 4632 notation.
+ *  Example: `10.132.0.0/28`.
  */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
@@ -109,7 +109,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxThroughput;
+@property(nonatomic, strong, nullable) NSNumber *maxThroughput GTLR_DEPRECATED;
 
 /**
  *  Minimum value of instances in autoscaling group underlying the connector.
@@ -128,14 +128,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *minThroughput;
+@property(nonatomic, strong, nullable) NSNumber *minThroughput GTLR_DEPRECATED;
 
 /**
  *  The resource name in the format `projects/ * /locations/ * /connectors/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Name of a VPC network. */
+/** Optional. Name of a VPC network. */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
@@ -157,7 +157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** The subnet in which to house the VPC Access Connector. */
+/** Optional. The subnet in which to house the VPC Access Connector. */
 @property(nonatomic, strong, nullable) GTLRServerlessVPCAccess_Subnet *subnet;
 
 @end
@@ -505,16 +505,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServerlessVPCAccess_Connector_State_Upda
 @interface GTLRServerlessVPCAccess_Subnet : GTLRObject
 
 /**
- *  Subnet name (relative, not fully qualified). E.g. if the full subnet
- *  selfLink is
+ *  Optional. Subnet name (relative, not fully qualified). E.g. if the full
+ *  subnet selfLink is
  *  https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetName}
  *  the correct input for this field would be {subnetName}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Project in which the subnet exists. If not set, this project is assumed to
- *  be the project for which the connector create request was issued.
+ *  Optional. Project in which the subnet exists. If not set, this project is
+ *  assumed to be the project for which the connector create request was issued.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 

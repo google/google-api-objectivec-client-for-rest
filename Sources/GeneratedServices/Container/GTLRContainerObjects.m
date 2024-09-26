@@ -7,7 +7,7 @@
 //   Builds and manages container-based applications, powered by the open source
 //   Kubernetes technology.
 // Documentation:
-//   https://cloud.google.com/container-engine/
+//   https://cloud.google.com/kubernetes-engine/docs/
 
 #import <GoogleAPIClientForREST/GTLRContainerObjects.h>
 
@@ -84,6 +84,11 @@ NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_Pri
 NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_Ipv4 = @"IPV4";
 NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_Ipv4Ipv6 = @"IPV4_IPV6";
 NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_StackTypeUnspecified = @"STACK_TYPE_UNSPECIFIED";
+
+// GTLRContainer_CompliancePostureConfig.mode
+NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Disabled = @"DISABLED";
+NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Enabled = @"ENABLED";
+NSString * const kGTLRContainer_CompliancePostureConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
 // GTLRContainer_DatabaseEncryption.currentState
 NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecrypted = @"CURRENT_STATE_DECRYPTED";
@@ -408,7 +413,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AdditionalPodNetworkConfig
-@dynamic maxPodsPerNode, secondaryPodRange, subnetwork;
+@dynamic maxPodsPerNode, networkAttachment, secondaryPodRange, subnetwork;
 @end
 
 
@@ -691,19 +696,19 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_Cluster
 @dynamic addonsConfig, authenticatorGroupsConfig, autopilot, autoscaling,
-         binaryAuthorization, clusterIpv4Cidr, conditions, confidentialNodes,
-         costManagementConfig, createTime, currentMasterVersion,
-         currentNodeCount, currentNodeVersion, databaseEncryption,
-         defaultMaxPodsConstraint, descriptionProperty, enableK8sBetaApis,
-         enableKubernetesAlpha, enableTpu, endpoint, enterpriseConfig, ETag,
-         expireTime, fleet, identifier, identityServiceConfig,
-         initialClusterVersion, initialNodeCount, instanceGroupUrls,
-         ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
-         loggingConfig, loggingService, maintenancePolicy, masterAuth,
-         masterAuthorizedNetworksConfig, meshCertificates, monitoringConfig,
-         monitoringService, name, network, networkConfig, networkPolicy,
-         nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig, nodePoolDefaults,
-         nodePools, notificationConfig, parentProductConfig,
+         binaryAuthorization, clusterIpv4Cidr, compliancePostureConfig,
+         conditions, confidentialNodes, costManagementConfig, createTime,
+         currentMasterVersion, currentNodeCount, currentNodeVersion,
+         databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
+         enableK8sBetaApis, enableKubernetesAlpha, enableTpu, endpoint,
+         enterpriseConfig, ETag, expireTime, fleet, identifier,
+         identityServiceConfig, initialClusterVersion, initialNodeCount,
+         instanceGroupUrls, ipAllocationPolicy, labelFingerprint, legacyAbac,
+         location, locations, loggingConfig, loggingService, maintenancePolicy,
+         masterAuth, masterAuthorizedNetworksConfig, meshCertificates,
+         monitoringConfig, monitoringService, name, network, networkConfig,
+         networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig,
+         nodePoolDefaults, nodePools, notificationConfig, parentProductConfig,
          privateClusterConfig, rbacBindingConfig, releaseChannel,
          resourceLabels, resourceUsageExportConfig, satisfiesPzi, satisfiesPzs,
          secretManagerConfig, securityPostureConfig, selfLink, servicesIpv4Cidr,
@@ -786,9 +791,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic additionalPodRangesConfig, desiredAddonsConfig,
          desiredAuthenticatorGroupsConfig, desiredAutopilotWorkloadPolicyConfig,
          desiredBinaryAuthorization, desiredClusterAutoscaling,
-         desiredContainerdConfig, desiredCostManagementConfig,
-         desiredDatabaseEncryption, desiredDatapathProvider,
-         desiredDefaultSnatStatus, desiredDnsConfig,
+         desiredCompliancePostureConfig, desiredContainerdConfig,
+         desiredCostManagementConfig, desiredDatabaseEncryption,
+         desiredDatapathProvider, desiredDefaultSnatStatus, desiredDnsConfig,
          desiredEnableCiliumClusterwideNetworkPolicy,
          desiredEnableFqdnNetworkPolicy, desiredEnableMultiNetworking,
          desiredEnablePrivateEndpoint, desiredFleet, desiredGatewayApiConfig,
@@ -848,6 +853,34 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_CompleteNodePoolUpgradeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_CompliancePostureConfig
+//
+
+@implementation GTLRContainer_CompliancePostureConfig
+@dynamic complianceStandards, mode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"complianceStandards" : [GTLRContainer_ComplianceStandard class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ComplianceStandard
+//
+
+@implementation GTLRContainer_ComplianceStandard
+@dynamic standard;
 @end
 
 

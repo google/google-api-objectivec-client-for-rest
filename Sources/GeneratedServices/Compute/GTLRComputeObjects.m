@@ -880,6 +880,7 @@ NSString * const kGTLRCompute_Condition_Sys_Service = @"SERVICE";
 NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified = @"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev = @"SEV";
 NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp = @"SEV_SNP";
+NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx = @"TDX";
 
 // GTLRCompute_DeprecationStatus.state
 NSString * const kGTLRCompute_DeprecationStatus_State_Active   = @"ACTIVE";
@@ -1531,6 +1532,7 @@ NSString * const kGTLRCompute_GuestOsFeature_Type_SevCapable   = @"SEV_CAPABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevLiveMigratable = @"SEV_LIVE_MIGRATABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevLiveMigratableV2 = @"SEV_LIVE_MIGRATABLE_V2";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevSnpCapable = @"SEV_SNP_CAPABLE";
+NSString * const kGTLRCompute_GuestOsFeature_Type_TdxCapable   = @"TDX_CAPABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible = @"UEFI_COMPATIBLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue = @"VIRTIO_SCSI_MULTIQUEUE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_Windows      = @"WINDOWS";
@@ -3284,6 +3286,7 @@ NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code
 // GTLRCompute_NetworkEndpointGroup.networkEndpointType
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIp = @"GCE_VM_IP";
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIpPort = @"GCE_VM_IP_PORT";
+NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIpPortmap = @"GCE_VM_IP_PORTMAP";
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetFqdnPort = @"INTERNET_FQDN_PORT";
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetIpPort = @"INTERNET_IP_PORT";
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_NonGcpPrivateIpPort = @"NON_GCP_PRIVATE_IP_PORT";
@@ -8336,7 +8339,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_BackendBucket
 @dynamic bucketName, cdnPolicy, compressionMode, creationTimestamp,
          customResponseHeaders, descriptionProperty, edgeSecurityPolicy,
-         enableCdn, identifier, kind, name, selfLink;
+         enableCdn, identifier, kind, name, selfLink, usedBy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -8348,7 +8351,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"customResponseHeaders" : [NSString class]
+    @"customResponseHeaders" : [NSString class],
+    @"usedBy" : [GTLRCompute_BackendBucketUsedBy class]
   };
   return map;
 }
@@ -8465,6 +8469,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_BackendBucketList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendBucketUsedBy
+//
+
+@implementation GTLRCompute_BackendBucketUsedBy
+@dynamic reference;
 @end
 
 
@@ -16255,7 +16269,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkEndpoint
-@dynamic annotations, fqdn, instance, ipAddress, port;
+@dynamic annotations, clientDestinationPort, fqdn, instance, ipAddress, port;
 @end
 
 
@@ -16461,7 +16475,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkEndpointGroupPscData
-@dynamic consumerPscAddress, pscConnectionId, pscConnectionStatus;
+@dynamic consumerPscAddress, producerPort, pscConnectionId, pscConnectionStatus;
 @end
 
 

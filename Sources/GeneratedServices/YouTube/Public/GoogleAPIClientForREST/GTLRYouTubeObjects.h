@@ -169,6 +169,7 @@
 @class GTLRYouTube_VideoLiveStreamingDetails;
 @class GTLRYouTube_VideoLocalization;
 @class GTLRYouTube_VideoMonetizationDetails;
+@class GTLRYouTube_VideoPaidProductPlacementDetails;
 @class GTLRYouTube_VideoPlayer;
 @class GTLRYouTube_VideoProcessingDetails;
 @class GTLRYouTube_VideoProcessingDetailsProcessingProgress;
@@ -11924,6 +11925,8 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoMonetizationDetails *monetizationDetails;
 
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoPaidProductPlacementDetails *paidProductPlacementDetails;
+
 /**
  *  The player object contains information that you would use to play the video
  *  in an embedded player.
@@ -12755,6 +12758,24 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about paid content, such as paid product placement, sponsorships or
+ *  endorsement, contained in a YouTube video and a method to inform viewers of
+ *  paid promotion. This data can only be retrieved by the video owner.
+ */
+@interface GTLRYouTube_VideoPaidProductPlacementDetails : GTLRObject
+
+/**
+ *  This boolean represents whether the video contains Paid Product Placement,
+ *  Studio equivalent: https://screenshot.googleplex.com/4Me79DE6AfT2ktp.png
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasPaidProductPlacement;
+
+@end
+
+
+/**
  *  Player to be used for a video playback.
  */
 @interface GTLRYouTube_VideoPlayer : GTLRObject
@@ -13084,7 +13105,7 @@ GTLR_DEPRECATED
 
 /**
  *  Basic details about a video category, such as its localized title. Next Id:
- *  18
+ *  19
  */
 @interface GTLRYouTube_VideoStatus : GTLRObject
 

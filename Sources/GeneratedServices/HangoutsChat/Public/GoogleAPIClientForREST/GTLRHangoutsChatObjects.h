@@ -31,6 +31,7 @@
 @class GTLRHangoutsChat_CardHeader;
 @class GTLRHangoutsChat_CardWithId;
 @class GTLRHangoutsChat_ChatClientDataSourceMarkup;
+@class GTLRHangoutsChat_ChatSpaceLinkData;
 @class GTLRHangoutsChat_Color;
 @class GTLRHangoutsChat_CommonEventObject;
 @class GTLRHangoutsChat_CommonEventObject_FormInputs;
@@ -463,7 +464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar;
 /**
- *  A Google Chat app.
+ *  A Google Chat app. Not used for Google Workspace Add-ons.
  *
  *  Value: "CHAT"
  */
@@ -1350,6 +1351,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember
 // GTLRHangoutsChat_RichLinkMetadata.richLinkType
 
 /**
+ *  A Chat space rich link type. For example, a space smart chip.
+ *
+ *  Value: "CHAT_SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_ChatSpace;
+/**
  *  A Google Drive rich link type.
  *
  *  Value: "DRIVE_FILE"
@@ -1586,7 +1593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  space can access it. For details, see [Make a space discoverable to a target
  *  audience](https://developers.google.com/workspace/chat/space-target-audience).
  *  Format: `audiences/{audience}` To use the default target audience for the
- *  Google Workspace organization, set to `audiences/default`.
+ *  Google Workspace organization, set to `audiences/default`. This field is not
+ *  populated when using the `chat.bot` scope with [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  */
 @property(nonatomic, copy, nullable) NSString *audience;
 
@@ -2078,6 +2087,29 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Data for Chat space links.
+ */
+@interface GTLRHangoutsChat_ChatSpaceLinkData : GTLRObject
+
+/**
+ *  The message of the linked Chat space resource. Format:
+ *  `spaces/{space}/messages/{message}`
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** The space of the linked Chat space resource. Format: `spaces/{space}` */
+@property(nonatomic, copy, nullable) NSString *space;
+
+/**
+ *  The thread of the linked Chat space resource. Format:
+ *  `spaces/{space}/threads/{thread}`
+ */
+@property(nonatomic, copy, nullable) NSString *thread;
+
+@end
+
+
+/**
  *  Represents a color in the RGBA color space. This representation is designed
  *  for simplicity of conversion to and from color representations in various
  *  languages over compactness. For example, the fields of this representation
@@ -2191,7 +2223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar The add-on
  *        launches from Google Calendar. (Value: "CALENDAR")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Chat A Google Chat
- *        app. (Value: "CHAT")
+ *        app. Not used for Google Workspace Add-ons. (Value: "CHAT")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Demo Not used. (Value:
  *        "DEMO")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Docs The add-on
@@ -2995,7 +3027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1CardHeader *peekCardHeader;
 
 /**
- *  The divider style between sections.
+ *  The divider style between the header, sections and footer.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_SectionDividerStyle_DividerStyleUnspecified
@@ -3193,9 +3225,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  second column wraps if the screen width is less than or equal to 480 pixels.
  *  * On iOS devices, the second column wraps if the screen width is less than
  *  or equal to 300 pt. * On Android devices, the second column wraps if the
- *  screen width is less than or equal to 320 dp. To include more than 2
+ *  screen width is less than or equal to 320 dp. To include more than two
  *  columns, or to use rows, use the `Grid` widget. [Google Workspace Add-ons
- *  and Chat apps](https://developers.google.com/workspace/extend):
+ *  and Chat apps](https://developers.google.com/workspace/extend): The add-on
+ *  UIs that support columns include: * The dialog displayed when users open the
+ *  add-on from an email draft. * The dialog displayed when users open the
+ *  add-on from the **Add attachment** menu in a Google Calendar event.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Columns : GTLRObject
 
@@ -4897,7 +4932,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview).
  *  Represents the count of memberships of a space, grouped into categories.
  */
 @interface GTLRHangoutsChat_MembershipCount : GTLRObject
@@ -5102,11 +5136,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  Immutable. Input for creating a message, otherwise output only. The user
  *  that can view the message. When set, the message is private and only visible
- *  to the specified user and the Chat app. Link previews and attachments aren't
- *  supported for private messages. Only Chat apps can send private messages. If
- *  your Chat app [authenticates as a
- *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
- *  to send a message, the message can't be private and must omit this field.
+ *  to the specified user and the Chat app. To include this field in your
+ *  request, you must call the Chat API using [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  and omit the following: *
+ *  [Attachments](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces.messages.attachments)
+ *  * [Accessory
+ *  widgets](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces.messages#Message.AccessoryWidget)
  *  For details, see [Send a message
  *  privately](https://developers.google.com/workspace/chat/create-messages#private).
  */
@@ -5364,6 +5400,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_RichLinkMetadata : GTLRObject
 
+/** Data for a chat space link. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_ChatSpaceLinkData *chatSpaceLinkData;
+
 /** Data for a drive link. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DriveLinkData *driveLinkData;
 
@@ -5371,6 +5410,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  The rich link type.
  *
  *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_ChatSpace A Chat
+ *        space rich link type. For example, a space smart chip. (Value:
+ *        "CHAT_SPACE")
  *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile A Google
  *        Drive rich link type. (Value: "DRIVE_FILE")
  *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_RichLinkTypeUnspecified
@@ -5614,12 +5656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The space's display name. Required when [creating a
- *  space](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/create).
- *  If you receive the error message `ALREADY_EXISTS` when creating a space or
- *  updating the `displayName`, try a different `displayName`. An existing space
- *  within the Google Workspace organization might already use this display
- *  name. For direct messages, this field might be empty. Supports up to 128
- *  characters.
+ *  space](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/create)
+ *  with a `spaceType` of `SPACE`. If you receive the error message
+ *  `ALREADY_EXISTS` when creating a space or updating the `displayName`, try a
+ *  different `displayName`. An existing space within the Google Workspace
+ *  organization might already use this display name. For direct messages, this
+ *  field might be empty. Supports up to 128 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -5644,17 +5686,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *importMode;
 
-/**
- *  Output only. Timestamp of the last message in the space. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
- */
+/** Output only. Timestamp of the last message in the space. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastActiveTime;
 
 /**
  *  Output only. The count of joined memberships grouped by member type.
  *  Populated when the `space_type` is `SPACE`, `DIRECT_MESSAGE` or
- *  `GROUP_CHAT`. [Developer
- *  Preview](https://developers.google.com/workspace/preview).
+ *  `GROUP_CHAT`.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_MembershipCount *membershipCount;
 

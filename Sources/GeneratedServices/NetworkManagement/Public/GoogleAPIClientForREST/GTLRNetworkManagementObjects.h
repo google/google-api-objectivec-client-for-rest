@@ -57,6 +57,7 @@
 @class GTLRNetworkManagement_ProbingDetails;
 @class GTLRNetworkManagement_ProxyConnectionInfo;
 @class GTLRNetworkManagement_ReachabilityDetails;
+@class GTLRNetworkManagement_RedisClusterInfo;
 @class GTLRNetworkManagement_RedisInstanceInfo;
 @class GTLRNetworkManagement_RouteInfo;
 @class GTLRNetworkManagement_ServerlessNegInfo;
@@ -248,6 +249,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Source
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported;
 /**
+ *  Aborted because tests with a Redis Cluster as a source are not supported.
+ *
+ *  Value: "SOURCE_REDIS_CLUSTER_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceRedisClusterUnsupported;
+/**
+ *  Aborted because tests with a Redis Instance as a source are not supported.
+ *
+ *  Value: "SOURCE_REDIS_INSTANCE_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceRedisInstanceUnsupported;
+/**
  *  Aborted because the number of steps in the trace exceeds a certain limit. It
  *  might be caused by a routing loop.
  *
@@ -419,6 +432,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Psc
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc;
 /**
+ *  Target is a Redis Cluster.
+ *
+ *  Value: "REDIS_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_RedisCluster;
+/**
+ *  Target is a Redis Instance.
+ *
+ *  Value: "REDIS_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_RedisInstance;
+/**
  *  Target is a serverless network endpoint group.
  *
  *  Value: "SERVERLESS_NEG"
@@ -557,6 +582,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Dropped
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer;
 /**
+ *  Generic drop cause for a packet being dropped inside a Redis Cluster service
+ *  project.
+ *
+ *  Value: "DROPPED_INSIDE_REDIS_CLUSTER_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideRedisClusterService;
+/**
+ *  Generic drop cause for a packet being dropped inside a Redis Instance
+ *  service project.
+ *
+ *  Value: "DROPPED_INSIDE_REDIS_INSTANCE_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideRedisInstanceService;
+/**
  *  Firewalls block the health check probes to the backends and cause the
  *  backends to be unavailable for traffic from the load balancer. For more
  *  details, see [Health check firewall
@@ -683,6 +722,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBal
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet;
 /**
+ *  Packet from the non-GCP (on-prem) or unknown GCP network is dropped due to
+ *  the destination IP address not belonging to any IP prefix advertised via BGP
+ *  by the Cloud Router.
+ *
+ *  Value: "NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination;
+/**
  *  Instance with only an internal IP address tries to access external hosts,
  *  but Cloud NAT is not enabled in the subnet, unless special configurations on
  *  a VM allow this connection.
@@ -708,6 +755,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute
  *  Value: "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address;
+/**
+ *  Packet from the non-GCP (on-prem) or unknown GCP network is dropped due to
+ *  the destination IP address not belonging to any IP prefix included to the
+ *  local traffic selector of the VPN tunnel.
+ *
+ *  Value: "NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination;
 /**
  *  Instance with only an internal IP address tries to access Google API and
  *  services, but private Google access is not enabled in the subnet.
@@ -780,11 +835,71 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicC
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination;
 /**
+ *  Redis Cluster does not have an external IP address.
+ *
+ *  Value: "REDIS_CLUSTER_NO_EXTERNAL_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisClusterNoExternalIp;
+/**
+ *  Packet sent from or to a Redis Cluster that is not in running state.
+ *
+ *  Value: "REDIS_CLUSTER_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisClusterNotRunning;
+/**
+ *  Packet is dropped due to an unsupported port being used to connect to a
+ *  Redis Cluster. Ports 6379 and 11000 to 13047 should be used to connect to a
+ *  Redis Cluster.
+ *
+ *  Value: "REDIS_CLUSTER_UNSUPPORTED_PORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisClusterUnsupportedPort;
+/**
+ *  Packet is dropped due to an unsupported protocol being used to connect to a
+ *  Redis Cluster. Only TCP connections are accepted by a Redis Cluster.
+ *
+ *  Value: "REDIS_CLUSTER_UNSUPPORTED_PROTOCOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisClusterUnsupportedProtocol;
+/**
+ *  Packet is dropped due to connecting from PUPI address to a PSA based Redis
+ *  Instance.
+ *
+ *  Value: "REDIS_INSTANCE_CONNECTING_FROM_PUPI_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceConnectingFromPupiAddress;
+/**
+ *  Redis Instance does not have an external IP address.
+ *
+ *  Value: "REDIS_INSTANCE_NO_EXTERNAL_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNoExternalIp;
+/**
+ *  Packet is dropped due to no route to the destination network.
+ *
+ *  Value: "REDIS_INSTANCE_NO_ROUTE_TO_DESTINATION_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNoRouteToDestinationNetwork;
+/**
  *  Packet sent from or to a Redis Instance that is not in running state.
  *
  *  Value: "REDIS_INSTANCE_NOT_RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNotRunning;
+/**
+ *  Packet is dropped due to an unsupported port being used to connect to a
+ *  Redis Instance. Port 6379 should be used to connect to a Redis Instance.
+ *
+ *  Value: "REDIS_INSTANCE_UNSUPPORTED_PORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceUnsupportedPort;
+/**
+ *  Packet is dropped due to an unsupported protocol being used to connect to a
+ *  Redis Instance. Only TCP connections are accepted by a Redis Instance.
+ *
+ *  Value: "REDIS_INSTANCE_UNSUPPORTED_PROTOCOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceUnsupportedProtocol;
 /**
  *  Dropped due to invalid route. Route's next hop is a blackhole.
  *
@@ -1858,6 +1973,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPr
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPscPublishedService;
 /**
+ *  Initial state: packet originating from a Redis Cluster. A RedisClusterInfo
+ *  is populated with starting Cluster information.
+ *
+ *  Value: "START_FROM_REDIS_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromRedisCluster;
+/**
  *  Initial state: packet originating from a Redis instance. A RedisInstanceInfo
  *  is populated with starting instance information.
  *
@@ -2014,6 +2136,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported
  *        Aborted because tests with a PSC-based Cloud SQL instance as a source
  *        are not supported. (Value: "SOURCE_PSC_CLOUD_SQL_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceRedisClusterUnsupported
+ *        Aborted because tests with a Redis Cluster as a source are not
+ *        supported. (Value: "SOURCE_REDIS_CLUSTER_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceRedisInstanceUnsupported
+ *        Aborted because tests with a Redis Instance as a source are not
+ *        supported. (Value: "SOURCE_REDIS_INSTANCE_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong Aborted
  *        because the number of steps in the trace exceeds a certain limit. It
  *        might be caused by a routing loop. (Value: "TRACE_TOO_LONG")
@@ -2524,6 +2652,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        VPC-SC that uses [Private Service
  *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
  *        (Value: "PSC_VPC_SC")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_RedisCluster Target is a
+ *        Redis Cluster. (Value: "REDIS_CLUSTER")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_RedisInstance Target is
+ *        a Redis Instance. (Value: "REDIS_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_ServerlessNeg Target is
  *        a serverless network endpoint group. (Value: "SERVERLESS_NEG")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_StorageBucket Target is
@@ -2605,6 +2737,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer
  *        Packet was dropped inside Private Service Connect service producer.
  *        (Value: "DROPPED_INSIDE_PSC_SERVICE_PRODUCER")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideRedisClusterService
+ *        Generic drop cause for a packet being dropped inside a Redis Cluster
+ *        service project. (Value: "DROPPED_INSIDE_REDIS_CLUSTER_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideRedisInstanceService
+ *        Generic drop cause for a packet being dropped inside a Redis Instance
+ *        service project. (Value: "DROPPED_INSIDE_REDIS_INSTANCE_SERVICE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck
  *        Firewalls block the health check probes to the backends and cause the
  *        backends to be unavailable for traffic from the load balancer. For
@@ -2674,6 +2812,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet
  *        Packet sent to a load balancer, which requires a proxy-only subnet and
  *        the subnet is not found. (Value: "LOAD_BALANCER_HAS_NO_PROXY_SUBNET")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination
+ *        Packet from the non-GCP (on-prem) or unknown GCP network is dropped
+ *        due to the destination IP address not belonging to any IP prefix
+ *        advertised via BGP by the Cloud Router. (Value:
+ *        "NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress Instance
  *        with only an internal IP address tries to access external hosts, but
  *        Cloud NAT is not enabled in the subnet, unless special configurations
@@ -2686,6 +2829,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address
  *        Packet is sent from the Internet to the private IPv6 address. (Value:
  *        "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination
+ *        Packet from the non-GCP (on-prem) or unknown GCP network is dropped
+ *        due to the destination IP address not belonging to any IP prefix
+ *        included to the local traffic selector of the VPN tunnel. (Value:
+ *        "NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed
  *        Instance with only an internal IP address tries to access Google API
  *        and services, but private Google access is not enabled in the subnet.
@@ -2726,9 +2874,40 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination
  *        Packet sent from a public GKE cluster control plane to a private IP
  *        address. (Value: "PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisClusterNoExternalIp
+ *        Redis Cluster does not have an external IP address. (Value:
+ *        "REDIS_CLUSTER_NO_EXTERNAL_IP")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisClusterNotRunning
+ *        Packet sent from or to a Redis Cluster that is not in running state.
+ *        (Value: "REDIS_CLUSTER_NOT_RUNNING")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisClusterUnsupportedPort
+ *        Packet is dropped due to an unsupported port being used to connect to
+ *        a Redis Cluster. Ports 6379 and 11000 to 13047 should be used to
+ *        connect to a Redis Cluster. (Value: "REDIS_CLUSTER_UNSUPPORTED_PORT")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisClusterUnsupportedProtocol
+ *        Packet is dropped due to an unsupported protocol being used to connect
+ *        to a Redis Cluster. Only TCP connections are accepted by a Redis
+ *        Cluster. (Value: "REDIS_CLUSTER_UNSUPPORTED_PROTOCOL")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceConnectingFromPupiAddress
+ *        Packet is dropped due to connecting from PUPI address to a PSA based
+ *        Redis Instance. (Value: "REDIS_INSTANCE_CONNECTING_FROM_PUPI_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNoExternalIp
+ *        Redis Instance does not have an external IP address. (Value:
+ *        "REDIS_INSTANCE_NO_EXTERNAL_IP")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNoRouteToDestinationNetwork
+ *        Packet is dropped due to no route to the destination network. (Value:
+ *        "REDIS_INSTANCE_NO_ROUTE_TO_DESTINATION_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNotRunning
  *        Packet sent from or to a Redis Instance that is not in running state.
  *        (Value: "REDIS_INSTANCE_NOT_RUNNING")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceUnsupportedPort
+ *        Packet is dropped due to an unsupported port being used to connect to
+ *        a Redis Instance. Port 6379 should be used to connect to a Redis
+ *        Instance. (Value: "REDIS_INSTANCE_UNSUPPORTED_PORT")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceUnsupportedProtocol
+ *        Packet is dropped due to an unsupported protocol being used to connect
+ *        to a Redis Instance. Only TCP connections are accepted by a Redis
+ *        Instance. (Value: "REDIS_INSTANCE_UNSUPPORTED_PROTOCOL")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole Dropped due
  *        to invalid route. Route's next hop is a blackhole. (Value:
  *        "ROUTE_BLACKHOLE")
@@ -3822,15 +4001,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  For display only. Metadata associated with a Compute Engine network.
+ *  For display only. Metadata associated with a Compute Engine network. Next
+ *  ID: 7
  */
 @interface GTLRNetworkManagement_NetworkInfo : GTLRObject
 
 /** Name of a Compute Engine network. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The IP range that matches the test. */
+/** The IP range of the subnet matching the source IP address of the test. */
 @property(nonatomic, copy, nullable) NSString *matchedIpRange;
+
+/** URI of the subnet matching the source IP address of the test. */
+@property(nonatomic, copy, nullable) NSString *matchedSubnetUri;
+
+/** The region of the subnet matching the source IP address of the test. */
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** URI of a Compute Engine network. */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -4248,6 +4434,41 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with a Redis Cluster.
+ */
+@interface GTLRNetworkManagement_RedisClusterInfo : GTLRObject
+
+/** Discovery endpoint IP address of a Redis Cluster. */
+@property(nonatomic, copy, nullable) NSString *discoveryEndpointIpAddress;
+
+/** Name of a Redis Cluster. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Name of the region in which the Redis Cluster is defined. For example,
+ *  "us-central1".
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  URI of a Redis Cluster network in format
+ *  "projects/{project_id}/global/networks/{network_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *networkUri;
+
+/** Secondary endpoint IP address of a Redis Cluster. */
+@property(nonatomic, copy, nullable) NSString *secondaryEndpointIpAddress;
+
+/**
+ *  URI of a Redis Cluster in format
+ *  "projects/{project_id}/locations/{location}/clusters/{cluster_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with a Cloud Redis Instance.
  */
 @interface GTLRNetworkManagement_RedisInstanceInfo : GTLRObject
@@ -4284,6 +4505,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  For display only. Metadata associated with a Compute Engine route.
  */
 @interface GTLRNetworkManagement_RouteInfo : GTLRObject
+
+/**
+ *  For advertised routes, the URI of their next hop, i.e. the URI of the hybrid
+ *  endpoint (VPN tunnel, Interconnect attachment, NCC router appliance) the
+ *  advertised prefix is advertised through, or URI of the source peered
+ *  network.
+ */
+@property(nonatomic, copy, nullable) NSString *advertisedRouteNextHopUri;
+
+/**
+ *  For advertised dynamic routes, the URI of the Cloud Router that advertised
+ *  the corresponding IP prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *advertisedRouteSourceRouterUri;
 
 /** Destination IP range of the route. */
 @property(nonatomic, copy, nullable) NSString *destIpRange;
@@ -4360,6 +4595,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Protocols of the route. Policy based routes only. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *protocols;
 
+/** Region of the route (if applicable). */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /**
  *  Indicates where route is applicable.
  *
@@ -4405,11 +4643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Source port ranges of the route. Policy based routes only. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcPortRanges;
 
-/**
- *  URI of a route. Dynamic, peering static and peering dynamic routes do not
- *  have an URI. Advertised route from Google Cloud VPC to on-premises network
- *  also does not have an URI.
- */
+/** URI of a route (if applicable). */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -4583,6 +4817,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a ProxyConnection. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_ProxyConnectionInfo *proxyConnection;
 
+/** Display information of a Redis Cluster. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_RedisClusterInfo *redisCluster;
+
 /** Display information of a Redis Instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_RedisInstanceInfo *redisInstance;
 
@@ -4685,6 +4922,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Initial state: packet originating from a published service that uses
  *        Private Service Connect. Used only for return traces. (Value:
  *        "START_FROM_PSC_PUBLISHED_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromRedisCluster Initial
+ *        state: packet originating from a Redis Cluster. A RedisClusterInfo is
+ *        populated with starting Cluster information. (Value:
+ *        "START_FROM_REDIS_CLUSTER")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromRedisInstance Initial
  *        state: packet originating from a Redis instance. A RedisInstanceInfo
  *        is populated with starting instance information. (Value:

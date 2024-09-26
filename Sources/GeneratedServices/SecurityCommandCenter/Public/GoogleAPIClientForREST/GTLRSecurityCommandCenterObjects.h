@@ -5592,6 +5592,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_AzureTenant : GTLRObject
 
+/** The display name of the Azure tenant. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /**
  *  The ID of the Microsoft Entra tenant, for example,
  *  "a11aaa11-aa11-1aa1-11aa-1aaa11a".
@@ -9038,6 +9041,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Represents a Microsoft Entra tenant.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AzureTenant : GTLRObject
+
+/** The display name of the Azure tenant. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  The ID of the Microsoft Entra tenant, for example,

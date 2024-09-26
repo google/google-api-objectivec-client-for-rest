@@ -72,6 +72,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Context_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Context_Metadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CreateFeatureRequest;
+@class GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobRequest;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CreatePipelineJobRequest;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CreateTensorboardRunRequest;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CreateTensorboardTimeSeriesRequest;
@@ -223,6 +224,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1FunctionResponse_Response;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GcsDestination;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GcsSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig;
@@ -263,6 +265,9 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Int64Array;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IntegratedGradientsAttribution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LargeModelReference;
+@class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate;
+@class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultTopCandidates;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ManualBatchTuningParameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Measurement;
@@ -407,6 +412,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Probe;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ProbeExecAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToAction;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata;
@@ -663,6 +669,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrialContext;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TrialParameter;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TunedModel;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TunedModelRef;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TuningDataStats;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TuningJob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TuningJob_Labels;
@@ -3579,6 +3586,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Reserv
 // GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating.category
 
 /**
+ *  The harm category is civic integrity.
+ *
+ *  Value: "HARM_CATEGORY_CIVIC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryCivicIntegrity;
+/**
  *  The harm category is dangerous content.
  *
  *  Value: "HARM_CATEGORY_DANGEROUS_CONTENT"
@@ -3681,6 +3694,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Safety
 // GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting.category
 
 /**
+ *  The harm category is civic integrity.
+ *
+ *  Value: "HARM_CATEGORY_CIVIC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryCivicIntegrity;
+/**
  *  The harm category is dangerous content.
  *
  *  Value: "HARM_CATEGORY_DANGEROUS_CONTENT"
@@ -3766,6 +3785,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Safety
  *  Value: "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_HarmBlockThresholdUnspecified;
+/**
+ *  Turn off the safety filter.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_Off;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1SampleConfig.sampleStrategy
@@ -5186,9 +5211,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
- *  GTLRAiplatform_CloudAiLargeModelsVisionRaiInfo
+ *  Next ID: 6
  */
 @interface GTLRAiplatform_CloudAiLargeModelsVisionRaiInfo : GTLRObject
+
+/** List of blocked entities from the blocklist if it is detected. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blockedEntities;
 
 /** The list of detected labels for different rai categories. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabels *> *detectedLabels;
@@ -7127,6 +7155,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
+ *  Output only. Log-likelihood scores for the response tokens and top tokens
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult *logprobsResult;
+
+/**
  *  Output only. List of ratings for the safety of a response candidate. There
  *  is at most one rating per category.
  */
@@ -7644,6 +7677,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Content *> *contents;
 
 /**
+ *  Optional. Generation config that the model will use to generate the
+ *  response.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig *generationConfig;
+
+/**
  *  Optional. The instances that are the input to token counting call. Schema is
  *  identical to the prediction schema of the underlying model.
  *
@@ -7905,6 +7944,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  NotebookRuntime.
  */
 @property(nonatomic, copy, nullable) NSString *progressMessage;
+
+@end
+
+
+/**
+ *  Request message for [NotebookService.CreateNotebookExecutionJob]
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobRequest : GTLRObject
+
+/** Required. The NotebookExecutionJob to create. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob *notebookExecutionJob;
+
+/** Optional. User specified ID for the NotebookExecutionJob. */
+@property(nonatomic, copy, nullable) NSString *notebookExecutionJobId;
+
+/**
+ *  Required. The resource name of the Location to create the
+ *  NotebookExecutionJob. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 @end
 
@@ -9215,6 +9274,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  field is populated if network is configured.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1IndexPrivateEndpoints *privateEndpoints;
+
+/**
+ *  Optional. If set for PSC deployed index, PSC connection will be
+ *  automatically created after deployment is done and the endpoint information
+ *  is populated in private_endpoints.psc_automated_endpoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig *> *pscAutomationConfigs;
 
 /**
  *  Optional. A list of reserved ip ranges under the VPC network that can be
@@ -12090,10 +12156,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  unique entityId including nulls. If not set, will collapse all rows for each
  *  unique entityId into a singe row with any non-null values if present, if no
  *  non-null values are present will sync null. ex: If source has schema
- *  (entity_id, feature_timestamp, f0, f1) and values (e1,
- *  2020-01-01T10:00:00.123Z, 10, 15) (e1, 2020-02-01T10:00:00.123Z, 20, null)
- *  If dense is set, (e1, 20, null) is synced to online stores. If dense is not
- *  set, (e1, 20, 15) is synced to online stores.
+ *  `(entity_id, feature_timestamp, f0, f1)` and the following rows: `(e1,
+ *  2020-01-01T10:00:00.123Z, 10, 15)` `(e1, 2020-02-01T10:00:00.123Z, 20,
+ *  null)` If dense is set, `(e1, 20, null)` is synced to online stores. If
+ *  dense is not set, `(e1, 20, 15)` is synced to online stores.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -13334,10 +13400,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 /**
  *  Required. The BigQuery view/table URI that will be materialized on each
  *  manual sync trigger. The table/view is expected to have the following
- *  columns at least: Field name Type Mode corpus_id STRING REQUIRED/NULLABLE
- *  file_id STRING REQUIRED/NULLABLE chunk_id STRING REQUIRED/NULLABLE
- *  chunk_data_type STRING REQUIRED/NULLABLE chunk_data STRING REQUIRED/NULLABLE
- *  embeddings FLOAT REPEATED file_original_uri STRING REQUIRED/NULLABLE
+ *  columns and types at least: - `corpus_id` (STRING, NULLABLE/REQUIRED) -
+ *  `file_id` (STRING, NULLABLE/REQUIRED) - `chunk_id` (STRING,
+ *  NULLABLE/REQUIRED) - `chunk_data_type` (STRING, NULLABLE/REQUIRED) -
+ *  `chunk_data` (STRING, NULLABLE/REQUIRED) - `embeddings` (FLOAT, REPEATED) -
+ *  `file_original_uri` (STRING, NULLABLE/REQUIRED)
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -14017,6 +14084,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig *generationConfig;
 
 /**
+ *  Optional. The labels with user-defined metadata for the request. It is used
+ *  for billing and reporting only. Label keys and values can be no longer than
+ *  63 characters (Unicode codepoints) and can only contain lowercase letters,
+ *  numeric characters, underscores, and dashes. International characters are
+ *  allowed. Label values are optional. Label keys must start with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels *labels;
+
+/**
  *  Optional. Per request settings for blocking unsafe content. Enforced on
  *  GenerateContentResponse.candidates.
  */
@@ -14047,12 +14123,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 
 
 /**
+ *  Optional. The labels with user-defined metadata for the request. It is used
+ *  for billing and reporting only. Label keys and values can be no longer than
+ *  63 characters (Unicode codepoints) and can only contain lowercase letters,
+ *  numeric characters, underscores, and dashes. International characters are
+ *  allowed. Label values are optional. Label keys must start with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels : GTLRObject
+@end
+
+
+/**
  *  Response message for [PredictionService.GenerateContent].
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse : GTLRObject
 
 /** Output only. Generated candidates. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Candidate *> *candidates;
+
+/** Output only. The model version used to generate the response. */
+@property(nonatomic, copy, nullable) NSString *modelVersion;
 
 /**
  *  Output only. Content filter results for a prompt sent in the request. Note:
@@ -14151,6 +14246,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
 @property(nonatomic, strong, nullable) NSNumber *frequencyPenalty;
 
 /**
+ *  Optional. Logit probabilities.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logprobs;
+
+/**
  *  Optional. The maximum number of output tokens to generate per message.
  *
  *  Uses NSNumber of intValue.
@@ -14163,6 +14265,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *presencePenalty;
+
+/**
+ *  Optional. If true, export the logprobs results in response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *responseLogprobs;
 
 /**
  *  Optional. Output response mimetype of the generated candidate text.
@@ -16944,6 +17053,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tuning
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1TuningJob *> *tuningJobs;
+
+@end
+
+
+/**
+ *  Logprobs Result
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult : GTLRObject
+
+/**
+ *  Length = total number of decoding steps. The chosen candidates may or may
+ *  not be in top_candidates.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate *> *chosenCandidates;
+
+/** Length = total number of decoding steps. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultTopCandidates *> *topCandidates;
+
+@end
+
+
+/**
+ *  Candidate for the logprobs token and score.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate : GTLRObject
+
+/**
+ *  The candidate's log probability.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logProbability;
+
+/** The candidate’s token string value. */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  The candidate’s token id value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tokenId;
+
+@end
+
+
+/**
+ *  Candidates with top log probabilities at each decoding step.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultTopCandidates : GTLRObject
+
+/** Sorted by log probability in descending order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate *> *candidates;
 
 @end
 
@@ -22143,6 +22305,27 @@ GTLR_DEPRECATED
 
 
 /**
+ *  PSC config that is used to automatically create forwarding rule via
+ *  ServiceConnectionMap.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig : GTLRObject
+
+/**
+ *  Required. The full name of the Google Compute Engine
+ *  [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
+ *  [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert):
+ *  `projects/{project}/global/networks/{network}`. Where {project} is a project
+ *  number, as in '12345', and {network} is network name.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Required. Project id used to create forwarding rule. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
  *  A Model Garden Publisher Model.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PublisherModel : GTLRObject
@@ -23447,6 +23630,37 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for GenAiTuningService.RebaseTunedModel.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest : GTLRObject
+
+/** Optional. The Google Cloud Storage location to write the artifacts. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GcsDestination *artifactDestination;
+
+/**
+ *  Optional. By default, bison to gemini migration will always create new
+ *  model/endpoint, but for gemini-1.0 to gemini-1.5 migration, we default
+ *  deploy to the same endpoint. See details in this Section.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deployToSameEndpoint;
+
+/**
+ *  Required. TunedModel reference to retrieve the legacy model information.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TunedModelRef *tunedModelRef;
+
+/**
+ *  Optional. The TuningJob to be updated. Users can use this TuningJob field to
+ *  overwrite tuning configs.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TuningJob *tuningJob;
+
+@end
+
+
+/**
  *  Details of operations that perform reboot PersistentResource.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1RebootPersistentResourceOperationMetadata : GTLRObject
@@ -23867,6 +24081,9 @@ GTLR_DEPRECATED
  *  Output only. Harm category.
  *
  *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryCivicIntegrity
+ *        The harm category is civic integrity. (Value:
+ *        "HARM_CATEGORY_CIVIC_INTEGRITY")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryDangerousContent
  *        The harm category is dangerous content. (Value:
  *        "HARM_CATEGORY_DANGEROUS_CONTENT")
@@ -23967,6 +24184,9 @@ GTLR_DEPRECATED
  *  Required. Harm category.
  *
  *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryCivicIntegrity
+ *        The harm category is civic integrity. (Value:
+ *        "HARM_CATEGORY_CIVIC_INTEGRITY")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryDangerousContent
  *        The harm category is dangerous content. (Value:
  *        "HARM_CATEGORY_DANGEROUS_CONTENT")
@@ -24016,6 +24236,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_HarmBlockThresholdUnspecified
  *        Unspecified harm block threshold. (Value:
  *        "HARM_BLOCK_THRESHOLD_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_Off
+ *        Turn off the safety filter. (Value: "OFF")
  */
 @property(nonatomic, copy, nullable) NSString *threshold;
 
@@ -24221,6 +24443,9 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *catchUp;
+
+/** Request for NotebookService.CreateNotebookExecutionJob. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobRequest *createNotebookExecutionJobRequest;
 
 /**
  *  Request for PipelineService.CreatePipelineJob.
@@ -24429,6 +24654,12 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Schema : GTLRObject
 
 /**
+ *  Optional. The value should be validated against any (one or more) of the
+ *  subschemas in the list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Schema *> *anyOf;
+
+/**
  *  Optional. Default value of the data.
  *
  *  Remapped to 'defaultProperty' to avoid language reserved word 'default'.
@@ -24545,6 +24776,12 @@ GTLR_DEPRECATED
 
 /** Optional. SCHEMA FIELDS FOR TYPE OBJECT Properties of Type.OBJECT. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Schema_Properties *properties;
+
+/**
+ *  Optional. The order of the properties. Not a standard field in open api
+ *  spec. Only used to support the order of the properties.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *propertyOrdering;
 
 /** Optional. Required properties of Type.OBJECT. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *required;
@@ -27140,6 +27377,14 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *hasPromptVariable;
 
 /**
+ *  Whether or not the user has enabled logit probabilities in the model
+ *  parameters.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logprobs;
+
+/**
  *  Value of the maximum number of tokens generated set when the dataset was
  *  saved.
  *
@@ -27152,6 +27397,22 @@ GTLR_DEPRECATED
 
 /** Type of the prompt dataset. */
 @property(nonatomic, copy, nullable) NSString *promptType;
+
+/**
+ *  Seeding enables model to return a deterministic response on a best effort
+ *  basis. Determinism isn't guaranteed. This field determines whether or not
+ *  seeding is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seedEnabled;
+
+/**
+ *  The actual value of the seed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seedValue;
 
 /** Customized stop sequences. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *stopSequences;
@@ -31552,7 +31813,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Tuning Spec for Supervised Tuning.
+ *  Tuning Spec for Supervised Tuning for first party models.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningSpec : GTLRObject
 
@@ -32361,7 +32622,7 @@ GTLR_DEPRECATED
  *  subset of these functions by populating FunctionCall in the response. User
  *  should provide a FunctionResponse for each function call in the next turn.
  *  Based on the function responses, Model will generate the final response back
- *  to the user. Maximum 64 function declarations can be provided.
+ *  to the user. Maximum 128 function declarations can be provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration *> *functionDeclarations;
 
@@ -33032,6 +33293,29 @@ GTLR_DEPRECATED
  *  `projects/{project}/locations/{location}/models/{model}`.
  */
 @property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  TunedModel Reference for legacy model migration.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TunedModelRef : GTLRObject
+
+/**
+ *  Support migration from tuning job list page, from bison model to gemini
+ *  model.
+ */
+@property(nonatomic, copy, nullable) NSString *pipelineJob;
+
+/** Support migration from model registry. */
+@property(nonatomic, copy, nullable) NSString *tunedModel;
+
+/**
+ *  Support migration from tuning job list page, from gemini-1.0-pro-002 to 1.5
+ *  and above.
+ */
+@property(nonatomic, copy, nullable) NSString *tuningJob;
 
 @end
 

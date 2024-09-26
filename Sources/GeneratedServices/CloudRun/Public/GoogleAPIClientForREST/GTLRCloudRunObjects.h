@@ -920,6 +920,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchS
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2ServiceScaling.scalingMode
+
+/**
+ *  Scale based on traffic between min and max instances.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Automatic;
+/**
+ *  Scale to exactly min instances and ignore max instances.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Manual;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SCALING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_ScalingModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Task.executionEnvironment
 
 /**
@@ -3556,7 +3578,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. Maximum number of serving instances that this resource should
- *  have.
+ *  have. When unspecified, the field is set to the server default value of 100.
+ *  For more information see
+ *  https://cloud.google.com/run/docs/configuring/max-instances
  *
  *  Uses NSNumber of intValue.
  */
@@ -4222,6 +4246,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSNumber *minInstanceCount;
 
+/**
+ *  Optional. The scaling mode for the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Automatic
+ *        Scale based on traffic between min and max instances. (Value:
+ *        "AUTOMATIC")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Manual
+ *        Scale to exactly min instances and ignore max instances. (Value:
+ *        "MANUAL")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_ScalingModeUnspecified
+ *        Unspecified. (Value: "SCALING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scalingMode;
+
 @end
 
 
@@ -4303,6 +4342,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Used to opt into automatic base image updates.
  */
 @property(nonatomic, copy, nullable) NSString *baseImageUri;
+
+/** Warning message for the base image. */
+@property(nonatomic, copy, nullable) NSString *baseImageWarning;
 
 /** Cloud Build operation to be polled via CloudBuild API. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleLongrunningOperation *buildOperation;

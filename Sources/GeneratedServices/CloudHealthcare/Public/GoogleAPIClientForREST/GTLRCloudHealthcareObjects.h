@@ -2191,7 +2191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Notification destination for new DICOM instances. Supplied by the client.
+ *  Optional. Notification destination for new DICOM instances. Supplied by the
+ *  client.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
 
@@ -2818,7 +2819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_FhirNotificationConfig : GTLRObject
 
 /**
- *  The [Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
+ *  Optional. The [Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
  *  notifications of changes are published on. Supplied by the client. The
  *  notification is a `PubsubMessage` with the following fields: *
  *  `PubsubMessage.Data` contains the resource name. * `PubsubMessage.MessageId`
@@ -2838,21 +2839,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
- *  Whether to send full FHIR resource to this Pub/Sub topic. The default value
- *  is false.
+ *  Optional. Whether to send full FHIR resource to this Pub/Sub topic. The
+ *  default value is false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sendFullResource;
 
 /**
- *  Whether to send full FHIR resource to this Pub/Sub topic for deleting FHIR
- *  resource. The default value is false. Note that setting this to true does
- *  not guarantee that all previous resources will be sent in the format of full
- *  FHIR resource. When a resource change is too large or during heavy traffic,
- *  only the resource name will be sent. Clients should always check the
- *  "payloadType" label from a Pub/Sub message to determine whether it needs to
- *  fetch the full previous resource as a separate operation.
+ *  Optional. Whether to send full FHIR resource to this Pub/Sub topic for
+ *  deleting FHIR resource. The default value is false. Note that setting this
+ *  to true does not guarantee that all previous resources will be sent in the
+ *  format of full FHIR resource. When a resource change is too large or during
+ *  heavy traffic, only the resource name will be sent. Clients should always
+ *  check the "payloadType" label from a Pub/Sub message to determine whether it
+ *  needs to fetch the full previous resource as a separate operation.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2889,12 +2890,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *complexDataTypeReferenceParsing;
 
 /**
- *  If true, overrides the default search behavior for this FHIR store to
- *  `handling=strict` which returns an error for unrecognized search parameters.
- *  If false, uses the FHIR specification default `handling=lenient` which
- *  ignores unrecognized search parameters. The handling can always be changed
- *  from the default on an individual API call by setting the HTTP header
- *  `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to false.
+ *  Optional. If true, overrides the default search behavior for this FHIR store
+ *  to `handling=strict` which returns an error for unrecognized search
+ *  parameters. If false, uses the FHIR specification default `handling=lenient`
+ *  which ignores unrecognized search parameters. The handling can always be
+ *  changed from the default on an individual API call by setting the HTTP
+ *  header `Prefer: handling=strict` or `Prefer: handling=lenient`. Defaults to
+ *  false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2927,7 +2929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSNumber *disableResourceVersioning;
 
 /**
- *  Whether this FHIR store has the [updateCreate
+ *  Optional. Whether this FHIR store has the [updateCreate
  *  capability](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.rest.resource.updateCreate).
  *  This determines if the client can use an Update operation to create a new
  *  resource with a client-specified ID. If false, all IDs are server-assigned
@@ -2969,19 +2971,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig GTLR_DEPRECATED;
 
 /**
- *  Specifies where and whether to send notifications upon changes to a FHIR
- *  store.
+ *  Optional. Specifies where and whether to send notifications upon changes to
+ *  a FHIR store.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FhirNotificationConfig *> *notificationConfigs;
 
 /**
- *  A list of streaming configs that configure the destinations of streaming
- *  export for every resource mutation in this FHIR store. Each store is allowed
- *  to have up to 10 streaming configs. After a new config is added, the next
- *  resource mutation is streamed to the new location in addition to the
- *  existing ones. When a location is removed from the list, the server stops
- *  streaming to that location. Before adding a new config, you must add the
- *  required
+ *  Optional. A list of streaming configs that configure the destinations of
+ *  streaming export for every resource mutation in this FHIR store. Each store
+ *  is allowed to have up to 10 streaming configs. After a new config is added,
+ *  the next resource mutation is streamed to the new location in addition to
+ *  the existing ones. When a location is removed from the list, the server
+ *  stops streaming to that location. Before adding a new config, you must add
+ *  the required
  *  [`bigquery.dataEditor`](https://cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
  *  role to your project's **Cloud Healthcare Service Agent** [service
  *  account](https://cloud.google.com/iam/docs/service-accounts). Some lag
@@ -3441,29 +3443,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination : GTLRObject
 
 /**
- *  BigQuery URI to an existing dataset, up to 2000 characters long, in the
- *  format `bq://projectId.bqDatasetId`.
+ *  Optional. BigQuery URI to an existing dataset, up to 2000 characters long,
+ *  in the format `bq://projectId.bqDatasetId`.
  */
 @property(nonatomic, copy, nullable) NSString *datasetUri;
 
 /**
- *  The default value is false. If this flag is `TRUE`, all tables are deleted
- *  from the dataset before the new exported tables are written. If the flag is
- *  not set and the destination dataset contains tables, the export call returns
- *  an error. If `write_disposition` is specified, this parameter is ignored.
- *  force=false is equivalent to write_disposition=WRITE_EMPTY and force=true is
- *  equivalent to write_disposition=WRITE_TRUNCATE.
+ *  Optional. The default value is false. If this flag is `TRUE`, all tables are
+ *  deleted from the dataset before the new exported tables are written. If the
+ *  flag is not set and the destination dataset contains tables, the export call
+ *  returns an error. If `write_disposition` is specified, this parameter is
+ *  ignored. force=false is equivalent to write_disposition=WRITE_EMPTY and
+ *  force=true is equivalent to write_disposition=WRITE_TRUNCATE.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *force;
 
-/** The configuration for the exported BigQuery schema. */
+/** Optional. The configuration for the exported BigQuery schema. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_SchemaConfig *schemaConfig;
 
 /**
- *  Determines if existing data in the destination dataset is overwritten,
- *  appended to, or not written if the tables contain data. If a
+ *  Optional. Determines if existing data in the destination dataset is
+ *  overwritten, appended to, or not written if the tables contain data. If a
  *  write_disposition is specified, the `force` parameter is ignored.
  *
  *  Likely values:
@@ -3595,9 +3597,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_Hl7V2NotificationConfig : GTLRObject
 
 /**
- *  Restricts notifications sent for messages matching a filter. If this is
- *  empty, all messages are matched. The following syntax is available: * A
- *  string field value can be written as text inside quotation marks, for
+ *  Optional. Restricts notifications sent for messages matching a filter. If
+ *  this is empty, all messages are matched. The following syntax is available:
+ *  * A string field value can be written as text inside quotation marks, for
  *  example `"query text"`. The only valid relational operation for text fields
  *  is equality (`=`), where text is searched within the field, rather than
  *  having the field be equal to the text. For example, `"Comment = great"`
@@ -3684,29 +3686,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A list of notification configs. Each configuration uses a filter to
- *  determine whether to publish a message (both Ingest & Create) on the
+ *  Optional. A list of notification configs. Each configuration uses a filter
+ *  to determine whether to publish a message (both Ingest & Create) on the
  *  corresponding notification destination. Only the message name is sent as
  *  part of the notification. Supplied by the client.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Hl7V2NotificationConfig *> *notificationConfigs;
 
 /**
- *  The configuration for the parser. It determines how the server parses the
- *  messages.
+ *  Optional. The configuration for the parser. It determines how the server
+ *  parses the messages.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ParserConfig *parserConfig;
 
 /**
- *  Determines whether to reject duplicate messages. A duplicate message is a
- *  message with the same raw bytes as a message that has already been
- *  ingested/created in this HL7v2 store. The default value is false, meaning
- *  that the store accepts the duplicate messages and it also returns the same
- *  ACK message in the IngestMessageResponse as has been returned previously.
- *  Note that only one resource is created in the store. When this field is set
- *  to true, CreateMessage/IngestMessage requests with a duplicate message will
- *  be rejected by the store, and IngestMessageErrorDetail returns a NACK
- *  message upon rejection.
+ *  Optional. Determines whether to reject duplicate messages. A duplicate
+ *  message is a message with the same raw bytes as a message that has already
+ *  been ingested/created in this HL7v2 store. The default value is false,
+ *  meaning that the store accepts the duplicate messages and it also returns
+ *  the same ACK message in the IngestMessageResponse as has been returned
+ *  previously. Note that only one resource is created in the store. When this
+ *  field is set to true, CreateMessage/IngestMessage requests with a duplicate
+ *  message will be rejected by the store, and IngestMessageErrorDetail returns
+ *  a NACK message upon rejection.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4767,15 +4769,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_ParserConfig : GTLRObject
 
 /**
- *  Determines whether messages with no header are allowed.
+ *  Optional. Determines whether messages with no header are allowed.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowNullHeader;
 
 /**
- *  Schemas used to parse messages in this store, if schematized parsing is
- *  desired.
+ *  Optional. Schemas used to parse messages in this store, if schematized
+ *  parsing is desired.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_SchemaPackage *schema;
 
@@ -5431,24 +5433,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_SchemaPackage : GTLRObject
 
 /**
- *  Flag to ignore all min_occurs restrictions in the schema. This means that
- *  incoming messages can omit any group, segment, field, component, or
- *  subcomponent.
+ *  Optional. Flag to ignore all min_occurs restrictions in the schema. This
+ *  means that incoming messages can omit any group, segment, field, component,
+ *  or subcomponent.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreMinOccurs;
 
 /**
- *  Schema configs that are layered based on their VersionSources that match the
- *  incoming message. Schema configs present in higher indices override those in
- *  lower indices with the same message type and trigger event if their
- *  VersionSources all match an incoming message.
+ *  Optional. Schema configs that are layered based on their VersionSources that
+ *  match the incoming message. Schema configs present in higher indices
+ *  override those in lower indices with the same message type and trigger event
+ *  if their VersionSources all match an incoming message.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Hl7SchemaConfig *> *schemas;
 
 /**
- *  Determines how messages that fail to parse are handled.
+ *  Optional. Determines how messages that fail to parse are handled.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_SchemaPackage_SchematizedParsingType_HardFail
@@ -5464,16 +5466,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *schematizedParsingType;
 
 /**
- *  Schema type definitions that are layered based on their VersionSources that
- *  match the incoming message. Type definitions present in higher indices
- *  override those in lower indices with the same type name if their
- *  VersionSources all match an incoming message.
+ *  Optional. Schema type definitions that are layered based on their
+ *  VersionSources that match the incoming message. Type definitions present in
+ *  higher indices override those in lower indices with the same type name if
+ *  their VersionSources all match an incoming message.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Hl7TypesConfig *> *types;
 
 /**
- *  Determines how unexpected segments (segments not matched to the schema) are
- *  handled.
+ *  Optional. Determines how unexpected segments (segments not matched to the
+ *  schema) are handled.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Fail
@@ -5799,21 +5801,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_StreamConfig : GTLRObject
 
 /**
- *  The destination BigQuery structure that contains both the dataset location
- *  and corresponding schema config. The output is organized in one table per
- *  resource type. The server reuses the existing tables (if any) that are named
- *  after the resource types. For example, "Patient", "Observation". When there
- *  is no existing table for a given resource type, the server attempts to
- *  create one. When a table schema doesn't align with the schema config, either
- *  because of existing incompatible schema or out of band incompatible
- *  modification, the server does not stream in new data. BigQuery imposes a 1
- *  MB limit on streaming insert row size, therefore any resource mutation that
- *  generates more than 1 MB of BigQuery data is not streamed. One resolution in
- *  this case is to delete the incompatible table and let the server recreate
- *  one, though the newly created table only contains data after the table
- *  recreation. Results are written to BigQuery tables according to the
- *  parameters in BigQueryDestination.WriteDisposition. Different versions of
- *  the same resource are distinguishable by the meta.versionId and
+ *  Optional. The destination BigQuery structure that contains both the dataset
+ *  location and corresponding schema config. The output is organized in one
+ *  table per resource type. The server reuses the existing tables (if any) that
+ *  are named after the resource types. For example, "Patient", "Observation".
+ *  When there is no existing table for a given resource type, the server
+ *  attempts to create one. When a table schema doesn't align with the schema
+ *  config, either because of existing incompatible schema or out of band
+ *  incompatible modification, the server does not stream in new data. BigQuery
+ *  imposes a 1 MB limit on streaming insert row size, therefore any resource
+ *  mutation that generates more than 1 MB of BigQuery data is not streamed. One
+ *  resolution in this case is to delete the incompatible table and let the
+ *  server recreate one, though the newly created table only contains data after
+ *  the table recreation. Results are written to BigQuery tables according to
+ *  the parameters in BigQueryDestination.WriteDisposition. Different versions
+ *  of the same resource are distinguishable by the meta.versionId and
  *  meta.lastUpdated columns. The operation (CREATE/UPDATE/DELETE) that results
  *  in the new version is recorded in the meta.tag. The tables contain all
  *  historical resource versions since streaming was enabled. For query
@@ -5852,10 +5854,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifiedStoreDestination *deidentifiedStoreDestination;
 
 /**
- *  Supply a FHIR resource type (such as "Patient" or "Observation"). See
- *  https://www.hl7.org/fhir/valueset-resource-types.html for a list of all FHIR
- *  resource types. The server treats an empty list as an intent to stream all
- *  the supported resource types in this FHIR store.
+ *  Optional. Supply a FHIR resource type (such as "Patient" or "Observation").
+ *  See https://www.hl7.org/fhir/valueset-resource-types.html for a list of all
+ *  FHIR resource types. The server treats an empty list as an intent to stream
+ *  all the supported resource types in this FHIR store.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
 

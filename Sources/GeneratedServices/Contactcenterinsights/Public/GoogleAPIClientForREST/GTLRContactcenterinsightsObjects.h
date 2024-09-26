@@ -1707,6 +1707,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, copy, nullable) NSString *medium;
 
 /**
+ *  Input only. JSON Metadata encoded as a string. This field is primarily used
+ *  by Insights integrations with various telphony systems and must be in one of
+ *  Insights' supported formats.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataJson;
+
+/**
  *  Immutable. The resource name of the conversation. Format:
  *  projects/{project}/locations/{location}/conversations/{conversation}
  */
@@ -4417,6 +4424,13 @@ GTLR_DEPRECATED
  *        "PHONE_CALL")
  */
 @property(nonatomic, copy, nullable) NSString *medium;
+
+/**
+ *  Input only. JSON Metadata encoded as a string. This field is primarily used
+ *  by Insights integrations with various telphony systems and must be in one of
+ *  Insights' supported formats.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataJson;
 
 /**
  *  Immutable. The resource name of the conversation. Format:

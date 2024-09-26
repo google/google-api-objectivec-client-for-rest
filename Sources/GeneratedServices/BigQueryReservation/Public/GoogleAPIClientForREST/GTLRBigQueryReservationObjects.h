@@ -478,13 +478,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 
 /**
  *  Output only. The end of the current commitment period. It is applicable only
- *  for ACTIVE capacity commitments.
+ *  for ACTIVE capacity commitments. Note after renewal, commitment_end_time is
+ *  the time the renewed commitment expires. So itwould be at a time after
+ *  commitment_start_time + committed period, because we don't change
+ *  commitment_start_time ,
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentEndTime;
 
 /**
  *  Output only. The start of the current commitment period. It is applicable
- *  only for ACTIVE capacity commitments.
+ *  only for ACTIVE capacity commitments. Note after the commitment is renewed,
+ *  commitment_start_time won't be changed. It refers to the start time of the
+ *  original commitment.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentStartTime;
 

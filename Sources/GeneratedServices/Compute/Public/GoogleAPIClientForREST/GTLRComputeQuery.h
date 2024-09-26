@@ -2498,8 +2498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of all usable backend services in the specified
- *  project.
+ *  Retrieves a list of all usable backend services in the specified project.
  *
  *  Method: compute.backendServices.listUsable
  *
@@ -2589,8 +2588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_BackendServiceListUsable.
  *
- *  Retrieves an aggregated list of all usable backend services in the specified
- *  project.
+ *  Retrieves a list of all usable backend services in the specified project.
  *
  *  @param project Project ID for this request.
  *
@@ -27113,8 +27111,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of all usable backend services in the specified
- *  project in the given region.
+ *  Retrieves a list of all usable backend services in the specified project in
+ *  the given region.
  *
  *  Method: compute.regionBackendServices.listUsable
  *
@@ -27210,8 +27208,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_BackendServiceListUsable.
  *
- *  Retrieves an aggregated list of all usable backend services in the specified
- *  project in the given region.
+ *  Retrieves a list of all usable backend services in the specified project in
+ *  the given region.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request. It must be a string

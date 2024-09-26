@@ -1974,6 +1974,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirestoreQuery_ProjectsLocationsBackupsList : GTLRFirestoreQuery
 
 /**
+ *  An expression that filters the list of returned backups. A filter expression
+ *  consists of a field name, a comparison operator, and a value for filtering.
+ *  The value must be a string, a number, or a boolean. The comparison operator
+ *  must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the
+ *  contains operator. Filter rules are not case sensitive. The following fields
+ *  in the Backup are eligible for filtering: * `database_uid` (supports `=`
+ *  only)
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Required. The location to list backups from. Format is
  *  `projects/{project}/locations/{location}`. Use `{location} = '-'` to list
  *  backups from all locations for the given project. This allows listing

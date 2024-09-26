@@ -19,12 +19,16 @@
 @class GTLRBigQueryDataTransfer_DataSourceParameter;
 @class GTLRBigQueryDataTransfer_EmailPreferences;
 @class GTLRBigQueryDataTransfer_EncryptionConfiguration;
+@class GTLRBigQueryDataTransfer_EventDrivenSchedule;
 @class GTLRBigQueryDataTransfer_Location;
 @class GTLRBigQueryDataTransfer_Location_Labels;
 @class GTLRBigQueryDataTransfer_Location_Metadata;
+@class GTLRBigQueryDataTransfer_ManualSchedule;
 @class GTLRBigQueryDataTransfer_ScheduleOptions;
+@class GTLRBigQueryDataTransfer_ScheduleOptionsV2;
 @class GTLRBigQueryDataTransfer_Status;
 @class GTLRBigQueryDataTransfer_Status_Details_Item;
+@class GTLRBigQueryDataTransfer_TimeBasedSchedule;
 @class GTLRBigQueryDataTransfer_TimeRange;
 @class GTLRBigQueryDataTransfer_TransferConfig;
 @class GTLRBigQueryDataTransfer_TransferConfig_Params;
@@ -618,6 +622,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
+ *  Options customizing EventDriven transfers schedule.
+ */
+@interface GTLRBigQueryDataTransfer_EventDrivenSchedule : GTLRObject
+
+/**
+ *  Pub/Sub subscription name used to receive events. Only Google Cloud Storage
+ *  data source support this option. Format:
+ *  projects/{project}/subscriptions/{subscription}
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubSubscription;
+
+@end
+
+
+/**
  *  Returns list of supported data sources and their metadata.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -815,6 +834,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
+ *  Options customizing manual transfers schedule.
+ */
+@interface GTLRBigQueryDataTransfer_ManualSchedule : GTLRObject
+@end
+
+
+/**
  *  Options customizing the data transfer schedule.
  */
 @interface GTLRBigQueryDataTransfer_ScheduleOptions : GTLRObject
@@ -845,6 +871,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  this option.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  V2 options customizing different types of data transfer schedule. This field
+ *  supports existing time-based and manual transfer schedule. Also supports
+ *  Event-Driven transfer schedule. ScheduleOptionsV2 cannot be used together
+ *  with ScheduleOptions/Schedule.
+ */
+@interface GTLRBigQueryDataTransfer_ScheduleOptionsV2 : GTLRObject
+
+/**
+ *  Event driven transfer schedule options. If set, the transfer will be
+ *  scheduled upon events arrial.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EventDrivenSchedule *eventDrivenSchedule;
+
+/**
+ *  Manual transfer schedule. If set, the transfer run will not be
+ *  auto-scheduled by the system, unless the client invokes
+ *  StartManualTransferRuns. This is equivalent to disable_auto_scheduling =
+ *  true.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_ManualSchedule *manualSchedule;
+
+/**
+ *  Time based transfer schedule options. This is the default schedule option.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TimeBasedSchedule *timeBasedSchedule;
 
 @end
 
@@ -960,6 +1016,42 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
+ *  Options customizing the time based transfer schedule. Options are migrated
+ *  from the original ScheduleOptions message.
+ */
+@interface GTLRBigQueryDataTransfer_TimeBasedSchedule : GTLRObject
+
+/**
+ *  Defines time to stop scheduling transfer runs. A transfer run cannot be
+ *  scheduled at or after the end time. The end time can be changed at any
+ *  moment.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Data transfer schedule. If the data source does not support a custom
+ *  schedule, this should be empty. If it is empty, the default value for the
+ *  data source will be used. The specified times are in UTC. Examples of valid
+ *  format: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`,
+ *  and `first sunday of quarter 00:00`. See more explanation about the format
+ *  here:
+ *  https://cloud.google.com/appengine/docs/flexible/python/scheduling-jobs-with-cron-yaml#the_schedule_format
+ *  NOTE: The minimum interval time between recurring transfers depends on the
+ *  data source; refer to the documentation for your data source.
+ */
+@property(nonatomic, copy, nullable) NSString *schedule;
+
+/**
+ *  Specifies time to start scheduling transfer runs. The first run will be
+ *  scheduled at or after the start time according to a recurrence pattern
+ *  defined in the schedule string. The start time can be changed at any moment.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  A specification for a time range, this will request transfer runs with
  *  run_time between start_time (inclusive) and end_time (exclusive).
  */
@@ -1045,6 +1137,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EncryptionConfiguration *encryptionConfiguration;
 
 /**
+ *  Output only. Error code with detailed information about reason of the latest
+ *  config failure.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Status *error;
+
+/**
  *  Identifier. The resource name of the transfer config. Transfer config names
  *  have the form either
  *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}` or
@@ -1094,6 +1192,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /** Options customizing the data transfer schedule. */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_ScheduleOptions *scheduleOptions;
+
+/**
+ *  Options customizing different types of data transfer schedule. This field
+ *  replaces "schedule" and "schedule_options" fields. ScheduleOptionsV2 cannot
+ *  be used together with ScheduleOptions/Schedule.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_ScheduleOptionsV2 *scheduleOptionsV2;
 
 /**
  *  Output only. State of the most recently updated transfer run.

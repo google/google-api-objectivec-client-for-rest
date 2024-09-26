@@ -21,6 +21,8 @@
 @class GTLRCss_Certification;
 @class GTLRCss_CustomAttribute;
 @class GTLRCss_DestinationStatus;
+@class GTLRCss_HeadlineOfferInstallment;
+@class GTLRCss_HeadlineOfferSubscriptionCost;
 @class GTLRCss_ItemLevelIssue;
 @class GTLRCss_Price;
 @class GTLRCss_Product;
@@ -118,6 +120,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_AccountLabel_LabelType_LabelTypeUnsp
  *  Value: "MANUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCss_AccountLabel_LabelType_Manual;
+
+// ----------------------------------------------------------------------------
+// GTLRCss_HeadlineOfferSubscriptionCost.period
+
+/**
+ *  Indicates that the subscription period is month.
+ *
+ *  Value: "MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_Month;
+/**
+ *  Indicates that the subscription period is unspecified.
+ *
+ *  Value: "SUBSCRIPTION_PERIOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_SubscriptionPeriodUnspecified;
+/**
+ *  Indicates that the subscription period is year.
+ *
+ *  Value: "YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_Year;
 
 /**
  *  Information about CSS/MC account.
@@ -337,6 +361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_AccountLabel_LabelType_Manual;
 /** Condition of the headline offer. */
 @property(nonatomic, copy, nullable) NSString *headlineOfferCondition;
 
+/** Number and amount of installments to pay for an item. */
+@property(nonatomic, strong, nullable) GTLRCss_HeadlineOfferInstallment *headlineOfferInstallment;
+
 /** Link to the headline offer. */
 @property(nonatomic, copy, nullable) NSString *headlineOfferLink;
 
@@ -348,6 +375,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_AccountLabel_LabelType_Manual;
 
 /** Headline Price of the aggregate offer. */
 @property(nonatomic, strong, nullable) GTLRCss_Price *headlineOfferShippingPrice;
+
+/**
+ *  Number of periods (months or years) and amount of payment per period for an
+ *  item with an associated subscription contract.
+ */
+@property(nonatomic, strong, nullable) GTLRCss_HeadlineOfferSubscriptionCost *headlineOfferSubscriptionCost;
 
 /** High Price of the aggregate offer. */
 @property(nonatomic, strong, nullable) GTLRCss_Price *highPrice;
@@ -556,6 +589,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_AccountLabel_LabelType_Manual;
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCss_Empty : GTLRObject
+@end
+
+
+/**
+ *  A message that represents installment.
+ */
+@interface GTLRCss_HeadlineOfferInstallment : GTLRObject
+
+/** The amount the buyer has to pay per month. */
+@property(nonatomic, strong, nullable) GTLRCss_Price *amount;
+
+/** The up-front down payment amount the buyer has to pay. */
+@property(nonatomic, strong, nullable) GTLRCss_Price *downpayment;
+
+/**
+ *  The number of installments the buyer has to pay.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *months;
+
+@end
+
+
+/**
+ *  The SubscriptionCost of the product.
+ */
+@interface GTLRCss_HeadlineOfferSubscriptionCost : GTLRObject
+
+/** The amount the buyer has to pay per subscription period. */
+@property(nonatomic, strong, nullable) GTLRCss_Price *amount;
+
+/**
+ *  The type of subscription period. Supported values are: * "`month`" *
+ *  "`year`"
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCss_HeadlineOfferSubscriptionCost_Period_Month Indicates that
+ *        the subscription period is month. (Value: "MONTH")
+ *    @arg @c kGTLRCss_HeadlineOfferSubscriptionCost_Period_SubscriptionPeriodUnspecified
+ *        Indicates that the subscription period is unspecified. (Value:
+ *        "SUBSCRIPTION_PERIOD_UNSPECIFIED")
+ *    @arg @c kGTLRCss_HeadlineOfferSubscriptionCost_Period_Year Indicates that
+ *        the subscription period is year. (Value: "YEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *period;
+
+/**
+ *  The number of subscription periods the buyer has to pay.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodLength;
+
 @end
 
 

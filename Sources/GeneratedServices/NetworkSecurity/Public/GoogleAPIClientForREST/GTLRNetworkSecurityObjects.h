@@ -200,6 +200,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociat
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive;
 /**
+ *  The GCP project that housed the association has been deleted.
+ *
+ *  Value: "ORPHAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Orphan;
+/**
  *  Not set.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -1062,6 +1068,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        Being deleted. (Value: "DELETING")
  *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive
  *        Down or in an error state. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Orphan The
+ *        GCP project that housed the association has been deleted. (Value:
+ *        "ORPHAN")
  *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified
  *        Not set. (Value: "STATE_UNSPECIFIED")
  */

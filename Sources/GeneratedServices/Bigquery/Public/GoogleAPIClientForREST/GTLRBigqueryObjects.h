@@ -1039,6 +1039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_QueryCac
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_SecuredByDataMasking;
 /**
+ *  The index cannot be used in the search query because it is stale.
+ *
+ *  Value: "STALE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IndexUnusedReason_Code_StaleIndex;
+/**
  *  Indicates the search query accesses data at a timestamp before the last time
  *  the search index was refreshed.
  *
@@ -1554,7 +1560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_Xgboost;
 
 /**
  *  [Hyperparameter tuning
- *  training](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
+ *  training](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
  *
  *  Value: "HPARAM_TUNING"
  */
@@ -1814,8 +1820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceTy
 
 /**
  *  Restrict data egress. See [Data
- *  egress](/bigquery/docs/analytics-hub-introduction#data_egress) for more
- *  details.
+ *  egress](https://cloud.google.com/bigquery/docs/analytics-hub-introduction#data_egress)
+ *  for more details.
  *
  *  Value: "RESTRICTED_DATA_EGRESS"
  */
@@ -5353,12 +5359,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *maxTimeTravelHours;
 
 /**
- *  Optional. The [tags](/bigquery/docs/tags) attached to this dataset. Tag keys
- *  are globally unique. Tag key is expected to be in the namespaced format, for
- *  example "123456789012/environment" where 123456789012 is the ID of the
- *  parent organization or project resource for this tag key. Tag value is
- *  expected to be the short name, for example "Production". See [Tag
- *  definitions](/iam/docs/tags-access-control#definitions) for more details.
+ *  Optional. The [tags](https://cloud.google.com/bigquery/docs/tags) attached
+ *  to this dataset. Tag keys are globally unique. Tag key is expected to be in
+ *  the namespaced format, for example "123456789012/environment" where
+ *  123456789012 is the ID of the parent organization or project resource for
+ *  this tag key. Tag value is expected to be the short name, for example
+ *  "Production". See [Tag
+ *  definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
+ *  for more details.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Dataset_ResourceTags *resourceTags;
 
@@ -5366,8 +5374,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Optional. Output only. Restriction config for all tables and dataset. If
  *  set, restrict certain accesses on the dataset and all its tables based on
  *  the config. See [Data
- *  egress](/bigquery/docs/analytics-hub-introduction#data_egress) for more
- *  details.
+ *  egress](https://cloud.google.com/bigquery/docs/analytics-hub-introduction#data_egress)
+ *  for more details.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RestrictionConfig *restrictions;
 
@@ -5519,12 +5527,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  Optional. The [tags](/bigquery/docs/tags) attached to this dataset. Tag keys
- *  are globally unique. Tag key is expected to be in the namespaced format, for
- *  example "123456789012/environment" where 123456789012 is the ID of the
- *  parent organization or project resource for this tag key. Tag value is
- *  expected to be the short name, for example "Production". See [Tag
- *  definitions](/iam/docs/tags-access-control#definitions) for more details.
+ *  Optional. The [tags](https://cloud.google.com/bigquery/docs/tags) attached
+ *  to this dataset. Tag keys are globally unique. Tag key is expected to be in
+ *  the namespaced format, for example "123456789012/environment" where
+ *  123456789012 is the ID of the parent organization or project resource for
+ *  this tag key. Tag value is expected to be the short name, for example
+ *  "Production". See [Tag
+ *  definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
+ *  for more details.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -7198,7 +7208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Training info of a trial in [hyperparameter
- *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
  *  models.
  */
 @interface GTLRBigquery_HparamTuningTrial : GTLRObject
@@ -7356,6 +7366,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_SecuredByDataMasking
  *        Indicates the query has been secured by data masking, and thus search
  *        indexes are not applicable. (Value: "SECURED_BY_DATA_MASKING")
+ *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_StaleIndex The index cannot
+ *        be used in the search query because it is stale. (Value:
+ *        "STALE_INDEX")
  *    @arg @c kGTLRBigquery_IndexUnusedReason_Code_TimeTravelQuery Indicates the
  *        search query accesses data at a timestamp before the last time the
  *        search index was refreshed. (Value: "TIME_TRAVEL_QUERY")
@@ -7544,7 +7557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Output only. The reason why a Job was created.
- *  [Preview](/products/#product-launch-stages)
+ *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobCreationReason *jobCreationReason;
 
@@ -8452,7 +8465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  method when used with `JOB_CREATION_OPTIONAL` Job creation mode. For
  *  [`jobs.insert`](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/insert)
  *  method calls it will always be `REQUESTED`.
- *  [Preview](/products/#product-launch-stages)
+ *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  */
 @interface GTLRBigquery_JobCreationReason : GTLRObject
 
@@ -8952,88 +8965,88 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Output only. The type of query statement, if valid. Possible values: *
  *  `SELECT`:
- *  [`SELECT`](/bigquery/docs/reference/standard-sql/query-syntax#select_list)
+ *  [`SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#select_list)
  *  statement. * `ASSERT`:
- *  [`ASSERT`](/bigquery/docs/reference/standard-sql/debugging-statements#assert)
+ *  [`ASSERT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/debugging-statements#assert)
  *  statement. * `INSERT`:
- *  [`INSERT`](/bigquery/docs/reference/standard-sql/dml-syntax#insert_statement)
+ *  [`INSERT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#insert_statement)
  *  statement. * `UPDATE`:
- *  [`UPDATE`](/bigquery/docs/reference/standard-sql/query-syntax#update_statement)
+ *  [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#update_statement)
  *  statement. * `DELETE`:
- *  [`DELETE`](/bigquery/docs/reference/standard-sql/data-manipulation-language)
+ *  [`DELETE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language)
  *  statement. * `MERGE`:
- *  [`MERGE`](/bigquery/docs/reference/standard-sql/data-manipulation-language)
+ *  [`MERGE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language)
  *  statement. * `CREATE_TABLE`: [`CREATE
- *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)
  *  statement, without `AS SELECT`. * `CREATE_TABLE_AS_SELECT`: [`CREATE TABLE
  *  AS
- *  SELECT`](/bigquery/docs/reference/standard-sql/data-definition-language#query_statement)
+ *  SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#query_statement)
  *  statement. * `CREATE_VIEW`: [`CREATE
- *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#create_view_statement)
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_view_statement)
  *  statement. * `CREATE_MODEL`: [`CREATE
- *  MODEL`](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create#create_model_statement)
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create#create_model_statement)
  *  statement. * `CREATE_MATERIALIZED_VIEW`: [`CREATE MATERIALIZED
- *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#create_materialized_view_statement)
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_materialized_view_statement)
  *  statement. * `CREATE_FUNCTION`: [`CREATE
- *  FUNCTION`](/bigquery/docs/reference/standard-sql/data-definition-language#create_function_statement)
+ *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_function_statement)
  *  statement. * `CREATE_TABLE_FUNCTION`: [`CREATE TABLE
- *  FUNCTION`](/bigquery/docs/reference/standard-sql/data-definition-language#create_table_function_statement)
+ *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_function_statement)
  *  statement. * `CREATE_PROCEDURE`: [`CREATE
- *  PROCEDURE`](/bigquery/docs/reference/standard-sql/data-definition-language#create_procedure)
+ *  PROCEDURE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_procedure)
  *  statement. * `CREATE_ROW_ACCESS_POLICY`: [`CREATE ROW ACCESS
- *  POLICY`](/bigquery/docs/reference/standard-sql/data-definition-language#create_row_access_policy_statement)
+ *  POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_row_access_policy_statement)
  *  statement. * `CREATE_SCHEMA`: [`CREATE
- *  SCHEMA`](/bigquery/docs/reference/standard-sql/data-definition-language#create_schema_statement)
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_schema_statement)
  *  statement. * `CREATE_SNAPSHOT_TABLE`: [`CREATE SNAPSHOT
- *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#create_snapshot_table_statement)
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_snapshot_table_statement)
  *  statement. * `CREATE_SEARCH_INDEX`: [`CREATE SEARCH
- *  INDEX`](/bigquery/docs/reference/standard-sql/data-definition-language#create_search_index_statement)
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_search_index_statement)
  *  statement. * `DROP_TABLE`: [`DROP
- *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_statement)
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_statement)
  *  statement. * `DROP_EXTERNAL_TABLE`: [`DROP EXTERNAL
- *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_external_table_statement)
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_external_table_statement)
  *  statement. * `DROP_VIEW`: [`DROP
- *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_view_statement)
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_view_statement)
  *  statement. * `DROP_MODEL`: [`DROP
- *  MODEL`](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-drop-model)
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-drop-model)
  *  statement. * `DROP_MATERIALIZED_VIEW`: [`DROP MATERIALIZED
- *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_materialized_view_statement)
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_materialized_view_statement)
  *  statement. * `DROP_FUNCTION` : [`DROP
- *  FUNCTION`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_function_statement)
+ *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_function_statement)
  *  statement. * `DROP_TABLE_FUNCTION` : [`DROP TABLE
- *  FUNCTION`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_function)
+ *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_function)
  *  statement. * `DROP_PROCEDURE`: [`DROP
- *  PROCEDURE`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_procedure_statement)
+ *  PROCEDURE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_procedure_statement)
  *  statement. * `DROP_SEARCH_INDEX`: [`DROP SEARCH
- *  INDEX`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_search_index)
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_search_index)
  *  statement. * `DROP_SCHEMA`: [`DROP
- *  SCHEMA`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_schema_statement)
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_schema_statement)
  *  statement. * `DROP_SNAPSHOT_TABLE`: [`DROP SNAPSHOT
- *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_snapshot_table_statement)
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_snapshot_table_statement)
  *  statement. * `DROP_ROW_ACCESS_POLICY`: [`DROP [ALL] ROW ACCESS
- *  POLICY|POLICIES`](/bigquery/docs/reference/standard-sql/data-definition-language#drop_row_access_policy_statement)
+ *  POLICY|POLICIES`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_row_access_policy_statement)
  *  statement. * `ALTER_TABLE`: [`ALTER
- *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#alter_table_set_options_statement)
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_table_set_options_statement)
  *  statement. * `ALTER_VIEW`: [`ALTER
- *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#alter_view_set_options_statement)
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_view_set_options_statement)
  *  statement. * `ALTER_MATERIALIZED_VIEW`: [`ALTER MATERIALIZED
- *  VIEW`](/bigquery/docs/reference/standard-sql/data-definition-language#alter_materialized_view_set_options_statement)
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_materialized_view_set_options_statement)
  *  statement. * `ALTER_SCHEMA`: [`ALTER
- *  SCHEMA`](/bigquery/docs/reference/standard-sql/data-definition-language#aalter_schema_set_options_statement)
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#aalter_schema_set_options_statement)
  *  statement. * `SCRIPT`:
- *  [`SCRIPT`](/bigquery/docs/reference/standard-sql/procedural-language). *
- *  `TRUNCATE_TABLE`: [`TRUNCATE
- *  TABLE`](/bigquery/docs/reference/standard-sql/dml-syntax#truncate_table_statement)
+ *  [`SCRIPT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language).
+ *  * `TRUNCATE_TABLE`: [`TRUNCATE
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#truncate_table_statement)
  *  statement. * `CREATE_EXTERNAL_TABLE`: [`CREATE EXTERNAL
- *  TABLE`](/bigquery/docs/reference/standard-sql/data-definition-language#create_external_table_statement)
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_external_table_statement)
  *  statement. * `EXPORT_DATA`: [`EXPORT
- *  DATA`](/bigquery/docs/reference/standard-sql/other-statements#export_data_statement)
+ *  DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/other-statements#export_data_statement)
  *  statement. * `EXPORT_MODEL`: [`EXPORT
- *  MODEL`](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-export-model)
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-export-model)
  *  statement. * `LOAD_DATA`: [`LOAD
- *  DATA`](/bigquery/docs/reference/standard-sql/other-statements#load_data_statement)
+ *  DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/other-statements#load_data_statement)
  *  statement. * `CALL`:
- *  [`CALL`](/bigquery/docs/reference/standard-sql/procedural-language#call)
+ *  [`CALL`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#call)
  *  statement.
  */
 @property(nonatomic, copy, nullable) NSString *statementType;
@@ -9691,14 +9704,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Output only. Trials of a [hyperparameter tuning
- *  job](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  job](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
  *  sorted by trial_id.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_HparamTuningTrial *> *hparamTrials;
 
 /**
  *  Results for all completed iterations. Empty for [hyperparameter tuning
- *  jobs](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
+ *  jobs](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *iterationResults;
 
@@ -9777,7 +9790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Likely values:
  *    @arg @c kGTLRBigquery_MlStatistics_TrainingType_HparamTuning
  *        [Hyperparameter tuning
- *        training](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
+ *        training](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview).
  *        (Value: "HPARAM_TUNING")
  *    @arg @c kGTLRBigquery_MlStatistics_TrainingType_SingleTraining Single
  *        training with fixed parameter space. (Value: "SINGLE_TRAINING")
@@ -9812,9 +9825,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Output only. The default trial_id to use in TVFs when the trial_id is not
  *  passed in. For single-objective [hyperparameter
- *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
  *  models, this is the best trial ID. For multi-objective [hyperparameter
- *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
  *  models, this is the smallest trial ID among all Pareto optimal trials.
  *
  *  Uses NSNumber of longLongValue.
@@ -9864,7 +9877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Output only. Trials of a [hyperparameter
- *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
  *  model sorted by trial_id.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_HparamTuningTrial *> *hparamTrials;
@@ -9963,9 +9976,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Output only. For single-objective [hyperparameter
- *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
  *  models, it only contains the best trial. For multi-objective [hyperparameter
- *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
  *  models, it contains all Pareto optimal trials sorted by trial_id.
  *
  *  Uses NSNumber of longLongValue.
@@ -10040,7 +10053,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  The 1-based ID of the trial to be exported from a hyperparameter tuning
  *  model. If not specified, the trial with id =
- *  [Model](/bigquery/docs/reference/rest/v2/models#resource:-model).defaultTrialId
+ *  [Model](https://cloud.google.com/bigquery/docs/reference/rest/v2/models#resource:-model).defaultTrialId
  *  is exported. This field is ignored for models not trained with
  *  hyperparameter tuning.
  *
@@ -10625,7 +10638,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Optional. If not set, jobs are always required. If set, the query request
  *  will follow the behavior described JobCreationMode.
- *  [Preview](/products/#product-launch-stages)
+ *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationModeUnspecified
@@ -10823,7 +10836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Optional. The reason why a Job was created. Only relevant when a
  *  job_reference is present in the response. If job_reference is not present it
- *  will always be unset. [Preview](/products/#product-launch-stages)
+ *  will always be unset.
+ *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobCreationReason *jobCreationReason;
 
@@ -10859,7 +10873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Auto-generated ID for the query. [Preview](/products/#product-launch-stages)
+ *  Auto-generated ID for the query.
+ *  [Preview](https://cloud.google.com/products/#product-launch-stages)
  */
 @property(nonatomic, copy, nullable) NSString *queryId;
 
@@ -11237,8 +11252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Likely values:
  *    @arg @c kGTLRBigquery_RestrictionConfig_Type_RestrictedDataEgress Restrict
  *        data egress. See [Data
- *        egress](/bigquery/docs/analytics-hub-introduction#data_egress) for
- *        more details. (Value: "RESTRICTED_DATA_EGRESS")
+ *        egress](https://cloud.google.com/bigquery/docs/analytics-hub-introduction#data_egress)
+ *        for more details. (Value: "RESTRICTED_DATA_EGRESS")
  *    @arg @c kGTLRBigquery_RestrictionConfig_Type_RestrictionTypeUnspecified
  *        Should never be used. (Value: "RESTRICTION_TYPE_UNSPECIFIED")
  */
@@ -12167,8 +12182,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Optional. The physical location of the table (e.g.
- *  'gs://spark-dataproc-data/pangea-data/case_sensitive/' or
- *  'gs://spark-dataproc-data/pangea-data/ *'). The maximum length is 2056
+ *  `gs://spark-dataproc-data/pangea-data/case_sensitive/` or
+ *  `gs://spark-dataproc-data/pangea-data/ *`). The maximum length is 2056
  *  bytes.
  */
 @property(nonatomic, copy, nullable) NSString *locationUri;
@@ -12566,8 +12581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Optional. Output only. Restriction config for table. If set, restrict
  *  certain accesses on the table based on the config. See [Data
- *  egress](/bigquery/docs/analytics-hub-introduction#data_egress) for more
- *  details.
+ *  egress](https://cloud.google.com/bigquery/docs/analytics-hub-introduction#data_egress)
+ *  for more details.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RestrictionConfig *restrictions;
 
@@ -12613,8 +12628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  precomputed view defined by a SQL query. * `SNAPSHOT`: An immutable BigQuery
  *  table that preserves the contents of a base table at a particular time. See
  *  additional information on [table
- *  snapshots](/bigquery/docs/table-snapshots-intro). The default value is
- *  `TABLE`.
+ *  snapshots](https://cloud.google.com/bigquery/docs/table-snapshots-intro).
+ *  The default value is `TABLE`.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -13220,7 +13235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
 
 /**
- *  [Table type](/bigquery/docs/reference/rest/v2/tables#Table.FIELDS.type).
+ *  [Table
+ *  type](https://cloud.google.com/bigquery/docs/reference/rest/v2/tables#Table.FIELDS.type).
  */
 @property(nonatomic, copy, nullable) NSString *tableType;
 

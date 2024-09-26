@@ -39,6 +39,8 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound =
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported = @"SOURCE_FORWARDING_RULE_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceIpAddressNotInSourceNetwork = @"SOURCE_IP_ADDRESS_NOT_IN_SOURCE_NETWORK";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported = @"SOURCE_PSC_CLOUD_SQL_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceRedisClusterUnsupported = @"SOURCE_REDIS_CLUSTER_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceRedisInstanceUnsupported = @"SOURCE_REDIS_INSTANCE_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong = @"TRACE_TOO_LONG";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination = @"UNINTENDED_DESTINATION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp = @"UNKNOWN_IP";
@@ -69,6 +71,8 @@ NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PrivateNetwork = @"PR
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi = @"PSC_GOOGLE_API";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService = @"PSC_PUBLISHED_SERVICE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc = @"PSC_VPC_SC";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_RedisCluster = @"REDIS_CLUSTER";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_RedisInstance = @"REDIS_INSTANCE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_ServerlessNeg = @"SERVERLESS_NEG";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_StorageBucket = @"STORAGE_BUCKET";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
@@ -91,6 +95,8 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlServ
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService = @"DROPPED_INSIDE_GKE_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGoogleManagedService = @"DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsidePscServiceProducer = @"DROPPED_INSIDE_PSC_SERVICE_PRODUCER";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideRedisClusterService = @"DROPPED_INSIDE_REDIS_CLUSTER_SERVICE";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideRedisInstanceService = @"DROPPED_INSIDE_REDIS_INSTANCE_SERVICE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck = @"FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallRule = @"FIREWALL_RULE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForeignIpDisallowed = @"FOREIGN_IP_DISALLOWED";
@@ -109,10 +115,12 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicR
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning = @"INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvalidNetwork = @"LOAD_BALANCER_BACKEND_INVALID_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet = @"LOAD_BALANCER_HAS_NO_PROXY_SUBNET";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination = @"NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_EXTERNAL_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment = @"NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute = @"NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address = @"NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination = @"NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed = @"PRIVATE_GOOGLE_ACCESS_DISALLOWED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessViaVpnTunnelUnsupported = @"PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet = @"PRIVATE_TRAFFIC_TO_INTERNET";
@@ -123,7 +131,16 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscNegProducerForwardingR
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscTransitivityNotPropagated = @"PSC_TRANSITIVITY_NOT_PROPAGATED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicCloudSqlInstanceToPrivateDestination = @"PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination = @"PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisClusterNoExternalIp = @"REDIS_CLUSTER_NO_EXTERNAL_IP";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisClusterNotRunning = @"REDIS_CLUSTER_NOT_RUNNING";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisClusterUnsupportedPort = @"REDIS_CLUSTER_UNSUPPORTED_PORT";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisClusterUnsupportedProtocol = @"REDIS_CLUSTER_UNSUPPORTED_PROTOCOL";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceConnectingFromPupiAddress = @"REDIS_INSTANCE_CONNECTING_FROM_PUPI_ADDRESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNoExternalIp = @"REDIS_INSTANCE_NO_EXTERNAL_IP";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNoRouteToDestinationNetwork = @"REDIS_INSTANCE_NO_ROUTE_TO_DESTINATION_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceNotRunning = @"REDIS_INSTANCE_NOT_RUNNING";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceUnsupportedPort = @"REDIS_INSTANCE_UNSUPPORTED_PORT";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_RedisInstanceUnsupportedProtocol = @"REDIS_INSTANCE_UNSUPPORTED_PROTOCOL";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole = @"ROUTE_BLACKHOLE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleIpMismatch = @"ROUTE_NEXT_HOP_FORWARDING_RULE_IP_MISMATCH";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteNextHopForwardingRuleTypeInvalid = @"ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID";
@@ -312,6 +329,7 @@ NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance = @"START_F
 NSString * const kGTLRNetworkManagement_Step_State_StartFromInternet = @"START_FROM_INTERNET";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork = @"START_FROM_PRIVATE_NETWORK";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromPscPublishedService = @"START_FROM_PSC_PUBLISHED_SERVICE";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromRedisCluster = @"START_FROM_REDIS_CLUSTER";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromRedisInstance = @"START_FROM_REDIS_INSTANCE";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromServerlessNeg = @"START_FROM_SERVERLESS_NEG";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromStorageBucket = @"START_FROM_STORAGE_BUCKET";
@@ -873,7 +891,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_NetworkInfo
-@dynamic displayName, matchedIpRange, uri;
+@dynamic displayName, matchedIpRange, matchedSubnetUri, region, uri;
 @end
 
 
@@ -993,6 +1011,17 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_RedisClusterInfo
+//
+
+@implementation GTLRNetworkManagement_RedisClusterInfo
+@dynamic discoveryEndpointIpAddress, displayName, location, networkUri,
+         secondaryEndpointIpAddress, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_RedisInstanceInfo
 //
 
@@ -1017,8 +1046,9 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_RouteInfo
-@dynamic destIpRange, destPortRanges, displayName, instanceTags, nccHubUri,
-         nccSpokeUri, networkUri, nextHop, nextHopType, priority, protocols,
+@dynamic advertisedRouteNextHopUri, advertisedRouteSourceRouterUri, destIpRange,
+         destPortRanges, displayName, instanceTags, nccHubUri, nccSpokeUri,
+         networkUri, nextHop, nextHopType, priority, protocols, region,
          routeScope, routeType, srcIpRange, srcPortRanges, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1096,8 +1126,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
          cloudSqlInstance, deliver, descriptionProperty, drop, endpoint,
          firewall, forward, forwardingRule, gkeMaster, googleService, instance,
          loadBalancer, loadBalancerBackendInfo, nat, network, projectId,
-         proxyConnection, redisInstance, route, serverlessNeg, state,
-         storageBucket, vpcConnector, vpnGateway, vpnTunnel;
+         proxyConnection, redisCluster, redisInstance, route, serverlessNeg,
+         state, storageBucket, vpcConnector, vpnGateway, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

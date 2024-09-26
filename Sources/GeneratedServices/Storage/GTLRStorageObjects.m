@@ -889,7 +889,7 @@
          contentEncoding, contentLanguage, contentType, crc32c,
          customerEncryption, customTime, ETag, eventBasedHold, generation,
          hardDeleteTime, identifier, kind, kmsKeyName, md5Hash, mediaLink,
-         metadata, metageneration, name, owner, retention,
+         metadata, metageneration, name, owner, restoreToken, retention,
          retentionExpirationTime, selfLink, size, softDeleteTime, storageClass,
          temporaryHold, timeCreated, timeDeleted, timeStorageClassUpdated,
          updated;

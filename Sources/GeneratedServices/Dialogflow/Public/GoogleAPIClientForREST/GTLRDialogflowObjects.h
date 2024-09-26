@@ -11869,7 +11869,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  classification threshold. If the returned score value is less than the
  *  threshold value, then a no-match event will be triggered. The score values
  *  range from 0.0 (completely uncertain) to 1.0 (completely certain). If set to
- *  0.0, the default of 0.3 is used.
+ *  0.0, the default of 0.3 is used. You can set a separate classification
+ *  threshold for the flow in each language enabled for the agent.
  *
  *  Uses NSNumber of floatValue.
  */

@@ -143,6 +143,8 @@
 @class GTLRAndroidManagement_UserFacingMessage_LocalizedMessages;
 @class GTLRAndroidManagement_WebApp;
 @class GTLRAndroidManagement_WebAppIcon;
+@class GTLRAndroidManagement_WifiRoamingPolicy;
+@class GTLRAndroidManagement_WifiRoamingSetting;
 @class GTLRAndroidManagement_WifiSsid;
 @class GTLRAndroidManagement_WifiSsidPolicy;
 @class GTLRAndroidManagement_WipeAction;
@@ -180,6 +182,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
  *  Value: "COMMON_CRITERIA_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AdvancedSecurityOverrides.contentProtectionPolicy
+
+/**
+ *  Content protection is disabled and the user cannot change this.
+ *
+ *  Value: "CONTENT_PROTECTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionDisabled;
+/**
+ *  Content protection is enabled and the user cannot change this.Supported on
+ *  Android 15 and above. A nonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 15.
+ *
+ *  Value: "CONTENT_PROTECTION_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionEnforced;
+/**
+ *  Unspecified. Defaults to CONTENT_PROTECTION_DISABLED.
+ *
+ *  Value: "CONTENT_PROTECTION_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionPolicyUnspecified;
+/**
+ *  Content protection is not controlled by the policy. The user is allowed to
+ *  choose the behavior of content protection.Supported on Android 15 and above.
+ *  A nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 15.
+ *
+ *  Value: "CONTENT_PROTECTION_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionUserChoice;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_AdvancedSecurityOverrides.developerSettings
@@ -1070,6 +1105,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo
  *  Value: "COMMON_CRITERIA_MODE_STATUS_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CommonCriteriaModeInfo.policySignatureVerificationStatus
+
+/**
+ *  Policy signature verification is disabled on the device as
+ *  common_criteria_mode is set to false.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationDisabled;
+/**
+ *  The policy signature verification failed. The policy has not been applied.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationFailed;
+/**
+ *  Policy signature verification is not supported, e.g. because the device has
+ *  been enrolled with a CloudDPC version that does not support the policy
+ *  signature verification.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_NOT_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationNotSupported;
+/**
+ *  Unspecified. The verification status has not been reported. This is set only
+ *  if statusReportingSettings.commonCriteriaModeEnabled is false.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationStatusUnspecified;
+/**
+ *  Policy signature verification succeeded.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationSucceeded;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_CrossProfilePolicies.crossProfileCopyPaste
@@ -3565,7 +3638,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Owner
  *  brightness. screenBrightness can still be set and it is taken into account
  *  while the brightness is automatically adjusted. Supported on Android 9 and
  *  above on fully managed devices. A NonComplianceDetail with API_LEVEL is
- *  reported if the Android version is less than 9.
+ *  reported if the Android version is less than 9. Supported on work profiles
+ *  on company-owned devices on Android 15 and above.
  *
  *  Value: "BRIGHTNESS_AUTOMATIC"
  */
@@ -3575,7 +3649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettin
  *  screenBrightness and the user is not allowed to configure the screen
  *  brightness. screenBrightness must be set. Supported on Android 9 and above
  *  on fully managed devices. A NonComplianceDetail with API_LEVEL is reported
- *  if the Android version is less than 9.
+ *  if the Android version is less than 9. Supported on work profiles on
+ *  company-owned devices on Android 15 and above.
  *
  *  Value: "BRIGHTNESS_FIXED"
  */
@@ -3601,7 +3676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettin
  *  The screen timeout is set to screenTimeout and the user is not allowed to
  *  configure the timeout. screenTimeout must be set. Supported on Android 9 and
  *  above on fully managed devices. A NonComplianceDetail with API_LEVEL is
- *  reported if the Android version is less than 9.
+ *  reported if the Android version is less than 9. Supported on work profiles
+ *  on company-owned devices on Android 15 and above.
  *
  *  Value: "SCREEN_TIMEOUT_ENFORCED"
  */
@@ -4217,6 +4293,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_A
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_WifiRoamingSetting.wifiRoamingMode
+
+/**
+ *  Aggressive roaming mode which allows quicker Wi-Fi roaming. Supported on
+ *  Android 15 and above on fully managed devices and work profiles on
+ *  company-owned devices. A nonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for other management modes. A nonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 15. A nonComplianceDetail with
+ *  DEVICE_INCOMPATIBLE is reported if the device does not support aggressive
+ *  roaming mode.
+ *
+ *  Value: "WIFI_ROAMING_AGGRESSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingAggressive;
+/**
+ *  Default Wi-Fi roaming mode of the device.
+ *
+ *  Value: "WIFI_ROAMING_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDefault;
+/**
+ *  Unspecified. Defaults to WIFI_ROAMING_DEFAULT.
+ *
+ *  Value: "WIFI_ROAMING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WifiSsidPolicy.wifiSsidPolicyType
 
 /**
@@ -4272,13 +4376,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsi
  *  Controls Common Criteria Mode—security standards defined in the Common
  *  Criteria for Information Technology Security Evaluation
  *  (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode
- *  increases certain security components on a device, including AES-GCM
- *  encryption of Bluetooth Long Term Keys, and Wi-Fi configuration
- *  stores.Common Criteria Mode is only supported on company-owned devices
- *  running Android 11 or above.Warning: Common Criteria Mode enforces a strict
- *  security model typically only required for IT products used in national
- *  security systems and other highly sensitive organizations. Standard device
- *  use may be affected. Only enabled if required.
+ *  increases certain security components on a device, see CommonCriteriaMode
+ *  for details.Warning: Common Criteria Mode enforces a strict security model
+ *  typically only required for IT products used in national security systems
+ *  and other highly sensitive organizations. Standard device use may be
+ *  affected. Only enabled if required. If Common Criteria Mode is turned off
+ *  after being enabled previously, all user-configured Wi-Fi networks may be
+ *  lost and any enterprise-configured Wi-Fi networks that require user input
+ *  may need to be reconfigured.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeDisabled
@@ -4291,6 +4396,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsi
  *        "COMMON_CRITERIA_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *commonCriteriaMode;
+
+/**
+ *  Optional. Controls whether content protection, which scans for deceptive
+ *  apps, is enabled. This is supported on Android 15 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionDisabled
+ *        Content protection is disabled and the user cannot change this.
+ *        (Value: "CONTENT_PROTECTION_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionEnforced
+ *        Content protection is enabled and the user cannot change
+ *        this.Supported on Android 15 and above. A nonComplianceDetail with
+ *        API_LEVEL is reported if the Android version is less than 15. (Value:
+ *        "CONTENT_PROTECTION_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionPolicyUnspecified
+ *        Unspecified. Defaults to CONTENT_PROTECTION_DISABLED. (Value:
+ *        "CONTENT_PROTECTION_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionUserChoice
+ *        Content protection is not controlled by the policy. The user is
+ *        allowed to choose the behavior of content protection.Supported on
+ *        Android 15 and above. A nonComplianceDetail with API_LEVEL is reported
+ *        if the Android version is less than 15. (Value:
+ *        "CONTENT_PROTECTION_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *contentProtectionPolicy;
 
 /**
  *  Controls access to developer settings: developer options and safe boot.
@@ -5573,6 +5703,32 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *commonCriteriaModeStatus;
 
+/**
+ *  Output only. The status of policy signature verification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationDisabled
+ *        Policy signature verification is disabled on the device as
+ *        common_criteria_mode is set to false. (Value:
+ *        "POLICY_SIGNATURE_VERIFICATION_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationFailed
+ *        The policy signature verification failed. The policy has not been
+ *        applied. (Value: "POLICY_SIGNATURE_VERIFICATION_FAILED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationNotSupported
+ *        Policy signature verification is not supported, e.g. because the
+ *        device has been enrolled with a CloudDPC version that does not support
+ *        the policy signature verification. (Value:
+ *        "POLICY_SIGNATURE_VERIFICATION_NOT_SUPPORTED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationStatusUnspecified
+ *        Unspecified. The verification status has not been reported. This is
+ *        set only if statusReportingSettings.commonCriteriaModeEnabled is
+ *        false. (Value: "POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationSucceeded
+ *        Policy signature verification succeeded. (Value:
+ *        "POLICY_SIGNATURE_VERIFICATION_SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *policySignatureVerificationStatus;
+
 @end
 
 
@@ -6322,6 +6478,9 @@ GTLR_DEPRECATED
  *        "WIFI_DIRECT_SETTINGS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *wifiDirectSettings;
+
+/** Optional. Wi-Fi roaming policy. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_WifiRoamingPolicy *wifiRoamingPolicy;
 
 /**
  *  Restrictions on which Wi-Fi SSIDs the device can connect to. Note that this
@@ -10106,7 +10265,8 @@ GTLR_DEPRECATED
  *  brightness set. Any other value is rejected. screenBrightnessMode must be
  *  either BRIGHTNESS_AUTOMATIC or BRIGHTNESS_FIXED to set this. Supported on
  *  Android 9 and above on fully managed devices. A NonComplianceDetail with
- *  API_LEVEL is reported if the Android version is less than 9.
+ *  API_LEVEL is reported if the Android version is less than 9. Supported on
+ *  work profiles on company-owned devices on Android 15 and above.
  *
  *  Uses NSNumber of intValue.
  */
@@ -10123,13 +10283,15 @@ GTLR_DEPRECATED
  *        into account while the brightness is automatically adjusted. Supported
  *        on Android 9 and above on fully managed devices. A NonComplianceDetail
  *        with API_LEVEL is reported if the Android version is less than 9.
- *        (Value: "BRIGHTNESS_AUTOMATIC")
+ *        Supported on work profiles on company-owned devices on Android 15 and
+ *        above. (Value: "BRIGHTNESS_AUTOMATIC")
  *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessFixed
  *        The screen brightness mode is fixed in which the brightness is set to
  *        screenBrightness and the user is not allowed to configure the screen
  *        brightness. screenBrightness must be set. Supported on Android 9 and
  *        above on fully managed devices. A NonComplianceDetail with API_LEVEL
- *        is reported if the Android version is less than 9. (Value:
+ *        is reported if the Android version is less than 9. Supported on work
+ *        profiles on company-owned devices on Android 15 and above. (Value:
  *        "BRIGHTNESS_FIXED")
  *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessUserChoice
  *        The user is allowed to configure the screen brightness.
@@ -10158,7 +10320,8 @@ GTLR_DEPRECATED
  *  set to the lower bound. The lower bound may vary across devices. If this is
  *  set, screenTimeoutMode must be SCREEN_TIMEOUT_ENFORCED. Supported on Android
  *  9 and above on fully managed devices. A NonComplianceDetail with API_LEVEL
- *  is reported if the Android version is less than 9.
+ *  is reported if the Android version is less than 9. Supported on work
+ *  profiles on company-owned devices on Android 15 and above.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *screenTimeout;
 
@@ -10172,7 +10335,8 @@ GTLR_DEPRECATED
  *        to configure the timeout. screenTimeout must be set. Supported on
  *        Android 9 and above on fully managed devices. A NonComplianceDetail
  *        with API_LEVEL is reported if the Android version is less than 9.
- *        (Value: "SCREEN_TIMEOUT_ENFORCED")
+ *        Supported on work profiles on company-owned devices on Android 15 and
+ *        above. (Value: "SCREEN_TIMEOUT_ENFORCED")
  *    @arg @c kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutModeUnspecified
  *        Unspecified. Defaults to SCREEN_TIMEOUT_USER_CHOICE. (Value:
  *        "SCREEN_TIMEOUT_MODE_UNSPECIFIED")
@@ -11271,6 +11435,53 @@ GTLR_DEPRECATED
  *  with the embedded UI. This is a read-only field generated by the server.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Wi-Fi roaming policy.
+ */
+@interface GTLRAndroidManagement_WifiRoamingPolicy : GTLRObject
+
+/**
+ *  Optional. Wi-Fi roaming settings. SSIDs provided in this list must be
+ *  unique, the policy will be rejected otherwise.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_WifiRoamingSetting *> *wifiRoamingSettings;
+
+@end
+
+
+/**
+ *  Wi-Fi roaming setting.
+ */
+@interface GTLRAndroidManagement_WifiRoamingSetting : GTLRObject
+
+/**
+ *  Required. Wi-Fi roaming mode for the specified SSID.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingAggressive
+ *        Aggressive roaming mode which allows quicker Wi-Fi roaming. Supported
+ *        on Android 15 and above on fully managed devices and work profiles on
+ *        company-owned devices. A nonComplianceDetail with MANAGEMENT_MODE is
+ *        reported for other management modes. A nonComplianceDetail with
+ *        API_LEVEL is reported if the Android version is less than 15. A
+ *        nonComplianceDetail with DEVICE_INCOMPATIBLE is reported if the device
+ *        does not support aggressive roaming mode. (Value:
+ *        "WIFI_ROAMING_AGGRESSIVE")
+ *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDefault
+ *        Default Wi-Fi roaming mode of the device. (Value:
+ *        "WIFI_ROAMING_DEFAULT")
+ *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingModeUnspecified
+ *        Unspecified. Defaults to WIFI_ROAMING_DEFAULT. (Value:
+ *        "WIFI_ROAMING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wifiRoamingMode;
+
+/** Required. SSID of the Wi-Fi network. */
+@property(nonatomic, copy, nullable) NSString *wifiSsid;
 
 @end
 

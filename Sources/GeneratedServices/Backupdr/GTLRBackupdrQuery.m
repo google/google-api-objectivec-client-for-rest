@@ -8,6 +8,21 @@
 
 #import <GoogleAPIClientForREST/GTLRBackupdrQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRBackupdrViewBackupVaultViewBasic       = @"BACKUP_VAULT_VIEW_BASIC";
+NSString * const kGTLRBackupdrViewBackupVaultViewFull        = @"BACKUP_VAULT_VIEW_FULL";
+NSString * const kGTLRBackupdrViewBackupVaultViewUnspecified = @"BACKUP_VAULT_VIEW_UNSPECIFIED";
+NSString * const kGTLRBackupdrViewBackupViewBasic            = @"BACKUP_VIEW_BASIC";
+NSString * const kGTLRBackupdrViewBackupViewFull             = @"BACKUP_VIEW_FULL";
+NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRBackupdrQuery
 
 @dynamic fields;
@@ -284,7 +299,7 @@
 
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -303,7 +318,7 @@
 
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -618,7 +633,7 @@
 
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupVaultsGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -637,7 +652,7 @@
 
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupVaultsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

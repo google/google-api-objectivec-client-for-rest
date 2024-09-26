@@ -30,6 +30,11 @@ NSString * const kGTLRCss_AccountLabel_LabelType_Automatic     = @"AUTOMATIC";
 NSString * const kGTLRCss_AccountLabel_LabelType_LabelTypeUnspecified = @"LABEL_TYPE_UNSPECIFIED";
 NSString * const kGTLRCss_AccountLabel_LabelType_Manual        = @"MANUAL";
 
+// GTLRCss_HeadlineOfferSubscriptionCost.period
+NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_Month = @"MONTH";
+NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_SubscriptionPeriodUnspecified = @"SUBSCRIPTION_PERIOD_UNSPECIFIED";
+NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_Year = @"YEAR";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCss_Account
@@ -75,13 +80,14 @@ NSString * const kGTLRCss_AccountLabel_LabelType_Manual        = @"MANUAL";
          cppAdsRedirect, cppLink, cppMobileLink, customLabel0, customLabel1,
          customLabel2, customLabel3, customLabel4, descriptionProperty,
          excludedDestinations, expirationDate, gender, googleProductCategory,
-         gtin, headlineOfferCondition, headlineOfferLink,
-         headlineOfferMobileLink, headlineOfferPrice,
-         headlineOfferShippingPrice, highPrice, imageLink, includedDestinations,
-         isBundle, itemGroupId, lowPrice, material, mpn, multipack,
-         numberOfOffers, pattern, pause, productDetails, productHeight,
-         productHighlights, productLength, productTypes, productWeight,
-         productWidth, size, sizeSystem, sizeTypes, title;
+         gtin, headlineOfferCondition, headlineOfferInstallment,
+         headlineOfferLink, headlineOfferMobileLink, headlineOfferPrice,
+         headlineOfferShippingPrice, headlineOfferSubscriptionCost, highPrice,
+         imageLink, includedDestinations, isBundle, itemGroupId, lowPrice,
+         material, mpn, multipack, numberOfOffers, pattern, pause,
+         productDetails, productHeight, productHighlights, productLength,
+         productTypes, productWeight, productWidth, size, sizeSystem, sizeTypes,
+         title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -158,6 +164,26 @@ NSString * const kGTLRCss_AccountLabel_LabelType_Manual        = @"MANUAL";
 //
 
 @implementation GTLRCss_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCss_HeadlineOfferInstallment
+//
+
+@implementation GTLRCss_HeadlineOfferInstallment
+@dynamic amount, downpayment, months;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCss_HeadlineOfferSubscriptionCost
+//
+
+@implementation GTLRCss_HeadlineOfferSubscriptionCost
+@dynamic amount, period, periodLength;
 @end
 
 

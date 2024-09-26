@@ -1874,6 +1874,117 @@
 
 @end
 
+@implementation GTLRLoggingQuery_FoldersLocationsLogScopesCreate
+
+@dynamic logScopeId, parent;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logScopes";
+  GTLRLoggingQuery_FoldersLocationsLogScopesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.folders.locations.logScopes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsLogScopesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_FoldersLocationsLogScopesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.folders.locations.logScopes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsLogScopesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_FoldersLocationsLogScopesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.folders.locations.logScopes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsLogScopesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logScopes";
+  GTLRLoggingQuery_FoldersLocationsLogScopesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogScopesResponse class];
+  query.loggingName = @"logging.folders.locations.logScopes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsLogScopesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_FoldersLocationsLogScopesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.folders.locations.logScopes.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_FoldersLocationsOperationsCancel
 
 @dynamic name;
@@ -3593,6 +3704,117 @@
 
 @end
 
+@implementation GTLRLoggingQuery_OrganizationsLocationsLogScopesCreate
+
+@dynamic logScopeId, parent;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logScopes";
+  GTLRLoggingQuery_OrganizationsLocationsLogScopesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.organizations.locations.logScopes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsLogScopesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_OrganizationsLocationsLogScopesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.organizations.locations.logScopes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsLogScopesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_OrganizationsLocationsLogScopesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.organizations.locations.logScopes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsLogScopesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logScopes";
+  GTLRLoggingQuery_OrganizationsLocationsLogScopesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogScopesResponse class];
+  query.loggingName = @"logging.organizations.locations.logScopes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsLogScopesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_OrganizationsLocationsLogScopesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.organizations.locations.logScopes.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_OrganizationsLocationsOperationsCancel
 
 @dynamic name;
@@ -4701,6 +4923,117 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_ListLocationsResponse class];
   query.loggingName = @"logging.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsLogScopesCreate
+
+@dynamic logScopeId, parent;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logScopes";
+  GTLRLoggingQuery_ProjectsLocationsLogScopesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.projects.locations.logScopes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsLogScopesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_ProjectsLocationsLogScopesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.projects.locations.logScopes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsLogScopesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_ProjectsLocationsLogScopesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.projects.locations.logScopes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsLogScopesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logScopes";
+  GTLRLoggingQuery_ProjectsLocationsLogScopesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogScopesResponse class];
+  query.loggingName = @"logging.projects.locations.logScopes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsLogScopesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_ProjectsLocationsLogScopesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogScope class];
+  query.loggingName = @"logging.projects.locations.logScopes.patch";
   return query;
 }
 

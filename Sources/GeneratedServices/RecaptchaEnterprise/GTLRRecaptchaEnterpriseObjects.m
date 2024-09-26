@@ -129,6 +129,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSet
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_WafFeatureUnspecified = @"WAF_FEATURE_UNSPECIFIED";
 
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafService
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Akamai = @"AKAMAI";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca = @"CA";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Cloudflare = @"CLOUDFLARE";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Fastly = @"FASTLY";

@@ -73,6 +73,7 @@
 @class GTLRSQLAdmin_Reschedule;
 @class GTLRSQLAdmin_RestoreBackupContext;
 @class GTLRSQLAdmin_RotateServerCaContext;
+@class GTLRSQLAdmin_RotateServerCertificateContext;
 @class GTLRSQLAdmin_Settings;
 @class GTLRSQLAdmin_Settings_UserLabels;
 @class GTLRSQLAdmin_SqlActiveDirectoryConfig;
@@ -1683,7 +1684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Clone;
  *
  *  Value: "CLUSTER_MAINTENANCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ClusterMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ClusterMaintenance GTLR_DEPRECATED;
 /**
  *  Creates a new Cloud SQL instance.
  *
@@ -1855,7 +1856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Restore
  *
  *  Value: "SELF_SERVICE_MAINTENANCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SelfServiceMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SelfServiceMaintenance GTLR_DEPRECATED;
 /** Value: "SNAPSHOT" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot GTLR_DEPRECATED;
 /**
@@ -2468,11 +2469,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedSystemObjects;
 /**
  *  The table definition is not support due to missing primary key or replica
- *  identity, applicable for postgres.
+ *  identity, applicable for postgres. Note that this is a warning and won't
+ *  block the migration.
  *
  *  Value: "UNSUPPORTED_TABLE_DEFINITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition;
+/**
+ *  The source database has tables with the FULL or NOTHING replica identity.
+ *  Before starting your migration, either remove the identity or change it to
+ *  DEFAULT. Note that this is an error and will block the migration.
+ *
+ *  Value: "UNSUPPORTED_TABLES_WITH_REPLICA_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTablesWithReplicaIdentity;
 /**
  *  The source database has users that aren't created in the replica. First,
  *  create all users, which are in the pg_user_mappings table of the source
@@ -5094,6 +5104,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Instances ListServerCertificates response.
+ */
+@interface GTLRSQLAdmin_InstancesListServerCertificatesResponse : GTLRObject
+
+/** The `sha1_fingerprint` of the active certificate from `server_certs`. */
+@property(nonatomic, copy, nullable) NSString *activeVersion;
+
+/** List of server CA certificates for the instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SslCert *> *caCerts;
+
+/** This is always `sql#instancesListServerCertificates`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  List of server certificates for the instance, signed by the corresponding CA
+ *  from the `ca_certs` list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SslCert *> *serverCerts;
+
+@end
+
+
+/**
  *  Database Instance reencrypt request.
  */
 @interface GTLRSQLAdmin_InstancesReencryptRequest : GTLRObject
@@ -5122,6 +5155,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Contains details about the rotate server CA operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_RotateServerCaContext *rotateServerCaContext;
+
+@end
+
+
+/**
+ *  Rotate server certificate request.
+ */
+@interface GTLRSQLAdmin_InstancesRotateServerCertificateRequest : GTLRObject
+
+/**
+ *  Optional. Contains details about the rotate server certificate operation.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_RotateServerCertificateContext *rotateServerCertificateContext;
 
 @end
 
@@ -6097,6 +6143,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Instance rotate server certificate context.
+ */
+@interface GTLRSQLAdmin_RotateServerCertificateContext : GTLRObject
+
+/** Optional. This is always `sql#rotateServerCertificateContext`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The fingerprint of the next version to be rotated to. If left unspecified,
+ *  will be rotated to the most recently added server certificate version.
+ */
+@property(nonatomic, copy, nullable) NSString *nextVersion;
+
+@end
+
+
+/**
  *  Database instance settings.
  */
 @interface GTLRSQLAdmin_Settings : GTLRObject
@@ -6588,8 +6651,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        migration. (Value: "UNSUPPORTED_SYSTEM_OBJECTS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition
  *        The table definition is not support due to missing primary key or
- *        replica identity, applicable for postgres. (Value:
- *        "UNSUPPORTED_TABLE_DEFINITION")
+ *        replica identity, applicable for postgres. Note that this is a warning
+ *        and won't block the migration. (Value: "UNSUPPORTED_TABLE_DEFINITION")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTablesWithReplicaIdentity
+ *        The source database has tables with the FULL or NOTHING replica
+ *        identity. Before starting your migration, either remove the identity
+ *        or change it to DEFAULT. Note that this is an error and will block the
+ *        migration. (Value: "UNSUPPORTED_TABLES_WITH_REPLICA_IDENTITY")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UsersNotCreatedInReplica
  *        The source database has users that aren't created in the replica.
  *        First, create all users, which are in the pg_user_mappings table of

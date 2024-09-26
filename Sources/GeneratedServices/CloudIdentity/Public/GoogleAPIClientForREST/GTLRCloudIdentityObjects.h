@@ -762,6 +762,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting
 // GTLRCloudIdentity_Membership.type
 
 /**
+ *  Represents a CBCM-managed Chrome Browser type.
+ *
+ *  Value: "CBCM_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_CbcmBrowser;
+/**
  *  Represents group type.
  *
  *  Value: "GROUP"
@@ -3062,6 +3068,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Output only. The type of the membership.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_CbcmBrowser Represents a
+ *        CBCM-managed Chrome Browser type. (Value: "CBCM_BROWSER")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_Group Represents group type.
  *        (Value: "GROUP")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_Other Represents other type.

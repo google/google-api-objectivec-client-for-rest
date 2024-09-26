@@ -423,6 +423,29 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesAddServerCertificate
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/addServerCertificate";
+  GTLRSQLAdminQuery_InstancesAddServerCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.addServerCertificate";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesClone
 
 @dynamic instance, project;
@@ -724,6 +747,29 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesListServerCertificates
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/listServerCertificates";
+  GTLRSQLAdminQuery_InstancesListServerCertificates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_InstancesListServerCertificatesResponse class];
+  query.loggingName = @"sql.instances.ListServerCertificates";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesPatch
 
 @dynamic instance, project;
@@ -935,6 +981,37 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.rotateServerCa";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesRotateServerCertificate
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCertificateRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/rotateServerCertificate";
+  GTLRSQLAdminQuery_InstancesRotateServerCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.RotateServerCertificate";
   return query;
 }
 

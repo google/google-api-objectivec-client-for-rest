@@ -40,8 +40,10 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 //
 
 @implementation GTLRDeveloperConnect_Connection
-@dynamic annotations, createTime, deleteTime, disabled, ETag, githubConfig,
-         installationState, labels, name, reconciling, uid, updateTime;
+@dynamic annotations, createTime, cryptoKeyConfig, deleteTime, disabled, ETag,
+         githubConfig, githubEnterpriseConfig, gitlabConfig,
+         gitlabEnterpriseConfig, installationState, labels, name, reconciling,
+         uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -75,6 +77,16 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_CryptoKeyConfig
+//
+
+@implementation GTLRDeveloperConnect_CryptoKeyConfig
+@dynamic keyReference;
 @end
 
 
@@ -195,12 +207,46 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_GitHubEnterpriseConfig
+//
+
+@implementation GTLRDeveloperConnect_GitHubEnterpriseConfig
+@dynamic appId, appInstallationId, appSlug, hostUri, installationUri,
+         privateKeySecretVersion, serverVersion, serviceDirectoryConfig,
+         sslCaCertificate, webhookSecretSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_GitLabConfig
+//
+
+@implementation GTLRDeveloperConnect_GitLabConfig
+@dynamic authorizerCredential, readAuthorizerCredential,
+         webhookSecretSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_GitLabEnterpriseConfig
+//
+
+@implementation GTLRDeveloperConnect_GitLabEnterpriseConfig
+@dynamic authorizerCredential, hostUri, readAuthorizerCredential, serverVersion,
+         serviceDirectoryConfig, sslCaCertificate, webhookSecretSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_GitRepositoryLink
 //
 
 @implementation GTLRDeveloperConnect_GitRepositoryLink
 @dynamic annotations, cloneUri, createTime, deleteTime, ETag, labels, name,
-         reconciling, uid, updateTime;
+         reconciling, uid, updateTime, webhookId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -461,6 +507,16 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_ServiceDirectoryConfig
+//
+
+@implementation GTLRDeveloperConnect_ServiceDirectoryConfig
+@dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_Status
 //
 
@@ -488,4 +544,14 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_UserCredential
+//
+
+@implementation GTLRDeveloperConnect_UserCredential
+@dynamic username, userTokenSecretVersion;
 @end

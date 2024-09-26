@@ -3761,7 +3761,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *
  *  Value: "SDF_VERSION_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55 GTLR_DEPRECATED;
 /**
  *  SDF version 6
  *
@@ -4955,6 +4955,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeComputer;
 /**
+ *  Connected device.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice;
+/**
  *  Connected TV.
  *
  *  Value: "DEVICE_TYPE_CONNECTED_TV"
@@ -4990,6 +4996,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargeting
  *  Value: "DEVICE_TYPE_COMPUTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeComputer;
+/**
+ *  Connected device.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice;
 /**
  *  Connected TV.
  *
@@ -12322,6 +12334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_Performance
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpm;
 /**
+ *  The performance goal is set in CPV (cost per view).
+ *
+ *  Value: "PERFORMANCE_GOAL_TYPE_CPV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpv;
+/**
  *  The performance goal is set in CTR (click-through rate) percentage.
  *
  *  Value: "PERFORMANCE_GOAL_TYPE_CTR"
@@ -12790,7 +12808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  *
  *  Value: "SDF_VERSION_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55 GTLR_DEPRECATED;
 /**
  *  SDF version 6
  *
@@ -12882,7 +12900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *
  *  Value: "SDF_VERSION_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55 GTLR_DEPRECATED;
 /**
  *  SDF version 6
  *
@@ -12953,7 +12971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTa
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDrugs;
 /**
  *  YouTube videos embedded on websites outside of YouTube.com. Only applicable
- *  to YouTube and Partners line items.
+ *  to YouTube and Partners line items. *Warning*: On **September 30, 2024**,
+ *  this value will be sunset. [Read more about this announced
+ *  change](/display-video/api/deprecations#features.yt_li_categories).
  *
  *  Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO"
  */
@@ -12967,7 +12987,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTa
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling;
 /**
  *  Video of live events streamed over the internet. Only applicable to YouTube
- *  and Partners line items.
+ *  and Partners line items. *Warning*: On **September 30, 2024**, this value
+ *  will be sunset. [Read more about this announced
+ *  change](/display-video/api/deprecations#features.yt_li_categories).
  *
  *  Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO"
  */
@@ -13101,7 +13123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingO
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDrugs;
 /**
  *  YouTube videos embedded on websites outside of YouTube.com. Only applicable
- *  to YouTube and Partners line items.
+ *  to YouTube and Partners line items. *Warning*: On **September 30, 2024**,
+ *  this value will be sunset. [Read more about this announced
+ *  change](/display-video/api/deprecations#features.yt_li_categories).
  *
  *  Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO"
  */
@@ -13115,7 +13139,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingO
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling;
 /**
  *  Video of live events streamed over the internet. Only applicable to YouTube
- *  and Partners line items.
+ *  and Partners line items. *Warning*: On **September 30, 2024**, this value
+ *  will be sunset. [Read more about this announced
+ *  change](/display-video/api/deprecations#features.yt_li_categories).
  *
  *  Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO"
  */
@@ -20743,6 +20769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeComputer
  *        Computer. (Value: "DEVICE_TYPE_COMPUTER")
+ *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice
+ *        Connected device. (Value: "DEVICE_TYPE_CONNECTED_DEVICE")
  *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeConnectedTv
  *        Connected TV. (Value: "DEVICE_TYPE_CONNECTED_TV")
  *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeSmartPhone
@@ -20785,6 +20813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeComputer
  *        Computer. (Value: "DEVICE_TYPE_COMPUTER")
+ *    @arg @c kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice
+ *        Connected device. (Value: "DEVICE_TYPE_CONNECTED_DEVICE")
  *    @arg @c kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeConnectedTv
  *        Connected TV. (Value: "DEVICE_TYPE_CONNECTED_TV")
  *    @arg @c kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeSmartPhone
@@ -24027,7 +24057,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *optimizationObjective;
 
-/** Required. The budget spending speed setting of the insertion order. */
+/**
+ *  Required. The budget spending speed setting of the insertion order.
+ *  *Warning*: Starting on **November 5, 2024**, pacing_type `PACING_TYPE_ASAP`
+ *  will no longer be compatible with pacing_period `PACING_PERIOD_FLIGHT`.
+ *  [Read more about this announced
+ *  change](/display-video/api/deprecations#features.io_asap).
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Pacing *pacing;
 
 /**
@@ -27639,7 +27675,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. The type of pacing that defines how the budget amount will be
- *  spent across the pacing_period.
+ *  spent across the pacing_period. *Warning*: Starting on **November 5, 2024**,
+ *  `PACING_TYPE_ASAP` will no longer be compatible with pacing_period
+ *  `PACING_PERIOD_FLIGHT` for insertion orders. [Read more about this announced
+ *  change](/display-video/api/deprecations#features.io_asap).
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_Pacing_PacingType_PacingTypeAhead Only
@@ -28190,6 +28229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpm
  *        The performance goal is set in CPM (cost per mille). (Value:
  *        "PERFORMANCE_GOAL_TYPE_CPM")
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpv
+ *        The performance goal is set in CPV (cost per view). (Value:
+ *        "PERFORMANCE_GOAL_TYPE_CPV")
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCtr
  *        The performance goal is set in CTR (click-through rate) percentage.
  *        (Value: "PERFORMANCE_GOAL_TYPE_CTR")
@@ -29120,15 +29162,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "SENSITIVE_CATEGORY_DRUGS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryEmbeddedVideo
  *        YouTube videos embedded on websites outside of YouTube.com. Only
- *        applicable to YouTube and Partners line items. (Value:
- *        "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
+ *        applicable to YouTube and Partners line items. *Warning*: On
+ *        **September 30, 2024**, this value will be sunset. [Read more about
+ *        this announced
+ *        change](/display-video/api/deprecations#features.yt_li_categories).
+ *        (Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling
  *        Contains content related to betting or wagering in a real-world or
  *        online setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryLiveStreamingVideo
  *        Video of live events streamed over the internet. Only applicable to
- *        YouTube and Partners line items. (Value:
- *        "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
+ *        YouTube and Partners line items. *Warning*: On **September 30, 2024**,
+ *        this value will be sunset. [Read more about this announced
+ *        change](/display-video/api/deprecations#features.yt_li_categories).
+ *        (Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryPolitics
  *        Political news and media, including discussions of social,
  *        governmental, and public policy. (Value:
@@ -29216,15 +29263,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "SENSITIVE_CATEGORY_DRUGS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryEmbeddedVideo
  *        YouTube videos embedded on websites outside of YouTube.com. Only
- *        applicable to YouTube and Partners line items. (Value:
- *        "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
+ *        applicable to YouTube and Partners line items. *Warning*: On
+ *        **September 30, 2024**, this value will be sunset. [Read more about
+ *        this announced
+ *        change](/display-video/api/deprecations#features.yt_li_categories).
+ *        (Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling
  *        Contains content related to betting or wagering in a real-world or
  *        online setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryLiveStreamingVideo
  *        Video of live events streamed over the internet. Only applicable to
- *        YouTube and Partners line items. (Value:
- *        "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
+ *        YouTube and Partners line items. *Warning*: On **September 30, 2024**,
+ *        this value will be sunset. [Read more about this announced
+ *        change](/display-video/api/deprecations#features.yt_li_categories).
+ *        (Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryPolitics
  *        Political news and media, including discussions of social,
  *        governmental, and public policy. (Value:
@@ -29500,6 +29552,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. Whether to enable Optimized Targeting for the line item.
+ *  *Warning*: Starting on **September 30, 2024**, optimized targeting will no
+ *  longer be compatible with a subset of bid strategies. [Read more about this
+ *  announced
+ *  change](/display-video/api/deprecations#features.ot_bid_strategies).
  *
  *  Uses NSNumber of boolValue.
  */

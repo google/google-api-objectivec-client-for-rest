@@ -1083,8 +1083,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ShieldedInstanceConfig *shieldedInstanceConfig;
 
 /**
- *  Optional. The Compute Engine tags to add to runtime (see [Tagging
- *  instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+ *  Optional. The Compute Engine network tags to add to runtime (see [Add
+ *  network tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 

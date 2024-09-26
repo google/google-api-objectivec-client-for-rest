@@ -84,6 +84,12 @@ NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows = 
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios = @"IOS";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified = @"OS_UNSPECIFIED";
 
+// GTLRAccessContextManager_ReauthSettings.reauthMethod
+NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Login = @"LOGIN";
+NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Password = @"PASSWORD";
+NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_ReauthMethodUnspecified = @"REAUTH_METHOD_UNSPECIFIED";
+NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_SecurityKey = @"SECURITY_KEY";
+
 // GTLRAccessContextManager_ServicePerimeter.perimeterType
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge = @"PERIMETER_TYPE_BRIDGE";
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular = @"PERIMETER_TYPE_REGULAR";
@@ -134,6 +140,34 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"scopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_AccessScope
+//
+
+@implementation GTLRAccessContextManager_AccessScope
+@dynamic clientScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_AccessSettings
+//
+
+@implementation GTLRAccessContextManager_AccessSettings
+@dynamic accessLevels, reauthSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessLevels" : [NSString class]
   };
   return map;
 }
@@ -265,6 +299,16 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ClientScope
+//
+
+@implementation GTLRAccessContextManager_ClientScope
+@dynamic restrictedClientApplication;
 @end
 
 
@@ -445,14 +489,15 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_GcpUserAccessBinding
-@dynamic accessLevels, dryRunAccessLevels, groupKey, name,
-         restrictedClientApplications;
+@dynamic accessLevels, dryRunAccessLevels, groupKey, name, reauthSettings,
+         restrictedClientApplications, scopedAccessSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class],
     @"dryRunAccessLevels" : [NSString class],
-    @"restrictedClientApplications" : [GTLRAccessContextManager_Application class]
+    @"restrictedClientApplications" : [GTLRAccessContextManager_Application class],
+    @"scopedAccessSettings" : [GTLRAccessContextManager_ScopedAccessSettings class]
   };
   return map;
 }
@@ -793,6 +838,17 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_ReauthSettings
+//
+
+@implementation GTLRAccessContextManager_ReauthSettings
+@dynamic maxInactivity, reauthMethod, sessionLength, sessionLengthEnabled,
+         useOidcMaxAge;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_ReplaceAccessLevelsRequest
 //
 
@@ -868,6 +924,16 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ScopedAccessSettings
+//
+
+@implementation GTLRAccessContextManager_ScopedAccessSettings
+@dynamic activeSettings, dryRunSettings, scope;
 @end
 
 

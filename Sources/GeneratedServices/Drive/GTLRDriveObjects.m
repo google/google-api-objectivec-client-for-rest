@@ -778,6 +778,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_ListOperationsResponse
+//
+
+@implementation GTLRDrive_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRDrive_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_ModifyLabelsRequest
 //
 
@@ -819,6 +841,44 @@
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Operation
+//
+
+@implementation GTLRDrive_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Operation_Metadata
+//
+
+@implementation GTLRDrive_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Operation_Response
+//
+
+@implementation GTLRDrive_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -989,6 +1049,38 @@
 
 @implementation GTLRDrive_StartPageToken
 @dynamic kind, startPageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Status
+//
+
+@implementation GTLRDrive_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRDrive_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Status_Details_Item
+//
+
+@implementation GTLRDrive_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

@@ -624,6 +624,24 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_GceTag
+//
+
+@implementation GTLRAppengine_GceTag
+@dynamic parent, tag;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parent" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_GoogleAppengineV1betaLocationMetadata
 //
 
@@ -1132,9 +1150,17 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 //
 
 @implementation GTLRAppengine_ProjectsMetadata
-@dynamic consumerProjectId, consumerProjectNumber, consumerProjectState,
+@dynamic consumerProjectId, consumerProjectNumber, consumerProjectState, gceTag,
          p4ServiceAccount, producerProjectId, producerProjectNumber,
          tenantProjectId, tenantProjectNumber;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gceTag" : [GTLRAppengine_GceTag class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -57,6 +57,7 @@
 @class GTLRTesting_IosTestSetup;
 @class GTLRTesting_IosVersion;
 @class GTLRTesting_IosXcTest;
+@class GTLRTesting_LabInfo;
 @class GTLRTesting_LauncherActivityIntent;
 @class GTLRTesting_Locale;
 @class GTLRTesting_ManualSharding;
@@ -1291,6 +1292,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/** Output only. Lab info of this device. */
+@property(nonatomic, strong, nullable) GTLRTesting_LabInfo *labInfo;
+
 /**
  *  True if and only if tests with this model are recorded by stitching together
  *  screenshots. See use_low_spec_video_recording in device config.
@@ -2407,6 +2411,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  is taken from the tests zip.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *xctestrun;
+
+@end
+
+
+/**
+ *  Lab specific information for a device.
+ */
+@interface GTLRTesting_LabInfo : GTLRObject
+
+/**
+ *  Lab name where the device is hosted. If empty, the device is hosted in a
+ *  Google owned lab.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

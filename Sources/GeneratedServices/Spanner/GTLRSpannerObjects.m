@@ -1671,6 +1671,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_MultiplexedSessionPrecommitToken
+//
+
+@implementation GTLRSpanner_MultiplexedSessionPrecommitToken
+@dynamic precommitToken, seqNum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_Mutation
 //
 
@@ -2457,7 +2467,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Transaction
-@dynamic identifier, readTimestamp;
+@dynamic identifier, precommitToken, readTimestamp;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

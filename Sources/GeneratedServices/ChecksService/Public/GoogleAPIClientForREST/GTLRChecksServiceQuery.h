@@ -378,6 +378,33 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: checks.accounts.repos.operations.get
+ */
+@interface GTLRChecksServiceQuery_AccountsReposOperationsGet : GTLRChecksServiceQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChecksService_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRChecksServiceQuery_AccountsReposOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Analyzes the uploaded app bundle and returns a google.longrunning.Operation
  *  containing the generated Report. ## Example (upload only) Send a regular
  *  POST request with the header `X-Goog-Upload-Protocol: raw`. ``` POST

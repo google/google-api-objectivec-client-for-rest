@@ -438,13 +438,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which to create the attachment. This field is required, but is not marked as
- *  such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which to create the attachment. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -458,8 +458,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which to create the attachment. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which to create the attachment. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsCreate
@@ -488,13 +488,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -507,8 +507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *  @param attachmentId Required. Identifier of the attachment.
  *
@@ -538,13 +538,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -557,8 +557,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *  @param attachmentId Required. Identifier of the attachment.
  *
@@ -586,9 +586,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial whose
- *  attachments should be enumerated. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  whose attachments should be enumerated. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
@@ -609,7 +609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Optional. Identifier of the post under the course whose attachments to
- *  enumerate. Deprecated, use item_id instead.
+ *  enumerate. Deprecated, use `item_id` instead.
  */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
@@ -624,8 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial whose attachments should be enumerated. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` whose attachments should be enumerated. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesAnnouncementsAddOnAttachmentsList
@@ -884,13 +884,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -906,8 +906,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `NOT_FOUND` if one of the identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesAnnouncementsGetAddOnContext
@@ -1150,13 +1150,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which to create the attachment. This field is required, but is not marked as
- *  such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which to create the attachment. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -1170,8 +1170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which to create the attachment. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which to create the attachment. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsCreate
@@ -1200,13 +1200,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -1219,8 +1219,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *  @param attachmentId Required. Identifier of the attachment.
  *
@@ -1250,13 +1250,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -1269,8 +1269,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *  @param attachmentId Required. Identifier of the attachment.
  *
@@ -1298,9 +1298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial whose
- *  attachments should be enumerated. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  whose attachments should be enumerated. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
@@ -1321,7 +1321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Optional. Identifier of the post under the course whose attachments to
- *  enumerate. Deprecated, use item_id instead.
+ *  enumerate. Deprecated, use `item_id` instead.
  */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
@@ -1336,8 +1336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial whose attachments should be enumerated. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` whose attachments should be enumerated. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesCourseWorkAddOnAttachmentsList
@@ -1433,13 +1433,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /** Required. Identifier of the student’s submission. */
@@ -1454,8 +1454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *  @param attachmentId Required. Identifier of the attachment.
  *  @param submissionId Required. Identifier of the student’s submission.
@@ -1488,13 +1488,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /** Required. Identifier of the student's submission. */
@@ -1524,8 +1524,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param object The @c GTLRClassroom_AddOnAttachmentStudentSubmission to
  *    include in the query.
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *  @param attachmentId Required. Identifier of the attachment.
  *  @param submissionId Required. Identifier of the student's submission.
@@ -1735,13 +1735,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -1757,8 +1757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `NOT_FOUND` if one of the identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesCourseWorkGetAddOnContext
@@ -1886,13 +1886,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which to create the attachment. This field is required, but is not marked as
- *  such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which to create the attachment. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -1906,8 +1906,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which to create the attachment. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which to create the attachment. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsCreate
@@ -1936,13 +1936,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -1955,8 +1955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *  @param attachmentId Required. Identifier of the attachment.
  *
@@ -1986,13 +1986,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -2005,8 +2005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *  @param attachmentId Required. Identifier of the attachment.
  *
@@ -2034,9 +2034,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial whose
- *  attachments should be enumerated. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  whose attachments should be enumerated. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
@@ -2057,7 +2057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Optional. Identifier of the post under the course whose attachments to
- *  enumerate. Deprecated, use item_id instead.
+ *  enumerate. Deprecated, use `item_id` instead.
  */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
@@ -2072,8 +2072,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial whose attachments should be enumerated. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` whose attachments should be enumerated. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsAddOnAttachmentsList
@@ -2333,13 +2333,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -2355,8 +2355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `NOT_FOUND` if one of the identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param itemId Identifier of the announcement, courseWork, or
- *    courseWorkMaterial under which the attachment is attached. This field is
+ *  @param itemId Identifier of the `Announcement`, `CourseWork`, or
+ *    `CourseWorkMaterial` under which the attachment is attached. This field is
  *    required, but is not marked as such while we are migrating from post_id.
  *
  *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsGetAddOnContext
@@ -3510,13 +3510,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which to create the attachment. This field is required, but is not marked as
- *  such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which to create the attachment. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId;
 
 /**
@@ -3530,7 +3530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param object The @c GTLRClassroom_AddOnAttachment to include in the query.
  *  @param courseId Required. Identifier of the course.
- *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param postId Optional. Deprecated, use `item_id` instead.
  *
  *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsCreate
  */
@@ -3558,13 +3558,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId;
 
 /**
@@ -3577,7 +3577,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param postId Optional. Deprecated, use `item_id` instead.
  *  @param attachmentId Required. Identifier of the attachment.
  *
  *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsDelete
@@ -3606,13 +3606,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId;
 
 /**
@@ -3625,7 +3625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param postId Optional. Deprecated, use `item_id` instead.
  *  @param attachmentId Required. Identifier of the attachment.
  *
  *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsGet
@@ -3652,9 +3652,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial whose
- *  attachments should be enumerated. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  whose attachments should be enumerated. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
@@ -3675,7 +3675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Optional. Identifier of the post under the course whose attachments to
- *  enumerate. Deprecated, use item_id instead.
+ *  enumerate. Deprecated, use `item_id` instead.
  */
 @property(nonatomic, copy, nullable) NSString *postId;
 
@@ -3691,7 +3691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *
  *  @param courseId Required. Identifier of the course.
  *  @param postId Optional. Identifier of the post under the course whose
- *    attachments to enumerate. Deprecated, use item_id instead.
+ *    attachments to enumerate. Deprecated, use `item_id` instead.
  *
  *  @return GTLRClassroomQuery_CoursesPostsAddOnAttachmentsList
  *
@@ -3787,13 +3787,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId;
 
 /** Required. Identifier of the student’s submission. */
@@ -3808,7 +3808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param postId Optional. Deprecated, use `item_id` instead.
  *  @param attachmentId Required. Identifier of the attachment.
  *  @param submissionId Required. Identifier of the student’s submission.
  *
@@ -3840,13 +3840,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId;
 
 /** Required. Identifier of the student's submission. */
@@ -3876,7 +3876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  @param object The @c GTLRClassroom_AddOnAttachmentStudentSubmission to
  *    include in the query.
  *  @param courseId Required. Identifier of the course.
- *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param postId Optional. Deprecated, use `item_id` instead.
  *  @param attachmentId Required. Identifier of the attachment.
  *  @param submissionId Required. Identifier of the student's submission.
  *
@@ -3924,13 +3924,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Identifier of the announcement, courseWork, or courseWorkMaterial under
- *  which the attachment is attached. This field is required, but is not marked
- *  as such while we are migrating from post_id.
+ *  Identifier of the `Announcement`, `CourseWork`, or `CourseWorkMaterial`
+ *  under which the attachment is attached. This field is required, but is not
+ *  marked as such while we are migrating from post_id.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Optional. Deprecated, use item_id instead. */
+/** Optional. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId;
 
 /**
@@ -3946,7 +3946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `NOT_FOUND` if one of the identified resources does not exist.
  *
  *  @param courseId Required. Identifier of the course.
- *  @param postId Optional. Deprecated, use item_id instead.
+ *  @param postId Optional. Deprecated, use `item_id` instead.
  *
  *  @return GTLRClassroomQuery_CoursesPostsGetAddOnContext
  */

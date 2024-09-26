@@ -87,6 +87,7 @@
 @class GTLRBigtableAdmin_PartialUpdateInstanceRequest;
 @class GTLRBigtableAdmin_Policy;
 @class GTLRBigtableAdmin_RestoreInfo;
+@class GTLRBigtableAdmin_RowAffinity;
 @class GTLRBigtableAdmin_SingleClusterRouting;
 @class GTLRBigtableAdmin_Split;
 @class GTLRBigtableAdmin_StandardIsolation;
@@ -106,6 +107,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -157,6 +159,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_Dat
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_Backup.backupType
+
+/**
+ *  Not specified.
+ *
+ *  Value: "BACKUP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_BackupType_BackupTypeUnspecified;
+/**
+ *  A backup type with faster restore to SSD performance. Only supported for
+ *  backups created in SSD instances. A new SSD table restored from a hot backup
+ *  reaches production performance more quickly than a standard backup.
+ *
+ *  Value: "HOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_BackupType_Hot;
+/**
+ *  The default type for Cloud Bigtable managed backups. Supported for backups
+ *  created in both HDD and SSD instances. Requires optimization when restored
+ *  to a table in an SSD instance.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_BackupType_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Backup.state
 
 /**
@@ -200,6 +228,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType
  *  Value: "STORAGE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_StorageTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_Cluster.nodeScalingFactor
+
+/**
+ *  The cluster is running with a scaling factor of 1.
+ *
+ *  Value: "NODE_SCALING_FACTOR_1X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor1x;
+/**
+ *  The cluster is running with a scaling factor of 2. All node count values
+ *  must be in increments of 2 with this scaling factor enabled, otherwise an
+ *  INVALID_ARGUMENT error will be returned.
+ *
+ *  Value: "NODE_SCALING_FACTOR_2X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor2x;
+/**
+ *  No node scaling specified. Defaults to NODE_SCALING_FACTOR_1X.
+ *
+ *  Value: "NODE_SCALING_FACTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Cluster.state
@@ -727,6 +779,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @interface GTLRBigtableAdmin_Backup : GTLRObject
 
+/**
+ *  Indicates the backup type of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_Backup_BackupType_BackupTypeUnspecified Not
+ *        specified. (Value: "BACKUP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdmin_Backup_BackupType_Hot A backup type with faster
+ *        restore to SSD performance. Only supported for backups created in SSD
+ *        instances. A new SSD table restored from a hot backup reaches
+ *        production performance more quickly than a standard backup. (Value:
+ *        "HOT")
+ *    @arg @c kGTLRBigtableAdmin_Backup_BackupType_Standard The default type for
+ *        Cloud Bigtable managed backups. Supported for backups created in both
+ *        HDD and SSD instances. Requires optimization when restored to a table
+ *        in an SSD instance. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *backupType;
+
 /** Output only. The encryption information for the backup. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_EncryptionInfo *encryptionInfo;
 
@@ -743,6 +813,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  `expire_time` has passed, Cloud Bigtable will delete the backup.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  The time at which the hot backup will be converted to a standard backup.
+ *  Once the `hot_to_standard_time` has passed, Cloud Bigtable will convert the
+ *  hot backup to a standard backup. This value must be greater than the backup
+ *  creation time by: - At least 24 hours This field only applies for hot
+ *  backups. When creating or updating a standard backup, attempting to set this
+ *  field will fail the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *hotToStandardTime;
 
 /**
  *  A globally unique identifier for the backup which cannot be changed. Values
@@ -1019,6 +1099,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  `projects/{project}/instances/{instance}/clusters/a-z*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The node scaling factor of this cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor1x
+ *        The cluster is running with a scaling factor of 1. (Value:
+ *        "NODE_SCALING_FACTOR_1X")
+ *    @arg @c kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor2x
+ *        The cluster is running with a scaling factor of 2. All node count
+ *        values must be in increments of 2 with this scaling factor enabled,
+ *        otherwise an INVALID_ARGUMENT error will be returned. (Value:
+ *        "NODE_SCALING_FACTOR_2X")
+ *    @arg @c kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactorUnspecified
+ *        No node scaling specified. Defaults to NODE_SCALING_FACTOR_1X. (Value:
+ *        "NODE_SCALING_FACTOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nodeScalingFactor;
 
 /**
  *  The number of nodes in the cluster. If no value is set, Cloud Bigtable
@@ -2007,7 +2105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes : GTLRObject
 
 /** Deprecated: ignored if set. */
-@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes *bytesType;
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes *bytesType GTLR_DEPRECATED;
 
 @end
 
@@ -2054,7 +2152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes *utf8Bytes;
 
 /** Deprecated: if set, converts to an empty `utf8_bytes`. */
-@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw *utf8Raw;
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw *utf8Raw GTLR_DEPRECATED;
 
 @end
 
@@ -2071,6 +2169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  Deprecated: prefer the equivalent `Utf8Bytes`.
  */
+GTLR_DEPRECATED
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw : GTLRObject
 @end
 
@@ -2683,6 +2782,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clusterIds;
 
+/**
+ *  Row affinity sticky routing based on the row key of the request. Requests
+ *  that span multiple rows are routed non-deterministically.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_RowAffinity *rowAffinity;
+
 @end
 
 
@@ -3040,6 +3145,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
+@end
+
+
+/**
+ *  If enabled, Bigtable will route the request based on the row key of the
+ *  request, rather than randomly. Instead, each row key will be assigned to a
+ *  cluster, and will stick to that cluster. If clusters are added or removed,
+ *  then this may affect which row keys stick to which clusters. To avoid this,
+ *  users can use a cluster group to specify which clusters are to be used. In
+ *  this case, new clusters that are not a part of the cluster group will not be
+ *  routed to, and routing will be unaffected by the new cluster. Moreover,
+ *  clusters specified in the cluster group cannot be deleted unless removed
+ *  from the cluster group.
+ */
+@interface GTLRBigtableAdmin_RowAffinity : GTLRObject
 @end
 
 

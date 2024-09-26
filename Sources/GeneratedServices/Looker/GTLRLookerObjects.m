@@ -284,12 +284,12 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 @implementation GTLRLooker_Instance
 @dynamic adminSettings, consumerNetwork, createTime, customDomain,
-         denyMaintenancePeriod, egressPublicIp, encryptionConfig,
-         ingressPrivateIp, ingressPublicIp, lastDenyMaintenancePeriod,
-         linkedLspProjectNumber, lookerUri, lookerVersion, maintenanceSchedule,
-         maintenanceWindow, name, oauthConfig, platformEdition,
-         privateIpEnabled, pscConfig, pscEnabled, publicIpEnabled,
-         reservedRange, state, updateTime, userMetadata;
+         denyMaintenancePeriod, egressPublicIp, encryptionConfig, fipsEnabled,
+         geminiEnabled, ingressPrivateIp, ingressPublicIp,
+         lastDenyMaintenancePeriod, linkedLspProjectNumber, lookerUri,
+         lookerVersion, maintenanceSchedule, maintenanceWindow, name,
+         oauthConfig, platformEdition, privateIpEnabled, pscConfig, pscEnabled,
+         publicIpEnabled, reservedRange, state, updateTime, userMetadata;
 @end
 
 

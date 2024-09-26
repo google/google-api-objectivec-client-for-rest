@@ -1336,6 +1336,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @end
 
 /**
+ *  Upgrades a single Cluster. Imperative only.
+ *
+ *  Method: alloydb.projects.locations.clusters.upgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
+ */
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersUpgrade : GTLRCloudAlloyDBAdminQuery
+
+/** Required. The resource name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Upgrades a single Cluster. Imperative only.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_UpgradeClusterRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the cluster.
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_UpgradeClusterRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new User in a given project, location, and cluster.
  *
  *  Method: alloydb.projects.locations.clusters.users.create

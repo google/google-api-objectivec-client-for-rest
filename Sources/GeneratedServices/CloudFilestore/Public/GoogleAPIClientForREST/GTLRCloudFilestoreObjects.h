@@ -22,6 +22,7 @@
 @class GTLRCloudFilestore_Date;
 @class GTLRCloudFilestore_DenyMaintenancePeriod;
 @class GTLRCloudFilestore_FileShareConfig;
+@class GTLRCloudFilestore_FixedIOPS;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules;
@@ -41,6 +42,7 @@
 @class GTLRCloudFilestore_Instance;
 @class GTLRCloudFilestore_Instance_Labels;
 @class GTLRCloudFilestore_Instance_Tags;
+@class GTLRCloudFilestore_IOPSPerTB;
 @class GTLRCloudFilestore_Location;
 @class GTLRCloudFilestore_Location_Labels;
 @class GTLRCloudFilestore_Location_Metadata;
@@ -52,6 +54,8 @@
 @class GTLRCloudFilestore_Operation;
 @class GTLRCloudFilestore_Operation_Metadata;
 @class GTLRCloudFilestore_Operation_Response;
+@class GTLRCloudFilestore_PerformanceConfig;
+@class GTLRCloudFilestore_PerformanceLimits;
 @class GTLRCloudFilestore_ReplicaConfig;
 @class GTLRCloudFilestore_Replication;
 @class GTLRCloudFilestore_Schedule;
@@ -1068,6 +1072,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
+ *  Fixed IOPS (input/output operations per second) parameters.
+ */
+@interface GTLRCloudFilestore_FixedIOPS : GTLRObject
+
+/**
+ *  Required. Maximum raw read IOPS.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReadIops;
+
+@end
+
+
+/**
  *  Instance represents the interface for SLM services to actuate the state of
  *  control plane resources. Example Instance in JSON, where
  *  consumer-project-number=123456, producer-project-id=cloud-sql: ```json
@@ -1567,6 +1586,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @interface GTLRCloudFilestore_Instance : GTLRObject
 
+/**
+ *  Output only. Indicates whether this instance's performance is configurable.
+ *  If enabled, adjust it using the 'performance_config' field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *configurablePerformanceEnabled;
+
 /** Output only. The time when the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1616,6 +1643,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  single network is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
+
+/** Optional. Used to configure performance. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_PerformanceConfig *performanceConfig;
+
+/** Output only. Used for getting performance limits. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_PerformanceLimits *performanceLimits;
 
 /**
  *  Immutable. The protocol indicates the access protocol for all shares in the
@@ -1762,6 +1795,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        fetch them all at once.
  */
 @interface GTLRCloudFilestore_Instance_Tags : GTLRObject
+@end
+
+
+/**
+ *  IOPS per TB. Filestore defines TB as 1024^4 bytes (TiB).
+ */
+@interface GTLRCloudFilestore_IOPSPerTB : GTLRObject
+
+/**
+ *  Required. Maximum read IOPS per TiB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReadIopsPerTb;
+
 @end
 
 
@@ -2299,6 +2347,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Used for setting the performance configuration. If the user doesn't specify
+ *  PerformanceConfig, automatically provision the default performance settings
+ *  as described in https://cloud.google.com/filestore/docs/performance. Larger
+ *  instances will be linearly set to more IOPS. If the instance's capacity is
+ *  increased or decreased, its performance will be automatically adjusted
+ *  upwards or downwards accordingly (respectively).
+ */
+@interface GTLRCloudFilestore_PerformanceConfig : GTLRObject
+
+/**
+ *  Choose a fixed provisioned IOPS value for the instance, which will remain
+ *  constant regardless of instance capacity. Value must be a multiple of 1000.
+ *  If the chosen value is outside the supported range for the instance's
+ *  capacity during instance creation, instance creation will fail with an
+ *  `InvalidArgument` error. Similarly, if an instance capacity update would
+ *  result in a value outside the supported range, the update will fail with an
+ *  `InvalidArgument` error.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_FixedIOPS *fixedIops;
+
+/**
+ *  Provision IOPS dynamically based on the capacity of the instance.
+ *  Provisioned read IOPS will be calculated by multiplying the capacity of the
+ *  instance in TiB by the `iops_per_tb` value. For example, for a 2 TiB
+ *  instance with an `iops_per_tb` value of 17000 the provisioned read IOPS will
+ *  be 34000. If the calculated value is outside the supported range for the
+ *  instance's capacity during instance creation, instance creation will fail
+ *  with an `InvalidArgument` error. Similarly, if an instance capacity update
+ *  would result in a value outside the supported range, the update will fail
+ *  with an `InvalidArgument` error.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_IOPSPerTB *iopsPerTb;
+
+@end
+
+
+/**
+ *  The enforced performance limits, calculated from the instance's performance
+ *  configuration.
+ */
+@interface GTLRCloudFilestore_PerformanceLimits : GTLRObject
+
+/**
+ *  Output only. The max read IOPS.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReadIops;
+
+/**
+ *  Output only. The max read throughput in bytes per second.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReadThroughputBps;
+
+/**
+ *  Output only. The max write IOPS.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxWriteIops;
+
+/**
+ *  Output only. The max write throughput in bytes per second.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxWriteThroughputBps;
 
 @end
 

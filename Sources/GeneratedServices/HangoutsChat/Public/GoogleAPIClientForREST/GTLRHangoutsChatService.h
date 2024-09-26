@@ -62,6 +62,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminSpaces;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminSpacesReadonly;
 /**
+ *  Authorization scope: On their own behalf, apps in Google Chat can delete
+ *  conversations and spaces and remove access to associated files
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.delete"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppDelete;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see, add,
+ *  update, and remove members from conversations and spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.memberships"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppMemberships;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can create
+ *  conversations and spaces and see or update their metadata (including history
+ *  settings and access settings)
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.spaces"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppSpaces;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can create
+ *  conversations and spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.spaces.create"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppSpacesCreate;
+/**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/chat.bot
  *

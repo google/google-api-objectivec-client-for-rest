@@ -1832,13 +1832,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_ComputeEngineShapeDescriptor : GTLRObject
 
 /**
- *  Number of logical cores.
+ *  Output only. Number of logical cores.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *logicalCoreCount;
 
-/** Compute Engine machine type. */
+/** Output only. Compute Engine machine type. */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
@@ -1855,10 +1855,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
  */
 @property(nonatomic, strong, nullable) NSNumber *physicalCoreCount;
 
-/** Compute Engine machine series. */
+/** Output only. Compute Engine machine series. */
 @property(nonatomic, copy, nullable) NSString *series;
 
-/** Compute Engine storage. Never empty. */
+/** Output only. Compute Engine storage. Never empty. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_ComputeStorageDescriptor *> *storage;
 
 @end
@@ -1870,14 +1870,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_ComputeStorageDescriptor : GTLRObject
 
 /**
- *  Disk size in GiB.
+ *  Output only. Disk size in GiB.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeGb;
 
 /**
- *  Disk type backing the storage.
+ *  Output only. Disk type backing the storage.
  *
  *  Likely values:
  *    @arg @c kGTLRMigrationCenterAPI_ComputeStorageDescriptor_Type_PersistentDiskTypeBalanced
@@ -2384,7 +2384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwareEnginePreferenc
 @interface GTLRMigrationCenterAPI_FitDescriptor : GTLRObject
 
 /**
- *  Fit level.
+ *  Output only. Fit level.
  *
  *  Likely values:
  *    @arg @c kGTLRMigrationCenterAPI_FitDescriptor_FitLevel_Fit Fit. (Value:

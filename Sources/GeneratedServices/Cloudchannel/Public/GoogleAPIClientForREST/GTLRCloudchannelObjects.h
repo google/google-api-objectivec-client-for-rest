@@ -2853,12 +2853,13 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Domain to fetch for Cloud Identity account customers, including
- *  domained and domainless.
+ *  domain and team customers. For team customers, please use the domain for
+ *  their emails.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Optional. Primary admin email to fetch for Cloud Identity account domainless
+ *  Optional. Primary admin email to fetch for Cloud Identity account team
  *  customer.
  */
 @property(nonatomic, copy, nullable) NSString *primaryAdminEmail;
@@ -3805,7 +3806,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *overwriteIfExists;
 
-/** Optional. Customer's primary admin email. */
+/** Required. Customer's primary admin email. */
 @property(nonatomic, copy, nullable) NSString *primaryAdminEmail;
 
 @end
@@ -4918,9 +4919,6 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest : GTLRObject
 
-/** Optional. Resource name of the integrator. */
-@property(nonatomic, copy, nullable) NSString *integrator;
-
 /**
  *  Required. Service account that provides subscriber access to the registered
  *  topic.
@@ -5618,9 +5616,6 @@ GTLR_DEPRECATED
  *  Request Message for UnregisterSubscriber.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest : GTLRObject
-
-/** Optional. Resource name of the integrator. */
-@property(nonatomic, copy, nullable) NSString *integrator;
 
 /**
  *  Required. Service account to unregister from subscriber access to the topic.

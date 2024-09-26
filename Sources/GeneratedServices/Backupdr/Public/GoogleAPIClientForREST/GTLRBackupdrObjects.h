@@ -40,6 +40,7 @@
 @class GTLRBackupdr_CloudAsset;
 @class GTLRBackupdr_CloudAssetComposition;
 @class GTLRBackupdr_ComputeInstanceBackupProperties;
+@class GTLRBackupdr_ComputeInstanceBackupProperties_Labels;
 @class GTLRBackupdr_ComputeInstanceDataSourceProperties;
 @class GTLRBackupdr_ComputeInstanceRestoreProperties;
 @class GTLRBackupdr_ComputeInstanceRestoreProperties_Labels;
@@ -2287,7 +2288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  A `BackupPlan` specifies some common fields, such as `display_name` as well
+ *  A `BackupPlan` specifies some common fields, such as `description` as well
  *  as one or more `BackupRule` messages. Each `BackupRule` has a retention
  *  policy and defines a schedule by which the system is to perform backup
  *  workloads.
@@ -2827,6 +2828,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *keyRevocationActionType;
 
+/** Labels to apply to instances that are created from these properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_ComputeInstanceBackupProperties_Labels *labels;
+
 /**
  *  The machine type to use for instances that are created from these
  *  properties.
@@ -2883,6 +2887,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_Tags *tags;
 
+@end
+
+
+/**
+ *  Labels to apply to instances that are created from these properties.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_ComputeInstanceBackupProperties_Labels : GTLRObject
 @end
 
 

@@ -259,6 +259,16 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_FixedIOPS
+//
+
+@implementation GTLRCloudFilestore_FixedIOPS
+@dynamic maxReadIops;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance
 //
 
@@ -494,10 +504,11 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Instance
-@dynamic createTime, deletionProtectionEnabled, deletionProtectionReason,
-         descriptionProperty, ETag, fileShares, kmsKeyName, labels, name,
-         networks, protocol, replication, satisfiesPzi, satisfiesPzs, state,
-         statusMessage, suspensionReasons, tags, tier;
+@dynamic configurablePerformanceEnabled, createTime, deletionProtectionEnabled,
+         deletionProtectionReason, descriptionProperty, ETag, fileShares,
+         kmsKeyName, labels, name, networks, performanceConfig,
+         performanceLimits, protocol, replication, satisfiesPzi, satisfiesPzs,
+         state, statusMessage, suspensionReasons, tags, tier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -544,6 +555,16 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_IOPSPerTB
+//
+
+@implementation GTLRCloudFilestore_IOPSPerTB
+@dynamic maxReadIopsPerTb;
 @end
 
 
@@ -820,6 +841,26 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 @implementation GTLRCloudFilestore_OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_PerformanceConfig
+//
+
+@implementation GTLRCloudFilestore_PerformanceConfig
+@dynamic fixedIops, iopsPerTb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_PerformanceLimits
+//
+
+@implementation GTLRCloudFilestore_PerformanceLimits
+@dynamic maxReadIops, maxReadThroughputBps, maxWriteIops, maxWriteThroughputBps;
 @end
 
 

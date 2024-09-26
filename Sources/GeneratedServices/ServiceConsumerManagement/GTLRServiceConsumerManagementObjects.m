@@ -115,6 +115,12 @@ NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchS
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRServiceConsumerManagement_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRServiceConsumerManagement_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -391,7 +397,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_CommonLanguageSettings
-@dynamic destinations, referenceDocsUri;
+@dynamic destinations, referenceDocsUri, selectiveGapicGeneration;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -684,6 +690,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_ExperimentalFeatures
+//
+
+@implementation GTLRServiceConsumerManagement_ExperimentalFeatures
+@dynamic restAsyncIoEnabled;
 @end
 
 
@@ -1020,7 +1036,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1274,7 +1299,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_PythonSettings
-@dynamic common;
+@dynamic common, experimentalFeatures;
 @end
 
 
@@ -1364,6 +1389,24 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 + (NSString *)collectionItemsKey {
   return @"tenancyUnits";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_SelectiveGapicGeneration
+//
+
+@implementation GTLRServiceConsumerManagement_SelectiveGapicGeneration
+@dynamic methods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [NSString class]
+  };
+  return map;
 }
 
 @end

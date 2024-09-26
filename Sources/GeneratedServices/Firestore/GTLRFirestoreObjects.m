@@ -751,6 +751,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1BackupSource
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1BackupSource
+@dynamic backup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata
 //
 
@@ -843,7 +853,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 @dynamic appEngineIntegrationMode, cmekConfig, concurrencyMode, createTime,
          deleteProtectionState, deleteTime, earliestVersionTime, ETag,
          keyPrefix, locationId, name, pointInTimeRecoveryEnablement, previousId,
-         type, uid, updateTime, versionRetentionPeriod;
+         sourceInfo, type, uid, updateTime, versionRetentionPeriod;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1219,6 +1229,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1SourceInfo
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SourceInfo
+@dynamic backup, operation;
 @end
 
 

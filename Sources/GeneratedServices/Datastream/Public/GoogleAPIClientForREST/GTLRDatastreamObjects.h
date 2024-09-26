@@ -2101,6 +2101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) GTLRDatastream_CdcStrategy *cdcStrategy;
 
+/**
+ *  Optional. Update the stream without validating it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
 @end
 
 

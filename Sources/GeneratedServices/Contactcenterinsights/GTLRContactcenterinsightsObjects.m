@@ -448,8 +448,9 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation
 @dynamic agentId, callMetadata, createTime, dataSource, dialogflowIntents,
          duration, expireTime, labels, languageCode, latestAnalysis,
-         latestSummary, medium, name, obfuscatedUserId, qualityMetadata,
-         runtimeAnnotations, startTime, transcript, ttl, turnCount, updateTime;
+         latestSummary, medium, metadataJson, name, obfuscatedUserId,
+         qualityMetadata, runtimeAnnotations, startTime, transcript, ttl,
+         turnCount, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1766,8 +1767,9 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ru
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation
 @dynamic agentId, callMetadata, createTime, dataSource, dialogflowIntents,
          duration, expireTime, labels, languageCode, latestAnalysis,
-         latestSummary, medium, name, obfuscatedUserId, qualityMetadata,
-         runtimeAnnotations, startTime, transcript, ttl, turnCount, updateTime;
+         latestSummary, medium, metadataJson, name, obfuscatedUserId,
+         qualityMetadata, runtimeAnnotations, startTime, transcript, ttl,
+         turnCount, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

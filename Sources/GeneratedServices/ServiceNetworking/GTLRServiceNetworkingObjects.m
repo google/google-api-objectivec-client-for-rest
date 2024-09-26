@@ -498,7 +498,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_CommonLanguageSettings
-@dynamic destinations, referenceDocsUri;
+@dynamic destinations, referenceDocsUri, selectiveGapicGeneration;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1839,6 +1839,24 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 @implementation GTLRServiceNetworking_SecondaryIpRangeSpec
 @dynamic ipPrefixLength, outsideAllocationPublicIpRange, rangeName,
          requestedAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_SelectiveGapicGeneration
+//
+
+@implementation GTLRServiceNetworking_SelectiveGapicGeneration
+@dynamic methods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -30,6 +30,12 @@ NS_ASSUME_NONNULL_BEGIN
 // eventTypes
 
 /**
+ *  Special all-day events with an annual recurrence.
+ *
+ *  Value: "birthday"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCalendarEventTypesBirthday;
+/**
  *  Regular events.
  *
  *  Value: "default"
@@ -1453,6 +1459,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  types.
  *
  *  Likely values:
+ *    @arg @c kGTLRCalendarEventTypesBirthday Special all-day events with an
+ *        annual recurrence. (Value: "birthday")
  *    @arg @c kGTLRCalendarEventTypesDefault Regular events. (Value: "default")
  *    @arg @c kGTLRCalendarEventTypesFocusTime Focus time events. (Value:
  *        "focusTime")
@@ -1644,8 +1652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 /**
  *  Moves an event to another calendar, i.e. changes an event's organizer. Note
- *  that only default events can be moved; outOfOffice, focusTime,
- *  workingLocation and fromGmail events cannot be moved.
+ *  that only default events can be moved; birthday, focusTime, fromGmail,
+ *  outOfOffice and workingLocation events cannot be moved.
  *
  *  Method: calendar.events.move
  *
@@ -1696,8 +1704,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  Fetches a @c GTLRCalendar_Event.
  *
  *  Moves an event to another calendar, i.e. changes an event's organizer. Note
- *  that only default events can be moved; outOfOffice, focusTime,
- *  workingLocation and fromGmail events cannot be moved.
+ *  that only default events can be moved; birthday, focusTime, fromGmail,
+ *  outOfOffice and workingLocation events cannot be moved.
  *
  *  @param calendarId Calendar identifier of the source calendar where the event
  *    currently is on.
@@ -1990,6 +1998,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  types.
  *
  *  Likely values:
+ *    @arg @c kGTLRCalendarEventTypesBirthday Special all-day events with an
+ *        annual recurrence. (Value: "birthday")
  *    @arg @c kGTLRCalendarEventTypesDefault Regular events. (Value: "default")
  *    @arg @c kGTLRCalendarEventTypesFocusTime Focus time events. (Value:
  *        "focusTime")
