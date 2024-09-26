@@ -2282,8 +2282,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *accountHoldDuration;
 
 /**
- *  Required. Subscription period, specified in ISO 8601 format. For a list of
- *  acceptable billing periods, refer to the help center.
+ *  Required. Immutable. Subscription period, specified in ISO 8601 format. For
+ *  a list of acceptable billing periods, refer to the help center. The duration
+ *  is immutable after the base plan is created.
  */
 @property(nonatomic, copy, nullable) NSString *billingPeriodDuration;
 
@@ -4290,13 +4291,15 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *accountHoldDuration;
 
 /**
- *  Required. Subscription period, specified in ISO 8601 format. For a list of
- *  acceptable billing periods, refer to the help center.
+ *  Required. Immutable. Subscription period, specified in ISO 8601 format. For
+ *  a list of acceptable billing periods, refer to the help center. The duration
+ *  is immutable after the base plan is created.
  */
 @property(nonatomic, copy, nullable) NSString *billingPeriodDuration;
 
 /**
- *  Required. The number of payments the user is committed to.
+ *  Required. Immutable. The number of payments the user is committed to. It is
+ *  immutable after the base plan is created.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4331,8 +4334,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *prorationMode;
 
 /**
- *  Required. Installments base plan renewal type. Determines the behavior at
- *  the end of the initial commitment.
+ *  Required. Immutable. Installments base plan renewal type. Determines the
+ *  behavior at the end of the initial commitment. The renewal type is immutable
+ *  after the base plan is created.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidPublisher_InstallmentsBasePlanType_RenewalType_RenewalTypeRenewsWithCommitment
@@ -5105,8 +5109,9 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_PrepaidBasePlanType : GTLRObject
 
 /**
- *  Required. Subscription period, specified in ISO 8601 format. For a list of
- *  acceptable billing periods, refer to the help center.
+ *  Required. Immutable. Subscription period, specified in ISO 8601 format. For
+ *  a list of acceptable billing periods, refer to the help center. The duration
+ *  is immutable after the base plan is created.
  */
 @property(nonatomic, copy, nullable) NSString *billingPeriodDuration;
 
@@ -6230,9 +6235,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The phases of this subscription offer. Must contain at least one
- *  entry, and may contain at most five. Users will always receive all these
- *  phases in the specified order. Phases may not be added, removed, or
- *  reordered after initial creation.
+ *  and at most two entries. Users will always receive all these phases in the
+ *  specified order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SubscriptionOfferPhase *> *phases;
 

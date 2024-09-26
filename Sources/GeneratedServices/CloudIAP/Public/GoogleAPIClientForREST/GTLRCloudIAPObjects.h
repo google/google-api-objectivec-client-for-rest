@@ -215,8 +215,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, strong, nullable) GTLRCloudIAP_OAuthSettings *oauthSettings;
 
 /**
- *  Optional. Settings to configure Policy delegation for apps hosted in tenant
- *  projects. INTERNAL_ONLY.
+ *  Optional. Settings to allow google-internal teams to use IAP for apps hosted
+ *  in a tenant project.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_PolicyDelegationSettings *policyDelegationSettings;
 
@@ -914,7 +914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, strong, nullable) GTLRDuration *maxAge;
 
 /**
- *  Reauth method requested.
+ *  Optional. Reauth method requested.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_EnrolledSecondFactors User can

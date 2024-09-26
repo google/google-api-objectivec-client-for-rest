@@ -95,6 +95,7 @@
 @class GTLRServiceNetworking_RubySettings;
 @class GTLRServiceNetworking_SecondaryIpRange;
 @class GTLRServiceNetworking_SecondaryIpRangeSpec;
+@class GTLRServiceNetworking_SelectiveGapicGeneration;
 @class GTLRServiceNetworking_SourceContext;
 @class GTLRServiceNetworking_SourceInfo;
 @class GTLRServiceNetworking_SourceInfo_SourceFiles_Item;
@@ -1839,6 +1840,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  https://cloud.google.com/nodejs/docs/reference/asset/latest
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
+
+/** Configuration for which RPCs should be generated in the GAPIC client. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_SelectiveGapicGeneration *selectiveGapicGeneration;
 
 @end
 
@@ -4853,6 +4857,21 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  range isn't available, the call fails.
  */
 @property(nonatomic, copy, nullable) NSString *requestedAddress;
+
+@end
+
+
+/**
+ *  This message is used to configure the generation of a subset of the RPCs in
+ *  a service for client libraries.
+ */
+@interface GTLRServiceNetworking_SelectiveGapicGeneration : GTLRObject
+
+/**
+ *  An allowlist of the fully qualified names of RPCs that should be included on
+ *  public client surfaces.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
 
 @end
 

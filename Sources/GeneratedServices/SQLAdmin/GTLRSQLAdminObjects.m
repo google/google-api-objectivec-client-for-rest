@@ -452,6 +452,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigra
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedStorageEngine = @"UNSUPPORTED_STORAGE_ENGINE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedSystemObjects = @"UNSUPPORTED_SYSTEM_OBJECTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTablesWithReplicaIdentity = @"UNSUPPORTED_TABLES_WITH_REPLICA_IDENTITY";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UsersNotCreatedInReplica = @"USERS_NOT_CREATED_IN_REPLICA";
 
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.migrationType
@@ -1394,6 +1395,31 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_InstancesListServerCertificatesResponse
+//
+
+@implementation GTLRSQLAdmin_InstancesListServerCertificatesResponse
+@dynamic activeVersion, caCerts, kind, serverCerts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"caCerts" : [GTLRSQLAdmin_SslCert class],
+    @"serverCerts" : [GTLRSQLAdmin_SslCert class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_InstancesReencryptRequest
 //
 
@@ -1419,6 +1445,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_InstancesRotateServerCaRequest
 @dynamic rotateServerCaContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_InstancesRotateServerCertificateRequest
+//
+
+@implementation GTLRSQLAdmin_InstancesRotateServerCertificateRequest
+@dynamic rotateServerCertificateContext;
 @end
 
 
@@ -1759,6 +1795,23 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_RotateServerCaContext
+@dynamic kind, nextVersion;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_RotateServerCertificateContext
+//
+
+@implementation GTLRSQLAdmin_RotateServerCertificateContext
 @dynamic kind, nextVersion;
 
 + (BOOL)isKindValidForClassRegistry {

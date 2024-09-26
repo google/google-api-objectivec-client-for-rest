@@ -634,6 +634,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Add a new trusted server certificate version for the specified instance
+ *  using Certificate Authority Service (CAS) server CA. Required to prepare for
+ *  a certificate rotation. If a server certificate version was previously added
+ *  but never used in a certificate rotation, this operation replaces that
+ *  version. There cannot be more than one certificate version waiting to be
+ *  rotated in. For instances not using CAS server CA, please use AddServerCa
+ *  instead.
+ *
+ *  Method: sql.instances.addServerCertificate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesAddServerCertificate : GTLRSQLAdminQuery
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Add a new trusted server certificate version for the specified instance
+ *  using Certificate Authority Service (CAS) server CA. Required to prepare for
+ *  a certificate rotation. If a server certificate version was previously added
+ *  but never used in a certificate rotation, this operation replaces that
+ *  version. There cannot be more than one certificate version waiting to be
+ *  rotated in. For instances not using CAS server CA, please use AddServerCa
+ *  instead.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesAddServerCertificate
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Creates a Cloud SQL instance as a clone of the source instance. Using this
  *  operation might cause your instance to restart.
  *
@@ -1062,6 +1106,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists all versions of server certificates and certificate authorities (CAs)
+ *  for the specified instance. There can be up to three sets of certs listed:
+ *  the certificate that is currently in use, a future that has been added but
+ *  not yet used to sign a certificate, and a certificate that has been rotated
+ *  out.
+ *
+ *  Method: sql.instances.ListServerCertificates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesListServerCertificates : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_InstancesListServerCertificatesResponse.
+ *
+ *  Lists all versions of server certificates and certificate authorities (CAs)
+ *  for the specified instance. There can be up to three sets of certs listed:
+ *  the certificate that is currently in use, a future that has been added but
+ *  not yet used to sign a certificate, and a certificate that has been rotated
+ *  out.
+ *
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesListServerCertificates
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Partially updates settings of a Cloud SQL instance by merging the request
  *  with the current configuration. This method supports patch semantics.
  *
@@ -1356,6 +1442,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSQLAdminQuery_InstancesRotateServerCa
  */
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCaRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Rotates the server certificate version to one previously added with the
+ *  addServerCertificate method. For instances not using Certificate Authority
+ *  Service (CAS) server CA, please use RotateServerCa instead.
+ *
+ *  Method: sql.instances.RotateServerCertificate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesRotateServerCertificate : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Rotates the server certificate version to one previously added with the
+ *  addServerCertificate method. For instances not using Certificate Authority
+ *  Service (CAS) server CA, please use RotateServerCa instead.
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesRotateServerCertificateRequest to
+ *    include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesRotateServerCertificate
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCertificateRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
 

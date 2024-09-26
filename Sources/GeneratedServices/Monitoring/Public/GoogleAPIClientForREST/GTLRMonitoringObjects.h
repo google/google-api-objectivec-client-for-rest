@@ -1102,6 +1102,34 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_Laun
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricThreshold.comparison
 
 /**
@@ -4935,6 +4963,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
+
 @end
 
 
@@ -5923,7 +5954,9 @@ GTLR_DEPRECATED
 
 
 /**
- *  The QueryTimeSeries request.
+ *  The QueryTimeSeries request. For information about the status of Monitoring
+ *  Query Language (MQL), see the MQL deprecation notice
+ *  (https://cloud.google.com/stackdriver/docs/deprecations/mql).
  */
 GTLR_DEPRECATED
 @interface GTLRMonitoring_QueryTimeSeriesRequest : GTLRObject
@@ -5953,7 +5986,9 @@ GTLR_DEPRECATED
 
 
 /**
- *  The QueryTimeSeries response.
+ *  The QueryTimeSeries response. For information about the status of Monitoring
+ *  Query Language (MQL), see the MQL deprecation notice
+ *  (https://cloud.google.com/stackdriver/docs/deprecations/mql).
  */
 GTLR_DEPRECATED
 @interface GTLRMonitoring_QueryTimeSeriesResponse : GTLRObject

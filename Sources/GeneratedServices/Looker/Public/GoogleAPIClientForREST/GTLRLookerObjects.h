@@ -857,6 +857,20 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @property(nonatomic, strong, nullable) GTLRLooker_EncryptionConfig *encryptionConfig;
 
+/**
+ *  Optional. Whether FIPS is enabled on the Looker instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fipsEnabled;
+
+/**
+ *  Optional. Whether Gemini feature is enabled on the Looker instance or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *geminiEnabled;
+
 /** Output only. Private Ingress IP (IPv4). */
 @property(nonatomic, copy, nullable) NSString *ingressPrivateIp;
 

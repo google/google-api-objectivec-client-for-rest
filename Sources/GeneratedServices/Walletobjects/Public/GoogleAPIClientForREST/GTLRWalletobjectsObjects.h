@@ -3519,7 +3519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  The logo image of the ticket. This image is displayed in the card detail
@@ -3862,7 +3862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  An array of messages displayed in the app. All users of this object will
@@ -4402,7 +4402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  An array of messages displayed in the app. All users of this object will
@@ -4715,7 +4715,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  An array of messages displayed in the app. All users of this object will
@@ -5408,7 +5408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  Merchant name, such as "Adam's Apparel". The app may display an ellipsis
@@ -5701,7 +5701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  An array of messages displayed in the app. All users of this object will
@@ -6361,7 +6361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  An array of messages displayed in the app. All users of this object will
@@ -6673,7 +6673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /** The loyalty reward points label, balance, and type. */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_LoyaltyPoints *loyaltyPoints;
@@ -7521,7 +7521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  An array of messages displayed in the app. All users of this object will
@@ -9024,7 +9024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  Required. The logo image of the ticket. This image is displayed in the card
@@ -9357,7 +9357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 /**
  *  Note: This field is currently not supported to trigger geo notifications.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations;
+@property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_LatLongPoint *> *locations GTLR_DEPRECATED;
 
 /**
  *  An array of messages displayed in the app. All users of this object will

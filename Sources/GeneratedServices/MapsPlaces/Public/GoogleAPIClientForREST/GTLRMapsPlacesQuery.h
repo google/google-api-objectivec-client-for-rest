@@ -139,6 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeMapsPlacesCloudPlatform
  *    @c kGTLRAuthScopeMapsPlacesMapsPlatformPlaces
+ *    @c kGTLRAuthScopeMapsPlacesMapsPlatformPlacesGetphotomedia
  */
 @interface GTLRMapsPlacesQuery_PlacesPhotosGetMedia : GTLRMapsPlacesQuery
 

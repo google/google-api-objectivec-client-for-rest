@@ -18,7 +18,10 @@
 @class GTLRCloudRedis_AvailabilityConfiguration;
 @class GTLRCloudRedis_BackupConfiguration;
 @class GTLRCloudRedis_BackupRun;
+@class GTLRCloudRedis_BlobstoreLocation;
 @class GTLRCloudRedis_CertChain;
+@class GTLRCloudRedis_CloudAsset;
+@class GTLRCloudRedis_CloudAssetComposition;
 @class GTLRCloudRedis_Cluster;
 @class GTLRCloudRedis_Cluster_RedisConfigs;
 @class GTLRCloudRedis_ClusterMaintenancePolicy;
@@ -34,8 +37,10 @@
 @class GTLRCloudRedis_DatabaseResourceMetadata;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData_AdditionalMetadata;
+@class GTLRCloudRedis_DirectLocationAssignment;
 @class GTLRCloudRedis_DiscoveryEndpoint;
 @class GTLRCloudRedis_Entitlement;
+@class GTLRCloudRedis_ExtraParameter;
 @class GTLRCloudRedis_GcsDestination;
 @class GTLRCloudRedis_GcsSource;
 @class GTLRCloudRedis_GoogleCloudRedisV1LocationMetadata_AvailableZones;
@@ -45,9 +50,12 @@
 @class GTLRCloudRedis_Instance_Labels;
 @class GTLRCloudRedis_Instance_RedisConfigs;
 @class GTLRCloudRedis_InternalResourceMetadata;
+@class GTLRCloudRedis_IsolationExpectations;
 @class GTLRCloudRedis_Location;
 @class GTLRCloudRedis_Location_Labels;
 @class GTLRCloudRedis_Location_Metadata;
+@class GTLRCloudRedis_LocationAssignment;
+@class GTLRCloudRedis_LocationData;
 @class GTLRCloudRedis_MachineConfiguration;
 @class GTLRCloudRedis_MaintenancePolicy;
 @class GTLRCloudRedis_MaintenanceSchedule;
@@ -61,15 +69,22 @@
 @class GTLRCloudRedis_OperationError;
 @class GTLRCloudRedis_OutputConfig;
 @class GTLRCloudRedis_PersistenceConfig;
+@class GTLRCloudRedis_PlacerLocation;
 @class GTLRCloudRedis_Product;
 @class GTLRCloudRedis_PscConfig;
 @class GTLRCloudRedis_PscConnection;
 @class GTLRCloudRedis_RDBConfig;
+@class GTLRCloudRedis_RegionalMigDistributionPolicy;
 @class GTLRCloudRedis_RemoteCluster;
+@class GTLRCloudRedis_RequirementOverride;
 @class GTLRCloudRedis_RetentionSettings;
+@class GTLRCloudRedis_SpannerLocation;
 @class GTLRCloudRedis_StateInfo;
 @class GTLRCloudRedis_Status;
 @class GTLRCloudRedis_Status_Details_Item;
+@class GTLRCloudRedis_Tags;
+@class GTLRCloudRedis_Tags_Tags;
+@class GTLRCloudRedis_TenantProjectProxy;
 @class GTLRCloudRedis_TimeOfDay;
 @class GTLRCloudRedis_TlsCertificate;
 @class GTLRCloudRedis_TypedValue;
@@ -77,6 +92,7 @@
 @class GTLRCloudRedis_UserLabels;
 @class GTLRCloudRedis_UserLabels_Labels;
 @class GTLRCloudRedis_WeeklyMaintenanceWindow;
+@class GTLRCloudRedis_ZoneConfiguration;
 @class GTLRCloudRedis_ZoneDistributionConfig;
 
 // Generated comments include content from the discovery document; avoid them
@@ -193,7 +209,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Cluster_AuthorizationMode_Aut
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Cluster.nodeType
 
-/** Value: "NODE_TYPE_UNSPECIFIED" */
+/**
+ *  Node type unspecified
+ *
+ *  Value: "NODE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Cluster_NodeType_NodeTypeUnspecified;
 /**
  *  Redis highmem medium node_type.
@@ -2056,6 +2076,154 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_IsolationExpectations.ziOrgPolicy
+
+/** Value: "ZI_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiNotRequired;
+/** Value: "ZI_PREFERRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiPreferred;
+/** Value: "ZI_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiUnknown;
+/** Value: "ZI_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_IsolationExpectations.ziRegionPolicy
+
+/** Value: "ZI_REGION_POLICY_FAIL_CLOSED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed;
+/** Value: "ZI_REGION_POLICY_FAIL_OPEN" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen;
+/** Value: "ZI_REGION_POLICY_NOT_SET" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_REGION_POLICY_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown;
+/** Value: "ZI_REGION_POLICY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_IsolationExpectations.ziRegionState
+
+/** Value: "ZI_REGION_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionEnabled;
+/** Value: "ZI_REGION_NOT_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_REGION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionUnknown;
+/** Value: "ZI_REGION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_IsolationExpectations.zoneIsolation
+
+/** Value: "ZI_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiNotRequired;
+/** Value: "ZI_PREFERRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiPreferred;
+/** Value: "ZI_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiUnknown;
+/** Value: "ZI_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_IsolationExpectations.zoneSeparation
+
+/** Value: "ZS_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsNotRequired;
+/** Value: "ZS_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsUnknown;
+/** Value: "ZS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_IsolationExpectations.zsOrgPolicy
+
+/** Value: "ZS_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsNotRequired;
+/** Value: "ZS_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsUnknown;
+/** Value: "ZS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_IsolationExpectations.zsRegionState
+
+/** Value: "ZS_REGION_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionEnabled;
+/** Value: "ZS_REGION_NOT_ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled;
+/**
+ *  To be used if tracking of the asset ZS-bit is not available
+ *
+ *  Value: "ZS_REGION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionUnknown;
+/** Value: "ZS_REGION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_LocationAssignment.locationType
+
+/** Value: "CLOUD_REGION" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_CloudRegion;
+/**
+ *  11-20: Logical failure domains.
+ *
+ *  Value: "CLOUD_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_CloudZone;
+/**
+ *  1-10: Physical failure domains.
+ *
+ *  Value: "CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Cluster;
+/** Value: "GLOBAL" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Global;
+/** Value: "MULTI_REGION_GEO" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_MultiRegionGeo;
+/** Value: "MULTI_REGION_JURISDICTION" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_MultiRegionJurisdiction;
+/** Value: "OTHER" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Other;
+/** Value: "POP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Pop;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_ObservabilityMetricData.aggregationType
 
 /**
@@ -2476,6 +2644,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ReconciliationOperationMetada
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_RequirementOverride.ziOverride
+
+/** Value: "ZI_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiNotRequired;
+/** Value: "ZI_PREFERRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiPreferred;
+/** Value: "ZI_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZI_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiUnknown;
+/** Value: "ZI_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_RequirementOverride.zsOverride
+
+/** Value: "ZS_NOT_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsNotRequired;
+/** Value: "ZS_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsRequired;
+/**
+ *  To be used if tracking is not available
+ *
+ *  Value: "ZS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsUnknown;
+/** Value: "ZS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_RescheduleClusterMaintenanceRequest.rescheduleType
 
 /**
@@ -2656,6 +2858,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  Provides the mapping of a cloud asset to a direct physical location or to a
+ *  proxy that defines the location on its behalf.
+ */
+@interface GTLRCloudRedis_AssetLocation : GTLRObject
+
+/**
+ *  Spanner path of the CCFE RMS database. It is only applicable for CCFE
+ *  tenants that use CCFE RMS for storing resource metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *ccfeRmsPath;
+
+/**
+ *  Defines the customer expectation around ZI/ZS for this asset and ZI/ZS state
+ *  of the region at the time of asset creation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_IsolationExpectations *expected;
+
+/** Defines extra parameters required for specific asset types. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ExtraParameter *> *extraParameters;
+
+/** Contains all kinds of physical location definitions for this asset. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_LocationData *> *locationData;
+
+/**
+ *  Defines parents assets if any in order to allow later generation of
+ *  child_asset_location data via child assets.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_CloudAsset *> *parentAsset;
+
+@end
+
+
+/**
  *  Configuration for availability of database instance
  */
 @interface GTLRCloudRedis_AvailabilityConfiguration : GTLRObject
@@ -2775,6 +3010,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  Policy ID that identified data placement in Blobstore as per
+ *  go/blobstore-user-guide#data-metadata-placement-and-failure-domains
+ */
+@interface GTLRCloudRedis_BlobstoreLocation : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *policyId;
+
+@end
+
+
+/**
  *  GTLRCloudRedis_CertChain
  */
 @interface GTLRCloudRedis_CertChain : GTLRObject
@@ -2798,6 +3044,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  `projects/{project}/locations/{location}/clusters/{cluster}/certificateAuthority`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLRCloudRedis_CloudAsset
+ */
+@interface GTLRCloudRedis_CloudAsset : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *assetName;
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+@end
+
+
+/**
+ *  GTLRCloudRedis_CloudAssetComposition
+ */
+@interface GTLRCloudRedis_CloudAssetComposition : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_CloudAsset *> *childAsset;
 
 @end
 
@@ -2865,8 +3132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  underlying machine-type of a redis node.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRedis_Cluster_NodeType_NodeTypeUnspecified Value
- *        "NODE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudRedis_Cluster_NodeType_NodeTypeUnspecified Node type
+ *        unspecified (Value: "NODE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_Cluster_NodeType_RedisHighmemMedium Redis highmem
  *        medium node_type. (Value: "REDIS_HIGHMEM_MEDIUM")
  *    @arg @c kGTLRCloudRedis_Cluster_NodeType_RedisHighmemXlarge Redis highmem
@@ -2897,8 +3164,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_PscConfig *> *pscConfigs;
 
 /**
- *  Output only. PSC connections for discovery of the cluster topology and
- *  accessing the cluster.
+ *  Output only. The list of PSC connections that are auto-created through
+ *  service connectivity automation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_PscConnection *> *pscConnections;
 
@@ -3032,12 +3299,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Output only. The deadline that the maintenance schedule start time can not
- *  go beyond, including reschedule.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
-
-/**
  *  Output only. The start time of any upcoming scheduled maintenance for this
  *  instance.
  */
@@ -3106,9 +3367,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Wednesday (Value: "WEDNESDAY")
  */
 @property(nonatomic, copy, nullable) NSString *day;
-
-/** Duration of the time window. */
-@property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /** Start time of the window in UTC. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *startTime;
@@ -3758,7 +4016,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Common model for database resource instance metadata.
+ *  Common model for database resource instance metadata. Next ID: 21
  */
 @interface GTLRCloudRedis_DatabaseResourceMetadata : GTLRObject
 
@@ -3896,6 +4154,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  go/condor-common-datamodel
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Optional. Tags associated with this resources. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Tags *tagsSet;
 
 /**
  *  The time at which the resource was updated and recorded at partner service.
@@ -4270,6 +4531,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  GTLRCloudRedis_DirectLocationAssignment
+ */
+@interface GTLRCloudRedis_DirectLocationAssignment : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_LocationAssignment *> *location;
+
+@end
+
+
+/**
  *  Endpoints on each network, for Redis clients to connect to the cluster.
  */
 @interface GTLRCloudRedis_DiscoveryEndpoint : GTLRObject
@@ -4349,6 +4620,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Required. Specify data to be exported. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_OutputConfig *outputConfig;
+
+@end
+
+
+/**
+ *  Defines parameters that should only be used for specific asset types.
+ */
+@interface GTLRCloudRedis_ExtraParameter : GTLRObject
+
+/**
+ *  Details about zones used by regional
+ *  compute.googleapis.com/InstanceGroupManager to create instances.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_RegionalMigDistributionPolicy *regionalMigDistributionPolicy;
 
 @end
 
@@ -4886,6 +5171,135 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  GTLRCloudRedis_IsolationExpectations
+ */
+@interface GTLRCloudRedis_IsolationExpectations : GTLRObject
+
+/**
+ *  Explicit overrides for ZI and ZS requirements to be used for resources that
+ *  should be excluded from ZI/ZS verification logic.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_RequirementOverride *requirementOverride;
+
+/**
+ *  ziOrgPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiNotRequired
+ *        Value "ZI_NOT_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiPreferred
+ *        Value "ZI_PREFERRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiRequired Value
+ *        "ZI_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiUnknown To be
+ *        used if tracking is not available (Value: "ZI_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiUnspecified
+ *        Value "ZI_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziOrgPolicy;
+
+/**
+ *  ziRegionPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed
+ *        Value "ZI_REGION_POLICY_FAIL_CLOSED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen
+ *        Value "ZI_REGION_POLICY_FAIL_OPEN"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet
+ *        Value "ZI_REGION_POLICY_NOT_SET"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown
+ *        To be used if tracking is not available (Value:
+ *        "ZI_REGION_POLICY_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified
+ *        Value "ZI_REGION_POLICY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziRegionPolicy;
+
+/**
+ *  ziRegionState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionEnabled
+ *        Value "ZI_REGION_ENABLED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled
+ *        Value "ZI_REGION_NOT_ENABLED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionUnknown
+ *        To be used if tracking is not available (Value: "ZI_REGION_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionUnspecified
+ *        Value "ZI_REGION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziRegionState;
+
+/**
+ *  Deprecated: use zi_org_policy, zi_region_policy and zi_region_state instead
+ *  for setting ZI expectations as per go/zicy-publish-physical-location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiNotRequired
+ *        Value "ZI_NOT_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiPreferred
+ *        Value "ZI_PREFERRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiRequired
+ *        Value "ZI_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiUnknown To
+ *        be used if tracking is not available (Value: "ZI_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiUnspecified
+ *        Value "ZI_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zoneIsolation GTLR_DEPRECATED;
+
+/**
+ *  Deprecated: use zs_org_policy, and zs_region_stateinstead for setting Zs
+ *  expectations as per go/zicy-publish-physical-location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsNotRequired
+ *        Value "ZS_NOT_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsRequired
+ *        Value "ZS_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsUnknown To
+ *        be used if tracking is not available (Value: "ZS_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsUnspecified
+ *        Value "ZS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zoneSeparation GTLR_DEPRECATED;
+
+/**
+ *  zsOrgPolicy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsNotRequired
+ *        Value "ZS_NOT_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsRequired Value
+ *        "ZS_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsUnknown To be
+ *        used if tracking is not available (Value: "ZS_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsUnspecified
+ *        Value "ZS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zsOrgPolicy;
+
+/**
+ *  zsRegionState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionEnabled
+ *        Value "ZS_REGION_ENABLED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled
+ *        Value "ZS_REGION_NOT_ENABLED"
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionUnknown
+ *        To be used if tracking of the asset ZS-bit is not available (Value:
+ *        "ZS_REGION_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionUnspecified
+ *        Value "ZS_REGION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zsRegionState;
+
+@end
+
+
+/**
  *  Response for ListClusters.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5075,6 +5489,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  GTLRCloudRedis_LocationAssignment
+ */
+@interface GTLRCloudRedis_LocationAssignment : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  locationType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_CloudRegion Value
+ *        "CLOUD_REGION"
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_CloudZone 11-20:
+ *        Logical failure domains. (Value: "CLOUD_ZONE")
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_Cluster 1-10:
+ *        Physical failure domains. (Value: "CLUSTER")
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_Global Value
+ *        "GLOBAL"
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_MultiRegionGeo
+ *        Value "MULTI_REGION_GEO"
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_MultiRegionJurisdiction
+ *        Value "MULTI_REGION_JURISDICTION"
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_Other Value
+ *        "OTHER"
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_Pop Value "POP"
+ *    @arg @c kGTLRCloudRedis_LocationAssignment_LocationType_Unspecified Value
+ *        "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *locationType;
+
+@end
+
+
+/**
+ *  GTLRCloudRedis_LocationData
+ */
+@interface GTLRCloudRedis_LocationData : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BlobstoreLocation *blobstoreLocation;
+@property(nonatomic, strong, nullable) GTLRCloudRedis_CloudAssetComposition *childAssetLocation;
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DirectLocationAssignment *directLocation;
+@property(nonatomic, strong, nullable) GTLRCloudRedis_TenantProjectProxy *gcpProjectProxy;
+@property(nonatomic, strong, nullable) GTLRCloudRedis_PlacerLocation *placerLocation;
+@property(nonatomic, strong, nullable) GTLRCloudRedis_SpannerLocation *spannerLocation;
+
+@end
+
+
+/**
  *  MachineConfiguration describes the configuration of a machine specific to
  *  Database Resource.
  */
@@ -5095,6 +5558,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *memorySizeInBytes;
+
+/**
+ *  Optional. Number of shards (if applicable).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shardCount;
 
 @end
 
@@ -5515,6 +5985,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  Message describing that the location of the customer resource is tied to
+ *  placer allocations
+ */
+@interface GTLRCloudRedis_PlacerLocation : GTLRObject
+
+/**
+ *  Directory with a config related to it in placer (e.g.
+ *  "/placer/prod/home/my-root/my-dir")
+ */
+@property(nonatomic, copy, nullable) NSString *placerConfig;
+
+@end
+
+
+/**
  *  Product specification for Condor resources.
  */
 @interface GTLRCloudRedis_Product : GTLRObject
@@ -5628,34 +6113,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_PscConnection : GTLRObject
 
 /**
- *  Output only. The IP allocated on the consumer network for the PSC forwarding
+ *  Required. The IP allocated on the consumer network for the PSC forwarding
  *  rule.
  */
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
- *  Output only. The URI of the consumer side forwarding rule. Example:
+ *  Required. The URI of the consumer side forwarding rule. Example:
  *  projects/{projectNumOrId}/regions/us-east1/forwardingRules/{resourceId}.
  */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
 
 /**
- *  The consumer network where the IP address resides, in the form of
+ *  Required. The consumer network where the IP address resides, in the form of
  *  projects/{project_id}/global/networks/{network_id}.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Output only. The consumer project_id where the forwarding rule is created
- *  from.
+ *  Optional. Project ID of the consumer project where the forwarding rule is
+ *  created in.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Output only. The PSC connection id of the forwarding rule connected to the
+ *  Optional. The PSC connection id of the forwarding rule connected to the
  *  service attachment.
  */
 @property(nonatomic, copy, nullable) NSString *pscConnectionId;
+
+/**
+ *  Required. The service attachment which is the target of the PSC connection,
+ *  in the form of
+ *  projects/{project-id}/regions/{region}/serviceAttachments/{service-attachment-id}.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAttachment;
 
 @end
 
@@ -5726,6 +6218,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  To be used for specifying the intended distribution of regional
+ *  compute.googleapis.com/InstanceGroupManager instances
+ */
+@interface GTLRCloudRedis_RegionalMigDistributionPolicy : GTLRObject
+
+/**
+ *  The shape in which the group converges around distribution of resources.
+ *  Instance of proto2 enum
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetShape;
+
+/** Cloud zones used by regional MIG to create instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ZoneConfiguration *> *zones;
+
+@end
+
+
+/**
  *  Details of the remote cluster associated with this cluster in a cross
  *  cluster replication setup.
  */
@@ -5739,6 +6251,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Output only. The unique identifier of the remote cluster. */
 @property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  GTLRCloudRedis_RequirementOverride
+ */
+@interface GTLRCloudRedis_RequirementOverride : GTLRObject
+
+/**
+ *  ziOverride
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiNotRequired Value
+ *        "ZI_NOT_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiPreferred Value
+ *        "ZI_PREFERRED"
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiRequired Value
+ *        "ZI_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiUnknown To be
+ *        used if tracking is not available (Value: "ZI_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiUnspecified Value
+ *        "ZI_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *ziOverride;
+
+/**
+ *  zsOverride
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsNotRequired Value
+ *        "ZS_NOT_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsRequired Value
+ *        "ZS_REQUIRED"
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsUnknown To be
+ *        used if tracking is not available (Value: "ZS_UNKNOWN")
+ *    @arg @c kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsUnspecified Value
+ *        "ZS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *zsOverride;
 
 @end
 
@@ -5843,6 +6395,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  GTLRCloudRedis_SpannerLocation
+ */
+@interface GTLRCloudRedis_SpannerLocation : GTLRObject
+
+/**
+ *  Set of backups used by the resource with name in the same format as what is
+ *  available at http://table/spanner_automon.backup_metadata
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *backupName;
+
+/** Set of databases used by the resource in format /span// */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dbName;
+
+@end
+
+
+/**
  *  Represents additional information about the state of the cluster.
  */
 @interface GTLRCloudRedis_StateInfo : GTLRObject
@@ -5895,6 +6464,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudRedis_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Message type for storing tags. Tags provide a way to create annotations for
+ *  resources, and in some cases conditionally allow or deny policies based on
+ *  whether a resource has a specific tag.
+ */
+@interface GTLRCloudRedis_Tags : GTLRObject
+
+/** The Tag key/value mappings. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Tags_Tags *tags;
+
+@end
+
+
+/**
+ *  The Tag key/value mappings.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRedis_Tags_Tags : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudRedis_TenantProjectProxy
+ */
+@interface GTLRCloudRedis_TenantProjectProxy : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projectNumbers;
+
 @end
 
 
@@ -6096,6 +6700,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Required. Start time of the window in UTC time. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *startTime;
+
+@end
+
+
+/**
+ *  GTLRCloudRedis_ZoneConfiguration
+ */
+@interface GTLRCloudRedis_ZoneConfiguration : GTLRObject
+
+/**
+ *  zoneProperty
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 

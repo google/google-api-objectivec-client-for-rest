@@ -87,6 +87,7 @@ NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_PeeringUnspecifi
 
 // GTLRNetworkconnectivity_InternalRange.usage
 NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ExternalToVpc = @"EXTERNAL_TO_VPC";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ForMigration = @"FOR_MIGRATION";
 NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ForVpc = @"FOR_VPC";
 NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_UsageUnspecified = @"USAGE_UNSPECIFIED";
 
@@ -311,7 +312,22 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConfig
 @dynamic consumerInstanceProject, disableGlobalAccess, network,
-         producerInstanceId, project, serviceAttachmentIpAddressMap, state;
+         producerInstanceId, producerInstanceMetadata, project,
+         serviceAttachmentIpAddressMap, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_ConsumerPscConfig_ProducerInstanceMetadata
+//
+
+@implementation GTLRNetworkconnectivity_ConsumerPscConfig_ProducerInstanceMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -336,8 +352,22 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_ConsumerPscConnection
 @dynamic error, errorInfo, errorType, forwardingRule, gceOperation, ip, network,
-         producerInstanceId, project, pscConnectionId, selectedSubnetwork,
-         serviceAttachmentUri, state;
+         producerInstanceId, producerInstanceMetadata, project, pscConnectionId,
+         selectedSubnetwork, serviceAttachmentUri, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_ConsumerPscConnection_ProducerInstanceMetadata
+//
+
+@implementation GTLRNetworkconnectivity_ConsumerPscConnection_ProducerInstanceMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -585,9 +615,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_InternalRange
-@dynamic createTime, descriptionProperty, ipCidrRange, labels, name, network,
-         overlaps, peering, prefixLength, targetCidrRange, updateTime, usage,
-         users;
+@dynamic createTime, descriptionProperty, ipCidrRange, labels, migration, name,
+         network, overlaps, peering, prefixLength, targetCidrRange, updateTime,
+         usage, users;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1075,6 +1105,16 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_Migration
+//
+
+@implementation GTLRNetworkconnectivity_Migration
+@dynamic source, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_NextHopInterconnectAttachment
 //
 
@@ -1229,7 +1269,22 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 @implementation GTLRNetworkconnectivity_PscConnection
 @dynamic consumerAddress, consumerForwardingRule, consumerTargetProject, error,
          errorInfo, errorType, gceOperation, producerInstanceId,
-         pscConnectionId, selectedSubnetwork, state;
+         producerInstanceMetadata, pscConnectionId, selectedSubnetwork,
+         serviceClass, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_PscConnection_ProducerInstanceMetadata
+//
+
+@implementation GTLRNetworkconnectivity_PscConnection_ProducerInstanceMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

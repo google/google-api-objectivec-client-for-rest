@@ -21,6 +21,55 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Includes basic data about the Backup Vault, but not the full contents.
+ *
+ *  Value: "BACKUP_VAULT_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupVaultViewBasic;
+/**
+ *  Includes all data about the Backup Vault. This is the default value (for
+ *  both ListBackupVaults and GetBackupVault).
+ *
+ *  Value: "BACKUP_VAULT_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupVaultViewFull;
+/**
+ *  If the value is not set, the default 'FULL' view is used.
+ *
+ *  Value: "BACKUP_VAULT_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupVaultViewUnspecified;
+/**
+ *  Includes basic data about the Backup, but not the full contents.
+ *
+ *  Value: "BACKUP_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewBasic;
+/**
+ *  Includes all data about the Backup. This is the default value (for both
+ *  ListBackups and GetBackup).
+ *
+ *  Value: "BACKUP_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewFull;
+/**
+ *  If the value is not set, the default 'FULL' view is used.
+ *
+ *  Value: "BACKUP_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Backupdr query classes.
  */
@@ -593,6 +642,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Reserved for future use to provide a BASIC & FULL view of Backup
+ *  resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupViewUnspecified If the value is not set,
+ *        the default 'FULL' view is used. (Value: "BACKUP_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupViewBasic Includes basic data about the
+ *        Backup, but not the full contents. (Value: "BACKUP_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupViewFull Includes all data about the
+ *        Backup. This is the default value (for both ListBackups and
+ *        GetBackup). (Value: "BACKUP_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRBackupdr_Backup.
  *
  *  Gets details of a Backup.
@@ -641,6 +705,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Reserved for future use to provide a BASIC & FULL view of Backup
+ *  resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupViewUnspecified If the value is not set,
+ *        the default 'FULL' view is used. (Value: "BACKUP_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupViewBasic Includes basic data about the
+ *        Backup, but not the full contents. (Value: "BACKUP_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupViewFull Includes all data about the
+ *        Backup. This is the default value (for both ListBackups and
+ *        GetBackup). (Value: "BACKUP_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBackupdr_ListBackupsResponse.
@@ -1210,6 +1289,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Reserved for future use to provide a BASIC & FULL view of Backup
+ *  Vault
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewUnspecified If the value is not
+ *        set, the default 'FULL' view is used. (Value:
+ *        "BACKUP_VAULT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewBasic Includes basic data about
+ *        the Backup Vault, but not the full contents. (Value:
+ *        "BACKUP_VAULT_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewFull Includes all data about the
+ *        Backup Vault. This is the default value (for both ListBackupVaults and
+ *        GetBackupVault). (Value: "BACKUP_VAULT_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRBackupdr_BackupVault.
  *
  *  Gets details of a BackupVault.
@@ -1259,6 +1355,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  for the '{location}' value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Reserved for future use to provide a BASIC & FULL view of Backup
+ *  Vault.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewUnspecified If the value is not
+ *        set, the default 'FULL' view is used. (Value:
+ *        "BACKUP_VAULT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewBasic Includes basic data about
+ *        the Backup Vault, but not the full contents. (Value:
+ *        "BACKUP_VAULT_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewFull Includes all data about the
+ *        Backup Vault. This is the default value (for both ListBackupVaults and
+ *        GetBackupVault). (Value: "BACKUP_VAULT_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBackupdr_ListBackupVaultsResponse.

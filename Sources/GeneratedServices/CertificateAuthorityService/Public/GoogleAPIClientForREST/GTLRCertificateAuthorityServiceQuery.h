@@ -1290,8 +1290,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Output only. The resource name for this CaPool in the format `projects/ *
- *  /locations/ * /caPools/ *`.
+ *  Output only. Identifier. The resource name for this CaPool in the format
+ *  `projects/ * /locations/ * /caPools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1323,8 +1323,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateAuthorityService_CaPool to include in
  *    the query.
- *  @param name Output only. The resource name for this CaPool in the format
- *    `projects/ * /locations/ * /caPools/ *`.
+ *  @param name Output only. Identifier. The resource name for this CaPool in
+ *    the format `projects/ * /locations/ * /caPools/ *`.
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsPatch
  */

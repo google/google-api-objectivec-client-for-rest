@@ -23,8 +23,14 @@
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherDatabaseResources;
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherResources;
 @class GTLRDLP_GooglePrivacyDlpV2AllText;
+@class GTLRDLP_GooglePrivacyDlpV2AmazonS3Bucket;
+@class GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions;
+@class GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketRegex;
 @class GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails;
 @class GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable;
+@class GTLRDLP_GooglePrivacyDlpV2AwsAccount;
+@class GTLRDLP_GooglePrivacyDlpV2AwsAccountRegex;
+@class GTLRDLP_GooglePrivacyDlpV2AwsDiscoveryStartingLocation;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryDiscoveryTarget;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryField;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryKey;
@@ -105,6 +111,9 @@
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryFileStoreConditions;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryGenerationCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudConditions;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudFilter;
+@class GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoverySchemaModifiedCadence;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryStartingLocation;
 @class GTLRDLP_GooglePrivacyDlpV2DiscoveryTableModifiedCadence;
@@ -190,6 +199,12 @@
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult;
 @class GTLRDLP_GooglePrivacyDlpV2OrConditions;
 @class GTLRDLP_GooglePrivacyDlpV2OrgConfig;
+@class GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation;
+@class GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryTarget;
+@class GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceCollection;
+@class GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegex;
+@class GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegexes;
+@class GTLRDLP_GooglePrivacyDlpV2OtherCloudSingleResourceReference;
 @class GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary;
 @class GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig;
 @class GTLRDLP_GooglePrivacyDlpV2PartitionId;
@@ -201,7 +216,9 @@
 @class GTLRDLP_GooglePrivacyDlpV2Proximity;
 @class GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog;
 @class GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc;
+@class GTLRDLP_GooglePrivacyDlpV2PublishToChronicle;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToPubSub;
+@class GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver;
 @class GTLRDLP_GooglePrivacyDlpV2PubSubCondition;
 @class GTLRDLP_GooglePrivacyDlpV2PubSubExpressions;
@@ -289,6 +306,68 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions.bucketTypes
+
+/**
+ *  All supported classes.
+ *
+ *  Value: "TYPE_ALL_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_BucketTypes_TypeAllSupported;
+/**
+ *  A general purpose Amazon S3 bucket.
+ *
+ *  Value: "TYPE_GENERAL_PURPOSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_BucketTypes_TypeGeneralPurpose;
+/**
+ *  Unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_BucketTypes_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions.objectStorageClasses
+
+/**
+ *  All supported classes.
+ *
+ *  Value: "ALL_SUPPORTED_CLASSES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_AllSupportedClasses;
+/**
+ *  Glacier - instant retrieval object class.
+ *
+ *  Value: "GLACIER_INSTANT_RETRIEVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_GlacierInstantRetrieval;
+/**
+ *  Objects in the S3 Intelligent-Tiering access tiers.
+ *
+ *  Value: "INTELLIGENT_TIERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_IntelligentTiering;
+/**
+ *  Standard object class.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_Standard;
+/**
+ *  Standard - infrequent access object class.
+ *
+ *  Value: "STANDARD_INFREQUENT_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_StandardInfrequentAccess;
+/**
+ *  Unused.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_ObjectStorageClasses_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2BigQueryOptions.sampleMethod
@@ -1545,6 +1624,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTe
  *  Value: "UPDATE_FREQUENCY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence_Frequency_UpdateFrequencyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence.refreshFrequency
+
+/**
+ *  The data profile can be updated up to once every 24 hours.
+ *
+ *  Value: "UPDATE_FREQUENCY_DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyDaily;
+/**
+ *  The data profile can be updated up to once every 30 days. Default.
+ *
+ *  Value: "UPDATE_FREQUENCY_MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly;
+/**
+ *  After the data profile is created, it will never be updated.
+ *
+ *  Value: "UPDATE_FREQUENCY_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyNever;
+/**
+ *  Unspecified.
+ *
+ *  Value: "UPDATE_FREQUENCY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DiscoverySchemaModifiedCadence.frequency
@@ -3312,6 +3419,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Amazon S3 bucket.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AmazonS3Bucket : GTLRObject
+
+/** The AWS account. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AwsAccount *awsAccount;
+
+/** Required. The bucket name. */
+@property(nonatomic, copy, nullable) NSString *bucketName;
+
+@end
+
+
+/**
+ *  Amazon S3 bucket conditions.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions : GTLRObject
+
+/**
+ *  Optional. Bucket types that should be profiled. Optional. Defaults to
+ *  TYPE_ALL_SUPPORTED if unspecified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *bucketTypes;
+
+/**
+ *  Optional. Object classes that should be profiled. Optional. Defaults to
+ *  ALL_SUPPORTED_CLASSES if unspecified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *objectStorageClasses;
+
+@end
+
+
+/**
+ *  Amazon S3 bucket regex.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketRegex : GTLRObject
+
+/** The AWS account regex. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AwsAccountRegex *awsAccountRegex;
+
+/**
+ *  Optional. Regex to test the bucket name against. If empty, all buckets
+ *  match.
+ */
+@property(nonatomic, copy, nullable) NSString *bucketNameRegex;
+
+@end
+
+
+/**
  *  Result of a risk analysis operation request.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails : GTLRObject
@@ -3367,6 +3525,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Required. Auxiliary table location. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
+
+@end
+
+
+/**
+ *  AWS account.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AwsAccount : GTLRObject
+
+/** Required. AWS account ID. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+@end
+
+
+/**
+ *  AWS account regex.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AwsAccountRegex : GTLRObject
+
+/**
+ *  Optional. Regex to test the AWS account ID against. If empty, all accounts
+ *  match.
+ */
+@property(nonatomic, copy, nullable) NSString *accountIdRegex;
+
+@end
+
+
+/**
+ *  The AWS starting location for discovery.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AwsDiscoveryStartingLocation : GTLRObject
+
+/**
+ *  The AWS account ID that this discovery config applies to. Within an AWS
+ *  organization, you can find the AWS account ID inside an AWS account ARN.
+ *  Example:
+ *  arn:{partition}:organizations::{management_account_id}:account/{org_id}/{account_id}
+ */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/**
+ *  All AWS assets stored in Asset Inventory that didn't match other AWS
+ *  discovery configs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allAssetInventoryAssets;
 
 @end
 
@@ -5159,6 +5366,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Export data profiles into a provided location. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Export *exportData;
 
+/**
+ *  Publishes generated data profiles to Google Security Operations. For more
+ *  information, see [Use Sensitive Data Protection data in context-aware
+ *  analytics](https://cloud.google.com/chronicle/docs/detection/usecase-dlp-high-risk-user-download).
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToChronicle *publishToChronicle;
+
+/** Publishes findings to SCC for each data profile. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter *publishToScc;
+
 /** Publish a message into the Pub/Sub topic. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PubSubNotification *pubSubNotification;
 
@@ -5246,6 +5463,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** The data to scan. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileLocation *location;
+
+/** Must be set only when scanning other clouds. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation *otherCloudStartingLocation;
 
 /**
  *  The project that will run the scan. The DLP service account that exists
@@ -6206,6 +6426,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Only set when the parent is an org. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OrgConfig *orgConfig;
 
+/** Must be set only when scanning other clouds. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation *otherCloudStartingLocation;
+
 /**
  *  Required. A status for this configuration.
  *
@@ -6326,6 +6549,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Requirements that must be true before a resource is profiled for the first
+ *  time.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudConditions : GTLRObject
+
+/** Amazon S3 bucket conditions. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions *amazonS3BucketConditions;
+
+/**
+ *  Minimum age a resource must be before Cloud DLP can profile it. Value must
+ *  be 1 hour or greater.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minAge;
+
+@end
+
+
+/**
+ *  Determines which resources from the other cloud will have profiles
+ *  generated. Includes the ability to filter by resource names.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudFilter : GTLRObject
+
+/** A collection of resources for this filter to apply to. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceCollection *collection;
+
+/**
+ *  Optional. Catch-all. This should always be the last target in the list
+ *  because anything above it will apply first. Should only appear once in a
+ *  configuration. If none is specified, a default one will be added
+ *  automatically.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AllOtherResources *others;
+
+/**
+ *  The resource to scan. Configs using this filter can only have one target
+ *  (the target with this single resource reference).
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OtherCloudSingleResourceReference *singleResource;
+
+@end
+
+
+/**
+ *  How often existing resources should have their profiles refreshed. New
+ *  resources are scanned as quickly as possible depending on system capacity.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence : GTLRObject
+
+/**
+ *  Optional. Governs when to update data profiles when the inspection rules
+ *  defined by the `InspectTemplate` change. If not set, changing the template
+ *  will not cause a data profile to update.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryInspectTemplateModifiedCadence *inspectTemplateModifiedCadence;
+
+/**
+ *  Optional. Frequency to update profiles regardless of whether the underlying
+ *  resource has changes. Defaults to never.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyDaily
+ *        The data profile can be updated up to once every 24 hours. (Value:
+ *        "UPDATE_FREQUENCY_DAILY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyMonthly
+ *        The data profile can be updated up to once every 30 days. Default.
+ *        (Value: "UPDATE_FREQUENCY_MONTHLY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyNever
+ *        After the data profile is created, it will never be updated. (Value:
+ *        "UPDATE_FREQUENCY_NEVER")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence_RefreshFrequency_UpdateFrequencyUnspecified
+ *        Unspecified. (Value: "UPDATE_FREQUENCY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *refreshFrequency;
+
+@end
+
+
+/**
  *  The cadence at which to update data profiles when a schema is modified.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DiscoverySchemaModifiedCadence : GTLRObject
@@ -6436,6 +6738,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  be the one applied.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageDiscoveryTarget *cloudStorageTarget;
+
+/**
+ *  Other clouds target for discovery. The first target to match a resource will
+ *  be the one applied.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryTarget *otherCloudTarget;
 
 /**
  *  Discovery target that looks for credentials and secrets stored in cloud
@@ -6910,7 +7218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The profile for a file store. * Cloud Storage: maps 1:1 with a bucket.
+ *  The profile for a file store. * Cloud Storage: maps 1:1 with a bucket. *
+ *  Amazon S3: maps 1:1 with a bucket.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile : GTLRObject
 
@@ -6950,16 +7259,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The location of the file store. * Cloud Storage:
- *  https://cloud.google.com/storage/docs/locations#available-locations
+ *  https://cloud.google.com/storage/docs/locations#available-locations * Amazon
+ *  S3:
+ *  https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints
  */
 @property(nonatomic, copy, nullable) NSString *fileStoreLocation;
 
-/** The file store path. * Cloud Storage: `gs://{bucket}` */
+/**
+ *  The file store path. * Cloud Storage: `gs://{bucket}` * Amazon S3:
+ *  `s3://{bucket}`
+ */
 @property(nonatomic, copy, nullable) NSString *fileStorePath;
 
 /**
  *  The resource name of the resource profiled.
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ *  Example format of an S3 bucket full resource name:
+ *  `//cloudasset.googleapis.com/organizations/{org_id}/otherCloudConnections/aws/arn:aws:s3:::{bucket_name}`
  */
 @property(nonatomic, copy, nullable) NSString *fullResource;
 
@@ -6987,7 +7303,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The resource name of the project data profile for this file store. */
 @property(nonatomic, copy, nullable) NSString *projectDataProfile;
 
-/** The Google Cloud project ID that owns the resource. */
+/**
+ *  The Google Cloud project ID that owns the resource. For Amazon S3 buckets,
+ *  this is the AWS Account Id.
+ */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -9270,6 +9589,108 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  The other cloud starting location for discovery.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryStartingLocation : GTLRObject
+
+/** The AWS starting location for discovery. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AwsDiscoveryStartingLocation *awsLocation;
+
+@end
+
+
+/**
+ *  Target used to match against for discovery of resources from other clouds.
+ *  An [AWS connector in Security Command Center
+ *  (Enterprise](https://cloud.google.com/security-command-center/docs/connect-scc-to-aws)
+ *  is required to use this feature.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryTarget : GTLRObject
+
+/**
+ *  Optional. In addition to matching the filter, these conditions must be true
+ *  before a profile is generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudConditions *conditions;
+
+/**
+ *  Required. The type of data profiles generated by this discovery target.
+ *  Supported values are: * aws/s3/bucket
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataSourceType *dataSourceType;
+
+/** Disable profiling for resources that match this filter. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Disabled *disabled;
+
+/**
+ *  Required. The resources that the discovery cadence applies to. The first
+ *  target with a matching filter will be the one to apply to a resource.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudFilter *filter;
+
+/**
+ *  How often and when to update data profiles. New resources that match both
+ *  the filter and conditions are scanned as quickly as possible depending on
+ *  system capacity.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DiscoveryOtherCloudGenerationCadence *generationCadence;
+
+@end
+
+
+/**
+ *  Match resources using regex filters.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceCollection : GTLRObject
+
+/** A collection of regular expressions to match a resource against. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegexes *includeRegexes;
+
+@end
+
+
+/**
+ *  A pattern to match against one or more resources. At least one pattern must
+ *  be specified. Regular expressions use RE2
+ *  [syntax](https://github.com/google/re2/wiki/Syntax); a guide can be found
+ *  under the google/re2 repository on GitHub.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegex : GTLRObject
+
+/** Regex for Amazon S3 buckets. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketRegex *amazonS3BucketRegex;
+
+@end
+
+
+/**
+ *  A collection of regular expressions to determine what resources to match
+ *  against.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegexes : GTLRObject
+
+/**
+ *  A group of regular expression patterns to match against one or more
+ *  resources. Maximum of 100 entries. The sum of all regular expression's
+ *  length can't exceed 10 KiB.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2OtherCloudResourceRegex *> *patterns;
+
+@end
+
+
+/**
+ *  Identifies a single resource, like a single Amazon S3 bucket.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2OtherCloudSingleResourceReference : GTLRObject
+
+/** Amazon S3 bucket. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AmazonS3Bucket *amazonS3Bucket;
+
+@end
+
+
+/**
  *  Infotype details for other infoTypes found within a column.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary : GTLRObject
@@ -9589,6 +10010,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Message expressing intention to publish to Google Security Operations.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PublishToChronicle : GTLRObject
+@end
+
+
+/**
  *  Publish a message into a given Pub/Sub topic when DlpJob has completed. The
  *  message contains a single field, `DlpJobName`, which is equal to the
  *  finished job's
@@ -9605,6 +10033,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
+@end
+
+
+/**
+ *  If set, a summary finding will be created/updated in SCC for each profile.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PublishToSecurityCommandCenter : GTLRObject
 @end
 
 

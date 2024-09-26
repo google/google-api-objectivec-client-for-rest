@@ -50,6 +50,7 @@
 @class GTLRLogging_LogLine;
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogMetric_LabelExtractors;
+@class GTLRLogging_LogScope;
 @class GTLRLogging_LogSink;
 @class GTLRLogging_LogSplit;
 @class GTLRLogging_LogView;
@@ -804,6 +805,34 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchS
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MonitoredResourceDescriptor.launchStage
@@ -2233,6 +2262,35 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  The response from ListLogScopes. Every project has a _Default log scope that
+ *  cannot be modified or deleted.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "logScopes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRLogging_ListLogScopesResponse : GTLRCollectionObject
+
+/**
+ *  A list of log scopes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogScope *> *logScopes;
+
+/**
+ *  If there might be more results than appear in this response, then
+ *  nextPageToken is included. To get the next set of results, call the same
+ *  method again using the value of nextPageToken as pageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Result returned from ListLogs.
  */
 @interface GTLRLogging_ListLogsResponse : GTLRObject
@@ -2525,8 +2583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @interface GTLRLogging_LogBucket : GTLRObject
 
 /**
- *  Whether log analytics is enabled for this bucket.Once enabled, log analytics
- *  features cannot be disabled.
+ *  Optional. Whether log analytics is enabled for this bucket.Once enabled, log
+ *  analytics features cannot be disabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3248,6 +3306,43 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Describes a group of resources to read log entries from.
+ */
+@interface GTLRLogging_LogScope : GTLRObject
+
+/** Output only. The creation timestamp of the log scope. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Describes this log scope.The maximum length of the description is
+ *  8000 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The resource name of the log scope.For
+ *  example:projects/my-project/locations/global/logScopes/my-log-scope
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Names of one or more parent resources: projects/[PROJECT_ID]May
+ *  alternatively be one or more views:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]A
+ *  log scope can include a maximum of 50 projects and a maximum of 100
+ *  resources in total.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+/** Output only. The last update timestamp of the log scope. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Describes a sink used to export log entries to one of the following
  *  destinations: a Cloud Logging log bucket, a Cloud Storage bucket, a BigQuery
  *  dataset, a Pub/Sub topic, a Cloud project.A logs filter controls which log
@@ -3734,6 +3829,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  smaller sampling period.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
+
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
 
 @end
 

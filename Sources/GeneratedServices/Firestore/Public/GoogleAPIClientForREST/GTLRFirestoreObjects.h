@@ -47,6 +47,7 @@
 @class GTLRFirestore_FindNearest;
 @class GTLRFirestore_GoogleFirestoreAdminV1Backup;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
+@class GTLRFirestore_GoogleFirestoreAdminV1BackupSource;
 @class GTLRFirestore_GoogleFirestoreAdminV1CmekConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
@@ -61,6 +62,7 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexField;
 @class GTLRFirestore_GoogleFirestoreAdminV1Progress;
 @class GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions;
+@class GTLRFirestore_GoogleFirestoreAdminV1SourceInfo;
 @class GTLRFirestore_GoogleFirestoreAdminV1Stats;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta;
@@ -2257,6 +2259,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Information about a backup that was used to restore a database.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1BackupSource : GTLRObject
+
+/**
+ *  The resource name of the backup that was used to restore this database.
+ *  Format: `projects/{project}/locations/{location}/backups/{backup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+@end
+
+
+/**
  *  Metadata for google.longrunning.Operation results from
  *  FirestoreAdmin.BulkDeleteDocuments.
  */
@@ -2546,6 +2562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  populated for deleted databases.
  */
 @property(nonatomic, copy, nullable) NSString *previousId;
+
+/** Output only. Information about the provenance of this database. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SourceInfo *sourceInfo;
 
 /**
  *  The type of the database. See
@@ -3446,6 +3465,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  source.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions : GTLRObject
+@end
+
+
+/**
+ *  Information about the provenance of this database.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1SourceInfo : GTLRObject
+
+/**
+ *  If set, this database was restored from the specified backup (or a snapshot
+ *  thereof).
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1BackupSource *backup;
+
+/**
+ *  The associated long-running operation. This field may not be set after the
+ *  operation has completed. Format:
+ *  `projects/{project}/databases/{database}/operations/{operation}`.
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
 @end
 
 

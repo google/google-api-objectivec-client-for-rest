@@ -6,7 +6,7 @@
 // Description:
 //   Discovery Engine API.
 // Documentation:
-//   https://cloud.google.com/discovery-engine/docs
+//   https://cloud.google.com/generative-ai-app-builder/docs/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -743,9 +743,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *  or
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -759,9 +759,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Control
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *    or
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsCreate
  */
@@ -783,7 +783,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Control to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -794,7 +794,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  error is returned.
  *
  *  @param name Required. The resource name of the Control to delete. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsDelete
  */
@@ -814,7 +814,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Control to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -824,7 +824,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Control.
  *
  *  @param name Required. The resource name of the Control to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsGet
  */
@@ -863,9 +863,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *  or
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -876,9 +876,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Controls by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *    or
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsList
  *
@@ -946,9 +946,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
  *  Use
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
  *  to activate auto session mode, which automatically creates a new
  *  conversation inside a ConverseConversation session.
  */
@@ -964,9 +964,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest
  *    to include in the query.
  *  @param name Required. The resource name of the Conversation to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
  *    Use
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
  *    to activate auto session mode, which automatically creates a new
  *    conversation inside a ConverseConversation session.
  *
@@ -990,7 +990,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1004,7 +1004,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
  *    the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsCreate
  */
@@ -1026,7 +1026,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1038,7 +1038,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The resource name of the Conversation to delete.
  *    Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsDelete
  */
@@ -1058,7 +1058,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1068,7 +1068,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Conversation.
  *
  *  @param name Required. The resource name of the Conversation to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsGet
  */
@@ -1114,7 +1114,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1125,7 +1125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Conversations by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsList
  *
@@ -2066,7 +2066,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Answer to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2076,7 +2076,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Answer.
  *
  *  @param name Required. The resource name of the Answer to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsAnswersGet
  */
@@ -2097,7 +2097,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2110,7 +2110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Session
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsCreate
  */
@@ -2132,7 +2132,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Session to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2143,7 +2143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  error is returned.
  *
  *  @param name Required. The resource name of the Session to delete. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsDelete
  */
@@ -2163,7 +2163,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Session to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2173,7 +2173,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Session.
  *
  *  @param name Required. The resource name of the Session to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsGet
  */
@@ -2218,7 +2218,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2229,7 +2229,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Sessions by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsList
  *
@@ -3092,7 +3092,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the catalog under which the events are
  *  created. The format is
- *  `projects/${projectId}/locations/global/collections/{$collectionId}/dataStores/${dataStoreId}`
+ *  `projects/{project}/locations/global/collections/{collection}/dataStores/{dataStore}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3109,7 +3109,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param parent Required. The resource name of the catalog under which the
  *    events are created. The format is
- *    `projects/${projectId}/locations/global/collections/{$collectionId}/dataStores/${dataStoreId}`
+ *    `projects/{project}/locations/global/collections/{collection}/dataStores/{dataStore}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsPurge
  */
@@ -3187,9 +3187,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *  or
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3203,9 +3203,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Control
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *    or
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsCreate
  */
@@ -3227,7 +3227,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Control to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3238,7 +3238,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  error is returned.
  *
  *  @param name Required. The resource name of the Control to delete. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsDelete
  */
@@ -3258,7 +3258,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Control to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3268,7 +3268,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Control.
  *
  *  @param name Required. The resource name of the Control to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsGet
  */
@@ -3307,9 +3307,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *  or
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3320,9 +3320,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Controls by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *    or
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsList
  *
@@ -3390,9 +3390,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
  *  Use
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
  *  to activate auto session mode, which automatically creates a new
  *  conversation inside a ConverseConversation session.
  */
@@ -3408,9 +3408,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest
  *    to include in the query.
  *  @param name Required. The resource name of the Conversation to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
  *    Use
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
  *    to activate auto session mode, which automatically creates a new
  *    conversation inside a ConverseConversation session.
  *
@@ -3434,7 +3434,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3448,7 +3448,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
  *    the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsCreate
  */
@@ -3470,7 +3470,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3482,7 +3482,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The resource name of the Conversation to delete.
  *    Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsDelete
  */
@@ -3502,7 +3502,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3512,7 +3512,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Conversation.
  *
  *  @param name Required. The resource name of the Conversation to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsGet
  */
@@ -3558,7 +3558,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3569,7 +3569,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Conversations by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsList
  *
@@ -3870,7 +3870,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Immutable. The fully qualified resource name of the engine. This field must
  *  be a UTF-8 encoded string with a length limit of 1024 characters. Format:
- *  `projects/{project_number}/locations/{location}/collections/{collection}/engines/{engine}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
  *  engine should be 1-63 characters, and valid characters are /a-z0-9* /.
  *  Otherwise, an INVALID_ARGUMENT error is returned.
  */
@@ -3894,7 +3894,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Immutable. The fully qualified resource name of the engine. This
  *    field must be a UTF-8 encoded string with a length limit of 1024
  *    characters. Format:
- *    `projects/{project_number}/locations/{location}/collections/{collection}/engines/{engine}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
  *    engine should be 1-63 characters, and valid characters are /a-z0-9* /.
  *    Otherwise, an INVALID_ARGUMENT error is returned.
  *
@@ -4055,7 +4055,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Answer to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4065,7 +4065,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Answer.
  *
  *  @param name Required. The resource name of the Answer to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsAnswersGet
  */
@@ -4086,7 +4086,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4099,7 +4099,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Session
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsCreate
  */
@@ -4121,7 +4121,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Session to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4132,7 +4132,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  error is returned.
  *
  *  @param name Required. The resource name of the Session to delete. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsDelete
  */
@@ -4152,7 +4152,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Session to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4162,7 +4162,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Session.
  *
  *  @param name Required. The resource name of the Session to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsGet
  */
@@ -4207,7 +4207,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4218,7 +4218,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Sessions by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsList
  *
@@ -4986,9 +4986,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *  or
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5002,9 +5002,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Control
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *    or
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsCreate
  */
@@ -5026,7 +5026,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Control to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5037,7 +5037,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  error is returned.
  *
  *  @param name Required. The resource name of the Control to delete. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsDelete
  */
@@ -5057,7 +5057,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Control to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5067,7 +5067,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Control.
  *
  *  @param name Required. The resource name of the Control to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/controls/{control_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsGet
  */
@@ -5106,9 +5106,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *  or
- *  `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5119,9 +5119,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Controls by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`
  *    or
- *    `projects/{project_number}/locations/{location_id}/collections/{collection_id}/engines/{engine_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsList
  *
@@ -5189,9 +5189,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
  *  Use
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
  *  to activate auto session mode, which automatically creates a new
  *  conversation inside a ConverseConversation session.
  */
@@ -5207,9 +5207,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConverseConversationRequest
  *    to include in the query.
  *  @param name Required. The resource name of the Conversation to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`.
  *    Use
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/-`
  *    to activate auto session mode, which automatically creates a new
  *    conversation inside a ConverseConversation session.
  *
@@ -5233,7 +5233,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5247,7 +5247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Conversation to include in
  *    the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsCreate
  */
@@ -5269,7 +5269,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5281,7 +5281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The resource name of the Conversation to delete.
  *    Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsDelete
  */
@@ -5301,7 +5301,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Conversation to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5311,7 +5311,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Conversation.
  *
  *  @param name Required. The resource name of the Conversation to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/conversations/{conversation_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsGet
  */
@@ -5357,7 +5357,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5368,7 +5368,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Conversations by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsList
  *
@@ -6202,7 +6202,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Answer to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6212,7 +6212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Answer.
  *
  *  @param name Required. The resource name of the Answer to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine_id}/sessions/{session_id}/answers/{answer_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsAnswersGet
  */
@@ -6233,7 +6233,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of parent data store. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6246,7 +6246,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Session
  *    to include in the query.
  *  @param parent Required. Full resource name of parent data store. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsCreate
  */
@@ -6268,7 +6268,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Session to delete. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6279,7 +6279,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  error is returned.
  *
  *  @param name Required. The resource name of the Session to delete. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsDelete
  */
@@ -6299,7 +6299,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the Session to get. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6309,7 +6309,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Session.
  *
  *  @param name Required. The resource name of the Session to get. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}/sessions/{session_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsGet
  */
@@ -6354,7 +6354,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The data store resource name. Format:
- *  `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6365,7 +6365,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Sessions by their parent DataStore.
  *
  *  @param parent Required. The data store resource name. Format:
- *    `projects/{project_number}/locations/{location_id}/collections/{collection}/dataStores/{data_store_id}`
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store_id}`
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsList
  *
@@ -6955,7 +6955,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the catalog under which the events are
  *  created. The format is
- *  `projects/${projectId}/locations/global/collections/{$collectionId}/dataStores/${dataStoreId}`
+ *  `projects/{project}/locations/global/collections/{collection}/dataStores/{dataStore}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6972,7 +6972,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param parent Required. The resource name of the catalog under which the
  *    events are created. The format is
- *    `projects/${projectId}/locations/global/collections/{$collectionId}/dataStores/${dataStoreId}`
+ *    `projects/{project}/locations/global/collections/{collection}/dataStores/{dataStore}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsPurge
  */
@@ -7219,7 +7219,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the rank service config, such as
- *  `projects/{project_num}/locations/{location_id}/rankingConfigs/default_ranking_config`.
+ *  `projects/{project_num}/locations/{location}/rankingConfigs/default_ranking_config`.
  */
 @property(nonatomic, copy, nullable) NSString *rankingConfig;
 
@@ -7233,7 +7233,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param rankingConfig Required. The resource name of the rank service config,
  *    such as
- *    `projects/{project_num}/locations/{location_id}/rankingConfigs/default_ranking_config`.
+ *    `projects/{project_num}/locations/{location}/rankingConfigs/default_ranking_config`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsRankingConfigsRank
  */

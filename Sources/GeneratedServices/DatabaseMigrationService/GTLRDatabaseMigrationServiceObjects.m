@@ -17,6 +17,7 @@
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_DatabaseVersionUnspecified = @"DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
 NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -520,6 +521,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_AuthorizedNetwork
+//
+
+@implementation GTLRDatabaseMigrationService_AuthorizedNetwork
+@dynamic cidrRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_BackgroundJobLogEntry
 //
 
@@ -579,10 +590,10 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_CloudSqlSettings
 @dynamic activationPolicy, autoStorageIncrease, availabilityType, cmekKeyName,
-         collation, databaseFlags, databaseVersion, dataCacheConfig,
-         dataDiskSizeGb, dataDiskType, edition, ipConfig, rootPassword,
-         rootPasswordSet, secondaryZone, sourceId, storageAutoResizeLimit, tier,
-         userLabels, zoneProperty;
+         collation, databaseFlags, databaseVersion, databaseVersionName,
+         dataCacheConfig, dataDiskSizeGb, dataDiskType, edition, ipConfig,
+         rootPassword, rootPasswordSet, secondaryZone, sourceId,
+         storageAutoResizeLimit, tier, userLabels, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1256,6 +1267,24 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_InstanceNetworkConfig
+//
+
+@implementation GTLRDatabaseMigrationService_InstanceNetworkConfig
+@dynamic authorizedExternalNetworks, enableOutboundPublicIp, enablePublicIp;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizedExternalNetworks" : [GTLRDatabaseMigrationService_AuthorizedNetwork class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_IntComparisonFilter
 //
 
@@ -1757,10 +1786,18 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_PrimaryInstanceSettings
-@dynamic databaseFlags, identifier, labels, machineConfig, privateIp;
+@dynamic databaseFlags, identifier, instanceNetworkConfig, labels,
+         machineConfig, outboundPublicIpAddresses, privateIp;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"outboundPublicIpAddresses" : [NSString class]
+  };
+  return map;
 }
 
 @end

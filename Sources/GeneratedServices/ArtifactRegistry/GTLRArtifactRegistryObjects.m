@@ -240,6 +240,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_CommonRemoteRepository
+//
+
+@implementation GTLRArtifactRegistry_CommonRemoteRepository
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_DockerImage
 //
 
@@ -1110,9 +1120,9 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_RemoteRepositoryConfig
-@dynamic aptRepository, descriptionProperty, disableUpstreamValidation,
-         dockerRepository, mavenRepository, npmRepository, pythonRepository,
-         upstreamCredentials, yumRepository;
+@dynamic aptRepository, commonRepository, descriptionProperty,
+         disableUpstreamValidation, dockerRepository, mavenRepository,
+         npmRepository, pythonRepository, upstreamCredentials, yumRepository;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

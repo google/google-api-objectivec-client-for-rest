@@ -2204,7 +2204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /**
  *  List of VLAN attachments. As of now there are always 2 attachments, but it
- *  is going to change in the future (multi vlan).
+ *  is going to change in the future (multi vlan). Use only one of
+ *  vlan_attachments or vrf
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_IntakeVlanAttachment *> *vlanAttachments;
 
@@ -2214,6 +2215,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *vlanSameProject;
+
+/**
+ *  Optional. The name of a pre-existing Vrf that the network should be attached
+ *  to. Format is `vrfs/{vrf}`. If vrf is specified, vlan_attachments must be
+ *  empty.
+ */
+@property(nonatomic, copy, nullable) NSString *vrf;
 
 @end
 

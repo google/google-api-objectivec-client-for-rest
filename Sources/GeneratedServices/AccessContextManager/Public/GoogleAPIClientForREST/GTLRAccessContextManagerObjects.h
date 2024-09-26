@@ -25,6 +25,8 @@
 
 @class GTLRAccessContextManager_AccessLevel;
 @class GTLRAccessContextManager_AccessPolicy;
+@class GTLRAccessContextManager_AccessScope;
+@class GTLRAccessContextManager_AccessSettings;
 @class GTLRAccessContextManager_ApiOperation;
 @class GTLRAccessContextManager_Application;
 @class GTLRAccessContextManager_AuditConfig;
@@ -32,6 +34,7 @@
 @class GTLRAccessContextManager_AuthorizedOrgsDesc;
 @class GTLRAccessContextManager_BasicLevel;
 @class GTLRAccessContextManager_Binding;
+@class GTLRAccessContextManager_ClientScope;
 @class GTLRAccessContextManager_Condition;
 @class GTLRAccessContextManager_CustomLevel;
 @class GTLRAccessContextManager_DevicePolicy;
@@ -52,6 +55,8 @@
 @class GTLRAccessContextManager_Operation_Response;
 @class GTLRAccessContextManager_OsConstraint;
 @class GTLRAccessContextManager_Policy;
+@class GTLRAccessContextManager_ReauthSettings;
+@class GTLRAccessContextManager_ScopedAccessSettings;
 @class GTLRAccessContextManager_ServicePerimeter;
 @class GTLRAccessContextManager_ServicePerimeterConfig;
 @class GTLRAccessContextManager_Status;
@@ -364,6 +369,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAccessContextManager_ReauthSettings.reauthMethod
+
+/**
+ *  The user will prompted to perform regular login. Users who are enrolled for
+ *  two-step verification and haven't chosen to "Remember this computer" will be
+ *  prompted for their second factor.
+ *
+ *  Value: "LOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Login;
+/**
+ *  The user will be prompted for their password.
+ *
+ *  Value: "PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Password;
+/**
+ *  If method undefined in API, we will use LOGIN by default.
+ *
+ *  Value: "REAUTH_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_ReauthMethodUnspecified;
+/**
+ *  The user will be prompted to autheticate using their security key. If no
+ *  security key has been configured, then we will fallback to LOGIN.
+ *
+ *  Value: "SECURITY_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ReauthSettings_ReauthMethod_SecurityKey;
+
+// ----------------------------------------------------------------------------
 // GTLRAccessContextManager_ServicePerimeter.perimeterType
 
 /**
@@ -562,6 +598,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 /** Required. Human readable title. Does not affect behavior. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Access scope represents the client scope, etc. to which the settings will be
+ *  applied to.
+ */
+@interface GTLRAccessContextManager_AccessScope : GTLRObject
+
+/** Optional. Client scope for this access scope. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_ClientScope *clientScope;
+
+@end
+
+
+/**
+ *  Access settings represent the set of conditions that must be met for access
+ *  to be granted. At least one of the fields must be set.
+ */
+@interface GTLRAccessContextManager_AccessSettings : GTLRObject
+
+/**
+ *  Optional. Access level that a user must have to be granted access. Only one
+ *  access level is supported, not multiple. This repeated field must have
+ *  exactly one element. Example:
+ *  "accessPolicies/9522/accessLevels/device_trusted"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
+
+/**
+ *  Optional. Reauth settings applied to user access on a given AccessScope.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_ReauthSettings *reauthSettings;
 
 @end
 
@@ -866,6 +936,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRAccessContextManager_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Client scope represents the application, etc. subject to this binding's
+ *  restrictions.
+ */
+@interface GTLRAccessContextManager_ClientScope : GTLRObject
+
+/** Optional. The application that is subject to this binding's scope. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_Application *restrictedClientApplication;
+
 @end
 
 
@@ -1295,12 +1377,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Optional. GCSL policy for the group key. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_ReauthSettings *reauthSettings;
+
 /**
  *  Optional. A list of applications that are subject to this binding's
  *  restrictions. If the list is empty, the binding restrictions will
  *  universally apply to all applications.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Application *> *restrictedClientApplications;
+
+/**
+ *  Optional. A list of scoped access settings that set this binding's
+ *  restrictions on a subset of applications. This field cannot be set if
+ *  restricted_client_applications is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ScopedAccessSettings *> *scopedAccessSettings;
 
 @end
 
@@ -1911,6 +2003,68 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 
 /**
+ *  Stores settings related to Google Cloud Session Length including session
+ *  duration, the type of challenge (i.e. method) they should face when their
+ *  session expires, and other related settings.
+ */
+@interface GTLRAccessContextManager_ReauthSettings : GTLRObject
+
+/**
+ *  Optional. How long a user is allowed to take between actions before a new
+ *  access token must be issued. Presently only set for Cloud Apps.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxInactivity;
+
+/**
+ *  Optional. Reauth method when users GCP session is up.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Login The
+ *        user will prompted to perform regular login. Users who are enrolled
+ *        for two-step verification and haven't chosen to "Remember this
+ *        computer" will be prompted for their second factor. (Value: "LOGIN")
+ *    @arg @c kGTLRAccessContextManager_ReauthSettings_ReauthMethod_Password The
+ *        user will be prompted for their password. (Value: "PASSWORD")
+ *    @arg @c kGTLRAccessContextManager_ReauthSettings_ReauthMethod_ReauthMethodUnspecified
+ *        If method undefined in API, we will use LOGIN by default. (Value:
+ *        "REAUTH_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRAccessContextManager_ReauthSettings_ReauthMethod_SecurityKey
+ *        The user will be prompted to autheticate using their security key. If
+ *        no security key has been configured, then we will fallback to LOGIN.
+ *        (Value: "SECURITY_KEY")
+ */
+@property(nonatomic, copy, nullable) NSString *reauthMethod;
+
+/**
+ *  Optional. The session length. Setting this field to zero is equal to
+ *  disabling. Reauth. Also can set infinite session by flipping the enabled bit
+ *  to false below. If use_oidc_max_age is true, for OIDC apps, the session
+ *  length will be the minimum of this field and OIDC max_age param.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *sessionLength;
+
+/**
+ *  Optional. Big red button to turn off GCSL. When false, all fields set above
+ *  will be disregarded and the session length is basically infinite.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sessionLengthEnabled;
+
+/**
+ *  Optional. Only useful for OIDC apps. When false, the OIDC max_age param, if
+ *  passed in the authentication request will be ignored. When true, the re-auth
+ *  period will be the minimum of the session_length field and the max_age OIDC
+ *  param.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useOidcMaxAge;
+
+@end
+
+
+/**
  *  A request to replace all existing Access Levels in an Access Policy with the
  *  Access Levels provided. This is done atomically.
  */
@@ -1980,6 +2134,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 /** List of the Service Perimeter instances. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePerimeter *> *servicePerimeters;
+
+@end
+
+
+/**
+ *  A relationship between access settings and its scope.
+ */
+@interface GTLRAccessContextManager_ScopedAccessSettings : GTLRObject
+
+/**
+ *  Optional. Access settings for this scoped access settings. This field may be
+ *  empty if dry_run_settings is set.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessSettings *activeSettings;
+
+/**
+ *  Optional. Dry-run access settings for this scoped access settings. This
+ *  field may be empty if active_settings is set.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessSettings *dryRunSettings;
+
+/**
+ *  Optional. Application, etc. to which the access settings will be applied to.
+ *  Implicitly, this is the scoped access settings key; as such, it must be
+ *  unique and non-empty.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessScope *scope;
 
 @end
 

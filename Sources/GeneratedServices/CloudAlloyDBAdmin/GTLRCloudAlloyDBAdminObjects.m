@@ -28,6 +28,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_DatabaseVersionUn
 NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres13 = @"POSTGRES_13";
 NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 
 // GTLRCloudAlloyDBAdmin_Backup.state
 NSString * const kGTLRCloudAlloyDBAdmin_Backup_State_Creating  = @"CREATING";
@@ -57,6 +58,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_DatabaseVersionU
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres13 = @"POSTGRES_13";
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 
 // GTLRCloudAlloyDBAdmin_Cluster.state
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Bootstrapping = @"BOOTSTRAPPING";
@@ -85,9 +87,14 @@ NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Da
 NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres13 = @"POSTGRES_13";
 NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 
 // GTLRCloudAlloyDBAdmin_ClusterUpgradeDetails.upgradeStatus
+NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_CancelInProgress = @"CANCEL_IN_PROGRESS";
+NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_Failed = @"FAILED";
+NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_NotStarted = @"NOT_STARTED";
 NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_PartialSuccess = @"PARTIAL_SUCCESS";
 NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_Success = @"SUCCESS";
@@ -140,7 +147,11 @@ NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_InstanceType_Read
 NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_InstanceType_Secondary = @"SECONDARY";
 
 // GTLRCloudAlloyDBAdmin_InstanceUpgradeDetails.upgradeStatus
+NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_CancelInProgress = @"CANCEL_IN_PROGRESS";
+NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_Failed = @"FAILED";
+NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_NotStarted = @"NOT_STARTED";
 NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_PartialSuccess = @"PARTIAL_SUCCESS";
 NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_Success = @"SUCCESS";
@@ -173,13 +184,20 @@ NSString * const kGTLRCloudAlloyDBAdmin_SslConfig_SslMode_SslModeVerifyCa = @"SS
 
 // GTLRCloudAlloyDBAdmin_StageInfo.stage
 NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_AlloydbPrecheck = @"ALLOYDB_PRECHECK";
+NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_Cleanup = @"CLEANUP";
 NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PgUpgradeCheck = @"PG_UPGRADE_CHECK";
+NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PrepareForUpgrade = @"PREPARE_FOR_UPGRADE";
 NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PrimaryInstanceUpgrade = @"PRIMARY_INSTANCE_UPGRADE";
-NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_ReadPoolUpgrade = @"READ_POOL_UPGRADE";
+NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_ReadPoolInstancesUpgrade = @"READ_POOL_INSTANCES_UPGRADE";
+NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_Rollback = @"ROLLBACK";
 NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_StageUnspecified = @"STAGE_UNSPECIFIED";
 
 // GTLRCloudAlloyDBAdmin_StageInfo.status
+NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_CancelInProgress = @"CANCEL_IN_PROGRESS";
+NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_Failed = @"FAILED";
+NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_NotStarted = @"NOT_STARTED";
 NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_PartialSuccess = @"PARTIAL_SUCCESS";
 NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_Success = @"SUCCESS";
@@ -516,6 +534,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersion
 NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres13 = @"POSTGRES_13";
 NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres16 = @"POSTGRES_16";
 
 // GTLRCloudAlloyDBAdmin_SupportedDatabaseFlag.valueType
 NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_ValueType_Float = @"FLOAT";
@@ -524,8 +543,19 @@ NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_ValueType_None = @
 NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_ValueType_String = @"STRING";
 NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
 
+// GTLRCloudAlloyDBAdmin_UpgradeClusterRequest.version
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_DatabaseVersionUnspecified = @"DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres14 = @"POSTGRES_14";
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres16 = @"POSTGRES_16";
+
 // GTLRCloudAlloyDBAdmin_UpgradeClusterResponse.status
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_CancelInProgress = @"CANCEL_IN_PROGRESS";
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_Failed = @"FAILED";
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_NotStarted = @"NOT_STARTED";
 NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_PartialSuccess = @"PARTIAL_SUCCESS";
 NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_Success = @"SUCCESS";
@@ -922,9 +952,9 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @dynamic annotations, availabilityType, clientConnectionConfig, createTime,
          databaseFlags, deleteTime, displayName, ETag, gceZone, instanceType,
          ipAddress, labels, machineConfig, name, networkConfig, nodes,
-         pscInstanceConfig, publicIpAddress, queryInsightsConfig,
-         readPoolConfig, reconciling, satisfiesPzs, state, uid, updateTime,
-         writableNode;
+         outboundPublicIpAddresses, pscInstanceConfig, publicIpAddress,
+         queryInsightsConfig, readPoolConfig, reconciling, satisfiesPzs, state,
+         uid, updateTime, writableNode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -932,7 +962,8 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"nodes" : [GTLRCloudAlloyDBAdmin_Node class]
+    @"nodes" : [GTLRCloudAlloyDBAdmin_Node class],
+    @"outboundPublicIpAddresses" : [NSString class]
   };
   return map;
 }
@@ -988,7 +1019,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_InstanceNetworkConfig
-@dynamic authorizedExternalNetworks, enablePublicIp;
+@dynamic authorizedExternalNetworks, enableOutboundPublicIp, enablePublicIp;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1612,7 +1643,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
          creationTime, currentState, customMetadata, entitlements,
          expectedState, identifier, instanceType, location,
          machineConfiguration, primaryResourceId, product, resourceContainer,
-         resourceName, updationTime, userLabelSet;
+         resourceName, tagsSet, updationTime, userLabelSet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1679,7 +1710,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration
-@dynamic cpuCount, memorySizeInBytes;
+@dynamic cpuCount, memorySizeInBytes, shardCount;
 @end
 
 
@@ -1710,6 +1741,30 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings
 @dynamic quantityBasedRetention, retentionUnit, timeBasedRetention;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags
+@dynamic tags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1821,6 +1876,21 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 @implementation GTLRCloudAlloyDBAdmin_TrialMetadata
 @dynamic endTime, graceEndTime, startTime, upgradeTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_UpgradeClusterRequest
+//
+
+@implementation GTLRCloudAlloyDBAdmin_UpgradeClusterRequest
+@dynamic ETag, requestId, validateOnly, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 

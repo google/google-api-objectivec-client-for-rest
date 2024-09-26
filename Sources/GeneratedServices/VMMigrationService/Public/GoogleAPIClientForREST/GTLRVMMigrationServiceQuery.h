@@ -565,13 +565,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  */
 @interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsList : GTLRVMMigrationServiceQuery
 
-/** Optional. The filter request (according to https://google.aip.dev/160). */
+/** Optional. The filter request (according to AIP-160). */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The order by fields for the result (according to
- *  https://google.aip.dev/132#ordering). Currently ordering is only possible by
- *  "name" field.
+ *  Optional. The order by fields for the result (according to AIP-132).
+ *  Currently ordering is only possible by "name" field.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -620,13 +619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  */
 @interface GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsList : GTLRVMMigrationServiceQuery
 
-/** Optional. The filter request (according to https://google.aip.dev/160). */
+/** Optional. The filter request (according to AIP-160). */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The order by fields for the result (according to
- *  https://google.aip.dev/132#ordering). Currently ordering is only possible by
- *  "name" field.
+ *  Optional. The order by fields for the result (according to AIP-132).
+ *  Currently ordering is only possible by "name" field.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

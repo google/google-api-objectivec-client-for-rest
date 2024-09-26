@@ -281,6 +281,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *  To give your feedback on this API, complete the [Google Analytics Access
+ *  Reports
+ *  feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform)
+ *  form.
  *
  *  Method: analyticsadmin.accounts.runAccessReport
  *
@@ -315,6 +319,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *  To give your feedback on this API, complete the [Google Analytics Access
+ *  Reports
+ *  feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform)
+ *  form.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
  *    to include in the query.
@@ -2098,6 +2106,10 @@ GTLR_DEPRECATED
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *  To give your feedback on this API, complete the [Google Analytics Access
+ *  Reports
+ *  feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform)
+ *  form.
  *
  *  Method: analyticsadmin.properties.runAccessReport
  *
@@ -2132,6 +2144,10 @@ GTLR_DEPRECATED
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *  To give your feedback on this API, complete the [Google Analytics Access
+ *  Reports
+ *  feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform)
+ *  form.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
  *    to include in the query.

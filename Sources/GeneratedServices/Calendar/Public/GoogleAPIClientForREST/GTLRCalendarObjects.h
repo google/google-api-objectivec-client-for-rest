@@ -970,11 +970,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Specific type of the event. This cannot be modified after the event is
  *  created. Possible values are:
+ *  - "birthday" - A special all-day event with an annual recurrence.
  *  - "default" - A regular event or not further specified.
- *  - "outOfOffice" - An out-of-office event.
  *  - "focusTime" - A focus-time event.
- *  - "workingLocation" - A working location event.
  *  - "fromGmail" - An event from Gmail. This type of event cannot be created.
+ *  - "outOfOffice" - An out-of-office event.
+ *  - "workingLocation" - A working location event.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 

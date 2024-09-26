@@ -160,6 +160,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeU
 // GTLRWorkflowExecutions_StepEntry.state
 
 /**
+ *  The step entry is cancelled.
+ *
+ *  Value: "STATE_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateCancelled;
+/**
  *  The step entry failed with an error.
  *
  *  Value: "STATE_FAILED"
@@ -530,7 +536,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
  */
 @property(nonatomic, copy, nullable) NSString *result;
 
-/** Output only. Marks the beginning of execution. */
+/**
+ *  Output only. Marks the beginning of execution. Note that this will be the
+ *  same as `createTime` for executions that start immediately.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
@@ -961,6 +970,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_StepEntryMetadata_Pro
  *  Output only. The state of the step entry.
  *
  *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutions_StepEntry_State_StateCancelled The step
+ *        entry is cancelled. (Value: "STATE_CANCELLED")
  *    @arg @c kGTLRWorkflowExecutions_StepEntry_State_StateFailed The step entry
  *        failed with an error. (Value: "STATE_FAILED")
  *    @arg @c kGTLRWorkflowExecutions_StepEntry_State_StateInProgress The step

@@ -25,6 +25,11 @@ NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataRead = @"DATA_REA
 NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRBigtableAdmin_Backup.backupType
+NSString * const kGTLRBigtableAdmin_Backup_BackupType_BackupTypeUnspecified = @"BACKUP_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigtableAdmin_Backup_BackupType_Hot      = @"HOT";
+NSString * const kGTLRBigtableAdmin_Backup_BackupType_Standard = @"STANDARD";
+
 // GTLRBigtableAdmin_Backup.state
 NSString * const kGTLRBigtableAdmin_Backup_State_Creating      = @"CREATING";
 NSString * const kGTLRBigtableAdmin_Backup_State_Ready         = @"READY";
@@ -34,6 +39,11 @@ NSString * const kGTLRBigtableAdmin_Backup_State_StateUnspecified = @"STATE_UNSP
 NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Hdd = @"HDD";
 NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Ssd = @"SSD";
 NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_StorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
+
+// GTLRBigtableAdmin_Cluster.nodeScalingFactor
+NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor1x = @"NODE_SCALING_FACTOR_1X";
+NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor2x = @"NODE_SCALING_FACTOR_2X";
+NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactorUnspecified = @"NODE_SCALING_FACTOR_UNSPECIFIED";
 
 // GTLRBigtableAdmin_Cluster.state
 NSString * const kGTLRBigtableAdmin_Cluster_State_Creating     = @"CREATING";
@@ -93,6 +103,10 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_Completed = @"COMPLETED"
 NSString * const kGTLRBigtableAdmin_TableProgress_State_Copying = @"COPYING";
 NSString * const kGTLRBigtableAdmin_TableProgress_State_Pending = @"PENDING";
 NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -202,8 +216,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Backup
-@dynamic encryptionInfo, endTime, expireTime, name, sizeBytes, sourceBackup,
-         sourceTable, startTime, state;
+@dynamic backupType, encryptionInfo, endTime, expireTime, hotToStandardTime,
+         name, sizeBytes, sourceBackup, sourceTable, startTime, state;
 @end
 
 
@@ -272,7 +286,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_Cluster
 @dynamic clusterConfig, defaultStorageType, encryptionConfig, location, name,
-         serveNodes, state;
+         nodeScalingFactor, serveNodes, state;
 @end
 
 
@@ -1216,7 +1230,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_MultiClusterRoutingUseAny
-@dynamic clusterIds;
+@dynamic clusterIds, rowAffinity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1366,6 +1380,15 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_RestoreTableRequest
 @dynamic backup, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_RowAffinity
+//
+
+@implementation GTLRBigtableAdmin_RowAffinity
 @end
 
 
@@ -1652,3 +1675,5 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 @implementation GTLRBigtableAdmin_UpdateTableMetadata
 @dynamic endTime, name, startTime;
 @end
+
+#pragma clang diagnostic pop

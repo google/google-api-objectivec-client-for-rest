@@ -4099,11 +4099,18 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SecurityAction
-@dynamic allow, conditionConfig, createTime, deny, descriptionProperty,
-         expireTime, flag, name, state, ttl, updateTime;
+@dynamic allow, apiProxies, conditionConfig, createTime, deny,
+         descriptionProperty, expireTime, flag, name, state, ttl, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apiProxies" : [NSString class]
+  };
+  return map;
 }
 
 @end

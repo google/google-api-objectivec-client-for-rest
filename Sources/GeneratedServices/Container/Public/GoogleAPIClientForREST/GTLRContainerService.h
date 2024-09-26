@@ -7,7 +7,7 @@
 //   Builds and manages container-based applications, powered by the open source
 //   Kubernetes technology.
 // Documentation:
-//   https://cloud.google.com/container-engine/
+//   https://cloud.google.com/kubernetes-engine/docs/
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 

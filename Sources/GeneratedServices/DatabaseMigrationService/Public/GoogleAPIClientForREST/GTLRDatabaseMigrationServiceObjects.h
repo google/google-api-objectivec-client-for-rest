@@ -22,6 +22,7 @@
 @class GTLRDatabaseMigrationService_AssignSpecificValue;
 @class GTLRDatabaseMigrationService_AuditConfig;
 @class GTLRDatabaseMigrationService_AuditLogConfig;
+@class GTLRDatabaseMigrationService_AuthorizedNetwork;
 @class GTLRDatabaseMigrationService_BackgroundJobLogEntry;
 @class GTLRDatabaseMigrationService_Binding;
 @class GTLRDatabaseMigrationService_CloudSqlConnectionProfile;
@@ -65,6 +66,7 @@
 @class GTLRDatabaseMigrationService_ImportRulesJobDetails;
 @class GTLRDatabaseMigrationService_IndexEntity;
 @class GTLRDatabaseMigrationService_IndexEntity_CustomFeatures;
+@class GTLRDatabaseMigrationService_InstanceNetworkConfig;
 @class GTLRDatabaseMigrationService_IntComparisonFilter;
 @class GTLRDatabaseMigrationService_Location;
 @class GTLRDatabaseMigrationService_Location_Labels;
@@ -177,6 +179,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings
  *  Value: "POSTGRES_15"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres15;
+/**
+ *  The database version is Postgres 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres16;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
@@ -2234,6 +2242,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        The database version is Postgres 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres15
  *        The database version is Postgres 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres16
+ *        The database version is Postgres 16. (Value: "POSTGRES_16")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -2418,6 +2428,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  AuthorizedNetwork contains metadata for an authorized network.
+ */
+@interface GTLRDatabaseMigrationService_AuthorizedNetwork : GTLRObject
+
+/** Optional. CIDR range for one authorzied network of the instance. */
+@property(nonatomic, copy, nullable) NSString *cidrRange;
 
 @end
 
@@ -2695,7 +2716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_CloudSqlSettings_DatabaseFlags *databaseFlags;
 
 /**
- *  The database engine type and version.
+ *  The database engine type and version. Deprecated. Use database_version_name
+ *  instead.
  *
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql56
@@ -2762,6 +2784,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        Unspecified version. (Value: "SQL_DATABASE_VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/** Optional. The database engine type and version name. */
+@property(nonatomic, copy, nullable) NSString *databaseVersionName;
 
 /**
  *  Optional. Data cache is an optional feature available for Cloud SQL for
@@ -4413,6 +4438,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Metadata related to instance level network configuration.
+ */
+@interface GTLRDatabaseMigrationService_InstanceNetworkConfig : GTLRObject
+
+/**
+ *  Optional. A list of external network authorized to access this instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_AuthorizedNetwork *> *authorizedExternalNetworks;
+
+/**
+ *  Optional. Enabling an outbound public IP address to support a database
+ *  server sending requests out into the internet.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableOutboundPublicIp;
+
+/**
+ *  Optional. Enabling public ip for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePublicIp;
+
+@end
+
+
+/**
  *  Filter based on relation between source value and compare value of type
  *  integer in ConditionalColumnSetValue
  */
@@ -5919,6 +5972,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/** Optional. Metadata related to instance level network configuration. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_InstanceNetworkConfig *instanceNetworkConfig;
+
 /**
  *  Labels for the AlloyDB primary instance created by DMS. An object containing
  *  a list of 'key', 'value' pairs.
@@ -5929,6 +5985,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Configuration for the machines that host the underlying database engine.
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MachineConfig *machineConfig;
+
+/**
+ *  Output only. All outbound public IP addresses configured for the instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *outboundPublicIpAddresses;
 
 /**
  *  Output only. The private IP address for the Instance. This is the connection

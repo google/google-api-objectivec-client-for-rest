@@ -1504,7 +1504,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @dynamic bucket, generation, ifGenerationMatch, ifGenerationNotMatch,
          ifMetagenerationMatch, ifMetagenerationNotMatch, object, projection,
-         softDeleted, userProject;
+         restoreToken, softDeleted, userProject;
 
 + (instancetype)queryWithBucket:(NSString *)bucket
                          object:(NSString *)object_param {
@@ -1648,7 +1648,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @dynamic bucket, copySourceAcl, generation, ifGenerationMatch,
          ifGenerationNotMatch, ifMetagenerationMatch, ifMetagenerationNotMatch,
-         object, projection, userProject;
+         object, projection, restoreToken, userProject;
 
 + (instancetype)queryWithBucket:(NSString *)bucket
                          object:(NSString *)object_param

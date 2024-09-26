@@ -51,6 +51,23 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
 
 @end
 
+@implementation GTLRCivicInfoQuery_DivisionsQueryDivisionByAddress
+
+@dynamic address;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"civicinfo/v2/divisionsByAddress";
+  GTLRCivicInfoQuery_DivisionsQueryDivisionByAddress *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCivicInfo_DivisionByAddressResponse class];
+  query.loggingName = @"civicinfo.divisions.queryDivisionByAddress";
+  return query;
+}
+
+@end
+
 @implementation GTLRCivicInfoQuery_DivisionsSearch
 
 @dynamic query;

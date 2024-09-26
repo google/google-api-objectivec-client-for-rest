@@ -90,6 +90,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @end
 
 /**
+ *  Lookup OCDIDs and names for divisions related to an address.
+ *
+ *  Method: civicinfo.divisions.queryDivisionByAddress
+ */
+@interface GTLRCivicInfoQuery_DivisionsQueryDivisionByAddress : GTLRCivicInfoQuery
+
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  Fetches a @c GTLRCivicInfo_DivisionByAddressResponse.
+ *
+ *  Lookup OCDIDs and names for divisions related to an address.
+ *
+ *  @return GTLRCivicInfoQuery_DivisionsQueryDivisionByAddress
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Searches for political divisions by their natural name or OCD ID.
  *
  *  Method: civicinfo.divisions.search

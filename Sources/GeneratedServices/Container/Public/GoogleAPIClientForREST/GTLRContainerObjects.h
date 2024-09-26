@@ -7,7 +7,7 @@
 //   Builds and manages container-based applications, powered by the open source
 //   Kubernetes technology.
 // Documentation:
-//   https://cloud.google.com/container-engine/
+//   https://cloud.google.com/kubernetes-engine/docs/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -41,6 +41,8 @@
 @class GTLRContainer_ClusterAutoscaling;
 @class GTLRContainer_ClusterNetworkPerformanceConfig;
 @class GTLRContainer_ClusterUpdate;
+@class GTLRContainer_CompliancePostureConfig;
+@class GTLRContainer_ComplianceStandard;
 @class GTLRContainer_ConfidentialNodes;
 @class GTLRContainer_ConfigConnectorConfig;
 @class GTLRContainer_ConsumptionMeteringConfig;
@@ -527,6 +529,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType
  *  Value: "STACK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_StackTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_CompliancePostureConfig.mode
+
+/**
+ *  Disables Compliance Posture features on the cluster.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Disabled;
+/**
+ *  Enables Compliance Posture features on the cluster.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Enabled;
+/**
+ *  Default value not specified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CompliancePostureConfig_Mode_ModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.currentState
@@ -2162,6 +2186,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_MaxPodsConstraint *maxPodsPerNode;
 
 /**
+ *  The name of the network attachment for pods to communicate to; cannot be
+ *  specified along with subnetwork or secondary_pod_range.
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
+
+/**
  *  The name of the secondary range on the subnet which provides IP address for
  *  this pod range.
  */
@@ -2807,6 +2837,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
 
+/** Enable/Disable Compliance Posture features for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_CompliancePostureConfig *compliancePostureConfig;
+
 /** Which conditions caused the current cluster state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
 
@@ -3342,6 +3375,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Cluster-level autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *desiredClusterAutoscaling;
 
+/** Enable/Disable Compliance Posture features for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_CompliancePostureConfig *desiredCompliancePostureConfig;
+
 /** The desired containerd config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DConfig *desiredContainerdConfig;
 
@@ -3704,6 +3740,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  upgrade.
  */
 @interface GTLRContainer_CompleteNodePoolUpgradeRequest : GTLRObject
+@end
+
+
+/**
+ *  CompliancePostureConfig defines the settings needed to enable/disable
+ *  features for the Compliance Posture.
+ */
+@interface GTLRContainer_CompliancePostureConfig : GTLRObject
+
+/** List of enabled compliance standards. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_ComplianceStandard *> *complianceStandards;
+
+/**
+ *  Defines the enablement mode for Compliance Posture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_CompliancePostureConfig_Mode_Disabled Disables
+ *        Compliance Posture features on the cluster. (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_CompliancePostureConfig_Mode_Enabled Enables
+ *        Compliance Posture features on the cluster. (Value: "ENABLED")
+ *    @arg @c kGTLRContainer_CompliancePostureConfig_Mode_ModeUnspecified
+ *        Default value not specified. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
+ *  Defines the details of a compliance standard.
+ */
+@interface GTLRContainer_ComplianceStandard : GTLRObject
+
+/** Name of the compliance standard. */
+@property(nonatomic, copy, nullable) NSString *standard;
+
 @end
 
 
@@ -4253,8 +4325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_GetJSONWebKeysResponse : GTLRObject
 
 /**
- *  OnePlatform automatically extracts this field and uses it to set the HTTP
- *  Cache-Control header.
+ *  For HTTP requests, this field is automatically extracted into the
+ *  Cache-Control HTTP header.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_HttpCacheControlResponseHeader *cacheHeader;
 
@@ -4273,8 +4345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_GetOpenIDConfigResponse : GTLRObject
 
 /**
- *  OnePlatform automatically extracts this field and uses it to set the HTTP
- *  Cache-Control header.
+ *  For HTTP requests, this field is automatically extracted into the
+ *  Cache-Control HTTP header.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_HttpCacheControlResponseHeader *cacheHeader;
 

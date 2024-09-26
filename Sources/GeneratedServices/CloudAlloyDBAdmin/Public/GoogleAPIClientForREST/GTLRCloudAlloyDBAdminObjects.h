@@ -91,6 +91,8 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels_Labels;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct;
@@ -140,6 +142,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion
  *  Value: "POSTGRES_15"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres15;
+/**
+ *  The database version is Postgres 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres16;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Backup.state
@@ -282,6 +290,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersio
  *  Value: "POSTGRES_15"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres15;
+/**
+ *  The database version is Postgres 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres16;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Cluster.state
@@ -427,16 +441,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_
  *  Value: "POSTGRES_15"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres15;
+/**
+ *  The database version is Postgres 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres16;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_ClusterUpgradeDetails.upgradeStatus
 
+/**
+ *  Cancel is in progress.
+ *
+ *  Value: "CANCEL_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_CancelInProgress;
+/**
+ *  Cancellation complete.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_Cancelled;
 /**
  *  Operation failed.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_Failed;
+/**
+ *  In progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_InProgress;
+/**
+ *  Not started.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_NotStarted;
 /**
  *  Operation partially succeeded.
  *
@@ -702,11 +746,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails
 // GTLRCloudAlloyDBAdmin_InstanceUpgradeDetails.upgradeStatus
 
 /**
+ *  Cancel is in progress.
+ *
+ *  Value: "CANCEL_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_CancelInProgress;
+/**
+ *  Cancellation complete.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_Cancelled;
+/**
  *  Operation failed.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_Failed;
+/**
+ *  In progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_InProgress;
+/**
+ *  Not started.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_NotStarted;
 /**
  *  Operation partially succeeded.
  *
@@ -857,19 +925,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SslConfig_SslMode_SslM
 // GTLRCloudAlloyDBAdmin_StageInfo.stage
 
 /**
- *  This stage is for the custom checks done before upgrade.
+ *  Pre-upgrade custom checks, not covered by pg_upgrade.
  *
  *  Value: "ALLOYDB_PRECHECK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_AlloydbPrecheck;
 /**
- *  This stage is for `pg_upgrade --check` run before upgrade.
+ *  Cleanup.
+ *
+ *  Value: "CLEANUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_Cleanup;
+/**
+ *  Pre-upgrade pg_upgrade checks.
  *
  *  Value: "PG_UPGRADE_CHECK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PgUpgradeCheck;
 /**
- *  This stage is primary upgrade.
+ *  Clone the original cluster.
+ *
+ *  Value: "PREPARE_FOR_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PrepareForUpgrade;
+/**
+ *  Upgrade the primary instance(downtime).
  *
  *  Value: "PRIMARY_INSTANCE_UPGRADE"
  */
@@ -877,9 +957,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_Primar
 /**
  *  This stage is read pool upgrade.
  *
- *  Value: "READ_POOL_UPGRADE"
+ *  Value: "READ_POOL_INSTANCES_UPGRADE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_ReadPoolUpgrade;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_ReadPoolInstancesUpgrade;
+/**
+ *  Rollback in case of critical failures.
+ *
+ *  Value: "ROLLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_Rollback;
 /**
  *  Unspecified stage.
  *
@@ -891,11 +977,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Stage_StageU
 // GTLRCloudAlloyDBAdmin_StageInfo.status
 
 /**
+ *  Cancel is in progress.
+ *
+ *  Value: "CANCEL_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_CancelInProgress;
+/**
+ *  Cancellation complete.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_Cancelled;
+/**
  *  Operation failed.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_Failed;
+/**
+ *  In progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_InProgress;
+/**
+ *  Not started.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageInfo_Status_NotStarted;
 /**
  *  Operation partially succeeded.
  *
@@ -2797,6 +2907,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_
  *  Value: "POSTGRES_15"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres15;
+/**
+ *  The database version is Postgres 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres16;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_SupportedDatabaseFlag.valueType
@@ -2833,14 +2949,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_UpgradeClusterRequest.version
+
+/**
+ *  This is an unknown database version.
+ *
+ *  Value: "DATABASE_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_DatabaseVersionUnspecified;
+/**
+ *  DEPRECATED - The database version is Postgres 13.
+ *
+ *  Value: "POSTGRES_13"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres13 GTLR_DEPRECATED;
+/**
+ *  The database version is Postgres 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres14;
+/**
+ *  The database version is Postgres 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres15;
+/**
+ *  The database version is Postgres 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres16;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_UpgradeClusterResponse.status
 
+/**
+ *  Cancel is in progress.
+ *
+ *  Value: "CANCEL_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_CancelInProgress;
+/**
+ *  Cancellation complete.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_Cancelled;
 /**
  *  Operation failed.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_Failed;
+/**
+ *  In progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_InProgress;
+/**
+ *  Not started.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_NotStarted;
 /**
  *  Operation partially succeeded.
  *
@@ -3051,6 +3225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        database version is Postgres 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres15 The
  *        database version is Postgres 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres16 The
+ *        database version is Postgres 16. (Value: "POSTGRES_16")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -3354,6 +3530,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        database version is Postgres 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres15 The
  *        database version is Postgres 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres16 The
+ *        database version is Postgres 16. (Value: "POSTGRES_16")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -3584,6 +3762,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        The database version is Postgres 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres15
  *        The database version is Postgres 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres16
+ *        The database version is Postgres 16. (Value: "POSTGRES_16")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -3600,8 +3780,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Upgrade status of the cluster.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_CancelInProgress
+ *        Cancel is in progress. (Value: "CANCEL_IN_PROGRESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_Cancelled
+ *        Cancellation complete. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_Failed
  *        Operation failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_InProgress
+ *        In progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_NotStarted
+ *        Not started. (Value: "NOT_STARTED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_PartialSuccess
  *        Operation partially succeeded. (Value: "PARTIAL_SUCCESS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_StatusUnspecified
@@ -4112,6 +4300,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_Node *> *nodes;
 
 /**
+ *  Output only. All outbound public IP addresses configured for the instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *outboundPublicIpAddresses;
+
+/**
  *  Optional. The configuration for Private Service Connect (PSC) for the
  *  instance.
  */
@@ -4257,6 +4450,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_AuthorizedNetwork *> *authorizedExternalNetworks;
 
 /**
+ *  Optional. Enabling an outbound public IP address to support a database
+ *  server sending requests out into the internet.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableOutboundPublicIp;
+
+/**
  *  Optional. Enabling public ip for the instance.
  *
  *  Uses NSNumber of boolValue.
@@ -4300,8 +4501,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Upgrade status of the instance.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_CancelInProgress
+ *        Cancel is in progress. (Value: "CANCEL_IN_PROGRESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_Cancelled
+ *        Cancellation complete. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_Failed
  *        Operation failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_InProgress
+ *        In progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_NotStarted
+ *        Not started. (Value: "NOT_STARTED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_PartialSuccess
  *        Operation partially succeeded. (Value: "PARTIAL_SUCCESS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_UpgradeStatus_StatusUnspecified
@@ -5144,16 +5353,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  The stage.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_AlloydbPrecheck This stage
- *        is for the custom checks done before upgrade. (Value:
- *        "ALLOYDB_PRECHECK")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PgUpgradeCheck This stage
- *        is for `pg_upgrade --check` run before upgrade. (Value:
- *        "PG_UPGRADE_CHECK")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PrimaryInstanceUpgrade This
- *        stage is primary upgrade. (Value: "PRIMARY_INSTANCE_UPGRADE")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_ReadPoolUpgrade This stage
- *        is read pool upgrade. (Value: "READ_POOL_UPGRADE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_AlloydbPrecheck Pre-upgrade
+ *        custom checks, not covered by pg_upgrade. (Value: "ALLOYDB_PRECHECK")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_Cleanup Cleanup. (Value:
+ *        "CLEANUP")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PgUpgradeCheck Pre-upgrade
+ *        pg_upgrade checks. (Value: "PG_UPGRADE_CHECK")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PrepareForUpgrade Clone the
+ *        original cluster. (Value: "PREPARE_FOR_UPGRADE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_PrimaryInstanceUpgrade
+ *        Upgrade the primary instance(downtime). (Value:
+ *        "PRIMARY_INSTANCE_UPGRADE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_ReadPoolInstancesUpgrade
+ *        This stage is read pool upgrade. (Value:
+ *        "READ_POOL_INSTANCES_UPGRADE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_Rollback Rollback in case
+ *        of critical failures. (Value: "ROLLBACK")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Stage_StageUnspecified
  *        Unspecified stage. (Value: "STAGE_UNSPECIFIED")
  */
@@ -5163,8 +5378,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Status of the stage.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Status_CancelInProgress Cancel is
+ *        in progress. (Value: "CANCEL_IN_PROGRESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Status_Cancelled Cancellation
+ *        complete. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Status_Failed Operation failed.
  *        (Value: "FAILED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Status_InProgress In progress.
+ *        (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Status_NotStarted Not started.
+ *        (Value: "NOT_STARTED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Status_PartialSuccess Operation
  *        partially succeeded. (Value: "PARTIAL_SUCCESS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StageInfo_Status_StatusUnspecified
@@ -5925,7 +6148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource instance metadata.
+ *  Common model for database resource instance metadata. Next ID: 21
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
 
@@ -6063,6 +6286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  go/condor-common-datamodel
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Optional. Tags associated with this resources. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags *tagsSet;
 
 /**
  *  The time at which the resource was updated and recorded at partner service.
@@ -6521,6 +6747,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) NSNumber *memorySizeInBytes;
 
+/**
+ *  Optional. Number of shards (if applicable).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shardCount;
+
 @end
 
 
@@ -6657,6 +6890,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 @property(nonatomic, strong, nullable) GTLRDuration *timeBasedRetention;
 
+@end
+
+
+/**
+ *  Message type for storing tags. Tags provide a way to create annotations for
+ *  resources, and in some cases conditionally allow or deny policies based on
+ *  whether a resource has a specific tag.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags : GTLRObject
+
+/** The Tag key/value mappings. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags *tags;
+
+@end
+
+
+/**
+ *  The Tag key/value mappings.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags : GTLRObject
 @end
 
 
@@ -6967,6 +7225,63 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Upgrades a cluster.
+ */
+@interface GTLRCloudAlloyDBAdmin_UpgradeClusterRequest : GTLRObject
+
+/**
+ *  Optional. The current etag of the Cluster. If an etag is provided and does
+ *  not match the current etag of the Cluster, upgrade will be blocked and an
+ *  ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, performs request validation (e.g. permission checks and
+ *  any other type of validation), but does not actually execute the upgrade.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+/**
+ *  Required. The version the cluster is going to be upgraded to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_DatabaseVersionUnspecified
+ *        This is an unknown database version. (Value:
+ *        "DATABASE_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres13
+ *        DEPRECATED - The database version is Postgres 13. (Value:
+ *        "POSTGRES_13")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres14
+ *        The database version is Postgres 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres15
+ *        The database version is Postgres 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres16
+ *        The database version is Postgres 16. (Value: "POSTGRES_16")
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  UpgradeClusterResponse contains the response for upgrade cluster operation.
  */
 @interface GTLRCloudAlloyDBAdmin_UpgradeClusterResponse : GTLRObject
@@ -6987,8 +7302,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Status of upgrade operation.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_CancelInProgress
+ *        Cancel is in progress. (Value: "CANCEL_IN_PROGRESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_Cancelled
+ *        Cancellation complete. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_Failed
  *        Operation failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_InProgress In
+ *        progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_NotStarted
+ *        Not started. (Value: "NOT_STARTED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_PartialSuccess
  *        Operation partially succeeded. (Value: "PARTIAL_SUCCESS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterResponse_Status_StatusUnspecified

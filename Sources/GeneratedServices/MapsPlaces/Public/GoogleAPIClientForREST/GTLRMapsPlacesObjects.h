@@ -49,12 +49,18 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePaymentOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePlusCode;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1Polyline;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1References;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Review;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1RouteModifiers;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummaryLeg;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationBias;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationRestriction;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestSearchAlongRouteParameters;
 @class GTLRMapsPlaces_GoogleTypeDate;
 @class GTLRMapsPlaces_GoogleTypeLatLng;
 @class GTLRMapsPlaces_GoogleTypeLocalizedText;
@@ -412,6 +418,86 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpenin
  *  Value: "TAKEOUT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours_SecondaryHoursType_Takeout;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters.routingPreference
+
+/**
+ *  No routing preference specified. Default to `TRAFFIC_UNAWARE`.
+ *
+ *  Value: "ROUTING_PREFERENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_RoutingPreferenceUnspecified;
+/**
+ *  Calculates routes taking live traffic conditions into consideration. In
+ *  contrast to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied to
+ *  significantly reduce latency.
+ *
+ *  Value: "TRAFFIC_AWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficAware;
+/**
+ *  Calculates the routes taking live traffic conditions into consideration,
+ *  without applying most performance optimizations. Using this value produces
+ *  the highest latency.
+ *
+ *  Value: "TRAFFIC_AWARE_OPTIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficAwareOptimal;
+/**
+ *  Computes routes without taking live traffic conditions into consideration.
+ *  Suitable when traffic conditions don't matter or are not applicable. Using
+ *  this value produces the lowest latency. Note: For `TravelMode` `DRIVE` and
+ *  `TWO_WHEELER`, the route and duration chosen are based on road network and
+ *  average time-independent traffic conditions, not current road conditions.
+ *  Consequently, routes may include roads that are temporarily closed. Results
+ *  for a given request may vary over time due to changes in the road network,
+ *  updated average traffic conditions, and the distributed nature of the
+ *  service. Results may also vary between nearly-equivalent routes at any time
+ *  or frequency.
+ *
+ *  Value: "TRAFFIC_UNAWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficUnaware;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters.travelMode
+
+/**
+ *  Travel by bicycle. Not supported with `search_along_route_parameters`.
+ *
+ *  Value: "BICYCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Bicycle;
+/**
+ *  Travel by passenger car.
+ *
+ *  Value: "DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Drive;
+/**
+ *  No travel mode specified. Defaults to `DRIVE`.
+ *
+ *  Value: "TRAVEL_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_TravelModeUnspecified;
+/**
+ *  Motorized two wheeled vehicles of all kinds such as scooters and
+ *  motorcycles. Note that this is distinct from the `BICYCLE` travel mode which
+ *  covers human-powered transport. Not supported with
+ *  `search_along_route_parameters`. Only supported in those countries listed at
+ *  [Countries and regions supported for two-wheeled
+ *  vehicles](https://developers.google.com/maps/documentation/routes/coverage-two-wheeled).
+ *
+ *  Value: "TWO_WHEELER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_TwoWheeler;
+/**
+ *  Travel by walking. Not supported with `search_along_route_parameters`.
+ *
+ *  Value: "WALK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Walk;
 
 // ----------------------------------------------------------------------------
 // GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest.rankPreference
@@ -2183,6 +2269,30 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  A route polyline. Only supports an [encoded
+ *  polyline](https://developers.google.com/maps/documentation/utilities/polylinealgorithm),
+ *  which can be passed as a string and includes compression with minimal
+ *  lossiness. This is the Routes API default output.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1Polyline : GTLRObject
+
+/**
+ *  An [encoded
+ *  polyline](https://developers.google.com/maps/documentation/utilities/polylinealgorithm),
+ *  as returned by the [Routes API by
+ *  default](https://developers.google.com/maps/documentation/routes/reference/rest/v2/TopLevel/computeRoutes#polylineencoding).
+ *  See the
+ *  [encoder](https://developers.google.com/maps/documentation/utilities/polylineutility)
+ *  and
+ *  [decoder](https://developers.google.com/maps/documentation/routes/polylinedecoder)
+ *  tools.
+ */
+@property(nonatomic, copy, nullable) NSString *encodedPolyline;
+
+@end
+
+
+/**
  *  Experimental: See
  *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
  *  for more details. Reference that the generative content is related to.
@@ -2237,6 +2347,170 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** The localized text of the review. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *text;
+
+@end
+
+
+/**
+ *  Encapsulates a set of optional conditions to satisfy when calculating the
+ *  routes.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1RouteModifiers : GTLRObject
+
+/**
+ *  Optional. When set to true, avoids ferries where reasonable, giving
+ *  preference to routes not containing ferries. Applies only to the `DRIVE` and
+ *  `TWO_WHEELER` `TravelMode`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidFerries;
+
+/**
+ *  Optional. When set to true, avoids highways where reasonable, giving
+ *  preference to routes not containing highways. Applies only to the `DRIVE`
+ *  and `TWO_WHEELER` `TravelMode`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidHighways;
+
+/**
+ *  Optional. When set to true, avoids navigating indoors where reasonable,
+ *  giving preference to routes not containing indoor navigation. Applies only
+ *  to the `WALK` `TravelMode`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidIndoor;
+
+/**
+ *  Optional. When set to true, avoids toll roads where reasonable, giving
+ *  preference to routes not containing toll roads. Applies only to the `DRIVE`
+ *  and `TWO_WHEELER` `TravelMode`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidTolls;
+
+@end
+
+
+/**
+ *  Parameters to configure the routing calculations to the places in the
+ *  response, both along a route (where result ranking will be influenced) and
+ *  for calculating travel times on results.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters : GTLRObject
+
+/**
+ *  Optional. An explicit routing origin that overrides the origin defined in
+ *  the polyline. By default, the polyline origin is used.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLatLng *origin;
+
+/** Optional. The route modifiers. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1RouteModifiers *routeModifiers;
+
+/**
+ *  Optional. Specifies how to compute the routing summaries. The server
+ *  attempts to use the selected routing preference to compute the route. The
+ *  traffic aware routing preference is only available for the `DRIVE` or
+ *  `TWO_WHEELER` `travelMode`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_RoutingPreferenceUnspecified
+ *        No routing preference specified. Default to `TRAFFIC_UNAWARE`. (Value:
+ *        "ROUTING_PREFERENCE_UNSPECIFIED")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficAware
+ *        Calculates routes taking live traffic conditions into consideration.
+ *        In contrast to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied
+ *        to significantly reduce latency. (Value: "TRAFFIC_AWARE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficAwareOptimal
+ *        Calculates the routes taking live traffic conditions into
+ *        consideration, without applying most performance optimizations. Using
+ *        this value produces the highest latency. (Value:
+ *        "TRAFFIC_AWARE_OPTIMAL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficUnaware
+ *        Computes routes without taking live traffic conditions into
+ *        consideration. Suitable when traffic conditions don't matter or are
+ *        not applicable. Using this value produces the lowest latency. Note:
+ *        For `TravelMode` `DRIVE` and `TWO_WHEELER`, the route and duration
+ *        chosen are based on road network and average time-independent traffic
+ *        conditions, not current road conditions. Consequently, routes may
+ *        include roads that are temporarily closed. Results for a given request
+ *        may vary over time due to changes in the road network, updated average
+ *        traffic conditions, and the distributed nature of the service. Results
+ *        may also vary between nearly-equivalent routes at any time or
+ *        frequency. (Value: "TRAFFIC_UNAWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *routingPreference;
+
+/**
+ *  Optional. The travel mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Bicycle
+ *        Travel by bicycle. Not supported with `search_along_route_parameters`.
+ *        (Value: "BICYCLE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Drive
+ *        Travel by passenger car. (Value: "DRIVE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_TravelModeUnspecified
+ *        No travel mode specified. Defaults to `DRIVE`. (Value:
+ *        "TRAVEL_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_TwoWheeler
+ *        Motorized two wheeled vehicles of all kinds such as scooters and
+ *        motorcycles. Note that this is distinct from the `BICYCLE` travel mode
+ *        which covers human-powered transport. Not supported with
+ *        `search_along_route_parameters`. Only supported in those countries
+ *        listed at [Countries and regions supported for two-wheeled
+ *        vehicles](https://developers.google.com/maps/documentation/routes/coverage-two-wheeled).
+ *        (Value: "TWO_WHEELER")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Walk
+ *        Travel by walking. Not supported with `search_along_route_parameters`.
+ *        (Value: "WALK")
+ */
+@property(nonatomic, copy, nullable) NSString *travelMode;
+
+@end
+
+
+/**
+ *  The duration and distance from the routing origin to a place in the
+ *  response, and a second leg from that place to the destination, if requested.
+ *  **Note:** Adding `routingSummaries` in the field mask without also including
+ *  either the `routingParameters.origin` parameter or the
+ *  `searchAlongRouteParameters.polyline.encodedPolyline` parameter in the
+ *  request causes an error.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary : GTLRObject
+
+/**
+ *  The legs of the trip. When you calculate travel duration and distance from a
+ *  set origin, `legs` contains a single leg containing the duration and
+ *  distance from the origin to the destination. When you do a search along
+ *  route, `legs` contains two legs: one from the origin to place, and one from
+ *  the place to the destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummaryLeg *> *legs;
+
+@end
+
+
+/**
+ *  A leg is a single portion of a journey from one location to another.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummaryLeg : GTLRObject
+
+/**
+ *  The distance of this leg of the trip.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distanceMeters;
+
+/** The time it takes to complete this leg of the trip. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 @end
 
@@ -2357,6 +2631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
+/** Optional. Parameters that affect the routing to the search results. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters *routingParameters;
+
 @end
 
 
@@ -2381,6 +2658,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  places and specific location restriction.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Place *> *places;
+
+/**
+ *  A list of routing summaries where each entry associates to the corresponding
+ *  place in the same index in the `places` field. If the routing summary is not
+ *  available for one of the places, it will contain an empty entry. This list
+ *  should have as many entries as the list of places if requested.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary *> *routingSummaries;
 
 @end
 
@@ -2513,6 +2798,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
+/** Optional. Additional parameters for routing to results. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters *routingParameters;
+
+/** Optional. Additional parameters proto for searching along a route. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestSearchAlongRouteParameters *searchAlongRouteParameters;
+
 /**
  *  Used to set strict type filtering for included_type. If set to true, only
  *  results of the same type will be returned. Default to false.
@@ -2591,6 +2882,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  Specifies a precalculated polyline from the [Routes
+ *  API](https://developers.google.com/maps/documentation/routes) defining the
+ *  route to search. Searching along a route is similar to using the
+ *  `locationBias` or `locationRestriction` request option to bias the search
+ *  results. However, while the `locationBias` and `locationRestriction` options
+ *  let you specify a region to bias the search results, this option lets you
+ *  bias the results along a trip route. Results are not guaranteed to be along
+ *  the route provided, but rather are ranked within the search area defined by
+ *  the polyline and, optionally, by the `locationBias` or `locationRestriction`
+ *  based on minimal detour times from origin to destination. The results might
+ *  be along an alternate route, especially if the provided polyline does not
+ *  define an optimal route from origin to destination.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestSearchAlongRouteParameters : GTLRObject
+
+/** Required. The route polyline. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1Polyline *polyline;
+
+@end
+
+
+/**
  *  Response proto for SearchText.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextResponse : GTLRObject
@@ -2616,6 +2929,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** A list of places that meet the user's text search criteria. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Place *> *places;
+
+/**
+ *  A list of routing summaries where each entry associates to the corresponding
+ *  place in the same index in the `places` field. If the routing summary is not
+ *  available for one of the places, it will contain an empty entry. This list
+ *  will have as many entries as the list of places if requested.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary *> *routingSummaries;
 
 @end
 

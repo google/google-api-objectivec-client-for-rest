@@ -557,7 +557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_WorkloadOnbo
 /** Output only. Container for customer onboarding steps */
 @property(nonatomic, strong, nullable) GTLRCloudControlsPartnerService_CustomerOnboardingState *customerOnboardingState;
 
-/** The customer organization's display name. E.g. "Google". */
+/** Required. Display name for the customer */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**

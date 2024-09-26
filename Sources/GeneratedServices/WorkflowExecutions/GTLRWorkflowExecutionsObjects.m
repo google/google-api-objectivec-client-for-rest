@@ -38,6 +38,7 @@ NSString * const kGTLRWorkflowExecutions_StateError_Type_KmsError = @"KMS_ERROR"
 NSString * const kGTLRWorkflowExecutions_StateError_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRWorkflowExecutions_StepEntry.state
+NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateCancelled = @"STATE_CANCELLED";
 NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateFailed = @"STATE_FAILED";
 NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateInProgress = @"STATE_IN_PROGRESS";
 NSString * const kGTLRWorkflowExecutions_StepEntry_State_StateSucceeded = @"STATE_SUCCEEDED";

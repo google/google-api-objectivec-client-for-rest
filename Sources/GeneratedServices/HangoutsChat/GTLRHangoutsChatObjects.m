@@ -283,6 +283,7 @@ NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified =
 NSString * const kGTLRHangoutsChat_Membership_State_NotAMember = @"NOT_A_MEMBER";
 
 // GTLRHangoutsChat_RichLinkMetadata.richLinkType
+NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_ChatSpace = @"CHAT_SPACE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile = @"DRIVE_FILE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_RichLinkTypeUnspecified = @"RICH_LINK_TYPE_UNSPECIFIED";
 
@@ -490,6 +491,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_ChatClientDataSourceMarkup
 @dynamic spaceDataSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ChatSpaceLinkData
+//
+
+@implementation GTLRHangoutsChat_ChatSpaceLinkData
+@dynamic message, space, thread;
 @end
 
 
@@ -1633,7 +1644,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_RichLinkMetadata
-@dynamic driveLinkData, richLinkType, uri;
+@dynamic chatSpaceLinkData, driveLinkData, richLinkType, uri;
 @end
 
 

@@ -60,13 +60,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryCustomer;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryCustomerReadonly;
 /**
- *  Authorization scope: View and manage your Chrome OS devices' metadata
+ *  Authorization scope: View and manage your ChromeOS devices' metadata
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.device.chromeos"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceChromeos;
 /**
- *  Authorization scope: View your Chrome OS devices' metadata
+ *  Authorization scope: View your ChromeOS devices' metadata
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.device.chromeos.readonly"
  */

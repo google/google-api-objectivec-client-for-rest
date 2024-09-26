@@ -850,6 +850,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_OnDemandScanning"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_OracleDatabase",
+            targets: ["GoogleAPIClientForREST_OracleDatabase"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_OrgPolicyAPI",
             targets: ["GoogleAPIClientForREST_OrgPolicyAPI"]
         ),
@@ -2449,6 +2453,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_OnDemandScanning",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/OnDemandScanning",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_OracleDatabase",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/OracleDatabase",
             publicHeadersPath: "Public"
         ),
         .target(

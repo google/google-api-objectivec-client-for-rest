@@ -150,6 +150,12 @@ NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchSt
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRServiceUsage_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRServiceUsage_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -569,7 +575,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_CommonLanguageSettings
-@dynamic destinations, referenceDocsUri;
+@dynamic destinations, referenceDocsUri, selectiveGapicGeneration;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -965,6 +971,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ExperimentalFeatures
+//
+
+@implementation GTLRServiceUsage_ExperimentalFeatures
+@dynamic restAsyncIoEnabled;
 @end
 
 
@@ -1576,7 +1592,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1830,7 +1855,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_PythonSettings
-@dynamic common;
+@dynamic common, experimentalFeatures;
 @end
 
 
@@ -1941,6 +1966,24 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 @implementation GTLRServiceUsage_RubySettings
 @dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_SelectiveGapicGeneration
+//
+
+@implementation GTLRServiceUsage_SelectiveGapicGeneration
+@dynamic methods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

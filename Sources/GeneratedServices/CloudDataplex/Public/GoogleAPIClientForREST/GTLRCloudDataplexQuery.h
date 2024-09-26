@@ -2590,7 +2590,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Gets an Entry.
+ *  Gets an Entry.Caution: The BigQuery metadata that is stored in Dataplex
+ *  Catalog is changing. For more information, see Changes to BigQuery metadata
+ *  stored in Dataplex Catalog
+ *  (https://cloud.google.com/dataplex/docs/biqquery-metadata-changes).
  *
  *  Method: dataplex.projects.locations.entryGroups.entries.get
  *
@@ -2638,7 +2641,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
  *
- *  Gets an Entry.
+ *  Gets an Entry.Caution: The BigQuery metadata that is stored in Dataplex
+ *  Catalog is changing. For more information, see Changes to BigQuery metadata
+ *  stored in Dataplex Catalog
+ *  (https://cloud.google.com/dataplex/docs/biqquery-metadata-changes).
  *
  *  @param name Required. The resource name of the Entry:
  *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}.
@@ -7343,7 +7349,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Looks up a single Entry by name using the permission on the source system.
+ *  Looks up a single Entry by name using the permission on the source
+ *  system.Caution: The BigQuery metadata that is stored in Dataplex Catalog is
+ *  changing. For more information, see Changes to BigQuery metadata stored in
+ *  Dataplex Catalog
+ *  (https://cloud.google.com/dataplex/docs/biqquery-metadata-changes).
  *
  *  Method: dataplex.projects.locations.lookupEntry
  *
@@ -7397,7 +7407,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
  *
- *  Looks up a single Entry by name using the permission on the source system.
+ *  Looks up a single Entry by name using the permission on the source
+ *  system.Caution: The BigQuery metadata that is stored in Dataplex Catalog is
+ *  changing. For more information, see Changes to BigQuery metadata stored in
+ *  Dataplex Catalog
+ *  (https://cloud.google.com/dataplex/docs/biqquery-metadata-changes).
  *
  *  @param name Required. The project to which the request should be attributed
  *    in the following form: projects/{project}/locations/{location}.

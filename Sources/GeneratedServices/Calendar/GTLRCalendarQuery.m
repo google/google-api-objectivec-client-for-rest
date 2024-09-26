@@ -14,6 +14,7 @@
 // Constants
 
 // eventTypes
+NSString * const kGTLRCalendarEventTypesBirthday        = @"birthday";
 NSString * const kGTLRCalendarEventTypesDefault         = @"default";
 NSString * const kGTLRCalendarEventTypesFocusTime       = @"focusTime";
 NSString * const kGTLRCalendarEventTypesFromGmail       = @"fromGmail";

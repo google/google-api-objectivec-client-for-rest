@@ -78,6 +78,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2GcsOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2GcsSource;
+@class GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2Image;
 @class GTLRCloudRetail_GoogleCloudRetailV2ImportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2Interval;
@@ -99,6 +100,8 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2PriceInfoPriceRange;
 @class GTLRCloudRetail_GoogleCloudRetailV2Product;
 @class GTLRCloudRetail_GoogleCloudRetailV2Product_Attributes;
+@class GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeInterval;
+@class GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue;
 @class GTLRCloudRetail_GoogleCloudRetailV2ProductDetail;
 @class GTLRCloudRetail_GoogleCloudRetailV2ProductInlineSource;
 @class GTLRCloudRetail_GoogleCloudRetailV2ProductInputConfig;
@@ -121,19 +124,29 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpec;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpecUserAnswer;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpecUserAnswerSelectedAnswer;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpecFacetKey;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestTileNavigationSpec;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResult;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResultAdditionalFilter;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResultSuggestedAnswer;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacetFacetValue;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseQueryExpansionInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_MatchingVariantFields;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_VariantRollupValues;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseTileNavigationResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2ServingConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2Tile;
+@class GTLRCloudRetail_GoogleCloudRetailV2UpdateGenerativeQuestionConfigRequest;
 @class GTLRCloudRetail_GoogleCloudRetailV2UserEvent;
 @class GTLRCloudRetail_GoogleCloudRetailV2UserEvent_Attributes;
 @class GTLRCloudRetail_GoogleCloudRetailV2UserEventImportSummary;
@@ -2759,6 +2772,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  Request for BatchUpdateGenerativeQuestionConfig method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2BatchUpdateGenerativeQuestionConfigsRequest : GTLRObject
+
+/** Required. The updates question configs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2UpdateGenerativeQuestionConfigRequest *> *requests;
+
+@end
+
+
+/**
+ *  Aggregated response for UpdateGenerativeQuestionConfig method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2BatchUpdateGenerativeQuestionConfigsResponse : GTLRObject
+
+/** Optional. The updates question configs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig *> *generativeQuestionConfigs;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the AddFulfillmentPlaces operation.
  *  Currently empty because there is no meaningful metadata populated from the
  *  ProductService.AddFulfillmentPlaces method.
@@ -4555,6 +4590,81 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for a single generated question.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig : GTLRObject
+
+/**
+ *  Optional. Whether the question is asked at serving time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowedInConversation;
+
+/**
+ *  Required. Resource name of the catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/** Output only. Values that can be used to answer the question. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exampleValues;
+
+/** Required. The facet to which the question is associated. */
+@property(nonatomic, copy, nullable) NSString *facet;
+
+/**
+ *  Optional. The question that will be used at serving time. Question can have
+ *  a max length of 300 bytes. When not populated, generated_question should be
+ *  used.
+ */
+@property(nonatomic, copy, nullable) NSString *finalQuestion;
+
+/**
+ *  Output only. The ratio of how often a question was asked.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *frequency;
+
+/** Output only. The LLM generated question. */
+@property(nonatomic, copy, nullable) NSString *generatedQuestion;
+
+@end
+
+
+/**
+ *  Configuration for overall generative question feature state.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionsFeatureConfig : GTLRObject
+
+/**
+ *  Required. Resource name of the affected catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Optional. Determines whether questions will be used at serving time. Note:
+ *  This feature cannot be enabled until initial data requirements are
+ *  satisfied.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *featureEnabled;
+
+/**
+ *  Optional. Minimum number of products in the response to trigger follow-up
+ *  questions. Value must be 0 or positive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumProducts;
+
+@end
+
+
+/**
  *  Response message of CatalogService.GetDefaultBranch.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2GetDefaultBranchResponse : GTLRObject
@@ -4897,6 +5007,17 @@ GTLR_DEPRECATED
 
 /** Pagination token, if not returned indicates the last page. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for ListQuestions method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ListGenerativeQuestionConfigsResponse : GTLRObject
+
+/** All the questions for a given catalog. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig *> *generativeQuestionConfigs;
 
 @end
 
@@ -6120,6 +6241,36 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Product attribute name and numeric interval.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeInterval : GTLRObject
+
+/** The numeric interval (e.g. [10, 20)) */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Interval *interval;
+
+/** The attribute name (e.g. "length") */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Product attribute which structured by an attribute name and value. This
+ *  structure is used in conversational search filters and answers. For example,
+ *  if we have `name=color` and `value=red`, this means that the color is `red`.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue : GTLRObject
+
+/** The attribute name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The attribute value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Detailed product information associated with a user event.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2ProductDetail : GTLRObject
@@ -7009,6 +7160,12 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *canonicalFilter;
 
 /**
+ *  Optional. This field specifies all conversational related parameters
+ *  addition to traditional retail search.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpec *conversationalSearchSpec;
+
+/**
  *  Deprecated. Refer to https://cloud.google.com/retail/docs/configs#dynamic to
  *  enable dynamic facets. Do not set this field. The specification for
  *  dynamically generated facets. Notice that only textual facets can be
@@ -7160,6 +7317,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec *spellCorrectionSpec;
 
+/** Optional. This field specifies tile navigation related parameters. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestTileNavigationSpec *tileNavigationSpec;
+
 /** User information. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2UserInfo *userInfo;
 
@@ -7287,6 +7447,79 @@ GTLR_DEPRECATED
  *  ANY("product_1", "product_2")) AND (colorFamilies: ANY("Red","Blue"))
  */
 @property(nonatomic, copy, nullable) NSString *condition;
+
+@end
+
+
+/**
+ *  This field specifies all conversational related parameters addition to
+ *  traditional retail search.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpec : GTLRObject
+
+/**
+ *  This field specifies the conversation id, which maintains the state of the
+ *  conversation between client side and server side. Use the value from the
+ *  previous ConversationalSearchResult.conversation_id. For the initial
+ *  request, this should be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/**
+ *  This field specifies whether the customer would like to do conversational
+ *  search. If this field is set to true, conversational related extra
+ *  information will be returned from server side, including follow-up question,
+ *  answer options, etc.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *followupConversationRequested;
+
+/**
+ *  This field specifies the current user answer during the conversational
+ *  search. This can be either user selected from suggested answers or user
+ *  input plain text.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpecUserAnswer *userAnswer;
+
+@end
+
+
+/**
+ *  This field specifies the current user answer during the conversational
+ *  search. This can be either user selected from suggested answers or user
+ *  input plain text.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpecUserAnswer : GTLRObject
+
+/**
+ *  This field specifies the selected attributes during the conversational
+ *  search. This should be a subset of
+ *  ConversationalSearchResult.suggested_answers.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpecUserAnswerSelectedAnswer *selectedAnswer;
+
+/**
+ *  This field specifies the incremental input text from the user during the
+ *  conversational search.
+ */
+@property(nonatomic, copy, nullable) NSString *textAnswer;
+
+@end
+
+
+/**
+ *  This field specifies the selected answers during the conversational search.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpecUserAnswerSelectedAnswer : GTLRObject
+
+/**
+ *  This field specifies the selected answer which is a attribute key-value.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue *productAttributeValue;
+
+/** This field is deprecated and should not be set. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue *> *productAttributeValues GTLR_DEPRECATED;
 
 @end
 
@@ -7576,6 +7809,29 @@ GTLR_DEPRECATED
 
 
 /**
+ *  This field specifies tile navigation related parameters.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequestTileNavigationSpec : GTLRObject
+
+/**
+ *  This field specifies the tiles which are already clicked in client side.
+ *  NOTE: This field is not being used for filtering search products. Client
+ *  side should also put all the applied tiles in SearchRequest.filter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Tile *> *appliedTiles;
+
+/**
+ *  This field specifies whether the customer would like to request tile
+ *  navigation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tileNavigationRequested;
+
+@end
+
+
+/**
  *  Response message for SearchService.Search method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponse : GTLRObject
@@ -7592,6 +7848,12 @@ GTLR_DEPRECATED
  *  model performance.
  */
 @property(nonatomic, copy, nullable) NSString *attributionToken;
+
+/**
+ *  This field specifies all related information that is needed on client side
+ *  for UI rendering of conversational retail search.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResult *conversationalSearchResult;
 
 /**
  *  Contains the spell corrected query, if found. If the spell correction type
@@ -7635,6 +7897,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult *> *results;
 
 /**
+ *  This field specifies all related information for tile navigation that will
+ *  be used in client side.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchResponseTileNavigationResult *tileNavigationResult;
+
+/**
  *  The estimated total count of matched items irrespective of pagination. The
  *  count of results returned by pagination may be less than the total_size that
  *  matches.
@@ -7642,6 +7910,82 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  This field specifies all related information that is needed on client side
+ *  for UI rendering of conversational retail search.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResult : GTLRObject
+
+/**
+ *  This is the incremental additional filters implied from the current user
+ *  answer. User should add the suggested addition filters to the previous
+ *  SearchRequest.filter, and use the merged filter in the follow up search
+ *  request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResultAdditionalFilter *additionalFilter;
+
+/**
+ *  This field is deprecated but will be kept for backward compatibility. There
+ *  is expected to have only one additional filter and the value will be the
+ *  same to the same as field `additional_filter`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResultAdditionalFilter *> *additionalFilters GTLR_DEPRECATED;
+
+/**
+ *  Conversation UUID. This field will be stored in client side storage to
+ *  maintain the conversation session with server and will be used for next
+ *  search request's SearchRequest.ConversationalSearchSpec.conversation_id to
+ *  restore conversation state in server.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/** The follow-up question. e.g., `What is the color?` */
+@property(nonatomic, copy, nullable) NSString *followupQuestion;
+
+/**
+ *  The current refined query for the conversational search. This field will be
+ *  used in customer UI that the query in the search bar should be replaced with
+ *  the refined query. For example, if SearchRequest.query is `dress` and next
+ *  SearchRequest.ConversationalSearchSpec.UserAnswer.text_answer is `red
+ *  color`, which does not match any product attribute value filters, the
+ *  refined query will be `dress, red color`.
+ */
+@property(nonatomic, copy, nullable) NSString *refinedQuery;
+
+/** The answer options provided to client for the follow-up question. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResultSuggestedAnswer *> *suggestedAnswers;
+
+@end
+
+
+/**
+ *  Additional filter that client side need to apply.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResultAdditionalFilter : GTLRObject
+
+/**
+ *  Product attribute value, including an attribute key and an attribute value.
+ *  Other types can be added here in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue *productAttributeValue;
+
+@end
+
+
+/**
+ *  Suggested answers to the follow-up question.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponseConversationalSearchResultSuggestedAnswer : GTLRObject
+
+/**
+ *  Product attribute value, including an attribute key and an attribute value.
+ *  Other types can be added here in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue *productAttributeValue;
 
 @end
 
@@ -7842,6 +8186,20 @@ GTLR_DEPRECATED
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_VariantRollupValues : GTLRObject
+@end
+
+
+/**
+ *  This field specifies all related information for tile navigation that will
+ *  be used in client side.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponseTileNavigationResult : GTLRObject
+
+/**
+ *  The current tiles that are used for tile navigation, sorted by engagement.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Tile *> *tiles;
+
 @end
 
 
@@ -8149,6 +8507,25 @@ GTLR_DEPRECATED
 
 
 /**
+ *  This field specifies the tile information including an attribute key,
+ *  attribute value. More fields will be added in the future, eg: product id or
+ *  product counts, etc.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2Tile : GTLRObject
+
+/** The product attribute key-numeric interval. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeInterval *productAttributeInterval;
+
+/** The product attribute key-value. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue *productAttributeValue;
+
+/** The representative product id for this tile. */
+@property(nonatomic, copy, nullable) NSString *representativeProductId;
+
+@end
+
+
+/**
  *  Metadata associated with a tune operation.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2TuneModelMetadata : GTLRObject
@@ -8174,6 +8551,27 @@ GTLR_DEPRECATED
  *  Response associated with a tune operation.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2TuneModelResponse : GTLRObject
+@end
+
+
+/**
+ *  Request for UpdateGenerativeQuestionConfig method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2UpdateGenerativeQuestionConfigRequest : GTLRObject
+
+/** Required. The question to update. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig *generativeQuestionConfig;
+
+/**
+ *  Optional. Indicates which fields in the provided GenerativeQuestionConfig to
+ *  update. The following are NOT supported: *
+ *  GenerativeQuestionConfig.frequency If not set or empty, all supported fields
+ *  are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
 @end
 
 

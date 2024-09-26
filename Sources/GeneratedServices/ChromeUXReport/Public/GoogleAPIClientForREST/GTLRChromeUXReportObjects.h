@@ -172,9 +172,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  The proportion of users that experienced this bin's value for the given
  *  metric.
  *
- *  Uses NSNumber of doubleValue.
+ *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) NSNumber *density;
+@property(nonatomic, strong, nullable) id density;
 
 /**
  *  End is the end of the data bin. If end is not populated, then the bin has no

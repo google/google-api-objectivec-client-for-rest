@@ -146,6 +146,12 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRLogging_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRLogging_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -655,6 +661,28 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_ListLogScopesResponse
+//
+
+@implementation GTLRLogging_ListLogScopesResponse
+@dynamic logScopes, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logScopes" : [GTLRLogging_LogScope class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"logScopes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_ListLogsResponse
 //
 
@@ -1039,6 +1067,28 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_LogScope
+//
+
+@implementation GTLRLogging_LogScope
+@dynamic createTime, descriptionProperty, name, resourceNames, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_LogSink
 //
 
@@ -1116,7 +1166,16 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

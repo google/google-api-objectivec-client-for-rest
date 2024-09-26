@@ -171,6 +171,7 @@ NSString * const kGTLRBigquery_IndexUnusedReason_Code_OtherReason = @"OTHER_REAS
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_PendingIndexCreation = @"PENDING_INDEX_CREATION";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_QueryCacheHit = @"QUERY_CACHE_HIT";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_SecuredByDataMasking = @"SECURED_BY_DATA_MASKING";
+NSString * const kGTLRBigquery_IndexUnusedReason_Code_StaleIndex = @"STALE_INDEX";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_TimeTravelQuery = @"TIME_TRAVEL_QUERY";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_UnindexedSearchFields = @"UNINDEXED_SEARCH_FIELDS";
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_UnsupportedSearchPattern = @"UNSUPPORTED_SEARCH_PATTERN";

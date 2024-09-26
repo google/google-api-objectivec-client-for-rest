@@ -42,6 +42,7 @@
 @class GTLRServiceConsumerManagement_Endpoint;
 @class GTLRServiceConsumerManagement_Enum;
 @class GTLRServiceConsumerManagement_EnumValue;
+@class GTLRServiceConsumerManagement_ExperimentalFeatures;
 @class GTLRServiceConsumerManagement_Field;
 @class GTLRServiceConsumerManagement_FieldPolicy;
 @class GTLRServiceConsumerManagement_GoSettings;
@@ -82,6 +83,7 @@
 @class GTLRServiceConsumerManagement_QuotaLimit;
 @class GTLRServiceConsumerManagement_QuotaLimit_Values;
 @class GTLRServiceConsumerManagement_RubySettings;
+@class GTLRServiceConsumerManagement_SelectiveGapicGeneration;
 @class GTLRServiceConsumerManagement_ServiceAccountConfig;
 @class GTLRServiceConsumerManagement_SourceContext;
 @class GTLRServiceConsumerManagement_SourceInfo;
@@ -705,6 +707,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescript
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceConsumerManagement_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceConsumerManagement_MonitoredResourceDescriptor.launchStage
@@ -1545,6 +1575,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
 
+/** Configuration for which RPCs should be generated in the GAPIC client. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_SelectiveGapicGeneration *selectiveGapicGeneration;
+
 @end
 
 
@@ -2039,6 +2072,26 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /** Protocol buffer options. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_Option *> *options;
+
+@end
+
+
+/**
+ *  Experimental features to be included during client library generation. These
+ *  fields will be deprecated once the feature graduates and is enabled by
+ *  default.
+ */
+@interface GTLRServiceConsumerManagement_ExperimentalFeatures : GTLRObject
+
+/**
+ *  Enables generation of asynchronous REST clients if `rest` transport is
+ *  enabled. By default, asynchronous REST clients will not be generated. This
+ *  feature will be enabled by default 1 month after launching the feature in
+ *  preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restAsyncIoEnabled;
 
 @end
 
@@ -3088,6 +3141,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
+
 @end
 
 
@@ -3674,6 +3730,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
 
+/** Experimental features to be included during client library generation. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_ExperimentalFeatures *experimentalFeatures;
+
 @end
 
 
@@ -3870,6 +3929,21 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_TenancyUnit *> *tenancyUnits;
+
+@end
+
+
+/**
+ *  This message is used to configure the generation of a subset of the RPCs in
+ *  a service for client libraries.
+ */
+@interface GTLRServiceConsumerManagement_SelectiveGapicGeneration : GTLRObject
+
+/**
+ *  An allowlist of the fully qualified names of RPCs that should be included on
+ *  public client surfaces.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
 
 @end
 
@@ -4769,7 +4843,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @interface GTLRServiceConsumerManagement_V1DefaultIdentity : GTLRObject
 
-/** The email address of the default identity. */
+/**
+ *  The email address of the default identity. Calling GenerateDefaultIdentity
+ *  with a deleted or purged default identity should expect
+ *  does_not_exist\@invalid-project.iam.gserviceaccount.com placeholder email.
+ */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**

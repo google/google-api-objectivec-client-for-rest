@@ -2783,7 +2783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  completes. During this period, the Organization may be restored to its last
  *  known state. After this period, the Organization will no longer be able to
  *  be restored. **Note: During the data retention period specified using this
- *  field, the Apigee organization cannot be recreated in the same GCP
+ *  field, the Apigee organization cannot be recreated in the same Google Cloud
  *  project.**
  *
  *  Likely values:
@@ -6110,6 +6110,93 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Gets a particular deployment of Api proxy or a shared flow in an environment
+ *
+ *  Method: apigee.organizations.environments.deployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the api proxy or the shared flow deployment. Use the
+ *  following structure in your request:
+ *  `organizations/{org}/environments/{env}/deployments/{deployment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
+ *
+ *  Gets a particular deployment of Api proxy or a shared flow in an environment
+ *
+ *  @param name Required. Name of the api proxy or the shared flow deployment.
+ *    Use the following structure in your request:
+ *    `organizations/{org}/environments/{env}/deployments/{deployment}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the IAM policy on a deployment. For more information, see [Manage
+ *  users, roles, and permissions using the
+ *  API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles).
+ *  You must have the `apigee.deployments.getIamPolicy` permission to call this
+ *  API.
+ *
+ *  Method: apigee.organizations.environments.deployments.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsGetIamPolicy : GTLRApigeeQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleIamV1Policy.
+ *
+ *  Gets the IAM policy on a deployment. For more information, see [Manage
+ *  users, roles, and permissions using the
+ *  API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles).
+ *  You must have the `apigee.deployments.getIamPolicy` permission to call this
+ *  API.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists all deployments of API proxies or shared flows in an environment.
  *
  *  Method: apigee.organizations.environments.deployments.list
@@ -6144,6 +6231,94 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the IAM policy on a deployment, if the policy already exists it will be
+ *  replaced. For more information, see [Manage users, roles, and permissions
+ *  using the
+ *  API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles).
+ *  You must have the `apigee.deployments.setIamPolicy` permission to call this
+ *  API.
+ *
+ *  Method: apigee.organizations.environments.deployments.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsSetIamPolicy : GTLRApigeeQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleIamV1Policy.
+ *
+ *  Sets the IAM policy on a deployment, if the policy already exists it will be
+ *  replaced. For more information, see [Manage users, roles, and permissions
+ *  using the
+ *  API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles).
+ *  You must have the `apigee.deployments.setIamPolicy` permission to call this
+ *  API.
+ *
+ *  @param object The @c GTLRApigee_GoogleIamV1SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Tests the permissions of a user on a deployment, and returns a subset of
+ *  permissions that the user has on the deployment. If the deployment does not
+ *  exist, an empty permission set is returned (a NOT_FOUND error is not
+ *  returned).
+ *
+ *  Method: apigee.organizations.environments.deployments.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsTestIamPermissions : GTLRApigeeQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Tests the permissions of a user on a deployment, and returns a subset of
+ *  permissions that the user has on the deployment. If the deployment does not
+ *  exist, an empty permission set is returned (a NOT_FOUND error is not
+ *  returned).
+ *
+ *  @param object The @c GTLRApigee_GoogleIamV1TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

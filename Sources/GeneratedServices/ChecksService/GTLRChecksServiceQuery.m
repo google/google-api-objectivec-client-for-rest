@@ -204,6 +204,25 @@
 
 @end
 
+@implementation GTLRChecksServiceQuery_AccountsReposOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRChecksServiceQuery_AccountsReposOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Operation class];
+  query.loggingName = @"checks.accounts.repos.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRChecksServiceQuery_MediaUpload
 
 @dynamic parent;

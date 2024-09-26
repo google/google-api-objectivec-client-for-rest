@@ -76,6 +76,15 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudScheduler_CancelOperationRequest
+//
+
+@implementation GTLRCloudScheduler_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudScheduler_Empty
 //
 
@@ -170,6 +179,28 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudScheduler_ListOperationsResponse
+//
+
+@implementation GTLRCloudScheduler_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRCloudScheduler_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudScheduler_Location
 //
 
@@ -223,6 +254,55 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 
 @implementation GTLRCloudScheduler_OidcToken
 @dynamic audience, serviceAccountEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudScheduler_Operation
+//
+
+@implementation GTLRCloudScheduler_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudScheduler_Operation_Metadata
+//
+
+@implementation GTLRCloudScheduler_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudScheduler_Operation_Response
+//
+
+@implementation GTLRCloudScheduler_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudScheduler_OperationMetadata
+//
+
+@implementation GTLRCloudScheduler_OperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
 @end
 
 

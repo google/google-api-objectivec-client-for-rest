@@ -6,7 +6,7 @@
 // Description:
 //   Discovery Engine API.
 // Documentation:
-//   https://cloud.google.com/discovery-engine/docs
+//   https://cloud.google.com/generative-ai-app-builder/docs/
 
 #import <GoogleAPIClientForREST/GTLRDiscoveryEngine.h>
 

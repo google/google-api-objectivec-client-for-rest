@@ -19,8 +19,10 @@
 @class GTLRNetworkconnectivity_AutoAccept;
 @class GTLRNetworkconnectivity_Binding;
 @class GTLRNetworkconnectivity_ConsumerPscConfig;
+@class GTLRNetworkconnectivity_ConsumerPscConfig_ProducerInstanceMetadata;
 @class GTLRNetworkconnectivity_ConsumerPscConfig_ServiceAttachmentIpAddressMap;
 @class GTLRNetworkconnectivity_ConsumerPscConnection;
+@class GTLRNetworkconnectivity_ConsumerPscConnection_ProducerInstanceMetadata;
 @class GTLRNetworkconnectivity_Expr;
 @class GTLRNetworkconnectivity_Filter;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation;
@@ -44,6 +46,7 @@
 @class GTLRNetworkconnectivity_Location;
 @class GTLRNetworkconnectivity_Location_Labels;
 @class GTLRNetworkconnectivity_Location_Metadata;
+@class GTLRNetworkconnectivity_Migration;
 @class GTLRNetworkconnectivity_NextHopInterconnectAttachment;
 @class GTLRNetworkconnectivity_NextHopRouterApplianceInstance;
 @class GTLRNetworkconnectivity_NextHopVpcNetwork;
@@ -54,6 +57,7 @@
 @class GTLRNetworkconnectivity_ProducerPscConfig;
 @class GTLRNetworkconnectivity_PscConfig;
 @class GTLRNetworkconnectivity_PscConnection;
+@class GTLRNetworkconnectivity_PscConnection_ProducerInstanceMetadata;
 @class GTLRNetworkconnectivity_RegionalEndpoint;
 @class GTLRNetworkconnectivity_RegionalEndpoint_Labels;
 @class GTLRNetworkconnectivity_Route;
@@ -189,7 +193,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnectio
 // GTLRNetworkconnectivity_ConsumerPscConnection.state
 
 /**
- *  The connection is fully established and ready to use.
+ *  The connection has been created successfully. However, for the up-to-date
+ *  connection status, please use the service attachment's
+ *  "ConnectedEndpoint.status" as the source of truth.
  *
  *  Value: "ACTIVE"
  */
@@ -473,6 +479,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Peerin
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ExternalToVpc;
 /**
+ *  Ranges created FOR_MIGRATION can be used to lock a CIDR range between a
+ *  source and target subnet. If usage is set to FOR_MIGRATION the peering value
+ *  has to be set to FOR_SELF or default to FOR_SELF when unset.
+ *
+ *  Value: "FOR_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ForMigration;
+/**
  *  A VPC resource can use the reserved CIDR block by associating it with the
  *  internal range resource if usage is set to FOR_VPC.
  *
@@ -582,7 +596,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscConnection_ErrorT
 // GTLRNetworkconnectivity_PscConnection.state
 
 /**
- *  The connection is fully established and ready to use.
+ *  The connection has been created successfully. However, for the up-to-date
+ *  connection status, please use the created forwarding rule's
+ *  "PscConnectionStatus" as the source of truth.
  *
  *  Value: "ACTIVE"
  */
@@ -1335,8 +1351,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
-/** Immutable. An immutable identifier for the producer instance. */
-@property(nonatomic, copy, nullable) NSString *producerInstanceId;
+/**
+ *  Immutable. Deprecated. Use producer_instance_metadata instead. An immutable
+ *  identifier for the producer instance.
+ */
+@property(nonatomic, copy, nullable) NSString *producerInstanceId GTLR_DEPRECATED;
+
+/** Immutable. An immutable map for the producer instance metadata. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ConsumerPscConfig_ProducerInstanceMetadata *producerInstanceMetadata;
 
 /**
  *  The consumer project where PSC connections are allowed to be created in.
@@ -1376,6 +1398,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  Immutable. An immutable map for the producer instance metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_ConsumerPscConfig_ProducerInstanceMetadata : GTLRObject
 @end
 
 
@@ -1425,7 +1459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        The error is due to the setup on producer side. (Value:
  *        "ERROR_PRODUCER_SIDE")
  */
-@property(nonatomic, copy, nullable) NSString *errorType;
+@property(nonatomic, copy, nullable) NSString *errorType GTLR_DEPRECATED;
 
 /**
  *  The URI of the consumer forwarding rule created. Example:
@@ -1450,8 +1484,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
-/** Immutable. An immutable identifier for the producer instance. */
-@property(nonatomic, copy, nullable) NSString *producerInstanceId;
+/**
+ *  Immutable. Deprecated. Use producer_instance_metadata instead. An immutable
+ *  identifier for the producer instance.
+ */
+@property(nonatomic, copy, nullable) NSString *producerInstanceId GTLR_DEPRECATED;
+
+/** Immutable. An immutable map for the producer instance metadata. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ConsumerPscConnection_ProducerInstanceMetadata *producerInstanceMetadata;
 
 /**
  *  The consumer project whose PSC forwarding rule is connected to the service
@@ -1481,7 +1521,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Active The
- *        connection is fully established and ready to use. (Value: "ACTIVE")
+ *        connection has been created successfully. However, for the up-to-date
+ *        connection status, please use the service attachment's
+ *        "ConnectedEndpoint.status" as the source of truth. (Value: "ACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Creating The
  *        connection is being created. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_ConsumerPscConnection_State_Deleting The
@@ -1494,6 +1536,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  Immutable. An immutable map for the producer instance metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_ConsumerPscConnection_ProducerInstanceMetadata : GTLRObject
 @end
 
 
@@ -2092,11 +2146,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The IP range that this internal range defines. */
+/**
+ *  The IP range that this internal range defines. NOTE: IPv6 ranges are limited
+ *  to usage=EXTERNAL_TO_VPC and peering=FOR_SELF. NOTE: For IPv6 Ranges this
+ *  field is compulsory, i.e. the address range must be specified explicitly.
+ */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
 /** User-defined labels. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_InternalRange_Labels *labels;
+
+/** Optional. Should be present if usage is set to FOR_MIGRATION. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Migration *migration;
 
 /**
  *  Immutable. The name of an internal range. Format:
@@ -2152,11 +2213,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *peering;
 
 /**
- *  An alternate to ip_cidr_range. Can be set when trying to create a
+ *  An alternate to ip_cidr_range. Can be set when trying to create an IPv4
  *  reservation that automatically finds a free range of the given size. If both
  *  ip_cidr_range and prefix_length are set, there is an error if the range
  *  sizes do not match. Can also be used during updates to change the range
- *  size.
+ *  size. NOTE: For IPv6 this field only works if ip_cidr_range is set as well,
+ *  and both fields must match. In other words, with IPv6 this field only works
+ *  as a redundant parameter.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2183,6 +2246,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        and are meant to block out address ranges for various use cases, like
  *        for example, usage on-prem, with dynamic route announcements via
  *        interconnect. (Value: "EXTERNAL_TO_VPC")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_ForMigration Ranges
+ *        created FOR_MIGRATION can be used to lock a CIDR range between a
+ *        source and target subnet. If usage is set to FOR_MIGRATION the peering
+ *        value has to be set to FOR_SELF or default to FOR_SELF when unset.
+ *        (Value: "FOR_MIGRATION")
  *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_ForVpc A VPC resource
  *        can use the reserved CIDR block by associating it with the internal
  *        range resource if usage is set to FOR_VPC. (Value: "FOR_VPC")
@@ -2842,6 +2910,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  Specification for migration with source and target resource names.
+ */
+@interface GTLRNetworkconnectivity_Migration : GTLRObject
+
+/**
+ *  Immutable. Resource path as an URI of the source resource, for example a
+ *  subnet. The project for the source resource should match the project for the
+ *  InternalRange. An example:
+ *  /projects/{project}/regions/{region}/subnetworks/{subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Immutable. Resource path of the target resource. The target project can be
+ *  different, as in the cases when migrating to peer networks. The resource For
+ *  example: /projects/{project}/regions/{region}/subnetworks/{subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+@end
+
+
+/**
  *  A route next hop that leads to an interconnect attachment resource.
  */
 @interface GTLRNetworkconnectivity_NextHopInterconnectAttachment : GTLRObject
@@ -3252,7 +3343,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** The project where the PSC connection is created. */
 @property(nonatomic, copy, nullable) NSString *consumerTargetProject;
 
-/** The most recent error during operating this connection. */
+/**
+ *  The most recent error during operating this connection. Deprecated, please
+ *  use error_info instead.
+ */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcStatus *error GTLR_DEPRECATED;
 
 /**
@@ -3279,13 +3373,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *        The error is due to the setup on producer side. (Value:
  *        "ERROR_PRODUCER_SIDE")
  */
-@property(nonatomic, copy, nullable) NSString *errorType;
+@property(nonatomic, copy, nullable) NSString *errorType GTLR_DEPRECATED;
 
 /** The last Compute Engine operation to setup PSC connection. */
 @property(nonatomic, copy, nullable) NSString *gceOperation;
 
-/** Immutable. An immutable identifier for the producer instance. */
-@property(nonatomic, copy, nullable) NSString *producerInstanceId;
+/**
+ *  Immutable. Deprecated. Use producer_instance_metadata instead. An immutable
+ *  identifier for the producer instance.
+ */
+@property(nonatomic, copy, nullable) NSString *producerInstanceId GTLR_DEPRECATED;
+
+/** Immutable. An immutable map for the producer instance metadata. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_PscConnection_ProducerInstanceMetadata *producerInstanceMetadata;
 
 /** The PSC connection id of the PSC forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *pscConnectionId;
@@ -3297,11 +3397,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *selectedSubnetwork;
 
 /**
+ *  Output only. [Output only] The service class associated with this PSC
+ *  Connection. The value is derived from the SCPolicy and matches the service
+ *  class name provided by the customer.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceClass;
+
+/**
  *  State of the PSC Connection
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Active The connection
- *        is fully established and ready to use. (Value: "ACTIVE")
+ *        has been created successfully. However, for the up-to-date connection
+ *        status, please use the created forwarding rule's "PscConnectionStatus"
+ *        as the source of truth. (Value: "ACTIVE")
  *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Creating The
  *        connection is being created. (Value: "CREATING")
  *    @arg @c kGTLRNetworkconnectivity_PscConnection_State_Deleting The
@@ -3314,6 +3423,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  Immutable. An immutable map for the producer instance metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_PscConnection_ProducerInstanceMetadata : GTLRObject
 @end
 
 
@@ -3870,7 +3991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @interface GTLRNetworkconnectivity_ServiceConnectionPolicy : GTLRObject
 
-/** Output only. Time when the ServiceConnectionMap was created. */
+/** Output only. Time when the ServiceConnectionPolicy was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -3937,7 +4058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *serviceClass;
 
-/** Output only. Time when the ServiceConnectionMap was updated. */
+/** Output only. Time when the ServiceConnectionPolicy was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end

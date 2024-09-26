@@ -1257,6 +1257,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
+ *  Downloads content of a file. Operations are valid for 24 hours from the time
+ *  of creation.
+ *
+ *  Method: drive.files.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_FilesDownload : GTLRDriveQuery
+
+/** Required. The ID of the file to download. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Optional. The MIME type the file should be downloaded as. This field can
+ *  only be set when downloading Google Workspace documents. See [Export MIME
+ *  types for Google Workspace documents](/drive/api/guides/ref-export-formats)
+ *  for the list of supported MIME types. If not set, a Google Workspace
+ *  document is downloaded with a default MIME type. The default MIME type might
+ *  change in the future.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Optional. The revision ID of the file to download. This field can only be
+ *  set when downloading blob files, Google Docs, and Google Sheets. Returns
+ *  `INVALID_ARGUMENT` if downloading a specific revision on the file is
+ *  unsupported.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  Fetches a @c GTLRDrive_Operation.
+ *
+ *  Downloads content of a file. Operations are valid for 24 hours from the time
+ *  of creation.
+ *
+ *  @param fileId Required. The ID of the file to download.
+ *
+ *  @return GTLRDriveQuery_FilesDownload
+ */
++ (instancetype)queryWithFileId:(NSString *)fileId;
+
+@end
+
+/**
  *  Permanently deletes all of the user's trashed files.
  *
  *  Method: drive.files.emptyTrash
@@ -1548,12 +1596,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeTeamDriveItems GTLR_DEPRECATED;
 
 /**
- *  A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder',
- *  'modifiedByMeTime', 'modifiedTime', 'name', 'name_natural',
- *  'quotaBytesUsed', 'recency', 'sharedWithMeTime', 'starred', and
- *  'viewedByMeTime'. Each key sorts ascending by default, but can be reversed
- *  with the 'desc' modifier. Example usage: ?orderBy=folder,modifiedTime
- *  desc,name.
+ *  A comma-separated list of sort keys. Valid keys are: * `createdTime`: When
+ *  the file was created. * `folder`: The folder ID. This field is sorted using
+ *  alphabetical ordering. * `modifiedByMeTime`: The last time the file was
+ *  modified by the user. * `modifiedTime`: The last time the file was modified
+ *  by anyone. * `name`: The name of the file. This field is sorted using
+ *  alphabetical ordering, so 1, 12, 2, 22. * `name_natural`: The name of the
+ *  file. This field is sorted using natural sort ordering, so 1, 2, 12, 22. *
+ *  `quotaBytesUsed`: The number of storage quota bytes used by the file. *
+ *  `recency`: The most recent timestamp from the file's date-time fields. *
+ *  `sharedWithMeTime`: When the file was shared with the user, if applicable. *
+ *  `starred`: Whether the user has starred the file. * `viewedByMeTime`: The
+ *  last time the file was viewed by the user. Each key sorts ascending by
+ *  default, but can be reversed with the 'desc' modifier. Example usage:
+ *  `?orderBy=folder,modifiedTime desc,name`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1891,6 +1947,145 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  */
 + (instancetype)queryWithObject:(GTLRDrive_Channel *)object
                          fileId:(NSString *)fileId;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: drive.operation.cancel
+ */
+@interface GTLRDriveQuery_OperationCancel : GTLRDriveQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRDriveQuery_OperationCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: drive.operation.delete
+ */
+@interface GTLRDriveQuery_OperationDelete : GTLRDriveQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRDriveQuery_OperationDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: drive.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMeetReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_OperationsGet : GTLRDriveQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDrive_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDriveQuery_OperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: drive.operations.list
+ */
+@interface GTLRDriveQuery_OperationsList : GTLRDriveQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDrive_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @return GTLRDriveQuery_OperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
 
 @end
 

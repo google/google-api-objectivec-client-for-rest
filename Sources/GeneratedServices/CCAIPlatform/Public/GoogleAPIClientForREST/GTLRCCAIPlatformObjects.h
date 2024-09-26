@@ -750,8 +750,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 /**
  *  Instances in this Channel will receive updates after all instances in
- *  `Critical` were updated + 2 days. They also will only be updated outside of
- *  their peak hours.
+ *  `Normal` were updated. They also will only be updated outside of their peak
+ *  hours.
  */
 @interface GTLRCCAIPlatform_Critical : GTLRObject
 
@@ -1159,6 +1159,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *  attachment. This field should be filled only for the ingress components.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjectIds;
+
+/** Output only. The CCAIP tenant project ids. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *producerProjectIds;
 
 @end
 

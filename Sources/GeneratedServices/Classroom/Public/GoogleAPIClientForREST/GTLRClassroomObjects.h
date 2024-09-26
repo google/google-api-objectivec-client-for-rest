@@ -784,8 +784,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Immutable. Identifier of the announcement, courseWork, or courseWorkMaterial
- *  under which the attachment is attached. Unique per course.
+ *  Immutable. Identifier of the `Announcement`, `CourseWork`, or
+ *  `CourseWorkMaterial` under which the attachment is attached. Unique per
+ *  course.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
@@ -799,30 +800,31 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  */
 @property(nonatomic, strong, nullable) NSNumber *maxPoints;
 
-/** Immutable. Deprecated, use item_id instead. */
+/** Immutable. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
  *  Required. URI to show the student view of the attachment. The URI will be
- *  opened in an iframe with the `courseId`, `postId`, and `attachmentId` query
- *  parameters set.
+ *  opened in an iframe with the `courseId`, `itemId`, `itemType`, and
+ *  `attachmentId` query parameters set.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_EmbedUri *studentViewUri;
 
 /**
  *  URI for the teacher to see student work on the attachment, if applicable.
- *  The URI will be opened in an iframe with the `courseId`, `postId`,
- *  `attachmentId`, and `submissionId` query parameters set. This is the same
- *  `submissionId` returned by google.classroom.AddOns.GetAddOnContext when a
- *  student views the attachment. If the URI is omitted or removed, `max_points`
- *  will also be discarded.
+ *  The URI will be opened in an iframe with the `courseId`, `itemId`,
+ *  `itemType`, `attachmentId`, and `submissionId` query parameters set. This is
+ *  the same `submissionId` returned in the
+ *  [`AddOnContext.studentContext`](//devsite.google.com/classroom/reference/rest/v1/AddOnContext#StudentContext)
+ *  field when a student views the attachment. If the URI is omitted or removed,
+ *  `max_points` will also be discarded.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_EmbedUri *studentWorkReviewUri;
 
 /**
  *  Required. URI to show the teacher view of the attachment. The URI will be
- *  opened in an iframe with the `courseId`, `postId`, and `attachmentId` query
- *  parameters set.
+ *  opened in an iframe with the `courseId`, `itemId`, `itemType`, and
+ *  `attachmentId` query parameters set.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_EmbedUri *teacherViewUri;
 
@@ -882,12 +884,12 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Immutable. Identifier of the announcement, courseWork, or courseWorkMaterial
- *  under which the attachment is attached.
+ *  Immutable. Identifier of the `Announcement`, `CourseWork`, or
+ *  `CourseWorkMaterial` under which the attachment is attached.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Immutable. Deprecated, use item_id instead. */
+/** Immutable. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 /**
@@ -1089,12 +1091,12 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Immutable. Identifier of the announcement, courseWork, or courseWorkMaterial
- *  under which the attachment is attached.
+ *  Immutable. Identifier of the `Announcement`, `CourseWork`, or
+ *  `CourseWorkMaterial` under which the attachment is attached.
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
-/** Immutable. Deprecated, use item_id instead. */
+/** Immutable. Deprecated, use `item_id` instead. */
 @property(nonatomic, copy, nullable) NSString *postId GTLR_DEPRECATED;
 
 @end

@@ -837,6 +837,7 @@ NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_Targeti
 
 // GTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails.deviceType
 NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeComputer = @"DEVICE_TYPE_COMPUTER";
+NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice = @"DEVICE_TYPE_CONNECTED_DEVICE";
 NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeConnectedTv = @"DEVICE_TYPE_CONNECTED_TV";
 NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeSmartPhone = @"DEVICE_TYPE_SMART_PHONE";
 NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeTablet = @"DEVICE_TYPE_TABLET";
@@ -844,6 +845,7 @@ NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_Devi
 
 // GTLRDisplayVideo_DeviceTypeTargetingOptionDetails.deviceType
 NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeComputer = @"DEVICE_TYPE_COMPUTER";
+NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice = @"DEVICE_TYPE_CONNECTED_DEVICE";
 NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeConnectedTv = @"DEVICE_TYPE_CONNECTED_TV";
 NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeSmartPhone = @"DEVICE_TYPE_SMART_PHONE";
 NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeTablet = @"DEVICE_TYPE_TABLET";
@@ -2162,6 +2164,7 @@ NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_Performan
 NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpe = @"PERFORMANCE_GOAL_TYPE_CPE";
 NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpiavc = @"PERFORMANCE_GOAL_TYPE_CPIAVC";
 NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpm = @"PERFORMANCE_GOAL_TYPE_CPM";
+NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpv = @"PERFORMANCE_GOAL_TYPE_CPV";
 NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCtr = @"PERFORMANCE_GOAL_TYPE_CTR";
 NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeImpressionCvr = @"PERFORMANCE_GOAL_TYPE_IMPRESSION_CVR";
 NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeOther = @"PERFORMANCE_GOAL_TYPE_OTHER";

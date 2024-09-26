@@ -335,9 +335,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *  Optional. Filters applied to the `[Executions.ListExecutions]` results. The
  *  following fields are supported for filtering: `executionId`, `state`,
  *  `createTime`, `startTime`, `endTime`, `duration`, `workflowRevisionId`,
- *  `stepName`, and `label`. For details, see AIP-160. For more information, see
- *  Filter executions. For example, if you are using the Google APIs Explorer:
- *  `state="SUCCEEDED"` or `startTime>"2023-08-01" AND state="FAILED"`
+ *  `stepName`, `label`, and `disableConcurrencyQuotaOverflowBuffering`. For
+ *  details, see AIP-160. For more information, see Filter executions. For
+ *  example, if you are using the Google APIs Explorer: `state="SUCCEEDED"` or
+ *  `startTime>"2023-08-01" AND state="FAILED"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

@@ -199,6 +199,30 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCivicInfo_DivisionByAddressResponse
+//
+
+@implementation GTLRCivicInfo_DivisionByAddressResponse
+@dynamic divisions, normalizedInput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCivicInfo_DivisionByAddressResponse_Divisions
+//
+
+@implementation GTLRCivicInfo_DivisionByAddressResponse_Divisions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCivicInfo_GeographicDivision class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCivicInfo_DivisionSearchResponse
 //
 

@@ -3203,6 +3203,15 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  Restore token used to differentiate soft-deleted objects with the same name
+ *  and generation. Only applicable for hierarchical namespace buckets and if
+ *  softDeleted is set to true. This parameter is optional, and is only required
+ *  in the rare case when there are multiple soft-deleted objects with the same
+ *  name and generation.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreToken;
+
+/**
  *  If true, only soft-deleted object versions will be listed. The default is
  *  false. For more information, see [Soft
  *  Delete](https://cloud.google.com/storage/docs/soft-delete).
@@ -3731,6 +3740,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        "noAcl")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  Restore token used to differentiate sof-deleted objects with the same name
+ *  and generation. Only applicable for hierarchical namespace buckets. This
+ *  parameter is optional, and is only required in the rare case when there are
+ *  multiple soft-deleted objects with the same name and generation.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreToken;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays

@@ -2015,6 +2015,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Object_Owner *owner;
 
+/**
+ *  Restore token used to differentiate deleted objects with the same name and
+ *  generation. This field is only returned for deleted objects in hierarchical
+ *  namespace buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreToken;
+
 /** A collection of object level retention parameters. */
 @property(nonatomic, strong, nullable) GTLRStorage_Object_Retention *retention;
 

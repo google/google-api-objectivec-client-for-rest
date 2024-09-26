@@ -428,11 +428,12 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 //
 
 @implementation GTLRCCAIPlatform_PscSetting
-@dynamic allowedConsumerProjectIds;
+@dynamic allowedConsumerProjectIds, producerProjectIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"allowedConsumerProjectIds" : [NSString class]
+    @"allowedConsumerProjectIds" : [NSString class],
+    @"producerProjectIds" : [NSString class]
   };
   return map;
 }

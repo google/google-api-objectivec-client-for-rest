@@ -38,6 +38,7 @@ NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Active =
 NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Deleting = @"DELETING";
 NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive = @"INACTIVE";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Orphan = @"ORPHAN";
 NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRNetworkSecurity_GatewaySecurityPolicyRule.basicProfile

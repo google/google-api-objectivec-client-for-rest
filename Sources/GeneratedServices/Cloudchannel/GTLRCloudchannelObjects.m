@@ -1661,7 +1661,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest
-@dynamic integrator, serviceAccount;
+@dynamic serviceAccount;
 @end
 
 
@@ -2028,7 +2028,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest
-@dynamic integrator, serviceAccount;
+@dynamic serviceAccount;
 @end
 
 

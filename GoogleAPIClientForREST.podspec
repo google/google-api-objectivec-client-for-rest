@@ -1099,6 +1099,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/OnDemandScanning/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/OnDemandScanning/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'OracleDatabase' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/OracleDatabase/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/OracleDatabase/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'OrgPolicyAPI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/OrgPolicyAPI/**/*.{h,m}'

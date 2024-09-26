@@ -165,6 +165,12 @@ NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStag
 NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRMonitoring_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRMonitoring_MetricThreshold.comparison
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonEq = @"COMPARISON_EQ";
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonGe = @"COMPARISON_GE";
@@ -1466,7 +1472,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

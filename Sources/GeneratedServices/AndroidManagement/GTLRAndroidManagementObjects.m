@@ -19,6 +19,12 @@ NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteria
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeEnabled = @"COMMON_CRITERIA_MODE_ENABLED";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified = @"COMMON_CRITERIA_MODE_UNSPECIFIED";
 
+// GTLRAndroidManagement_AdvancedSecurityOverrides.contentProtectionPolicy
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionDisabled = @"CONTENT_PROTECTION_DISABLED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionEnforced = @"CONTENT_PROTECTION_ENFORCED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionPolicyUnspecified = @"CONTENT_PROTECTION_POLICY_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionUserChoice = @"CONTENT_PROTECTION_USER_CHOICE";
+
 // GTLRAndroidManagement_AdvancedSecurityOverrides.developerSettings
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsAllowed = @"DEVELOPER_SETTINGS_ALLOWED";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsDisabled = @"DEVELOPER_SETTINGS_DISABLED";
@@ -182,6 +188,13 @@ NSString * const kGTLRAndroidManagement_Command_Type_StopLostMode = @"STOP_LOST_
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeDisabled = @"COMMON_CRITERIA_MODE_DISABLED";
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeEnabled = @"COMMON_CRITERIA_MODE_ENABLED";
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown = @"COMMON_CRITERIA_MODE_STATUS_UNKNOWN";
+
+// GTLRAndroidManagement_CommonCriteriaModeInfo.policySignatureVerificationStatus
+NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationDisabled = @"POLICY_SIGNATURE_VERIFICATION_DISABLED";
+NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationFailed = @"POLICY_SIGNATURE_VERIFICATION_FAILED";
+NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationNotSupported = @"POLICY_SIGNATURE_VERIFICATION_NOT_SUPPORTED";
+NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationStatusUnspecified = @"POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationSucceeded = @"POLICY_SIGNATURE_VERIFICATION_SUCCEEDED";
 
 // GTLRAndroidManagement_CrossProfilePolicies.crossProfileCopyPaste
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed = @"COPY_FROM_WORK_TO_PERSONAL_DISALLOWED";
@@ -758,6 +771,11 @@ NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ZeroTouchCustom
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps = @"APPROVE_APPS";
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified = @"WEB_TOKEN_PERMISSION_UNSPECIFIED";
 
+// GTLRAndroidManagement_WifiRoamingSetting.wifiRoamingMode
+NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingAggressive = @"WIFI_ROAMING_AGGRESSIVE";
+NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDefault = @"WIFI_ROAMING_DEFAULT";
+NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingModeUnspecified = @"WIFI_ROAMING_MODE_UNSPECIFIED";
+
 // GTLRAndroidManagement_WifiSsidPolicy.wifiSsidPolicyType
 NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidAllowlist = @"WIFI_SSID_ALLOWLIST";
 NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidDenylist = @"WIFI_SSID_DENYLIST";
@@ -792,9 +810,9 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 //
 
 @implementation GTLRAndroidManagement_AdvancedSecurityOverrides
-@dynamic commonCriteriaMode, developerSettings, googlePlayProtectVerifyApps,
-         mtePolicy, personalAppsThatCanReadWorkNotifications,
-         untrustedAppsPolicy;
+@dynamic commonCriteriaMode, contentProtectionPolicy, developerSettings,
+         googlePlayProtectVerifyApps, mtePolicy,
+         personalAppsThatCanReadWorkNotifications, untrustedAppsPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1157,7 +1175,7 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 //
 
 @implementation GTLRAndroidManagement_CommonCriteriaModeInfo
-@dynamic commonCriteriaModeStatus;
+@dynamic commonCriteriaModeStatus, policySignatureVerificationStatus;
 @end
 
 
@@ -1307,7 +1325,7 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
 
 @implementation GTLRAndroidManagement_DeviceConnectivityManagement
 @dynamic configureWifi, tetheringSettings, usbDataAccess, wifiDirectSettings,
-         wifiSsidPolicy;
+         wifiRoamingPolicy, wifiSsidPolicy;
 @end
 
 
@@ -2742,6 +2760,34 @@ NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSs
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_WifiRoamingPolicy
+//
+
+@implementation GTLRAndroidManagement_WifiRoamingPolicy
+@dynamic wifiRoamingSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"wifiRoamingSettings" : [GTLRAndroidManagement_WifiRoamingSetting class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_WifiRoamingSetting
+//
+
+@implementation GTLRAndroidManagement_WifiRoamingSetting
+@dynamic wifiRoamingMode, wifiSsid;
 @end
 
 

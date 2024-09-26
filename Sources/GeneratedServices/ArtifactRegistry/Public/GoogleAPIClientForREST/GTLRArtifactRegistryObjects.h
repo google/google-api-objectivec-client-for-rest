@@ -21,6 +21,7 @@
 @class GTLRArtifactRegistry_CleanupPolicy;
 @class GTLRArtifactRegistry_CleanupPolicyCondition;
 @class GTLRArtifactRegistry_CleanupPolicyMostRecentVersions;
+@class GTLRArtifactRegistry_CommonRemoteRepository;
 @class GTLRArtifactRegistry_DockerImage;
 @class GTLRArtifactRegistry_DockerRepository;
 @class GTLRArtifactRegistry_DockerRepositoryConfig;
@@ -807,6 +808,17 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** List of package name prefixes that will apply this rule. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageNamePrefixes;
+
+@end
+
+
+/**
+ *  Common remote repository settings type.
+ */
+@interface GTLRArtifactRegistry_CommonRemoteRepository : GTLRObject
+
+/** Required. A common public repository base for Remote Repository. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -2287,6 +2299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** Specific settings for an Apt remote repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_AptRepository *aptRepository;
+
+/**
+ *  Common remote repository settings. Used as the RR upstream URL instead of
+ *  Predefined and Custom remote repositories. UI and Gcloud will map all the
+ *  new remote repositories to this field.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_CommonRemoteRepository *commonRepository;
 
 /**
  *  The description of the remote source.

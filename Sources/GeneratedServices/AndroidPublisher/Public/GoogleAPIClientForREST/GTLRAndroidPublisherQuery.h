@@ -684,7 +684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  *  @param packageName Package name of the app.
  *  @param editId Identifier of the edit.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    10737418240. Accepted MIME type: application/octet-stream
+ *    53687091200. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsBundlesUpload
  */

@@ -1249,6 +1249,72 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Allows management of multiple questions.
+ *
+ *  Method: retail.projects.locations.catalogs.generativeQuestion.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsGenerativeQuestionBatchUpdate : GTLRCloudRetailQuery
+
+/**
+ *  Optional. Resource name of the parent catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudRetail_GoogleCloudRetailV2BatchUpdateGenerativeQuestionConfigsResponse.
+ *
+ *  Allows management of multiple questions.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2BatchUpdateGenerativeQuestionConfigsRequest
+ *    to include in the query.
+ *  @param parent Optional. Resource name of the parent catalog. Format:
+ *    projects/{project}/locations/{location}/catalogs/{catalog}
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsGenerativeQuestionBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2BatchUpdateGenerativeQuestionConfigsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns all questions for a given catalog.
+ *
+ *  Method: retail.projects.locations.catalogs.generativeQuestions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsGenerativeQuestionsList : GTLRCloudRetailQuery
+
+/**
+ *  Required. Resource name of the parent catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudRetail_GoogleCloudRetailV2ListGenerativeQuestionConfigsResponse.
+ *
+ *  Returns all questions for a given catalog.
+ *
+ *  @param parent Required. Resource name of the parent catalog. Format:
+ *    projects/{project}/locations/{location}/catalogs/{catalog}
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsGenerativeQuestionsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets an AttributesConfig.
  *
  *  Method: retail.projects.locations.catalogs.getAttributesConfig
@@ -1335,6 +1401,39 @@ NS_ASSUME_NONNULL_BEGIN
  *    /locations/global/catalogs/default_catalog`.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetDefaultBranch
+ */
++ (instancetype)queryWithCatalog:(NSString *)catalog;
+
+@end
+
+/**
+ *  Manages overal generative question feature state -- enables toggling feature
+ *  on and off.
+ *
+ *  Method: retail.projects.locations.catalogs.getGenerativeQuestionFeature
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetGenerativeQuestionFeature : GTLRCloudRetailQuery
+
+/**
+ *  Required. Resource name of the parent catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionsFeatureConfig.
+ *
+ *  Manages overal generative question feature state -- enables toggling feature
+ *  on and off.
+ *
+ *  @param catalog Required. Resource name of the parent catalog. Format:
+ *    projects/{project}/locations/{location}/catalogs/{catalog}
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetGenerativeQuestionFeature
  */
 + (instancetype)queryWithCatalog:(NSString *)catalog;
 
@@ -2441,6 +2540,96 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Allows management of individual questions.
+ *
+ *  Method: retail.projects.locations.catalogs.updateGenerativeQuestion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateGenerativeQuestion : GTLRCloudRetailQuery
+
+/**
+ *  Required. Resource name of the catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Optional. Indicates which fields in the provided GenerativeQuestionConfig to
+ *  update. The following are NOT supported: *
+ *  GenerativeQuestionConfig.frequency If not set or empty, all supported fields
+ *  are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig.
+ *
+ *  Allows management of individual questions.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig to include in
+ *    the query.
+ *  @param catalog Required. Resource name of the catalog. Format:
+ *    projects/{project}/locations/{location}/catalogs/{catalog}
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateGenerativeQuestion
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig *)object
+                        catalog:(NSString *)catalog;
+
+@end
+
+/**
+ *  Manages overal generative question feature state -- enables toggling feature
+ *  on and off.
+ *
+ *  Method: retail.projects.locations.catalogs.updateGenerativeQuestionFeature
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateGenerativeQuestionFeature : GTLRCloudRetailQuery
+
+/**
+ *  Required. Resource name of the affected catalog. Format:
+ *  projects/{project}/locations/{location}/catalogs/{catalog}
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Optional. Indicates which fields in the provided
+ *  GenerativeQuestionsFeatureConfig to update. If not set or empty, all
+ *  supported fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionsFeatureConfig.
+ *
+ *  Manages overal generative question feature state -- enables toggling feature
+ *  on and off.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionsFeatureConfig to
+ *    include in the query.
+ *  @param catalog Required. Resource name of the affected catalog. Format:
+ *    projects/{project}/locations/{location}/catalogs/{catalog}
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateGenerativeQuestionFeature
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionsFeatureConfig *)object
+                        catalog:(NSString *)catalog;
 
 @end
 

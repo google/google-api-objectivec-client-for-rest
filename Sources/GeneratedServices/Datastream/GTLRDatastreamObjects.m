@@ -1026,7 +1026,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_RunStreamRequest
-@dynamic cdcStrategy;
+@dynamic cdcStrategy, force;
 @end
 
 

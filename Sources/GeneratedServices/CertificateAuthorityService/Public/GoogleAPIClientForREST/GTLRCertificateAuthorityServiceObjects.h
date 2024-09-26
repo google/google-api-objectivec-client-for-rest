@@ -972,8 +972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CaPool_Labels *labels;
 
 /**
- *  Output only. The resource name for this CaPool in the format `projects/ *
- *  /locations/ * /caPools/ *`.
+ *  Output only. Identifier. The resource name for this CaPool in the format
+ *  `projects/ * /locations/ * /caPools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -4063,6 +4063,213 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a log scope.
+ *
+ *  Method: logging.folders.locations.logScopes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsLogScopesCreate : GTLRLoggingQuery
+
+/**
+ *  Required. A client-assigned identifier such as "log-scope". Identifiers are
+ *  limited to 100 characters and can include only letters, digits, underscores,
+ *  hyphens, and periods. First character has to be alphanumeric.
+ */
+@property(nonatomic, copy, nullable) NSString *logScopeId;
+
+/**
+ *  Required. The parent project in which to create the log scope
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  example:"projects/my-project/locations/global"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Creates a log scope.
+ *
+ *  @param object The @c GTLRLogging_LogScope to include in the query.
+ *  @param parent Required. The parent project in which to create the log scope
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsLogScopesCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a log scope.
+ *
+ *  Method: logging.folders.locations.logScopes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsLogScopesDelete : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the log scope to delete:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a log scope.
+ *
+ *  @param name Required. The resource name of the log scope to delete:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
+ *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsLogScopesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a log scope.
+ *
+ *  Method: logging.folders.locations.logScopes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsLogScopesGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the log scope:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Gets a log scope.
+ *
+ *  @param name Required. The resource name of the log scope:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
+ *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsLogScopesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists log scopes.
+ *
+ *  Method: logging.folders.locations.logScopes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsLogScopesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this
+ *  request.Non-positive values are ignored. The presence of nextPageToken in
+ *  the response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose log scopes are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogScopesResponse.
+ *
+ *  Lists log scopes.
+ *
+ *  @param parent Required. The parent resource whose log scopes are to be
+ *    listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsLogScopesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a log scope.
+ *
+ *  Method: logging.folders.locations.logScopes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsLogScopesPatch : GTLRLoggingQuery
+
+/**
+ *  Output only. The resource name of the log scope.For
+ *  example:projects/my-project/locations/global/logScopes/my-log-scope
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask that specifies the fields in log_scope that need an
+ *  update. A field will be overwritten if, and only if, it is in the update
+ *  mask. name and output only fields cannot be updated.For a detailed FieldMask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor
+ *  example: updateMask=description
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Updates a log scope.
+ *
+ *  @param object The @c GTLRLogging_LogScope to include in the query.
+ *  @param name Output only. The resource name of the log scope.For
+ *    example:projects/my-project/locations/global/logScopes/my-log-scope
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsLogScopesPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -7811,6 +8018,213 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a log scope.
+ *
+ *  Method: logging.organizations.locations.logScopes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsLogScopesCreate : GTLRLoggingQuery
+
+/**
+ *  Required. A client-assigned identifier such as "log-scope". Identifiers are
+ *  limited to 100 characters and can include only letters, digits, underscores,
+ *  hyphens, and periods. First character has to be alphanumeric.
+ */
+@property(nonatomic, copy, nullable) NSString *logScopeId;
+
+/**
+ *  Required. The parent project in which to create the log scope
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  example:"projects/my-project/locations/global"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Creates a log scope.
+ *
+ *  @param object The @c GTLRLogging_LogScope to include in the query.
+ *  @param parent Required. The parent project in which to create the log scope
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a log scope.
+ *
+ *  Method: logging.organizations.locations.logScopes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsLogScopesDelete : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the log scope to delete:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a log scope.
+ *
+ *  @param name Required. The resource name of the log scope to delete:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
+ *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a log scope.
+ *
+ *  Method: logging.organizations.locations.logScopes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsLogScopesGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the log scope:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Gets a log scope.
+ *
+ *  @param name Required. The resource name of the log scope:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
+ *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists log scopes.
+ *
+ *  Method: logging.organizations.locations.logScopes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsLogScopesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this
+ *  request.Non-positive values are ignored. The presence of nextPageToken in
+ *  the response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose log scopes are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogScopesResponse.
+ *
+ *  Lists log scopes.
+ *
+ *  @param parent Required. The parent resource whose log scopes are to be
+ *    listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a log scope.
+ *
+ *  Method: logging.organizations.locations.logScopes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsLogScopesPatch : GTLRLoggingQuery
+
+/**
+ *  Output only. The resource name of the log scope.For
+ *  example:projects/my-project/locations/global/logScopes/my-log-scope
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask that specifies the fields in log_scope that need an
+ *  update. A field will be overwritten if, and only if, it is in the update
+ *  mask. name and output only fields cannot be updated.For a detailed FieldMask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor
+ *  example: updateMask=description
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Updates a log scope.
+ *
+ *  @param object The @c GTLRLogging_LogScope to include in the query.
+ *  @param name Output only. The resource name of the log scope.For
+ *    example:projects/my-project/locations/global/logScopes/my-log-scope
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -10333,6 +10747,213 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a log scope.
+ *
+ *  Method: logging.projects.locations.logScopes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsLogScopesCreate : GTLRLoggingQuery
+
+/**
+ *  Required. A client-assigned identifier such as "log-scope". Identifiers are
+ *  limited to 100 characters and can include only letters, digits, underscores,
+ *  hyphens, and periods. First character has to be alphanumeric.
+ */
+@property(nonatomic, copy, nullable) NSString *logScopeId;
+
+/**
+ *  Required. The parent project in which to create the log scope
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  example:"projects/my-project/locations/global"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Creates a log scope.
+ *
+ *  @param object The @c GTLRLogging_LogScope to include in the query.
+ *  @param parent Required. The parent project in which to create the log scope
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a log scope.
+ *
+ *  Method: logging.projects.locations.logScopes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsLogScopesDelete : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the log scope to delete:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a log scope.
+ *
+ *  @param name Required. The resource name of the log scope to delete:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
+ *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a log scope.
+ *
+ *  Method: logging.projects.locations.logScopes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsLogScopesGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the log scope:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Gets a log scope.
+ *
+ *  @param name Required. The resource name of the log scope:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
+ *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists log scopes.
+ *
+ *  Method: logging.projects.locations.logScopes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsLogScopesList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this
+ *  request.Non-positive values are ignored. The presence of nextPageToken in
+ *  the response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose log scopes are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogScopesResponse.
+ *
+ *  Lists log scopes.
+ *
+ *  @param parent Required. The parent resource whose log scopes are to be
+ *    listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a log scope.
+ *
+ *  Method: logging.projects.locations.logScopes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsLogScopesPatch : GTLRLoggingQuery
+
+/**
+ *  Output only. The resource name of the log scope.For
+ *  example:projects/my-project/locations/global/logScopes/my-log-scope
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask that specifies the fields in log_scope that need an
+ *  update. A field will be overwritten if, and only if, it is in the update
+ *  mask. name and output only fields cannot be updated.For a detailed FieldMask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor
+ *  example: updateMask=description
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogScope.
+ *
+ *  Updates a log scope.
+ *
+ *  @param object The @c GTLRLogging_LogScope to include in the query.
+ *  @param name Output only. The resource name of the log scope.For
+ *    example:projects/my-project/locations/global/logScopes/my-log-scope
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogScope *)object
+                           name:(NSString *)name;
 
 @end
 

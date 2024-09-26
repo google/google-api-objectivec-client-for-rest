@@ -1119,7 +1119,7 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @implementation GTLRCloudchannelQuery_AccountsListSubscribers
 
-@dynamic account, integrator, pageSize, pageToken;
+@dynamic account, pageSize, pageToken;
 
 + (instancetype)queryWithAccount:(NSString *)account {
   NSArray *pathParams = @[ @"account" ];
@@ -1369,63 +1369,6 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
   query.account = account;
   query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberResponse class];
   query.loggingName = @"cloudchannel.accounts.unregister";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudchannelQuery_IntegratorsListSubscribers
-
-@dynamic account, integrator, pageSize, pageToken;
-
-+ (instancetype)queryWithIntegrator:(NSString *)integrator {
-  NSArray *pathParams = @[ @"integrator" ];
-  NSString *pathURITemplate = @"v1/{+integrator}:listSubscribers";
-  GTLRCloudchannelQuery_IntegratorsListSubscribers *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.integrator = integrator;
-  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ListSubscribersResponse class];
-  query.loggingName = @"cloudchannel.integrators.listSubscribers";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudchannelQuery_IntegratorsRegister
-
-@dynamic account, integrator, serviceAccount;
-
-+ (instancetype)queryWithIntegrator:(NSString *)integrator {
-  NSArray *pathParams = @[ @"integrator" ];
-  NSString *pathURITemplate = @"v1/{+integrator}:register";
-  GTLRCloudchannelQuery_IntegratorsRegister *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.integrator = integrator;
-  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberResponse class];
-  query.loggingName = @"cloudchannel.integrators.register";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudchannelQuery_IntegratorsUnregister
-
-@dynamic account, integrator, serviceAccount;
-
-+ (instancetype)queryWithIntegrator:(NSString *)integrator {
-  NSArray *pathParams = @[ @"integrator" ];
-  NSString *pathURITemplate = @"v1/{+integrator}:unregister";
-  GTLRCloudchannelQuery_IntegratorsUnregister *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.integrator = integrator;
-  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberResponse class];
-  query.loggingName = @"cloudchannel.integrators.unregister";
   return query;
 }
 

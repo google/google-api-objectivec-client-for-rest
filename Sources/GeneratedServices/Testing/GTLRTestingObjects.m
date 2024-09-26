@@ -278,9 +278,10 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidModel
-@dynamic brand, codename, form, formFactor, identifier, lowFpsVideoRecording,
-         manufacturer, name, perVersionInfo, screenDensity, screenX, screenY,
-         supportedAbis, supportedVersionIds, tags, thumbnailUrl;
+@dynamic brand, codename, form, formFactor, identifier, labInfo,
+         lowFpsVideoRecording, manufacturer, name, perVersionInfo,
+         screenDensity, screenX, screenY, supportedAbis, supportedVersionIds,
+         tags, thumbnailUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -847,6 +848,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 @implementation GTLRTesting_IosXcTest
 @dynamic appBundleId, testSpecialEntitlements, testsZip, xcodeVersion,
          xctestrun;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_LabInfo
+//
+
+@implementation GTLRTesting_LabInfo
+@dynamic name;
 @end
 
 

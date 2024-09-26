@@ -20,6 +20,7 @@
 @class GTLRCivicInfo_Candidate;
 @class GTLRCivicInfo_Channel;
 @class GTLRCivicInfo_Contest;
+@class GTLRCivicInfo_DivisionByAddressResponse_Divisions;
 @class GTLRCivicInfo_DivisionSearchResult;
 @class GTLRCivicInfo_Election;
 @class GTLRCivicInfo_ElectionOfficial;
@@ -501,6 +502,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  GTLRCivicInfo_DivisionByAddressResponse
+ */
+@interface GTLRCivicInfo_DivisionByAddressResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCivicInfo_DivisionByAddressResponse_Divisions *divisions;
+
+/** The normalized version of the requested address. */
+@property(nonatomic, strong, nullable) GTLRCivicInfo_SimpleAddressType *normalizedInput;
+
+@end
+
+
+/**
+ *  GTLRCivicInfo_DivisionByAddressResponse_Divisions
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCivicInfo_GeographicDivision. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCivicInfo_DivisionByAddressResponse_Divisions : GTLRObject
 @end
 
 

@@ -41,6 +41,7 @@
 @class GTLRAppengine_FileInfo;
 @class GTLRAppengine_FirewallRule;
 @class GTLRAppengine_FlexibleRuntimeSettings;
+@class GTLRAppengine_GceTag;
 @class GTLRAppengine_HealthCheck;
 @class GTLRAppengine_IdentityAwareProxy;
 @class GTLRAppengine_Instance;
@@ -2230,6 +2231,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
+ *  For use only by GCE. GceTag is a wrapper around the GCE administrative tag
+ *  with parent info.
+ */
+@interface GTLRAppengine_GceTag : GTLRObject
+
+/**
+ *  The parents(s) of the tag. Eg. projects/123, folders/456 It usually contains
+ *  only one parent. But, in some corner cases, it can contain multiple parents.
+ *  Currently, organizations are not supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parent;
+
+/** The administrative_tag name. */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
  *  Metadata for the given google.cloud.location.Location.
  */
 @interface GTLRAppengine_GoogleAppengineV1betaLocationMetadata : GTLRObject
@@ -3367,6 +3387,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *        container with this state is an error. (Value: "UNKNOWN_STATE")
  */
 @property(nonatomic, copy, nullable) NSString *consumerProjectState;
+
+/**
+ *  The GCE tags associated with the consumer project and those inherited due to
+ *  their ancestry, if any. Not supported by CCFE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAppengine_GceTag *> *gceTag;
 
 /**
  *  The service account authorized to operate on the consumer project. Note:

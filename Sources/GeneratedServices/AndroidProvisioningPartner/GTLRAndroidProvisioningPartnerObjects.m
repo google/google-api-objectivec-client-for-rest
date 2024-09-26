@@ -312,8 +312,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_DeviceIdentifier
-@dynamic chromeOsAttestedDeviceId, deviceType, imei, manufacturer, meid, model,
-         serialNumber;
+@dynamic chromeOsAttestedDeviceId, deviceType, imei, imei2, manufacturer, meid,
+         meid2, model, serialNumber;
 @end
 
 

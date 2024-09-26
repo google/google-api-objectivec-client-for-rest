@@ -846,7 +846,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_NetworkConfig
 @dynamic bandwidth, cidr, gcpService, identifier, jumboFramesEnabled, name,
-         serviceCidr, type, userNote, vlanAttachments, vlanSameProject;
+         serviceCidr, type, userNote, vlanAttachments, vlanSameProject, vrf;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

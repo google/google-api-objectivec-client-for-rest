@@ -1136,7 +1136,7 @@
 
 @implementation GTLRFirestoreQuery_ProjectsLocationsBackupsList
 
-@dynamic parent;
+@dynamic filter, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

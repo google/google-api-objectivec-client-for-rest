@@ -454,6 +454,73 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadB
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkServices_LoggingConfig.logSeverity
+
+/**
+ *  A person must take action immediately.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Alert;
+/**
+ *  Critical events cause more severe problems or outages.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Critical;
+/**
+ *  Debug or trace level logging.
+ *
+ *  Value: "DEBUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Debug;
+/**
+ *  One or more systems are unusable.
+ *
+ *  Value: "EMERGENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Emergency;
+/**
+ *  Error events are likely to cause problems.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Error;
+/**
+ *  Routine information, such as ongoing status or performance.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Info;
+/**
+ *  Log severity is not specified. This value is treated the same as NONE, but
+ *  is used to distinguish between no update and update to NONE in update_masks.
+ *
+ *  Value: "LOG_SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_LogSeverityUnspecified;
+/**
+ *  Default value at resource creation, presence of this value must be treated
+ *  as no logging/disable logging.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_None;
+/**
+ *  Normal but significant events, such as start up, shut down, or a
+ *  configuration change.
+ *
+ *  Value: "NOTICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Notice;
+/**
+ *  Warning events might cause problems.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkServices_Mesh.envoyHeaders
 
 /**
@@ -2451,7 +2518,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  available under the namespace `com.google.lb_route_extension.`. The
  *  following variables are supported in the metadata Struct:
  *  `{forwarding_rule_id}` - substituted with the forwarding rule's fully
- *  qualified resource name.
+ *  qualified resource name. Only one of the resource level metadata and
+ *  extension level metadata can be set.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_LbRouteExtension_Metadata *metadata;
 
@@ -2490,7 +2558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  available under the namespace `com.google.lb_route_extension.`. The
  *  following variables are supported in the metadata Struct:
  *  `{forwarding_rule_id}` - substituted with the forwarding rule's fully
- *  qualified resource name.
+ *  qualified resource name. Only one of the resource level metadata and
+ *  extension level metadata can be set.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2569,7 +2638,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  `ProcessingRequest.metadata_context.filter_metadata` map field. The metadata
  *  is available under the key `com.google.lb_traffic_extension.`. The following
  *  variables are supported in the metadata: `{forwarding_rule_id}` -
- *  substituted with the forwarding rule's fully qualified resource name.
+ *  substituted with the forwarding rule's fully qualified resource name. Only
+ *  one of the resource level metadata and extension level metadata can be set.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_LbTrafficExtension_Metadata *metadata;
 
@@ -2606,7 +2676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  `ProcessingRequest.metadata_context.filter_metadata` map field. The metadata
  *  is available under the key `com.google.lb_traffic_extension.`. The following
  *  variables are supported in the metadata: `{forwarding_rule_id}` -
- *  substituted with the forwarding rule's fully qualified resource name.
+ *  substituted with the forwarding rule's fully qualified resource name. Only
+ *  one of the resource level metadata and extension level metadata can be set.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3036,6 +3107,48 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 
 /**
+ *  The configuration for Platform Telemetry logging for Eventarc Avdvanced
+ *  resources.
+ */
+@interface GTLRNetworkServices_LoggingConfig : GTLRObject
+
+/**
+ *  Optional. The minimum severity of logs that will be sent to
+ *  Stackdriver/Platform Telemetry. Logs at severitiy ≥ this value will be sent,
+ *  unless it is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Alert A person must
+ *        take action immediately. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Critical Critical
+ *        events cause more severe problems or outages. (Value: "CRITICAL")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Debug Debug or
+ *        trace level logging. (Value: "DEBUG")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Emergency One or
+ *        more systems are unusable. (Value: "EMERGENCY")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Error Error events
+ *        are likely to cause problems. (Value: "ERROR")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Info Routine
+ *        information, such as ongoing status or performance. (Value: "INFO")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_LogSeverityUnspecified
+ *        Log severity is not specified. This value is treated the same as NONE,
+ *        but is used to distinguish between no update and update to NONE in
+ *        update_masks. (Value: "LOG_SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_None Default value
+ *        at resource creation, presence of this value must be treated as no
+ *        logging/disable logging. (Value: "NONE")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Notice Normal but
+ *        significant events, such as start up, shut down, or a configuration
+ *        change. (Value: "NOTICE")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Warning Warning
+ *        events might cause problems. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *logSeverity;
+
+@end
+
+
+/**
  *  Mesh represents a logical configuration grouping for workload to workload
  *  communication within a service mesh. Routes that point to mesh dictate how
  *  requests are routed within this logical mesh boundary.
@@ -3318,6 +3431,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  GTLRNetworkServices_RetryFilterPerRouteConfig
+ */
+@interface GTLRNetworkServices_RetryFilterPerRouteConfig : GTLRObject
+
+/** The name of the crypto key to use for encrypting event data. */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyName;
 
 @end
 

@@ -83,6 +83,18 @@ NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_Ext
 NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
 NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
 
+// GTLRNetworkServices_LoggingConfig.logSeverity
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Alert = @"ALERT";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Debug = @"DEBUG";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Emergency = @"EMERGENCY";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Error = @"ERROR";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Info = @"INFO";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_LogSeverityUnspecified = @"LOG_SEVERITY_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_None = @"NONE";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Notice = @"NOTICE";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Warning = @"WARNING";
+
 // GTLRNetworkServices_Mesh.envoyHeaders
 NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_DebugHeaders = @"DEBUG_HEADERS";
 NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_EnvoyHeadersUnspecified = @"ENVOY_HEADERS_UNSPECIFIED";
@@ -1264,6 +1276,16 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_LoggingConfig
+//
+
+@implementation GTLRNetworkServices_LoggingConfig
+@dynamic logSeverity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_Mesh
 //
 
@@ -1361,6 +1383,16 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_RetryFilterPerRouteConfig
+//
+
+@implementation GTLRNetworkServices_RetryFilterPerRouteConfig
+@dynamic cryptoKeyName;
 @end
 
 

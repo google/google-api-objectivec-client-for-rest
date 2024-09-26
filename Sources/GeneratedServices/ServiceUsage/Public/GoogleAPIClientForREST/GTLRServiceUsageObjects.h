@@ -50,6 +50,7 @@
 @class GTLRServiceUsage_Endpoint;
 @class GTLRServiceUsage_Enum;
 @class GTLRServiceUsage_EnumValue;
+@class GTLRServiceUsage_ExperimentalFeatures;
 @class GTLRServiceUsage_Field;
 @class GTLRServiceUsage_FieldPolicy;
 @class GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity;
@@ -97,6 +98,7 @@
 @class GTLRServiceUsage_QuotaOverride;
 @class GTLRServiceUsage_QuotaOverride_Dimensions;
 @class GTLRServiceUsage_RubySettings;
+@class GTLRServiceUsage_SelectiveGapicGeneration;
 @class GTLRServiceUsage_ServiceIdentity;
 @class GTLRServiceUsage_SourceContext;
 @class GTLRServiceUsage_SourceInfo;
@@ -863,6 +865,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_La
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_MonitoredResourceDescriptor.launchStage
@@ -1791,6 +1821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
 
+/** Configuration for which RPCs should be generated in the GAPIC client. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_SelectiveGapicGeneration *selectiveGapicGeneration;
+
 @end
 
 
@@ -2458,6 +2491,26 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** Protocol buffer options. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Option *> *options;
+
+@end
+
+
+/**
+ *  Experimental features to be included during client library generation. These
+ *  fields will be deprecated once the feature graduates and is enabled by
+ *  default.
+ */
+@interface GTLRServiceUsage_ExperimentalFeatures : GTLRObject
+
+/**
+ *  Enables generation of asynchronous REST clients if `rest` transport is
+ *  enabled. By default, asynchronous REST clients will not be generated. This
+ *  feature will be enabled by default 1 month after launching the feature in
+ *  preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restAsyncIoEnabled;
 
 @end
 
@@ -4032,6 +4085,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
+
 @end
 
 
@@ -4610,6 +4666,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_CommonLanguageSettings *common;
 
+/** Experimental features to be included during client library generation. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_ExperimentalFeatures *experimentalFeatures;
+
 @end
 
 
@@ -4886,6 +4945,21 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_CommonLanguageSettings *common;
+
+@end
+
+
+/**
+ *  This message is used to configure the generation of a subset of the RPCs in
+ *  a service for client libraries.
+ */
+@interface GTLRServiceUsage_SelectiveGapicGeneration : GTLRObject
+
+/**
+ *  An allowlist of the fully qualified names of RPCs that should be included on
+ *  public client surfaces.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
 
 @end
 

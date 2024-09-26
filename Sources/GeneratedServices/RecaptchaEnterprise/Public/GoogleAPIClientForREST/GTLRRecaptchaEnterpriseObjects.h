@@ -746,6 +746,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafService
 
 /**
+ *  Akamai
+ *
+ *  Value: "AKAMAI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Akamai;
+/**
  *  Cloud Armor
  *
  *  Value: "CA"
@@ -966,8 +972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  Optional. The annotation that will be assigned to the Event. This field can
- *  be left empty to provide reasons that apply to an event without concluding
+ *  Optional. The annotation that is assigned to the Event. This field can be
+ *  left empty to provide reasons that apply to an event without concluding
  *  whether the event is legitimate or fraudulent.
  *
  *  Likely values:
@@ -1235,8 +1241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Flag for enabling firewall policy config assessment. If this flag
- *  is enabled, the firewall policy will be evaluated and a suggested firewall
- *  action will be returned in the response.
+ *  is enabled, the firewall policy is evaluated and a suggested firewall action
+ *  is returned in the response.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1352,32 +1358,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction *allow;
 
 /**
- *  This action will deny access to a given page. The user will get an HTTP
- *  error code.
+ *  This action denies access to a given page. The user gets an HTTP error code.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction *block;
 
 /**
- *  This action will inject reCAPTCHA JavaScript code into the HTML page
- *  returned by the site backend.
+ *  This action injects reCAPTCHA JavaScript code into the HTML page returned by
+ *  the site backend.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionIncludeRecaptchaScriptAction *includeRecaptchaScript;
 
 /**
- *  This action will redirect the request to a ReCaptcha interstitial to attach
- *  a token.
+ *  This action redirects the request to a reCAPTCHA interstitial to attach a
+ *  token.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction *redirect;
 
 /**
- *  This action will set a custom header but allow the request to continue to
- *  the customer backend.
+ *  This action sets a custom header but allow the request to continue to the
+ *  customer backend.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction *setHeader;
 
-/**
- *  This action will transparently serve a different page to an offending user.
- */
+/** This action transparently serves a different page to an offending user. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction *substitute;
 
 @end
@@ -1411,7 +1414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  A redirect action returns a 307 (temporary redirect) response, pointing the
- *  user to a ReCaptcha interstitial page to attach a token.
+ *  user to a reCAPTCHA interstitial page to attach a token.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction : GTLRObject
 @end
@@ -1506,15 +1509,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment : GTLRObject
 
 /**
- *  Output only. If the processing of a policy config fails, an error will be
- *  populated and the firewall_policy will be left empty.
+ *  Output only. If the processing of a policy config fails, an error is
+ *  populated and the firewall_policy is left empty.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleRpcStatus *error;
 
 /**
  *  Output only. The policy that matched the request. If more than one policy
  *  may match, this is the first match. If no policy matches the incoming
- *  request, the policy field will be left empty.
+ *  request, the policy field is left empty.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy *firewallPolicy;
 
@@ -1675,10 +1678,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Apple Developer account details for the app that is protected by
- *  the reCAPTCHA Key. reCAPTCHA Enterprise leverages platform-specific checks
- *  like Apple App Attest and Apple DeviceCheck to protect your app from abuse.
- *  Providing these fields allows reCAPTCHA Enterprise to get a better
- *  assessment of the integrity of your app.
+ *  the reCAPTCHA Key. reCAPTCHA leverages platform-specific checks like Apple
+ *  App Attest and Apple DeviceCheck to protect your app from abuse. Providing
+ *  these fields allows reCAPTCHA to get a better assessment of the integrity of
+ *  your app.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId *appleDeveloperId;
 
@@ -1914,9 +1917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Metrics : GTLRObject
 
 /**
- *  Metrics will be continuous and in order by dates, and in the granularity of
- *  day. Only challenge-based keys (CHECKBOX, INVISIBLE), will have
- *  challenge-based data.
+ *  Metrics are continuous and in order by dates, and in the granularity of day.
+ *  Only challenge-based keys (CHECKBOX, INVISIBLE) have challenge-based data.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics *> *challengeMetrics;
 
@@ -1927,8 +1929,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Metrics will be continuous and in order by dates, and in the granularity of
- *  day. All Key types should have score-based data.
+ *  Metrics are continuous and in order by dates, and in the granularity of day.
+ *  All Key types should have score-based data.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics *> *scoreMetrics;
 
@@ -2305,7 +2307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge
- *  requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable
+ *  requests for this site return nocaptcha if NOCAPTCHA, or an unsolvable
  *  challenge if CHALLENGE.
  *
  *  Likely values:
@@ -2323,8 +2325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *testingChallenge;
 
 /**
- *  Optional. All assessments for this Key will return this score. Must be
- *  between 0 (likely not legitimate) and 1 (likely legitimate) inclusive.
+ *  Optional. All assessments for this Key return this score. Must be between 0
+ *  (likely not legitimate) and 1 (likely legitimate) inclusive.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2834,6 +2836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Required. The WAF service that uses this key.
  *
  *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Akamai
+ *        Akamai (Value: "AKAMAI")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca
  *        Cloud Armor (Value: "CA")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Cloudflare
@@ -2854,7 +2858,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings : GTLRObject
 
 /**
- *  Optional. If set to true, it means allowed_domains will not be enforced.
+ *  Optional. If set to true, it means allowed_domains are not enforced.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2879,7 +2883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Optional. Settings for the frequency and difficulty at which this key
  *  triggers captcha challenges. This should only be specified for
- *  IntegrationTypes CHECKBOX and INVISIBLE.
+ *  IntegrationTypes CHECKBOX and INVISIBLE and SCORE_AND_CHALLENGE.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_ChallengeSecurityPreference_Balance

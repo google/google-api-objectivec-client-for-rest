@@ -207,17 +207,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Creates a named space. Spaces grouped by topics aren't supported. For an
- *  example, see [Create a
+ *  Creates a space with no members. Can be used to create a named space. Spaces
+ *  grouped by topics aren't supported. For an example, see [Create a
  *  space](https://developers.google.com/workspace/chat/create-spaces). If you
  *  receive the error message `ALREADY_EXISTS` when creating a space, try a
  *  different `displayName`. An existing space within the Google Workspace
- *  organization might already use this display name. Requires [user
+ *  organization might already use this display name. If you're a member of the
+ *  [Developer Preview
+ *  program](https://developers.google.com/workspace/preview), you can create a
+ *  group chat in import mode using `spaceType.GROUP_CHAT`. Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: chat.spaces.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAppSpaces
+ *    @c kGTLRAuthScopeHangoutsChatAppSpacesCreate
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  *    @c kGTLRAuthScopeHangoutsChatSpacesCreate
@@ -236,12 +241,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Space.
  *
- *  Creates a named space. Spaces grouped by topics aren't supported. For an
- *  example, see [Create a
+ *  Creates a space with no members. Can be used to create a named space. Spaces
+ *  grouped by topics aren't supported. For an example, see [Create a
  *  space](https://developers.google.com/workspace/chat/create-spaces). If you
  *  receive the error message `ALREADY_EXISTS` when creating a space, try a
  *  different `displayName`. An existing space within the Google Workspace
- *  organization might already use this display name. Requires [user
+ *  organization might already use this display name. If you're a member of the
+ *  [Developer Preview
+ *  program](https://developers.google.com/workspace/preview), you can create a
+ *  group chat in import mode using `spaceType.GROUP_CHAT`. Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param object The @c GTLRHangoutsChat_Space to include in the query.
@@ -265,6 +273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAdminDelete
+ *    @c kGTLRAuthScopeHangoutsChatAppDelete
  *    @c kGTLRAuthScopeHangoutsChatDelete
  *    @c kGTLRAuthScopeHangoutsChatImport
  */
@@ -276,8 +285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). When
- *  `true`, the method runs using the user's Google Workspace administrator
+ *  When `true`, the method runs using the user's Google Workspace administrator
  *  privileges. The calling user must be a Google Workspace administrator with
  *  the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
@@ -383,6 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAdminSpaces
  *    @c kGTLRAuthScopeHangoutsChatAdminSpacesReadonly
+ *    @c kGTLRAuthScopeHangoutsChatAppSpaces
  *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  *    @c kGTLRAuthScopeHangoutsChatSpacesReadonly
@@ -396,8 +405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). When
- *  `true`, the method runs using the user's Google Workspace administrator
+ *  When `true`, the method runs using the user's Google Workspace administrator
  *  privileges. The calling user must be a Google Workspace administrator with
  *  the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
@@ -524,6 +532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAdminMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppMemberships
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsApp
@@ -537,8 +546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). When
- *  `true`, the method runs using the user's Google Workspace administrator
+ *  When `true`, the method runs using the user's Google Workspace administrator
  *  privileges. The calling user must be a Google Workspace administrator with
  *  the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
@@ -589,6 +597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAdminMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppMemberships
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsApp
@@ -609,8 +618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). When
- *  `true`, the method runs using the user's Google Workspace administrator
+ *  When `true`, the method runs using the user's Google Workspace administrator
  *  privileges. The calling user must be a Google Workspace administrator with
  *  the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
@@ -683,8 +691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). When
- *  `true`, the method runs using the user's Google Workspace administrator
+ *  When `true`, the method runs using the user's Google Workspace administrator
  *  privileges. The calling user must be a Google Workspace administrator with
  *  the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
@@ -759,14 +766,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  and type
  *  ([`member.type`](https://developers.google.com/workspace/chat/api/reference/rest/v1/User#type)).
  *  To filter by role, set `role` to `ROLE_MEMBER` or `ROLE_MANAGER`. To filter
- *  by type, set `member.type` to `HUMAN` or `BOT`. Developer Preview: You can
- *  also filter for `member.type` using the `!=` operator. To filter by both
- *  role and type, use the `AND` operator. To filter by either role or type, use
- *  the `OR` operator. Either `member.type = "HUMAN"` or `member.type != "BOT"`
- *  is required when `use_admin_access` is set to true. Other member type
- *  filters will be rejected. For example, the following queries are valid: ```
- *  role = "ROLE_MANAGER" OR role = "ROLE_MEMBER" member.type = "HUMAN" AND role
- *  = "ROLE_MANAGER" member.type != "BOT" ``` The following queries are invalid:
+ *  by type, set `member.type` to `HUMAN` or `BOT`. You can also filter for
+ *  `member.type` using the `!=` operator. To filter by both role and type, use
+ *  the `AND` operator. To filter by either role or type, use the `OR` operator.
+ *  Either `member.type = "HUMAN"` or `member.type != "BOT"` is required when
+ *  `use_admin_access` is set to true. Other member type filters will be
+ *  rejected. For example, the following queries are valid: ``` role =
+ *  "ROLE_MANAGER" OR role = "ROLE_MEMBER" member.type = "HUMAN" AND role =
+ *  "ROLE_MANAGER" member.type != "BOT" ``` The following queries are invalid:
  *  ``` member.type = "HUMAN" AND member.type = "BOT" role = "ROLE_MANAGER" AND
  *  role = "ROLE_MEMBER" ``` Invalid queries are rejected by the server with an
  *  `INVALID_ARGUMENT` error.
@@ -814,8 +821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) BOOL showInvited;
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). When
- *  `true`, the method runs using the user's Google Workspace administrator
+ *  When `true`, the method runs using the user's Google Workspace administrator
  *  privileges. The calling user must be a Google Workspace administrator with
  *  the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires either
@@ -867,6 +873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAdminMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppMemberships
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  */
@@ -887,8 +894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). When
- *  `true`, the method runs using the user's Google Workspace administrator
+ *  When `true`, the method runs using the user's Google Workspace administrator
  *  privileges. The calling user must be a Google Workspace administrator with
  *  the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
@@ -1662,6 +1668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAdminSpaces
+ *    @c kGTLRAuthScopeHangoutsChatAppSpaces
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatSpaces
  */
@@ -1725,8 +1732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). When
- *  `true`, the method runs using the user's Google Workspace administrator
+ *  When `true`, the method runs using the user's Google Workspace administrator
  *  privileges. The calling user must be a Google Workspace administrator with
  *  the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
@@ -1765,11 +1771,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview).
- *  Returns a list of spaces based on a user's search. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
- *  The user must be an administrator for the Google Workspace organization. In
- *  the request, set `use_admin_access` to `true`.
+ *  Returns a list of spaces in a Google Workspace organization based on an
+ *  administrator's search. Requires [user authentication with administrator
+ *  privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges).
+ *  In the request, set `use_admin_access` to `true`.
  *
  *  Method: chat.spaces.search
  *
@@ -1867,11 +1872,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_SearchSpacesResponse.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview).
- *  Returns a list of spaces based on a user's search. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
- *  The user must be an administrator for the Google Workspace organization. In
- *  the request, set `use_admin_access` to `true`.
+ *  Returns a list of spaces in a Google Workspace organization based on an
+ *  administrator's search. Requires [user authentication with administrator
+ *  privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges).
+ *  In the request, set `use_admin_access` to `true`.
  *
  *  @return GTLRHangoutsChatQuery_SpacesSearch
  *
