@@ -70,10 +70,8 @@ jobs:
             ;;
         esac
 
-        set -o pipefail
         xcodebuild \
             -scheme GoogleAPIClientForREST-Package \
             -configuration ${{ matrix.CONFIGURATION }} \
             -destination "${DESTINATION}" \
-            build test \
-          | xcpretty
+            build test

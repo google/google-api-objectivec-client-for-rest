@@ -54,10 +54,8 @@ jobs:
       run:  |
         set -eu
         cd Tools
-        set -o pipefail
         xcodebuild \
             -scheme GTLR_ServiceGenerator \
             -configuration ${{ matrix.CONFIGURATION }} \
             -destination "platform=macOS" \
-            build \
-          | xcpretty
+            build
