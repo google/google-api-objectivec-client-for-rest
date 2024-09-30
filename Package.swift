@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "GoogleAPIClientForREST",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v12),
         .macOS(.v10_15),
         .tvOS(.v13),
         .watchOS(.v7)
