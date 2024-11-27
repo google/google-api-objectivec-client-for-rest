@@ -24,7 +24,7 @@ jobs:
   # time, so this covers the Core spec and tests.
   pod-lib-lint-core:
     name: CocoaPods lib lint Core
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
@@ -55,7 +55,7 @@ jobs:
   # resources without any real gain.
   pod-lib-lint-subspecs:
     name: CocoaPods lib lint SubSpecs
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:

@@ -24,7 +24,7 @@ on:
 jobs:
   swift:
     # The swift command line only support build/testing for macOS on.
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
@@ -40,7 +40,7 @@ jobs:
   xcodebuild:
     # Job(s) to build for all the platforms to ensure that is working and the
     # tests are passing.
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
@@ -53,7 +53,7 @@ jobs:
         set -eu
         case "${{matrix.PLATFORM}}" in
           ios)
-            DESTINATION="platform=iOS Simulator,name=iPhone 14,OS=latest"
+            DESTINATION="platform=iOS Simulator,name=iPhone 16,OS=latest"
             ;;
           macos)
             DESTINATION="platform=macOS"
@@ -65,7 +65,7 @@ jobs:
             DESTINATION="platform=visionOS Simulator,name=Apple Vision Pro,OS=latest"
             ;;
           watchos)
-            DESTINATION="platform=WatchOS Simulator,name=Apple Watch Series 7 (45mm),OS=latest"
+            DESTINATION="platform=WatchOS Simulator,name=Apple Watch Series 10 (46mm),OS=latest"
             ;;
         esac
 
