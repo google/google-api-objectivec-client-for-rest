@@ -32,12 +32,11 @@ jobs:
         extra_flags: ["", "--use-static-frameworks"]
     steps:
     - uses: actions/checkout@v4
-    - name: "iOS, macOS, and tvOS"
-      # GitHub runners dropped visionOS. https://github.com/actions/runner-images/issues/10559
+    - name: "iOS, macOS, tvOS, and visionOS"
       run:  |
         pod lib lint --verbose ${{ matrix.extra_flags }} \
           --configuration=${{ matrix.pod_configuration }} \
-          --platforms=ios,macos,tvos \
+          --platforms=ios,macos,tvos,visionos \
           --no-subspecs \
           --test-specs=Tests \
           GoogleAPIClientForREST.podspec
