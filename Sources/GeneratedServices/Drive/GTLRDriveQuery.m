@@ -42,6 +42,78 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
+@implementation GTLRDriveQuery_AccessproposalsGet
+
+@dynamic fileId, proposalId;
+
++ (instancetype)queryWithFileId:(NSString *)fileId
+                     proposalId:(NSString *)proposalId {
+  NSArray *pathParams = @[
+    @"fileId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/accessproposals/{proposalId}";
+  GTLRDriveQuery_AccessproposalsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.fileId = fileId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRDrive_AccessProposal class];
+  query.loggingName = @"drive.accessproposals.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_AccessproposalsList
+
+@dynamic fileId, pageSize, pageToken;
+
++ (instancetype)queryWithFileId:(NSString *)fileId {
+  NSArray *pathParams = @[ @"fileId" ];
+  NSString *pathURITemplate = @"files/{fileId}/accessproposals";
+  GTLRDriveQuery_AccessproposalsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.fileId = fileId;
+  query.expectedObjectClass = [GTLRDrive_ListAccessProposalsResponse class];
+  query.loggingName = @"drive.accessproposals.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_AccessproposalsResolve
+
+@dynamic fileId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRDrive_ResolveAccessProposalRequest *)object
+                         fileId:(NSString *)fileId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"fileId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/accessproposals/{proposalId}:resolve";
+  GTLRDriveQuery_AccessproposalsResolve *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.proposalId = proposalId;
+  query.loggingName = @"drive.accessproposals.resolve";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveQuery_AppsGet
 
 @dynamic appId;

@@ -573,6 +573,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_WorkloadOnbo
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The customer organization domain, extracted from CRM
+ *  Organization’s display_name field. e.g. "google.com"
+ */
+@property(nonatomic, copy, nullable) NSString *organizationDomain;
+
 @end
 
 
@@ -712,6 +718,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_WorkloadOnbo
  */
 @property(nonatomic, copy, nullable) NSString *ekmSolution;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRCloudControlsPartnerService_Empty : GTLRObject
 @end
 
 

@@ -63,6 +63,312 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Creates a analysis rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.analysisRules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesCreate : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The parent resource of the analysis rule. Required. The location
+ *  to create a analysis rule for. Format: `projects//locations/` or
+ *  `projects//locations/`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule.
+ *
+ *  Creates a analysis rule.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the analysis rule. Required.
+ *    The location to create a analysis rule for. Format: `projects//locations/`
+ *    or `projects//locations/`
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a analysis rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.analysisRules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the analysis rule to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a analysis rule.
+ *
+ *  @param name Required. The name of the analysis rule to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a analysis rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.analysisRules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the AnalysisRule to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule.
+ *
+ *  Get a analysis rule.
+ *
+ *  @param name Required. The name of the AnalysisRule to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists analysis rules.
+ *
+ *  Method: contactcenterinsights.projects.locations.analysisRules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The maximum number of analysis rule to return in the response. If
+ *  this value is zero, the service will select a default size. A call may
+ *  return fewer objects than requested. A non-empty `next_page_token` in the
+ *  response indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListAnalysisRulesResponse`;
+ *  indicates that this is a continuation of a prior `ListAnalysisRules` call
+ *  and the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the analysis rules. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAnalysisRulesResponse.
+ *
+ *  Lists analysis rules.
+ *
+ *  @param parent Required. The parent resource of the analysis rules.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a analysis rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.analysisRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. The resource name of the analysis rule. Format:
+ *  projects/{project}/locations/{location}/analysisRules/{analysis_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated. If the update_mask is not
+ *  provided, the update will be applied to all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule.
+ *
+ *  Updates a analysis rule.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule
+ *    to include in the query.
+ *  @param name Identifier. The resource name of the analysis rule. Format:
+ *    projects/{project}/locations/{location}/analysisRules/{analysis_rule}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAnalysisRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnalysisRule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets conversation statistics.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSet.authorizedView.calculateStats
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewCalculateStats : GTLRContactcenterinsightsQuery
+
+/**
+ *  A filter to reduce results to a specific subset. This field is useful for
+ *  getting statistics about conversations with specific properties.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The location of the conversations. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse.
+ *
+ *  Gets conversation statistics.
+ *
+ *  @param location Required. The location of the conversations.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewCalculateStats
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
+
+@end
+
+/**
+ *  Query metrics.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSet.authorizedView.queryMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewQueryMetrics : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The location of the data.
+ *  "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Query metrics.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest
+ *    to include in the query.
+ *  @param location Required. The location of the data.
+ *    "projects/{project}/locations/{location}"
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetAuthorizedViewQueryMetrics
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
+ *  Download feedback labels in bulk.
+ *
+ *  Method: contactcenterinsights.projects.locations.bulkDownloadFeedbackLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsBulkDownloadFeedbackLabels : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource for new feedback labels. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Download feedback labels in bulk.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource for new feedback labels.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsBulkDownloadFeedbackLabels
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Upload feedback labels in bulk.
+ *
+ *  Method: contactcenterinsights.projects.locations.bulkUploadFeedbackLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsBulkUploadFeedbackLabels : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource for new feedback labels. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Upload feedback labels in bulk.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource for new feedback labels.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsBulkUploadFeedbackLabels
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates an analysis. The long running operation is done when the analysis
  *  has completed.
  *
@@ -297,15 +603,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
- *  Creates a conversation. Does not support audio transcription or DLP
- *  redaction. Use `conversations.upload` instead.
+ *  Creates a conversation. Note that this method does not support audio
+ *  transcription or redaction. Use `conversations.upload` instead.
  *
  *  Method: contactcenterinsights.projects.locations.conversations.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
  */
-GTLR_DEPRECATED
 @interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsCreate : GTLRContactcenterinsightsQuery
 
 /**
@@ -324,8 +629,8 @@ GTLR_DEPRECATED
  *  Fetches a @c
  *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation.
  *
- *  Creates a conversation. Does not support audio transcription or DLP
- *  redaction. Use `conversations.upload` instead.
+ *  Creates a conversation. Note that this method does not support audio
+ *  transcription or redaction. Use `conversations.upload` instead.
  *
  *  @param object The @c
  *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation
@@ -369,6 +674,195 @@ GTLR_DEPRECATED
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Create feedback label.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.feedbackLabels.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsCreate : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The ID of the feedback label to create. If one is not specified it
+ *  will be generated by the server.
+ */
+@property(nonatomic, copy, nullable) NSString *feedbackLabelId;
+
+/** Required. The parent resource of the feedback label. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel.
+ *
+ *  Create feedback label.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the feedback label.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete feedback label.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.feedbackLabels.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the feedback label to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Delete feedback label.
+ *
+ *  @param name Required. The name of the feedback label to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get feedback label.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.feedbackLabels.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the feedback label to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel.
+ *
+ *  Get feedback label.
+ *
+ *  @param name Required. The name of the feedback label to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List feedback labels.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.feedbackLabels.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Supports
+ *  disjunctions (OR) and conjunctions (AND). Automatically sorts by
+ *  conversation ID. To sort by all feedback labels in a project see
+ *  ListAllFeedbackLabels. Supported fields: * `issue_model_id` *
+ *  `qa_question_id` * `qa_scorecard_id` * `min_create_time` * `max_create_time`
+ *  * `min_update_time` * `max_update_time` * `feedback_label_type`: QUALITY_AI,
+ *  TOPIC_MODELING
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of feedback labels to return in the response. A
+ *  valid page size ranges from 0 to 100,000 inclusive. If the page size is zero
+ *  or unspecified, a default page size of 100 will be chosen. Note that a call
+ *  might return fewer results than the requested page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListFeedbackLabelsResponse`. This
+ *  value indicates that this is a continuation of a prior `ListFeedbackLabels`
+ *  call and that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the feedback labels. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListFeedbackLabelsResponse.
+ *
+ *  List feedback labels.
+ *
+ *  @param parent Required. The parent resource of the feedback labels.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update feedback label.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.feedbackLabels.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Immutable. Resource name of the FeedbackLabel. Format:
+ *  projects/{project}/locations/{location}/conversations/{conversation}/feedbackLabels/{feedback_label}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel.
+ *
+ *  Update feedback label.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel
+ *    to include in the query.
+ *  @param name Immutable. Resource name of the FeedbackLabel. Format:
+ *    projects/{project}/locations/{location}/conversations/{conversation}/feedbackLabels/{feedback_label}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsFeedbackLabelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -475,7 +969,7 @@ GTLR_DEPRECATED
 
 /**
  *  The maximum number of conversations to return in the response. A valid page
- *  size ranges from 0 to 1,000 inclusive. If the page size is zero or
+ *  size ranges from 0 to 100,000 inclusive. If the page size is zero or
  *  unspecified, a default page size of 100 will be chosen. Note that a call
  *  might return fewer results than the requested page size.
  */
@@ -606,9 +1100,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Initializes a location-level encryption key specification. An error will be
- *  thrown if the location has resources already created before the
- *  initialization. Once the encryption specification is initialized at a
+ *  Initializes a location-level encryption key specification. An error will
+ *  result if the location has resources already created before the
+ *  initialization. After the encryption specification is initialized at a
  *  location, it is immutable and all newly created resources under the location
  *  will be encrypted with the existing specification.
  *
@@ -628,9 +1122,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
  *
- *  Initializes a location-level encryption key specification. An error will be
- *  thrown if the location has resources already created before the
- *  initialization. Once the encryption specification is initialized at a
+ *  Initializes a location-level encryption key specification. An error will
+ *  result if the location has resources already created before the
+ *  initialization. After the encryption specification is initialized at a
  *  location, it is immutable and all newly created resources under the location
  *  will be encrypted with the existing specification.
  *
@@ -1158,6 +1652,63 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  List all feedback labels by project number.
+ *
+ *  Method: contactcenterinsights.projects.locations.listAllFeedbackLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsListAllFeedbackLabels : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A filter to reduce results to a specific subset in the entire
+ *  project. Supports disjunctions (OR) and conjunctions (AND). Supported
+ *  fields: * `issue_model_id` * `qa_question_id` * `min_create_time` *
+ *  `max_create_time` * `min_update_time` * `max_update_time` *
+ *  `feedback_label_type`: QUALITY_AI, TOPIC_MODELING
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of feedback labels to return in the response. A
+ *  valid page size ranges from 0 to 100,000 inclusive. If the page size is zero
+ *  or unspecified, a default page size of 100 will be chosen. Note that a call
+ *  might return fewer results than the requested page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListAllFeedbackLabelsResponse`.
+ *  This value indicates that this is a continuation of a prior
+ *  `ListAllFeedbackLabels` call and that the system should return the next page
+ *  of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of all feedback labels per project. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAllFeedbackLabelsResponse.
+ *
+ *  List all feedback labels by project number.
+ *
+ *  @param parent Required. The parent resource of all feedback labels per
+ *    project.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsListAllFeedbackLabels
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -1165,7 +1716,7 @@ GTLR_DEPRECATED
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: contactcenterinsights.projects.locations.operations.cancel
@@ -1188,7 +1739,7 @@ GTLR_DEPRECATED
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -1452,6 +2003,665 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a QaScorecard.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the QaScorecard. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique ID for the new QaScorecard. This ID will become the final
+ *  component of the QaScorecard's resource name. If no ID is specified, a
+ *  server-generated ID will be used. This value should be 4-64 characters and
+ *  must match the regular expression `^[a-z0-9-]{4,64}$`. Valid characters are
+ *  `a-z-`.
+ */
+@property(nonatomic, copy, nullable) NSString *qaScorecardId;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard.
+ *
+ *  Create a QaScorecard.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the QaScorecard.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a QaScorecard.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsDelete : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. If set to true, all of this QaScorecard's child resources will
+ *  also be deleted. Otherwise, the request will only succeed if it has none.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. The name of the QaScorecard to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a QaScorecard.
+ *
+ *  @param name Required. The name of the QaScorecard to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a QaScorecard.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the QaScorecard to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard.
+ *
+ *  Gets a QaScorecard.
+ *
+ *  @param name Required. The name of the QaScorecard to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists QaScorecards.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The maximum number of scorecards to return in the response. If the
+ *  value is zero, the service will select a default size. A call might return
+ *  fewer objects than requested. A non-empty `next_page_token` in the response
+ *  indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListQaScorecardsResponse`. This
+ *  value indicates that this is a continuation of a prior `ListQaScorecards`
+ *  call and that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the scorecards. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaScorecardsResponse.
+ *
+ *  Lists QaScorecards.
+ *
+ *  @param parent Required. The parent resource of the scorecards.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a QaScorecard.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. The scorecard name. Format:
+ *  projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. All possible fields can be
+ *  updated by passing `*`, or a subset of the following updateable fields can
+ *  be provided: * `description` * `display_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard.
+ *
+ *  Updates a QaScorecard.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard to
+ *    include in the query.
+ *  @param name Identifier. The scorecard name. Format:
+ *    projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a QaScorecardRevision.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the QaScorecardRevision. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique ID for the new QaScorecardRevision. This ID will become
+ *  the final component of the QaScorecardRevision's resource name. If no ID is
+ *  specified, a server-generated ID will be used. This value should be 4-64
+ *  characters and must match the regular expression `^[a-z0-9-]{4,64}$`. Valid
+ *  characters are `a-z-`.
+ */
+@property(nonatomic, copy, nullable) NSString *qaScorecardRevisionId;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision.
+ *
+ *  Creates a QaScorecardRevision.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the QaScorecardRevision.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a QaScorecardRevision.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsDelete : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. If set to true, all of this QaScorecardRevision's child resources
+ *  will also be deleted. Otherwise, the request will only succeed if it has
+ *  none.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. The name of the QaScorecardRevision to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a QaScorecardRevision.
+ *
+ *  @param name Required. The name of the QaScorecardRevision to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deploy a QaScorecardRevision.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.deploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsDeploy : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the QaScorecardRevision to deploy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision.
+ *
+ *  Deploy a QaScorecardRevision.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployQaScorecardRevisionRequest
+ *    to include in the query.
+ *  @param name Required. The name of the QaScorecardRevision to deploy.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsDeploy
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployQaScorecardRevisionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a QaScorecardRevision.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the QaScorecardRevision to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision.
+ *
+ *  Gets a QaScorecardRevision.
+ *
+ *  @param name Required. The name of the QaScorecardRevision to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all revisions under the parent QaScorecard.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Useful for
+ *  querying scorecard revisions with specific properties.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of scorecard revisions to return in the
+ *  response. If the value is zero, the service will select a default size. A
+ *  call might return fewer objects than requested. A non-empty
+ *  `next_page_token` in the response indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListQaScorecardRevisionsResponse`.
+ *  This value indicates that this is a continuation of a prior
+ *  `ListQaScorecardRevisions` call and that the system should return the next
+ *  page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource of the scorecard revisions. To list all
+ *  revisions of all scorecards, substitute the QaScorecard ID with a '-'
+ *  character.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaScorecardRevisionsResponse.
+ *
+ *  Lists all revisions under the parent QaScorecard.
+ *
+ *  @param parent Required. The parent resource of the scorecard revisions. To
+ *    list all revisions of all scorecards, substitute the QaScorecard ID with a
+ *    '-' character.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Create a QaQuestion.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsCreate : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the QaQuestion. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique ID for the new question. This ID will become the final
+ *  component of the question's resource name. If no ID is specified, a
+ *  server-generated ID will be used. This value should be 4-64 characters and
+ *  must match the regular expression `^[a-z0-9-]{4,64}$`. Valid characters are
+ *  `a-z-`.
+ */
+@property(nonatomic, copy, nullable) NSString *qaQuestionId;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion.
+ *
+ *  Create a QaQuestion.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the QaQuestion.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a QaQuestion.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the QaQuestion to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a QaQuestion.
+ *
+ *  @param name Required. The name of the QaQuestion to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a QaQuestion.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the QaQuestion to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion.
+ *
+ *  Gets a QaQuestion.
+ *
+ *  @param name Required. The name of the QaQuestion to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists QaQuestions.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The maximum number of questions to return in the response. If the
+ *  value is zero, the service will select a default size. A call might return
+ *  fewer objects than requested. A non-empty `next_page_token` in the response
+ *  indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListQaQuestionsResponse`. This
+ *  value indicates that this is a continuation of a prior `ListQaQuestions`
+ *  call and that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the questions. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaQuestionsResponse.
+ *
+ *  Lists QaQuestions.
+ *
+ *  @param parent Required. The parent resource of the questions.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a QaQuestion.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.qaQuestions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. The resource name of the question. Format:
+ *  projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}/revisions/{revision}/qaQuestions/{qa_question}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. All possible fields can be
+ *  updated by passing `*`, or a subset of the following updateable fields can
+ *  be provided: * `abbreviation` * `answer_choices` * `answer_instructions` *
+ *  `order` * `question_body` * `tags`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion.
+ *
+ *  Updates a QaQuestion.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the question. Format:
+ *    projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}/revisions/{revision}/qaQuestions/{qa_question}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsQaQuestionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Fine tune one or more QaModels.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.tuneQaScorecardRevision
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsTuneQaScorecardRevision : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource for new fine tuning job instance. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Fine tune one or more QaModels.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TuneQaScorecardRevisionRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource for new fine tuning job
+ *    instance.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsTuneQaScorecardRevision
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TuneQaScorecardRevisionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Undeploy a QaScorecardRevision.
+ *
+ *  Method: contactcenterinsights.projects.locations.qaScorecards.revisions.undeploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsUndeploy : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the QaScorecardRevision to undeploy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision.
+ *
+ *  Undeploy a QaScorecardRevision.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployQaScorecardRevisionRequest
+ *    to include in the query.
+ *  @param name Required. The name of the QaScorecardRevision to undeploy.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQaScorecardsRevisionsUndeploy
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployQaScorecardRevisionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Query metrics.
+ *
+ *  Method: contactcenterinsights.projects.locations.queryMetrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsQueryMetrics : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The location of the data.
+ *  "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Query metrics.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest
+ *    to include in the query.
+ *  @param location Required. The location of the data.
+ *    "projects/{project}/locations/{location}"
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsQueryMetrics
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsRequest *)object
+                       location:(NSString *)location;
 
 @end
 

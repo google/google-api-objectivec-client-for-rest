@@ -1173,6 +1173,155 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesCourseWorkRubricsCreate
+
+@dynamic courseId, courseWorkId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_Rubric *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/rubrics";
+  GTLRClassroomQuery_CoursesCourseWorkRubricsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.expectedObjectClass = [GTLRClassroom_Rubric class];
+  query.loggingName = @"classroom.courses.courseWork.rubrics.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkRubricsDelete
+
+@dynamic courseId, courseWorkId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/rubrics/{id}";
+  GTLRClassroomQuery_CoursesCourseWorkRubricsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.courseWork.rubrics.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkRubricsGet
+
+@dynamic courseId, courseWorkId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/rubrics/{id}";
+  GTLRClassroomQuery_CoursesCourseWorkRubricsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Rubric class];
+  query.loggingName = @"classroom.courses.courseWork.rubrics.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkRubricsList
+
+@dynamic courseId, courseWorkId, pageSize, pageToken;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId {
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/rubrics";
+  GTLRClassroomQuery_CoursesCourseWorkRubricsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.expectedObjectClass = [GTLRClassroom_ListRubricsResponse class];
+  query.loggingName = @"classroom.courses.courseWork.rubrics.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkRubricsPatch
+
+@dynamic courseId, courseWorkId, identifier, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_Rubric *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/rubrics/{id}";
+  GTLRClassroomQuery_CoursesCourseWorkRubricsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Rubric class];
+  query.loggingName = @"classroom.courses.courseWork.rubrics.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsGet
 
 @dynamic courseId, courseWorkId, identifier;
@@ -1412,6 +1561,41 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
   query.identifier = identifier;
   query.expectedObjectClass = [GTLRClassroom_Empty class];
   query.loggingName = @"classroom.courses.courseWork.studentSubmissions.turnIn";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesCourseWorkUpdateRubric
+
+@dynamic courseId, courseWorkId, identifier, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_Rubric *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"courseWorkId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/courseWork/{courseWorkId}/rubric";
+  GTLRClassroomQuery_CoursesCourseWorkUpdateRubric *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.courseWorkId = courseWorkId;
+  query.expectedObjectClass = [GTLRClassroom_Rubric class];
+  query.loggingName = @"classroom.courses.courseWork.updateRubric";
   return query;
 }
 

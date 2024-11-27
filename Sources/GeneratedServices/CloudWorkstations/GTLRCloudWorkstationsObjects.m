@@ -98,6 +98,29 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_BoostConfig
+//
+
+@implementation GTLRCloudWorkstations_BoostConfig
+@dynamic accelerators, bootDiskSizeGb, enableNestedVirtualization, identifier,
+         machineType, poolSize;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accelerators" : [GTLRCloudWorkstations_Accelerator class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_CancelOperationRequest
 //
 
@@ -199,7 +222,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_GceInstance
-@dynamic accelerators, bootDiskSizeGb, confidentialInstanceConfig,
+@dynamic accelerators, boostConfigs, bootDiskSizeGb, confidentialInstanceConfig,
          disablePublicIpAddresses, disableSsh, enableNestedVirtualization,
          machineType, pooledInstances, poolSize, serviceAccount,
          serviceAccountScopes, shieldedInstanceConfig, tags, vmTags;
@@ -207,6 +230,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRCloudWorkstations_Accelerator class],
+    @"boostConfigs" : [GTLRCloudWorkstations_BoostConfig class],
     @"serviceAccountScopes" : [NSString class],
     @"tags" : [NSString class]
   };
@@ -791,7 +815,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 @implementation GTLRCloudWorkstations_WorkstationCluster
 @dynamic annotations, conditions, controlPlaneIp, createTime, degraded,
          deleteTime, displayName, domainConfig, ETag, labels, name, network,
-         privateClusterConfig, reconciling, subnetwork, uid, updateTime;
+         privateClusterConfig, reconciling, subnetwork, tags, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -827,6 +851,20 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_WorkstationCluster_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_WorkstationCluster_Tags
+//
+
+@implementation GTLRCloudWorkstations_WorkstationCluster_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

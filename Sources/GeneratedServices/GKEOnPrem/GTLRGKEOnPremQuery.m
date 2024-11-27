@@ -1018,6 +1018,33 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @end
 
+@implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersCreate
+
+@dynamic allowPreflightFailure, parent, validateOnly, vmwareAdminClusterId;
+
++ (instancetype)queryWithObject:(GTLRGKEOnPrem_VmwareAdminCluster *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/vmwareAdminClusters";
+  GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEOnPrem_Operation class];
+  query.loggingName = @"gkeonprem.projects.locations.vmwareAdminClusters.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersEnroll
 
 @dynamic parent;

@@ -308,8 +308,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A token identifying a page of results the server will return. To request the
  *  first page results, page_token must be empty. To request the next page of
  *  results, page_token must be the value of next_page_token returned from the
- *  previous call to ListJobs. It is an error to switch the value of filter or
- *  order_by while iterating through pages.
+ *  previous call to ListJobs.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

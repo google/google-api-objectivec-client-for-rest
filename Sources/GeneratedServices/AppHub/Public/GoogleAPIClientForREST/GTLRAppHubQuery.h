@@ -275,7 +275,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifier. The resource name of an Application. Format:
- *  "projects/{host-project-id}/locations/{location}/applications/{application-id}"
+ *  `"projects/{host-project-id}/locations/{location}/applications/{application-id}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -314,7 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAppHub_Application to include in the query.
  *  @param name Identifier. The resource name of an Application. Format:
- *    "projects/{host-project-id}/locations/{location}/applications/{application-id}"
+ *    `"projects/{host-project-id}/locations/{location}/applications/{application-id}"`
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsPatch
  */
@@ -522,7 +522,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifier. The resource name of a Service. Format:
- *  "projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}"
+ *  `"projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -561,7 +561,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAppHub_Service to include in the query.
  *  @param name Identifier. The resource name of a Service. Format:
- *    "projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}"
+ *    `"projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}"`
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsServicesPatch
  */
@@ -852,7 +852,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifier. The resource name of the Workload. Format:
- *  "projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+ *  `"projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -891,7 +891,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAppHub_Workload to include in the query.
  *  @param name Identifier. The resource name of the Workload. Format:
- *    "projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+ *    `"projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"`
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsApplicationsWorkloadsPatch
  */

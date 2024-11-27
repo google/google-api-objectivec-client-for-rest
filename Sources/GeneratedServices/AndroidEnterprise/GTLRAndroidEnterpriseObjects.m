@@ -75,6 +75,11 @@ NSString * const kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile =
 NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled = @"disabled";
 NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled = @"enabled";
 
+// GTLRAndroidEnterprise_EnrollmentToken.enrollmentTokenType
+NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_EnrollmentTokenTypeUnspecified = @"enrollmentTokenTypeUnspecified";
+NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserDevice = @"userDevice";
+NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserlessDevice = @"userlessDevice";
+
 // GTLRAndroidEnterprise_Entitlement.reason
 NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free = @"free";
 NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense = @"groupLicense";
@@ -540,7 +545,7 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_CreateEnrollmentTokenResponse
-@dynamic enrollmentToken;
+@dynamic enrollmentToken, token;
 @end
 
 
@@ -608,6 +613,16 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 @implementation GTLRAndroidEnterprise_DeviceState
 @dynamic accountState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_EnrollmentToken
+//
+
+@implementation GTLRAndroidEnterprise_EnrollmentToken
+@dynamic duration, enrollmentTokenType, token;
 @end
 
 
@@ -1052,7 +1067,7 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_Policy
-@dynamic autoUpdatePolicy, deviceReportPolicy, maintenanceWindow,
+@dynamic autoUpdatePolicy, deviceReportPolicy, maintenanceWindow, policyId,
          productAvailabilityPolicy, productPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

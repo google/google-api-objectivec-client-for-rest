@@ -595,6 +595,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError;
 /**
+ *  Function is requested to be detached from 2nd Gen to CRf.
+ *
+ *  Value: "DETACH_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_DetachInProgress;
+/**
  *  Functions in this state are eligible for 1st Gen -> 2nd Gen upgrade.
  *
  *  Value: "ELIGIBLE_FOR_2ND_GEN_UPGRADE"
@@ -855,8 +861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  will create and use a repository named 'gcf-artifacts' for every deployed
  *  region. It must match the pattern
  *  `projects/{project}/locations/{location}/repositories/{repository}`.
- *  Cross-project repositories are not supported. Cross-location repositories
- *  are not supported. Repository format must be 'DOCKER'.
+ *  Repository format must be 'DOCKER'.
  */
 @property(nonatomic, copy, nullable) NSString *dockerRepository;
 
@@ -2513,7 +2518,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 
 /**
  *  Information related to: * A function's eligibility for 1st Gen to 2nd Gen
- *  migration * Current state of migration for function undergoing migration.
+ *  migration and 2nd Gen to CRf detach. * Current state of migration for
+ *  function undergoing migration/detach.
  */
 @interface GTLRCloudFunctions_UpgradeInfo : GTLRObject
 
@@ -2545,6 +2551,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError
  *        CommitFunctionUpgrade API was un-successful. (Value:
  *        "COMMIT_FUNCTION_UPGRADE_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_DetachInProgress
+ *        Function is requested to be detached from 2nd Gen to CRf. (Value:
+ *        "DETACH_IN_PROGRESS")
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade
  *        Functions in this state are eligible for 1st Gen -> 2nd Gen upgrade.
  *        (Value: "ELIGIBLE_FOR_2ND_GEN_UPGRADE")

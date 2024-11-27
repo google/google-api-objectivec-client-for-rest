@@ -263,7 +263,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_FixedIOPS
-@dynamic maxReadIops;
+@dynamic maxIops, maxReadIops;
 @end
 
 
@@ -564,7 +564,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_IOPSPerTB
-@dynamic maxReadIopsPerTb;
+@dynamic maxIopsPerTb, maxReadIopsPerTb;
 @end
 
 

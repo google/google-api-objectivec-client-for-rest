@@ -36,9 +36,6 @@
 @class GTLRBackupdr_BackupVault_Labels;
 @class GTLRBackupdr_BackupWindow;
 @class GTLRBackupdr_Binding;
-@class GTLRBackupdr_BlobstoreLocation;
-@class GTLRBackupdr_CloudAsset;
-@class GTLRBackupdr_CloudAssetComposition;
 @class GTLRBackupdr_ComputeInstanceBackupProperties;
 @class GTLRBackupdr_ComputeInstanceBackupProperties_Labels;
 @class GTLRBackupdr_ComputeInstanceDataSourceProperties;
@@ -51,23 +48,19 @@
 @class GTLRBackupdr_DataSource_Labels;
 @class GTLRBackupdr_DataSourceBackupApplianceApplication;
 @class GTLRBackupdr_DataSourceGcpResource;
-@class GTLRBackupdr_DirectLocationAssignment;
 @class GTLRBackupdr_DisplayDevice;
 @class GTLRBackupdr_Entry;
 @class GTLRBackupdr_Expr;
-@class GTLRBackupdr_ExtraParameter;
 @class GTLRBackupdr_GcpBackupConfig;
 @class GTLRBackupdr_GCPBackupPlanInfo;
+@class GTLRBackupdr_GcpResource;
 @class GTLRBackupdr_GuestOsFeature;
 @class GTLRBackupdr_InitializeParams;
 @class GTLRBackupdr_InstanceParams;
 @class GTLRBackupdr_InstanceParams_ResourceManagerTags;
-@class GTLRBackupdr_IsolationExpectations;
 @class GTLRBackupdr_Location;
 @class GTLRBackupdr_Location_Labels;
 @class GTLRBackupdr_Location_Metadata;
-@class GTLRBackupdr_LocationAssignment;
-@class GTLRBackupdr_LocationData;
 @class GTLRBackupdr_ManagementServer;
 @class GTLRBackupdr_ManagementServer_Labels;
 @class GTLRBackupdr_ManagementURI;
@@ -80,25 +73,20 @@
 @class GTLRBackupdr_Operation_Metadata;
 @class GTLRBackupdr_Operation_Response;
 @class GTLRBackupdr_OperationMetadata_AdditionalInfo;
-@class GTLRBackupdr_PlacerLocation;
 @class GTLRBackupdr_Policy;
-@class GTLRBackupdr_RegionalMigDistributionPolicy;
-@class GTLRBackupdr_RequirementOverride;
 @class GTLRBackupdr_RuleConfigInfo;
 @class GTLRBackupdr_Scheduling;
 @class GTLRBackupdr_SchedulingDuration;
 @class GTLRBackupdr_ServiceAccount;
 @class GTLRBackupdr_ServiceLockInfo;
-@class GTLRBackupdr_SpannerLocation;
 @class GTLRBackupdr_StandardSchedule;
 @class GTLRBackupdr_Status;
 @class GTLRBackupdr_Status_Details_Item;
 @class GTLRBackupdr_Tags;
-@class GTLRBackupdr_TenantProjectProxy;
+@class GTLRBackupdr_TargetResource;
 @class GTLRBackupdr_WeekDayOfMonth;
 @class GTLRBackupdr_WorkforceIdentityBasedManagementURI;
 @class GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID;
-@class GTLRBackupdr_ZoneConfiguration;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -496,6 +484,49 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Ina
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanAssociation_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_BackupVault.accessRestriction
+
+/**
+ *  Access restriction not set. If user does not provide any value or pass this
+ *  value, it will be changed to WITHIN_ORGANIZATION.
+ *
+ *  Value: "ACCESS_RESTRICTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_AccessRestrictionUnspecified;
+/**
+ *  No access restriction.
+ *
+ *  Value: "UNRESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_Unrestricted;
+/**
+ *  Access to or from resources outside your current organization will be
+ *  denied.
+ *
+ *  Value: "WITHIN_ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_WithinOrganization;
+/**
+ *  Access to or from resources outside your current organization will be denied
+ *  except for backup appliance.
+ *
+ *  Value: "WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_WithinOrgButUnrestrictedForBa;
+/**
+ *  Access to or from resources outside your current project will be denied.
+ *
+ *  Value: "WITHIN_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_WithinProject;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_BackupVault.state
@@ -760,154 +791,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_GuestOsFeature_Type_VirtioScsiM
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_GuestOsFeature_Type_Windows;
 
 // ----------------------------------------------------------------------------
-// GTLRBackupdr_IsolationExpectations.ziOrgPolicy
-
-/** Value: "ZI_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiNotRequired;
-/** Value: "ZI_PREFERRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiPreferred;
-/** Value: "ZI_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiUnknown;
-/** Value: "ZI_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_IsolationExpectations.ziRegionPolicy
-
-/** Value: "ZI_REGION_POLICY_FAIL_CLOSED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed;
-/** Value: "ZI_REGION_POLICY_FAIL_OPEN" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen;
-/** Value: "ZI_REGION_POLICY_NOT_SET" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_REGION_POLICY_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown;
-/** Value: "ZI_REGION_POLICY_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_IsolationExpectations.ziRegionState
-
-/** Value: "ZI_REGION_ENABLED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionEnabled;
-/** Value: "ZI_REGION_NOT_ENABLED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_REGION_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionUnknown;
-/** Value: "ZI_REGION_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_IsolationExpectations.zoneIsolation
-
-/** Value: "ZI_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiNotRequired;
-/** Value: "ZI_PREFERRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiPreferred;
-/** Value: "ZI_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiUnknown;
-/** Value: "ZI_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_IsolationExpectations.zoneSeparation
-
-/** Value: "ZS_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsNotRequired;
-/** Value: "ZS_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZS_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsUnknown;
-/** Value: "ZS_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_IsolationExpectations.zsOrgPolicy
-
-/** Value: "ZS_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsNotRequired;
-/** Value: "ZS_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZS_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsUnknown;
-/** Value: "ZS_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_IsolationExpectations.zsRegionState
-
-/** Value: "ZS_REGION_ENABLED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionEnabled;
-/** Value: "ZS_REGION_NOT_ENABLED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled;
-/**
- *  To be used if tracking of the asset ZS-bit is not available
- *
- *  Value: "ZS_REGION_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionUnknown;
-/** Value: "ZS_REGION_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_LocationAssignment.locationType
-
-/** Value: "CLOUD_REGION" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_CloudRegion;
-/**
- *  11-20: Logical failure domains.
- *
- *  Value: "CLOUD_ZONE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_CloudZone;
-/**
- *  1-10: Physical failure domains.
- *
- *  Value: "CLUSTER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Cluster;
-/** Value: "GLOBAL" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Global;
-/** Value: "MULTI_REGION_GEO" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_MultiRegionGeo;
-/** Value: "MULTI_REGION_JURISDICTION" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_MultiRegionJurisdiction;
-/** Value: "OTHER" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Other;
-/** Value: "POP" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Pop;
-/** Value: "UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationAssignment_LocationType_Unspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRBackupdr_ManagementServer.state
 
 /**
@@ -1105,40 +988,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_N
  *  Value: "OPERATOR_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_OperatorUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_RequirementOverride.ziOverride
-
-/** Value: "ZI_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiNotRequired;
-/** Value: "ZI_PREFERRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiPreferred;
-/** Value: "ZI_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZI_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiUnknown;
-/** Value: "ZI_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZiOverride_ZiUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRBackupdr_RequirementOverride.zsOverride
-
-/** Value: "ZS_NOT_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZsOverride_ZsNotRequired;
-/** Value: "ZS_REQUIRED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZsOverride_ZsRequired;
-/**
- *  To be used if tracking is not available
- *
- *  Value: "ZS_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZsOverride_ZsUnknown;
-/** Value: "ZS_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_RequirementOverride_ZsOverride_ZsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_RuleConfigInfo.lastBackupState
@@ -1738,39 +1587,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  Provides the mapping of a cloud asset to a direct physical location or to a
- *  proxy that defines the location on its behalf.
- */
-@interface GTLRBackupdr_AssetLocation : GTLRObject
-
-/**
- *  Spanner path of the CCFE RMS database. It is only applicable for CCFE
- *  tenants that use CCFE RMS for storing resource metadata.
- */
-@property(nonatomic, copy, nullable) NSString *ccfeRmsPath;
-
-/**
- *  Defines the customer expectation around ZI/ZS for this asset and ZI/ZS state
- *  of the region at the time of asset creation.
- */
-@property(nonatomic, strong, nullable) GTLRBackupdr_IsolationExpectations *expected;
-
-/** Defines extra parameters required for specific asset types. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_ExtraParameter *> *extraParameters;
-
-/** Contains all kinds of physical location definitions for this asset. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_LocationData *> *locationData;
-
-/**
- *  Defines parents assets if any in order to allow later generation of
- *  child_asset_location data via child assets.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_CloudAsset *> *parentAsset;
-
-@end
-
-
-/**
  *  An instance-attached disk resource.
  */
 @interface GTLRBackupdr_AttachedDisk : GTLRObject
@@ -2056,7 +1872,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_Backup_Labels *labels;
 
-/** Output only. Identifier. Name of the resource. */
+/**
+ *  Output only. Identifier. Name of the backup to create. It must have the
+ *  format`"projects//locations//backupVaults//dataSources/{datasource}/backups/{backup}"`.
+ *  `{backup}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the datasource.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2350,8 +2171,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  Required. The resource type to which the `BackupPlan` will be applied.
- *  Examples include, "compute.googleapis.com/Instance" and
- *  "storage.googleapis.com/Bucket".
+ *  Examples include, "compute.googleapis.com/Instance",
+ *  "sqladmin.googleapis.com/Instance" and "storage.googleapis.com/Bucket".
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -2428,8 +2249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
- *  Output only. Output Only. Resource type of workload on which backupplan is
- *  applied
+ *  Optional. Required. Resource type of workload on which backupplan is applied
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -2450,6 +2270,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        has been created but is not usable. (Value: "INACTIVE")
  *    @arg @c kGTLRBackupdr_BackupPlanAssociation_State_StateUnspecified State
  *        not set. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_BackupPlanAssociation_State_Updating The resource is
+ *        being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2467,7 +2289,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /**
  *  Required. Configures the duration for which backup data will be kept. It is
  *  defined in “days”. The value should be greater than or equal to minimum
- *  enforced retention of the backup vault.
+ *  enforced retention of the backup vault. Minimum value is 1 and maximum value
+ *  is 90 for hourly backups. Minimum value is 1 and maximum value is 90 for
+ *  daily backups. Minimum value is 7 and maximum value is 186 for weekly
+ *  backups. Minimum value is 30 and maximum value is 732 for monthly backups.
+ *  Minimum value is 30 and maximum value is 36159 for yearly backups.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2494,6 +2320,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Message describing a BackupVault object.
  */
 @interface GTLRBackupdr_BackupVault : GTLRObject
+
+/**
+ *  Optional. Note: This field is added for future use case and will not be
+ *  supported in the current release. Optional. Access restriction for the
+ *  backup vault. Default value is WITHIN_ORGANIZATION if not provided during
+ *  creation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_BackupVault_AccessRestriction_AccessRestrictionUnspecified
+ *        Access restriction not set. If user does not provide any value or pass
+ *        this value, it will be changed to WITHIN_ORGANIZATION. (Value:
+ *        "ACCESS_RESTRICTION_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_BackupVault_AccessRestriction_Unrestricted No access
+ *        restriction. (Value: "UNRESTRICTED")
+ *    @arg @c kGTLRBackupdr_BackupVault_AccessRestriction_WithinOrganization
+ *        Access to or from resources outside your current organization will be
+ *        denied. (Value: "WITHIN_ORGANIZATION")
+ *    @arg @c kGTLRBackupdr_BackupVault_AccessRestriction_WithinOrgButUnrestrictedForBa
+ *        Access to or from resources outside your current organization will be
+ *        denied except for backup appliance. (Value:
+ *        "WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA")
+ *    @arg @c kGTLRBackupdr_BackupVault_AccessRestriction_WithinProject Access
+ *        to or from resources outside your current project will be denied.
+ *        (Value: "WITHIN_PROJECT")
+ */
+@property(nonatomic, copy, nullable) NSString *accessRestriction;
 
 /**
  *  Optional. User annotations. See https://google.aip.dev/128#annotations
@@ -2548,7 +2400,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_BackupVault_Labels *labels;
 
-/** Output only. Identifier. The resource name. */
+/**
+ *  Output only. Identifier. Name of the backup vault to create. It must have
+ *  the
+ *  format`"projects/{project}/locations/{location}/backupVaults/{backupvault}"`.
+ *  `{backupvault}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the project and location.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2735,41 +2593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  Policy ID that identified data placement in Blobstore as per
- *  go/blobstore-user-guide#data-metadata-placement-and-failure-domains
- */
-@interface GTLRBackupdr_BlobstoreLocation : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *policyId;
-
-@end
-
-
-/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRBackupdr_CancelOperationRequest : GTLRObject
-@end
-
-
-/**
- *  GTLRBackupdr_CloudAsset
- */
-@interface GTLRBackupdr_CloudAsset : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *assetName;
-@property(nonatomic, copy, nullable) NSString *assetType;
-
-@end
-
-
-/**
- *  GTLRBackupdr_CloudAssetComposition
- */
-@interface GTLRBackupdr_CloudAssetComposition : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_CloudAsset *> *childAsset;
-
 @end
 
 
@@ -3238,7 +3064,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_DataSource_Labels *labels;
 
-/** Output only. Identifier. The resource name. */
+/**
+ *  Output only. Identifier. Name of the datasource to create. It must have the
+ *  format`"projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}"`.
+ *  `{datasource}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the backup vault.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3357,16 +3188,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  GTLRBackupdr_DirectLocationAssignment
- */
-@interface GTLRBackupdr_DirectLocationAssignment : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_LocationAssignment *> *location;
-
-@end
-
-
-/**
  *  A set of Display Device options
  */
 @interface GTLRBackupdr_DisplayDevice : GTLRObject
@@ -3455,20 +3276,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
- *  Defines parameters that should only be used for specific asset types.
- */
-@interface GTLRBackupdr_ExtraParameter : GTLRObject
-
-/**
- *  Details about zones used by regional
- *  compute.googleapis.com/InstanceGroupManager to create instances.
- */
-@property(nonatomic, strong, nullable) GTLRBackupdr_RegionalMigDistributionPolicy *regionalMigDistributionPolicy;
 
 @end
 
@@ -3645,6 +3452,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Minimum details to identify a Google Cloud resource
+ */
+@interface GTLRBackupdr_GcpResource : GTLRObject
+
+/** Name of the Google Cloud resource. */
+@property(nonatomic, copy, nullable) NSString *gcpResourcename;
+
+/** Location of the resource: //"global"/"unspecified". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Type of the resource. Use the Unified Resource Type, eg.
+ *  compute.googleapis.com/Instance.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Feature type of the Guest OS.
  */
 @interface GTLRBackupdr_GuestOsFeature : GTLRObject
@@ -3783,135 +3610,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        fetch them all at once.
  */
 @interface GTLRBackupdr_InstanceParams_ResourceManagerTags : GTLRObject
-@end
-
-
-/**
- *  GTLRBackupdr_IsolationExpectations
- */
-@interface GTLRBackupdr_IsolationExpectations : GTLRObject
-
-/**
- *  Explicit overrides for ZI and ZS requirements to be used for resources that
- *  should be excluded from ZI/ZS verification logic.
- */
-@property(nonatomic, strong, nullable) GTLRBackupdr_RequirementOverride *requirementOverride;
-
-/**
- *  ziOrgPolicy
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiNotRequired
- *        Value "ZI_NOT_REQUIRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiPreferred Value
- *        "ZI_PREFERRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiRequired Value
- *        "ZI_REQUIRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiUnknown To be
- *        used if tracking is not available (Value: "ZI_UNKNOWN")
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiOrgPolicy_ZiUnspecified
- *        Value "ZI_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *ziOrgPolicy;
-
-/**
- *  ziRegionPolicy
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed
- *        Value "ZI_REGION_POLICY_FAIL_CLOSED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen
- *        Value "ZI_REGION_POLICY_FAIL_OPEN"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet
- *        Value "ZI_REGION_POLICY_NOT_SET"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown
- *        To be used if tracking is not available (Value:
- *        "ZI_REGION_POLICY_UNKNOWN")
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified
- *        Value "ZI_REGION_POLICY_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *ziRegionPolicy;
-
-/**
- *  ziRegionState
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionEnabled
- *        Value "ZI_REGION_ENABLED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled
- *        Value "ZI_REGION_NOT_ENABLED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionUnknown
- *        To be used if tracking is not available (Value: "ZI_REGION_UNKNOWN")
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZiRegionState_ZiRegionUnspecified
- *        Value "ZI_REGION_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *ziRegionState;
-
-/**
- *  Deprecated: use zi_org_policy, zi_region_policy and zi_region_state instead
- *  for setting ZI expectations as per go/zicy-publish-physical-location.
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiNotRequired
- *        Value "ZI_NOT_REQUIRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiPreferred
- *        Value "ZI_PREFERRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiRequired Value
- *        "ZI_REQUIRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiUnknown To be
- *        used if tracking is not available (Value: "ZI_UNKNOWN")
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneIsolation_ZiUnspecified
- *        Value "ZI_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zoneIsolation GTLR_DEPRECATED;
-
-/**
- *  Deprecated: use zs_org_policy, and zs_region_stateinstead for setting Zs
- *  expectations as per go/zicy-publish-physical-location.
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsNotRequired
- *        Value "ZS_NOT_REQUIRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsRequired
- *        Value "ZS_REQUIRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsUnknown To be
- *        used if tracking is not available (Value: "ZS_UNKNOWN")
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZoneSeparation_ZsUnspecified
- *        Value "ZS_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zoneSeparation GTLR_DEPRECATED;
-
-/**
- *  zsOrgPolicy
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsNotRequired
- *        Value "ZS_NOT_REQUIRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsRequired Value
- *        "ZS_REQUIRED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsUnknown To be
- *        used if tracking is not available (Value: "ZS_UNKNOWN")
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZsOrgPolicy_ZsUnspecified
- *        Value "ZS_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zsOrgPolicy;
-
-/**
- *  zsRegionState
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionEnabled
- *        Value "ZS_REGION_ENABLED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled
- *        Value "ZS_REGION_NOT_ENABLED"
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionUnknown
- *        To be used if tracking of the asset ZS-bit is not available (Value:
- *        "ZS_REGION_UNKNOWN")
- *    @arg @c kGTLRBackupdr_IsolationExpectations_ZsRegionState_ZsRegionUnspecified
- *        Value "ZS_REGION_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zsRegionState;
-
 @end
 
 
@@ -4218,54 +3916,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  GTLRBackupdr_LocationAssignment
- */
-@interface GTLRBackupdr_LocationAssignment : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  locationType
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_CloudRegion Value
- *        "CLOUD_REGION"
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_CloudZone 11-20:
- *        Logical failure domains. (Value: "CLOUD_ZONE")
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_Cluster 1-10:
- *        Physical failure domains. (Value: "CLUSTER")
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_Global Value
- *        "GLOBAL"
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_MultiRegionGeo Value
- *        "MULTI_REGION_GEO"
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_MultiRegionJurisdiction
- *        Value "MULTI_REGION_JURISDICTION"
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_Other Value "OTHER"
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_Pop Value "POP"
- *    @arg @c kGTLRBackupdr_LocationAssignment_LocationType_Unspecified Value
- *        "UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *locationType;
-
-@end
-
-
-/**
- *  GTLRBackupdr_LocationData
- */
-@interface GTLRBackupdr_LocationData : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRBackupdr_BlobstoreLocation *blobstoreLocation;
-@property(nonatomic, strong, nullable) GTLRBackupdr_CloudAssetComposition *childAssetLocation;
-@property(nonatomic, strong, nullable) GTLRBackupdr_DirectLocationAssignment *directLocation;
-@property(nonatomic, strong, nullable) GTLRBackupdr_TenantProjectProxy *gcpProjectProxy;
-@property(nonatomic, strong, nullable) GTLRBackupdr_PlacerLocation *placerLocation;
-@property(nonatomic, strong, nullable) GTLRBackupdr_SpannerLocation *spannerLocation;
-
-@end
-
-
-/**
  *  ManagementServer describes a single BackupDR ManagementServer instance.
  */
 @interface GTLRBackupdr_ManagementServer : GTLRObject
@@ -4310,8 +3960,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. VPC networks to which the ManagementServer instance is connected.
- *  For this version, only a single network is supported.
+ *  Optional. VPC networks to which the ManagementServer instance is connected.
+ *  For this version, only a single network is supported. This field is optional
+ *  if MS is created without PSA
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_NetworkConfig *> *networks;
 
@@ -4781,21 +4432,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  Message describing that the location of the customer resource is tied to
- *  placer allocations
- */
-@interface GTLRBackupdr_PlacerLocation : GTLRObject
-
-/**
- *  Directory with a config related to it in placer (e.g.
- *  "/placer/prod/home/my-root/my-dir")
- */
-@property(nonatomic, copy, nullable) NSString *placerConfig;
-
-@end
-
-
-/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -4887,26 +4523,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  To be used for specifying the intended distribution of regional
- *  compute.googleapis.com/InstanceGroupManager instances
- */
-@interface GTLRBackupdr_RegionalMigDistributionPolicy : GTLRObject
-
-/**
- *  The shape in which the group converges around distribution of resources.
- *  Instance of proto2 enum
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetShape;
-
-/** Cloud zones used by regional MIG to create instances. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_ZoneConfiguration *> *zones;
-
-@end
-
-
-/**
  *  Message for deleting a DataSource.
  */
 @interface GTLRBackupdr_RemoveDataSourceRequest : GTLRObject
@@ -4925,46 +4541,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
-
-@end
-
-
-/**
- *  GTLRBackupdr_RequirementOverride
- */
-@interface GTLRBackupdr_RequirementOverride : GTLRObject
-
-/**
- *  ziOverride
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZiOverride_ZiNotRequired Value
- *        "ZI_NOT_REQUIRED"
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZiOverride_ZiPreferred Value
- *        "ZI_PREFERRED"
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZiOverride_ZiRequired Value
- *        "ZI_REQUIRED"
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZiOverride_ZiUnknown To be used
- *        if tracking is not available (Value: "ZI_UNKNOWN")
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZiOverride_ZiUnspecified Value
- *        "ZI_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *ziOverride;
-
-/**
- *  zsOverride
- *
- *  Likely values:
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZsOverride_ZsNotRequired Value
- *        "ZS_NOT_REQUIRED"
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZsOverride_ZsRequired Value
- *        "ZS_REQUIRED"
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZsOverride_ZsUnknown To be used
- *        if tracking is not available (Value: "ZS_UNKNOWN")
- *    @arg @c kGTLRBackupdr_RequirementOverride_ZsOverride_ZsUnspecified Value
- *        "ZS_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *zsOverride;
 
 @end
 
@@ -4994,6 +4570,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Response message for restoring from a Backup.
+ */
+@interface GTLRBackupdr_RestoreBackupResponse : GTLRObject
+
+/** Details of the target resource created/modified as part of restore. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_TargetResource *targetResource;
 
 @end
 
@@ -5259,19 +4846,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  GTLRBackupdr_SpannerLocation
+ *  Response message from SetStatusInternal method.
  */
-@interface GTLRBackupdr_SpannerLocation : GTLRObject
-
-/**
- *  Set of backups used by the resource with name in the same format as what is
- *  available at http://table/spanner_automon.backup_metadata
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *backupName;
-
-/** Set of databases used by the resource in format /span// */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *dbName;
-
+@interface GTLRBackupdr_SetInternalStatusResponse : GTLRObject
 @end
 
 
@@ -5430,11 +5007,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  GTLRBackupdr_TenantProjectProxy
+ *  Details of the target resource created/modified as part of restore.
  */
-@interface GTLRBackupdr_TenantProjectProxy : GTLRObject
+@interface GTLRBackupdr_TargetResource : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<NSString *> *projectNumbers;
+/** Details of the native Google Cloud resource created as part of restore. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_GcpResource *gcpResource;
 
 @end
 
@@ -5573,21 +5151,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Output only. Third party OAuth Client ID for External Identity Providers.
  */
 @property(nonatomic, copy, nullable) NSString *thirdPartyOauth2ClientId;
-
-@end
-
-
-/**
- *  GTLRBackupdr_ZoneConfiguration
- */
-@interface GTLRBackupdr_ZoneConfiguration : GTLRObject
-
-/**
- *  zoneProperty
- *
- *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
- */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 

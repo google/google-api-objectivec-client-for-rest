@@ -509,6 +509,51 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  This API replaces user authorized OAuth consent based APIs (Create,
+ *  Entitle). Generates a short-lived token for a user session based on the user
+ *  intent. You can use the session token to redirect the user to Google to
+ *  finish the signup flow. You can re-generate new session token repeatedly for
+ *  the same request if necessary, regardless of the previous tokens being
+ *  expired or not.
+ *
+ *  Method: paymentsresellersubscription.partners.userSessions.generate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ */
+@interface GTLRPaymentsResellerSubscriptionQuery_PartnersUserSessionsGenerate : GTLRPaymentsResellerSubscriptionQuery
+
+/**
+ *  Required. The parent, the partner that can resell. Format:
+ *  partners/{partner}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionResponse.
+ *
+ *  This API replaces user authorized OAuth consent based APIs (Create,
+ *  Entitle). Generates a short-lived token for a user session based on the user
+ *  intent. You can use the session token to redirect the user to Google to
+ *  finish the signup flow. You can re-generate new session token repeatedly for
+ *  the same request if necessary, regardless of the previous tokens being
+ *  expired or not.
+ *
+ *  @param object The @c
+ *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionRequest
+ *    to include in the query.
+ *  @param parent Required. The parent, the partner that can resell. Format:
+ *    partners/{partner}
+ *
+ *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersUserSessionsGenerate
+ */
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

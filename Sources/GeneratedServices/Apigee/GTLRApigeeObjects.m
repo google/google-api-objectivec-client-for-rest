@@ -324,6 +324,12 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Moder
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_RiskLevelUnspecified = @"RISK_LEVEL_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe = @"SEVERE";
 
+// GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig.weight
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Major = @"MAJOR";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Minor = @"MINOR";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Moderate = @"MODERATE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_WeightUnspecified = @"WEIGHT_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ExternalCallout = @"EXTERNAL_CALLOUT";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc = @"GRPC";
@@ -1242,6 +1248,25 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess
+@dynamic analyticsPublisherIdentities, name, synchronizerIdentities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analyticsPublisherIdentities" : [NSString class],
+    @"synchronizerIdentities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1Credential
 //
 
@@ -1816,11 +1841,12 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig
-@dynamic addonsConfig, arcConfigLocation, createTime, dataCollectors, debugMask,
-         deploymentGroups, deployments, envScopedRevisionId, featureFlags,
-         flowhooks, forwardProxyUri, gatewayConfigLocation, keystores, name,
-         provider, pubsubTopic, resourceReferences, resources, revisionId,
-         sequenceNumber, targets, traceConfig, uid;
+@dynamic addonsConfig, arcConfigLocation, clientIpResolutionConfig, createTime,
+         dataCollectors, debugMask, deploymentGroups, deployments,
+         envScopedRevisionId, featureFlags, flowhooks, forwardProxyUri,
+         gatewayConfigLocation, keystores, name, provider, pubsubTopic,
+         resourceReferences, resources, revisionId, sequenceNumber, targets,
+         traceConfig, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1850,6 +1876,26 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig
+@dynamic headerIndexAlgorithm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm
+@dynamic ipHeaderIndex, ipHeaderName;
 @end
 
 
@@ -2978,6 +3024,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 + (NSString *)collectionItemsKey {
   return @"securityProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesV2Response
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesV2Response
+@dynamic nextPageToken, securityProfilesV2;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityProfilesV2" : [GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityProfilesV2";
 }
 
 @end
@@ -4381,6 +4449,46 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2
+@dynamic createTime, descriptionProperty, googleDefined, name,
+         profileAssessmentConfigs, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig
+@dynamic weight;
 @end
 
 

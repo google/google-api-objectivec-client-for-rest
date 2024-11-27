@@ -1243,7 +1243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: accesscontextmanager.operations.cancel
@@ -1266,7 +1266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRAccessContextManager_CancelOperationRequest to
@@ -1537,6 +1537,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch : GTLRAccessContextManagerQuery
 
 /**
+ *  Optional. This field controls whether or not certain repeated settings in
+ *  the update request overwrite or append to existing settings on the binding.
+ *  If true, then append. Otherwise overwrite. So far, only
+ *  scoped_access_settings with reauth_settings supports appending. Global
+ *  access_levels, access_levels in scoped_access_settings,
+ *  dry_run_access_levels, reauth_settings, and session_settings are not
+ *  compatible with append functionality, and the request will return an error
+ *  if append=true when these settings are in the update_mask. The request will
+ *  also return an error if append=true when "scoped_access_settings" is not set
+ *  in the update_mask.
+ */
+@property(nonatomic, assign) BOOL append;
+
+/**
  *  Immutable. Assigned by the server during creation. The last segment has an
  *  arbitrary length and has only URI unreserved characters (as defined by [RFC
  *  3986 Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should
@@ -1548,8 +1562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Required. Only the fields specified in this mask are updated. Because name
  *  and group_key cannot be changed, update_mask is required and may only
- *  contain the following fields: `access_levels`, `dry_run_access_levels`.
- *  update_mask { paths: "access_levels" }
+ *  contain the following fields: `access_levels`, `dry_run_access_levels`,
+ *  `reauth_settings` `session_settings`, `scoped_access_settings`. update_mask
+ *  { paths: "access_levels" }
  *
  *  String format is a comma-separated list of fields.
  */

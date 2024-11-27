@@ -21,6 +21,7 @@
 @class GTLRPlayIntegrity_AccountDetails;
 @class GTLRPlayIntegrity_AppAccessRiskVerdict;
 @class GTLRPlayIntegrity_AppIntegrity;
+@class GTLRPlayIntegrity_DeviceAttributes;
 @class GTLRPlayIntegrity_DeviceIntegrity;
 @class GTLRPlayIntegrity_DeviceRecall;
 @class GTLRPlayIntegrity_EnvironmentDetails;
@@ -635,9 +636,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
 
 
 /**
+ *  Contains information about the device for which the integrity token was
+ *  generated, e.g. Android SDK version.
+ */
+@interface GTLRPlayIntegrity_DeviceAttributes : GTLRObject
+
+/**
+ *  Android SDK version of the device, as defined in the public Android
+ *  documentation:
+ *  https://developer.android.com/reference/android/os/Build.VERSION_CODES. It
+ *  won't be set if a necessary requirement was missed. For example
+ *  DeviceIntegrity did not meet the minimum bar.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sdkVersion;
+
+@end
+
+
+/**
  *  Contains the device attestation information.
  */
 @interface GTLRPlayIntegrity_DeviceIntegrity : GTLRObject
+
+/** Attributes of the device where the integrity token was generated. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_DeviceAttributes *deviceAttributes;
 
 /** Details about the device recall bits set by the developer. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_DeviceRecall *deviceRecall;

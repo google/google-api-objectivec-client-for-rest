@@ -150,6 +150,104 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the configuration related to the migration from Data Catalog to
+ *  Dataplex for a specific organization, including all the projects under it
+ *  which have a separate configuration set.
+ *
+ *  Method: datacatalog.organizations.locations.retrieveConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_OrganizationsLocationsRetrieveConfig : GTLRDataCatalogQuery
+
+/** Required. The organization whose config is being retrieved. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig.
+ *
+ *  Retrieves the configuration related to the migration from Data Catalog to
+ *  Dataplex for a specific organization, including all the projects under it
+ *  which have a separate configuration set.
+ *
+ *  @param name Required. The organization whose config is being retrieved.
+ *
+ *  @return GTLRDataCatalogQuery_OrganizationsLocationsRetrieveConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the effective configuration related to the migration from Data
+ *  Catalog to Dataplex for a specific organization or project. If there is no
+ *  specific configuration set for the resource, the setting is checked
+ *  hierarchicahlly through the ancestors of the resource, starting from the
+ *  resource itself.
+ *
+ *  Method: datacatalog.organizations.locations.retrieveEffectiveConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_OrganizationsLocationsRetrieveEffectiveConfig : GTLRDataCatalogQuery
+
+/** Required. The resource whose effective config is being retrieved. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
+ *
+ *  Retrieves the effective configuration related to the migration from Data
+ *  Catalog to Dataplex for a specific organization or project. If there is no
+ *  specific configuration set for the resource, the setting is checked
+ *  hierarchicahlly through the ancestors of the resource, starting from the
+ *  resource itself.
+ *
+ *  @param name Required. The resource whose effective config is being
+ *    retrieved.
+ *
+ *  @return GTLRDataCatalogQuery_OrganizationsLocationsRetrieveEffectiveConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the configuration related to the migration to Dataplex for an
+ *  organization or project.
+ *
+ *  Method: datacatalog.organizations.locations.setConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_OrganizationsLocationsSetConfig : GTLRDataCatalogQuery
+
+/** Required. The organization or project whose config is being specified. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
+ *
+ *  Sets the configuration related to the migration to Dataplex for an
+ *  organization or project.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest to include in the
+ *    query.
+ *  @param name Required. The organization or project whose config is being
+ *    specified.
+ *
+ *  @return GTLRDataCatalogQuery_OrganizationsLocationsSetConfig
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates an entry group. An entry group contains logically related entries
  *  together with [Cloud Identity and Access
  *  Management](/data-catalog/docs/concepts/iam) policies. These policies
@@ -1561,6 +1659,74 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the effective configuration related to the migration from Data
+ *  Catalog to Dataplex for a specific organization or project. If there is no
+ *  specific configuration set for the resource, the setting is checked
+ *  hierarchicahlly through the ancestors of the resource, starting from the
+ *  resource itself.
+ *
+ *  Method: datacatalog.projects.locations.retrieveEffectiveConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsRetrieveEffectiveConfig : GTLRDataCatalogQuery
+
+/** Required. The resource whose effective config is being retrieved. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
+ *
+ *  Retrieves the effective configuration related to the migration from Data
+ *  Catalog to Dataplex for a specific organization or project. If there is no
+ *  specific configuration set for the resource, the setting is checked
+ *  hierarchicahlly through the ancestors of the resource, starting from the
+ *  resource itself.
+ *
+ *  @param name Required. The resource whose effective config is being
+ *    retrieved.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsRetrieveEffectiveConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the configuration related to the migration to Dataplex for an
+ *  organization or project.
+ *
+ *  Method: datacatalog.projects.locations.setConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsSetConfig : GTLRDataCatalogQuery
+
+/** Required. The organization or project whose config is being specified. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
+ *
+ *  Sets the configuration related to the migration to Dataplex for an
+ *  organization or project.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest to include in the
+ *    query.
+ *  @param name Required. The organization or project whose config is being
+ *    specified.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsSetConfig
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest *)object
+                           name:(NSString *)name;
 
 @end
 

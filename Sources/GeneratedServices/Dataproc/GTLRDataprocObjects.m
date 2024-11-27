@@ -17,6 +17,15 @@
 NSString * const kGTLRDataproc_AnalyzeOperationMetadata_AnalyzedWorkloadType_Batch = @"BATCH";
 NSString * const kGTLRDataproc_AnalyzeOperationMetadata_AnalyzedWorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
 
+// GTLRDataproc_ApplicationInfo.applicationContextIngestionStatus
+NSString * const kGTLRDataproc_ApplicationInfo_ApplicationContextIngestionStatus_ApplicationContextIngestionStatusCompleted = @"APPLICATION_CONTEXT_INGESTION_STATUS_COMPLETED";
+NSString * const kGTLRDataproc_ApplicationInfo_ApplicationContextIngestionStatus_ApplicationContextIngestionStatusUnspecified = @"APPLICATION_CONTEXT_INGESTION_STATUS_UNSPECIFIED";
+
+// GTLRDataproc_ApplicationInfo.quantileDataStatus
+NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusCompleted = @"QUANTILE_DATA_STATUS_COMPLETED";
+NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusFailed = @"QUANTILE_DATA_STATUS_FAILED";
+NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusUnspecified = @"QUANTILE_DATA_STATUS_UNSPECIFIED";
+
 // GTLRDataproc_AutotuningConfig.scenarios
 NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_BroadcastHashJoin = @"BROADCAST_HASH_JOIN";
 NSString * const kGTLRDataproc_AutotuningConfig_Scenarios_Memory = @"MEMORY";
@@ -60,6 +69,10 @@ NSString * const kGTLRDataproc_ClusterStatus_Substate_StaleStatus = @"STALE_STAT
 NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified = @"UNSPECIFIED";
 
+// GTLRDataproc_ClusterToRepair.clusterRepairAction
+NSString * const kGTLRDataproc_ClusterToRepair_ClusterRepairAction_ClusterRepairActionUnspecified = @"CLUSTER_REPAIR_ACTION_UNSPECIFIED";
+NSString * const kGTLRDataproc_ClusterToRepair_ClusterRepairAction_RepairErrorDueToUpdateCluster = @"REPAIR_ERROR_DUE_TO_UPDATE_CLUSTER";
+
 // GTLRDataproc_DiagnoseClusterRequest.tarballAccess
 NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleCloudSupport = @"GOOGLE_CLOUD_SUPPORT";
 NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleDataprocDiagnose = @"GOOGLE_DATAPROC_DIAGNOSE";
@@ -83,6 +96,13 @@ NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified = @"PREEMPTIBILITY_UNSPECIFIED";
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible = @"PREEMPTIBLE";
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Spot = @"SPOT";
+
+// GTLRDataproc_JobData.status
+NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusFailed = @"JOB_EXECUTION_STATUS_FAILED";
+NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusRunning = @"JOB_EXECUTION_STATUS_RUNNING";
+NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusSucceeded = @"JOB_EXECUTION_STATUS_SUCCEEDED";
+NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusUnknown = @"JOB_EXECUTION_STATUS_UNKNOWN";
+NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusUnspecified = @"JOB_EXECUTION_STATUS_UNSPECIFIED";
 
 // GTLRDataproc_JobStatus.state
 NSString * const kGTLRDataproc_JobStatus_State_AttemptFailure  = @"ATTEMPT_FAILURE";
@@ -148,6 +168,12 @@ NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_UpdateLa
 NSString * const kGTLRDataproc_NodePool_RepairAction_Delete    = @"DELETE";
 NSString * const kGTLRDataproc_NodePool_RepairAction_RepairActionUnspecified = @"REPAIR_ACTION_UNSPECIFIED";
 
+// GTLRDataproc_RddOperationNode.outputDeterministicLevel
+NSString * const kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelDeterminate = @"DETERMINISTIC_LEVEL_DETERMINATE";
+NSString * const kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelIndeterminate = @"DETERMINISTIC_LEVEL_INDETERMINATE";
+NSString * const kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelUnordered = @"DETERMINISTIC_LEVEL_UNORDERED";
+NSString * const kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelUnspecified = @"DETERMINISTIC_LEVEL_UNSPECIFIED";
+
 // GTLRDataproc_RepairNodeGroupRequest.repairAction
 NSString * const kGTLRDataproc_RepairNodeGroupRequest_RepairAction_RepairActionUnspecified = @"REPAIR_ACTION_UNSPECIFIED";
 NSString * const kGTLRDataproc_RepairNodeGroupRequest_RepairAction_Replace = @"REPLACE";
@@ -189,6 +215,7 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Flink = @"FLINK
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hbase = @"HBASE";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @"HIVE_WEBHCAT";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hudi = @"HUDI";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Iceberg = @"ICEBERG";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto = @"PRESTO";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Ranger = @"RANGER";
@@ -196,6 +223,21 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Solr = @"SOLR";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Trino = @"TRINO";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin = @"ZEPPELIN";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper = @"ZOOKEEPER";
+
+// GTLRDataproc_SqlExecutionUiData_Jobs.job
+NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusFailed = @"JOB_EXECUTION_STATUS_FAILED";
+NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusRunning = @"JOB_EXECUTION_STATUS_RUNNING";
+NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusSucceeded = @"JOB_EXECUTION_STATUS_SUCCEEDED";
+NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusUnknown = @"JOB_EXECUTION_STATUS_UNKNOWN";
+NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusUnspecified = @"JOB_EXECUTION_STATUS_UNSPECIFIED";
+
+// GTLRDataproc_StageData.status
+NSString * const kGTLRDataproc_StageData_Status_StageStatusActive = @"STAGE_STATUS_ACTIVE";
+NSString * const kGTLRDataproc_StageData_Status_StageStatusComplete = @"STAGE_STATUS_COMPLETE";
+NSString * const kGTLRDataproc_StageData_Status_StageStatusFailed = @"STAGE_STATUS_FAILED";
+NSString * const kGTLRDataproc_StageData_Status_StageStatusPending = @"STAGE_STATUS_PENDING";
+NSString * const kGTLRDataproc_StageData_Status_StageStatusSkipped = @"STAGE_STATUS_SKIPPED";
+NSString * const kGTLRDataproc_StageData_Status_StageStatusUnspecified = @"STAGE_STATUS_UNSPECIFIED";
 
 // GTLRDataproc_StateHistory.state
 NSString * const kGTLRDataproc_StateHistory_State_Cancelled    = @"CANCELLED";
@@ -247,6 +289,156 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_AccessSessionSparkApplicationEnvironmentInfoResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationEnvironmentInfoResponse
+@dynamic applicationEnvironmentInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSessionSparkApplicationJobResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationJobResponse
+@dynamic jobData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSessionSparkApplicationResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationResponse
+@dynamic application;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSessionSparkApplicationSqlQueryResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationSqlQueryResponse
+@dynamic executionData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSessionSparkApplicationSqlSparkPlanGraphResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationSqlSparkPlanGraphResponse
+@dynamic sparkPlanGraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSessionSparkApplicationStageAttemptResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationStageAttemptResponse
+@dynamic stageData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSessionSparkApplicationStageRddOperationGraphResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationStageRddOperationGraphResponse
+@dynamic rddOperationGraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationEnvironmentInfoResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationEnvironmentInfoResponse
+@dynamic applicationEnvironmentInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationJobResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationJobResponse
+@dynamic jobData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationResponse
+@dynamic application;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationSqlQueryResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationSqlQueryResponse
+@dynamic executionData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationSqlSparkPlanGraphResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationSqlSparkPlanGraphResponse
+@dynamic sparkPlanGraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationStageAttemptResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationStageAttemptResponse
+@dynamic stageData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationStageRddOperationGraphResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationStageRddOperationGraphResponse
+@dynamic rddOperationGraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccumulableInfo
+//
+
+@implementation GTLRDataproc_AccumulableInfo
+@dynamic accumullableInfoId, name, update, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_AnalyzeBatchRequest
 //
 
@@ -289,6 +481,136 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ApplicationAttemptInfo
+//
+
+@implementation GTLRDataproc_ApplicationAttemptInfo
+@dynamic appSparkVersion, attemptId, completed, durationMillis, endTime,
+         lastUpdated, sparkUser, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ApplicationEnvironmentInfo
+//
+
+@implementation GTLRDataproc_ApplicationEnvironmentInfo
+@dynamic classpathEntries, hadoopProperties, metricsProperties,
+         resourceProfiles, runtime, sparkProperties, systemProperties;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceProfiles" : [GTLRDataproc_ResourceProfileInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ApplicationEnvironmentInfo_ClasspathEntries
+//
+
+@implementation GTLRDataproc_ApplicationEnvironmentInfo_ClasspathEntries
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ApplicationEnvironmentInfo_HadoopProperties
+//
+
+@implementation GTLRDataproc_ApplicationEnvironmentInfo_HadoopProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ApplicationEnvironmentInfo_MetricsProperties
+//
+
+@implementation GTLRDataproc_ApplicationEnvironmentInfo_MetricsProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ApplicationEnvironmentInfo_SparkProperties
+//
+
+@implementation GTLRDataproc_ApplicationEnvironmentInfo_SparkProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ApplicationEnvironmentInfo_SystemProperties
+//
+
+@implementation GTLRDataproc_ApplicationEnvironmentInfo_SystemProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ApplicationInfo
+//
+
+@implementation GTLRDataproc_ApplicationInfo
+@dynamic applicationContextIngestionStatus, applicationId, attempts,
+         coresGranted, coresPerExecutor, maxCores, memoryPerExecutorMb, name,
+         quantileDataStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attempts" : [GTLRDataproc_ApplicationAttemptInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AppSummary
+//
+
+@implementation GTLRDataproc_AppSummary
+@dynamic numCompletedJobs, numCompletedStages;
 @end
 
 
@@ -683,11 +1005,34 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ClusterToRepair
+//
+
+@implementation GTLRDataproc_ClusterToRepair
+@dynamic clusterRepairAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ConfidentialInstanceConfig
 //
 
 @implementation GTLRDataproc_ConfidentialInstanceConfig
 @dynamic enableConfidentialCompute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ConsolidatedExecutorSummary
+//
+
+@implementation GTLRDataproc_ConsolidatedExecutorSummary
+@dynamic activeTasks, completedTasks, count, diskUsed, failedTasks, isExcluded,
+         maxMemory, memoryMetrics, memoryUsed, rddBlocks, totalCores,
+         totalDurationMillis, totalGcTimeMillis, totalInputBytes,
+         totalShuffleRead, totalShuffleWrite, totalTasks;
 @end
 
 
@@ -809,6 +1154,174 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
     @"networkTags" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorMetrics
+//
+
+@implementation GTLRDataproc_ExecutorMetrics
+@dynamic metrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorMetrics_Metrics
+//
+
+@implementation GTLRDataproc_ExecutorMetrics_Metrics
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorMetricsDistributions
+//
+
+@implementation GTLRDataproc_ExecutorMetricsDistributions
+@dynamic diskBytesSpilled, failedTasks, inputBytes, inputRecords, killedTasks,
+         memoryBytesSpilled, outputBytes, outputRecords, peakMemoryMetrics,
+         quantiles, shuffleRead, shuffleReadRecords, shuffleWrite,
+         shuffleWriteRecords, succeededTasks, taskTimeMillis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"diskBytesSpilled" : [NSNumber class],
+    @"failedTasks" : [NSNumber class],
+    @"inputBytes" : [NSNumber class],
+    @"inputRecords" : [NSNumber class],
+    @"killedTasks" : [NSNumber class],
+    @"memoryBytesSpilled" : [NSNumber class],
+    @"outputBytes" : [NSNumber class],
+    @"outputRecords" : [NSNumber class],
+    @"quantiles" : [NSNumber class],
+    @"shuffleRead" : [NSNumber class],
+    @"shuffleReadRecords" : [NSNumber class],
+    @"shuffleWrite" : [NSNumber class],
+    @"shuffleWriteRecords" : [NSNumber class],
+    @"succeededTasks" : [NSNumber class],
+    @"taskTimeMillis" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorPeakMetricsDistributions
+//
+
+@implementation GTLRDataproc_ExecutorPeakMetricsDistributions
+@dynamic executorMetrics, quantiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"executorMetrics" : [GTLRDataproc_ExecutorMetrics class],
+    @"quantiles" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorResourceRequest
+//
+
+@implementation GTLRDataproc_ExecutorResourceRequest
+@dynamic amount, discoveryScript, resourceName, vendor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorStageSummary
+//
+
+@implementation GTLRDataproc_ExecutorStageSummary
+@dynamic diskBytesSpilled, executorId, failedTasks, inputBytes, inputRecords,
+         isExcludedForStage, killedTasks, memoryBytesSpilled, outputBytes,
+         outputRecords, peakMemoryMetrics, shuffleRead, shuffleReadRecords,
+         shuffleWrite, shuffleWriteRecords, stageAttemptId, stageId,
+         succeededTasks, taskTimeMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorSummary
+//
+
+@implementation GTLRDataproc_ExecutorSummary
+@dynamic activeTasks, addTime, attributes, completedTasks, diskUsed,
+         excludedInStages, executorId, executorLogs, failedTasks, hostPort,
+         isActive, isExcluded, maxMemory, maxTasks, memoryMetrics, memoryUsed,
+         peakMemoryMetrics, rddBlocks, removeReason, removeTime,
+         resourceProfileId, resources, totalCores, totalDurationMillis,
+         totalGcTimeMillis, totalInputBytes, totalShuffleRead,
+         totalShuffleWrite, totalTasks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedInStages" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorSummary_Attributes
+//
+
+@implementation GTLRDataproc_ExecutorSummary_Attributes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorSummary_ExecutorLogs
+//
+
+@implementation GTLRDataproc_ExecutorSummary_ExecutorLogs
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutorSummary_Resources
+//
+
+@implementation GTLRDataproc_ExecutorSummary_Resources
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataproc_ResourceInformation class];
 }
 
 @end
@@ -1141,11 +1654,31 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_InputMetrics
+//
+
+@implementation GTLRDataproc_InputMetrics
+@dynamic bytesRead, recordsRead;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_InputQuantileMetrics
+//
+
+@implementation GTLRDataproc_InputQuantileMetrics
+@dynamic bytesRead, recordsRead;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_InstanceFlexibilityPolicy
 //
 
 @implementation GTLRDataproc_InstanceFlexibilityPolicy
-@dynamic instanceSelectionList, instanceSelectionResults;
+@dynamic instanceSelectionList, instanceSelectionResults, provisioningModelMix;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1302,6 +1835,47 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_JobData
+//
+
+@implementation GTLRDataproc_JobData
+@dynamic completionTime, descriptionProperty, jobGroup, jobId, killTasksSummary,
+         name, numActiveStages, numActiveTasks, numCompletedIndices,
+         numCompletedStages, numCompletedTasks, numFailedStages, numFailedTasks,
+         numKilledTasks, numSkippedStages, numSkippedTasks, numTasks,
+         skippedStages, sqlExecutionId, stageIds, status, submissionTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skippedStages" : [NSNumber class],
+    @"stageIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_JobData_KillTasksSummary
+//
+
+@implementation GTLRDataproc_JobData_KillTasksSummary
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_JobMetadata
 //
 
@@ -1351,6 +1925,25 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_JobScheduling
 @dynamic maxFailuresPerHour, maxFailuresTotal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_JobsSummary
+//
+
+@implementation GTLRDataproc_JobsSummary
+@dynamic activeJobs, applicationId, attempts, completedJobs, failedJobs,
+         schedulingMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attempts" : [GTLRDataproc_ApplicationAttemptInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1686,6 +2279,17 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_MemoryMetrics
+//
+
+@implementation GTLRDataproc_MemoryMetrics
+@dynamic totalOffHeapStorageMemory, totalOnHeapStorageMemory,
+         usedOffHeapStorageMemory, usedOnHeapStorageMemory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_MetastoreConfig
 //
 
@@ -1926,6 +2530,26 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_OutputMetrics
+//
+
+@implementation GTLRDataproc_OutputMetrics
+@dynamic bytesWritten, recordsWritten;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_OutputQuantileMetrics
+//
+
+@implementation GTLRDataproc_OutputQuantileMetrics
+@dynamic bytesWritten, recordsWritten;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ParameterValidation
 //
 
@@ -2015,6 +2639,24 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_PoolData
+//
+
+@implementation GTLRDataproc_PoolData
+@dynamic name, stageIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stageIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_PrestoJob
 //
 
@@ -2043,6 +2685,41 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ProcessSummary
+//
+
+@implementation GTLRDataproc_ProcessSummary
+@dynamic addTime, hostPort, isActive, processId, processLogs, removeTime,
+         totalCores;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ProcessSummary_ProcessLogs
+//
+
+@implementation GTLRDataproc_ProcessSummary_ProcessLogs
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ProvisioningModelMix
+//
+
+@implementation GTLRDataproc_ProvisioningModelMix
+@dynamic standardCapacityBase, standardCapacityPercentAboveBase;
 @end
 
 
@@ -2118,6 +2795,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_Quantiles
+//
+
+@implementation GTLRDataproc_Quantiles
+@dynamic count, maximum, minimum, percentile25, percentile50, percentile75, sum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_QueryList
 //
 
@@ -2127,6 +2814,114 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"queries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RddDataDistribution
+//
+
+@implementation GTLRDataproc_RddDataDistribution
+@dynamic address, diskUsed, memoryRemaining, memoryUsed, offHeapMemoryRemaining,
+         offHeapMemoryUsed, onHeapMemoryRemaining, onHeapMemoryUsed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RddOperationCluster
+//
+
+@implementation GTLRDataproc_RddOperationCluster
+@dynamic childClusters, childNodes, name, rddClusterId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childClusters" : [GTLRDataproc_RddOperationCluster class],
+    @"childNodes" : [GTLRDataproc_RddOperationNode class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RddOperationEdge
+//
+
+@implementation GTLRDataproc_RddOperationEdge
+@dynamic fromId, toId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RddOperationGraph
+//
+
+@implementation GTLRDataproc_RddOperationGraph
+@dynamic edges, incomingEdges, outgoingEdges, rootCluster, stageId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"edges" : [GTLRDataproc_RddOperationEdge class],
+    @"incomingEdges" : [GTLRDataproc_RddOperationEdge class],
+    @"outgoingEdges" : [GTLRDataproc_RddOperationEdge class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RddOperationNode
+//
+
+@implementation GTLRDataproc_RddOperationNode
+@dynamic barrier, cached, callsite, name, nodeId, outputDeterministicLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RddPartitionInfo
+//
+
+@implementation GTLRDataproc_RddPartitionInfo
+@dynamic blockName, diskUsed, executors, memoryUsed, storageLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"executors" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RddStorageInfo
+//
+
+@implementation GTLRDataproc_RddStorageInfo
+@dynamic dataDistribution, diskUsed, memoryUsed, name, numCachedPartitions,
+         numPartitions, partitions, rddStorageId, storageLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataDistribution" : [GTLRDataproc_RddDataDistribution class],
+    @"partitions" : [GTLRDataproc_RddPartitionInfo class]
   };
   return map;
 }
@@ -2158,8 +2953,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RepairClusterRequest
-@dynamic clusterUuid, gracefulDecommissionTimeout, nodePools, parentOperationId,
-         requestId;
+@dynamic cluster, clusterUuid, gracefulDecommissionTimeout, nodePools,
+         parentOperationId, requestId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2229,6 +3024,62 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ResourceInformation
+//
+
+@implementation GTLRDataproc_ResourceInformation
+@dynamic addresses, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addresses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ResourceProfileInfo
+//
+
+@implementation GTLRDataproc_ResourceProfileInfo
+@dynamic executorResources, resourceProfileId, taskResources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ResourceProfileInfo_ExecutorResources
+//
+
+@implementation GTLRDataproc_ResourceProfileInfo_ExecutorResources
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataproc_ExecutorResourceRequest class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ResourceProfileInfo_TaskResources
+//
+
+@implementation GTLRDataproc_ResourceProfileInfo_TaskResources
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataproc_TaskResourceRequest class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_RuntimeConfig
 //
 
@@ -2272,6 +3123,358 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSessionSparkApplicationExecutorsResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationExecutorsResponse
+@dynamic nextPageToken, sparkApplicationExecutors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationExecutors" : [GTLRDataproc_ExecutorSummary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationExecutors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSessionSparkApplicationExecutorStageSummaryResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationExecutorStageSummaryResponse
+@dynamic nextPageToken, sparkApplicationStageExecutors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationStageExecutors" : [GTLRDataproc_ExecutorStageSummary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationStageExecutors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSessionSparkApplicationJobsResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationJobsResponse
+@dynamic nextPageToken, sparkApplicationJobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationJobs" : [GTLRDataproc_JobData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSessionSparkApplicationSqlQueriesResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationSqlQueriesResponse
+@dynamic nextPageToken, sparkApplicationSqlQueries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationSqlQueries" : [GTLRDataproc_SqlExecutionUiData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationSqlQueries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSessionSparkApplicationsResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationsResponse
+@dynamic nextPageToken, sparkApplications;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplications" : [GTLRDataproc_SparkApplication class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplications";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSessionSparkApplicationStageAttemptsResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationStageAttemptsResponse
+@dynamic nextPageToken, sparkApplicationStageAttempts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationStageAttempts" : [GTLRDataproc_StageData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationStageAttempts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSessionSparkApplicationStageAttemptTasksResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationStageAttemptTasksResponse
+@dynamic nextPageToken, sparkApplicationStageAttemptTasks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationStageAttemptTasks" : [GTLRDataproc_TaskData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationStageAttemptTasks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSessionSparkApplicationStagesResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationStagesResponse
+@dynamic nextPageToken, sparkApplicationStages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationStages" : [GTLRDataproc_StageData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationStages";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationExecutorsResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationExecutorsResponse
+@dynamic nextPageToken, sparkApplicationExecutors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationExecutors" : [GTLRDataproc_ExecutorSummary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationExecutors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationExecutorStageSummaryResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationExecutorStageSummaryResponse
+@dynamic nextPageToken, sparkApplicationStageExecutors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationStageExecutors" : [GTLRDataproc_ExecutorStageSummary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationStageExecutors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationJobsResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationJobsResponse
+@dynamic nextPageToken, sparkApplicationJobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationJobs" : [GTLRDataproc_JobData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationSqlQueriesResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationSqlQueriesResponse
+@dynamic nextPageToken, sparkApplicationSqlQueries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationSqlQueries" : [GTLRDataproc_SqlExecutionUiData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationSqlQueries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationsResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationsResponse
+@dynamic nextPageToken, sparkApplications;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplications" : [GTLRDataproc_SparkApplication class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplications";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationStageAttemptsResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationStageAttemptsResponse
+@dynamic nextPageToken, sparkApplicationStageAttempts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationStageAttempts" : [GTLRDataproc_StageData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationStageAttempts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationStageAttemptTasksResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationStageAttemptTasksResponse
+@dynamic nextPageToken, sparkApplicationStageAttemptTasks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationStageAttemptTasks" : [GTLRDataproc_TaskData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationStageAttemptTasks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationStagesResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationStagesResponse
+@dynamic nextPageToken, sparkApplicationStages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationStages" : [GTLRDataproc_StageData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationStages";
 }
 
 @end
@@ -2421,6 +3624,107 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ShufflePushReadMetrics
+//
+
+@implementation GTLRDataproc_ShufflePushReadMetrics
+@dynamic corruptMergedBlockChunks, localMergedBlocksFetched,
+         localMergedBytesRead, localMergedChunksFetched,
+         mergedFetchFallbackCount, remoteMergedBlocksFetched,
+         remoteMergedBytesRead, remoteMergedChunksFetched,
+         remoteMergedReqsDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ShufflePushReadQuantileMetrics
+//
+
+@implementation GTLRDataproc_ShufflePushReadQuantileMetrics
+@dynamic corruptMergedBlockChunks, localMergedBlocksFetched,
+         localMergedBytesRead, localMergedChunksFetched,
+         mergedFetchFallbackCount, remoteMergedBlocksFetched,
+         remoteMergedBytesRead, remoteMergedChunksFetched,
+         remoteMergedReqsDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ShuffleReadMetrics
+//
+
+@implementation GTLRDataproc_ShuffleReadMetrics
+@dynamic fetchWaitTimeMillis, localBlocksFetched, localBytesRead, recordsRead,
+         remoteBlocksFetched, remoteBytesRead, remoteBytesReadToDisk,
+         remoteReqsDuration, shufflePushReadMetrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ShuffleReadQuantileMetrics
+//
+
+@implementation GTLRDataproc_ShuffleReadQuantileMetrics
+@dynamic fetchWaitTimeMillis, localBlocksFetched, readBytes, readRecords,
+         remoteBlocksFetched, remoteBytesRead, remoteBytesReadToDisk,
+         remoteReqsDuration, shufflePushReadMetrics, totalBlocksFetched;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ShuffleWriteMetrics
+//
+
+@implementation GTLRDataproc_ShuffleWriteMetrics
+@dynamic bytesWritten, recordsWritten, writeTimeNanos;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ShuffleWriteQuantileMetrics
+//
+
+@implementation GTLRDataproc_ShuffleWriteQuantileMetrics
+@dynamic writeBytes, writeRecords, writeTimeNanos;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SinkProgress
+//
+
+@implementation GTLRDataproc_SinkProgress
+@dynamic descriptionProperty, metrics, numOutputRows;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SinkProgress_Metrics
+//
+
+@implementation GTLRDataproc_SinkProgress_Metrics
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SoftwareConfig
 //
 
@@ -2448,6 +3752,46 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SourceProgress
+//
+
+@implementation GTLRDataproc_SourceProgress
+@dynamic descriptionProperty, endOffset, inputRowsPerSecond, latestOffset,
+         metrics, numInputRows, processedRowsPerSecond, startOffset;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SourceProgress_Metrics
+//
+
+@implementation GTLRDataproc_SourceProgress_Metrics
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkApplication
+//
+
+@implementation GTLRDataproc_SparkApplication
+@dynamic application, name;
 @end
 
 
@@ -2529,6 +3873,82 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_SparkPlanGraph
+//
+
+@implementation GTLRDataproc_SparkPlanGraph
+@dynamic edges, executionId, nodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"edges" : [GTLRDataproc_SparkPlanGraphEdge class],
+    @"nodes" : [GTLRDataproc_SparkPlanGraphNodeWrapper class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkPlanGraphCluster
+//
+
+@implementation GTLRDataproc_SparkPlanGraphCluster
+@dynamic desc, metrics, name, nodes, sparkPlanGraphClusterId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRDataproc_SqlPlanMetric class],
+    @"nodes" : [GTLRDataproc_SparkPlanGraphNodeWrapper class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkPlanGraphEdge
+//
+
+@implementation GTLRDataproc_SparkPlanGraphEdge
+@dynamic fromId, toId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkPlanGraphNode
+//
+
+@implementation GTLRDataproc_SparkPlanGraphNode
+@dynamic desc, metrics, name, sparkPlanGraphNodeId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRDataproc_SqlPlanMetric class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkPlanGraphNodeWrapper
+//
+
+@implementation GTLRDataproc_SparkPlanGraphNodeWrapper
+@dynamic cluster, node;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SparkRBatch
 //
 
@@ -2578,6 +3998,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkRuntimeInfo
+//
+
+@implementation GTLRDataproc_SparkRuntimeInfo
+@dynamic javaHome, javaVersion, scalaVersion;
 @end
 
 
@@ -2673,6 +4103,292 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_SparkWrapperObject
+//
+
+@implementation GTLRDataproc_SparkWrapperObject
+@dynamic applicationEnvironmentInfo, applicationId, applicationInfo, appSummary,
+         eventTimestamp, executorStageSummary, executorSummary, jobData,
+         poolData, processSummary, rddOperationGraph, rddStorageInfo,
+         resourceProfileInfo, sparkPlanGraph, speculationStageSummary,
+         sqlExecutionUiData, stageData, streamBlockData, streamingQueryData,
+         streamingQueryProgress, taskData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SpeculationStageSummary
+//
+
+@implementation GTLRDataproc_SpeculationStageSummary
+@dynamic numActiveTasks, numCompletedTasks, numFailedTasks, numKilledTasks,
+         numTasks, stageAttemptId, stageId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SqlExecutionUiData
+//
+
+@implementation GTLRDataproc_SqlExecutionUiData
+@dynamic completionTime, descriptionProperty, details, errorMessage,
+         executionId, jobs, metrics, metricValues, metricValuesIsNull,
+         modifiedConfigs, physicalPlanDescription, rootExecutionId, stages,
+         submissionTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRDataproc_SqlPlanMetric class],
+    @"stages" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SqlExecutionUiData_Jobs
+//
+
+@implementation GTLRDataproc_SqlExecutionUiData_Jobs
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SqlExecutionUiData_MetricValues
+//
+
+@implementation GTLRDataproc_SqlExecutionUiData_MetricValues
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SqlExecutionUiData_ModifiedConfigs
+//
+
+@implementation GTLRDataproc_SqlExecutionUiData_ModifiedConfigs
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SqlPlanMetric
+//
+
+@implementation GTLRDataproc_SqlPlanMetric
+@dynamic accumulatorId, metricType, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageAttemptTasksSummary
+//
+
+@implementation GTLRDataproc_StageAttemptTasksSummary
+@dynamic applicationId, numFailedTasks, numKilledTasks, numPendingTasks,
+         numRunningTasks, numSuccessTasks, numTasks, stageAttemptId, stageId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageData
+//
+
+@implementation GTLRDataproc_StageData
+@dynamic accumulatorUpdates, completionTime, descriptionProperty, details,
+         executorMetricsDistributions, executorSummary, failureReason,
+         firstTaskLaunchedTime, isShufflePushEnabled, jobIds,
+         killedTasksSummary, locality, name, numActiveTasks,
+         numCompletedIndices, numCompleteTasks, numFailedTasks, numKilledTasks,
+         numTasks, parentStageIds, peakExecutorMetrics, rddIds,
+         resourceProfileId, schedulingPool, shuffleMergersCount,
+         speculationSummary, stageAttemptId, stageId, stageMetrics, status,
+         submissionTime, taskQuantileMetrics, tasks;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accumulatorUpdates" : [GTLRDataproc_AccumulableInfo class],
+    @"jobIds" : [NSNumber class],
+    @"parentStageIds" : [NSNumber class],
+    @"rddIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageData_ExecutorSummary
+//
+
+@implementation GTLRDataproc_StageData_ExecutorSummary
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataproc_ExecutorStageSummary class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageData_KilledTasksSummary
+//
+
+@implementation GTLRDataproc_StageData_KilledTasksSummary
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageData_Locality
+//
+
+@implementation GTLRDataproc_StageData_Locality
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageData_Tasks
+//
+
+@implementation GTLRDataproc_StageData_Tasks
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataproc_TaskData class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageInputMetrics
+//
+
+@implementation GTLRDataproc_StageInputMetrics
+@dynamic bytesRead, recordsRead;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageMetrics
+//
+
+@implementation GTLRDataproc_StageMetrics
+@dynamic diskBytesSpilled, executorCpuTimeNanos,
+         executorDeserializeCpuTimeNanos, executorDeserializeTimeMillis,
+         executorRunTimeMillis, jvmGcTimeMillis, memoryBytesSpilled,
+         peakExecutionMemoryBytes, resultSerializationTimeMillis, resultSize,
+         stageInputMetrics, stageOutputMetrics, stageShuffleReadMetrics,
+         stageShuffleWriteMetrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageOutputMetrics
+//
+
+@implementation GTLRDataproc_StageOutputMetrics
+@dynamic bytesWritten, recordsWritten;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageShufflePushReadMetrics
+//
+
+@implementation GTLRDataproc_StageShufflePushReadMetrics
+@dynamic corruptMergedBlockChunks, localMergedBlocksFetched,
+         localMergedBytesRead, localMergedChunksFetched,
+         mergedFetchFallbackCount, remoteMergedBlocksFetched,
+         remoteMergedBytesRead, remoteMergedChunksFetched,
+         remoteMergedReqsDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageShuffleReadMetrics
+//
+
+@implementation GTLRDataproc_StageShuffleReadMetrics
+@dynamic bytesRead, fetchWaitTimeMillis, localBlocksFetched, localBytesRead,
+         recordsRead, remoteBlocksFetched, remoteBytesRead,
+         remoteBytesReadToDisk, remoteReqsDuration, stageShufflePushReadMetrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StageShuffleWriteMetrics
+//
+
+@implementation GTLRDataproc_StageShuffleWriteMetrics
+@dynamic bytesWritten, recordsWritten, writeTimeNanos;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StagesSummary
+//
+
+@implementation GTLRDataproc_StagesSummary
+@dynamic applicationId, numActiveStages, numCompletedStages, numFailedStages,
+         numPendingStages, numSkippedStages;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_StartClusterRequest
 //
 
@@ -2698,6 +4414,33 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_StateHistory
 @dynamic state, stateMessage, stateStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StateOperatorProgress
+//
+
+@implementation GTLRDataproc_StateOperatorProgress
+@dynamic allRemovalsTimeMs, allUpdatesTimeMs, commitTimeMs, customMetrics,
+         memoryUsedBytes, numRowsDroppedByWatermark, numRowsRemoved,
+         numRowsTotal, numRowsUpdated, numShufflePartitions,
+         numStateStoreInstances, operatorName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StateOperatorProgress_CustomMetrics
+//
+
+@implementation GTLRDataproc_StateOperatorProgress_CustomMetrics
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 
@@ -2745,11 +4488,254 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_StreamBlockData
+//
+
+@implementation GTLRDataproc_StreamBlockData
+@dynamic deserialized, diskSize, executorId, hostPort, memSize, name,
+         storageLevel, useDisk, useMemory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StreamingQueryData
+//
+
+@implementation GTLRDataproc_StreamingQueryData
+@dynamic endTimestamp, exception, isActive, name, runId, startTimestamp,
+         streamingQueryId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StreamingQueryProgress
+//
+
+@implementation GTLRDataproc_StreamingQueryProgress
+@dynamic batchDuration, batchId, durationMillis, eventTime, name,
+         observedMetrics, runId, sink, sources, stateOperators,
+         streamingQueryProgressId, timestamp;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [GTLRDataproc_SourceProgress class],
+    @"stateOperators" : [GTLRDataproc_StateOperatorProgress class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StreamingQueryProgress_DurationMillis
+//
+
+@implementation GTLRDataproc_StreamingQueryProgress_DurationMillis
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StreamingQueryProgress_EventTime
+//
+
+@implementation GTLRDataproc_StreamingQueryProgress_EventTime
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StreamingQueryProgress_ObservedMetrics
+//
+
+@implementation GTLRDataproc_StreamingQueryProgress_ObservedMetrics
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SubmitJobRequest
 //
 
 @implementation GTLRDataproc_SubmitJobRequest
 @dynamic job, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SummarizeSessionSparkApplicationExecutorsResponse
+//
+
+@implementation GTLRDataproc_SummarizeSessionSparkApplicationExecutorsResponse
+@dynamic activeExecutorSummary, applicationId, deadExecutorSummary,
+         totalExecutorSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SummarizeSessionSparkApplicationJobsResponse
+//
+
+@implementation GTLRDataproc_SummarizeSessionSparkApplicationJobsResponse
+@dynamic jobsSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SummarizeSessionSparkApplicationStageAttemptTasksResponse
+//
+
+@implementation GTLRDataproc_SummarizeSessionSparkApplicationStageAttemptTasksResponse
+@dynamic stageAttemptTasksSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SummarizeSessionSparkApplicationStagesResponse
+//
+
+@implementation GTLRDataproc_SummarizeSessionSparkApplicationStagesResponse
+@dynamic stagesSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SummarizeSparkApplicationExecutorsResponse
+//
+
+@implementation GTLRDataproc_SummarizeSparkApplicationExecutorsResponse
+@dynamic activeExecutorSummary, applicationId, deadExecutorSummary,
+         totalExecutorSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SummarizeSparkApplicationJobsResponse
+//
+
+@implementation GTLRDataproc_SummarizeSparkApplicationJobsResponse
+@dynamic jobsSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SummarizeSparkApplicationStageAttemptTasksResponse
+//
+
+@implementation GTLRDataproc_SummarizeSparkApplicationStageAttemptTasksResponse
+@dynamic stageAttemptTasksSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SummarizeSparkApplicationStagesResponse
+//
+
+@implementation GTLRDataproc_SummarizeSparkApplicationStagesResponse
+@dynamic stagesSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TaskData
+//
+
+@implementation GTLRDataproc_TaskData
+@dynamic accumulatorUpdates, attempt, durationMillis, errorMessage, executorId,
+         executorLogs, gettingResultTimeMillis, hasMetrics, host, index,
+         launchTime, partitionId, resultFetchStart, schedulerDelayMillis,
+         speculative, stageAttemptId, stageId, status, taskId, taskLocality,
+         taskMetrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accumulatorUpdates" : [GTLRDataproc_AccumulableInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TaskData_ExecutorLogs
+//
+
+@implementation GTLRDataproc_TaskData_ExecutorLogs
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TaskMetrics
+//
+
+@implementation GTLRDataproc_TaskMetrics
+@dynamic diskBytesSpilled, executorCpuTimeNanos,
+         executorDeserializeCpuTimeNanos, executorDeserializeTimeMillis,
+         executorRunTimeMillis, inputMetrics, jvmGcTimeMillis,
+         memoryBytesSpilled, outputMetrics, peakExecutionMemoryBytes,
+         resultSerializationTimeMillis, resultSize, shuffleReadMetrics,
+         shuffleWriteMetrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TaskQuantileMetrics
+//
+
+@implementation GTLRDataproc_TaskQuantileMetrics
+@dynamic diskBytesSpilled, durationMillis, executorCpuTimeNanos,
+         executorDeserializeCpuTimeNanos, executorDeserializeTimeMillis,
+         executorRunTimeMillis, gettingResultTimeMillis, inputMetrics,
+         jvmGcTimeMillis, memoryBytesSpilled, outputMetrics,
+         peakExecutionMemoryBytes, resultSerializationTimeMillis, resultSize,
+         schedulerDelayMillis, shuffleReadMetrics, shuffleWriteMetrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TaskResourceRequest
+//
+
+@implementation GTLRDataproc_TaskResourceRequest
+@dynamic amount, resourceName;
 @end
 
 
@@ -3016,6 +5002,60 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_WorkflowTemplatePlacement
 @dynamic clusterSelector, managedCluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WriteSessionSparkApplicationContextRequest
+//
+
+@implementation GTLRDataproc_WriteSessionSparkApplicationContextRequest
+@dynamic parent, sparkWrapperObjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkWrapperObjects" : [GTLRDataproc_SparkWrapperObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WriteSessionSparkApplicationContextResponse
+//
+
+@implementation GTLRDataproc_WriteSessionSparkApplicationContextResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WriteSparkApplicationContextRequest
+//
+
+@implementation GTLRDataproc_WriteSparkApplicationContextRequest
+@dynamic parent, sparkWrapperObjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkWrapperObjects" : [GTLRDataproc_SparkWrapperObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_WriteSparkApplicationContextResponse
+//
+
+@implementation GTLRDataproc_WriteSparkApplicationContextResponse
 @end
 
 

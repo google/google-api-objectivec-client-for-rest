@@ -1363,11 +1363,15 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter
-@dynamic descriptionProperty, name, perimeterType, spec, status, title,
+@dynamic descriptionProperty, ETag, name, perimeterType, spec, status, title,
          useExplicitDryRunSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end

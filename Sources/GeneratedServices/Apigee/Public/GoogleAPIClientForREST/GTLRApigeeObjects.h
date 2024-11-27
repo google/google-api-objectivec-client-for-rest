@@ -86,6 +86,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule;
 @class GTLRApigee_GoogleCloudApigeeV1EntityMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig_FeatureFlags;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupConfig;
@@ -182,6 +184,9 @@
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfile;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReport;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric;
@@ -1660,6 +1665,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncide
  *  Value: "SEVERE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig.weight
+
+/**
+ *  The weight is major.
+ *
+ *  Value: "MAJOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Major;
+/**
+ *  The weight is minor.
+ *
+ *  Value: "MINOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Minor;
+/**
+ *  The weight is moderate.
+ *
+ *  Value: "MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Moderate;
+/**
+ *  The weight is unspecified.
+ *
+ *  Value: "WEIGHT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_WeightUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
@@ -4003,6 +4036,44 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  ControlPlaneAccess is the request body and response body of
+ *  UpdateControlPlaneAccess. and the response body of GetControlPlaneAccess.
+ *  The input identities contains an array of service accounts to grant access
+ *  to the respective control plane resource, with each service account
+ *  specified using the following format:
+ *  `serviceAccount:`***service-account-name***. The ***service-account-name***
+ *  is formatted like an email address. For example:
+ *  `my-control-plane-service_account\@my_project_id.iam.gserviceaccount.com`
+ *  You might specify multiple service accounts, for example, if you have
+ *  multiple environments and wish to assign a unique service account to each
+ *  one.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess : GTLRObject
+
+/**
+ *  Optional. Array of service accounts authorized to publish analytics data to
+ *  the control plane (for the Message Processor component).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *analyticsPublisherIdentities;
+
+/**
+ *  Identifier. The resource name of the ControlPlaneAccess. Format:
+ *  "organizations/{org}/controlPlaneAccess"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Array of service accounts to grant access to control plane
+ *  resources (for the Synchronizer component). The service accounts must have
+ *  **Apigee Synchronizer Manager** role. See also [Create service
+ *  accounts](https://cloud.google.com/apigee/docs/hybrid/latest/sa-about#create-the-service-accounts).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *synchronizerIdentities;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1Credential
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Credential : GTLRObject
@@ -5527,6 +5598,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *arcConfigLocation;
 
+/** The algorithm to resolve IP. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig *clientIpResolutionConfig;
+
 /** Time that the environment configuration was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -5639,6 +5713,35 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        fetch them all at once.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig_FeatureFlags : GTLRObject
+@end
+
+
+/**
+ *  Configuration for resolving the client ip.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig : GTLRObject
+
+/** Resolves the client ip based on a custom header. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm *headerIndexAlgorithm;
+
+@end
+
+
+/**
+ *  Resolves the client ip based on a custom header.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm : GTLRObject
+
+/**
+ *  The index of the ip in the header. (By default, value is 0 if missing)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ipHeaderIndex;
+
+/** The name of the header to extract the client ip from. */
+@property(nonatomic, copy, nullable) NSString *ipHeaderName;
+
 @end
 
 
@@ -7257,6 +7360,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityProfile *> *securityProfiles;
+
+@end
+
+
+/**
+ *  Response for ListSecurityProfilesV2.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityProfilesV2" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesV2Response : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of security profiles in the organization.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 *> *securityProfilesV2;
 
 @end
 
@@ -10307,6 +10437,83 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Title of the config. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Security profile for risk assessment version 2.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 : GTLRObject
+
+/** Output only. The time of the security profile creation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The description of the security profile.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Whether the security profile is google defined.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleDefined;
+
+/**
+ *  Identifier. Name of the security profile v2 resource. Format:
+ *  organizations/{org}/securityProfilesV2/{profile}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The configuration for each assessment in this profile. Key is the
+ *  name/id of the assessment.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs *profileAssessmentConfigs;
+
+/** Output only. The time of the security profile update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Required. The configuration for each assessment in this profile. Key is the
+ *  name/id of the assessment.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs : GTLRObject
+@end
+
+
+/**
+ *  The configuration definition for a specific assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig : GTLRObject
+
+/**
+ *  The weight of the assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Major
+ *        The weight is major. (Value: "MAJOR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Minor
+ *        The weight is minor. (Value: "MINOR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Moderate
+ *        The weight is moderate. (Value: "MODERATE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_WeightUnspecified
+ *        The weight is unspecified. (Value: "WEIGHT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *weight;
 
 @end
 

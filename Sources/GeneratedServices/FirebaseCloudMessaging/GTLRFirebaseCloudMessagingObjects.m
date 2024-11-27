@@ -104,7 +104,7 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 //
 
 @implementation GTLRFirebaseCloudMessaging_ApnsConfig
-@dynamic fcmOptions, headers, payload;
+@dynamic fcmOptions, headers, liveActivityToken, payload;
 @end
 
 

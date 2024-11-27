@@ -149,11 +149,31 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CreateSubscriptionIntent
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CreateSubscriptionIntent
+@dynamic parent, subscription, subscriptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration
 @dynamic count, unit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionIntent
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionIntent
+@dynamic name;
 @end
 
 
@@ -277,6 +297,26 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionRequest
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionRequest
+@dynamic intentPayload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionResponse
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionResponse
+@dynamic userSession;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload
 //
 
@@ -290,6 +330,16 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1IntentPayload
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1IntentPayload
+@dynamic createIntent, entitleIntent;
 @end
 
 
@@ -574,6 +624,16 @@ NSString * const kGTLRPaymentsResellerSubscription_ProductBundleDetails_Entitlem
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionResponse
 @dynamic subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UserSession
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UserSession
+@dynamic expireTime, token;
 @end
 
 

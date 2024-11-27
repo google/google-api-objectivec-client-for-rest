@@ -1312,8 +1312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, strong, nullable) NSNumber *management;
 
 /**
- *  Output only. The resource name of this cluster. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this cluster. Resource names
+ *  are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
  */
@@ -1428,8 +1428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_ForwardingRule *> *forwardingRules;
 
 /**
- *  Output only. The resource name of this DNS profile. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this DNS profile. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
  */
@@ -1645,8 +1645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, copy, nullable) NSString *internalIp;
 
 /**
- *  Output only. The resource name of this external IP address. Resource names
- *  are schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this external IP address.
+ *  Resource names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`
  */
@@ -2681,8 +2681,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. The resource name of the VMware Engine network. Resource names
- *  are schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of the VMware Engine network.
+ *  Resource names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/vmwareEngineNetworks/my-network`
  */
@@ -2846,9 +2846,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, strong, nullable) NSNumber *importCustomRoutesWithPublicIp;
 
 /**
- *  Output only. The resource name of the network peering. NetworkPeering is a
- *  global resource and location can only be global. Resource names are
- *  scheme-less URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of the network peering.
+ *  NetworkPeering is a global resource and location can only be global.
+ *  Resource names are scheme-less URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/networkPeerings/my-peering`
  */
@@ -2992,8 +2992,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, strong, nullable) GTLRVMwareEngine_NetworkService *internetAccess;
 
 /**
- *  Output only. The resource name of this network policy. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this network policy. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1/networkPolicies/my-network-policy`
  */
@@ -3585,8 +3585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, strong, nullable) GTLRVMwareEngine_ManagementCluster *managementCluster;
 
 /**
- *  Output only. The resource name of this private cloud. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this private cloud. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
  */
@@ -4019,8 +4019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspeci
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
 /**
- *  Output only. The resource name of this subnet. Resource names are schemeless
- *  URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this subnet. Resource names
+ *  are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/subnets/my-subnet`
  */

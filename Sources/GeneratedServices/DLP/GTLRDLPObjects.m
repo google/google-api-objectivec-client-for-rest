@@ -35,10 +35,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top = @
 
 // GTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes.types
 NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes_Types_BigQueryTableTypeExternalBigLake = @"BIG_QUERY_TABLE_TYPE_EXTERNAL_BIG_LAKE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes_Types_BigQueryTableTypeSnapshot = @"BIG_QUERY_TABLE_TYPE_SNAPSHOT";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes_Types_BigQueryTableTypeTable = @"BIG_QUERY_TABLE_TYPE_TABLE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryTableTypes_Types_BigQueryTableTypeUnspecified = @"BIG_QUERY_TABLE_TYPE_UNSPECIFIED";
 
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_AiModel = @"AI_MODEL";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Audio = @"AUDIO";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro = @"AVRO";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified = @"BYTES_TYPE_UNSPECIFIED";
@@ -322,6 +324,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_And = @"
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_LogicalOperatorUnspecified = @"LOGICAL_OPERATOR_UNSPECIFIED";
 
 // GTLRDLP_GooglePrivacyDlpV2FileClusterType.cluster
+NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterAiModel = @"CLUSTER_AI_MODEL";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterArchive = @"CLUSTER_ARCHIVE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterExecutable = @"CLUSTER_EXECUTABLE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2FileClusterType_Cluster_ClusterImage = @"CLUSTER_IMAGE";

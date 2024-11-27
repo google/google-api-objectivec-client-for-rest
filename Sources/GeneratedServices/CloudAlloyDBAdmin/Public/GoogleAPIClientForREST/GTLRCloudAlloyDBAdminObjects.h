@@ -30,17 +30,21 @@
 @class GTLRCloudAlloyDBAdmin_Backup;
 @class GTLRCloudAlloyDBAdmin_Backup_Annotations;
 @class GTLRCloudAlloyDBAdmin_Backup_Labels;
+@class GTLRCloudAlloyDBAdmin_Backup_Tags;
 @class GTLRCloudAlloyDBAdmin_BackupSource;
 @class GTLRCloudAlloyDBAdmin_ClientConnectionConfig;
 @class GTLRCloudAlloyDBAdmin_Cluster;
 @class GTLRCloudAlloyDBAdmin_Cluster_Annotations;
 @class GTLRCloudAlloyDBAdmin_Cluster_Labels;
+@class GTLRCloudAlloyDBAdmin_Cluster_Tags;
 @class GTLRCloudAlloyDBAdmin_ClusterUpgradeDetails;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupConfig;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupInfo;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupSource;
+@class GTLRCloudAlloyDBAdmin_CsvExportOptions;
 @class GTLRCloudAlloyDBAdmin_EncryptionConfig;
 @class GTLRCloudAlloyDBAdmin_EncryptionInfo;
+@class GTLRCloudAlloyDBAdmin_GcsDestination;
 @class GTLRCloudAlloyDBAdmin_GoogleCloudLocationLocation;
 @class GTLRCloudAlloyDBAdmin_GoogleCloudLocationLocation_Labels;
 @class GTLRCloudAlloyDBAdmin_GoogleCloudLocationLocation_Metadata;
@@ -378,8 +382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Stopped;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_SubscriptionType_Standard;
 /**
- *  This is an unknown Subscription type (By default, Subscription Type is
- *  STANDARD)
+ *  This is an unknown subscription type. By default, the subscription type is
+ *  STANDARD.
  *
  *  Value: "SUBSCRIPTION_TYPE_UNSPECIFIED"
  */
@@ -908,14 +912,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SslConfig_SslMode_SslM
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SslConfig_SslMode_SslModeRequire GTLR_DEPRECATED;
 /**
- *  SSL mode not specified. Defaults to ENCRYPTED_ONLY.
+ *  SSL mode is not specified. Defaults to ENCRYPTED_ONLY.
  *
  *  Value: "SSL_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SslConfig_SslMode_SslModeUnspecified;
 /**
  *  SSL connections are required. CA verification enforced. Clients must have
- *  certificates signed by a Cluster CA, e.g. via GenerateClientCertificate.
+ *  certificates signed by a Cluster CA, for example, using
+ *  GenerateClientCertificate.
  *
  *  Value: "SSL_MODE_VERIFY_CA"
  */
@@ -1862,6 +1867,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Unhealthy;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.edition
+
+/**
+ *  Represents the enterprise edition.
+ *
+ *  Value: "EDITION_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprise;
+/**
+ *  Represents the enterprise plus edition.
+ *
+ *  Value: "EDITION_ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprisePlus;
+/**
+ *  Default, to make it consistent with instance edition enum.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.expectedState
 
 /**
@@ -2684,6 +2711,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Count;
 /**
+ *  Retention will be by duration, eg. "retain the backups for 172800 seconds (2
+ *  days)".
+ *
+ *  Value: "DURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Duration;
+/**
  *  For rest of the other category
  *
  *  Value: "RETENTION_UNIT_OTHER"
@@ -2696,7 +2730,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_RetentionUnitUnspecified;
 /**
- *  Retention will be by Time, eg. "retain the last 7 days backups".
+ *  Retention will be by Time, eg. "retain backups till a specific time" i.e.
+ *  till 2024-05-01T00:00:00Z.
  *
  *  Value: "TIME"
  */
@@ -3327,6 +3362,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: ``` "123/environment": "production",
+ *  "123/costCenter": "marketing" ```
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_Backup_Tags *tags;
+
+/**
  *  The backup type, which suggests the trigger for the backup.
  *
  *  Likely values:
@@ -3382,6 +3424,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: ``` "123/environment": "production",
+ *  "123/costCenter": "marketing" ```
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudAlloyDBAdmin_Backup_Tags : GTLRObject
+@end
+
+
+/**
  *  Message describing a BackupSource.
  */
 @interface GTLRCloudAlloyDBAdmin_BackupSource : GTLRObject
@@ -3422,7 +3478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) NSNumber *requireConnectors;
 
-/** Optional. SSL config option for this instance. */
+/** Optional. SSL configuration option for this instance. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_SslConfig *sslConfig;
 
 @end
@@ -3678,12 +3734,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_SubscriptionType_Standard Standard
  *        subscription. (Value: "STANDARD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_SubscriptionType_SubscriptionTypeUnspecified
- *        This is an unknown Subscription type (By default, Subscription Type is
- *        STANDARD) (Value: "SUBSCRIPTION_TYPE_UNSPECIFIED")
+ *        This is an unknown subscription type. By default, the subscription
+ *        type is STANDARD. (Value: "SUBSCRIPTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_SubscriptionType_Trial Trial
  *        subscription. (Value: "TRIAL")
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionType;
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: ``` "123/environment": "production",
+ *  "123/costCenter": "marketing" ```
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_Cluster_Tags *tags;
 
 /** Output only. Metadata for free trial clusters */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_TrialMetadata *trialMetadata;
@@ -3722,6 +3785,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        fetch them all at once.
  */
 @interface GTLRCloudAlloyDBAdmin_Cluster_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: ``` "123/environment": "production",
+ *  "123/costCenter": "marketing" ```
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudAlloyDBAdmin_Cluster_Tags : GTLRObject
 @end
 
 
@@ -3918,6 +3995,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Options for exporting data in CSV format. For now, we only support a query
+ *  to get the data that needs to be exported.
+ */
+@interface GTLRCloudAlloyDBAdmin_CsvExportOptions : GTLRObject
+
+/** Required. The select_query used to extract the data. */
+@property(nonatomic, copy, nullable) NSString *selectQuery;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -3977,32 +4066,82 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Export cluster request.
+ */
+@interface GTLRCloudAlloyDBAdmin_ExportClusterRequest : GTLRObject
+
+/**
+ *  Options for exporting data in CSV format. Required field to be set for CSV
+ *  file type.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_CsvExportOptions *csvExportOptions;
+
+/**
+ *  Required. Name of the database where the query will be executed. Note -
+ *  Value provided should be the same as expected from `SELECT
+ *  current_database();` and NOT as a resource reference.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** Required. Option to export data to cloud storage. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GcsDestination *gcsDestination;
+
+@end
+
+
+/**
+ *  Response of export cluster rpc.
+ */
+@interface GTLRCloudAlloyDBAdmin_ExportClusterResponse : GTLRObject
+
+/** Required. Option to export data to cloud storage. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GcsDestination *gcsDestination;
+
+@end
+
+
+/**
  *  Message for triggering failover on an Instance
  */
 @interface GTLRCloudAlloyDBAdmin_FailoverInstanceRequest : GTLRObject
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the failover.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Destination for Export. Export will be done to cloud storage.
+ */
+@interface GTLRCloudAlloyDBAdmin_GcsDestination : GTLRObject
+
+/**
+ *  Required. The path to the file in Google Cloud Storage where the export will
+ *  be stored. The URI is in the form `gs://bucketName/fileName`. If the file
+ *  already exists, the request succeeds, but the operation fails.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -4100,30 +4239,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @interface GTLRCloudAlloyDBAdmin_GoogleTypeTimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4150,23 +4293,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the fault
- *  injection.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4212,13 +4354,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Database flags. Set at instance level. * They are copied from primary
- *  instance on read instance creation. * Read instances can set new or override
- *  existing flags that are relevant for reads, e.g. for enabling columnar cache
- *  on a read instance. Flags set on read instance may or may not be present on
- *  primary. This is a list of "key": "value" pairs. "key": The name of the
- *  flag. These flags are passed at instance setup time, so include both server
- *  options and system variables for Postgres. Flags are specified with
+ *  Database flags. Set at the instance level. They are copied from the primary
+ *  instance on secondary instance creation. Flags that have restrictions
+ *  default to the value at primary instance on read instances during creation.
+ *  Read instances can set new flags or override existing flags that are
+ *  relevant for reads, for example, for enabling columnar cache on a read
+ *  instance. Flags set on read instance might or might not be present on the
+ *  primary instance. This is a list of "key": "value" pairs. "key": The name of
+ *  the flag. These flags are passed at instance setup time, so include both
+ *  server options and system variables for Postgres. Flags are specified with
  *  underscores, not hyphens. "value": The value of the flag. Booleans are set
  *  to **on** for true and **off** for false. This field must be omitted if the
  *  flag doesn't take a value.
@@ -4290,7 +4434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. Instance level network configuration. */
+/** Optional. Instance-level network configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_InstanceNetworkConfig *networkConfig;
 
 /**
@@ -4407,13 +4551,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Database flags. Set at instance level. * They are copied from primary
- *  instance on read instance creation. * Read instances can set new or override
- *  existing flags that are relevant for reads, e.g. for enabling columnar cache
- *  on a read instance. Flags set on read instance may or may not be present on
- *  primary. This is a list of "key": "value" pairs. "key": The name of the
- *  flag. These flags are passed at instance setup time, so include both server
- *  options and system variables for Postgres. Flags are specified with
+ *  Database flags. Set at the instance level. They are copied from the primary
+ *  instance on secondary instance creation. Flags that have restrictions
+ *  default to the value at primary instance on read instances during creation.
+ *  Read instances can set new flags or override existing flags that are
+ *  relevant for reads, for example, for enabling columnar cache on a read
+ *  instance. Flags set on read instance might or might not be present on the
+ *  primary instance. This is a list of "key": "value" pairs. "key": The name of
+ *  the flag. These flags are passed at instance setup time, so include both
+ *  server options and system variables for Postgres. Flags are specified with
  *  underscores, not hyphens. "value": The value of the flag. Booleans are set
  *  to **on** for true and **off** for false. This field must be omitted if the
  *  flag doesn't take a value.
@@ -4440,7 +4586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Metadata related to instance level network configuration.
+ *  Metadata related to instance-level network configuration.
  */
 @interface GTLRCloudAlloyDBAdmin_InstanceNetworkConfig : GTLRObject
 
@@ -5017,22 +5163,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the delete.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5195,28 +5341,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Optional. Full name of the nodes as obtained from INSTANCE_VIEW_FULL to
- *  restart upon. Only applicable for read instances.
+ *  restart upon. Applicable only to read instances.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nodeIds;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the restart.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5248,23 +5394,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the import
- *  request.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5325,11 +5470,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        use locally self-signed certificates (default psql client behavior).
  *        (Value: "SSL_MODE_REQUIRE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_SslConfig_SslMode_SslModeUnspecified SSL
- *        mode not specified. Defaults to ENCRYPTED_ONLY. (Value:
+ *        mode is not specified. Defaults to ENCRYPTED_ONLY. (Value:
  *        "SSL_MODE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_SslConfig_SslMode_SslModeVerifyCa SSL
  *        connections are required. CA verification enforced. Clients must have
- *        certificates signed by a Cluster CA, e.g. via
+ *        certificates signed by a Cluster CA, for example, using
  *        GenerateClientCertificate. (Value: "SSL_MODE_VERIFY_CA")
  */
 @property(nonatomic, copy, nullable) NSString *sslMode;
@@ -6148,7 +6293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 21
+ *  Common model for database resource instance metadata. Next ID: 23
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
 
@@ -6189,6 +6334,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Any custom metadata associated with the resource */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCustomMetadataData *customMetadata;
+
+/**
+ *  Optional. Edition represents whether the instance is ENTERPRISE or
+ *  ENTERPRISE_PLUS. This information is core to Cloud SQL only and is used to
+ *  identify the edition of the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprise
+ *        Represents the enterprise edition. (Value: "EDITION_ENTERPRISE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprisePlus
+ *        Represents the enterprise plus edition. (Value:
+ *        "EDITION_ENTERPRISE_PLUS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionUnspecified
+ *        Default, to make it consistent with instance edition enum. (Value:
+ *        "EDITION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /** Entitlements associated with the resource */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement *> *entitlements;
@@ -6266,6 +6428,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  time resource is getting ingested, otherwise optional.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *primaryResourceId;
+
+/**
+ *  Primary resource location. REQUIRED if the immediate parent exists when
+ *  first time resource is getting ingested, otherwise optional.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryResourceLocation;
 
 /** The product this resource represents. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct *product;
@@ -6863,6 +7031,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings : GTLRObject
 
+/** Duration based retention period i.e. 172800 seconds (2 days) */
+@property(nonatomic, strong, nullable) GTLRDuration *durationBasedRetention;
+
 /**
  *  quantityBasedRetention
  *
@@ -6877,18 +7048,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Count
  *        Retention will be by count, eg. "retain the most recent 7 backups".
  *        (Value: "COUNT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Duration
+ *        Retention will be by duration, eg. "retain the backups for 172800
+ *        seconds (2 days)". (Value: "DURATION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_RetentionUnitOther
  *        For rest of the other category (Value: "RETENTION_UNIT_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_RetentionUnitUnspecified
  *        Backup retention unit is unspecified, will be treated as COUNT.
  *        (Value: "RETENTION_UNIT_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Time
- *        Retention will be by Time, eg. "retain the last 7 days backups".
- *        (Value: "TIME")
+ *        Retention will be by Time, eg. "retain backups till a specific time"
+ *        i.e. till 2024-05-01T00:00:00Z. (Value: "TIME")
  */
-@property(nonatomic, copy, nullable) NSString *retentionUnit;
+@property(nonatomic, copy, nullable) NSString *retentionUnit GTLR_DEPRECATED;
 
 @property(nonatomic, strong, nullable) GTLRDuration *timeBasedRetention;
+
+/** Timestamp based retention period i.e. 2024-05-01T00:00:00Z */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestampBasedRetentionTime;
 
 @end
 
@@ -7168,22 +7345,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the delete.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7238,22 +7415,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but does not actually execute the upgrade.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  *
  *  Uses NSNumber of boolValue.
  */

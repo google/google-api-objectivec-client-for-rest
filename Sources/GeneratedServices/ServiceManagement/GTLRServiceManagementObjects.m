@@ -463,7 +463,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_CommonLanguageSettings
-@dynamic destinations, referenceDocsUri;
+@dynamic destinations, referenceDocsUri, selectiveGapicGeneration;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -831,7 +831,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_ExperimentalFeatures
-@dynamic restAsyncIoEnabled;
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled;
 @end
 
 
@@ -1706,6 +1706,24 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_RubySettings
 @dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_SelectiveGapicGeneration
+//
+
+@implementation GTLRServiceManagement_SelectiveGapicGeneration
+@dynamic methods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

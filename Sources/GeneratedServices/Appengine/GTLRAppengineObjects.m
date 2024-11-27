@@ -1206,6 +1206,16 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_ResourceEvent
+//
+
+@implementation GTLRAppengine_ResourceEvent
+@dynamic eventId, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_ResourceRecord
 //
 

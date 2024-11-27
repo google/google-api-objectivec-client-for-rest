@@ -16,6 +16,7 @@
     "With name override: CloudBatch",
   ],
   "WARNING": [
+    "Method 'aiplatform.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'artifactregistry.projects.locations.repositories.aptArtifacts.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'artifactregistry.projects.locations.repositories.goModules.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'artifactregistry.projects.locations.repositories.googetArtifacts.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",

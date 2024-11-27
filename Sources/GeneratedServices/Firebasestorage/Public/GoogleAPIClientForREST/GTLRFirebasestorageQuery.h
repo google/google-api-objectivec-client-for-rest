@@ -187,6 +187,108 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Creates a Spark tier-eligible Cloud Storage bucket and links it to your
+ *  Firebase project. If the default bucket already exists, this method will
+ *  re-link it to your Firebase project. See https://firebase.google.com/pricing
+ *  for pricing details.
+ *
+ *  Method: firebasestorage.projects.defaultBucket.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebasestorageCloudPlatform
+ *    @c kGTLRAuthScopeFirebasestorageFirebase
+ */
+@interface GTLRFirebasestorageQuery_ProjectsDefaultBucketCreate : GTLRFirebasestorageQuery
+
+/**
+ *  Required. The parent resource where the default bucket will be created,
+ *  `projects/{project_id_or_number}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebasestorage_DefaultBucket.
+ *
+ *  Creates a Spark tier-eligible Cloud Storage bucket and links it to your
+ *  Firebase project. If the default bucket already exists, this method will
+ *  re-link it to your Firebase project. See https://firebase.google.com/pricing
+ *  for pricing details.
+ *
+ *  @param object The @c GTLRFirebasestorage_DefaultBucket to include in the
+ *    query.
+ *  @param parent Required. The parent resource where the default bucket will be
+ *    created, `projects/{project_id_or_number}`.
+ *
+ *  @return GTLRFirebasestorageQuery_ProjectsDefaultBucketCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirebasestorage_DefaultBucket *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Unlinks and deletes the default bucket.
+ *
+ *  Method: firebasestorage.projects.deleteDefaultBucket
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebasestorageCloudPlatform
+ *    @c kGTLRAuthScopeFirebasestorageFirebase
+ */
+@interface GTLRFirebasestorageQuery_ProjectsDeleteDefaultBucket : GTLRFirebasestorageQuery
+
+/**
+ *  Required. The name of the default bucket to delete,
+ *  `projects/{project_id_or_number}/defaultBucket`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebasestorage_Empty.
+ *
+ *  Unlinks and deletes the default bucket.
+ *
+ *  @param name Required. The name of the default bucket to delete,
+ *    `projects/{project_id_or_number}/defaultBucket`.
+ *
+ *  @return GTLRFirebasestorageQuery_ProjectsDeleteDefaultBucket
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the default bucket.
+ *
+ *  Method: firebasestorage.projects.getDefaultBucket
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebasestorageCloudPlatform
+ *    @c kGTLRAuthScopeFirebasestorageFirebase
+ */
+@interface GTLRFirebasestorageQuery_ProjectsGetDefaultBucket : GTLRFirebasestorageQuery
+
+/**
+ *  Required. The name of the default bucket to retrieve,
+ *  `projects/{project_id_or_number}/defaultBucket`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebasestorage_DefaultBucket.
+ *
+ *  Gets the default bucket.
+ *
+ *  @param name Required. The name of the default bucket to retrieve,
+ *    `projects/{project_id_or_number}/defaultBucket`.
+ *
+ *  @return GTLRFirebasestorageQuery_ProjectsGetDefaultBucket
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

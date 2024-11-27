@@ -544,7 +544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateCon
 
 /**
  *  The codec for this audio stream. The default is `aac`. Supported audio
- *  codecs: - `aac` - `aac-he` - `aac-he-v2` - `mp3` - `ac3` - `eac3`
+ *  codecs: - `aac` - `aac-he` - `aac-he-v2` - `mp3` - `ac3` - `eac3` - `vorbis`
  */
 @property(nonatomic, copy, nullable) NSString *codec;
 
@@ -1779,8 +1779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Vp9CodecSettings_FrameRateCon
 
 /**
  *  The container format. The default is `mp4` Supported container formats: -
- *  `ts` - `fmp4`- the corresponding file extension is `.m4s` - `mp4` - `vtt`
- *  See also: [Supported input and output
+ *  `ts` - `fmp4`- the corresponding file extension is `.m4s` - `mp4` - `vtt` -
+ *  `ogg` See also: [Supported input and output
  *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats)
  */
 @property(nonatomic, copy, nullable) NSString *container;

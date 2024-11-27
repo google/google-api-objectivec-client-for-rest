@@ -1659,6 +1659,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /**
  *  The syntax of the proto file. The supported values are "proto2", "proto3",
  *  and "editions". If `edition` is present, this value must be "editions".
+ *  WARNING: This field should only be used by protobuf plugins or special cases
+ *  like the proto compiler. Other uses are discouraged and developers should
+ *  rely on the protoreflect APIs for their client language.
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
 

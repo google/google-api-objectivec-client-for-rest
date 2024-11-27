@@ -792,6 +792,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_Launch
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2RevisionTemplate.encryptionKeyRevocationAction
+
+/**
+ *  Unspecified
+ *
+ *  Value: "ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified;
+/**
+ *  Prevents the creation of new instances.
+ *
+ *  Value: "PREVENT_NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_PreventNew;
+/**
+ *  Shuts down existing instances, and prevents creation of new ones.
+ *
+ *  Value: "SHUTDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_Shutdown;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2RevisionTemplate.executionEnvironment
 
 /**
@@ -1181,6 +1203,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build
  *  Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified;
+/**
+ *  Bucket is located in a Google-owned project and is not regionalized.
+ *
+ *  Value: "LEGACY_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket;
 /**
  *  Bucket is located in user-owned project in the same region as the build. The
  *  builder service account must have access to create and write to Cloud
@@ -1588,7 +1616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. The path to a binary authorization policy. Format:
- *  projects/{project}/platforms/cloudRun/{policy-name}
+ *  `projects/{project}/platforms/cloudRun/{policy-name}`
  */
 @property(nonatomic, copy, nullable) NSString *policy;
 
@@ -1637,6 +1665,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Required for function builds.
  */
 @property(nonatomic, copy, nullable) NSString *functionTarget;
+
+/**
+ *  Optional. project_descriptor stores the path to the project descriptor file.
+ *  When empty, it means that there is no project descriptor file in the source.
+ */
+@property(nonatomic, copy, nullable) NSString *projectDescriptor;
 
 /** The runtime name, e.g. 'go113'. Leave blank for generic builds. */
 @property(nonatomic, copy, nullable) NSString *runtime GTLR_DEPRECATED;
@@ -2558,6 +2592,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Cloud Storage Bucket name. */
 @property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  A list of additional flags to pass to the gcsfuse CLI. Options should be
+ *  specified without the leading "--".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mountOptions;
 
 /**
  *  If true, the volume will be mounted as read only for all mounts.
@@ -3643,6 +3683,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *encryptionKey;
 
 /**
+ *  Optional. The action to take if the encryption key is revoked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified
+ *        Unspecified (Value: "ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_PreventNew
+ *        Prevents the creation of new instances. (Value: "PREVENT_NEW")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_Shutdown
+ *        Shuts down existing instances, and prevents creation of new ones.
+ *        (Value: "SHUTDOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionKeyRevocationAction;
+
+/**
+ *  Optional. If encryption_key_revocation_action is SHUTDOWN, the duration
+ *  before shutting down all instances. The minimum increment is 1 hour.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *encryptionKeyShutdownDuration;
+
+/**
  *  Optional. The sandbox environment to host this Revision.
  *
  *  Likely values:
@@ -3680,8 +3740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. Sets the maximum number of requests that each serving instance can
- *  receive. If not specified or 0, defaults to 80 when requested CPU >= 1 and
- *  defaults to 1 when requested CPU < 1.
+ *  receive. If not specified or 0, concurrency defaults to 80 when requested
+ *  `CPU >= 1` and defaults to 1 when requested `CPU < 1`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3839,11 +3899,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  umask of 0222 will be applied to any non-zero value. * This is an integer
  *  representation of the mode bits. So, the octal integer value should look
  *  exactly as the chmod numeric notation with a leading zero. Some examples:
- *  for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For chmod 640
- *  (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755
- *  (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in
- *  conflict with other options that affect the file mode, like fsGroup, and the
- *  result can be other mode bits set. This might be in conflict with other
+ *  for chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod
+ *  755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be
+ *  in conflict with other options that affect the file mode, like fsGroup, and
+ *  the result can be other mode bits set. This might be in conflict with other
  *  options that affect the file mode, like fsGroup, and as a result, other mode
  *  bits could be set.
  *
@@ -3989,6 +4048,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        Unspecified (Value: "INGRESS_TRAFFIC_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *ingress;
+
+/**
+ *  Optional. Disables IAM permission check for run.routes.invoke for callers of
+ *  this service. This feature is available by invitation only. For more
+ *  information, visit
+ *  https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invokerIamDisabled;
 
 /**
  *  Optional. Unstructured key value map that can be used to organize and
@@ -4223,8 +4292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  The Mesh resource name. Format:
- *  projects/{project}/locations/global/meshes/{mesh}, where {project} can be
- *  project id or number.
+ *  `projects/{project}/locations/global/meshes/{mesh}`, where `{project}` can
+ *  be project id or number.
  */
 @property(nonatomic, copy, nullable) NSString *mesh;
 
@@ -4240,7 +4309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Optional. total min instances for the service. This number of instances is
  *  divided among all revisions with specified traffic based on the percent of
- *  traffic they are receiving. (BETA)
+ *  traffic they are receiving.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4323,9 +4392,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Optional. Name of the Cloud Build Custom Worker Pool that should be used to
  *  build the function. The format of this field is
  *  `projects/{project}/locations/{region}/workerPools/{workerPool}` where
- *  {project} and {region} are the project id and region respectively where the
- *  worker pool is defined and {workerPool} is the short name of the worker
- *  pool.
+ *  `{project}` and `{region}` are the project id and region respectively where
+ *  the worker pool is defined and `{workerPool}` is the short name of the
+ *  worker pool.
  */
 @property(nonatomic, copy, nullable) NSString *workerPool;
 
@@ -4800,11 +4869,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  * Internally, a umask of 0222 will be applied to any non-zero value. * This
  *  is an integer representation of the mode bits. So, the octal integer value
  *  should look exactly as the chmod numeric notation with a leading zero. Some
- *  examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For
- *  chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755
- *  (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in
- *  conflict with other options that affect the file mode, like fsGroup, and the
- *  result can be other mode bits set.
+ *  examples: for chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10).
+ *  For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). *
+ *  This might be in conflict with other options that affect the file mode, like
+ *  fsGroup, and the result can be other mode bits set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4880,8 +4948,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  VPC Access connector name. Format:
- *  projects/{project}/locations/{location}/connectors/{connector}, where
- *  {project} can be project id or number. For more information on sending
+ *  `projects/{project}/locations/{location}/connectors/{connector}`, where
+ *  `{project}` can be project id or number. For more information on sending
  *  traffic to a VPC network via a connector, visit
  *  https://cloud.google.com/run/docs/configuring/vpc-connectors.
  */
@@ -5340,6 +5408,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified
  *        Unspecified. (Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket
+ *        Bucket is located in a Google-owned project and is not regionalized.
+ *        (Value: "LEGACY_BUCKET")
  *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket
  *        Bucket is located in user-owned project in the same region as the
  *        build. The builder service account must have access to create and

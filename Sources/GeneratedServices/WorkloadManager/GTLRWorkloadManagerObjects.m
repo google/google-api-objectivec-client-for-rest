@@ -26,84 +26,26 @@ NSString * const kGTLRWorkloadManager_Execution_State_Running  = @"RUNNING";
 NSString * const kGTLRWorkloadManager_Execution_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_Execution_State_Succeeded = @"SUCCEEDED";
 
+// GTLRWorkloadManager_ExecutionResult.type
+NSString * const kGTLRWorkloadManager_ExecutionResult_Type_TypePassed = @"TYPE_PASSED";
+NSString * const kGTLRWorkloadManager_ExecutionResult_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_ExecutionResult_Type_TypeViolated = @"TYPE_VIOLATED";
+
 // GTLRWorkloadManager_ExternalDataSources.type
 NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_BigQueryTable = @"BIG_QUERY_TABLE";
 NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRWorkloadManager_IsolationExpectations.ziOrgPolicy
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiOrgPolicy_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRWorkloadManager_IsolationExpectations.ziRegionPolicy
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed = @"ZI_REGION_POLICY_FAIL_CLOSED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen = @"ZI_REGION_POLICY_FAIL_OPEN";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet = @"ZI_REGION_POLICY_NOT_SET";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown = @"ZI_REGION_POLICY_UNKNOWN";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified = @"ZI_REGION_POLICY_UNSPECIFIED";
-
-// GTLRWorkloadManager_IsolationExpectations.ziRegionState
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionEnabled = @"ZI_REGION_ENABLED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled = @"ZI_REGION_NOT_ENABLED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionUnknown = @"ZI_REGION_UNKNOWN";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZiRegionState_ZiRegionUnspecified = @"ZI_REGION_UNSPECIFIED";
-
-// GTLRWorkloadManager_IsolationExpectations.zoneIsolation
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneIsolation_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRWorkloadManager_IsolationExpectations.zoneSeparation
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZoneSeparation_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRWorkloadManager_IsolationExpectations.zsOrgPolicy
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsOrgPolicy_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRWorkloadManager_IsolationExpectations.zsRegionState
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionEnabled = @"ZS_REGION_ENABLED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled = @"ZS_REGION_NOT_ENABLED";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionUnknown = @"ZS_REGION_UNKNOWN";
-NSString * const kGTLRWorkloadManager_IsolationExpectations_ZsRegionState_ZsRegionUnspecified = @"ZS_REGION_UNSPECIFIED";
-
-// GTLRWorkloadManager_LocationAssignment.locationType
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_CloudRegion = @"CLOUD_REGION";
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_CloudZone = @"CLOUD_ZONE";
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Cluster = @"CLUSTER";
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Global = @"GLOBAL";
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_MultiRegionGeo = @"MULTI_REGION_GEO";
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_MultiRegionJurisdiction = @"MULTI_REGION_JURISDICTION";
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Other = @"OTHER";
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Pop = @"POP";
-NSString * const kGTLRWorkloadManager_LocationAssignment_LocationType_Unspecified = @"UNSPECIFIED";
-
-// GTLRWorkloadManager_RequirementOverride.ziOverride
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZiOverride_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRWorkloadManager_RequirementOverride.zsOverride
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRWorkloadManager_RequirementOverride_ZsOverride_ZsUnspecified = @"ZS_UNSPECIFIED";
 
 // GTLRWorkloadManager_ResourceStatus.state
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Active = @"ACTIVE";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Creating = @"CREATING";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Deleting = @"DELETING";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRWorkloadManager_RuleExecutionResult.state
+NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateFailure = @"STATE_FAILURE";
+NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateSkipped = @"STATE_SKIPPED";
+NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateSuccess = @"STATE_SUCCESS";
+NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRWorkloadManager_SapDiscoveryComponent.topologyType
 NSString * const kGTLRWorkloadManager_SapDiscoveryComponent_TopologyType_TopologyScaleOut = @"TOPOLOGY_SCALE_OUT";
@@ -211,49 +153,11 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_AssetLocation
-//
-
-@implementation GTLRWorkloadManager_AssetLocation
-@dynamic ccfeRmsPath, expected, extraParameters, locationData, parentAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraParameters" : [GTLRWorkloadManager_ExtraParameter class],
-    @"locationData" : [GTLRWorkloadManager_LocationData class],
-    @"parentAsset" : [GTLRWorkloadManager_CloudAsset class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_BigQueryDestination
 //
 
 @implementation GTLRWorkloadManager_BigQueryDestination
 @dynamic createNewResultsTable, destinationDataset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_BlobstoreLocation
-//
-
-@implementation GTLRWorkloadManager_BlobstoreLocation
-@dynamic policyId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"policyId" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -268,57 +172,11 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_CloudAsset
-//
-
-@implementation GTLRWorkloadManager_CloudAsset
-@dynamic assetName, assetType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_CloudAssetComposition
-//
-
-@implementation GTLRWorkloadManager_CloudAssetComposition
-@dynamic childAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"childAsset" : [GTLRWorkloadManager_CloudAsset class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_Command
 //
 
 @implementation GTLRWorkloadManager_Command
 @dynamic agentCommand, shellCommand;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_DirectLocationAssignment
-//
-
-@implementation GTLRWorkloadManager_DirectLocationAssignment
-@dynamic location;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"location" : [GTLRWorkloadManager_LocationAssignment class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -377,11 +235,13 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_Execution
 @dynamic endTime, evaluationId, externalDataSources, inventoryTime, labels,
-         name, runType, startTime, state;
+         name, notices, ruleResults, runType, startTime, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"externalDataSources" : [GTLRWorkloadManager_ExternalDataSources class]
+    @"externalDataSources" : [GTLRWorkloadManager_ExternalDataSources class],
+    @"notices" : [GTLRWorkloadManager_Notice class],
+    @"ruleResults" : [GTLRWorkloadManager_RuleExecutionResult class]
   };
   return map;
 }
@@ -409,8 +269,8 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_ExecutionResult
-@dynamic commands, documentationUrl, resource, rule, severity, violationDetails,
-         violationMessage;
+@dynamic commands, documentationUrl, resource, rule, severity, type,
+         violationDetails, violationMessage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -429,16 +289,6 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_ExternalDataSources
 @dynamic assetType, name, type, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_ExtraParameter
-//
-
-@implementation GTLRWorkloadManager_ExtraParameter
-@dynamic regionalMigDistributionPolicy;
 @end
 
 
@@ -467,17 +317,6 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 @implementation GTLRWorkloadManager_Insight
 @dynamic instanceId, sapDiscovery, sapValidation, sentTime, sqlserverValidation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_IsolationExpectations
-//
-
-@implementation GTLRWorkloadManager_IsolationExpectations
-@dynamic requirementOverride, ziOrgPolicy, ziRegionPolicy, ziRegionState,
-         zoneIsolation, zoneSeparation, zsOrgPolicy, zsRegionState;
 @end
 
 
@@ -677,22 +516,11 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_LocationAssignment
+//   GTLRWorkloadManager_Notice
 //
 
-@implementation GTLRWorkloadManager_LocationAssignment
-@dynamic location, locationType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_LocationData
-//
-
-@implementation GTLRWorkloadManager_LocationData
-@dynamic blobstoreLocation, childAssetLocation, directLocation, gcpProjectProxy,
-         placerLocation, spannerLocation;
+@implementation GTLRWorkloadManager_Notice
+@dynamic message;
 @end
 
 
@@ -742,44 +570,6 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 @implementation GTLRWorkloadManager_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_PlacerLocation
-//
-
-@implementation GTLRWorkloadManager_PlacerLocation
-@dynamic placerConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_RegionalMigDistributionPolicy
-//
-
-@implementation GTLRWorkloadManager_RegionalMigDistributionPolicy
-@dynamic targetShape, zones;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"zones" : [GTLRWorkloadManager_ZoneConfiguration class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_RequirementOverride
-//
-
-@implementation GTLRWorkloadManager_RequirementOverride
-@dynamic ziOverride, zsOverride;
 @end
 
 
@@ -864,6 +654,16 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_RuleExecutionResult
+//
+
+@implementation GTLRWorkloadManager_RuleExecutionResult
+@dynamic message, resultCount, rule, scannedResourceCount, state;
 @end
 
 
@@ -966,7 +766,7 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_SapDiscoveryResourceInstanceProperties
-@dynamic appInstances, clusterInstances, instanceNumber, instanceRole,
+@dynamic appInstances, clusterInstances, instanceNumber, instanceRole, isDrSite,
          virtualHostname;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1097,25 +897,6 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_SpannerLocation
-//
-
-@implementation GTLRWorkloadManager_SpannerLocation
-@dynamic backupName, dbName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"backupName" : [NSString class],
-    @"dbName" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_SqlserverValidation
 //
 
@@ -1208,24 +989,6 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkloadManager_TenantProjectProxy
-//
-
-@implementation GTLRWorkloadManager_TenantProjectProxy
-@dynamic projectNumbers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"projectNumbers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkloadManager_ViolationDetails
 //
 
@@ -1264,19 +1027,4 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_S
 //
 
 @implementation GTLRWorkloadManager_WriteInsightResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_ZoneConfiguration
-//
-
-@implementation GTLRWorkloadManager_ZoneConfiguration
-@dynamic zoneProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"zoneProperty" : @"zone" };
-}
-
 @end

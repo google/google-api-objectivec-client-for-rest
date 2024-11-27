@@ -16,6 +16,155 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.backupCollections.backups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsExport
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_ExportBackupRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:export";
+  GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsExport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.backupCollections.backups.export";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Backup class];
+  query.loggingName = @"redis.projects.locations.backupCollections.backups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_ListBackupsResponse class];
+  query.loggingName = @"redis.projects.locations.backupCollections.backups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_BackupCollection class];
+  query.loggingName = @"redis.projects.locations.backupCollections.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backupCollections";
+  GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_ListBackupCollectionsResponse class];
+  query.loggingName = @"redis.projects.locations.backupCollections.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersBackup
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_BackupClusterRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:backup";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.backup";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsClustersCreate
 
 @dynamic clusterId, parent, requestId;

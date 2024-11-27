@@ -108,6 +108,10 @@ NSString * const kGTLRWalletobjects_EventTicketClass_MultipleDevicesAndHoldersAl
 NSString * const kGTLRWalletobjects_EventTicketClass_MultipleDevicesAndHoldersAllowedStatus_OneUserOneDevice = @"oneUserOneDevice";
 NSString * const kGTLRWalletobjects_EventTicketClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRWalletobjects_EventTicketClass.notifyPreference
+NSString * const kGTLRWalletobjects_EventTicketClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_EventTicketClass_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
+
 // GTLRWalletobjects_EventTicketClass.reviewStatus
 NSString * const kGTLRWalletobjects_EventTicketClass_ReviewStatus_Approved = @"approved";
 NSString * const kGTLRWalletobjects_EventTicketClass_ReviewStatus_Draft = @"draft";
@@ -132,6 +136,10 @@ NSString * const kGTLRWalletobjects_EventTicketClass_SectionLabel_Theater = @"th
 NSString * const kGTLRWalletobjects_EventTicketClass_ViewUnlockRequirement_UnlockNotRequired = @"UNLOCK_NOT_REQUIRED";
 NSString * const kGTLRWalletobjects_EventTicketClass_ViewUnlockRequirement_UnlockRequiredToView = @"UNLOCK_REQUIRED_TO_VIEW";
 NSString * const kGTLRWalletobjects_EventTicketClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified = @"VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED";
+
+// GTLRWalletobjects_EventTicketObject.notifyPreference
+NSString * const kGTLRWalletobjects_EventTicketObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_EventTicketObject_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
 
 // GTLRWalletobjects_EventTicketObject.state
 NSString * const kGTLRWalletobjects_EventTicketObject_State_Active = @"active";
@@ -171,6 +179,10 @@ NSString * const kGTLRWalletobjects_FlightClass_MultipleDevicesAndHoldersAllowed
 NSString * const kGTLRWalletobjects_FlightClass_MultipleDevicesAndHoldersAllowedStatus_OneUserOneDevice = @"oneUserOneDevice";
 NSString * const kGTLRWalletobjects_FlightClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRWalletobjects_FlightClass.notifyPreference
+NSString * const kGTLRWalletobjects_FlightClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_FlightClass_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
+
 // GTLRWalletobjects_FlightClass.reviewStatus
 NSString * const kGTLRWalletobjects_FlightClass_ReviewStatus_Approved = @"approved";
 NSString * const kGTLRWalletobjects_FlightClass_ReviewStatus_Draft = @"draft";
@@ -182,6 +194,10 @@ NSString * const kGTLRWalletobjects_FlightClass_ReviewStatus_UnderReview = @"und
 NSString * const kGTLRWalletobjects_FlightClass_ViewUnlockRequirement_UnlockNotRequired = @"UNLOCK_NOT_REQUIRED";
 NSString * const kGTLRWalletobjects_FlightClass_ViewUnlockRequirement_UnlockRequiredToView = @"UNLOCK_REQUIRED_TO_VIEW";
 NSString * const kGTLRWalletobjects_FlightClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified = @"VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED";
+
+// GTLRWalletobjects_FlightObject.notifyPreference
+NSString * const kGTLRWalletobjects_FlightObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_FlightObject_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
 
 // GTLRWalletobjects_FlightObject.state
 NSString * const kGTLRWalletobjects_FlightObject_State_Active  = @"active";
@@ -207,6 +223,7 @@ NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericEntryTicket
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericGymMembership = @"GENERIC_GYM_MEMBERSHIP";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericHomeInsurance = @"GENERIC_HOME_INSURANCE";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericLibraryMembership = @"GENERIC_LIBRARY_MEMBERSHIP";
+NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericLoyaltyCard = @"GENERIC_LOYALTY_CARD";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericOther = @"GENERIC_OTHER";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericParkingPass = @"GENERIC_PARKING_PASS";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericReceipt = @"GENERIC_RECEIPT";
@@ -229,6 +246,10 @@ NSString * const kGTLRWalletobjects_GiftCardClass_MultipleDevicesAndHoldersAllow
 NSString * const kGTLRWalletobjects_GiftCardClass_MultipleDevicesAndHoldersAllowedStatus_OneUserOneDevice = @"oneUserOneDevice";
 NSString * const kGTLRWalletobjects_GiftCardClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRWalletobjects_GiftCardClass.notifyPreference
+NSString * const kGTLRWalletobjects_GiftCardClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_GiftCardClass_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
+
 // GTLRWalletobjects_GiftCardClass.reviewStatus
 NSString * const kGTLRWalletobjects_GiftCardClass_ReviewStatus_Approved = @"approved";
 NSString * const kGTLRWalletobjects_GiftCardClass_ReviewStatus_Draft = @"draft";
@@ -240,6 +261,10 @@ NSString * const kGTLRWalletobjects_GiftCardClass_ReviewStatus_UnderReview = @"u
 NSString * const kGTLRWalletobjects_GiftCardClass_ViewUnlockRequirement_UnlockNotRequired = @"UNLOCK_NOT_REQUIRED";
 NSString * const kGTLRWalletobjects_GiftCardClass_ViewUnlockRequirement_UnlockRequiredToView = @"UNLOCK_REQUIRED_TO_VIEW";
 NSString * const kGTLRWalletobjects_GiftCardClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified = @"VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED";
+
+// GTLRWalletobjects_GiftCardObject.notifyPreference
+NSString * const kGTLRWalletobjects_GiftCardObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_GiftCardObject_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
 
 // GTLRWalletobjects_GiftCardObject.state
 NSString * const kGTLRWalletobjects_GiftCardObject_State_Active = @"active";
@@ -259,6 +284,10 @@ NSString * const kGTLRWalletobjects_LoyaltyClass_MultipleDevicesAndHoldersAllowe
 NSString * const kGTLRWalletobjects_LoyaltyClass_MultipleDevicesAndHoldersAllowedStatus_OneUserOneDevice = @"oneUserOneDevice";
 NSString * const kGTLRWalletobjects_LoyaltyClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRWalletobjects_LoyaltyClass.notifyPreference
+NSString * const kGTLRWalletobjects_LoyaltyClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_LoyaltyClass_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
+
 // GTLRWalletobjects_LoyaltyClass.reviewStatus
 NSString * const kGTLRWalletobjects_LoyaltyClass_ReviewStatus_Approved = @"approved";
 NSString * const kGTLRWalletobjects_LoyaltyClass_ReviewStatus_Draft = @"draft";
@@ -270,6 +299,10 @@ NSString * const kGTLRWalletobjects_LoyaltyClass_ReviewStatus_UnderReview = @"un
 NSString * const kGTLRWalletobjects_LoyaltyClass_ViewUnlockRequirement_UnlockNotRequired = @"UNLOCK_NOT_REQUIRED";
 NSString * const kGTLRWalletobjects_LoyaltyClass_ViewUnlockRequirement_UnlockRequiredToView = @"UNLOCK_REQUIRED_TO_VIEW";
 NSString * const kGTLRWalletobjects_LoyaltyClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified = @"VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED";
+
+// GTLRWalletobjects_LoyaltyObject.notifyPreference
+NSString * const kGTLRWalletobjects_LoyaltyObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_LoyaltyObject_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
 
 // GTLRWalletobjects_LoyaltyObject.state
 NSString * const kGTLRWalletobjects_LoyaltyObject_State_Active = @"active";
@@ -312,6 +345,10 @@ NSString * const kGTLRWalletobjects_OfferClass_MultipleDevicesAndHoldersAllowedS
 NSString * const kGTLRWalletobjects_OfferClass_MultipleDevicesAndHoldersAllowedStatus_OneUserOneDevice = @"oneUserOneDevice";
 NSString * const kGTLRWalletobjects_OfferClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRWalletobjects_OfferClass.notifyPreference
+NSString * const kGTLRWalletobjects_OfferClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_OfferClass_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
+
 // GTLRWalletobjects_OfferClass.redemptionChannel
 NSString * const kGTLRWalletobjects_OfferClass_RedemptionChannel_Both = @"both";
 NSString * const kGTLRWalletobjects_OfferClass_RedemptionChannel_Instore = @"instore";
@@ -330,6 +367,10 @@ NSString * const kGTLRWalletobjects_OfferClass_ReviewStatus_UnderReview = @"unde
 NSString * const kGTLRWalletobjects_OfferClass_ViewUnlockRequirement_UnlockNotRequired = @"UNLOCK_NOT_REQUIRED";
 NSString * const kGTLRWalletobjects_OfferClass_ViewUnlockRequirement_UnlockRequiredToView = @"UNLOCK_REQUIRED_TO_VIEW";
 NSString * const kGTLRWalletobjects_OfferClass_ViewUnlockRequirement_ViewUnlockRequirementUnspecified = @"VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED";
+
+// GTLRWalletobjects_OfferObject.notifyPreference
+NSString * const kGTLRWalletobjects_OfferObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_OfferObject_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
 
 // GTLRWalletobjects_OfferObject.state
 NSString * const kGTLRWalletobjects_OfferObject_State_Active   = @"active";
@@ -399,6 +440,10 @@ NSString * const kGTLRWalletobjects_TransitClass_MultipleDevicesAndHoldersAllowe
 NSString * const kGTLRWalletobjects_TransitClass_MultipleDevicesAndHoldersAllowedStatus_OneUserOneDevice = @"oneUserOneDevice";
 NSString * const kGTLRWalletobjects_TransitClass_MultipleDevicesAndHoldersAllowedStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRWalletobjects_TransitClass.notifyPreference
+NSString * const kGTLRWalletobjects_TransitClass_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_TransitClass_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
+
 // GTLRWalletobjects_TransitClass.reviewStatus
 NSString * const kGTLRWalletobjects_TransitClass_ReviewStatus_Approved = @"approved";
 NSString * const kGTLRWalletobjects_TransitClass_ReviewStatus_Draft = @"draft";
@@ -424,6 +469,10 @@ NSString * const kGTLRWalletobjects_TransitObject_ConcessionCategory_Adult = @"a
 NSString * const kGTLRWalletobjects_TransitObject_ConcessionCategory_Child = @"child";
 NSString * const kGTLRWalletobjects_TransitObject_ConcessionCategory_ConcessionCategoryUnspecified = @"CONCESSION_CATEGORY_UNSPECIFIED";
 NSString * const kGTLRWalletobjects_TransitObject_ConcessionCategory_Senior = @"senior";
+
+// GTLRWalletobjects_TransitObject.notifyPreference
+NSString * const kGTLRWalletobjects_TransitObject_NotifyPreference_NotificationSettingsForUpdatesUnspecified = @"NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED";
+NSString * const kGTLRWalletobjects_TransitObject_NotifyPreference_NotifyOnUpdate = @"NOTIFY_ON_UPDATE";
 
 // GTLRWalletobjects_TransitObject.passengerType
 NSString * const kGTLRWalletobjects_TransitObject_PassengerType_MultiplePassengers = @"multiplePassengers";
@@ -501,7 +550,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_AppLinkData
-@dynamic androidAppLinkInfo, iosAppLinkInfo, webAppLinkInfo;
+@dynamic androidAppLinkInfo, displayText, iosAppLinkInfo, webAppLinkInfo;
 @end
 
 
@@ -944,10 +993,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          customSeatLabel, customSectionLabel, dateTime, enableSmartTap, eventId,
          eventName, finePrint, gateLabel, heroImage, hexBackgroundColor,
          homepageUri, identifier, imageModulesData, infoModuleData, issuerName,
-         kind, linksModuleData, localizedIssuerName, locations, logo, messages,
-         multipleDevicesAndHoldersAllowedStatus, redemptionIssuers, review,
-         reviewStatus, rowLabel, seatLabel, sectionLabel, securityAnimation,
-         textModulesData, venue, version, viewUnlockRequirement, wideLogo,
+         kind, linksModuleData, localizedIssuerName, locations, logo,
+         merchantLocations, messages, multipleDevicesAndHoldersAllowedStatus,
+         notifyPreference, redemptionIssuers, review, reviewStatus, rowLabel,
+         seatLabel, sectionLabel, securityAnimation, textModulesData,
+         valueAddedModuleData, venue, version, viewUnlockRequirement, wideLogo,
          wordMark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -958,9 +1008,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"redemptionIssuers" : [NSNumber class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1012,10 +1064,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          disableExpirationNotification, faceValue, groupingInfo,
          hasLinkedDevice, hasUsers, heroImage, hexBackgroundColor, identifier,
          imageModulesData, infoModuleData, kind, linkedObjectIds,
-         linkedOfferIds, linksModuleData, locations, messages, passConstraints,
-         reservationInfo, rotatingBarcode, saveRestrictions, seatInfo,
-         smartTapRedemptionValue, state, textModulesData, ticketHolderName,
-         ticketNumber, ticketType, validTimeInterval, version;
+         linkedOfferIds, linksModuleData, locations, merchantLocations,
+         messages, notifyPreference, passConstraints, reservationInfo,
+         rotatingBarcode, saveRestrictions, seatInfo, smartTapRedemptionValue,
+         state, textModulesData, ticketHolderName, ticketNumber, ticketType,
+         validTimeInterval, valueAddedModuleData, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1027,8 +1080,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
     @"linkedObjectIds" : [NSString class],
     @"linkedOfferIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1167,10 +1222,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          localBoardingDateTime, localEstimatedOrActualArrivalDateTime,
          localEstimatedOrActualDepartureDateTime, localGateClosingDateTime,
          localizedIssuerName, localScheduledArrivalDateTime,
-         localScheduledDepartureDateTime, locations, messages,
-         multipleDevicesAndHoldersAllowedStatus, origin, redemptionIssuers,
-         review, reviewStatus, securityAnimation, textModulesData, version,
-         viewUnlockRequirement, wordMark;
+         localScheduledDepartureDateTime, locations, merchantLocations,
+         messages, multipleDevicesAndHoldersAllowedStatus, notifyPreference,
+         origin, redemptionIssuers, review, reviewStatus, securityAnimation,
+         textModulesData, valueAddedModuleData, version, viewUnlockRequirement,
+         wordMark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1180,9 +1236,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"redemptionIssuers" : [NSNumber class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1252,10 +1310,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          disableExpirationNotification, groupingInfo, hasLinkedDevice, hasUsers,
          heroImage, hexBackgroundColor, identifier, imageModulesData,
          infoModuleData, kind, linkedObjectIds, linksModuleData, locations,
-         messages, passConstraints, passengerName, reservationInfo,
-         rotatingBarcode, saveRestrictions, securityProgramLogo,
-         smartTapRedemptionValue, state, textModulesData, validTimeInterval,
-         version;
+         merchantLocations, messages, notifyPreference, passConstraints,
+         passengerName, reservationInfo, rotatingBarcode, saveRestrictions,
+         securityProgramLogo, smartTapRedemptionValue, state, textModulesData,
+         validTimeInterval, valueAddedModuleData, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1266,8 +1324,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"linkedObjectIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1333,9 +1393,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_GenericClass
 @dynamic appLinkData, callbackOptions, classTemplateInfo, enableSmartTap,
-         identifier, imageModulesData, linksModuleData, messages,
-         multipleDevicesAndHoldersAllowedStatus, redemptionIssuers,
-         securityAnimation, textModulesData, viewUnlockRequirement;
+         identifier, imageModulesData, linksModuleData, merchantLocations,
+         messages, multipleDevicesAndHoldersAllowedStatus, redemptionIssuers,
+         securityAnimation, textModulesData, valueAddedModuleData,
+         viewUnlockRequirement;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1344,9 +1405,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"redemptionIssuers" : [NSNumber class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1390,10 +1453,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 @implementation GTLRWalletobjects_GenericObject
 @dynamic appLinkData, barcode, cardTitle, classId, genericType, groupingInfo,
          hasUsers, header, heroImage, hexBackgroundColor, identifier,
-         imageModulesData, linkedObjectIds, linksModuleData, logo, messages,
-         notifications, passConstraints, rotatingBarcode, saveRestrictions,
-         smartTapRedemptionValue, state, subheader, textModulesData,
-         validTimeInterval, wideLogo;
+         imageModulesData, linkedObjectIds, linksModuleData, logo,
+         merchantLocations, messages, notifications, passConstraints,
+         rotatingBarcode, saveRestrictions, smartTapRedemptionValue, state,
+         subheader, textModulesData, validTimeInterval, valueAddedModuleData,
+         wideLogo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1403,8 +1467,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"linkedObjectIds" : [NSString class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1452,11 +1518,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          homepageUri, identifier, imageModulesData, infoModuleData, issuerName,
          kind, linksModuleData, localizedCardNumberLabel,
          localizedEventNumberLabel, localizedIssuerName, localizedMerchantName,
-         localizedPinLabel, locations, merchantName, messages,
-         multipleDevicesAndHoldersAllowedStatus, pinLabel, programLogo,
-         redemptionIssuers, review, reviewStatus, securityAnimation,
-         textModulesData, version, viewUnlockRequirement, wideProgramLogo,
-         wordMark;
+         localizedPinLabel, locations, merchantLocations, merchantName,
+         messages, multipleDevicesAndHoldersAllowedStatus, notifyPreference,
+         pinLabel, programLogo, redemptionIssuers, review, reviewStatus,
+         securityAnimation, textModulesData, valueAddedModuleData, version,
+         viewUnlockRequirement, wideProgramLogo, wordMark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1466,9 +1532,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"redemptionIssuers" : [NSNumber class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1520,9 +1588,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          classReference, disableExpirationNotification, eventNumber,
          groupingInfo, hasLinkedDevice, hasUsers, heroImage, identifier,
          imageModulesData, infoModuleData, kind, linkedObjectIds,
-         linksModuleData, locations, messages, passConstraints, pin,
-         rotatingBarcode, saveRestrictions, smartTapRedemptionValue, state,
-         textModulesData, validTimeInterval, version;
+         linksModuleData, locations, merchantLocations, messages,
+         notifyPreference, passConstraints, pin, rotatingBarcode,
+         saveRestrictions, smartTapRedemptionValue, state, textModulesData,
+         validTimeInterval, valueAddedModuleData, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1533,8 +1602,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"linkedObjectIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1839,10 +1910,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          localizedAccountNameLabel, localizedIssuerName, localizedProgramName,
          localizedRewardsTier, localizedRewardsTierLabel,
          localizedSecondaryRewardsTier, localizedSecondaryRewardsTierLabel,
-         locations, messages, multipleDevicesAndHoldersAllowedStatus,
-         programLogo, programName, redemptionIssuers, review, reviewStatus,
-         rewardsTier, rewardsTierLabel, secondaryRewardsTier,
-         secondaryRewardsTierLabel, securityAnimation, textModulesData, version,
+         locations, merchantLocations, messages,
+         multipleDevicesAndHoldersAllowedStatus, notifyPreference, programLogo,
+         programName, redemptionIssuers, review, reviewStatus, rewardsTier,
+         rewardsTierLabel, secondaryRewardsTier, secondaryRewardsTierLabel,
+         securityAnimation, textModulesData, valueAddedModuleData, version,
          viewUnlockRequirement, wideProgramLogo, wordMark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1853,9 +1925,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"redemptionIssuers" : [NSNumber class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -1907,9 +1981,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          disableExpirationNotification, groupingInfo, hasLinkedDevice, hasUsers,
          heroImage, identifier, imageModulesData, infoModuleData, kind,
          linkedObjectIds, linkedOfferIds, linksModuleData, locations,
-         loyaltyPoints, messages, passConstraints, rotatingBarcode,
-         saveRestrictions, secondaryLoyaltyPoints, smartTapRedemptionValue,
-         state, textModulesData, validTimeInterval, version;
+         loyaltyPoints, merchantLocations, messages, notifyPreference,
+         passConstraints, rotatingBarcode, saveRestrictions,
+         secondaryLoyaltyPoints, smartTapRedemptionValue, state,
+         textModulesData, validTimeInterval, valueAddedModuleData, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1921,8 +1996,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
     @"linkedObjectIds" : [NSString class],
     @"linkedOfferIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -2039,6 +2116,16 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWalletobjects_MerchantLocation
+//
+
+@implementation GTLRWalletobjects_MerchantLocation
+@dynamic latitude, longitude;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWalletobjects_Message
 //
 
@@ -2085,6 +2172,16 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_ModifyLinkedOfferObjectsRequest
 @dynamic linkedOfferObjectIds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_ModuleViewConstraints
+//
+
+@implementation GTLRWalletobjects_ModuleViewConstraints
+@dynamic displayInterval;
 @end
 
 
@@ -2137,10 +2234,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          imageModulesData, infoModuleData, issuerName, kind, linksModuleData,
          localizedDetails, localizedFinePrint, localizedIssuerName,
          localizedProvider, localizedShortTitle, localizedTitle, locations,
-         messages, multipleDevicesAndHoldersAllowedStatus, provider,
-         redemptionChannel, redemptionIssuers, review, reviewStatus,
-         securityAnimation, shortTitle, textModulesData, title, titleImage,
-         version, viewUnlockRequirement, wideTitleImage, wordMark;
+         merchantLocations, messages, multipleDevicesAndHoldersAllowedStatus,
+         notifyPreference, provider, redemptionChannel, redemptionIssuers,
+         review, reviewStatus, securityAnimation, shortTitle, textModulesData,
+         title, titleImage, valueAddedModuleData, version,
+         viewUnlockRequirement, wideTitleImage, wordMark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2150,9 +2248,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"redemptionIssuers" : [NSNumber class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -2203,9 +2303,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 @dynamic appLinkData, barcode, classId, classReference,
          disableExpirationNotification, groupingInfo, hasLinkedDevice, hasUsers,
          heroImage, identifier, imageModulesData, infoModuleData, kind,
-         linkedObjectIds, linksModuleData, locations, messages, passConstraints,
-         rotatingBarcode, saveRestrictions, smartTapRedemptionValue, state,
-         textModulesData, validTimeInterval, version;
+         linkedObjectIds, linksModuleData, locations, merchantLocations,
+         messages, notifyPreference, passConstraints, rotatingBarcode,
+         saveRestrictions, smartTapRedemptionValue, state, textModulesData,
+         validTimeInterval, valueAddedModuleData, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2216,8 +2317,10 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"linkedObjectIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -2644,11 +2747,12 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          customZoneLabel, enableSingleLegItinerary, enableSmartTap, heroImage,
          hexBackgroundColor, homepageUri, identifier, imageModulesData,
          infoModuleData, issuerName, languageOverride, linksModuleData,
-         localizedIssuerName, locations, logo, messages,
-         multipleDevicesAndHoldersAllowedStatus, redemptionIssuers, review,
-         reviewStatus, securityAnimation, textModulesData, transitOperatorName,
-         transitType, version, viewUnlockRequirement, watermark, wideLogo,
-         wordMark;
+         localizedIssuerName, locations, logo, merchantLocations, messages,
+         multipleDevicesAndHoldersAllowedStatus, notifyPreference,
+         redemptionIssuers, review, reviewStatus, securityAnimation,
+         textModulesData, transitOperatorName, transitType,
+         valueAddedModuleData, version, viewUnlockRequirement, watermark,
+         wideLogo, wordMark;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2658,9 +2762,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   NSDictionary<NSString *, Class> *map = @{
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"redemptionIssuers" : [NSNumber class],
-    @"textModulesData" : [GTLRWalletobjects_TextModuleData class]
+    @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -2707,11 +2813,12 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          deviceContext, disableExpirationNotification, groupingInfo,
          hasLinkedDevice, hasUsers, heroImage, hexBackgroundColor, identifier,
          imageModulesData, infoModuleData, linkedObjectIds, linksModuleData,
-         locations, messages, passConstraints, passengerNames, passengerType,
-         purchaseDetails, rotatingBarcode, saveRestrictions,
-         smartTapRedemptionValue, state, textModulesData, ticketLeg, ticketLegs,
-         ticketNumber, ticketRestrictions, ticketStatus, tripId, tripType,
-         validTimeInterval, version;
+         locations, merchantLocations, messages, notifyPreference,
+         passConstraints, passengerNames, passengerType, purchaseDetails,
+         rotatingBarcode, saveRestrictions, smartTapRedemptionValue, state,
+         textModulesData, ticketLeg, ticketLegs, ticketNumber,
+         ticketRestrictions, ticketStatus, tripId, tripType, validTimeInterval,
+         valueAddedModuleData, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2722,9 +2829,11 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
     @"imageModulesData" : [GTLRWalletobjects_ImageModuleData class],
     @"linkedObjectIds" : [NSString class],
     @"locations" : [GTLRWalletobjects_LatLongPoint class],
+    @"merchantLocations" : [GTLRWalletobjects_MerchantLocation class],
     @"messages" : [GTLRWalletobjects_Message class],
     @"textModulesData" : [GTLRWalletobjects_TextModuleData class],
-    @"ticketLegs" : [GTLRWalletobjects_TicketLeg class]
+    @"ticketLegs" : [GTLRWalletobjects_TicketLeg class],
+    @"valueAddedModuleData" : [GTLRWalletobjects_ValueAddedModuleData class]
   };
   return map;
 }
@@ -2828,4 +2937,14 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_ValueAddedModuleData
+//
+
+@implementation GTLRWalletobjects_ValueAddedModuleData
+@dynamic body, header, image, sortIndex, uri, viewConstraints;
 @end

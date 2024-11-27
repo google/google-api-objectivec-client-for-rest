@@ -2799,7 +2799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 /**
  *  The *maxResults* parameter specifies the maximum number of items that should
- *  be returned in the result set.
+ *  be returned in the result set. Not used in the streaming RPC.
  *
  *  @note If not set, the documented server-side default will be 500 (from the
  *        range 200..2000).
@@ -5744,6 +5744,73 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @return GTLRYouTubeQuery_WatermarksUnset
  */
 + (instancetype)queryWithChannelId:(NSString *)channelId;
+
+@end
+
+/**
+ *  Allows a user to load live chat through a server-streamed RPC.
+ *
+ *  Method: youtube.youtube.v3.liveChat.messages.stream
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeReadonly
+ */
+@interface GTLRYouTubeQuery_YoutubeV3LiveChatMessagesStream : GTLRYouTubeQuery
+
+/**
+ *  Specifies the localization language in which the system messages should be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *hl;
+
+/** The id of the live chat for which comments should be returned. */
+@property(nonatomic, copy, nullable) NSString *liveChatId;
+
+/**
+ *  The *maxResults* parameter specifies the maximum number of items that should
+ *  be returned in the result set. Not used in the streaming RPC.
+ *
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 200..2000).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The *pageToken* parameter identifies a specific page in the result set that
+ *  should be returned. In an API response, the nextPageToken property identify
+ *  other pages that could be retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The *part* parameter specifies the liveChatComment resource parts that the
+ *  API response will include. Supported values are id, snippet, and
+ *  authorDetails.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
+
+/**
+ *  Specifies the size of the profile image that should be returned for each
+ *  user.
+ *
+ *  @note The documented range is 16..720.
+ */
+@property(nonatomic, assign) NSUInteger profileImageSize;
+
+/**
+ *  Fetches a @c GTLRYouTube_LiveChatMessageListResponse.
+ *
+ *  Allows a user to load live chat through a server-streamed RPC.
+ *
+ *  @return GTLRYouTubeQuery_YoutubeV3LiveChatMessagesStream
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
 
 @end
 

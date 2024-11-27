@@ -86,6 +86,49 @@ NSString * const kGTLRDisplayVideo_AdGroupAd_EntityStatus_EntityStatusPaused = @
 NSString * const kGTLRDisplayVideo_AdGroupAd_EntityStatus_EntityStatusScheduledForDeletion = @"ENTITY_STATUS_SCHEDULED_FOR_DELETION";
 NSString * const kGTLRDisplayVideo_AdGroupAd_EntityStatus_EntityStatusUnspecified = @"ENTITY_STATUS_UNSPECIFIED";
 
+// GTLRDisplayVideo_Adloox.adultExplicitSexualContent
+NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.armsAmmunitionContent
+NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.crimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent
+NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.deathInjuryMilitaryConflictContent
+NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.debatedSensitiveSocialIssueContent
+NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.displayIabViewability
+NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability10 = @"DISPLAY_IAB_VIEWABILITY_10";
+NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability20 = @"DISPLAY_IAB_VIEWABILITY_20";
+NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability35 = @"DISPLAY_IAB_VIEWABILITY_35";
+NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability50 = @"DISPLAY_IAB_VIEWABILITY_50";
+NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability75 = @"DISPLAY_IAB_VIEWABILITY_75";
+NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewabilityUnspecified = @"DISPLAY_IAB_VIEWABILITY_UNSPECIFIED";
+
 // GTLRDisplayVideo_Adloox.excludedAdlooxCategories
 NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCategories_AdlooxUnspecified = @"ADLOOX_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCategories_AdultContentHard = @"ADULT_CONTENT_HARD";
@@ -96,6 +139,67 @@ NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCategories_Fraud = @"FRA
 NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCategories_IllegalContent = @"ILLEGAL_CONTENT";
 NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCategories_LowViewabilityDomains = @"LOW_VIEWABILITY_DOMAINS";
 NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCategories_ViolentContentWeapons = @"VIOLENT_CONTENT_WEAPONS";
+
+// GTLRDisplayVideo_Adloox.excludedFraudIvtMfaCategories
+NSString * const kGTLRDisplayVideo_Adloox_ExcludedFraudIvtMfaCategories_FraudIvtMfa = @"FRAUD_IVT_MFA";
+NSString * const kGTLRDisplayVideo_Adloox_ExcludedFraudIvtMfaCategories_FraudIvtMfaCategoryUnspecified = @"FRAUD_IVT_MFA_CATEGORY_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.hateSpeechActsAggressionContent
+NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.illegalDrugsTobaccoEcigarettesVapingAlcoholContent
+NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.misinformationContent
+NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.obscenityProfanityContent
+NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.onlinePiracyContent
+NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.spamHarmfulContent
+NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.terrorismContent
+NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionFloor = @"GARM_RISK_EXCLUSION_FLOOR";
+NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionHigh = @"GARM_RISK_EXCLUSION_HIGH";
+NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionLow = @"GARM_RISK_EXCLUSION_LOW";
+NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionMedium = @"GARM_RISK_EXCLUSION_MEDIUM";
+NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionUnspecified = @"GARM_RISK_EXCLUSION_UNSPECIFIED";
+
+// GTLRDisplayVideo_Adloox.videoIabViewability
+NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability10 = @"VIDEO_IAB_VIEWABILITY_10";
+NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability20 = @"VIDEO_IAB_VIEWABILITY_20";
+NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability35 = @"VIDEO_IAB_VIEWABILITY_35";
+NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability50 = @"VIDEO_IAB_VIEWABILITY_50";
+NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability75 = @"VIDEO_IAB_VIEWABILITY_75";
+NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewabilityUnspecified = @"VIDEO_IAB_VIEWABILITY_UNSPECIFIED";
 
 // GTLRDisplayVideo_AdUrl.type
 NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconClick = @"AD_URL_TYPE_BEACON_CLICK";
@@ -242,6 +346,7 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_E
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeToponGbid = @"EXCHANGE_TOPON_GBID";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriplelift = @"EXCHANGE_TRIPLELIFT";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriton = @"EXCHANGE_TRITON";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTubi = @"EXCHANGE_TUBI";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTvn = @"EXCHANGE_TVN";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnited = @"EXCHANGE_UNITED";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnityGbid = @"EXCHANGE_UNITY_GBID";
@@ -628,6 +733,7 @@ NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersi
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6 = @"SDF_VERSION_6";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7 = @"SDF_VERSION_7";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion71 = @"SDF_VERSION_7_1";
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_Creative.creativeAttributes
@@ -1065,6 +1171,7 @@ NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeToponGbid = @"EXCHANGE_TOPON_GBID";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriplelift = @"EXCHANGE_TRIPLELIFT";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriton = @"EXCHANGE_TRITON";
+NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTubi = @"EXCHANGE_TUBI";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTvn = @"EXCHANGE_TVN";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnited = @"EXCHANGE_UNITED";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnityGbid = @"EXCHANGE_UNITY_GBID";
@@ -1150,6 +1257,7 @@ NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeToponGbid = @"EXCHANGE_TOPON_GBID";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriplelift = @"EXCHANGE_TRIPLELIFT";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriton = @"EXCHANGE_TRITON";
+NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTubi = @"EXCHANGE_TUBI";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTvn = @"EXCHANGE_TVN";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnited = @"EXCHANGE_UNITED";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnityGbid = @"EXCHANGE_UNITY_GBID";
@@ -1235,6 +1343,7 @@ NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTelaria
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeToponGbid = @"EXCHANGE_TOPON_GBID";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriplelift = @"EXCHANGE_TRIPLELIFT";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton = @"EXCHANGE_TRITON";
+NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTubi = @"EXCHANGE_TUBI";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTvn = @"EXCHANGE_TVN";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited = @"EXCHANGE_UNITED";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnityGbid = @"EXCHANGE_UNITY_GBID";
@@ -1326,6 +1435,7 @@ NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_Excha
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeToponGbid = @"EXCHANGE_TOPON_GBID";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriplelift = @"EXCHANGE_TRIPLELIFT";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton = @"EXCHANGE_TRITON";
+NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTubi = @"EXCHANGE_TUBI";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTvn = @"EXCHANGE_TVN";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited = @"EXCHANGE_UNITED";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnityGbid = @"EXCHANGE_UNITY_GBID";
@@ -1600,6 +1710,7 @@ NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTelaria = @"
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeToponGbid = @"EXCHANGE_TOPON_GBID";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriplelift = @"EXCHANGE_TRIPLELIFT";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriton = @"EXCHANGE_TRITON";
+NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTubi = @"EXCHANGE_TUBI";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTvn = @"EXCHANGE_TVN";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnited = @"EXCHANGE_UNITED";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnityGbid = @"EXCHANGE_UNITY_GBID";
@@ -1837,6 +1948,7 @@ NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTelaria = @"
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeToponGbid = @"EXCHANGE_TOPON_GBID";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriplelift = @"EXCHANGE_TRIPLELIFT";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton = @"EXCHANGE_TRITON";
+NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTubi = @"EXCHANGE_TUBI";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTvn = @"EXCHANGE_TVN";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited = @"EXCHANGE_UNITED";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnityGbid = @"EXCHANGE_UNITY_GBID";
@@ -2261,6 +2373,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55 = @"SDF_VERSIO
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6 = @"SDF_VERSION_6";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7 = @"SDF_VERSION_7";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71 = @"SDF_VERSION_7_1";
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
@@ -2277,6 +2390,7 @@ NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55 
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6 = @"SDF_VERSION_6";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7 = @"SDF_VERSION_7";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71 = @"SDF_VERSION_7_1";
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails.excludedSensitiveCategory
@@ -2593,11 +2707,19 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_Adloox
-@dynamic excludedAdlooxCategories;
+@dynamic adultExplicitSexualContent, armsAmmunitionContent,
+         crimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent,
+         deathInjuryMilitaryConflictContent, debatedSensitiveSocialIssueContent,
+         displayIabViewability, excludedAdlooxCategories,
+         excludedFraudIvtMfaCategories, hateSpeechActsAggressionContent,
+         illegalDrugsTobaccoEcigarettesVapingAlcoholContent,
+         misinformationContent, obscenityProfanityContent, onlinePiracyContent,
+         spamHarmfulContent, terrorismContent, videoIabViewability;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"excludedAdlooxCategories" : [NSString class]
+    @"excludedAdlooxCategories" : [NSString class],
+    @"excludedFraudIvtMfaCategories" : [NSString class]
   };
   return map;
 }

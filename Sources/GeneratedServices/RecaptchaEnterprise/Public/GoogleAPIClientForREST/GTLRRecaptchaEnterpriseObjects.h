@@ -412,6 +412,34 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_OverrideTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.challenge
+
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "CHALLENGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_ChallengeUnspecified;
+/**
+ *  A solution was submitted that was incorrect or otherwise deemed suspicious.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Failed;
+/**
+ *  No challenge was presented for solving.
+ *
+ *  Value: "NOCAPTCHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Nocaptcha;
+/**
+ *  A solution was submitted that was correct.
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Passed;
+
+// ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
 
 /**
@@ -2068,7 +2096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  The removeIpOverride request message.
+ *  The RemoveIpOverride request message.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest : GTLRObject
 
@@ -2127,6 +2155,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Risk analysis result for an event.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis : GTLRObject
+
+/**
+ *  Output only. Challenge information for SCORE_AND_CHALLENGE and INVISIBLE
+ *  keys
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_ChallengeUnspecified
+ *        Default unspecified type. (Value: "CHALLENGE_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Failed
+ *        A solution was submitted that was incorrect or otherwise deemed
+ *        suspicious. (Value: "FAILED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Nocaptcha
+ *        No challenge was presented for solving. (Value: "NOCAPTCHA")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Passed
+ *        A solution was submitted that was correct. (Value: "PASSED")
+ */
+@property(nonatomic, copy, nullable) NSString *challenge;
 
 /**
  *  Output only. Extended verdict reasons to be used for experimentation only.

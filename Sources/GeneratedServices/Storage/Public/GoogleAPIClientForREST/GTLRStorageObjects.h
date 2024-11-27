@@ -67,6 +67,7 @@
 @class GTLRStorage_ObjectAccessControl;
 @class GTLRStorage_ObjectAccessControl_ProjectTeam;
 @class GTLRStorage_Policy_Bindings_Item;
+@class GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -74,6 +75,27 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  An AdvanceRelocateBucketOperation request.
+ */
+@interface GTLRStorage_AdvanceRelocateBucketOperationRequest : GTLRObject
+
+/**
+ *  Specifies the time when the relocation will revert to the sync stage if the
+ *  relocation hasn't succeeded.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Specifies the duration after which the relocation will revert to the sync
+ *  stage if the relocation hasn't succeeded. Optional, if not supplied, a
+ *  default value of 12h will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
 
 /**
  *  An Anywhere Cache instance.
@@ -2071,6 +2093,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeDeleted;
 
+/** The time when the object was finalized. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timeFinalized;
+
 /**
  *  The time at which the object's storage class was last changed. When the
  *  object is initially created, it will be set to timeCreated.
@@ -2409,6 +2434,42 @@ NS_ASSUME_NONNULL_BEGIN
  *  a bucket with the OWNER role.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  A Relocate Bucket request.
+ */
+@interface GTLRStorage_RelocateBucketRequest : GTLRObject
+
+/**
+ *  The bucket's new custom placement configuration if relocating to a Custom
+ *  Dual Region.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig *destinationCustomPlacementConfig;
+
+/** The new location the bucket will be relocated to. */
+@property(nonatomic, copy, nullable) NSString *destinationLocation;
+
+/**
+ *  If true, validate the operation, but do not actually relocate the bucket.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  The bucket's new custom placement configuration if relocating to a Custom
+ *  Dual Region.
+ */
+@interface GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig : GTLRObject
+
+/** The list of regional locations in which data is placed. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataLocations;
 
 @end
 

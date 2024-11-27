@@ -287,6 +287,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Restore_State_StateUnspecif
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Restore_State_Succeeded;
+/**
+ *  The Kubernetes resources created by this Restore are being validated.
+ *
+ *  Value: "VALIDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Restore_State_Validating;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupforGKE_RestoreConfig.clusterResourceConflictPolicy
@@ -1353,13 +1359,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Defines the scope of cluster-scoped resources to restore. Some group kinds
  *  are not reasonable choices for a restore, and will cause an error if
  *  selected here. Any scope selection that would restore "all valid" resources
- *  automatically excludes these group kinds. - gkebackup.gke.io/BackupJob -
- *  gkebackup.gke.io/RestoreJob - metrics.k8s.io/NodeMetrics -
- *  migration.k8s.io/StorageState - migration.k8s.io/StorageVersionMigration -
- *  Node - snapshot.storage.k8s.io/VolumeSnapshotContent -
- *  storage.k8s.io/CSINode Some group kinds are driven by restore configuration
- *  elsewhere, and will cause an error if selected here. - Namespace -
- *  PersistentVolume
+ *  automatically excludes these group kinds. - Node - ComponentStatus -
+ *  gkebackup.gke.io/BackupJob - gkebackup.gke.io/RestoreJob -
+ *  metrics.k8s.io/NodeMetrics - migration.k8s.io/StorageState -
+ *  migration.k8s.io/StorageVersionMigration -
+ *  snapshot.storage.k8s.io/VolumeSnapshotContent - storage.k8s.io/CSINode -
+ *  storage.k8s.io/VolumeAttachment Some group kinds are driven by restore
+ *  configuration elsewhere, and will cause an error if selected here. -
+ *  Namespace - PersistentVolume
  */
 @interface GTLRBackupforGKE_ClusterResourceRestoreScope : GTLRObject
 
@@ -2445,6 +2452,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *    @arg @c kGTLRBackupforGKE_Restore_State_Succeeded The restore operation
  *        has completed successfully. Restored workloads may not yet be
  *        operational. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBackupforGKE_Restore_State_Validating The Kubernetes
+ *        resources created by this Restore are being validated. (Value:
+ *        "VALIDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3035,30 +3045,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @interface GTLRBackupforGKE_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

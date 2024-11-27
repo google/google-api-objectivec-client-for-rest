@@ -87,15 +87,18 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAd;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdEffectiveLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAsset;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAssetSet;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAudienceView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupBidModifier;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionEffectiveLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionPositionEstimates;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionQualityInfo;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupEffectiveLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAgeRangeView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesAsset;
@@ -116,6 +119,7 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignDynamicSearchAdsSetting;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignEffectiveLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignGeoTargetTypeSetting;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignLabel;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignNetworkSettings;
@@ -160,6 +164,7 @@
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesSearchAds360Field;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesShoppingPerformanceView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList;
+@class GTLRSA360_GoogleAdsSearchads360V0ResourcesUserLocationView;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit;
 @class GTLRSA360_GoogleAdsSearchads360V0ResourcesWebpageView;
 @class GTLRSA360_GoogleAdsSearchads360V0ServicesConversionCustomDimensionHeader;
@@ -9960,11 +9965,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *crossDeviceConversions;
 
 /**
+ *  The number of cross-device conversions by conversion date. Details for the
+ *  by_conversion_date columns are available at
+ *  https://support.google.com/sa360/answer/9250611.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crossDeviceConversionsByConversionDate;
+
+/**
  *  The sum of the value of cross-device conversions.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *crossDeviceConversionsValue;
+
+/**
+ *  The sum of cross-device conversions value by conversion date. Details for
+ *  the by_conversion_date columns are available at
+ *  https://support.google.com/sa360/answer/9250611.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crossDeviceConversionsValueByConversionDate;
 
 /**
  *  Cross-sell cost of goods sold (COGS) is the total cost of products sold as a
@@ -10054,6 +10077,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ctr;
+
+/**
+ *  The percentage of clicks that have been filtered out of your total number of
+ *  clicks (filtered + non-filtered clicks) due to being general invalid clicks.
+ *  These are clicks Google considers illegitimate that are detected through
+ *  routine means of filtration (that is, known invalid data-center traffic,
+ *  bots and spiders or other crawlers, irregular patterns, etc). You're not
+ *  charged for them, and they don't affect your account statistics. See the
+ *  help page at https://support.google.com/campaignmanager/answer/6076504 for
+ *  details.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generalInvalidClickRate;
+
+/**
+ *  Number of general invalid clicks. These are a subset of your invalid clicks
+ *  that are detected through routine means of filtration (such as known invalid
+ *  data-center traffic, bots and spiders or other crawlers, irregular patterns,
+ *  etc.). You're not charged for them, and they don't affect your account
+ *  statistics. See the help page at
+ *  https://support.google.com/campaignmanager/answer/6076504 for details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generalInvalidClicks;
 
 /**
  *  The creative historical quality score.
@@ -12922,6 +12971,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
+ *  Output only. The resource names of effective labels attached to this ad
+ *  group. An effective label is a label inherited or directly assigned to this
+ *  ad group.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effectiveLabels;
+
+/**
  *  Output only. Date when the ad group ends serving ads. By default, the ad
  *  group ends on the ad group's end date. If this field is set, then the ad
  *  group ends at the end of the specified date in the customer's time zone.
@@ -13119,6 +13175,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
+ *  Output only. The resource names of effective labels attached to this ad. An
+ *  effective label is a label inherited or directly assigned to this ad.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effectiveLabels;
+
+/**
  *  Output only. ID of the ad in the external engine account. This field is for
  *  Search Ads 360 account only, for example, Yahoo Japan, Microsoft, Baidu etc.
  *  For non-Search Ads 360 entity, use "ad_group_ad.ad.id" instead.
@@ -13214,6 +13276,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        No value has been specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  A relationship between an ad group ad and an effective label. An effective
+ *  label is a label inherited or directly assigned to this ad group ad.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdEffectiveLabel : GTLRObject
+
+/** Immutable. The ad group ad to which the effective label is attached. */
+@property(nonatomic, copy, nullable) NSString *adGroupAd;
+
+/** Immutable. The effective label assigned to the ad group ad. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Output only. The ID of the Customer which owns the effective label.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
+
+/**
+ *  Immutable. The resource name of the ad group ad effective label. Ad group ad
+ *  effective label resource names have the form:
+ *  `customers/{customer_id}/adGroupAdEffectiveLabels/{ad_group_id}~{ad_id}~{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -13416,6 +13507,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *effectiveCpcBidMicros;
+
+/**
+ *  Output only. The resource names of effective labels attached to this ad
+ *  group criterion. An effective label is a label inherited or directly
+ *  assigned to this ad group criterion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effectiveLabels;
 
 /**
  *  Output only. ID of the ad group criterion in the external engine account.
@@ -13675,6 +13773,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A relationship between an ad group criterion and an effective label. An
+ *  effective label is a label inherited or directly assigned to this ad group
+ *  criterion.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionEffectiveLabel : GTLRObject
+
+/**
+ *  Immutable. The ad group criterion to which the effective label is attached.
+ */
+@property(nonatomic, copy, nullable) NSString *adGroupCriterion;
+
+/** Immutable. The effective label assigned to the ad group criterion. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Output only. The ID of the Customer which owns the effective label.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
+
+/**
+ *  Immutable. The resource name of the ad group criterion effective label. Ad
+ *  group criterion effective label resource names have the form:
+ *  `customers/{customer_id}/adGroupCriterionEffectiveLabels/{ad_group_id}~{criterion_id}~{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  A relationship between an ad group criterion and a label.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionLabel : GTLRObject
@@ -13730,6 +13860,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *qualityScore;
+
+@end
+
+
+/**
+ *  A relationship between an ad group and an effective label. An effective
+ *  label is a label inherited or directly assigned to this ad group.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupEffectiveLabel : GTLRObject
+
+/** Immutable. The ad group to which the effective label is attached. */
+@property(nonatomic, copy, nullable) NSString *adGroup;
+
+/** Immutable. The effective label assigned to the ad group. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Output only. The ID of the Customer which owns the effective label.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
+
+/**
+ *  Immutable. The resource name of the ad group effective label. Ad group
+ *  effective label resource names have the form:
+ *  `customers/{customer_id}/adGroupEffectiveLabels/{ad_group_id}~{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -14796,7 +14955,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *advertisingChannelType;
 
-/** Portfolio bidding strategy used by campaign. */
+/**
+ *  The resource name of the portfolio bidding strategy used by the campaign.
+ */
 @property(nonatomic, copy, nullable) NSString *biddingStrategy;
 
 /**
@@ -14977,7 +15138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *biddingStrategyType;
 
-/** The budget of the campaign. */
+/** The resource name of the campaign budget of the campaign. */
 @property(nonatomic, copy, nullable) NSString *campaignBudget;
 
 /**
@@ -14995,6 +15156,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The setting for controlling Dynamic Search Ads (DSA). */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignDynamicSearchAdsSetting *dynamicSearchAdsSetting;
+
+/**
+ *  Output only. The resource names of effective labels attached to this
+ *  campaign. An effective label is a label inherited or directly assigned to
+ *  this campaign.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *effectiveLabels;
 
 /**
  *  The last day of the campaign in serving customer's timezone in YYYY-MM-DD
@@ -15605,6 +15773,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  Represents a relationship between a campaign and an effective label. An
+ *  effective label is a label inherited or directly assigned to this campaign.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignEffectiveLabel : GTLRObject
+
+/** Immutable. The campaign to which the effective label is attached. */
+@property(nonatomic, copy, nullable) NSString *campaign;
+
+/** Immutable. The effective label assigned to the campaign. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Output only. The ID of the Customer which owns the effective label.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerCustomerId;
+
+/**
+ *  Immutable. Name of the resource. CampaignEffectivelabel resource names have
+ *  the form:
+ *  `customers/{customer_id}/campaignEffectiveLabels/{campaign_id}~{label_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  Represents a collection of settings related to ads geotargeting.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignGeoTargetTypeSetting : GTLRObject
@@ -15738,7 +15935,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignSelectiveOptimization : GTLRObject
 
-/** The selected set of conversion actions for optimizing this campaign. */
+/**
+ *  The selected set of resource names for conversion actions for optimizing
+ *  this campaign.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *conversionActions;
 
 @end
@@ -18171,6 +18371,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A user location view. User Location View includes all metrics aggregated at
+ *  the country level, one row per country. It reports metrics at the actual
+ *  physical location of the user by targeted or not targeted location. If other
+ *  segment fields are used, you may get more than one row per country.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0ResourcesUserLocationView : GTLRObject
+
+/**
+ *  Output only. Criterion Id for the country.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *countryCriterionId;
+
+/**
+ *  Output only. The resource name of the user location view. UserLocation view
+ *  resource names have the form:
+ *  `customers/{customer_id}/userLocationViews/{country_criterion_id}~{targeting_location}`
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. Indicates whether location was targeted or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetingLocation;
+
+@end
+
+
+/**
  *  A visit.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit : GTLRObject
@@ -18523,6 +18755,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The ad referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd *adGroupAd;
 
+/** The ad group ad effective label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdEffectiveLabel *adGroupAdEffectiveLabel;
+
 /** The ad group ad label referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdLabel *adGroupAdLabel;
 
@@ -18541,8 +18776,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /** The criterion referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion *adGroupCriterion;
 
+/** The ad group criterion effective label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionEffectiveLabel *adGroupCriterionEffectiveLabel;
+
 /** The ad group criterion label referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionLabel *adGroupCriterionLabel;
+
+/** The ad group effective label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupEffectiveLabel *adGroupEffectiveLabel;
 
 /** The ad group label referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupLabel *adGroupLabel;
@@ -18597,6 +18838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The campaign criterion referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignCriterion *campaignCriterion;
+
+/** The campaign effective label referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignEffectiveLabel *campaignEffectiveLabel;
 
 /** The campaign label referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignLabel *campaignLabel;
@@ -18669,6 +18913,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The user list referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList *userList;
+
+/** The user location view referenced in the query. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesUserLocationView *userLocationView;
 
 /** The event level visit referenced in the query. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit *visit;

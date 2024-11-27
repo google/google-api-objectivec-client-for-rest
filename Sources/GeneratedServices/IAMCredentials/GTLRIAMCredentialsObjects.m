@@ -71,6 +71,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIAMCredentials_ServiceAccountAllowedLocations
+//
+
+@implementation GTLRIAMCredentials_ServiceAccountAllowedLocations
+@dynamic encodedLocations, locations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIAMCredentials_SignBlobRequest
 //
 

@@ -229,12 +229,6 @@
 @class GTLRShoppingContent_ServiceStoreConfig;
 @class GTLRShoppingContent_ServiceStoreConfigCutoffConfig;
 @class GTLRShoppingContent_ServiceStoreConfigCutoffConfigLocalCutoffTime;
-@class GTLRShoppingContent_SettlementReport;
-@class GTLRShoppingContent_SettlementTransaction;
-@class GTLRShoppingContent_SettlementTransactionAmount;
-@class GTLRShoppingContent_SettlementTransactionAmountCommission;
-@class GTLRShoppingContent_SettlementTransactionIdentifiers;
-@class GTLRShoppingContent_SettlementTransactionTransaction;
 @class GTLRShoppingContent_ShippingSettings;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchRequestEntry;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry;
@@ -968,7 +962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
 // GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.reviewIneligibilityReason
 
 /**
- *  Account was already reviewd.
+ *  Account has already been reviewed. You can't request further reviews.
  *
  *  Value: "ALREADY_REVIEWED"
  */
@@ -2016,7 +2010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
 // GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.reviewIneligibilityReason
 
 /**
- *  Account was already reviewd.
+ *  Account has already been reviewed. You can't request further reviews.
  *
  *  Value: "ALREADY_REVIEWED"
  */
@@ -6330,7 +6324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyReviewed
- *        Account was already reviewd. (Value: "ALREADY_REVIEWED")
+ *        Account has already been reviewed. You can't request further reviews.
+ *        (Value: "ALREADY_REVIEWED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview
  *        Account is already under review. (Value: "ALREADY_UNDER_REVIEW")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod
@@ -7829,6 +7824,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  program must be linked to the merchant account.
  */
 @property(nonatomic, copy, nullable) NSString *programLabel;
+
+/**
+ *  Optional. The shipping label for the loyalty program. You can use this label
+ *  to indicate whether this offer has the loyalty shipping benefit. If not
+ *  specified, the item is not eligible for loyalty shipping for the given
+ *  loyalty tier.
+ */
+@property(nonatomic, copy, nullable) NSString *shippingLabel;
 
 /**
  *  Required. The label of the tier within the loyalty program. Must match one
@@ -13239,270 +13242,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  Settlement reports detail order-level and item-level credits and debits
- *  between you and Google.
- */
-@interface GTLRShoppingContent_SettlementReport : GTLRObject
-
-/**
- *  The end date on which all transactions are included in the report, in ISO
- *  8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *endDate;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "`content#settlementReport`"
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The residual amount from the previous invoice. This is set only if the
- *  previous invoices are not paid because of negative balance.
- */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *previousBalance;
-
-/** The ID of the settlement report. */
-@property(nonatomic, copy, nullable) NSString *settlementId;
-
-/**
- *  The start date on which all transactions are included in the report, in ISO
- *  8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *startDate;
-
-/** The money due to the merchant. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *transferAmount;
-
-/**
- *  Date on which transfer for this payment was initiated by Google, in ISO 8601
- *  format.
- */
-@property(nonatomic, copy, nullable) NSString *transferDate;
-
-/**
- *  The list of bank identifiers used for the transfer. For example, Trace ID
- *  for Federal Automated Clearing House (ACH). This may also be known as the
- *  Wire ID.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *transferIds;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_SettlementreportsListResponse
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "resources" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRShoppingContent_SettlementreportsListResponse : GTLRCollectionObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "`content#settlementreportsListResponse`".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The token for the retrieval of the next page of returns. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  resources
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_SettlementReport *> *resources;
-
-@end
-
-
-/**
- *  Settlement transactions give a detailed breakdown of the settlement report.
- */
-@interface GTLRShoppingContent_SettlementTransaction : GTLRObject
-
-/** The amount for the transaction. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_SettlementTransactionAmount *amount;
-
-/** Identifiers of the transaction. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_SettlementTransactionIdentifiers *identifiers;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "`content#settlementTransaction`"
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Details of the transaction. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_SettlementTransactionTransaction *transaction;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_SettlementTransactionAmount
- */
-@interface GTLRShoppingContent_SettlementTransactionAmount : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRShoppingContent_SettlementTransactionAmountCommission *commission;
-
-/**
- *  The description of the event. Acceptable values are: - "`taxWithhold`" -
- *  "`principal`" - "`principalAdjustment`" - "`shippingFee`" -
- *  "`merchantRemittedSalesTax`" - "`googleRemittedSalesTax`" -
- *  "`merchantCoupon`" - "`merchantCouponTax`" - "`merchantRemittedDisposalTax`"
- *  - "`googleRemittedDisposalTax`" - "`merchantRemittedRedemptionFee`" -
- *  "`googleRemittedRedemptionFee`" - "`eeeEcoFee`" - "`furnitureEcoFee`" -
- *  "`copyPrivateFee`" - "`eeeEcoFeeCommission`" - "`furnitureEcoFeeCommission`"
- *  - "`copyPrivateFeeCommission`" - "`principalRefund`" -
- *  "`principalRefundTax`" - "`itemCommission`" - "`adjustmentCommission`" -
- *  "`shippingFeeCommission`" - "`commissionRefund`" - "`damaged`" -
- *  "`damagedOrDefectiveItem`" - "`expiredItem`" - "`faultyItem`" -
- *  "`incorrectItemReceived`" - "`itemMissing`" - "`qualityNotExpected`" -
- *  "`receivedTooLate`" - "`storePackageMissing`" - "`transitPackageMissing`" -
- *  "`unsuccessfulDeliveryUndeliverable`" - "`wrongChargeInStore`" -
- *  "`wrongItem`" - "`returns`" - "`undeliverable`" -
- *  "`issueRelatedRefundAndReplacementAmountDescription`" -
- *  "`refundFromMerchant`" - "`returnLabelShippingFee`" - "`lumpSumCorrection`"
- *  - "`pspFee`" - "`principalRefundDoesNotFit`" -
- *  "`principalRefundOrderedWrongItem`" - "`principalRefundQualityNotExpected`"
- *  - "`principalRefundBetterPriceFound`" - "`principalRefundNoLongerNeeded`" -
- *  "`principalRefundChangedMind`" - "`principalRefundReceivedTooLate`" -
- *  "`principalRefundIncorrectItemReceived`" -
- *  "`principalRefundDamagedOrDefectiveItem`" -
- *  "`principalRefundDidNotMatchDescription`" - "`principalRefundExpiredItem`"
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** The amount that contributes to the line item price. */
-@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *transactionAmount;
-
-/**
- *  The type of the amount. Acceptable values are: - "`itemPrice`" -
- *  "`orderPrice`" - "`refund`" - "`earlyRefund`" - "`courtesyRefund`" -
- *  "`returnRefund`" - "`returnLabelShippingFeeAmount`" -
- *  "`lumpSumCorrectionAmount`"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_SettlementTransactionAmountCommission
- */
-@interface GTLRShoppingContent_SettlementTransactionAmountCommission : GTLRObject
-
-/**
- *  The category of the commission. Acceptable values are: -
- *  "`animalsAndPetSupplies`" - "`dogCatFoodAndCatLitter`" -
- *  "`apparelAndAccessories`" - "`shoesHandbagsAndSunglasses`" -
- *  "`costumesAndAccessories`" - "`jewelry`" - "`watches`" -
- *  "`hobbiesArtsAndCrafts`" - "`homeAndGarden`" - "`entertainmentCollectibles`"
- *  - "`collectibleCoins`" - "`sportsCollectibles`" - "`sportingGoods`" -
- *  "`toysAndGames`" - "`musicalInstruments`" - "`giftCards`" -
- *  "`babyAndToddler`" - "`babyFoodWipesAndDiapers`" - "`businessAndIndustrial`"
- *  - "`camerasOpticsAndPhotography`" - "`consumerElectronics`" -
- *  "`electronicsAccessories`" - "`personalComputers`" - "`videoGameConsoles`" -
- *  "`foodAndGrocery`" - "`beverages`" - "`tobaccoProducts`" - "`furniture`" -
- *  "`hardware`" - "`buildingMaterials`" - "`tools`" - "`healthAndPersonalCare`"
- *  - "`beauty`" - "`householdSupplies`" - "`kitchenAndDining`" -
- *  "`majorAppliances`" - "`luggageAndBags`" - "`media`" - "`officeSupplies`" -
- *  "`softwareAndVideoGames`" - "`vehiclePartsAndAccessories`" -
- *  "`vehicleTiresAndWheels`" - "`vehicles`" - "`everythingElse`"
- */
-@property(nonatomic, copy, nullable) NSString *category;
-
-/** Rate of the commission in percentage. */
-@property(nonatomic, copy, nullable) NSString *rate;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_SettlementTransactionIdentifiers
- */
-@interface GTLRShoppingContent_SettlementTransactionIdentifiers : GTLRObject
-
-/** The identifier of the adjustments, if it's available. */
-@property(nonatomic, copy, nullable) NSString *adjustmentId;
-
-/** The merchant provided order ID. */
-@property(nonatomic, copy, nullable) NSString *merchantOrderId;
-
-/** The identifier of the item. */
-@property(nonatomic, copy, nullable) NSString *orderItemId;
-
-/** The unique ID of the settlement transaction entry. */
-@property(nonatomic, copy, nullable) NSString *settlementEntryId;
-
-/** The shipment ids for the item. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentIds;
-
-/** The Google transaction ID. */
-@property(nonatomic, copy, nullable) NSString *transactionId;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_SettlementtransactionsListResponse
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "resources" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRShoppingContent_SettlementtransactionsListResponse : GTLRCollectionObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "`content#settlementtransactionsListResponse`".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The token for the retrieval of the next page of returns. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  resources
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_SettlementTransaction *> *resources;
-
-@end
-
-
-/**
- *  GTLRShoppingContent_SettlementTransactionTransaction
- */
-@interface GTLRShoppingContent_SettlementTransactionTransaction : GTLRObject
-
-/** The time on which the event occurred in ISO 8601 format. */
-@property(nonatomic, copy, nullable) NSString *postDate;
-
-/**
- *  The type of the transaction that occurred. Acceptable values are: -
- *  "`order`" - "`reversal`" - "`orderRefund`" - "`reversalRefund`" -
- *  "`issueRelatedRefundAndReplacement`" - "`returnLabelShippingFeeTransaction`"
- *  - "`reversalIssueRelatedRefundAndReplacement`" -
- *  "`reversalReturnLabelShippingFeeTransaction`" -
- *  "`lumpSumCorrectionTransaction`"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
  *  The merchant account's shipping settings. All methods except
  *  getsupportedcarriers and getsupportedholidays require the admin role.
  */
@@ -13813,7 +13552,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyReviewed
- *        Account was already reviewd. (Value: "ALREADY_REVIEWED")
+ *        Account has already been reviewed. You can't request further reviews.
+ *        (Value: "ALREADY_REVIEWED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview
  *        Account is already under review. (Value: "ALREADY_UNDER_REVIEW")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod
@@ -13950,13 +13690,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_TimeZone : GTLRObject
 
 /**
- *  IANA Time Zone Database time zone, e.g. "America/New_York".
+ *  IANA Time Zone Database time zone. For example "America/New_York".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end

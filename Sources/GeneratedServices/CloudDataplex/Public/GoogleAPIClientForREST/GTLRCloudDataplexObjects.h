@@ -54,6 +54,13 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfig;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigCsvOptions;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult;
@@ -512,6 +519,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Conte
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_Spark;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig.tableType
+
+/**
+ *  Discovered tables are published as BigLake external tables whose data is
+ *  accessed using the credentials of the associated BigQuery connection.
+ *
+ *  Value: "BIGLAKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_Biglake;
+/**
+ *  Default. Discovered tables are published as BigQuery external tables whose
+ *  data is accessed using the credentials of the user querying the table.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_External;
+/**
+ *  Table type unspecified.
+ *
+ *  Value: "TABLE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_TableTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult.state
 
 /**
@@ -743,19 +774,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScan.type
 
 /**
- *  Data Profile scan.
+ *  Data discovery scan.
+ *
+ *  Value: "DATA_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDiscovery;
+/**
+ *  Data profile scan.
  *
  *  Value: "DATA_PROFILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfile;
 /**
- *  Data Quality scan.
+ *  Data quality scan.
  *
  *  Value: "DATA_QUALITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality;
 /**
- *  The DataScan type is unspecified.
+ *  The data scan type is unspecified.
  *
  *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
  */
@@ -848,6 +885,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.type
 
+/**
+ *  Data scan for data discovery.
+ *
+ *  Value: "DATA_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataDiscovery;
 /**
  *  Data scan for data profile.
  *
@@ -946,19 +989,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob.type
 
 /**
- *  Data Profile scan.
+ *  Data discovery scan.
+ *
+ *  Value: "DATA_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDiscovery;
+/**
+ *  Data profile scan.
  *
  *  Value: "DATA_PROFILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataProfile;
 /**
- *  Data Quality scan.
+ *  Data quality scan.
  *
  *  Value: "DATA_QUALITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataQuality;
 /**
- *  The DataScan type is unspecified.
+ *  The data scan type is unspecified.
  *
  *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
  */
@@ -1015,6 +1064,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Disco
  *  Value: "PARTITION_UPDATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_PartitionUpdated;
+/**
+ *  An event representing a table being deleted.
+ *
+ *  Value: "TABLE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_TableDeleted;
+/**
+ *  An event representing a table being skipped in publishing.
+ *
+ *  Value: "TABLE_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_TableIgnored;
+/**
+ *  An event representing a table being published.
+ *
+ *  Value: "TABLE_PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_TablePublished;
+/**
+ *  An event representing a table being updated.
+ *
+ *  Value: "TABLE_UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_TableUpdated;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventEntityDetails.type
@@ -2641,6 +2714,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** The time the aspect was created in the source system. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  The version of the data format used to produce this data. This field is used
+ *  to indicated when the underlying data format changes (e.g., schema
+ *  modifications, changes to the source URL format definition, etc).
+ */
+@property(nonatomic, copy, nullable) NSString *dataVersion;
+
 /** The time the aspect was last updated in the source system. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -3659,6 +3739,172 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  The output of a data discovery scan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResult : GTLRObject
+
+/** Output only. Configuration for metadata publishing. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing *bigqueryPublishing;
+
+@end
+
+
+/**
+ *  Describes BigQuery publishing configurations.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing : GTLRObject
+
+/**
+ *  Output only. The BigQuery dataset to publish to. It takes the form
+ *  projects/{project_id}/datasets/{dataset_id}. If not set, the service creates
+ *  a default publishing dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+@end
+
+
+/**
+ *  Spec for a data discovery scan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpec : GTLRObject
+
+/** Optional. Configuration for metadata publishing. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig *bigqueryPublishingConfig;
+
+/** Cloud Storage related configurations. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfig *storageConfig;
+
+@end
+
+
+/**
+ *  Describes BigQuery publishing configurations.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig : GTLRObject
+
+/**
+ *  Optional. The BigQuery connection used to create BigLake tables. Must be in
+ *  the form
+ *  projects/{project_id}/locations/{location_id}/connections/{connection_id}
+ */
+@property(nonatomic, copy, nullable) NSString *connection;
+
+/**
+ *  Optional. Determines whether to publish discovered tables as BigLake
+ *  external tables or non-BigLake external tables.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_Biglake
+ *        Discovered tables are published as BigLake external tables whose data
+ *        is accessed using the credentials of the associated BigQuery
+ *        connection. (Value: "BIGLAKE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_External
+ *        Default. Discovered tables are published as BigQuery external tables
+ *        whose data is accessed using the credentials of the user querying the
+ *        table. (Value: "EXTERNAL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_TableTypeUnspecified
+ *        Table type unspecified. (Value: "TABLE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tableType;
+
+@end
+
+
+/**
+ *  Configurations related to Cloud Storage as the data source.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfig : GTLRObject
+
+/** Optional. Configuration for CSV data. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigCsvOptions *csvOptions;
+
+/**
+ *  Optional. Defines the data to exclude during discovery. Provide a list of
+ *  patterns that identify the data to exclude. For Cloud Storage bucket assets,
+ *  these patterns are interpreted as glob patterns used to match object names.
+ *  For BigQuery dataset assets, these patterns are interpreted as patterns to
+ *  match table names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludePatterns;
+
+/**
+ *  Optional. Defines the data to include during discovery when only a subset of
+ *  the data should be considered. Provide a list of patterns that identify the
+ *  data to include. For Cloud Storage bucket assets, these patterns are
+ *  interpreted as glob patterns used to match object names. For BigQuery
+ *  dataset assets, these patterns are interpreted as patterns to match table
+ *  names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includePatterns;
+
+/** Optional. Configuration for JSON data. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions *jsonOptions;
+
+@end
+
+
+/**
+ *  Describes CSV and similar semi-structured data formats.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigCsvOptions : GTLRObject
+
+/**
+ *  Optional. The delimiter that is used to separate values. The default is ,
+ *  (comma).
+ */
+@property(nonatomic, copy, nullable) NSString *delimiter;
+
+/** Optional. The character encoding of the data. The default is UTF-8. */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+/**
+ *  Optional. The number of rows to interpret as header rows that should be
+ *  skipped when reading data rows.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *headerRows;
+
+/**
+ *  Optional. The character used to quote column values. Accepts " (double
+ *  quotation mark) or ' (single quotation mark). If unspecified, defaults to "
+ *  (double quotation mark).
+ */
+@property(nonatomic, copy, nullable) NSString *quote;
+
+/**
+ *  Optional. Whether to disable the inference of data types for CSV data. If
+ *  true, all columns are registered as strings.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *typeInferenceDisabled;
+
+@end
+
+
+/**
+ *  Describes JSON data format.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions : GTLRObject
+
+/** Optional. The character encoding of the data. The default is UTF-8. */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+/**
+ *  Optional. Whether to disable the inference of data types for JSON data. If
+ *  true, all columns are registered as their primitive types (strings, number,
+ *  or boolean).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *typeInferenceDisabled;
+
+@end
+
+
+/**
  *  DataProfileResult defines the output of DataProfileScan. Each field of the
  *  table will have field type specific profile result.
  */
@@ -4079,7 +4325,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  The dimension name a rule belongs to. Supported dimensions are
  *  "COMPLETENESS", "ACCURACY", "CONSISTENCY", "VALIDITY", "UNIQUENESS",
- *  "INTEGRITY"
+ *  "FRESHNESS", "VOLUME"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4225,7 +4471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  Required. The dimension a rule belongs to. Results are also aggregated at
  *  the dimension level. Supported dimensions are "COMPLETENESS", "ACCURACY",
- *  "CONSISTENCY", "VALIDITY", "UNIQUENESS", "INTEGRITY"
+ *  "CONSISTENCY", "VALIDITY", "UNIQUENESS", "FRESHNESS", "VOLUME"
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -4823,16 +5069,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** Required. The data source for DataScan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataSource *data;
 
-/** Output only. The result of the data profile scan. */
+/** Output only. The result of a data discovery scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResult *dataDiscoveryResult;
+
+/** Settings for a data discovery scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpec *dataDiscoverySpec;
+
+/** Output only. The result of a data profile scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult *dataProfileResult;
 
-/** DataProfileScan related setting. */
+/** Settings for a data profile scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec *dataProfileSpec;
 
-/** Output only. The result of the data quality scan. */
+/** Output only. The result of a data quality scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult *dataQualityResult;
 
-/** DataQualityScan related setting. */
+/** Settings for a data quality scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec *dataQualitySpec;
 
 /**
@@ -4887,12 +5139,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Output only. The type of DataScan.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDiscovery
+ *        Data discovery scan. (Value: "DATA_DISCOVERY")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfile
- *        Data Profile scan. (Value: "DATA_PROFILE")
+ *        Data profile scan. (Value: "DATA_PROFILE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality
- *        Data Quality scan. (Value: "DATA_QUALITY")
+ *        Data quality scan. (Value: "DATA_QUALITY")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified
- *        The DataScan type is unspecified. (Value:
+ *        The data scan type is unspecified. (Value:
  *        "DATA_SCAN_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -4923,7 +5177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  These messages contain information about the execution of a datascan. The
- *  monitored resource is 'DataScan' Next ID: 13
+ *  monitored resource is 'DataScan'
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent : GTLRObject
 
@@ -5012,6 +5266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  The type of the data scan.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataDiscovery
+ *        Data scan for data discovery. (Value: "DATA_DISCOVERY")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataProfile
  *        Data scan for data profile. (Value: "DATA_PROFILE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataQuality
@@ -5272,16 +5528,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** Output only. The time when the DataScanJob was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. The result of the data profile scan. */
+/** Output only. The result of a data discovery scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResult *dataDiscoveryResult;
+
+/** Output only. Settings for a data discovery scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpec *dataDiscoverySpec;
+
+/** Output only. The result of a data profile scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult *dataProfileResult;
 
-/** Output only. DataProfileScan related setting. */
+/** Output only. Settings for a data profile scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec *dataProfileSpec;
 
-/** Output only. The result of the data quality scan. */
+/** Output only. The result of a data quality scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult *dataQualityResult;
 
-/** Output only. DataQualityScan related setting. */
+/** Output only. Settings for a data quality scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec *dataQualitySpec;
 
 /** Output only. The time when the DataScanJob ended. */
@@ -5328,12 +5590,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Output only. The type of the parent DataScan.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDiscovery
+ *        Data discovery scan. (Value: "DATA_DISCOVERY")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataProfile
- *        Data Profile scan. (Value: "DATA_PROFILE")
+ *        Data profile scan. (Value: "DATA_PROFILE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataQuality
- *        Data Quality scan. (Value: "DATA_QUALITY")
+ *        Data quality scan. (Value: "DATA_QUALITY")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified
- *        The DataScan type is unspecified. (Value:
+ *        The data scan type is unspecified. (Value:
  *        "DATA_SCAN_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -5504,6 +5768,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_PartitionUpdated
  *        An event representing a partition being updated. (Value:
  *        "PARTITION_UPDATED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_TableDeleted
+ *        An event representing a table being deleted. (Value: "TABLE_DELETED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_TableIgnored
+ *        An event representing a table being skipped in publishing. (Value:
+ *        "TABLE_IGNORED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_TablePublished
+ *        An event representing a table being published. (Value:
+ *        "TABLE_PUBLISHED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_TableUpdated
+ *        An event representing a table being updated. (Value: "TABLE_UPDATED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5517,6 +5791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Details about the action.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventActionDetails : GTLRObject
+
+/** The human readable issue associated with the action. */
+@property(nonatomic, copy, nullable) NSString *issue;
 
 /** The type of action. Eg. IncompatibleDataSchema, InvalidDataFormat */
 @property(nonatomic, copy, nullable) NSString *type;

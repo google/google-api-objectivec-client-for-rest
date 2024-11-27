@@ -499,9 +499,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of the network peering. NetworkPeering is a
- *  global resource and location can only be global. Resource names are
- *  scheme-less URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of the network peering.
+ *  NetworkPeering is a global resource and location can only be global.
+ *  Resource names are scheme-less URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/networkPeerings/my-peering`
  */
@@ -542,9 +542,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRVMwareEngine_NetworkPeering to include in the
  *    query.
- *  @param name Output only. The resource name of the network peering.
- *    NetworkPeering is a global resource and location can only be global.
- *    Resource names are scheme-less URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of the network
+ *    peering. NetworkPeering is a global resource and location can only be
+ *    global. Resource names are scheme-less URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global/networkPeerings/my-peering`
  *
@@ -1221,8 +1221,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this network policy. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this network policy. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1/networkPolicies/my-network-policy`
  */
@@ -1269,8 +1269,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  processing fully completes.
  *
  *  @param object The @c GTLRVMwareEngine_NetworkPolicy to include in the query.
- *  @param name Output only. The resource name of this network policy. Resource
- *    names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this network
+ *    policy. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1/networkPolicies/my-network-policy`
  *
@@ -1846,8 +1846,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this cluster. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this cluster. Resource names
+ *  are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
  */
@@ -1886,8 +1886,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the processing fully completes.
  *
  *  @param object The @c GTLRVMwareEngine_Cluster to include in the query.
- *  @param name Output only. The resource name of this cluster. Resource names
- *    are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this cluster.
+ *    Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
  *
@@ -2385,8 +2385,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this external IP address. Resource names
- *  are schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this external IP address.
+ *  Resource names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`
  */
@@ -2429,8 +2429,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRVMwareEngine_ExternalAddress to include in the
  *    query.
- *  @param name Output only. The resource name of this external IP address.
- *    Resource names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this external IP
+ *    address. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`
  *
@@ -3577,8 +3577,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this private cloud. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this private cloud. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
  */
@@ -3612,8 +3612,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  processing fully completes.
  *
  *  @param object The @c GTLRVMwareEngine_PrivateCloud to include in the query.
- *  @param name Output only. The resource name of this private cloud. Resource
- *    names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this private
+ *    cloud. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
  *
@@ -3922,8 +3922,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsSubnetsPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this subnet. Resource names are schemeless
- *  URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this subnet. Resource names
+ *  are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/subnets/my-subnet`
  */
@@ -3949,8 +3949,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  will only have `done` and `response` fields.
  *
  *  @param object The @c GTLRVMwareEngine_Subnet to include in the query.
- *  @param name Output only. The resource name of this subnet. Resource names
- *    are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this subnet.
+ *    Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/subnets/my-subnet`
  *
@@ -4060,8 +4060,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpdateDnsForwarding : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this DNS profile. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this DNS profile. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
  */
@@ -4100,8 +4100,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  domains. Only fields specified in `update_mask` are applied.
  *
  *  @param object The @c GTLRVMwareEngine_DnsForwarding to include in the query.
- *  @param name Output only. The resource name of this DNS profile. Resource
- *    names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this DNS profile.
+ *    Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
  *
@@ -4728,8 +4728,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsVmwareEngineNetworksPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of the VMware Engine network. Resource names
- *  are schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of the VMware Engine network.
+ *  Resource names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/vmwareEngineNetworks/my-network`
  */
@@ -4769,8 +4769,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated: `description`. Only fields specified in `updateMask` are applied.
  *
  *  @param object The @c GTLRVMwareEngine_Network to include in the query.
- *  @param name Output only. The resource name of the VMware Engine network.
- *    Resource names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of the VMware Engine
+ *    network. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global/vmwareEngineNetworks/my-network`
  *

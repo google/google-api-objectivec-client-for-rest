@@ -101,6 +101,15 @@ NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled = @"ENABLED";
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis.analysisType
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeDependency = @"ANALYSIS_TYPE_DEPENDENCY";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeResourceUsage = @"ANALYSIS_TYPE_RESOURCE_USAGE";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeUnspecified = @"ANALYSIS_TYPE_UNSPECIFIED";
+
+// GTLRServiceUsage_GoogleApiServiceusageV2betaImpact.impactType
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_DependencyMissingDependencies = @"DEPENDENCY_MISSING_DEPENDENCIES";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_ImpactTypeUnspecified = @"IMPACT_TYPE_UNSPECIFIED";
+
 // GTLRServiceUsage_Impact.impactType
 NSString * const kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies = @"DEPENDENCY_MISSING_DEPENDENCIES";
 NSString * const kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified = @"IMPACT_TYPE_UNSPECIFIED";
@@ -980,7 +989,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_ExperimentalFeatures
-@dynamic restAsyncIoEnabled;
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled;
 @end
 
 
@@ -1205,11 +1214,154 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis
+@dynamic analysis, analysisType, displayName, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult
+@dynamic blockers, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blockers" : [GTLRServiceUsage_GoogleApiServiceusageV2betaImpact class],
+    @"warnings" : [GTLRServiceUsage_GoogleApiServiceusageV2betaImpact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyResponse
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyResponse
+@dynamic analysis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysis" : [GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy
+@dynamic annotations, createTime, enableRules, ETag, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enableRules" : [GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule
+@dynamic services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaImpact
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaImpact
+@dynamic detail, impactType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_GoSettings
 //
 
 @implementation GTLRServiceUsage_GoSettings
-@dynamic common;
+@dynamic common, renamedServices;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoSettings_RenamedServices
+//
+
+@implementation GTLRServiceUsage_GoSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

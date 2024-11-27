@@ -68,7 +68,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsGet
 
-@dynamic datasetId, datasetView, projectId;
+@dynamic accessPolicyVersion, datasetId, datasetView, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId {
@@ -91,7 +91,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsInsert
 
-@dynamic projectId;
+@dynamic accessPolicyVersion, projectId;
 
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId {
@@ -137,7 +137,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsPatch
 
-@dynamic datasetId, projectId;
+@dynamic accessPolicyVersion, datasetId, projectId;
 
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId
@@ -199,7 +199,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsUpdate
 
-@dynamic datasetId, projectId;
+@dynamic accessPolicyVersion, datasetId, projectId;
 
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId

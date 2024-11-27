@@ -588,6 +588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsBatchTranslateDocument : GTLRTranslateQuery
 
@@ -637,6 +638,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsBatchTranslateText : GTLRTranslateQuery
 

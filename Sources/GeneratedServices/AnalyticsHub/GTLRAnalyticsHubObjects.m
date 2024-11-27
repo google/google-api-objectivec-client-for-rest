@@ -817,7 +817,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_SubscribeDataExchangeRequest
-@dynamic destination, subscriberContact, subscription;
+@dynamic destination, destinationDataset, subscriberContact, subscription;
 @end
 
 

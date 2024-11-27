@@ -2071,6 +2071,59 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 @end
 
 /**
+ *  Creates a new VMware admin cluster in a given project and location. The API
+ *  needs to be combined with creating a bootstrap cluster to work.
+ *
+ *  Method: gkeonprem.projects.locations.vmwareAdminClusters.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGKEOnPremCloudPlatform
+ */
+@interface GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersCreate : GTLRGKEOnPremQuery
+
+/**
+ *  Optional. If set to true, CLM will force CCFE to persist the cluster
+ *  resource in RMS when the creation fails during standalone preflight checks.
+ *  In that case the subsequent create call will fail with "cluster already
+ *  exists" error and hence a update cluster is required to fix the cluster.
+ */
+@property(nonatomic, assign) BOOL allowPreflightFailure;
+
+/**
+ *  Required. The parent of the project and location where the cluster is
+ *  created in. Format: "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Validate the request without actually doing any updates. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Required. User provided identifier that is used as part of the resource
+ *  name; must conform to RFC-1034 and additionally restrict to lower-cased
+ *  letters. This comes out roughly to: /^a-z+[a-z0-9]$/
+ */
+@property(nonatomic, copy, nullable) NSString *vmwareAdminClusterId;
+
+/**
+ *  Fetches a @c GTLRGKEOnPrem_Operation.
+ *
+ *  Creates a new VMware admin cluster in a given project and location. The API
+ *  needs to be combined with creating a bootstrap cluster to work.
+ *
+ *  @param object The @c GTLRGKEOnPrem_VmwareAdminCluster to include in the
+ *    query.
+ *  @param parent Required. The parent of the project and location where the
+ *    cluster is created in. Format: "projects/{project}/locations/{location}"
+ *
+ *  @return GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersCreate
+ */
++ (instancetype)queryWithObject:(GTLRGKEOnPrem_VmwareAdminCluster *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Enrolls an existing VMware admin cluster to the Anthos On-Prem API within a
  *  given project and location. Through enrollment, an existing admin cluster
  *  will become Anthos On-Prem API managed. The corresponding GCP resources will

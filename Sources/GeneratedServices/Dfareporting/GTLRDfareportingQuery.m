@@ -5586,6 +5586,52 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @end
 
+@implementation GTLRDfareportingQuery_TvCampaignDetailsGet
+
+@dynamic accountId, identifier, profileId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithProfileId:(long long)profileId
+                        identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"profileId"
+  ];
+  NSString *pathURITemplate = @"userprofiles/{+profileId}/tvCampaignDetails/{+id}";
+  GTLRDfareportingQuery_TvCampaignDetailsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.profileId = profileId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRDfareporting_TvCampaignDetail class];
+  query.loggingName = @"dfareporting.tvCampaignDetails.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_TvCampaignSummariesList
+
+@dynamic accountId, name, profileId;
+
++ (instancetype)queryWithProfileId:(long long)profileId {
+  NSArray *pathParams = @[ @"profileId" ];
+  NSString *pathURITemplate = @"userprofiles/{+profileId}/tvCampaignSummaries";
+  GTLRDfareportingQuery_TvCampaignSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.profileId = profileId;
+  query.expectedObjectClass = [GTLRDfareporting_TvCampaignSummariesListResponse class];
+  query.loggingName = @"dfareporting.tvCampaignSummaries.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDfareportingQuery_UserProfilesGet
 
 @dynamic profileId;

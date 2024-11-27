@@ -3949,7 +3949,7 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsCreate
 
-@dynamic metadataJobId, parent;
+@dynamic metadataJobId, parent, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob *)object
                          parent:(NSString *)parent {

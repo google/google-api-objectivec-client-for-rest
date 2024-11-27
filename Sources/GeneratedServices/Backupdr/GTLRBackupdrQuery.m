@@ -591,7 +591,8 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDelete
 
-@dynamic allowMissing, ETag, force, name, requestId, validateOnly;
+@dynamic allowMissing, ETag, force, ignoreBackupPlanReferences, name, requestId,
+         validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"ETag" : @"etag" };

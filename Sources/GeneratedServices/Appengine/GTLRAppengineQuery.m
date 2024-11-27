@@ -1028,3 +1028,33 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 }
 
 @end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsDelete
+
+@dynamic applicationsId, locationsId, projectsId, servicesId, versionsId;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                         servicesId:(NSString *)servicesId
+                         versionsId:(NSString *)versionsId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId", @"servicesId",
+    @"versionsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}/versions/{versionsId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.servicesId = servicesId;
+  query.versionsId = versionsId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.services.versions.delete";
+  return query;
+}
+
+@end

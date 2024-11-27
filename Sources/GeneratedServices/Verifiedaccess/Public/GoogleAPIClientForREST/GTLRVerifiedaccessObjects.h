@@ -521,7 +521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
 
 /**
  *  The state of the OS level firewall. On ChromeOS, the value will always be
- *  ENABLED on regular devices and UNKNOWN on devices in developer mode.
+ *  ENABLED on regular devices and UNKNOWN on devices in developer mode. Support
+ *  for MacOS 15 (Sequoia) and later has been introduced in Chrome M131.
  *
  *  Likely values:
  *    @arg @c kGTLRVerifiedaccess_DeviceSignals_OsFirewall_OsFirewallDisabled

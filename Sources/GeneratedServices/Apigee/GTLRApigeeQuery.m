@@ -5216,6 +5216,25 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsGetControlPlaneAccess
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsGetControlPlaneAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess class];
+  query.loggingName = @"apigee.organizations.getControlPlaneAccess";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsGetDeployedIngressConfig
 
 @dynamic name, view;
@@ -6501,6 +6520,117 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsSecurityProfilesV2Create
+
+@dynamic parent, securityProfileV2Id;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/securityProfilesV2";
+  GTLRApigeeQuery_OrganizationsSecurityProfilesV2Create *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 class];
+  query.loggingName = @"apigee.organizations.securityProfilesV2.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSecurityProfilesV2Delete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsSecurityProfilesV2Delete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleProtobufEmpty class];
+  query.loggingName = @"apigee.organizations.securityProfilesV2.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSecurityProfilesV2Get
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsSecurityProfilesV2Get *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 class];
+  query.loggingName = @"apigee.organizations.securityProfilesV2.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSecurityProfilesV2List
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/securityProfilesV2";
+  GTLRApigeeQuery_OrganizationsSecurityProfilesV2List *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesV2Response class];
+  query.loggingName = @"apigee.organizations.securityProfilesV2.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSecurityProfilesV2Patch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsSecurityProfilesV2Patch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 class];
+  query.loggingName = @"apigee.organizations.securityProfilesV2.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsSetAddons
 
 @dynamic org;
@@ -7032,6 +7162,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1Organization class];
   query.loggingName = @"apigee.organizations.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsUpdateControlPlaneAccess
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsUpdateControlPlaneAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleLongrunningOperation class];
+  query.loggingName = @"apigee.organizations.updateControlPlaneAccess";
   return query;
 }
 

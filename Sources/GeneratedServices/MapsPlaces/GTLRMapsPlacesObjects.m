@@ -11,6 +11,21 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea.containment
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_ContainmentUnspecified = @"CONTAINMENT_UNSPECIFIED";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Near = @"NEAR";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Outskirts = @"OUTSKIRTS";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Within = @"WITHIN";
+
+// GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark.spatialRelationship
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AcrossTheRoad = @"ACROSS_THE_ROAD";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AroundTheCorner = @"AROUND_THE_CORNER";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Behind = @"BEHIND";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Beside = @"BESIDE";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_DownTheRoad = @"DOWN_THE_ROAD";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Near = @"NEAR";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Within = @"WITHIN";
+
 // GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation.type
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeCcsCombo1 = @"EV_CONNECTOR_TYPE_CCS_COMBO_1";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeCcsCombo2 = @"EV_CONNECTOR_TYPE_CCS_COMBO_2";
@@ -129,6 +144,54 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptor
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptor
+@dynamic areas, landmarks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"areas" : [GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea class],
+    @"landmarks" : [GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea
+@dynamic containment, displayName, name, placeId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark
+@dynamic displayName, name, placeId, spatialRelationship,
+         straightLineDistanceMeters, travelDistanceMeters, types;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"types" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution
 //
 
@@ -143,9 +206,10 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequest
-@dynamic includedPrimaryTypes, includedRegionCodes, includeQueryPredictions,
-         input, inputOffset, languageCode, locationBias, locationRestriction,
-         origin, regionCode, sessionToken;
+@dynamic includedPrimaryTypes, includedRegionCodes,
+         includePureServiceAreaBusinesses, includeQueryPredictions, input,
+         inputOffset, languageCode, locationBias, locationRestriction, origin,
+         regionCode, sessionToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -433,7 +497,8 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1Photo
-@dynamic authorAttributions, heightPx, name, widthPx;
+@dynamic authorAttributions, flagContentUri, googleMapsUri, heightPx, name,
+         widthPx;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -461,20 +526,22 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1Place
-@dynamic accessibilityOptions, addressComponents, adrFormatAddress, allowsDogs,
-         areaSummary, attributions, businessStatus, curbsidePickup,
-         currentOpeningHours, currentSecondaryOpeningHours, delivery, dineIn,
-         displayName, editorialSummary, evChargeOptions, formattedAddress,
-         fuelOptions, generativeSummary, goodForChildren, goodForGroups,
-         goodForWatchingSports, googleMapsUri, iconBackgroundColor,
-         iconMaskBaseUri, identifier, internationalPhoneNumber, liveMusic,
-         location, menuForChildren, name, nationalPhoneNumber, outdoorSeating,
-         parkingOptions, paymentOptions, photos, plusCode, priceLevel,
-         primaryType, primaryTypeDisplayName, rating, regularOpeningHours,
-         regularSecondaryOpeningHours, reservable, restroom, reviews,
-         servesBeer, servesBreakfast, servesBrunch, servesCocktails,
-         servesCoffee, servesDessert, servesDinner, servesLunch,
-         servesVegetarianFood, servesWine, shortFormattedAddress,
+@dynamic accessibilityOptions, addressComponents, addressDescriptor,
+         adrFormatAddress, allowsDogs, areaSummary, attributions,
+         businessStatus, containingPlaces, curbsidePickup, currentOpeningHours,
+         currentSecondaryOpeningHours, delivery, dineIn, displayName,
+         editorialSummary, evChargeOptions, formattedAddress, fuelOptions,
+         generativeSummary, goodForChildren, goodForGroups,
+         goodForWatchingSports, googleMapsLinks, googleMapsUri,
+         iconBackgroundColor, iconMaskBaseUri, identifier,
+         internationalPhoneNumber, liveMusic, location, menuForChildren, name,
+         nationalPhoneNumber, outdoorSeating, parkingOptions, paymentOptions,
+         photos, plusCode, priceLevel, priceRange, primaryType,
+         primaryTypeDisplayName, pureServiceAreaBusiness, rating,
+         regularOpeningHours, regularSecondaryOpeningHours, reservable,
+         restroom, reviews, servesBeer, servesBreakfast, servesBrunch,
+         servesCocktails, servesCoffee, servesDessert, servesDinner,
+         servesLunch, servesVegetarianFood, servesWine, shortFormattedAddress,
          subDestinations, takeout, types, userRatingCount, utcOffsetMinutes,
          viewport, websiteUri;
 
@@ -486,6 +553,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
   NSDictionary<NSString *, Class> *map = @{
     @"addressComponents" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent class],
     @"attributions" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution class],
+    @"containingPlaces" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace class],
     @"currentSecondaryOpeningHours" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours class],
     @"photos" : [GTLRMapsPlaces_GoogleMapsPlacesV1Photo class],
     @"regularSecondaryOpeningHours" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours class],
@@ -534,7 +602,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAreaSummary
-@dynamic contentBlocks;
+@dynamic contentBlocks, flagContentUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -558,11 +626,27 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary
-@dynamic descriptionProperty, overview, references;
+@dynamic descriptionProperty, descriptionFlagContentUri, overview,
+         overviewFlagContentUri, references;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -573,11 +657,22 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks
+@dynamic directionsUri, photosUri, placeUri, reviewsUri, writeAReviewUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours
-@dynamic openNow, periods, secondaryHoursType, specialDays, weekdayDescriptions;
+@dynamic nextCloseTime, nextOpenTime, openNow, periods, secondaryHoursType,
+         specialDays, weekdayDescriptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -679,6 +774,16 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange
+@dynamic endPrice, startPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMapsPlaces_GoogleMapsPlacesV1References
 //
 
@@ -702,8 +807,8 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1Review
-@dynamic authorAttribution, name, originalText, publishTime, rating,
-         relativePublishTimeDescription, text;
+@dynamic authorAttribution, flagContentUri, googleMapsUri, name, originalText,
+         publishTime, rating, relativePublishTimeDescription, text;
 @end
 
 
@@ -733,7 +838,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary
-@dynamic legs;
+@dynamic directionsUri, legs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -813,10 +918,11 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest
-@dynamic evOptions, includedType, languageCode, locationBias,
-         locationRestriction, maxResultCount, minRating, openNow, pageSize,
-         pageToken, priceLevels, rankPreference, regionCode, routingParameters,
-         searchAlongRouteParameters, strictTypeFiltering, textQuery;
+@dynamic evOptions, includedType, includePureServiceAreaBusinesses,
+         languageCode, locationBias, locationRestriction, maxResultCount,
+         minRating, openNow, pageSize, pageToken, priceLevels, rankPreference,
+         regionCode, routingParameters, searchAlongRouteParameters,
+         strictTypeFiltering, textQuery;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -882,7 +988,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextResponse
-@dynamic contextualContents, nextPageToken, places, routingSummaries;
+@dynamic contextualContents, nextPageToken, places, routingSummaries, searchUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

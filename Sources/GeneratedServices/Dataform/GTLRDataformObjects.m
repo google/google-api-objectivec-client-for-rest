@@ -281,8 +281,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_CompilationResultAction
-@dynamic assertion, canonicalTarget, dataPreparation, declaration, filePath,
-         notebook, operations, relation, target;
+@dynamic assertion, canonicalTarget, declaration, filePath, notebook,
+         operations, relation, target;
 @end
 
 
@@ -313,25 +313,6 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_DataEncryptionState
 @dynamic kmsKeyVersionName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataform_DataPreparation
-//
-
-@implementation GTLRDataform_DataPreparation
-@dynamic contents, dependencyTargets, disabled, tags;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dependencyTargets" : [GTLRDataform_Target class],
-    @"tags" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -1421,7 +1402,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Workspace
-@dynamic dataEncryptionState, name;
+@dynamic createTime, dataEncryptionState, name;
 @end
 
 

@@ -3572,12 +3572,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 /** Output only. Video metadata. */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_VideoMetadata *videoMetadata;
 
-/** The URL to fetch a video ad. */
+/**
+ *  The URL to fetch a video ad. The URL should return an XML response that
+ *  conforms to the VAST 2.0, 3.0 or 4.x standard.
+ */
 @property(nonatomic, copy, nullable) NSString *videoUrl;
 
 /**
  *  The contents of a VAST document for a video ad. This document should conform
- *  to the VAST 2.0 or 3.0 standard.
+ *  to the VAST 2.0, 3.0, or 4.x standard.
  */
 @property(nonatomic, copy, nullable) NSString *videoVastXml;
 

@@ -30,6 +30,14 @@ NSString * const kGTLRPubsub_BigQueryConfig_State_PermissionDenied = @"PERMISSIO
 NSString * const kGTLRPubsub_BigQueryConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
 NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRPubsub_CloudStorage.state
+NSString * const kGTLRPubsub_CloudStorage_State_Active         = @"ACTIVE";
+NSString * const kGTLRPubsub_CloudStorage_State_BucketNotFound = @"BUCKET_NOT_FOUND";
+NSString * const kGTLRPubsub_CloudStorage_State_CloudStoragePermissionDenied = @"CLOUD_STORAGE_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_CloudStorage_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_CloudStorage_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_CloudStorage_State_TooManyObjects = @"TOO_MANY_OBJECTS";
+
 // GTLRPubsub_CloudStorageConfig.state
 NSString * const kGTLRPubsub_CloudStorageConfig_State_Active   = @"ACTIVE";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
@@ -37,6 +45,14 @@ NSString * const kGTLRPubsub_CloudStorageConfig_State_NotFound = @"NOT_FOUND";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRPubsub_PlatformLogsSettings.severity
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Debug = @"DEBUG";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Disabled = @"DISABLED";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Error = @"ERROR";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Info = @"INFO";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Warning = @"WARNING";
 
 // GTLRPubsub_Schema.type
 NSString * const kGTLRPubsub_Schema_Type_Avro            = @"AVRO";
@@ -103,6 +119,15 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_AvroFormat
+//
+
+@implementation GTLRPubsub_AvroFormat
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_AwsKinesis
 //
 
@@ -137,6 +162,17 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_CloudStorage
+//
+
+@implementation GTLRPubsub_CloudStorage
+@dynamic avroFormat, bucket, matchGlob, minimumObjectCreateTime,
+         pubsubAvroFormat, state, textFormat;
 @end
 
 
@@ -245,7 +281,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_IngestionDataSourceSettings
-@dynamic awsKinesis;
+@dynamic awsKinesis, cloudStorage, platformLogsSettings;
 @end
 
 
@@ -482,6 +518,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_OidcToken
 @dynamic audience, serviceAccountEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_PlatformLogsSettings
+//
+
+@implementation GTLRPubsub_PlatformLogsSettings
+@dynamic severity;
 @end
 
 
@@ -769,6 +815,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_TextConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_TextFormat
+//
+
+@implementation GTLRPubsub_TextFormat
+@dynamic delimiter;
 @end
 
 

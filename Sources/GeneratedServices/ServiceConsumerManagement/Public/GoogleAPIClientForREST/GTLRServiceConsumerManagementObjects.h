@@ -46,6 +46,7 @@
 @class GTLRServiceConsumerManagement_Field;
 @class GTLRServiceConsumerManagement_FieldPolicy;
 @class GTLRServiceConsumerManagement_GoSettings;
+@class GTLRServiceConsumerManagement_GoSettings_RenamedServices;
 @class GTLRServiceConsumerManagement_Http;
 @class GTLRServiceConsumerManagement_HttpRule;
 @class GTLRServiceConsumerManagement_JavaSettings;
@@ -2084,6 +2085,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @interface GTLRServiceConsumerManagement_ExperimentalFeatures : GTLRObject
 
 /**
+ *  Enables generation of protobuf code using new types that are more Pythonic
+ *  which are included in `protobuf>=5.29.x`. This feature will be enabled by
+ *  default 1 month after launching the feature in preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protobufPythonicTypesEnabled;
+
+/**
  *  Enables generation of asynchronous REST clients if `rest` transport is
  *  enabled. By default, asynchronous REST clients will not be generated. This
  *  feature will be enabled by default 1 month after launching the feature in
@@ -2249,6 +2259,29 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_CommonLanguageSettings *common;
 
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_GoSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceConsumerManagement_GoSettings_RenamedServices : GTLRObject
 @end
 
 
@@ -3205,7 +3238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inherting
+ *  processor will see the effective `Storage.GetAcl` method after inheriting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -3855,11 +3888,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specify the unit of the quota limit. It uses the same syntax as Metric.unit.
- *  The supported unit kinds are determined by the quota backend system. Here
- *  are some examples: * "1/min/{project}" for quota per minute per project.
- *  Note: the order of unit components is insignificant. The "1" at the
- *  beginning is required to follow the metric unit syntax.
+ *  Specify the unit of the quota limit. It uses the same syntax as
+ *  MetricDescriptor.unit. The supported unit kinds are determined by the quota
+ *  backend system. Here are some examples: * "1/min/{project}" for quota per
+ *  minute per project. Note: the order of unit components is insignificant. The
+ *  "1" at the beginning is required to follow the metric unit syntax.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 

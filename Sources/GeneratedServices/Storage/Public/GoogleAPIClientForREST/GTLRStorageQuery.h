@@ -1167,6 +1167,37 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Initiates a long-running Relocate Bucket operation on the specified bucket.
+ *
+ *  Method: storage.buckets.relocate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_BucketsRelocate : GTLRStorageQuery
+
+/** Name of the bucket to be moved. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Initiates a long-running Relocate Bucket operation on the specified bucket.
+ *
+ *  @param object The @c GTLRStorage_RelocateBucketRequest to include in the
+ *    query.
+ *  @param bucket Name of the bucket to be moved.
+ *
+ *  @return GTLRStorageQuery_BucketsRelocate
+ */
++ (instancetype)queryWithObject:(GTLRStorage_RelocateBucketRequest *)object
+                         bucket:(NSString *)bucket;
+
+@end
+
+/**
  *  Restores a soft-deleted bucket.
  *
  *  Method: storage.buckets.restore
@@ -1185,14 +1216,23 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long generation;
 
 /**
+ *  Set of properties to return. Defaults to full.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageProjectionFull Include all properties. (Value: "full")
+ *    @arg @c kGTLRStorageProjectionNoAcl Omit owner, acl and defaultObjectAcl
+ *        properties. (Value: "noAcl")
+ */
+@property(nonatomic, copy, nullable) NSString *projection;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
 @property(nonatomic, copy, nullable) NSString *userProject;
 
 /**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
+ *  Fetches a @c GTLRStorage_Bucket.
  *
  *  Restores a soft-deleted bucket.
  *
@@ -4297,6 +4337,51 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_Channel *)object
                          bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Starts asynchronous advancement of the relocate bucket operation in the case
+ *  of required write downtime, to allow it to lock the bucket at the source
+ *  location, and proceed with the bucket location swap. The server makes a best
+ *  effort to advance the relocate bucket operation, but success is not
+ *  guaranteed.
+ *
+ *  Method: storage.buckets.operations.advanceRelocateBucket
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_OperationsAdvanceRelocateBucket : GTLRStorageQuery
+
+/** Name of the bucket to advance the relocate for. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** ID of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Starts asynchronous advancement of the relocate bucket operation in the case
+ *  of required write downtime, to allow it to lock the bucket at the source
+ *  location, and proceed with the bucket location swap. The server makes a best
+ *  effort to advance the relocate bucket operation, but success is not
+ *  guaranteed.
+ *
+ *  @param object The @c GTLRStorage_AdvanceRelocateBucketOperationRequest to
+ *    include in the query.
+ *  @param bucket Name of the bucket to advance the relocate for.
+ *  @param operationId ID of the operation resource.
+ *
+ *  @return GTLRStorageQuery_OperationsAdvanceRelocateBucket
+ */
++ (instancetype)queryWithObject:(GTLRStorage_AdvanceRelocateBucketOperationRequest *)object
+                         bucket:(NSString *)bucket
+                    operationId:(NSString *)operationId;
 
 @end
 

@@ -86,6 +86,8 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8037 = @"MYS
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
@@ -143,6 +145,8 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8037 = @"MY
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8038 = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
@@ -229,6 +233,8 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8037        = @"MYSQL_8_0_37"
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8038        = @"MYSQL_8_0_38";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8039        = @"MYSQL_8_0_39";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040        = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8041        = @"MYSQL_8_0_41";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8042        = @"MYSQL_8_0_42";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql84          = @"MYSQL_8_4";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
@@ -299,8 +305,15 @@ NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_SqlUpdateTrackUnspe
 NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable = @"stable";
 NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Week5 = @"week5";
 
+// GTLRSQLAdmin_OnPremisesConfiguration.sslOption
+NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_Disable = @"DISABLE";
+NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_Require = @"REQUIRE";
+NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_SslOptionUnspecified = @"SSL_OPTION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_VerifyCa = @"VERIFY_CA";
+
 // GTLRSQLAdmin_Operation.operationType
 NSString * const kGTLRSQLAdmin_Operation_OperationType_AcquireSsrsLease = @"ACQUIRE_SSRS_LEASE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_AdvancedBackup = @"ADVANCED_BACKUP";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_AutoRestart = @"AUTO_RESTART";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup  = @"BACKUP";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_BackupVolume = @"BACKUP_VOLUME";
@@ -434,6 +447,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSyncParallelLe
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup = @"PRIMARY_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege = @"RISKY_BACKUP_ADMIN_PRIVILEGE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SelectedObjectsNotExistOnSource = @"SELECTED_OBJECTS_NOT_EXIST_ON_SOURCE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SourceMaxSubscriptions = @"SOURCE_MAX_SUBSCRIPTIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
@@ -1069,6 +1083,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_ExternalSyncSelectedObject
+//
+
+@implementation GTLRSQLAdmin_ExternalSyncSelectedObject
+@dynamic database;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_FailoverContext
 //
 
@@ -1580,7 +1604,14 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_OnPremisesConfiguration
 @dynamic caCertificate, clientCertificate, clientKey, dumpFilePath, hostPort,
-         kind, password, sourceInstance, username;
+         kind, password, selectedObjects, sourceInstance, sslOption, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"selectedObjects" : [GTLRSQLAdmin_SelectedObjects class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1719,15 +1750,27 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_PscAutoConnectionConfig
+//
+
+@implementation GTLRSQLAdmin_PscAutoConnectionConfig
+@dynamic consumerNetwork, consumerNetworkStatus, consumerProject, ipAddress,
+         status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_PscConfig
 //
 
 @implementation GTLRSQLAdmin_PscConfig
-@dynamic allowedConsumerProjects, pscEnabled;
+@dynamic allowedConsumerProjects, pscAutoConnections, pscEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"allowedConsumerProjects" : [NSString class]
+    @"allowedConsumerProjects" : [NSString class],
+    @"pscAutoConnections" : [GTLRSQLAdmin_PscAutoConnectionConfig class]
   };
   return map;
 }
@@ -1820,6 +1863,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SelectedObjects
+//
+
+@implementation GTLRSQLAdmin_SelectedObjects
+@dynamic database;
 @end
 
 
@@ -1996,8 +2049,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest
-@dynamic migrationType, mysqlSyncConfig, syncMode, syncParallelLevel,
-         verifyConnectionOnly, verifyReplicationOnly;
+@dynamic migrationType, mysqlSyncConfig, selectedObjects, syncMode,
+         syncParallelLevel, verifyConnectionOnly, verifyReplicationOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"selectedObjects" : [GTLRSQLAdmin_ExternalSyncSelectedObject class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -127,6 +127,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Represents a list of allowed locations for given service account.
+ */
+@interface GTLRIAMCredentials_ServiceAccountAllowedLocations : GTLRObject
+
+/** Output only. The hex encoded bitmap of the trust boundary locations */
+@property(nonatomic, copy, nullable) NSString *encodedLocations;
+
+/**
+ *  Output only. The human readable trust boundary locations. For example,
+ *  ["us-central1", "europe-west1"]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+@end
+
+
+/**
  *  GTLRIAMCredentials_SignBlobRequest
  */
 @interface GTLRIAMCredentials_SignBlobRequest : GTLRObject

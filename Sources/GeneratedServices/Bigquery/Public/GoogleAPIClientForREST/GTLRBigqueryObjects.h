@@ -248,8 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBigquery_Argument.argumentKind
 
 /**
- *  The argument is any type, including struct or array, but not a table. To be
- *  added: FIXED_TABLE, ANY_TABLE
+ *  The argument is any type, including struct or array, but not a table.
  *
  *  Value: "ANY_TYPE"
  */
@@ -1239,7 +1238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobCreationReason_Code_Requeste
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_JobStatistics_Edition_Enterprise;
 /**
- *  Enterprise plus edition.
+ *  Enterprise Plus edition.
  *
  *  Value: "ENTERPRISE_PLUS"
  */
@@ -1452,6 +1451,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_BoostedT
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_BoostedTreeRegressor;
 /**
+ *  The contribution analysis model.
+ *
+ *  Value: "CONTRIBUTION_ANALYSIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_MlStatistics_ModelType_ContributionAnalysis;
+/**
  *  DNN classifier model.
  *
  *  Value: "DNN_CLASSIFIER"
@@ -1629,6 +1634,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeClas
  *  Value: "BOOSTED_TREE_REGRESSOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeRegressor;
+/**
+ *  The contribution analysis model.
+ *
+ *  Value: "CONTRIBUTION_ANALYSIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ContributionAnalysis;
 /**
  *  DNN classifier model.
  *
@@ -2186,6 +2197,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_DefaultRoundingMode_Round
  *  Value: "ROUNDING_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_DefaultRoundingMode_RoundingModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_Table.managedTableType
+
+/**
+ *  The managed table is a BigQuery table for Apache Iceberg.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_ManagedTableType_Iceberg;
+/**
+ *  No managed table type specified.
+ *
+ *  Value: "MANAGED_TABLE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_ManagedTableType_ManagedTableTypeUnspecified;
+/**
+ *  The managed table is a native BigQuery table.
+ *
+ *  Value: "NATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Table_ManagedTableType_Native;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TableFieldSchema.roundingMode
@@ -3795,8 +3828,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_Argument_ArgumentKind_AnyType The argument is any
- *        type, including struct or array, but not a table. To be added:
- *        FIXED_TABLE, ANY_TABLE (Value: "ANY_TYPE")
+ *        type, including struct or array, but not a table. (Value: "ANY_TYPE")
  *    @arg @c kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified
  *        Default value. (Value: "ARGUMENT_KIND_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_Argument_ArgumentKind_FixedType The argument is a
@@ -3805,7 +3837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *argumentKind;
 
-/** Required unless argument_kind = ANY_TYPE. */
+/** Set if argument_kind == FIXED_TYPE. */
 @property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlDataType *dataType;
 
 /**
@@ -4308,7 +4340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_BigLakeConfiguration : GTLRObject
 
 /**
- *  Required. The connection specifying the credentials to be used to read and
+ *  Optional. The connection specifying the credentials to be used to read and
  *  write to external storage, such as Cloud Storage. The connection_id can have
  *  the form `{project}.{location}.{connection_id}` or
  *  `projects/{project}/locations/{location}/connections/{connection_id}".
@@ -4316,7 +4348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
 /**
- *  Required. The file format the table data is stored in.
+ *  Optional. The file format the table data is stored in.
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_BigLakeConfiguration_FileFormat_FileFormatUnspecified
@@ -4327,14 +4359,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *fileFormat;
 
 /**
- *  Required. The fully qualified location prefix of the external folder where
+ *  Optional. The fully qualified location prefix of the external folder where
  *  table data is stored. The '*' wildcard character is not allowed. The URI
  *  should be in the format `gs://bucket/path_to_table/`
  */
 @property(nonatomic, copy, nullable) NSString *storageUri;
 
 /**
- *  Required. The table format the metadata only snapshots are stored in.
+ *  Optional. The table format the metadata only snapshots are stored in.
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_BigLakeConfiguration_TableFormat_Iceberg Apache
@@ -5433,6 +5465,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  An object that defines dataset access for an entity.
  */
 @interface GTLRBigquery_Dataset_Access_Item : GTLRObject
+
+/**
+ *  Optional. condition for the binding. If CEL expression in this field is
+ *  true, this access binding will be considered
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_Expr *condition;
 
 /**
  *  [Pick one] A grant authorizing all resources of a particular type in a
@@ -8649,7 +8687,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Likely values:
  *    @arg @c kGTLRBigquery_JobStatistics_Edition_Enterprise Enterprise edition.
  *        (Value: "ENTERPRISE")
- *    @arg @c kGTLRBigquery_JobStatistics_Edition_EnterprisePlus Enterprise plus
+ *    @arg @c kGTLRBigquery_JobStatistics_Edition_EnterprisePlus Enterprise Plus
  *        edition. (Value: "ENTERPRISE_PLUS")
  *    @arg @c kGTLRBigquery_JobStatistics_Edition_ReservationEditionUnspecified
  *        Default value, which will be treated as ENTERPRISE. (Value:
@@ -9744,6 +9782,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        tree classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
  *    @arg @c kGTLRBigquery_MlStatistics_ModelType_BoostedTreeRegressor Boosted
  *        tree regressor model. (Value: "BOOSTED_TREE_REGRESSOR")
+ *    @arg @c kGTLRBigquery_MlStatistics_ModelType_ContributionAnalysis The
+ *        contribution analysis model. (Value: "CONTRIBUTION_ANALYSIS")
  *    @arg @c kGTLRBigquery_MlStatistics_ModelType_DnnClassifier DNN classifier
  *        model. (Value: "DNN_CLASSIFIER")
  *    @arg @c kGTLRBigquery_MlStatistics_ModelType_DnnLinearCombinedClassifier
@@ -9934,6 +9974,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
  *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeRegressor Boosted tree
  *        regressor model. (Value: "BOOSTED_TREE_REGRESSOR")
+ *    @arg @c kGTLRBigquery_Model_ModelType_ContributionAnalysis The
+ *        contribution analysis model. (Value: "CONTRIBUTION_ANALYSIS")
  *    @arg @c kGTLRBigquery_Model_ModelType_DnnClassifier DNN classifier model.
  *        (Value: "DNN_CLASSIFIER")
  *    @arg @c kGTLRBigquery_Model_ModelType_DnnLinearCombinedClassifier
@@ -12418,6 +12460,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/**
+ *  Optional. If set, overrides the default managed table type configured in the
+ *  dataset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_Table_ManagedTableType_Iceberg The managed table is
+ *        a BigQuery table for Apache Iceberg. (Value: "ICEBERG")
+ *    @arg @c kGTLRBigquery_Table_ManagedTableType_ManagedTableTypeUnspecified
+ *        No managed table type specified. (Value:
+ *        "MANAGED_TABLE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_Table_ManagedTableType_Native The managed table is a
+ *        native BigQuery table. (Value: "NATIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *managedTableType;
+
 /** Optional. The materialized view definition. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MaterializedViewDefinition *materializedView;
 
@@ -13588,6 +13645,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *colsampleBytree;
 
 /**
+ *  The contribution metric. Applies to contribution analysis models. Allowed
+ *  formats supported are for summable and summable ratio contribution metrics.
+ *  These include expressions such as `SUM(x)` or `SUM(x)/SUM(y)`, where x and y
+ *  are column names from the base table.
+ */
+@property(nonatomic, copy, nullable) NSString *contributionMetric;
+
+/**
  *  Type of normalization algorithm for boosted tree models using dart booster.
  *
  *  Likely values:
@@ -13673,6 +13738,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *decomposeTimeSeries;
+
+/**
+ *  Optional. Names of the columns to slice on. Applies to contribution analysis
+ *  models.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensionIdColumns;
 
 /**
  *  Distance type for clustering models.
@@ -13920,6 +13991,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *integratedGradientsNumSteps;
 
+/**
+ *  Name of the column used to determine the rows corresponding to control and
+ *  test. Applies to contribution analysis models.
+ */
+@property(nonatomic, copy, nullable) NSString *isTestColumn;
+
 /** Item column specified for matrix factorization models. */
 @property(nonatomic, copy, nullable) NSString *itemColumn;
 
@@ -14036,6 +14113,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxTreeDepth;
+
+/**
+ *  The apriori support minimum. Applies to contribution analysis models.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minAprioriSupport;
 
 /**
  *  When early_stop is true, stops training when accuracy improvement is less

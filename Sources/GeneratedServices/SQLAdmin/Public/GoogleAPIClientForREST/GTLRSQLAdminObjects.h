@@ -44,6 +44,7 @@
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions_PostgresExportOptions;
+@class GTLRSQLAdmin_ExternalSyncSelectedObject;
 @class GTLRSQLAdmin_FailoverContext;
 @class GTLRSQLAdmin_Flag;
 @class GTLRSQLAdmin_GeminiInstanceConfig;
@@ -67,6 +68,7 @@
 @class GTLRSQLAdmin_OperationErrors;
 @class GTLRSQLAdmin_PasswordStatus;
 @class GTLRSQLAdmin_PasswordValidationPolicy;
+@class GTLRSQLAdmin_PscAutoConnectionConfig;
 @class GTLRSQLAdmin_PscConfig;
 @class GTLRSQLAdmin_ReplicaConfiguration;
 @class GTLRSQLAdmin_ReplicationCluster;
@@ -74,6 +76,7 @@
 @class GTLRSQLAdmin_RestoreBackupContext;
 @class GTLRSQLAdmin_RotateServerCaContext;
 @class GTLRSQLAdmin_RotateServerCertificateContext;
+@class GTLRSQLAdmin_SelectedObjects;
 @class GTLRSQLAdmin_Settings;
 @class GTLRSQLAdmin_Settings_UserLabels;
 @class GTLRSQLAdmin_SqlActiveDirectoryConfig;
@@ -221,13 +224,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRetentionSettings_Retenti
 // GTLRSQLAdmin_BackupRun.backupKind
 
 /**
- *  Physical backups
+ *  Physical backups.
  *
  *  Value: "PHYSICAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Physical;
 /**
- *  The snapshot based backups
+ *  Snapshot-based backups.
  *
  *  Value: "SNAPSHOT"
  */
@@ -484,6 +487,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "MYSQL_8_0_40"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 41.
+ *
+ *  Value: "MYSQL_8_0_41"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8041;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 42.
+ *
+ *  Value: "MYSQL_8_0_42"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8042;
 /**
  *  The database version is MySQL 8.4.
  *
@@ -803,6 +818,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_8_0_40"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 41.
+ *
+ *  Value: "MYSQL_8_0_41"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8041;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 42.
+ *
+ *  Value: "MYSQL_8_0_42"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8042;
 /**
  *  The database version is MySQL 8.4.
  *
@@ -1262,6 +1289,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8039;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8040;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 41.
+ *
+ *  Value: "MYSQL_8_0_41"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8041;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 42.
+ *
+ *  Value: "MYSQL_8_0_42"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8042;
+/**
  *  The database version is MySQL 8.4.
  *
  *  Value: "MYSQL_8_4"
@@ -1509,7 +1548,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_BakImportOptions_
 // GTLRSQLAdmin_IpConfiguration.serverCaMode
 
 /**
- *  CA mode is unknown.
+ *  CA mode is unspecified. It is effectively the same as
+ *  `GOOGLE_MANAGED_INTERNAL_CA`.
  *
  *  Value: "CA_MODE_UNSPECIFIED"
  */
@@ -1648,6 +1688,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_S
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Week5;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_OnPremisesConfiguration.sslOption
+
+/**
+ *  SSL is not used for replica connection to the on-premises source.
+ *
+ *  Value: "DISABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_Disable;
+/**
+ *  SSL is required for replica connection to the on-premises source.
+ *
+ *  Value: "REQUIRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_Require;
+/**
+ *  Unknown SSL option i.e. SSL option not specified by user.
+ *
+ *  Value: "SSL_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_SslOptionUnspecified;
+/**
+ *  Verify CA is required for replica connection to the on-premises source.
+ *
+ *  Value: "VERIFY_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_VerifyCa;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Operation.operationType
 
 /**
@@ -1656,6 +1724,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_W
  *  Value: "ACQUIRE_SSRS_LEASE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_AcquireSsrsLease;
+/**
+ *  Creates a backup for an Advanced BackupTier Cloud SQL instance.
+ *
+ *  Value: "ADVANCED_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_AdvancedBackup;
 /**
  *  Performs auto-restart of an HA-enabled Cloud SQL database for auto recovery.
  *
@@ -2363,6 +2437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_RiskyBackupAdminPrivilege;
 /**
+ *  The selected objects don't exist on the source instance.
+ *
+ *  Value: "SELECTED_OBJECTS_NOT_EXIST_ON_SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SelectedObjectsNotExistOnSource;
+/**
  *  This warning message indicates that Cloud SQL uses the maximum number of
  *  subscriptions to migrate data from the source to the destination.
  *
@@ -3024,10 +3104,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Specifies the kind of backup, PHYSICAL or DEFAULT_SNAPSHOT.
  *
  *  Likely values:
- *    @arg @c kGTLRSQLAdmin_BackupRun_BackupKind_Physical Physical backups
+ *    @arg @c kGTLRSQLAdmin_BackupRun_BackupKind_Physical Physical backups.
  *        (Value: "PHYSICAL")
- *    @arg @c kGTLRSQLAdmin_BackupRun_BackupKind_Snapshot The snapshot based
- *        backups (Value: "SNAPSHOT")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_BackupKind_Snapshot Snapshot-based
+ *        backups. (Value: "SNAPSHOT")
  *    @arg @c kGTLRSQLAdmin_BackupRun_BackupKind_SqlBackupKindUnspecified This
  *        is an unknown BackupKind. (Value: "SQL_BACKUP_KIND_UNSPECIFIED")
  */
@@ -3372,6 +3452,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8040 The
  *        database major version is MySQL 8.0 and the minor version is 40.
  *        (Value: "MYSQL_8_0_40")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8041 The
+ *        database major version is MySQL 8.0 and the minor version is 41.
+ *        (Value: "MYSQL_8_0_41")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8042 The
+ *        database major version is MySQL 8.0 and the minor version is 42.
+ *        (Value: "MYSQL_8_0_42")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 The database
  *        version is MySQL 8.4. (Value: "MYSQL_8_4")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
@@ -3660,6 +3746,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8040 The
  *        database major version is MySQL 8.0 and the minor version is 40.
  *        (Value: "MYSQL_8_0_40")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8041 The
+ *        database major version is MySQL 8.0 and the minor version is 41.
+ *        (Value: "MYSQL_8_0_41")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8042 The
+ *        database major version is MySQL 8.0 and the minor version is 42.
+ *        (Value: "MYSQL_8_0_42")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 The
  *        database version is MySQL 8.4. (Value: "MYSQL_8_4")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
@@ -4447,6 +4539,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ifExists;
+
+@end
+
+
+/**
+ *  The selected object that Cloud SQL migrates.
+ */
+@interface GTLRSQLAdmin_ExternalSyncSelectedObject : GTLRObject
+
+/** The name of the database that Cloud SQL migrates. */
+@property(nonatomic, copy, nullable) NSString *database;
 
 @end
 
@@ -5249,7 +5352,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CaModeUnspecified CA
- *        mode is unknown. (Value: "CA_MODE_UNSPECIFIED")
+ *        mode is unspecified. It is effectively the same as
+ *        `GOOGLE_MANAGED_INTERNAL_CA`. (Value: "CA_MODE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedCasCa
  *        Google-managed regional CA part of root CA hierarchy hosted on Google
  *        Cloud's Certificate Authority Service (CAS). (Value:
@@ -5546,8 +5650,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** The password for connecting to on-premises instance. */
 @property(nonatomic, copy, nullable) NSString *password;
 
+/**
+ *  Optional. A list of objects that the user selects for replication from an
+ *  external source instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SelectedObjects *> *selectedObjects;
+
 /** The reference to Cloud SQL instance if the source is Cloud SQL. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_InstanceReference *sourceInstance;
+
+/**
+ *  Optional. SSL option for replica connection to the on-premises source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_Disable SSL is not
+ *        used for replica connection to the on-premises source. (Value:
+ *        "DISABLE")
+ *    @arg @c kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_Require SSL is
+ *        required for replica connection to the on-premises source. (Value:
+ *        "REQUIRE")
+ *    @arg @c kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_SslOptionUnspecified
+ *        Unknown SSL option i.e. SSL option not specified by user. (Value:
+ *        "SSL_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_OnPremisesConfiguration_SslOption_VerifyCa Verify CA
+ *        is required for replica connection to the on-premises source. (Value:
+ *        "VERIFY_CA")
+ */
+@property(nonatomic, copy, nullable) NSString *sslOption;
 
 /** The username for connecting to on-premises instance. */
 @property(nonatomic, copy, nullable) NSString *username;
@@ -5617,6 +5746,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AcquireSsrsLease Acquire a
  *        lease for the setup of SQL Server Reporting Services (SSRS). (Value:
  *        "ACQUIRE_SSRS_LEASE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AdvancedBackup Creates a
+ *        backup for an Advanced BackupTier Cloud SQL instance. (Value:
+ *        "ADVANCED_BACKUP")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AutoRestart Performs
  *        auto-restart of an HA-enabled Cloud SQL database for auto recovery.
  *        (Value: "AUTO_RESTART")
@@ -5965,6 +6097,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Settings for an automatically-setup Private Service Connect consumer
+ *  endpoint that is used to connect to a Cloud SQL instance.
+ */
+@interface GTLRSQLAdmin_PscAutoConnectionConfig : GTLRObject
+
+/**
+ *  The consumer network of this consumer endpoint. This must be a resource path
+ *  that includes both the host project and the network name. For example,
+ *  `projects/project1/global/networks/network1`. The consumer host project of
+ *  this network might be different from the consumer service project.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerNetwork;
+
+/** The connection policy status of the consumer network. */
+@property(nonatomic, copy, nullable) NSString *consumerNetworkStatus;
+
+/**
+ *  This is the project ID of consumer service project of this consumer
+ *  endpoint. Optional. This is only applicable if consumer_network is a shared
+ *  vpc network.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerProject;
+
+/** The IP address of the consumer endpoint. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** The connection status of the consumer endpoint. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  PSC settings for a Cloud SQL instance.
  */
 @interface GTLRSQLAdmin_PscConfig : GTLRObject
@@ -5977,6 +6142,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  (alphanumeric).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjects;
+
+/**
+ *  Optional. The list of settings for requested Private Service Connect
+ *  consumer endpoints that can be used to connect to this Cloud SQL instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_PscAutoConnectionConfig *> *pscAutoConnections;
 
 /**
  *  Whether PSC connectivity is enabled for this instance.
@@ -6155,6 +6326,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  will be rotated to the most recently added server certificate version.
  */
 @property(nonatomic, copy, nullable) NSString *nextVersion;
+
+@end
+
+
+/**
+ *  A list of objects that the user selects for replication from an external
+ *  source instance.
+ */
+@interface GTLRSQLAdmin_SelectedObjects : GTLRObject
+
+/** Required. The name of the database to migrate. */
+@property(nonatomic, copy, nullable) NSString *database;
 
 @end
 
@@ -6595,6 +6778,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Additional BACKUP_ADMIN privilege is granted to the replication user
  *        which may lock source MySQL 8 instance for DDLs during initial sync.
  *        (Value: "RISKY_BACKUP_ADMIN_PRIVILEGE")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SelectedObjectsNotExistOnSource
+ *        The selected objects don't exist on the source instance. (Value:
+ *        "SELECTED_OBJECTS_NOT_EXIST_ON_SOURCE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SourceMaxSubscriptions
  *        This warning message indicates that Cloud SQL uses the maximum number
  *        of subscriptions to migrate data from the source to the destination.
@@ -6834,6 +7020,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Optional. MySQL-specific settings for start external sync. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlSyncConfig *mysqlSyncConfig;
+
+/**
+ *  Optional. Migrate only the specified objects from the source instance. If
+ *  this field is empty, then migrate all objects.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ExternalSyncSelectedObject *> *selectedObjects;
 
 /**
  *  External sync mode

@@ -19,12 +19,35 @@ NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_AppendFsyncUnspecified = 
 NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_Everysec = @"EVERYSEC";
 NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_No      = @"NO";
 
+// GTLRCloudRedis_AutomatedBackupConfig.automatedBackupMode
+NSString * const kGTLRCloudRedis_AutomatedBackupConfig_AutomatedBackupMode_AutomatedBackupModeUnspecified = @"AUTOMATED_BACKUP_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_AutomatedBackupConfig_AutomatedBackupMode_Disabled = @"DISABLED";
+NSString * const kGTLRCloudRedis_AutomatedBackupConfig_AutomatedBackupMode_Enabled = @"ENABLED";
+
 // GTLRCloudRedis_AvailabilityConfiguration.availabilityType
 NSString * const kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_AvailabilityTypeOther = @"AVAILABILITY_TYPE_OTHER";
 NSString * const kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_AvailabilityTypeUnspecified = @"AVAILABILITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_MultiRegional = @"MULTI_REGIONAL";
 NSString * const kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_Regional = @"REGIONAL";
 NSString * const kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_Zonal = @"ZONAL";
+
+// GTLRCloudRedis_Backup.backupType
+NSString * const kGTLRCloudRedis_Backup_BackupType_Automated   = @"AUTOMATED";
+NSString * const kGTLRCloudRedis_Backup_BackupType_BackupTypeUnspecified = @"BACKUP_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_Backup_BackupType_OnDemand    = @"ON_DEMAND";
+
+// GTLRCloudRedis_Backup.nodeType
+NSString * const kGTLRCloudRedis_Backup_NodeType_NodeTypeUnspecified = @"NODE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_Backup_NodeType_RedisHighmemMedium = @"REDIS_HIGHMEM_MEDIUM";
+NSString * const kGTLRCloudRedis_Backup_NodeType_RedisHighmemXlarge = @"REDIS_HIGHMEM_XLARGE";
+NSString * const kGTLRCloudRedis_Backup_NodeType_RedisSharedCoreNano = @"REDIS_SHARED_CORE_NANO";
+NSString * const kGTLRCloudRedis_Backup_NodeType_RedisStandardSmall = @"REDIS_STANDARD_SMALL";
+
+// GTLRCloudRedis_Backup.state
+NSString * const kGTLRCloudRedis_Backup_State_Active           = @"ACTIVE";
+NSString * const kGTLRCloudRedis_Backup_State_Creating         = @"CREATING";
+NSString * const kGTLRCloudRedis_Backup_State_Deleting         = @"DELETING";
+NSString * const kGTLRCloudRedis_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudRedis_BackupRun.status
 NSString * const kGTLRCloudRedis_BackupRun_Status_Failed       = @"FAILED";
@@ -212,6 +235,11 @@ NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_StateUnsp
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Suspended = @"SUSPENDED";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Unhealthy = @"UNHEALTHY";
 
+// GTLRCloudRedis_DatabaseResourceMetadata.edition
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionEnterprise = @"EDITION_ENTERPRISE";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionEnterprisePlus = @"EDITION_ENTERPRISE_PLUS";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
+
 // GTLRCloudRedis_DatabaseResourceMetadata.expectedState
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Deleted = @"DELETED";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Healthy = @"HEALTHY";
@@ -370,62 +398,6 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled = @"DIS
 NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_ServerAuthentication = @"SERVER_AUTHENTICATION";
 NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified = @"TRANSIT_ENCRYPTION_MODE_UNSPECIFIED";
 
-// GTLRCloudRedis_IsolationExpectations.ziOrgPolicy
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiOrgPolicy_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRCloudRedis_IsolationExpectations.ziRegionPolicy
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailClosed = @"ZI_REGION_POLICY_FAIL_CLOSED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyFailOpen = @"ZI_REGION_POLICY_FAIL_OPEN";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyNotSet = @"ZI_REGION_POLICY_NOT_SET";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnknown = @"ZI_REGION_POLICY_UNKNOWN";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionPolicy_ZiRegionPolicyUnspecified = @"ZI_REGION_POLICY_UNSPECIFIED";
-
-// GTLRCloudRedis_IsolationExpectations.ziRegionState
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionEnabled = @"ZI_REGION_ENABLED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionNotEnabled = @"ZI_REGION_NOT_ENABLED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionUnknown = @"ZI_REGION_UNKNOWN";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZiRegionState_ZiRegionUnspecified = @"ZI_REGION_UNSPECIFIED";
-
-// GTLRCloudRedis_IsolationExpectations.zoneIsolation
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneIsolation_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRCloudRedis_IsolationExpectations.zoneSeparation
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZoneSeparation_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRCloudRedis_IsolationExpectations.zsOrgPolicy
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZsOrgPolicy_ZsUnspecified = @"ZS_UNSPECIFIED";
-
-// GTLRCloudRedis_IsolationExpectations.zsRegionState
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionEnabled = @"ZS_REGION_ENABLED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionNotEnabled = @"ZS_REGION_NOT_ENABLED";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionUnknown = @"ZS_REGION_UNKNOWN";
-NSString * const kGTLRCloudRedis_IsolationExpectations_ZsRegionState_ZsRegionUnspecified = @"ZS_REGION_UNSPECIFIED";
-
-// GTLRCloudRedis_LocationAssignment.locationType
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_CloudRegion = @"CLOUD_REGION";
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_CloudZone = @"CLOUD_ZONE";
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Cluster = @"CLUSTER";
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Global = @"GLOBAL";
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_MultiRegionGeo = @"MULTI_REGION_GEO";
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_MultiRegionJurisdiction = @"MULTI_REGION_JURISDICTION";
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Other = @"OTHER";
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Pop = @"POP";
-NSString * const kGTLRCloudRedis_LocationAssignment_LocationType_Unspecified = @"UNSPECIFIED";
-
 // GTLRCloudRedis_ObservabilityMetricData.aggregationType
 NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_AggregationTypeUnspecified = @"AGGREGATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_ObservabilityMetricData_AggregationType_Current = @"CURRENT";
@@ -494,6 +466,23 @@ NSString * const kGTLRCloudRedis_Product_Type_ProductTypeOther = @"PRODUCT_TYPE_
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeSpanner = @"PRODUCT_TYPE_SPANNER";
 NSString * const kGTLRCloudRedis_Product_Type_ProductTypeUnspecified = @"PRODUCT_TYPE_UNSPECIFIED";
 
+// GTLRCloudRedis_PscConnection.connectionType
+NSString * const kGTLRCloudRedis_PscConnection_ConnectionType_ConnectionTypeDiscovery = @"CONNECTION_TYPE_DISCOVERY";
+NSString * const kGTLRCloudRedis_PscConnection_ConnectionType_ConnectionTypePrimary = @"CONNECTION_TYPE_PRIMARY";
+NSString * const kGTLRCloudRedis_PscConnection_ConnectionType_ConnectionTypeReader = @"CONNECTION_TYPE_READER";
+NSString * const kGTLRCloudRedis_PscConnection_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
+
+// GTLRCloudRedis_PscConnection.pscConnectionStatus
+NSString * const kGTLRCloudRedis_PscConnection_PscConnectionStatus_PscConnectionStatusActive = @"PSC_CONNECTION_STATUS_ACTIVE";
+NSString * const kGTLRCloudRedis_PscConnection_PscConnectionStatus_PscConnectionStatusNotFound = @"PSC_CONNECTION_STATUS_NOT_FOUND";
+NSString * const kGTLRCloudRedis_PscConnection_PscConnectionStatus_PscConnectionStatusUnspecified = @"PSC_CONNECTION_STATUS_UNSPECIFIED";
+
+// GTLRCloudRedis_PscServiceAttachment.connectionType
+NSString * const kGTLRCloudRedis_PscServiceAttachment_ConnectionType_ConnectionTypeDiscovery = @"CONNECTION_TYPE_DISCOVERY";
+NSString * const kGTLRCloudRedis_PscServiceAttachment_ConnectionType_ConnectionTypePrimary = @"CONNECTION_TYPE_PRIMARY";
+NSString * const kGTLRCloudRedis_PscServiceAttachment_ConnectionType_ConnectionTypeReader = @"CONNECTION_TYPE_READER";
+NSString * const kGTLRCloudRedis_PscServiceAttachment_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
+
 // GTLRCloudRedis_RDBConfig.rdbSnapshotPeriod
 NSString * const kGTLRCloudRedis_RDBConfig_RdbSnapshotPeriod_OneHour = @"ONE_HOUR";
 NSString * const kGTLRCloudRedis_RDBConfig_RdbSnapshotPeriod_SixHours = @"SIX_HOURS";
@@ -505,19 +494,6 @@ NSString * const kGTLRCloudRedis_RDBConfig_RdbSnapshotPeriod_TwentyFourHours = @
 NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
 NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
 NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
-
-// GTLRCloudRedis_RequirementOverride.ziOverride
-NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiNotRequired = @"ZI_NOT_REQUIRED";
-NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiPreferred = @"ZI_PREFERRED";
-NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiRequired = @"ZI_REQUIRED";
-NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiUnknown = @"ZI_UNKNOWN";
-NSString * const kGTLRCloudRedis_RequirementOverride_ZiOverride_ZiUnspecified = @"ZI_UNSPECIFIED";
-
-// GTLRCloudRedis_RequirementOverride.zsOverride
-NSString * const kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsNotRequired = @"ZS_NOT_REQUIRED";
-NSString * const kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsRequired = @"ZS_REQUIRED";
-NSString * const kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsUnknown = @"ZS_UNKNOWN";
-NSString * const kGTLRCloudRedis_RequirementOverride_ZsOverride_ZsUnspecified = @"ZS_UNSPECIFIED";
 
 // GTLRCloudRedis_RescheduleClusterMaintenanceRequest.rescheduleType
 NSString * const kGTLRCloudRedis_RescheduleClusterMaintenanceRequest_RescheduleType_Immediate = @"IMMEDIATE";
@@ -532,6 +508,7 @@ NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_Spe
 
 // GTLRCloudRedis_RetentionSettings.retentionUnit
 NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_Count = @"COUNT";
+NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_Duration = @"DURATION";
 NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_RetentionUnitOther = @"RETENTION_UNIT_OTHER";
 NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_RetentionUnitUnspecified = @"RETENTION_UNIT_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_Time = @"TIME";
@@ -563,21 +540,11 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_AssetLocation
+//   GTLRCloudRedis_AutomatedBackupConfig
 //
 
-@implementation GTLRCloudRedis_AssetLocation
-@dynamic ccfeRmsPath, expected, extraParameters, locationData, parentAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraParameters" : [GTLRCloudRedis_ExtraParameter class],
-    @"locationData" : [GTLRCloudRedis_LocationData class],
-    @"parentAsset" : [GTLRCloudRedis_CloudAsset class]
-  };
-  return map;
-}
-
+@implementation GTLRCloudRedis_AutomatedBackupConfig
+@dynamic automatedBackupMode, fixedFrequencySchedule, retention;
 @end
 
 
@@ -595,6 +562,46 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_Backup
+//
+
+@implementation GTLRCloudRedis_Backup
+@dynamic backupFiles, backupType, cluster, clusterUid, createTime,
+         engineVersion, expireTime, name, nodeType, replicaCount, shardCount,
+         state, totalSizeBytes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupFiles" : [GTLRCloudRedis_BackupFile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_BackupClusterRequest
+//
+
+@implementation GTLRCloudRedis_BackupClusterRequest
+@dynamic backupId, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_BackupCollection
+//
+
+@implementation GTLRCloudRedis_BackupCollection
+@dynamic cluster, clusterUid, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_BackupConfiguration
 //
 
@@ -606,29 +613,21 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_BackupRun
+//   GTLRCloudRedis_BackupFile
 //
 
-@implementation GTLRCloudRedis_BackupRun
-@dynamic endTime, error, startTime, status;
+@implementation GTLRCloudRedis_BackupFile
+@dynamic createTime, fileName, sizeBytes;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_BlobstoreLocation
+//   GTLRCloudRedis_BackupRun
 //
 
-@implementation GTLRCloudRedis_BlobstoreLocation
-@dynamic policyId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"policyId" : [NSString class]
-  };
-  return map;
-}
-
+@implementation GTLRCloudRedis_BackupRun
+@dynamic endTime, error, startTime, status;
 @end
 
 
@@ -662,50 +661,25 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_CloudAsset
-//
-
-@implementation GTLRCloudRedis_CloudAsset
-@dynamic assetName, assetType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_CloudAssetComposition
-//
-
-@implementation GTLRCloudRedis_CloudAssetComposition
-@dynamic childAsset;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"childAsset" : [GTLRCloudRedis_CloudAsset class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRedis_Cluster
 //
 
 @implementation GTLRCloudRedis_Cluster
-@dynamic authorizationMode, createTime, crossClusterReplicationConfig,
-         deletionProtectionEnabled, discoveryEndpoints, maintenancePolicy,
-         maintenanceSchedule, name, nodeType, persistenceConfig, preciseSizeGb,
-         pscConfigs, pscConnections, redisConfigs, replicaCount, shardCount,
-         sizeGb, state, stateInfo, transitEncryptionMode, uid,
-         zoneDistributionConfig;
+@dynamic authorizationMode, automatedBackupConfig, backupCollection,
+         clusterEndpoints, createTime, crossClusterReplicationConfig,
+         deletionProtectionEnabled, discoveryEndpoints, gcsSource,
+         maintenancePolicy, maintenanceSchedule, managedBackupSource, name,
+         nodeType, persistenceConfig, preciseSizeGb, pscConfigs, pscConnections,
+         pscServiceAttachments, redisConfigs, replicaCount, shardCount, sizeGb,
+         state, stateInfo, transitEncryptionMode, uid, zoneDistributionConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"clusterEndpoints" : [GTLRCloudRedis_ClusterEndpoint class],
     @"discoveryEndpoints" : [GTLRCloudRedis_DiscoveryEndpoint class],
     @"pscConfigs" : [GTLRCloudRedis_PscConfig class],
-    @"pscConnections" : [GTLRCloudRedis_PscConnection class]
+    @"pscConnections" : [GTLRCloudRedis_PscConnection class],
+    @"pscServiceAttachments" : [GTLRCloudRedis_PscServiceAttachment class]
   };
   return map;
 }
@@ -722,6 +696,24 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ClusterEndpoint
+//
+
+@implementation GTLRCloudRedis_ClusterEndpoint
+@dynamic connections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connections" : [GTLRCloudRedis_ConnectionDetail class]
+  };
+  return map;
 }
 
 @end
@@ -782,6 +774,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 @implementation GTLRCloudRedis_Compliance
 @dynamic standard, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ConnectionDetail
+//
+
+@implementation GTLRCloudRedis_ConnectionDetail
+@dynamic pscConnection;
 @end
 
 
@@ -888,10 +890,11 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 @implementation GTLRCloudRedis_DatabaseResourceMetadata
 @dynamic availabilityConfiguration, backupConfiguration, backupRun,
-         creationTime, currentState, customMetadata, entitlements,
+         creationTime, currentState, customMetadata, edition, entitlements,
          expectedState, identifier, instanceType, location,
-         machineConfiguration, primaryResourceId, product, resourceContainer,
-         resourceName, tagsSet, updationTime, userLabelSet;
+         machineConfiguration, primaryResourceId, primaryResourceLocation,
+         product, resourceContainer, resourceName, tagsSet, updationTime,
+         userLabelSet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -934,24 +937,6 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_DirectLocationAssignment
-//
-
-@implementation GTLRCloudRedis_DirectLocationAssignment
-@dynamic location;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"location" : [GTLRCloudRedis_LocationAssignment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRedis_DiscoveryEndpoint
 //
 
@@ -981,6 +966,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_ExportBackupRequest
+//
+
+@implementation GTLRCloudRedis_ExportBackupRequest
+@dynamic gcsBucket;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_ExportInstanceRequest
 //
 
@@ -991,21 +986,39 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_ExtraParameter
-//
-
-@implementation GTLRCloudRedis_ExtraParameter
-@dynamic regionalMigDistributionPolicy;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRedis_FailoverInstanceRequest
 //
 
 @implementation GTLRCloudRedis_FailoverInstanceRequest
 @dynamic dataProtectionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_FixedFrequencySchedule
+//
+
+@implementation GTLRCloudRedis_FixedFrequencySchedule
+@dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GcsBackupSource
+//
+
+@implementation GTLRCloudRedis_GcsBackupSource
+@dynamic uris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uris" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1172,12 +1185,47 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_IsolationExpectations
+//   GTLRCloudRedis_ListBackupCollectionsResponse
 //
 
-@implementation GTLRCloudRedis_IsolationExpectations
-@dynamic requirementOverride, ziOrgPolicy, ziRegionPolicy, ziRegionState,
-         zoneIsolation, zoneSeparation, zsOrgPolicy, zsRegionState;
+@implementation GTLRCloudRedis_ListBackupCollectionsResponse
+@dynamic backupCollections, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupCollections" : [GTLRCloudRedis_BackupCollection class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backupCollections";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ListBackupsResponse
+//
+
+@implementation GTLRCloudRedis_ListBackupsResponse
+@dynamic backups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backups" : [GTLRCloudRedis_Backup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backups";
+}
+
 @end
 
 
@@ -1311,32 +1359,11 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_LocationAssignment
-//
-
-@implementation GTLRCloudRedis_LocationAssignment
-@dynamic location, locationType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_LocationData
-//
-
-@implementation GTLRCloudRedis_LocationData
-@dynamic blobstoreLocation, childAssetLocation, directLocation, gcpProjectProxy,
-         placerLocation, spannerLocation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRedis_MachineConfiguration
 //
 
 @implementation GTLRCloudRedis_MachineConfiguration
-@dynamic cpuCount, memorySizeInBytes, shardCount;
+@dynamic cpuCount, memorySizeInBytes, shardCount, vcpuCount;
 @end
 
 
@@ -1369,6 +1396,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 @implementation GTLRCloudRedis_MaintenanceSchedule
 @dynamic canReschedule, endTime, scheduleDeadlineTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ManagedBackupSource
+//
+
+@implementation GTLRCloudRedis_ManagedBackupSource
+@dynamic backup;
 @end
 
 
@@ -1519,16 +1556,6 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_PlacerLocation
-//
-
-@implementation GTLRCloudRedis_PlacerLocation
-@dynamic placerConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRedis_Product
 //
 
@@ -1553,8 +1580,18 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_PscConnection
-@dynamic address, forwardingRule, network, projectId, pscConnectionId,
-         serviceAttachment;
+@dynamic address, connectionType, forwardingRule, network, projectId,
+         pscConnectionId, pscConnectionStatus, serviceAttachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_PscServiceAttachment
+//
+
+@implementation GTLRCloudRedis_PscServiceAttachment
+@dynamic connectionType, serviceAttachment;
 @end
 
 
@@ -1580,39 +1617,11 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRedis_RegionalMigDistributionPolicy
-//
-
-@implementation GTLRCloudRedis_RegionalMigDistributionPolicy
-@dynamic targetShape, zones;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"zones" : [GTLRCloudRedis_ZoneConfiguration class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRedis_RemoteCluster
 //
 
 @implementation GTLRCloudRedis_RemoteCluster
 @dynamic cluster, uid;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_RequirementOverride
-//
-
-@implementation GTLRCloudRedis_RequirementOverride
-@dynamic ziOverride, zsOverride;
 @end
 
 
@@ -1642,26 +1651,8 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_RetentionSettings
-@dynamic quantityBasedRetention, retentionUnit, timeBasedRetention;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_SpannerLocation
-//
-
-@implementation GTLRCloudRedis_SpannerLocation
-@dynamic backupName, dbName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"backupName" : [NSString class],
-    @"dbName" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic durationBasedRetention, quantityBasedRetention, retentionUnit,
+         timeBasedRetention, timestampBasedRetentionTime;
 @end
 
 
@@ -1726,24 +1717,6 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_TenantProjectProxy
-//
-
-@implementation GTLRCloudRedis_TenantProjectProxy
-@dynamic projectNumbers;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"projectNumbers" : [NSString class]
-  };
-  return map;
 }
 
 @end
@@ -1830,21 +1803,6 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 @implementation GTLRCloudRedis_WeeklyMaintenanceWindow
 @dynamic day, duration, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRedis_ZoneConfiguration
-//
-
-@implementation GTLRCloudRedis_ZoneConfiguration
-@dynamic zoneProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"zoneProperty" : @"zone" };
-}
-
 @end
 
 

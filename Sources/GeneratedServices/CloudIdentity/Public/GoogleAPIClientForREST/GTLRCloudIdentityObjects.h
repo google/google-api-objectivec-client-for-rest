@@ -1405,8 +1405,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @property(nonatomic, copy, nullable) NSString *chromeProfileId;
 
 /**
- *  Timestamp in milliseconds since Epoch when the profile/gcm id was last
- *  synced.
+ *  Timestamp in milliseconds since the Unix epoch when the profile/gcm id was
+ *  last synced.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastProfileSyncTime;
 
@@ -1416,7 +1416,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /**
  *  Browser-specific fields reported by the [Endpoint Verification
  *  extension](https://chromewebstore.google.com/detail/endpoint-verification/callobklhcbilhphinckomhgkigmfocg?pli=1).
- *  LINT.IfChange
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo : GTLRObject
 
@@ -1438,7 +1437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  */
 @property(nonatomic, copy, nullable) NSString *browserManagementState;
 
-/** Version of the request initiating browser. */
+/** Version of the request initiating browser. E.g. `91.0.4442.4`. */
 @property(nonatomic, copy, nullable) NSString *browserVersion;
 
 /**
@@ -2211,10 +2210,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes : GTLRObject
 
 /**
- *  Additional signals reported by Endpoint Verification. It includes the
- *  following attributes: 1. Non-configurable attributes: hotfixes,
- *  av_installed, av_enabled, windows_domain_name,
- *  is_os_native_firewall_enabled, and is_secure_boot_enabled. 2. [Configurable
+ *  [Additional
+ *  signals](https://cloud.google.com/endpoint-verification/docs/device-information)
+ *  reported by Endpoint Verification. It includes the following attributes: *
+ *  Non-configurable attributes: hotfixes, av_installed, av_enabled,
+ *  windows_domain_name, is_os_native_firewall_enabled, and
+ *  is_secure_boot_enabled. * [Configurable
  *  attributes](https://cloud.google.com/endpoint-verification/docs/collect-config-attributes):
  *  file, folder, and binary attributes; registry entries; and properties in a
  *  plist.
@@ -2231,10 +2232,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
- *  Additional signals reported by Endpoint Verification. It includes the
- *  following attributes: 1. Non-configurable attributes: hotfixes,
- *  av_installed, av_enabled, windows_domain_name,
- *  is_os_native_firewall_enabled, and is_secure_boot_enabled. 2. [Configurable
+ *  [Additional
+ *  signals](https://cloud.google.com/endpoint-verification/docs/device-information)
+ *  reported by Endpoint Verification. It includes the following attributes: *
+ *  Non-configurable attributes: hotfixes, av_installed, av_enabled,
+ *  windows_domain_name, is_os_native_firewall_enabled, and
+ *  is_secure_boot_enabled. * [Configurable
  *  attributes](https://cloud.google.com/endpoint-verification/docs/collect-config-attributes):
  *  file, folder, and binary attributes; registry entries; and properties in a
  *  plist.

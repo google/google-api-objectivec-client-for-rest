@@ -1128,6 +1128,87 @@
 
 @end
 
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsCreate
+
+@dynamic applicationId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/applications";
+  GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
+  query.loggingName = @"beyondcorp.projects.locations.global.securityGateways.applications.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
+  query.loggingName = @"beyondcorp.projects.locations.global.securityGateways.applications.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRBeyondCorpQuery_ProjectsLocationsGlobalSecurityGatewaysApplicationsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"beyondcorp.projects.locations.global.securityGateways.applications.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRBeyondCorpQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;
@@ -1226,6 +1307,301 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningListOperationsResponse class];
   query.loggingName = @"beyondcorp.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsDelete
+
+@dynamic name, requestId, validateOnly;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.applications.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.applications.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.applications.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/applications";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListApplicationsResponse class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.applications.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysApplicationsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.applications.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysCreate
+
+@dynamic parent, requestId, securityGatewayId;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/securityGateways";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysDelete
+
+@dynamic name, requestId, validateOnly;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/securityGateways";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ListSecurityGatewaysResponse class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleLongrunningOperation class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1Policy class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRBeyondCorpQuery_ProjectsLocationsSecurityGatewaysTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBeyondCorp_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"beyondcorp.projects.locations.securityGateways.testIamPermissions";
   return query;
 }
 

@@ -17,6 +17,8 @@
 
 @class GTLRArtifactRegistry_AptArtifact;
 @class GTLRArtifactRegistry_AptRepository;
+@class GTLRArtifactRegistry_Attachment;
+@class GTLRArtifactRegistry_Attachment_Annotations;
 @class GTLRArtifactRegistry_Binding;
 @class GTLRArtifactRegistry_CleanupPolicy;
 @class GTLRArtifactRegistry_CleanupPolicyCondition;
@@ -28,6 +30,7 @@
 @class GTLRArtifactRegistry_Expr;
 @class GTLRArtifactRegistry_GoogetArtifact;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File_Annotations;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryCustomRepository;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigDockerRepositoryCustomRepository;
@@ -36,6 +39,7 @@
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigPythonRepositoryCustomRepository;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryCustomRepository;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule;
 @class GTLRArtifactRegistry_Hash;
 @class GTLRArtifactRegistry_ImportAptArtifactsErrorInfo;
 @class GTLRArtifactRegistry_ImportAptArtifactsGcsSource;
@@ -70,8 +74,10 @@
 @class GTLRArtifactRegistry_UpstreamPolicy;
 @class GTLRArtifactRegistry_UsernamePasswordCredentials;
 @class GTLRArtifactRegistry_Version;
+@class GTLRArtifactRegistry_Version_Annotations;
 @class GTLRArtifactRegistry_Version_Metadata;
 @class GTLRArtifactRegistry_VirtualRepositoryConfig;
+@class GTLRArtifactRegistry_VulnerabilityScanningConfig;
 @class GTLRArtifactRegistry_YumArtifact;
 @class GTLRArtifactRegistry_YumRepository;
 
@@ -246,6 +252,44 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactr
  *  Value: "ROCKY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Rocky;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.action
+
+/**
+ *  Action not specified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_ActionUnspecified;
+/**
+ *  Allow the operation.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Allow;
+/**
+ *  Deny the operation.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.operation
+
+/**
+ *  Download operation.
+ *
+ *  Value: "DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_Download;
+/**
+ *  Operation not specified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_OperationUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_Hash.type
@@ -517,6 +561,56 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_VpcscPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_VulnerabilityScanningConfig.enablementConfig
+
+/**
+ *  No automatic vulnerability scanning will be performed for this repository.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Disabled;
+/**
+ *  Not set. This will be treated as INHERITED.
+ *
+ *  Value: "ENABLEMENT_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_EnablementConfigUnspecified;
+/**
+ *  Scanning is Enabled, but dependent on API enablement.
+ *
+ *  Value: "INHERITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Inherited;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_VulnerabilityScanningConfig.enablementState
+
+/**
+ *  Enablement state is unclear.
+ *
+ *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_EnablementStateUnspecified;
+/**
+ *  Vulnerability scanning is active for this repository.
+ *
+ *  Value: "SCANNING_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningActive;
+/**
+ *  Vulnerability scanning is disabled for this repository.
+ *
+ *  Value: "SCANNING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningDisabled;
+/**
+ *  Repository does not support vulnerability scanning.
+ *
+ *  Value: "SCANNING_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningUnsupported;
+
+// ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_YumArtifact.packageType
 
 /**
@@ -595,6 +689,80 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository *publicRepository;
 
+@end
+
+
+/**
+ *  An Attachment refers to additional metadata that can be attached to
+ *  artifacts in Artifact Registry. An attachment consists of one or more files.
+ */
+@interface GTLRArtifactRegistry_Attachment : GTLRObject
+
+/**
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Artifact Registry. See
+ *  https://google.aip.dev/128#annotations for more details such as format and
+ *  size limitations.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Attachment_Annotations *annotations;
+
+/**
+ *  The namespace this attachment belongs to. E.g. If an attachment is created
+ *  by artifact analysis, namespace is set to `artifactanalysis.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *attachmentNamespace;
+
+/** Output only. The time when the attachment was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The files that belong to this attachment. If the file ID part
+ *  contains slashes, they are escaped. E.g.
+ *  `projects/p1/locations/us-central1/repositories/repo1/files/sha:`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *files;
+
+/**
+ *  The name of the attachment. E.g.
+ *  `projects/p1/locations/us/repositories/repo/attachments/sbom`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The name of the OCI version that this attachment created. Only
+ *  populated for Docker attachments. E.g.
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/p1/versions/v1`.
+ */
+@property(nonatomic, copy, nullable) NSString *ociVersionName;
+
+/**
+ *  Required. The target the attachment is for, can be a Version, Package or
+ *  Repository. E.g.
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/p1/versions/v1`.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Type of attachment. E.g. `application/vnd.spdx+json` */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. The time when the attachment was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Artifact Registry. See
+ *  https://google.aip.dev/128#annotations for more details such as format and
+ *  size limitations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Attachment_Annotations : GTLRObject
 @end
 
 
@@ -817,7 +985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_CommonRemoteRepository : GTLRObject
 
-/** Required. A common public repository base for Remote Repository. */
+/** Required. A common public repository base for remote repository. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -1061,6 +1229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File : GTLRObject
 
+/** Optional. Client specified annotations. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File_Annotations *annotations;
+
 /** Output only. The time when the File was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1093,6 +1264,18 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /** Output only. The time when the File was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Client specified annotations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File_Annotations : GTLRObject
 @end
 
 
@@ -1236,6 +1419,58 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** A custom field to define a path to a specific repository from the base. */
 @property(nonatomic, copy, nullable) NSString *repositoryPath;
+
+@end
+
+
+/**
+ *  A rule defines the deny or allow action of the operation it applies to and
+ *  the conditions required for the rule to apply. You can set one rule for an
+ *  entire repository and one rule for each package within.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule : GTLRObject
+
+/**
+ *  The action this rule takes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_ActionUnspecified
+ *        Action not specified. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Allow
+ *        Allow the operation. (Value: "ALLOW")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Deny
+ *        Deny the operation. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Optional. A CEL expression for conditions that must be met in order for the
+ *  rule to apply. If not provided, the rule matches all objects.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Expr *condition;
+
+/**
+ *  The name of the rule, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/rules/rule1`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  operation
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_Download
+ *        Download operation. (Value: "DOWNLOAD")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_OperationUnspecified
+ *        Operation not specified. (Value: "OPERATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  The package ID the rule applies to. If empty, this rule applies to all
+ *  packages inside the repository.
+ */
+@property(nonatomic, copy, nullable) NSString *packageId;
 
 @end
 
@@ -1483,6 +1718,33 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  The response from listing attachments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "attachments" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRArtifactRegistry_ListAttachmentsResponse : GTLRCollectionObject
+
+/**
+ *  The attachments returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Attachment *> *attachments;
+
+/**
+ *  The token to retrieve the next page of attachments, or empty if there are no
+ *  more attachments to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response from listing docker images.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1691,6 +1953,33 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Repository *> *repositories;
+
+@end
+
+
+/**
+ *  The response from listing rules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rules" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRArtifactRegistry_ListRulesResponse : GTLRCollectionObject
+
+/**
+ *  The token to retrieve the next page of rules, or empty if there are no more
+ *  rules to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The rules returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule *> *rules;
 
 @end
 
@@ -2226,13 +2515,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  The metadata for promote artifact long running operation.
- */
-@interface GTLRArtifactRegistry_PromoteArtifactMetadata : GTLRObject
-@end
-
-
-/**
  *  PythonPackage represents a python artifact.
  */
 @interface GTLRArtifactRegistry_PythonPackage : GTLRObject
@@ -2301,9 +2583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_AptRepository *aptRepository;
 
 /**
- *  Common remote repository settings. Used as the RR upstream URL instead of
- *  Predefined and Custom remote repositories. UI and Gcloud will map all the
- *  new remote repositories to this field.
+ *  Common remote repository settings. Used as the remote repository upstream
+ *  URL.
  */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_CommonRemoteRepository *commonRepository;
 
@@ -2500,6 +2781,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /** Configuration specific for a Virtual Repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_VirtualRepositoryConfig *virtualRepositoryConfig;
 
+/**
+ *  Optional. Config and state for vulnerability scanning of resources within
+ *  this Repository.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_VulnerabilityScanningConfig *vulnerabilityScanningConfig;
+
 @end
 
 
@@ -2610,7 +2897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the version the tag refers to, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/sha256:5243811"
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/sha256:5243811`
  *  If the package or version ID parts contain slashes, the slashes are escaped.
  */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -2679,6 +2966,31 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** The Apt artifacts updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_AptArtifact *> *aptArtifacts;
+
+@end
+
+
+/**
+ *  The response to upload a generic artifact.
+ */
+@interface GTLRArtifactRegistry_UploadFileMediaResponse : GTLRObject
+
+/** Operation that will be returned to the user. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Operation *operation;
+
+@end
+
+
+/**
+ *  The request to upload a file.
+ */
+@interface GTLRArtifactRegistry_UploadFileRequest : GTLRObject
+
+/**
+ *  Optional. The ID of the file. If left empty will default to sha256 digest of
+ *  the content uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *fileId;
 
 @end
 
@@ -2935,6 +3247,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_Version : GTLRObject
 
+/** Optional. Client specified annotations. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Version_Annotations *annotations;
+
 /** The time when the version was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2954,7 +3269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the version, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1".
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1`.
  *  If the package or version ID parts contain slashes, the slashes are escaped.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2968,6 +3283,18 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /** The time when the version was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Client specified annotations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Version_Annotations : GTLRObject
 @end
 
 
@@ -3028,6 +3355,57 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        (VPCSC_DENY). (Value: "VPCSC_POLICY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *vpcscPolicy;
+
+@end
+
+
+/**
+ *  Config on whether to perform vulnerability scanning for resources in this
+ *  repository, as well as output fields describing current state.
+ */
+@interface GTLRArtifactRegistry_VulnerabilityScanningConfig : GTLRObject
+
+/**
+ *  Optional. Config for whether this repository has vulnerability scanning
+ *  disabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Disabled
+ *        No automatic vulnerability scanning will be performed for this
+ *        repository. (Value: "DISABLED")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_EnablementConfigUnspecified
+ *        Not set. This will be treated as INHERITED. (Value:
+ *        "ENABLEMENT_CONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Inherited
+ *        Scanning is Enabled, but dependent on API enablement. (Value:
+ *        "INHERITED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementConfig;
+
+/**
+ *  Output only. State of feature enablement, combining repository enablement
+ *  config and API enablement state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_EnablementStateUnspecified
+ *        Enablement state is unclear. (Value: "ENABLEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningActive
+ *        Vulnerability scanning is active for this repository. (Value:
+ *        "SCANNING_ACTIVE")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningDisabled
+ *        Vulnerability scanning is disabled for this repository. (Value:
+ *        "SCANNING_DISABLED")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningUnsupported
+ *        Repository does not support vulnerability scanning. (Value:
+ *        "SCANNING_UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementState;
+
+/** Output only. Reason for the repository state. */
+@property(nonatomic, copy, nullable) NSString *enablementStateReason;
+
+/** Output only. The last time this repository config was enabled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastEnableTime;
 
 @end
 

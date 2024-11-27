@@ -24,6 +24,7 @@
 @class GTLRDatabaseMigrationService_AuditLogConfig;
 @class GTLRDatabaseMigrationService_AuthorizedNetwork;
 @class GTLRDatabaseMigrationService_BackgroundJobLogEntry;
+@class GTLRDatabaseMigrationService_BinaryLogParser;
 @class GTLRDatabaseMigrationService_Binding;
 @class GTLRDatabaseMigrationService_CloudSqlConnectionProfile;
 @class GTLRDatabaseMigrationService_CloudSqlSettings;
@@ -71,6 +72,8 @@
 @class GTLRDatabaseMigrationService_Location;
 @class GTLRDatabaseMigrationService_Location_Labels;
 @class GTLRDatabaseMigrationService_Location_Metadata;
+@class GTLRDatabaseMigrationService_LogFileDirectories;
+@class GTLRDatabaseMigrationService_LogMiner;
 @class GTLRDatabaseMigrationService_MachineConfig;
 @class GTLRDatabaseMigrationService_MappingRule;
 @class GTLRDatabaseMigrationService_MappingRuleFilter;
@@ -86,12 +89,16 @@
 @class GTLRDatabaseMigrationService_Operation_Metadata;
 @class GTLRDatabaseMigrationService_Operation_Response;
 @class GTLRDatabaseMigrationService_OracleAsmConfig;
+@class GTLRDatabaseMigrationService_OracleAsmLogFileAccess;
 @class GTLRDatabaseMigrationService_OracleConnectionProfile;
+@class GTLRDatabaseMigrationService_OracleSourceConfig;
+@class GTLRDatabaseMigrationService_OracleToPostgresConfig;
 @class GTLRDatabaseMigrationService_PackageEntity;
 @class GTLRDatabaseMigrationService_PackageEntity_CustomFeatures;
 @class GTLRDatabaseMigrationService_PerformanceConfig;
 @class GTLRDatabaseMigrationService_Policy;
 @class GTLRDatabaseMigrationService_Position;
+@class GTLRDatabaseMigrationService_PostgresDestinationConfig;
 @class GTLRDatabaseMigrationService_PostgreSqlConnectionProfile;
 @class GTLRDatabaseMigrationService_PrimaryInstanceSettings;
 @class GTLRDatabaseMigrationService_PrimaryInstanceSettings_DatabaseFlags;
@@ -547,6 +554,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfi
  *  Value: "RDS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Rds;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_ConnectionProfile.role
+
+/**
+ *  The role is destination.
+ *
+ *  Value: "DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Role_Destination;
+/**
+ *  The role is unspecified.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Role_RoleUnspecified;
+/**
+ *  The role is source.
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Role_Source;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_ConnectionProfile.state
@@ -2065,6 +2094,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceNumericFi
 // GTLRDatabaseMigrationService_SslConfig.type
 
 /**
+ *  Connection is not encrypted.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_None;
+/**
+ *  Mandates SSL encryption for all connections. This doesn’t require
+ *  certificate verification.
+ *
+ *  Value: "REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_Required;
+/**
  *  Both server ('ca_certificate'), and client ('client_key',
  *  'client_certificate') specified.
  *
@@ -2524,6 +2566,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** The timestamp when the background job was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Configuration to use Binary Log Parser CDC technique.
+ */
+@interface GTLRDatabaseMigrationService_BinaryLogParser : GTLRObject
+
+/** Use Oracle directories. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_LogFileDirectories *logFileDirectories;
+
+/** Use Oracle ASM. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_OracleAsmLogFileAccess *oracleAsmLogFileAccess;
 
 @end
 
@@ -3160,6 +3216,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        Amazon RDS is the source instance provider. (Value: "RDS")
  */
 @property(nonatomic, copy, nullable) NSString *provider;
+
+/**
+ *  Optional. The connection profile role.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Role_Destination
+ *        The role is destination. (Value: "DESTINATION")
+ *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Role_RoleUnspecified
+ *        The role is unspecified. (Value: "ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Role_Source The
+ *        role is source. (Value: "SOURCE")
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 /** Connection profile for a SQL Server data source. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerConnectionProfile *sqlserver;
@@ -4759,6 +4828,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Configuration to specify the Oracle directories to access the log files.
+ */
+@interface GTLRDatabaseMigrationService_LogFileDirectories : GTLRObject
+
+/** Required. Oracle directory for archived logs. */
+@property(nonatomic, copy, nullable) NSString *archivedLogDirectory;
+
+/** Required. Oracle directory for online logs. */
+@property(nonatomic, copy, nullable) NSString *onlineLogDirectory;
+
+@end
+
+
+/**
+ *  Configuration to use LogMiner CDC method.
+ */
+@interface GTLRDatabaseMigrationService_LogMiner : GTLRObject
+@end
+
+
+/**
  *  MachineConfig describes the configuration of a machine.
  */
 @interface GTLRDatabaseMigrationService_MachineConfig : GTLRObject
@@ -5092,6 +5182,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  projects/{project}/locations/{location}/migrationJobs/{migrationJob}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Configuration for heterogeneous **Oracle to Cloud SQL for PostgreSQL** and
+ *  **Oracle to AlloyDB for PostgreSQL** migrations.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_OracleToPostgresConfig *oracleToPostgresConfig;
 
 /** Optional. Data dump parallelism settings used by the migration. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PerformanceConfig *performanceConfig;
@@ -5629,6 +5725,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Configuration to use Oracle ASM to access the log files.
+ */
+@interface GTLRDatabaseMigrationService_OracleAsmLogFileAccess : GTLRObject
+@end
+
+
+/**
  *  Specifies connection parameters required specifically for Oracle databases.
  */
 @interface GTLRDatabaseMigrationService_OracleConnectionProfile : GTLRObject
@@ -5686,6 +5789,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Service.
  */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Configuration for Oracle as a source in a migration.
+ */
+@interface GTLRDatabaseMigrationService_OracleSourceConfig : GTLRObject
+
+/** Use Binary Log Parser. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_BinaryLogParser *binaryLogParser;
+
+/**
+ *  Optional. The schema change number (SCN) to start CDC data migration from.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cdcStartPosition;
+
+/** Use LogMiner. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_LogMiner *logMiner;
+
+/**
+ *  Optional. Maximum number of connections Database Migration Service will open
+ *  to the source for CDC phase.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcConnections;
+
+/**
+ *  Optional. Maximum number of connections Database Migration Service will open
+ *  to the source for full dump phase.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentFullDumpConnections;
+
+/**
+ *  Optional. Whether to skip full dump or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipFullDump;
+
+@end
+
+
+/**
+ *  Configuration for heterogeneous **Oracle to Cloud SQL for PostgreSQL** and
+ *  **Oracle to AlloyDB for PostgreSQL** migrations.
+ */
+@interface GTLRDatabaseMigrationService_OracleToPostgresConfig : GTLRObject
+
+/** Optional. Configuration for Oracle source. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_OracleSourceConfig *oracleSourceConfig;
+
+/** Optional. Configuration for Postgres destination. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PostgresDestinationConfig *postgresDestinationConfig;
 
 @end
 
@@ -5874,6 +6036,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Configuration for Postgres as a destination in a migration.
+ */
+@interface GTLRDatabaseMigrationService_PostgresDestinationConfig : GTLRObject
+
+/**
+ *  Optional. Maximum number of connections Database Migration Service will open
+ *  to the destination for data migration.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentConnections;
+
+/** Optional. Timeout for data migration transactions. */
+@property(nonatomic, strong, nullable) GTLRDuration *transactionTimeout;
+
+@end
+
+
+/**
  *  Specifies connection parameters required specifically for PostgreSQL
  *  databases.
  */
@@ -5890,6 +6071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  SQL instance ID of the source.
  */
 @property(nonatomic, copy, nullable) NSString *cloudSqlId;
+
+/** Optional. The name of the specific database within the host. */
+@property(nonatomic, copy, nullable) NSString *database;
 
 /** Required. The IP or hostname of the source PostgreSQL database. */
 @property(nonatomic, copy, nullable) NSString *host;
@@ -6943,10 +7127,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
 /**
- *  Output only. The ssl config type according to 'client_key',
+ *  Optional. The ssl config type according to 'client_key',
  *  'client_certificate' and 'ca_certificate'.
  *
  *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_SslConfig_Type_None Connection is
+ *        not encrypted. (Value: "NONE")
+ *    @arg @c kGTLRDatabaseMigrationService_SslConfig_Type_Required Mandates SSL
+ *        encryption for all connections. This doesn’t require certificate
+ *        verification. (Value: "REQUIRED")
  *    @arg @c kGTLRDatabaseMigrationService_SslConfig_Type_ServerClient Both
  *        server ('ca_certificate'), and client ('client_key',
  *        'client_certificate') specified. (Value: "SERVER_CLIENT")

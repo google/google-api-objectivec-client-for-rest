@@ -215,6 +215,32 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
 
 
 /**
+ *  Spark tier-eligible Cloud Storage bucket. One per project. This resource
+ *  exists if the underlying Cloud Storage bucket exists and it is linked to
+ *  your Firebase project. See https://firebase.google.com/pricing for pricing
+ *  details.
+ */
+@interface GTLRFirebasestorage_DefaultBucket : GTLRObject
+
+/** Output only. Underlying bucket resource. */
+@property(nonatomic, strong, nullable) GTLRFirebasestorage_Bucket *bucket;
+
+/** Immutable. Location of the default bucket. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Resource name of the default bucket. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. Storage class of the default bucket. Supported values are
+ *  available at https://cloud.google.com/storage/docs/storage-classes#classes.
+ */
+@property(nonatomic, copy, nullable) NSString *storageClass;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc

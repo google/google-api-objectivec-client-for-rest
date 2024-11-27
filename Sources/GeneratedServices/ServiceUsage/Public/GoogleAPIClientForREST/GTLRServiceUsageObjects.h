@@ -58,7 +58,13 @@
 @class GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig;
 @class GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy_Annotations;
 @class GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaImpact;
 @class GTLRServiceUsage_GoSettings;
+@class GTLRServiceUsage_GoSettings_RenamedServices;
 @class GTLRServiceUsage_Http;
 @class GTLRServiceUsage_HttpRule;
 @class GTLRServiceUsage_Impact;
@@ -580,6 +586,46 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Serv
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis.analysisType
+
+/**
+ *  The analysis of service dependencies.
+ *
+ *  Value: "ANALYSIS_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeDependency;
+/**
+ *  The analysis of service resource usage.
+ *
+ *  Value: "ANALYSIS_TYPE_RESOURCE_USAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeResourceUsage;
+/**
+ *  Unspecified analysis type. Do not use.
+ *
+ *  Value: "ANALYSIS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_GoogleApiServiceusageV2betaImpact.impactType
+
+/**
+ *  Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY
+ *
+ *  Value: "DEPENDENCY_MISSING_DEPENDENCIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_DependencyMissingDependencies;
+/**
+ *  Reserved Blocks (Block n contains codes from 100n to 100(n+1) -1 Block 0 -
+ *  Special/Admin codes Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY Block
+ *  2 - Impact Type of ANALYSIS_TYPE_RESOURCE_USAGE ...
+ *
+ *  Value: "IMPACT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_ImpactTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Impact.impactType
@@ -2503,6 +2549,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_ExperimentalFeatures : GTLRObject
 
 /**
+ *  Enables generation of protobuf code using new types that are more Pythonic
+ *  which are included in `protobuf>=5.29.x`. This feature will be enabled by
+ *  default 1 month after launching the feature in preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protobufPythonicTypesEnabled;
+
+/**
  *  Enables generation of asynchronous REST clients if `rest` transport is
  *  enabled. By default, asynchronous REST clients will not be generated. This
  *  feature will be enabled by default 1 month after launching the feature in
@@ -3101,6 +3156,195 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  A message to group the analysis information.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis : GTLRObject
+
+/** Output only. Analysis result of updating a policy. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult *analysis;
+
+/**
+ *  Output only. The type of analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeDependency
+ *        The analysis of service dependencies. (Value:
+ *        "ANALYSIS_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeResourceUsage
+ *        The analysis of service resource usage. (Value:
+ *        "ANALYSIS_TYPE_RESOURCE_USAGE")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeUnspecified
+ *        Unspecified analysis type. Do not use. (Value:
+ *        "ANALYSIS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *analysisType;
+
+/**
+ *  Output only. The user friendly display name of the analysis type. E.g.
+ *  service dependency analysis, service resource usage analysis, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The names of the service that has analysis result of warnings or blockers.
+ *  Example: `services/storage.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  An analysis result including blockers and warnings.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult : GTLRObject
+
+/** Blocking information that would prevent the policy changes at runtime. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaImpact *> *blockers;
+
+/**
+ *  Warning information indicating that the policy changes might be unsafe, but
+ *  will not block the changes at runtime.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaImpact *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata for the `AnalyzeConsumerPolicy` method.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response of analyzing a consumer policy update.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyResponse : GTLRObject
+
+/**
+ *  The list of analyses returned from performing the intended policy update
+ *  analysis. The analysis is grouped by service name and different analysis
+ *  types. The empty analysis list means that the consumer policy can be updated
+ *  without any warnings or blockers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis *> *analysis;
+
+@end
+
+
+/**
+ *  Consumer Policy is a set of rules that define what services or service
+ *  groups can be used for a cloud resource hierarchy.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy : GTLRObject
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a policy
+ *  that may be set by external tools to store and retrieve arbitrary metadata.
+ *  They are not queryable and should be preserved when modifying objects.
+ *  [AIP-128](https://google.aip.dev/128#annotations)
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations *annotations;
+
+/**
+ *  Output only. The time the policy was created. For singleton policies, this
+ *  is the first touch of the policy.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Enable rules define usable services, groups, and categories. There can
+ *  currently be at most one `EnableRule`. This restriction will be lifted in
+ *  later releases.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule *> *enableRules;
+
+/**
+ *  Output only. An opaque tag indicating the current version of the policy,
+ *  used for concurrency control.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name of the policy. Only the `default` policy is
+ *  supported: `projects/12345/consumerPolicies/default`,
+ *  `folders/12345/consumerPolicies/default`,
+ *  `organizations/12345/consumerPolicies/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time the policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a policy
+ *  that may be set by external tools to store and retrieve arbitrary metadata.
+ *  They are not queryable and should be preserved when modifying objects.
+ *  [AIP-128](https://google.aip.dev/128#annotations)
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations : GTLRObject
+@end
+
+
+/**
+ *  The consumer policy rule that defines enabled services, groups, and
+ *  categories.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule : GTLRObject
+
+/**
+ *  The names of the services that are enabled. Example:
+ *  `services/storage.googleapis.com`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
+
+@end
+
+
+/**
+ *  A message to group impacts of updating a policy.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaImpact : GTLRObject
+
+/** Output only. User friendly impact detail in a free form message. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Output only. The type of impact.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_DependencyMissingDependencies
+ *        Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY (Value:
+ *        "DEPENDENCY_MISSING_DEPENDENCIES")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_ImpactTypeUnspecified
+ *        Reserved Blocks (Block n contains codes from 100n to 100(n+1) -1 Block
+ *        0 - Special/Admin codes Block 1 - Impact Type of
+ *        ANALYSIS_TYPE_DEPENDENCY Block 2 - Impact Type of
+ *        ANALYSIS_TYPE_RESOURCE_USAGE ... (Value: "IMPACT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *impactType;
+
+@end
+
+
+/**
+ *  Metadata for the `UpdateConsumerPolicy` method.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
  *  Settings for Go client libraries.
  */
 @interface GTLRServiceUsage_GoSettings : GTLRObject
@@ -3108,6 +3352,29 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_CommonLanguageSettings *common;
 
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceUsage_GoSettings_RenamedServices : GTLRObject
 @end
 
 
@@ -4149,7 +4416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inherting
+ *  processor will see the effective `Storage.GetAcl` method after inheriting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -4791,11 +5058,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specify the unit of the quota limit. It uses the same syntax as Metric.unit.
- *  The supported unit kinds are determined by the quota backend system. Here
- *  are some examples: * "1/min/{project}" for quota per minute per project.
- *  Note: the order of unit components is insignificant. The "1" at the
- *  beginning is required to follow the metric unit syntax.
+ *  Specify the unit of the quota limit. It uses the same syntax as
+ *  MetricDescriptor.unit. The supported unit kinds are determined by the quota
+ *  backend system. Here are some examples: * "1/min/{project}" for quota per
+ *  minute per project. Note: the order of unit components is insignificant. The
+ *  "1" at the beginning is required to follow the metric unit syntax.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 

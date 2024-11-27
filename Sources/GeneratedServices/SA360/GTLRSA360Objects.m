@@ -1853,9 +1853,12 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
          conversionsValueByConversionDate, conversionsValuePerCost, costMicros,
          costPerAllConversions, costPerConversion,
          costPerCurrentModelAttributedConversion, crossDeviceConversions,
-         crossDeviceConversionsValue, crossSellCostOfGoodsSoldMicros,
-         crossSellGrossProfitMicros, crossSellRevenueMicros, crossSellUnitsSold,
-         ctr, historicalCreativeQualityScore, historicalLandingPageQualityScore,
+         crossDeviceConversionsByConversionDate, crossDeviceConversionsValue,
+         crossDeviceConversionsValueByConversionDate,
+         crossSellCostOfGoodsSoldMicros, crossSellGrossProfitMicros,
+         crossSellRevenueMicros, crossSellUnitsSold, ctr,
+         generalInvalidClickRate, generalInvalidClicks,
+         historicalCreativeQualityScore, historicalLandingPageQualityScore,
          historicalQualityScore, historicalSearchPredictedCtr, impressions,
          interactionEventTypes, interactionRate, interactions, invalidClickRate,
          invalidClicks, leadCostOfGoodsSoldMicros, leadGrossProfitMicros,
@@ -2477,9 +2480,10 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroup
-@dynamic adRotationMode, cpcBidMicros, creationTime, endDate, engineId,
-         engineStatus, identifier, labels, languageCode, lastModifiedTime, name,
-         resourceName, startDate, status, targetingSetting, type;
+@dynamic adRotationMode, cpcBidMicros, creationTime, effectiveLabels, endDate,
+         engineId, engineStatus, identifier, labels, languageCode,
+         lastModifiedTime, name, resourceName, startDate, status,
+         targetingSetting, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2487,6 +2491,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"effectiveLabels" : [NSString class],
     @"labels" : [NSString class]
   };
   return map;
@@ -2501,16 +2506,27 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAd
-@dynamic ad, creationTime, engineId, engineStatus, labels, lastModifiedTime,
-         resourceName, status;
+@dynamic ad, creationTime, effectiveLabels, engineId, engineStatus, labels,
+         lastModifiedTime, resourceName, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"effectiveLabels" : [NSString class],
     @"labels" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdEffectiveLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupAdEffectiveLabel
+@dynamic adGroupAd, label, ownerCustomerId, resourceName;
 @end
 
 
@@ -2571,19 +2587,31 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterion
 @dynamic adGroup, ageRange, bidModifier, cpcBidMicros, creationTime,
-         criterionId, effectiveCpcBidMicros, engineId, engineStatus, finalUrls,
-         finalUrlSuffix, gender, keyword, labels, lastModifiedTime,
-         listingGroup, location, negative, positionEstimates, qualityInfo,
-         resourceName, status, trackingUrlTemplate, type, userList, webpage;
+         criterionId, effectiveCpcBidMicros, effectiveLabels, engineId,
+         engineStatus, finalUrls, finalUrlSuffix, gender, keyword, labels,
+         lastModifiedTime, listingGroup, location, negative, positionEstimates,
+         qualityInfo, resourceName, status, trackingUrlTemplate, type, userList,
+         webpage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"effectiveLabels" : [NSString class],
     @"finalUrls" : [NSString class],
     @"labels" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionEffectiveLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionEffectiveLabel
+@dynamic adGroupCriterion, label, ownerCustomerId, resourceName;
 @end
 
 
@@ -2614,6 +2642,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupCriterionQualityInfo
 @dynamic qualityScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupEffectiveLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesAdGroupEffectiveLabel
+@dynamic adGroup, label, ownerCustomerId, resourceName;
 @end
 
 
@@ -2830,16 +2868,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 @dynamic accessibleBiddingStrategy, adServingOptimizationStatus,
          advertisingChannelSubType, advertisingChannelType, biddingStrategy,
          biddingStrategySystemStatus, biddingStrategyType, campaignBudget,
-         createTime, creationTime, dynamicSearchAdsSetting, endDate, engineId,
-         excludedParentAssetFieldTypes, finalUrlSuffix, frequencyCaps,
-         geoTargetTypeSetting, identifier, labels, lastModifiedTime, manualCpa,
-         manualCpc, manualCpm, maximizeConversions, maximizeConversionValue,
-         name, networkSettings, optimizationGoalSetting, percentCpc,
-         realTimeBiddingSetting, resourceName, selectiveOptimization,
-         servingStatus, shoppingSetting, startDate, status, targetCpa,
-         targetCpm, targetImpressionShare, targetRoas, targetSpend,
-         trackingSetting, trackingUrlTemplate, urlCustomParameters,
-         urlExpansionOptOut;
+         createTime, creationTime, dynamicSearchAdsSetting, effectiveLabels,
+         endDate, engineId, excludedParentAssetFieldTypes, finalUrlSuffix,
+         frequencyCaps, geoTargetTypeSetting, identifier, labels,
+         lastModifiedTime, manualCpa, manualCpc, manualCpm, maximizeConversions,
+         maximizeConversionValue, name, networkSettings,
+         optimizationGoalSetting, percentCpc, realTimeBiddingSetting,
+         resourceName, selectiveOptimization, servingStatus, shoppingSetting,
+         startDate, status, targetCpa, targetCpm, targetImpressionShare,
+         targetRoas, targetSpend, trackingSetting, trackingUrlTemplate,
+         urlCustomParameters, urlExpansionOptOut;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2847,6 +2885,7 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"effectiveLabels" : [NSString class],
     @"excludedParentAssetFieldTypes" : [NSString class],
     @"frequencyCaps" : [GTLRSA360_GoogleAdsSearchads360V0CommonFrequencyCapEntry class],
     @"labels" : [NSString class],
@@ -2917,6 +2956,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignDynamicSearchAdsSetting
 @dynamic domainName, languageCode, useSuppliedUrlsOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignEffectiveLabel
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignEffectiveLabel
+@dynamic campaign, label, ownerCustomerId, resourceName;
 @end
 
 
@@ -3512,6 +3561,16 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSA360_GoogleAdsSearchads360V0ResourcesUserLocationView
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V0ResourcesUserLocationView
+@dynamic countryCriterionId, resourceName, targetingLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSA360_GoogleAdsSearchads360V0ResourcesVisit
 //
 
@@ -3654,20 +3713,23 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSearchSearchAds360Req
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V0ServicesSearchAds360Row
-@dynamic accessibleBiddingStrategy, adGroup, adGroupAd, adGroupAdLabel,
-         adGroupAsset, adGroupAssetSet, adGroupAudienceView, adGroupBidModifier,
-         adGroupCriterion, adGroupCriterionLabel, adGroupLabel, ageRangeView,
-         asset, assetGroup, assetGroupAsset, assetGroupListingGroupFilter,
-         assetGroupSignal, assetGroupTopCombinationView, assetSet,
-         assetSetAsset, audience, biddingStrategy, campaign, campaignAsset,
-         campaignAssetSet, campaignAudienceView, campaignBudget,
-         campaignCriterion, campaignLabel, cartDataSalesView, conversion,
+@dynamic accessibleBiddingStrategy, adGroup, adGroupAd, adGroupAdEffectiveLabel,
+         adGroupAdLabel, adGroupAsset, adGroupAssetSet, adGroupAudienceView,
+         adGroupBidModifier, adGroupCriterion, adGroupCriterionEffectiveLabel,
+         adGroupCriterionLabel, adGroupEffectiveLabel, adGroupLabel,
+         ageRangeView, asset, assetGroup, assetGroupAsset,
+         assetGroupListingGroupFilter, assetGroupSignal,
+         assetGroupTopCombinationView, assetSet, assetSetAsset, audience,
+         biddingStrategy, campaign, campaignAsset, campaignAssetSet,
+         campaignAudienceView, campaignBudget, campaignCriterion,
+         campaignEffectiveLabel, campaignLabel, cartDataSalesView, conversion,
          conversionAction, conversionCustomVariable, customColumns, customer,
          customerAsset, customerAssetSet, customerClient, customerManagerLink,
          dynamicSearchAdsSearchTermView, genderView, geoTargetConstant,
          keywordView, label, languageConstant, locationView, metrics,
          productBiddingCategoryConstant, productGroupView, segments,
-         shoppingPerformanceView, userList, visit, webpageView;
+         shoppingPerformanceView, userList, userLocationView, visit,
+         webpageView;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

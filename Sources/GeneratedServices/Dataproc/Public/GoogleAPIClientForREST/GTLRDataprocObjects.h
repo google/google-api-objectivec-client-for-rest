@@ -15,7 +15,17 @@
 #endif
 
 @class GTLRDataproc_AcceleratorConfig;
+@class GTLRDataproc_AccumulableInfo;
 @class GTLRDataproc_AnalyzeOperationMetadata_Labels;
+@class GTLRDataproc_ApplicationAttemptInfo;
+@class GTLRDataproc_ApplicationEnvironmentInfo;
+@class GTLRDataproc_ApplicationEnvironmentInfo_ClasspathEntries;
+@class GTLRDataproc_ApplicationEnvironmentInfo_HadoopProperties;
+@class GTLRDataproc_ApplicationEnvironmentInfo_MetricsProperties;
+@class GTLRDataproc_ApplicationEnvironmentInfo_SparkProperties;
+@class GTLRDataproc_ApplicationEnvironmentInfo_SystemProperties;
+@class GTLRDataproc_ApplicationInfo;
+@class GTLRDataproc_AppSummary;
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
 @class GTLRDataproc_AutoscalingPolicy_Labels;
@@ -40,7 +50,9 @@
 @class GTLRDataproc_ClusterSelector;
 @class GTLRDataproc_ClusterSelector_ClusterLabels;
 @class GTLRDataproc_ClusterStatus;
+@class GTLRDataproc_ClusterToRepair;
 @class GTLRDataproc_ConfidentialInstanceConfig;
+@class GTLRDataproc_ConsolidatedExecutorSummary;
 @class GTLRDataproc_DiskConfig;
 @class GTLRDataproc_DriverSchedulingConfig;
 @class GTLRDataproc_EncryptionConfig;
@@ -48,6 +60,16 @@
 @class GTLRDataproc_EndpointConfig_HttpPorts;
 @class GTLRDataproc_EnvironmentConfig;
 @class GTLRDataproc_ExecutionConfig;
+@class GTLRDataproc_ExecutorMetrics;
+@class GTLRDataproc_ExecutorMetrics_Metrics;
+@class GTLRDataproc_ExecutorMetricsDistributions;
+@class GTLRDataproc_ExecutorPeakMetricsDistributions;
+@class GTLRDataproc_ExecutorResourceRequest;
+@class GTLRDataproc_ExecutorStageSummary;
+@class GTLRDataproc_ExecutorSummary;
+@class GTLRDataproc_ExecutorSummary_Attributes;
+@class GTLRDataproc_ExecutorSummary_ExecutorLogs;
+@class GTLRDataproc_ExecutorSummary_Resources;
 @class GTLRDataproc_Expr;
 @class GTLRDataproc_FlinkJob;
 @class GTLRDataproc_FlinkJob_Properties;
@@ -68,6 +90,8 @@
 @class GTLRDataproc_HiveJob_ScriptVariables;
 @class GTLRDataproc_IdentityConfig;
 @class GTLRDataproc_IdentityConfig_UserServiceAccountMapping;
+@class GTLRDataproc_InputMetrics;
+@class GTLRDataproc_InputQuantileMetrics;
 @class GTLRDataproc_InstanceFlexibilityPolicy;
 @class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
@@ -78,10 +102,13 @@
 @class GTLRDataproc_Interval;
 @class GTLRDataproc_Job;
 @class GTLRDataproc_Job_Labels;
+@class GTLRDataproc_JobData;
+@class GTLRDataproc_JobData_KillTasksSummary;
 @class GTLRDataproc_JobPlacement;
 @class GTLRDataproc_JobPlacement_ClusterLabels;
 @class GTLRDataproc_JobReference;
 @class GTLRDataproc_JobScheduling;
+@class GTLRDataproc_JobsSummary;
 @class GTLRDataproc_JobStatus;
 @class GTLRDataproc_JupyterConfig;
 @class GTLRDataproc_KerberosConfig;
@@ -95,6 +122,7 @@
 @class GTLRDataproc_ManagedCluster;
 @class GTLRDataproc_ManagedCluster_Labels;
 @class GTLRDataproc_ManagedGroupConfig;
+@class GTLRDataproc_MemoryMetrics;
 @class GTLRDataproc_MetastoreConfig;
 @class GTLRDataproc_Metric;
 @class GTLRDataproc_MetricConfig;
@@ -110,22 +138,40 @@
 @class GTLRDataproc_Operation_Response;
 @class GTLRDataproc_OrderedJob;
 @class GTLRDataproc_OrderedJob_Labels;
+@class GTLRDataproc_OutputMetrics;
+@class GTLRDataproc_OutputQuantileMetrics;
 @class GTLRDataproc_ParameterValidation;
 @class GTLRDataproc_PeripheralsConfig;
 @class GTLRDataproc_PigJob;
 @class GTLRDataproc_PigJob_Properties;
 @class GTLRDataproc_PigJob_ScriptVariables;
 @class GTLRDataproc_Policy;
+@class GTLRDataproc_PoolData;
 @class GTLRDataproc_PrestoJob;
 @class GTLRDataproc_PrestoJob_Properties;
+@class GTLRDataproc_ProcessSummary;
+@class GTLRDataproc_ProcessSummary_ProcessLogs;
+@class GTLRDataproc_ProvisioningModelMix;
 @class GTLRDataproc_PyPiRepositoryConfig;
 @class GTLRDataproc_PySparkBatch;
 @class GTLRDataproc_PySparkJob;
 @class GTLRDataproc_PySparkJob_Properties;
+@class GTLRDataproc_Quantiles;
 @class GTLRDataproc_QueryList;
+@class GTLRDataproc_RddDataDistribution;
+@class GTLRDataproc_RddOperationCluster;
+@class GTLRDataproc_RddOperationEdge;
+@class GTLRDataproc_RddOperationGraph;
+@class GTLRDataproc_RddOperationNode;
+@class GTLRDataproc_RddPartitionInfo;
+@class GTLRDataproc_RddStorageInfo;
 @class GTLRDataproc_RegexValidation;
 @class GTLRDataproc_RepositoryConfig;
 @class GTLRDataproc_ReservationAffinity;
+@class GTLRDataproc_ResourceInformation;
+@class GTLRDataproc_ResourceProfileInfo;
+@class GTLRDataproc_ResourceProfileInfo_ExecutorResources;
+@class GTLRDataproc_ResourceProfileInfo_TaskResources;
 @class GTLRDataproc_RuntimeConfig;
 @class GTLRDataproc_RuntimeConfig_Properties;
 @class GTLRDataproc_RuntimeInfo;
@@ -138,26 +184,76 @@
 @class GTLRDataproc_SessionTemplate;
 @class GTLRDataproc_SessionTemplate_Labels;
 @class GTLRDataproc_ShieldedInstanceConfig;
+@class GTLRDataproc_ShufflePushReadMetrics;
+@class GTLRDataproc_ShufflePushReadQuantileMetrics;
+@class GTLRDataproc_ShuffleReadMetrics;
+@class GTLRDataproc_ShuffleReadQuantileMetrics;
+@class GTLRDataproc_ShuffleWriteMetrics;
+@class GTLRDataproc_ShuffleWriteQuantileMetrics;
+@class GTLRDataproc_SinkProgress;
+@class GTLRDataproc_SinkProgress_Metrics;
 @class GTLRDataproc_SoftwareConfig;
 @class GTLRDataproc_SoftwareConfig_Properties;
+@class GTLRDataproc_SourceProgress;
+@class GTLRDataproc_SourceProgress_Metrics;
+@class GTLRDataproc_SparkApplication;
 @class GTLRDataproc_SparkBatch;
 @class GTLRDataproc_SparkConnectConfig;
 @class GTLRDataproc_SparkHistoryServerConfig;
 @class GTLRDataproc_SparkJob;
 @class GTLRDataproc_SparkJob_Properties;
+@class GTLRDataproc_SparkPlanGraph;
+@class GTLRDataproc_SparkPlanGraphCluster;
+@class GTLRDataproc_SparkPlanGraphEdge;
+@class GTLRDataproc_SparkPlanGraphNode;
+@class GTLRDataproc_SparkPlanGraphNodeWrapper;
 @class GTLRDataproc_SparkRBatch;
 @class GTLRDataproc_SparkRJob;
 @class GTLRDataproc_SparkRJob_Properties;
+@class GTLRDataproc_SparkRuntimeInfo;
 @class GTLRDataproc_SparkSqlBatch;
 @class GTLRDataproc_SparkSqlBatch_QueryVariables;
 @class GTLRDataproc_SparkSqlJob;
 @class GTLRDataproc_SparkSqlJob_Properties;
 @class GTLRDataproc_SparkSqlJob_ScriptVariables;
 @class GTLRDataproc_SparkStandaloneAutoscalingConfig;
+@class GTLRDataproc_SparkWrapperObject;
+@class GTLRDataproc_SpeculationStageSummary;
+@class GTLRDataproc_SqlExecutionUiData;
+@class GTLRDataproc_SqlExecutionUiData_Jobs;
+@class GTLRDataproc_SqlExecutionUiData_MetricValues;
+@class GTLRDataproc_SqlExecutionUiData_ModifiedConfigs;
+@class GTLRDataproc_SqlPlanMetric;
+@class GTLRDataproc_StageAttemptTasksSummary;
+@class GTLRDataproc_StageData;
+@class GTLRDataproc_StageData_ExecutorSummary;
+@class GTLRDataproc_StageData_KilledTasksSummary;
+@class GTLRDataproc_StageData_Locality;
+@class GTLRDataproc_StageData_Tasks;
+@class GTLRDataproc_StageInputMetrics;
+@class GTLRDataproc_StageMetrics;
+@class GTLRDataproc_StageOutputMetrics;
+@class GTLRDataproc_StageShufflePushReadMetrics;
+@class GTLRDataproc_StageShuffleReadMetrics;
+@class GTLRDataproc_StageShuffleWriteMetrics;
+@class GTLRDataproc_StagesSummary;
 @class GTLRDataproc_StartupConfig;
 @class GTLRDataproc_StateHistory;
+@class GTLRDataproc_StateOperatorProgress;
+@class GTLRDataproc_StateOperatorProgress_CustomMetrics;
 @class GTLRDataproc_Status;
 @class GTLRDataproc_Status_Details_Item;
+@class GTLRDataproc_StreamBlockData;
+@class GTLRDataproc_StreamingQueryData;
+@class GTLRDataproc_StreamingQueryProgress;
+@class GTLRDataproc_StreamingQueryProgress_DurationMillis;
+@class GTLRDataproc_StreamingQueryProgress_EventTime;
+@class GTLRDataproc_StreamingQueryProgress_ObservedMetrics;
+@class GTLRDataproc_TaskData;
+@class GTLRDataproc_TaskData_ExecutorLogs;
+@class GTLRDataproc_TaskMetrics;
+@class GTLRDataproc_TaskQuantileMetrics;
+@class GTLRDataproc_TaskResourceRequest;
 @class GTLRDataproc_TemplateParameter;
 @class GTLRDataproc_TrinoJob;
 @class GTLRDataproc_TrinoJob_Properties;
@@ -199,6 +295,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_AnalyzeOperationMetadata_Analyz
  *  Value: "WORKLOAD_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AnalyzeOperationMetadata_AnalyzedWorkloadType_WorkloadTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_ApplicationInfo.applicationContextIngestionStatus
+
+/** Value: "APPLICATION_CONTEXT_INGESTION_STATUS_COMPLETED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_ApplicationContextIngestionStatus_ApplicationContextIngestionStatusCompleted;
+/** Value: "APPLICATION_CONTEXT_INGESTION_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_ApplicationContextIngestionStatus_ApplicationContextIngestionStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_ApplicationInfo.quantileDataStatus
+
+/** Value: "QUANTILE_DATA_STATUS_COMPLETED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusCompleted;
+/** Value: "QUANTILE_DATA_STATUS_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusFailed;
+/** Value: "QUANTILE_DATA_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_AutotuningConfig.scenarios
@@ -418,6 +532,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealth
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_ClusterToRepair.clusterRepairAction
+
+/**
+ *  No action will be taken by default.
+ *
+ *  Value: "CLUSTER_REPAIR_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterToRepair_ClusterRepairAction_ClusterRepairActionUnspecified;
+/**
+ *  Repair cluster in ERROR_DUE_TO_UPDATE states.
+ *
+ *  Value: "REPAIR_ERROR_DUE_TO_UPDATE_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterToRepair_ClusterRepairAction_RepairErrorDueToUpdateCluster;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_DiagnoseClusterRequest.tarballAccess
 
 /**
@@ -550,6 +680,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibil
  *  Value: "SPOT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Spot;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_JobData.status
+
+/** Value: "JOB_EXECUTION_STATUS_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusFailed;
+/** Value: "JOB_EXECUTION_STATUS_RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusRunning;
+/** Value: "JOB_EXECUTION_STATUS_SUCCEEDED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusSucceeded;
+/** Value: "JOB_EXECUTION_STATUS_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusUnknown;
+/** Value: "JOB_EXECUTION_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobData_Status_JobExecutionStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_JobStatus.state
@@ -881,6 +1025,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodePool_RepairAction_Delete;
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodePool_RepairAction_RepairActionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_RddOperationNode.outputDeterministicLevel
+
+/** Value: "DETERMINISTIC_LEVEL_DETERMINATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelDeterminate;
+/** Value: "DETERMINISTIC_LEVEL_INDETERMINATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelIndeterminate;
+/** Value: "DETERMINISTIC_LEVEL_UNORDERED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelUnordered;
+/** Value: "DETERMINISTIC_LEVEL_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_RepairNodeGroupRequest.repairAction
 
 /**
@@ -1085,6 +1241,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hudi;
 /**
+ *  Iceberg.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Iceberg;
+/**
  *  The Jupyter Notebook.
  *
  *  Value: "JUPYTER"
@@ -1126,6 +1288,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  *  Value: "ZOOKEEPER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_SqlExecutionUiData_Jobs.job
+
+/** Value: "JOB_EXECUTION_STATUS_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusFailed;
+/** Value: "JOB_EXECUTION_STATUS_RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusRunning;
+/** Value: "JOB_EXECUTION_STATUS_SUCCEEDED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusSucceeded;
+/** Value: "JOB_EXECUTION_STATUS_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusUnknown;
+/** Value: "JOB_EXECUTION_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_StageData.status
+
+/** Value: "STAGE_STATUS_ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StageData_Status_StageStatusActive;
+/** Value: "STAGE_STATUS_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StageData_Status_StageStatusComplete;
+/** Value: "STAGE_STATUS_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StageData_Status_StageStatusFailed;
+/** Value: "STAGE_STATUS_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StageData_Status_StageStatusPending;
+/** Value: "STAGE_STATUS_SKIPPED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StageData_Status_StageStatusSkipped;
+/** Value: "STAGE_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StageData_Status_StageStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_StateHistory.state
@@ -1332,6 +1524,183 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Environment details of a Saprk Application.
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationEnvironmentInfoResponse : GTLRObject
+
+/** Details about the Environment that the application is running in. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationEnvironmentInfo *applicationEnvironmentInfo;
+
+@end
+
+
+/**
+ *  Details of a particular job associated with Spark Application
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationJobResponse : GTLRObject
+
+/** Output only. Data corresponding to a spark job. */
+@property(nonatomic, strong, nullable) GTLRDataproc_JobData *jobData;
+
+@end
+
+
+/**
+ *  A summary of Spark Application
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationResponse : GTLRObject
+
+/** Output only. High level information corresponding to an application. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationInfo *application;
+
+@end
+
+
+/**
+ *  Details of a query for a Spark Application
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationSqlQueryResponse : GTLRObject
+
+/** SQL Execution Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_SqlExecutionUiData *executionData;
+
+@end
+
+
+/**
+ *  SparkPlanGraph for a Spark Application execution limited to maximum 10000
+ *  clusters.
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationSqlSparkPlanGraphResponse : GTLRObject
+
+/** SparkPlanGraph for a Spark Application execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkPlanGraph *sparkPlanGraph;
+
+@end
+
+
+/**
+ *  Stage Attempt for a Stage of a Spark Application
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationStageAttemptResponse : GTLRObject
+
+/** Output only. Data corresponding to a stage. */
+@property(nonatomic, strong, nullable) GTLRDataproc_StageData *stageData;
+
+@end
+
+
+/**
+ *  RDD operation graph for a Spark Application Stage limited to maximum 10000
+ *  clusters.
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationStageRddOperationGraphResponse : GTLRObject
+
+/** RDD operation graph for a Spark Application Stage. */
+@property(nonatomic, strong, nullable) GTLRDataproc_RddOperationGraph *rddOperationGraph;
+
+@end
+
+
+/**
+ *  Environment details of a Saprk Application.
+ */
+@interface GTLRDataproc_AccessSparkApplicationEnvironmentInfoResponse : GTLRObject
+
+/** Details about the Environment that the application is running in. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationEnvironmentInfo *applicationEnvironmentInfo;
+
+@end
+
+
+/**
+ *  Details of a particular job associated with Spark Application
+ */
+@interface GTLRDataproc_AccessSparkApplicationJobResponse : GTLRObject
+
+/** Output only. Data corresponding to a spark job. */
+@property(nonatomic, strong, nullable) GTLRDataproc_JobData *jobData;
+
+@end
+
+
+/**
+ *  A summary of Spark Application
+ */
+@interface GTLRDataproc_AccessSparkApplicationResponse : GTLRObject
+
+/** Output only. High level information corresponding to an application. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationInfo *application;
+
+@end
+
+
+/**
+ *  Details of a query for a Spark Application
+ */
+@interface GTLRDataproc_AccessSparkApplicationSqlQueryResponse : GTLRObject
+
+/** SQL Execution Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_SqlExecutionUiData *executionData;
+
+@end
+
+
+/**
+ *  SparkPlanGraph for a Spark Application execution limited to maximum 10000
+ *  clusters.
+ */
+@interface GTLRDataproc_AccessSparkApplicationSqlSparkPlanGraphResponse : GTLRObject
+
+/** SparkPlanGraph for a Spark Application execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkPlanGraph *sparkPlanGraph;
+
+@end
+
+
+/**
+ *  Stage Attempt for a Stage of a Spark Application
+ */
+@interface GTLRDataproc_AccessSparkApplicationStageAttemptResponse : GTLRObject
+
+/** Output only. Data corresponding to a stage. */
+@property(nonatomic, strong, nullable) GTLRDataproc_StageData *stageData;
+
+@end
+
+
+/**
+ *  RDD operation graph for a Spark Application Stage limited to maximum 10000
+ *  clusters.
+ */
+@interface GTLRDataproc_AccessSparkApplicationStageRddOperationGraphResponse : GTLRObject
+
+/** RDD operation graph for a Spark Application Stage. */
+@property(nonatomic, strong, nullable) GTLRDataproc_RddOperationGraph *rddOperationGraph;
+
+@end
+
+
+/**
+ *  GTLRDataproc_AccumulableInfo
+ */
+@interface GTLRDataproc_AccumulableInfo : GTLRObject
+
+/**
+ *  accumullableInfoId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accumullableInfoId;
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *update;
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  A request to analyze a batch workload.
  */
 @interface GTLRDataproc_AnalyzeBatchRequest : GTLRObject
@@ -1408,6 +1777,199 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_AnalyzeOperationMetadata_Labels : GTLRObject
+@end
+
+
+/**
+ *  Specific attempt of an application.
+ */
+@interface GTLRDataproc_ApplicationAttemptInfo : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *appSparkVersion;
+@property(nonatomic, copy, nullable) NSString *attemptId;
+
+/**
+ *  completed
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completed;
+
+/**
+ *  durationMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMillis;
+
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
+@property(nonatomic, copy, nullable) NSString *sparkUser;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Details about the Environment that the application is running in.
+ */
+@interface GTLRDataproc_ApplicationEnvironmentInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationEnvironmentInfo_ClasspathEntries *classpathEntries;
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationEnvironmentInfo_HadoopProperties *hadoopProperties;
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationEnvironmentInfo_MetricsProperties *metricsProperties;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ResourceProfileInfo *> *resourceProfiles;
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkRuntimeInfo *runtime;
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationEnvironmentInfo_SparkProperties *sparkProperties;
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationEnvironmentInfo_SystemProperties *systemProperties;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ApplicationEnvironmentInfo_ClasspathEntries
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ApplicationEnvironmentInfo_ClasspathEntries : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_ApplicationEnvironmentInfo_HadoopProperties
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ApplicationEnvironmentInfo_HadoopProperties : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_ApplicationEnvironmentInfo_MetricsProperties
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ApplicationEnvironmentInfo_MetricsProperties : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_ApplicationEnvironmentInfo_SparkProperties
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ApplicationEnvironmentInfo_SparkProperties : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_ApplicationEnvironmentInfo_SystemProperties
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ApplicationEnvironmentInfo_SystemProperties : GTLRObject
+@end
+
+
+/**
+ *  High level information corresponding to an application.
+ */
+@interface GTLRDataproc_ApplicationInfo : GTLRObject
+
+/**
+ *  applicationContextIngestionStatus
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_ApplicationInfo_ApplicationContextIngestionStatus_ApplicationContextIngestionStatusCompleted
+ *        Value "APPLICATION_CONTEXT_INGESTION_STATUS_COMPLETED"
+ *    @arg @c kGTLRDataproc_ApplicationInfo_ApplicationContextIngestionStatus_ApplicationContextIngestionStatusUnspecified
+ *        Value "APPLICATION_CONTEXT_INGESTION_STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *applicationContextIngestionStatus;
+
+@property(nonatomic, copy, nullable) NSString *applicationId;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ApplicationAttemptInfo *> *attempts;
+
+/**
+ *  coresGranted
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coresGranted;
+
+/**
+ *  coresPerExecutor
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coresPerExecutor;
+
+/**
+ *  maxCores
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxCores;
+
+/**
+ *  memoryPerExecutorMb
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryPerExecutorMb;
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  quantileDataStatus
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusCompleted
+ *        Value "QUANTILE_DATA_STATUS_COMPLETED"
+ *    @arg @c kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusFailed
+ *        Value "QUANTILE_DATA_STATUS_FAILED"
+ *    @arg @c kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusUnspecified
+ *        Value "QUANTILE_DATA_STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *quantileDataStatus;
+
+@end
+
+
+/**
+ *  GTLRDataproc_AppSummary
+ */
+@interface GTLRDataproc_AppSummary : GTLRObject
+
+/**
+ *  numCompletedJobs
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompletedJobs;
+
+/**
+ *  numCompletedStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompletedStages;
+
 @end
 
 
@@ -2329,6 +2891,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Cluster to be repaired
+ */
+@interface GTLRDataproc_ClusterToRepair : GTLRObject
+
+/**
+ *  Required. Repair action to take on the cluster resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_ClusterToRepair_ClusterRepairAction_ClusterRepairActionUnspecified
+ *        No action will be taken by default. (Value:
+ *        "CLUSTER_REPAIR_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_ClusterToRepair_ClusterRepairAction_RepairErrorDueToUpdateCluster
+ *        Repair cluster in ERROR_DUE_TO_UPDATE states. (Value:
+ *        "REPAIR_ERROR_DUE_TO_UPDATE_CLUSTER")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterRepairAction;
+
+@end
+
+
+/**
  *  Confidential Instance Config for clusters using Confidential VMs
  *  (https://cloud.google.com/compute/confidential-vm/docs)
  */
@@ -2341,6 +2924,128 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
+
+@end
+
+
+/**
+ *  Consolidated summary about executors used by the application.
+ */
+@interface GTLRDataproc_ConsolidatedExecutorSummary : GTLRObject
+
+/**
+ *  activeTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeTasks;
+
+/**
+ *  completedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedTasks;
+
+/**
+ *  count
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  diskUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskUsed;
+
+/**
+ *  failedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedTasks;
+
+/**
+ *  isExcluded
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isExcluded;
+
+/**
+ *  maxMemory
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxMemory;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_MemoryMetrics *memoryMetrics;
+
+/**
+ *  memoryUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryUsed;
+
+/**
+ *  rddBlocks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rddBlocks;
+
+/**
+ *  totalCores
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCores;
+
+/**
+ *  totalDurationMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDurationMillis;
+
+/**
+ *  totalGcTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalGcTimeMillis;
+
+/**
+ *  totalInputBytes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalInputBytes;
+
+/**
+ *  totalShuffleRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalShuffleRead;
+
+/**
+ *  totalShuffleWrite
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalShuffleWrite;
+
+/**
+ *  totalTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTasks;
 
 @end
 
@@ -2674,6 +3379,504 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  GTLRDataproc_ExecutorMetrics
+ */
+@interface GTLRDataproc_ExecutorMetrics : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorMetrics_Metrics *metrics;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ExecutorMetrics_Metrics
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_ExecutorMetrics_Metrics : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_ExecutorMetricsDistributions
+ */
+@interface GTLRDataproc_ExecutorMetricsDistributions : GTLRObject
+
+/**
+ *  diskBytesSpilled
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *diskBytesSpilled;
+
+/**
+ *  failedTasks
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *failedTasks;
+
+/**
+ *  inputBytes
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *inputBytes;
+
+/**
+ *  inputRecords
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *inputRecords;
+
+/**
+ *  killedTasks
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *killedTasks;
+
+/**
+ *  memoryBytesSpilled
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *memoryBytesSpilled;
+
+/**
+ *  outputBytes
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *outputBytes;
+
+/**
+ *  outputRecords
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *outputRecords;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorPeakMetricsDistributions *peakMemoryMetrics;
+
+/**
+ *  quantiles
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *quantiles;
+
+/**
+ *  shuffleRead
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *shuffleRead;
+
+/**
+ *  shuffleReadRecords
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *shuffleReadRecords;
+
+/**
+ *  shuffleWrite
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *shuffleWrite;
+
+/**
+ *  shuffleWriteRecords
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *shuffleWriteRecords;
+
+/**
+ *  succeededTasks
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *succeededTasks;
+
+/**
+ *  taskTimeMillis
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *taskTimeMillis;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ExecutorPeakMetricsDistributions
+ */
+@interface GTLRDataproc_ExecutorPeakMetricsDistributions : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ExecutorMetrics *> *executorMetrics;
+
+/**
+ *  quantiles
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *quantiles;
+
+@end
+
+
+/**
+ *  Resources used per executor used by the application.
+ */
+@interface GTLRDataproc_ExecutorResourceRequest : GTLRObject
+
+/**
+ *  amount
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amount;
+
+@property(nonatomic, copy, nullable) NSString *discoveryScript;
+@property(nonatomic, copy, nullable) NSString *resourceName;
+@property(nonatomic, copy, nullable) NSString *vendor;
+
+@end
+
+
+/**
+ *  Executor resources consumed by a stage.
+ */
+@interface GTLRDataproc_ExecutorStageSummary : GTLRObject
+
+/**
+ *  diskBytesSpilled
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskBytesSpilled;
+
+@property(nonatomic, copy, nullable) NSString *executorId;
+
+/**
+ *  failedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedTasks;
+
+/**
+ *  inputBytes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputBytes;
+
+/**
+ *  inputRecords
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputRecords;
+
+/**
+ *  isExcludedForStage
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isExcludedForStage;
+
+/**
+ *  killedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *killedTasks;
+
+/**
+ *  memoryBytesSpilled
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryBytesSpilled;
+
+/**
+ *  outputBytes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputBytes;
+
+/**
+ *  outputRecords
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputRecords;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorMetrics *peakMemoryMetrics;
+
+/**
+ *  shuffleRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleRead;
+
+/**
+ *  shuffleReadRecords
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleReadRecords;
+
+/**
+ *  shuffleWrite
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleWrite;
+
+/**
+ *  shuffleWriteRecords
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleWriteRecords;
+
+/**
+ *  stageAttemptId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageAttemptId;
+
+/**
+ *  stageId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageId;
+
+/**
+ *  succeededTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *succeededTasks;
+
+/**
+ *  taskTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *taskTimeMillis;
+
+@end
+
+
+/**
+ *  Details about executors used by the application.
+ */
+@interface GTLRDataproc_ExecutorSummary : GTLRObject
+
+/**
+ *  activeTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeTasks;
+
+@property(nonatomic, strong, nullable) GTLRDateTime *addTime;
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorSummary_Attributes *attributes;
+
+/**
+ *  completedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedTasks;
+
+/**
+ *  diskUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskUsed;
+
+/**
+ *  excludedInStages
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedInStages;
+
+@property(nonatomic, copy, nullable) NSString *executorId;
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorSummary_ExecutorLogs *executorLogs;
+
+/**
+ *  failedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedTasks;
+
+@property(nonatomic, copy, nullable) NSString *hostPort;
+
+/**
+ *  isActive
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isActive;
+
+/**
+ *  isExcluded
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isExcluded;
+
+/**
+ *  maxMemory
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxMemory;
+
+/**
+ *  maxTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTasks;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_MemoryMetrics *memoryMetrics;
+
+/**
+ *  memoryUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryUsed;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorMetrics *peakMemoryMetrics;
+
+/**
+ *  rddBlocks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rddBlocks;
+
+@property(nonatomic, copy, nullable) NSString *removeReason;
+@property(nonatomic, strong, nullable) GTLRDateTime *removeTime;
+
+/**
+ *  resourceProfileId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resourceProfileId;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorSummary_Resources *resources;
+
+/**
+ *  totalCores
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCores;
+
+/**
+ *  totalDurationMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDurationMillis;
+
+/**
+ *  totalGcTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalGcTimeMillis;
+
+/**
+ *  totalInputBytes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalInputBytes;
+
+/**
+ *  totalShuffleRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalShuffleRead;
+
+/**
+ *  totalShuffleWrite
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalShuffleWrite;
+
+/**
+ *  totalTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTasks;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ExecutorSummary_Attributes
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ExecutorSummary_Attributes : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_ExecutorSummary_ExecutorLogs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ExecutorSummary_ExecutorLogs : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_ExecutorSummary_Resources
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataproc_ResourceInformation. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_ExecutorSummary_Resources : GTLRObject
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec.Example (Comparison):
@@ -2754,9 +3957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A mapping of property names to values, used to configure Flink.
- *  Properties that conflict with values set by the Dataproc API might
- *  beoverwritten. Can include properties set
- *  in/etc/flink/conf/flink-defaults.conf and classes in user code.
+ *  Properties that conflict with values set by the Dataproc API might be
+ *  overwritten. Can include properties set in
+ *  /etc/flink/conf/flink-defaults.conf and classes in user code.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_FlinkJob_Properties *properties;
 
@@ -2771,9 +3974,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A mapping of property names to values, used to configure Flink.
- *  Properties that conflict with values set by the Dataproc API might
- *  beoverwritten. Can include properties set
- *  in/etc/flink/conf/flink-defaults.conf and classes in user code.
+ *  Properties that conflict with values set by the Dataproc API might be
+ *  overwritten. Can include properties set in
+ *  /etc/flink/conf/flink-defaults.conf and classes in user code.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3409,6 +4612,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Metrics about the input data read by the task.
+ */
+@interface GTLRDataproc_InputMetrics : GTLRObject
+
+/**
+ *  bytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesRead;
+
+/**
+ *  recordsRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsRead;
+
+@end
+
+
+/**
+ *  GTLRDataproc_InputQuantileMetrics
+ */
+@interface GTLRDataproc_InputQuantileMetrics : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *bytesRead;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *recordsRead;
+
+@end
+
+
+/**
  *  Instance flexibility Policy allowing a mixture of VM shapes and provisioning
  *  models.
  */
@@ -3422,6 +4658,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Output only. A list of instance selection results in the group. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_InstanceSelectionResult *> *instanceSelectionResults;
+
+/**
+ *  Optional. Defines how the Group selects the provisioning model to ensure
+ *  required reliability.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_ProvisioningModelMix *provisioningModelMix;
 
 @end
 
@@ -3873,6 +5115,164 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Data corresponding to a spark job.
+ */
+@interface GTLRDataproc_JobData : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@property(nonatomic, copy, nullable) NSString *jobGroup;
+
+/**
+ *  jobId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobId;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_JobData_KillTasksSummary *killTasksSummary;
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  numActiveStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numActiveStages;
+
+/**
+ *  numActiveTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numActiveTasks;
+
+/**
+ *  numCompletedIndices
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompletedIndices;
+
+/**
+ *  numCompletedStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompletedStages;
+
+/**
+ *  numCompletedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompletedTasks;
+
+/**
+ *  numFailedStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFailedStages;
+
+/**
+ *  numFailedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFailedTasks;
+
+/**
+ *  numKilledTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numKilledTasks;
+
+/**
+ *  numSkippedStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numSkippedStages;
+
+/**
+ *  numSkippedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numSkippedTasks;
+
+/**
+ *  numTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTasks;
+
+/**
+ *  skippedStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *skippedStages;
+
+/**
+ *  sqlExecutionId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sqlExecutionId;
+
+/**
+ *  stageIds
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *stageIds;
+
+/**
+ *  status
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_JobData_Status_JobExecutionStatusFailed Value
+ *        "JOB_EXECUTION_STATUS_FAILED"
+ *    @arg @c kGTLRDataproc_JobData_Status_JobExecutionStatusRunning Value
+ *        "JOB_EXECUTION_STATUS_RUNNING"
+ *    @arg @c kGTLRDataproc_JobData_Status_JobExecutionStatusSucceeded Value
+ *        "JOB_EXECUTION_STATUS_SUCCEEDED"
+ *    @arg @c kGTLRDataproc_JobData_Status_JobExecutionStatusUnknown Value
+ *        "JOB_EXECUTION_STATUS_UNKNOWN"
+ *    @arg @c kGTLRDataproc_JobData_Status_JobExecutionStatusUnspecified Value
+ *        "JOB_EXECUTION_STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@property(nonatomic, strong, nullable) GTLRDateTime *submissionTime;
+
+@end
+
+
+/**
+ *  GTLRDataproc_JobData_KillTasksSummary
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_JobData_KillTasksSummary : GTLRObject
+@end
+
+
+/**
  *  Job Operation metadata.
  */
 @interface GTLRDataproc_JobMetadata : GTLRObject
@@ -3978,6 +5378,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxFailuresTotal;
+
+@end
+
+
+/**
+ *  Data related to Jobs page summary
+ */
+@interface GTLRDataproc_JobsSummary : GTLRObject
+
+/**
+ *  Number of active jobs
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeJobs;
+
+/** Spark Application Id */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/** Attempts info */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ApplicationAttemptInfo *> *attempts;
+
+/**
+ *  Number of completed jobs
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedJobs;
+
+/**
+ *  Number of failed jobs
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedJobs;
+
+/** Spark Scheduling mode */
+@property(nonatomic, copy, nullable) NSString *schedulingMode;
 
 @end
 
@@ -4636,6 +6074,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  GTLRDataproc_MemoryMetrics
+ */
+@interface GTLRDataproc_MemoryMetrics : GTLRObject
+
+/**
+ *  totalOffHeapStorageMemory
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalOffHeapStorageMemory;
+
+/**
+ *  totalOnHeapStorageMemory
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalOnHeapStorageMemory;
+
+/**
+ *  usedOffHeapStorageMemory
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usedOffHeapStorageMemory;
+
+/**
+ *  usedOnHeapStorageMemory
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usedOnHeapStorageMemory;
+
+@end
+
+
+/**
  *  Specifies a Metastore configuration.
  */
 @interface GTLRDataproc_MetastoreConfig : GTLRObject
@@ -4749,7 +6223,7 @@ GTLR_DEPRECATED
  *  characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).
  *  Label values can be empty. If specified, they must consist of from 1 to 63
  *  characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).
- *  The node group must have no more than 32 labelsn.
+ *  The node group must have no more than 32 labels.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_NodeGroup_Labels *labels;
 
@@ -4770,7 +6244,7 @@ GTLR_DEPRECATED
  *  characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).
  *  Label values can be empty. If specified, they must consist of from 1 to 63
  *  characters and conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).
- *  The node group must have no more than 32 labelsn.
+ *  The node group must have no more than 32 labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5093,6 +6567,39 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metrics about the data written by the task.
+ */
+@interface GTLRDataproc_OutputMetrics : GTLRObject
+
+/**
+ *  bytesWritten
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesWritten;
+
+/**
+ *  recordsWritten
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsWritten;
+
+@end
+
+
+/**
+ *  GTLRDataproc_OutputQuantileMetrics
+ */
+@interface GTLRDataproc_OutputQuantileMetrics : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *bytesWritten;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *recordsWritten;
+
+@end
+
+
+/**
  *  Configuration for parameter validation.
  */
 @interface GTLRDataproc_ParameterValidation : GTLRObject
@@ -5286,6 +6793,23 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Pool Data
+ */
+@interface GTLRDataproc_PoolData : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  stageIds
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *stageIds;
+
+@end
+
+
+/**
  *  A Dataproc job for running Presto (https://prestosql.io/) queries.
  *  IMPORTANT: The Dataproc Presto Optional Component
  *  (https://cloud.google.com/dataproc/docs/concepts/components/presto) must be
@@ -5341,6 +6865,81 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRDataproc_PrestoJob_Properties : GTLRObject
+@end
+
+
+/**
+ *  Process Summary
+ */
+@interface GTLRDataproc_ProcessSummary : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDateTime *addTime;
+@property(nonatomic, copy, nullable) NSString *hostPort;
+
+/**
+ *  isActive
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isActive;
+
+@property(nonatomic, copy, nullable) NSString *processId;
+@property(nonatomic, strong, nullable) GTLRDataproc_ProcessSummary_ProcessLogs *processLogs;
+@property(nonatomic, strong, nullable) GTLRDateTime *removeTime;
+
+/**
+ *  totalCores
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCores;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ProcessSummary_ProcessLogs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ProcessSummary_ProcessLogs : GTLRObject
+@end
+
+
+/**
+ *  Defines how Dataproc should create VMs with a mixture of provisioning
+ *  models.
+ */
+@interface GTLRDataproc_ProvisioningModelMix : GTLRObject
+
+/**
+ *  Optional. The base capacity that will always use Standard VMs to avoid risk
+ *  of more preemption than the minimum capacity you need. Dataproc will create
+ *  only standard VMs until it reaches standard_capacity_base, then it will
+ *  start using standard_capacity_percent_above_base to mix Spot with Standard
+ *  VMs. eg. If 15 instances are requested and standard_capacity_base is 5,
+ *  Dataproc will create 5 standard VMs and then start mixing spot and standard
+ *  VMs for remaining 10 instances.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *standardCapacityBase;
+
+/**
+ *  Optional. The percentage of target capacity that should use Standard VM. The
+ *  remaining percentage will use Spot VMs. The percentage applies only to the
+ *  capacity above standard_capacity_base. eg. If 15 instances are requested and
+ *  standard_capacity_base is 5 and standard_capacity_percent_above_base is 30,
+ *  Dataproc will create 5 standard VMs and then start mixing spot and standard
+ *  VMs for remaining 10 instances. The mix will be 30% standard and 70% spot.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *standardCapacityPercentAboveBase;
+
 @end
 
 
@@ -5404,7 +7003,7 @@ GTLR_DEPRECATED
 
 /**
  *  A Dataproc job for running Apache PySpark
- *  (https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
+ *  (https://spark.apache.org/docs/latest/api/python/index.html#pyspark-overview)
  *  applications on YARN.
  */
 @interface GTLRDataproc_PySparkJob : GTLRObject
@@ -5476,6 +7075,64 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Quantile metrics data related to Tasks. Units can be seconds, bytes,
+ *  milliseconds, etc depending on the message type.
+ */
+@interface GTLRDataproc_Quantiles : GTLRObject
+
+/**
+ *  count
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  maximum
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximum;
+
+/**
+ *  minimum
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimum;
+
+/**
+ *  percentile25
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentile25;
+
+/**
+ *  percentile50
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentile50;
+
+/**
+ *  percentile75
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentile75;
+
+/**
+ *  sum
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sum;
+
+@end
+
+
+/**
  *  A list of queries to run on a cluster.
  */
 @interface GTLRDataproc_QueryList : GTLRObject
@@ -5488,6 +7145,246 @@ GTLR_DEPRECATED
  *  "queryList": { "queries": [ "query1", "query2", "query3;query4", ] } }
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *queries;
+
+@end
+
+
+/**
+ *  Details about RDD usage.
+ */
+@interface GTLRDataproc_RddDataDistribution : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  diskUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskUsed;
+
+/**
+ *  memoryRemaining
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryRemaining;
+
+/**
+ *  memoryUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryUsed;
+
+/**
+ *  offHeapMemoryRemaining
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *offHeapMemoryRemaining;
+
+/**
+ *  offHeapMemoryUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *offHeapMemoryUsed;
+
+/**
+ *  onHeapMemoryRemaining
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onHeapMemoryRemaining;
+
+/**
+ *  onHeapMemoryUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onHeapMemoryUsed;
+
+@end
+
+
+/**
+ *  A grouping of nodes representing higher level constructs (stage, job etc.).
+ */
+@interface GTLRDataproc_RddOperationCluster : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_RddOperationCluster *> *childClusters;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_RddOperationNode *> *childNodes;
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *rddClusterId;
+
+@end
+
+
+/**
+ *  A directed edge representing dependency between two RDDs.
+ */
+@interface GTLRDataproc_RddOperationEdge : GTLRObject
+
+/**
+ *  fromId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fromId;
+
+/**
+ *  toId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *toId;
+
+@end
+
+
+/**
+ *  Graph representing RDD dependencies. Consists of edges and a root cluster.
+ */
+@interface GTLRDataproc_RddOperationGraph : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_RddOperationEdge *> *edges;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_RddOperationEdge *> *incomingEdges;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_RddOperationEdge *> *outgoingEdges;
+@property(nonatomic, strong, nullable) GTLRDataproc_RddOperationCluster *rootCluster;
+
+/**
+ *  stageId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageId;
+
+@end
+
+
+/**
+ *  A node in the RDD operation graph. Corresponds to a single RDD.
+ */
+@interface GTLRDataproc_RddOperationNode : GTLRObject
+
+/**
+ *  barrier
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *barrier;
+
+/**
+ *  cached
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cached;
+
+@property(nonatomic, copy, nullable) NSString *callsite;
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  nodeId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeId;
+
+/**
+ *  outputDeterministicLevel
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelDeterminate
+ *        Value "DETERMINISTIC_LEVEL_DETERMINATE"
+ *    @arg @c kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelIndeterminate
+ *        Value "DETERMINISTIC_LEVEL_INDETERMINATE"
+ *    @arg @c kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelUnordered
+ *        Value "DETERMINISTIC_LEVEL_UNORDERED"
+ *    @arg @c kGTLRDataproc_RddOperationNode_OutputDeterministicLevel_DeterministicLevelUnspecified
+ *        Value "DETERMINISTIC_LEVEL_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *outputDeterministicLevel;
+
+@end
+
+
+/**
+ *  Information about RDD partitions.
+ */
+@interface GTLRDataproc_RddPartitionInfo : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *blockName;
+
+/**
+ *  diskUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskUsed;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *executors;
+
+/**
+ *  memoryUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryUsed;
+
+@property(nonatomic, copy, nullable) NSString *storageLevel;
+
+@end
+
+
+/**
+ *  Overall data about RDD storage.
+ */
+@interface GTLRDataproc_RddStorageInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_RddDataDistribution *> *dataDistribution;
+
+/**
+ *  diskUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskUsed;
+
+/**
+ *  memoryUsed
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryUsed;
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  numCachedPartitions
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCachedPartitions;
+
+/**
+ *  numPartitions
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numPartitions;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_RddPartitionInfo *> *partitions;
+
+/**
+ *  rddStorageId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rddStorageId;
+
+@property(nonatomic, copy, nullable) NSString *storageLevel;
 
 @end
 
@@ -5511,6 +7408,9 @@ GTLR_DEPRECATED
  *  A request to repair a cluster.
  */
 @interface GTLRDataproc_RepairClusterRequest : GTLRObject
+
+/** Optional. Cluster to be repaired */
+@property(nonatomic, strong, nullable) GTLRDataproc_ClusterToRepair *cluster;
 
 /**
  *  Optional. Specifying the cluster_uuid means the RPC will fail (with error
@@ -5685,6 +7585,61 @@ GTLR_DEPRECATED
 
 
 /**
+ *  GTLRDataproc_ResourceInformation
+ */
+@interface GTLRDataproc_ResourceInformation : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addresses;
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Resource profile that contains information about all the resources required
+ *  by executors and tasks.
+ */
+@interface GTLRDataproc_ResourceProfileInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ResourceProfileInfo_ExecutorResources *executorResources;
+
+/**
+ *  resourceProfileId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resourceProfileId;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ResourceProfileInfo_TaskResources *taskResources;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ResourceProfileInfo_ExecutorResources
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataproc_ExecutorResourceRequest. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_ResourceProfileInfo_ExecutorResources : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_ResourceProfileInfo_TaskResources
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataproc_TaskResourceRequest. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_ResourceProfileInfo_TaskResources : GTLRObject
+@end
+
+
+/**
  *  Runtime configuration for a workload.
  */
 @interface GTLRDataproc_RuntimeConfig : GTLRObject
@@ -5780,6 +7735,454 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRDataproc_RuntimeInfo_Endpoints : GTLRObject
+@end
+
+
+/**
+ *  List of Executors associated with a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationExecutors" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationExecutorsResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationExecutorsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Details about executors used by the application.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ExecutorSummary *> *sparkApplicationExecutors;
+
+@end
+
+
+/**
+ *  List of Executors associated with a Spark Application Stage.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationStageExecutors" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationExecutorStageSummaryResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationExecutorStageSummaryRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Details about executors used by the application stage.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ExecutorStageSummary *> *sparkApplicationStageExecutors;
+
+@end
+
+
+/**
+ *  A list of Jobs associated with a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationJobs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationJobsResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationJobsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Data corresponding to a spark job.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_JobData *> *sparkApplicationJobs;
+
+@end
+
+
+/**
+ *  List of all queries for a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationSqlQueries" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationSqlQueriesResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationSqlQueriesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. SQL Execution Data
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SqlExecutionUiData *> *sparkApplicationSqlQueries;
+
+@end
+
+
+/**
+ *  A list of summary of Spark Applications
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplications" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationsResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. High level information corresponding to an application.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SparkApplication *> *sparkApplications;
+
+@end
+
+
+/**
+ *  A list of Stage Attempts for a Stage of a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationStageAttempts" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationStageAttemptsResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationStageAttemptsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Data corresponding to a stage attempts
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_StageData *> *sparkApplicationStageAttempts;
+
+@end
+
+
+/**
+ *  List of tasks for a stage of a Spark Application
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationStageAttemptTasks" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationStageAttemptTasksResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationStageAttemptTasksRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Data corresponding to tasks created by spark.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_TaskData *> *sparkApplicationStageAttemptTasks;
+
+@end
+
+
+/**
+ *  A list of stages associated with a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationStages" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationStagesResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationStages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Data corresponding to a stage.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_StageData *> *sparkApplicationStages;
+
+@end
+
+
+/**
+ *  List of Executors associated with a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationExecutors" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationExecutorsResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSparkApplicationExecutorsListRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Details about executors used by the application.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ExecutorSummary *> *sparkApplicationExecutors;
+
+@end
+
+
+/**
+ *  List of Executors associated with a Spark Application Stage.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationStageExecutors" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationExecutorStageSummaryResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSparkApplicationExecutorsListRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Details about executors used by the application stage.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ExecutorStageSummary *> *sparkApplicationStageExecutors;
+
+@end
+
+
+/**
+ *  A list of Jobs associated with a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationJobs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationJobsResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSparkApplicationJobsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Data corresponding to a spark job.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_JobData *> *sparkApplicationJobs;
+
+@end
+
+
+/**
+ *  List of all queries for a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationSqlQueries" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationSqlQueriesResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSparkApplicationSqlQueriesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. SQL Execution Data
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SqlExecutionUiData *> *sparkApplicationSqlQueries;
+
+@end
+
+
+/**
+ *  A list of summary of Spark Applications
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplications" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationsResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSparkApplicationsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. High level information corresponding to an application.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SparkApplication *> *sparkApplications;
+
+@end
+
+
+/**
+ *  A list of Stage Attempts for a Stage of a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationStageAttempts" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationStageAttemptsResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent ListSparkApplicationStageAttemptsRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Data corresponding to a stage attempts
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_StageData *> *sparkApplicationStageAttempts;
+
+@end
+
+
+/**
+ *  List of tasks for a stage of a Spark Application
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationStageAttemptTasks" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationStageAttemptTasksResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent ListSparkApplicationStageAttemptTasksRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Data corresponding to tasks created by spark.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_TaskData *> *sparkApplicationStageAttemptTasks;
+
+@end
+
+
+/**
+ *  A list of stages associated with a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationStages" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationStagesResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSparkApplicationStages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Data corresponding to a stage.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_StageData *> *sparkApplicationStages;
+
 @end
 
 
@@ -6123,6 +8526,257 @@ GTLR_DEPRECATED
 
 
 /**
+ *  GTLRDataproc_ShufflePushReadMetrics
+ */
+@interface GTLRDataproc_ShufflePushReadMetrics : GTLRObject
+
+/**
+ *  corruptMergedBlockChunks
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *corruptMergedBlockChunks;
+
+/**
+ *  localMergedBlocksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localMergedBlocksFetched;
+
+/**
+ *  localMergedBytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localMergedBytesRead;
+
+/**
+ *  localMergedChunksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localMergedChunksFetched;
+
+/**
+ *  mergedFetchFallbackCount
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mergedFetchFallbackCount;
+
+/**
+ *  remoteMergedBlocksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteMergedBlocksFetched;
+
+/**
+ *  remoteMergedBytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteMergedBytesRead;
+
+/**
+ *  remoteMergedChunksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteMergedChunksFetched;
+
+/**
+ *  remoteMergedReqsDuration
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteMergedReqsDuration;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ShufflePushReadQuantileMetrics
+ */
+@interface GTLRDataproc_ShufflePushReadQuantileMetrics : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *corruptMergedBlockChunks;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *localMergedBlocksFetched;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *localMergedBytesRead;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *localMergedChunksFetched;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *mergedFetchFallbackCount;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *remoteMergedBlocksFetched;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *remoteMergedBytesRead;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *remoteMergedChunksFetched;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *remoteMergedReqsDuration;
+
+@end
+
+
+/**
+ *  Shuffle data read by the task.
+ */
+@interface GTLRDataproc_ShuffleReadMetrics : GTLRObject
+
+/**
+ *  fetchWaitTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fetchWaitTimeMillis;
+
+/**
+ *  localBlocksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localBlocksFetched;
+
+/**
+ *  localBytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localBytesRead;
+
+/**
+ *  recordsRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsRead;
+
+/**
+ *  remoteBlocksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteBlocksFetched;
+
+/**
+ *  remoteBytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteBytesRead;
+
+/**
+ *  remoteBytesReadToDisk
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteBytesReadToDisk;
+
+/**
+ *  remoteReqsDuration
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteReqsDuration;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ShufflePushReadMetrics *shufflePushReadMetrics;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ShuffleReadQuantileMetrics
+ */
+@interface GTLRDataproc_ShuffleReadQuantileMetrics : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *fetchWaitTimeMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *localBlocksFetched;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *readBytes;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *readRecords;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *remoteBlocksFetched;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *remoteBytesRead;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *remoteBytesReadToDisk;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *remoteReqsDuration;
+@property(nonatomic, strong, nullable) GTLRDataproc_ShufflePushReadQuantileMetrics *shufflePushReadMetrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *totalBlocksFetched;
+
+@end
+
+
+/**
+ *  Shuffle data written by task.
+ */
+@interface GTLRDataproc_ShuffleWriteMetrics : GTLRObject
+
+/**
+ *  bytesWritten
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesWritten;
+
+/**
+ *  recordsWritten
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsWritten;
+
+/**
+ *  writeTimeNanos
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeTimeNanos;
+
+@end
+
+
+/**
+ *  GTLRDataproc_ShuffleWriteQuantileMetrics
+ */
+@interface GTLRDataproc_ShuffleWriteQuantileMetrics : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *writeBytes;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *writeRecords;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *writeTimeNanos;
+
+@end
+
+
+/**
+ *  GTLRDataproc_SinkProgress
+ */
+@interface GTLRDataproc_SinkProgress : GTLRObject
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_SinkProgress_Metrics *metrics;
+
+/**
+ *  numOutputRows
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numOutputRows;
+
+@end
+
+
+/**
+ *  GTLRDataproc_SinkProgress_Metrics
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SinkProgress_Metrics : GTLRObject
+@end
+
+
+/**
  *  Specifies the selection and config of software inside the cluster.
  */
 @interface GTLRDataproc_SoftwareConfig : GTLRObject
@@ -6172,6 +8826,75 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRDataproc_SoftwareConfig_Properties : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_SourceProgress
+ */
+@interface GTLRDataproc_SourceProgress : GTLRObject
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@property(nonatomic, copy, nullable) NSString *endOffset;
+
+/**
+ *  inputRowsPerSecond
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputRowsPerSecond;
+
+@property(nonatomic, copy, nullable) NSString *latestOffset;
+@property(nonatomic, strong, nullable) GTLRDataproc_SourceProgress_Metrics *metrics;
+
+/**
+ *  numInputRows
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numInputRows;
+
+/**
+ *  processedRowsPerSecond
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *processedRowsPerSecond;
+
+@property(nonatomic, copy, nullable) NSString *startOffset;
+
+@end
+
+
+/**
+ *  GTLRDataproc_SourceProgress_Metrics
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SourceProgress_Metrics : GTLRObject
+@end
+
+
+/**
+ *  A summary of Spark Application
+ */
+@interface GTLRDataproc_SparkApplication : GTLRObject
+
+/** Output only. High level information corresponding to an application. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationInfo *application;
+
+/** Identifier. Name of the spark application */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -6310,6 +9033,97 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A graph used for storing information of an executionPlan of DataFrame.
+ */
+@interface GTLRDataproc_SparkPlanGraph : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SparkPlanGraphEdge *> *edges;
+
+/**
+ *  executionId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executionId;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SparkPlanGraphNodeWrapper *> *nodes;
+
+@end
+
+
+/**
+ *  Represents a tree of spark plan.
+ */
+@interface GTLRDataproc_SparkPlanGraphCluster : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *desc;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SqlPlanMetric *> *metrics;
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SparkPlanGraphNodeWrapper *> *nodes;
+
+/**
+ *  sparkPlanGraphClusterId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sparkPlanGraphClusterId;
+
+@end
+
+
+/**
+ *  Represents a directed edge in the spark plan tree from child to parent.
+ */
+@interface GTLRDataproc_SparkPlanGraphEdge : GTLRObject
+
+/**
+ *  fromId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fromId;
+
+/**
+ *  toId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *toId;
+
+@end
+
+
+/**
+ *  Represents a node in the spark plan tree.
+ */
+@interface GTLRDataproc_SparkPlanGraphNode : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *desc;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SqlPlanMetric *> *metrics;
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  sparkPlanGraphNodeId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sparkPlanGraphNodeId;
+
+@end
+
+
+/**
+ *  Wrapper user to represent either a node or a cluster.
+ */
+@interface GTLRDataproc_SparkPlanGraphNodeWrapper : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkPlanGraphCluster *cluster;
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkPlanGraphNode *node;
+
+@end
+
+
+/**
  *  A configuration for running an Apache SparkR
  *  (https://spark.apache.org/docs/latest/sparkr.html) batch workload.
  */
@@ -6400,6 +9214,18 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRDataproc_SparkRJob_Properties : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_SparkRuntimeInfo
+ */
+@interface GTLRDataproc_SparkRuntimeInfo : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *javaHome;
+@property(nonatomic, copy, nullable) NSString *javaVersion;
+@property(nonatomic, copy, nullable) NSString *scalaVersion;
+
 @end
 
 
@@ -6569,6 +9395,833 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Outer message that contains the data obtained from spark listener, packaged
+ *  with information that is required to process it.
+ */
+@interface GTLRDataproc_SparkWrapperObject : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationEnvironmentInfo *applicationEnvironmentInfo;
+
+/** Application Id created by Spark. */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ApplicationInfo *applicationInfo;
+@property(nonatomic, strong, nullable) GTLRDataproc_AppSummary *appSummary;
+
+/** VM Timestamp associated with the data object. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTimestamp;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorStageSummary *executorStageSummary;
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorSummary *executorSummary;
+@property(nonatomic, strong, nullable) GTLRDataproc_JobData *jobData;
+@property(nonatomic, strong, nullable) GTLRDataproc_PoolData *poolData;
+@property(nonatomic, strong, nullable) GTLRDataproc_ProcessSummary *processSummary;
+@property(nonatomic, strong, nullable) GTLRDataproc_RddOperationGraph *rddOperationGraph;
+@property(nonatomic, strong, nullable) GTLRDataproc_RddStorageInfo *rddStorageInfo;
+@property(nonatomic, strong, nullable) GTLRDataproc_ResourceProfileInfo *resourceProfileInfo;
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkPlanGraph *sparkPlanGraph;
+@property(nonatomic, strong, nullable) GTLRDataproc_SpeculationStageSummary *speculationStageSummary;
+@property(nonatomic, strong, nullable) GTLRDataproc_SqlExecutionUiData *sqlExecutionUiData;
+@property(nonatomic, strong, nullable) GTLRDataproc_StageData *stageData;
+@property(nonatomic, strong, nullable) GTLRDataproc_StreamBlockData *streamBlockData;
+@property(nonatomic, strong, nullable) GTLRDataproc_StreamingQueryData *streamingQueryData;
+@property(nonatomic, strong, nullable) GTLRDataproc_StreamingQueryProgress *streamingQueryProgress;
+@property(nonatomic, strong, nullable) GTLRDataproc_TaskData *taskData;
+
+@end
+
+
+/**
+ *  Details of the speculation task when speculative execution is enabled.
+ */
+@interface GTLRDataproc_SpeculationStageSummary : GTLRObject
+
+/**
+ *  numActiveTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numActiveTasks;
+
+/**
+ *  numCompletedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompletedTasks;
+
+/**
+ *  numFailedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFailedTasks;
+
+/**
+ *  numKilledTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numKilledTasks;
+
+/**
+ *  numTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTasks;
+
+/**
+ *  stageAttemptId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageAttemptId;
+
+/**
+ *  stageId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageId;
+
+@end
+
+
+/**
+ *  SQL Execution Data
+ */
+@interface GTLRDataproc_SqlExecutionUiData : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@property(nonatomic, copy, nullable) NSString *details;
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  executionId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executionId;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_SqlExecutionUiData_Jobs *jobs;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SqlPlanMetric *> *metrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_SqlExecutionUiData_MetricValues *metricValues;
+
+/**
+ *  metricValuesIsNull
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metricValuesIsNull;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_SqlExecutionUiData_ModifiedConfigs *modifiedConfigs;
+@property(nonatomic, copy, nullable) NSString *physicalPlanDescription;
+
+/**
+ *  rootExecutionId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rootExecutionId;
+
+/**
+ *  stages
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *stages;
+
+@property(nonatomic, strong, nullable) GTLRDateTime *submissionTime;
+
+@end
+
+
+/**
+ *  GTLRDataproc_SqlExecutionUiData_Jobs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SqlExecutionUiData_Jobs : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_SqlExecutionUiData_MetricValues
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SqlExecutionUiData_MetricValues : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_SqlExecutionUiData_ModifiedConfigs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SqlExecutionUiData_ModifiedConfigs : GTLRObject
+@end
+
+
+/**
+ *  Metrics related to SQL execution.
+ */
+@interface GTLRDataproc_SqlPlanMetric : GTLRObject
+
+/**
+ *  accumulatorId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accumulatorId;
+
+@property(nonatomic, copy, nullable) NSString *metricType;
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Data related to tasks summary for a Spark Stage Attempt
+ */
+@interface GTLRDataproc_StageAttemptTasksSummary : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/**
+ *  numFailedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFailedTasks;
+
+/**
+ *  numKilledTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numKilledTasks;
+
+/**
+ *  numPendingTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numPendingTasks;
+
+/**
+ *  numRunningTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRunningTasks;
+
+/**
+ *  numSuccessTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numSuccessTasks;
+
+/**
+ *  numTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTasks;
+
+/**
+ *  stageAttemptId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageAttemptId;
+
+/**
+ *  stageId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageId;
+
+@end
+
+
+/**
+ *  Data corresponding to a stage.
+ */
+@interface GTLRDataproc_StageData : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AccumulableInfo *> *accumulatorUpdates;
+@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@property(nonatomic, copy, nullable) NSString *details;
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorMetricsDistributions *executorMetricsDistributions;
+@property(nonatomic, strong, nullable) GTLRDataproc_StageData_ExecutorSummary *executorSummary;
+@property(nonatomic, copy, nullable) NSString *failureReason;
+@property(nonatomic, strong, nullable) GTLRDateTime *firstTaskLaunchedTime;
+
+/**
+ *  isShufflePushEnabled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isShufflePushEnabled;
+
+/**
+ *  jobIds
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *jobIds;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_StageData_KilledTasksSummary *killedTasksSummary;
+@property(nonatomic, strong, nullable) GTLRDataproc_StageData_Locality *locality;
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  numActiveTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numActiveTasks;
+
+/**
+ *  numCompletedIndices
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompletedIndices;
+
+/**
+ *  numCompleteTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompleteTasks;
+
+/**
+ *  numFailedTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFailedTasks;
+
+/**
+ *  numKilledTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numKilledTasks;
+
+/**
+ *  numTasks
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTasks;
+
+/**
+ *  parentStageIds
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parentStageIds;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutorMetrics *peakExecutorMetrics;
+
+/**
+ *  rddIds
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *rddIds;
+
+/**
+ *  resourceProfileId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resourceProfileId;
+
+@property(nonatomic, copy, nullable) NSString *schedulingPool;
+
+/**
+ *  shuffleMergersCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleMergersCount;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_SpeculationStageSummary *speculationSummary;
+
+/**
+ *  stageAttemptId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageAttemptId;
+
+/**
+ *  stageId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageId;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_StageMetrics *stageMetrics;
+
+/**
+ *  status
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_StageData_Status_StageStatusActive Value
+ *        "STAGE_STATUS_ACTIVE"
+ *    @arg @c kGTLRDataproc_StageData_Status_StageStatusComplete Value
+ *        "STAGE_STATUS_COMPLETE"
+ *    @arg @c kGTLRDataproc_StageData_Status_StageStatusFailed Value
+ *        "STAGE_STATUS_FAILED"
+ *    @arg @c kGTLRDataproc_StageData_Status_StageStatusPending Value
+ *        "STAGE_STATUS_PENDING"
+ *    @arg @c kGTLRDataproc_StageData_Status_StageStatusSkipped Value
+ *        "STAGE_STATUS_SKIPPED"
+ *    @arg @c kGTLRDataproc_StageData_Status_StageStatusUnspecified Value
+ *        "STAGE_STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@property(nonatomic, strong, nullable) GTLRDateTime *submissionTime;
+
+/**
+ *  Summary metrics fields. These are included in response only if present in
+ *  summary_metrics_mask field in request
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_TaskQuantileMetrics *taskQuantileMetrics;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_StageData_Tasks *tasks;
+
+@end
+
+
+/**
+ *  GTLRDataproc_StageData_ExecutorSummary
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataproc_ExecutorStageSummary. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_StageData_ExecutorSummary : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_StageData_KilledTasksSummary
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_StageData_KilledTasksSummary : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_StageData_Locality
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_StageData_Locality : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_StageData_Tasks
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataproc_TaskData. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_StageData_Tasks : GTLRObject
+@end
+
+
+/**
+ *  Metrics about the input read by the stage.
+ */
+@interface GTLRDataproc_StageInputMetrics : GTLRObject
+
+/**
+ *  bytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesRead;
+
+/**
+ *  recordsRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsRead;
+
+@end
+
+
+/**
+ *  Stage Level Aggregated Metrics
+ */
+@interface GTLRDataproc_StageMetrics : GTLRObject
+
+/**
+ *  diskBytesSpilled
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskBytesSpilled;
+
+/**
+ *  executorCpuTimeNanos
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executorCpuTimeNanos;
+
+/**
+ *  executorDeserializeCpuTimeNanos
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executorDeserializeCpuTimeNanos;
+
+/**
+ *  executorDeserializeTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executorDeserializeTimeMillis;
+
+/**
+ *  executorRunTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executorRunTimeMillis;
+
+/**
+ *  jvmGcTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jvmGcTimeMillis;
+
+/**
+ *  memoryBytesSpilled
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryBytesSpilled;
+
+/**
+ *  peakExecutionMemoryBytes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peakExecutionMemoryBytes;
+
+/**
+ *  resultSerializationTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultSerializationTimeMillis;
+
+/**
+ *  resultSize
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultSize;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_StageInputMetrics *stageInputMetrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_StageOutputMetrics *stageOutputMetrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_StageShuffleReadMetrics *stageShuffleReadMetrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_StageShuffleWriteMetrics *stageShuffleWriteMetrics;
+
+@end
+
+
+/**
+ *  Metrics about the output written by the stage.
+ */
+@interface GTLRDataproc_StageOutputMetrics : GTLRObject
+
+/**
+ *  bytesWritten
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesWritten;
+
+/**
+ *  recordsWritten
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsWritten;
+
+@end
+
+
+/**
+ *  GTLRDataproc_StageShufflePushReadMetrics
+ */
+@interface GTLRDataproc_StageShufflePushReadMetrics : GTLRObject
+
+/**
+ *  corruptMergedBlockChunks
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *corruptMergedBlockChunks;
+
+/**
+ *  localMergedBlocksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localMergedBlocksFetched;
+
+/**
+ *  localMergedBytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localMergedBytesRead;
+
+/**
+ *  localMergedChunksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localMergedChunksFetched;
+
+/**
+ *  mergedFetchFallbackCount
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mergedFetchFallbackCount;
+
+/**
+ *  remoteMergedBlocksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteMergedBlocksFetched;
+
+/**
+ *  remoteMergedBytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteMergedBytesRead;
+
+/**
+ *  remoteMergedChunksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteMergedChunksFetched;
+
+/**
+ *  remoteMergedReqsDuration
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteMergedReqsDuration;
+
+@end
+
+
+/**
+ *  Shuffle data read for the stage.
+ */
+@interface GTLRDataproc_StageShuffleReadMetrics : GTLRObject
+
+/**
+ *  bytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesRead;
+
+/**
+ *  fetchWaitTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fetchWaitTimeMillis;
+
+/**
+ *  localBlocksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localBlocksFetched;
+
+/**
+ *  localBytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localBytesRead;
+
+/**
+ *  recordsRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsRead;
+
+/**
+ *  remoteBlocksFetched
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteBlocksFetched;
+
+/**
+ *  remoteBytesRead
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteBytesRead;
+
+/**
+ *  remoteBytesReadToDisk
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteBytesReadToDisk;
+
+/**
+ *  remoteReqsDuration
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remoteReqsDuration;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_StageShufflePushReadMetrics *stageShufflePushReadMetrics;
+
+@end
+
+
+/**
+ *  Shuffle data written for the stage.
+ */
+@interface GTLRDataproc_StageShuffleWriteMetrics : GTLRObject
+
+/**
+ *  bytesWritten
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesWritten;
+
+/**
+ *  recordsWritten
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordsWritten;
+
+/**
+ *  writeTimeNanos
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeTimeNanos;
+
+@end
+
+
+/**
+ *  Data related to Stages page summary
+ */
+@interface GTLRDataproc_StagesSummary : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/**
+ *  numActiveStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numActiveStages;
+
+/**
+ *  numCompletedStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCompletedStages;
+
+/**
+ *  numFailedStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFailedStages;
+
+/**
+ *  numPendingStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numPendingStages;
+
+/**
+ *  numSkippedStages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numSkippedStages;
+
+@end
+
+
+/**
  *  A request to start a cluster.
  */
 @interface GTLRDataproc_StartClusterRequest : GTLRObject
@@ -6652,6 +10305,100 @@ GTLR_DEPRECATED
 
 
 /**
+ *  GTLRDataproc_StateOperatorProgress
+ */
+@interface GTLRDataproc_StateOperatorProgress : GTLRObject
+
+/**
+ *  allRemovalsTimeMs
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allRemovalsTimeMs;
+
+/**
+ *  allUpdatesTimeMs
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allUpdatesTimeMs;
+
+/**
+ *  commitTimeMs
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commitTimeMs;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_StateOperatorProgress_CustomMetrics *customMetrics;
+
+/**
+ *  memoryUsedBytes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryUsedBytes;
+
+/**
+ *  numRowsDroppedByWatermark
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRowsDroppedByWatermark;
+
+/**
+ *  numRowsRemoved
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRowsRemoved;
+
+/**
+ *  numRowsTotal
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRowsTotal;
+
+/**
+ *  numRowsUpdated
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRowsUpdated;
+
+/**
+ *  numShufflePartitions
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numShufflePartitions;
+
+/**
+ *  numStateStoreInstances
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numStateStoreInstances;
+
+@property(nonatomic, copy, nullable) NSString *operatorName;
+
+@end
+
+
+/**
+ *  GTLRDataproc_StateOperatorProgress_CustomMetrics
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_StateOperatorProgress_CustomMetrics : GTLRObject
+@end
+
+
+/**
  *  The Status type defines a logical error model that is suitable for different
  *  programming environments, including REST APIs and RPC APIs. It is used by
  *  gRPC (https://github.com/grpc). Each Status message contains three pieces of
@@ -6724,6 +10471,160 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Stream Block Data.
+ */
+@interface GTLRDataproc_StreamBlockData : GTLRObject
+
+/**
+ *  deserialized
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deserialized;
+
+/**
+ *  diskSize
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSize;
+
+@property(nonatomic, copy, nullable) NSString *executorId;
+@property(nonatomic, copy, nullable) NSString *hostPort;
+
+/**
+ *  memSize
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memSize;
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *storageLevel;
+
+/**
+ *  useDisk
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useDisk;
+
+/**
+ *  useMemory
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useMemory;
+
+@end
+
+
+/**
+ *  Streaming
+ */
+@interface GTLRDataproc_StreamingQueryData : GTLRObject
+
+/**
+ *  endTimestamp
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endTimestamp;
+
+@property(nonatomic, copy, nullable) NSString *exception;
+
+/**
+ *  isActive
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isActive;
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *runId;
+
+/**
+ *  startTimestamp
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimestamp;
+
+@property(nonatomic, copy, nullable) NSString *streamingQueryId;
+
+@end
+
+
+/**
+ *  GTLRDataproc_StreamingQueryProgress
+ */
+@interface GTLRDataproc_StreamingQueryProgress : GTLRObject
+
+/**
+ *  batchDuration
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchDuration;
+
+/**
+ *  batchId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchId;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_StreamingQueryProgress_DurationMillis *durationMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_StreamingQueryProgress_EventTime *eventTime;
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, strong, nullable) GTLRDataproc_StreamingQueryProgress_ObservedMetrics *observedMetrics;
+@property(nonatomic, copy, nullable) NSString *runId;
+@property(nonatomic, strong, nullable) GTLRDataproc_SinkProgress *sink;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SourceProgress *> *sources;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_StateOperatorProgress *> *stateOperators;
+@property(nonatomic, copy, nullable) NSString *streamingQueryProgressId;
+@property(nonatomic, copy, nullable) NSString *timestamp;
+
+@end
+
+
+/**
+ *  GTLRDataproc_StreamingQueryProgress_DurationMillis
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataproc_StreamingQueryProgress_DurationMillis : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_StreamingQueryProgress_EventTime
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_StreamingQueryProgress_EventTime : GTLRObject
+@end
+
+
+/**
+ *  GTLRDataproc_StreamingQueryProgress_ObservedMetrics
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_StreamingQueryProgress_ObservedMetrics : GTLRObject
+@end
+
+
+/**
  *  A request to submit a job.
  */
 @interface GTLRDataproc_SubmitJobRequest : GTLRObject
@@ -6743,6 +10644,354 @@ GTLR_DEPRECATED
  *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Consolidated summary of executors for a Spark Application.
+ */
+@interface GTLRDataproc_SummarizeSessionSparkApplicationExecutorsResponse : GTLRObject
+
+/** Consolidated summary for active executors. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ConsolidatedExecutorSummary *activeExecutorSummary;
+
+/** Spark Application Id */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/** Consolidated summary for dead executors. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ConsolidatedExecutorSummary *deadExecutorSummary;
+
+/** Overall consolidated summary for all executors. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ConsolidatedExecutorSummary *totalExecutorSummary;
+
+@end
+
+
+/**
+ *  Summary of a Spark Application jobs.
+ */
+@interface GTLRDataproc_SummarizeSessionSparkApplicationJobsResponse : GTLRObject
+
+/** Summary of a Spark Application Jobs */
+@property(nonatomic, strong, nullable) GTLRDataproc_JobsSummary *jobsSummary;
+
+@end
+
+
+/**
+ *  Summary of tasks for a Spark Application stage attempt.
+ */
+@interface GTLRDataproc_SummarizeSessionSparkApplicationStageAttemptTasksResponse : GTLRObject
+
+/** Summary of tasks for a Spark Application Stage Attempt */
+@property(nonatomic, strong, nullable) GTLRDataproc_StageAttemptTasksSummary *stageAttemptTasksSummary;
+
+@end
+
+
+/**
+ *  Summary of a Spark Application stages.
+ */
+@interface GTLRDataproc_SummarizeSessionSparkApplicationStagesResponse : GTLRObject
+
+/** Summary of a Spark Application Stages */
+@property(nonatomic, strong, nullable) GTLRDataproc_StagesSummary *stagesSummary;
+
+@end
+
+
+/**
+ *  Consolidated summary of executors for a Spark Application.
+ */
+@interface GTLRDataproc_SummarizeSparkApplicationExecutorsResponse : GTLRObject
+
+/** Consolidated summary for active executors. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ConsolidatedExecutorSummary *activeExecutorSummary;
+
+/** Spark Application Id */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/** Consolidated summary for dead executors. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ConsolidatedExecutorSummary *deadExecutorSummary;
+
+/** Overall consolidated summary for all executors. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ConsolidatedExecutorSummary *totalExecutorSummary;
+
+@end
+
+
+/**
+ *  Summary of a Spark Application jobs.
+ */
+@interface GTLRDataproc_SummarizeSparkApplicationJobsResponse : GTLRObject
+
+/** Summary of a Spark Application Jobs */
+@property(nonatomic, strong, nullable) GTLRDataproc_JobsSummary *jobsSummary;
+
+@end
+
+
+/**
+ *  Summary of tasks for a Spark Application stage attempt.
+ */
+@interface GTLRDataproc_SummarizeSparkApplicationStageAttemptTasksResponse : GTLRObject
+
+/** Summary of tasks for a Spark Application Stage Attempt */
+@property(nonatomic, strong, nullable) GTLRDataproc_StageAttemptTasksSummary *stageAttemptTasksSummary;
+
+@end
+
+
+/**
+ *  Summary of a Spark Application stages.
+ */
+@interface GTLRDataproc_SummarizeSparkApplicationStagesResponse : GTLRObject
+
+/** Summary of a Spark Application Stages */
+@property(nonatomic, strong, nullable) GTLRDataproc_StagesSummary *stagesSummary;
+
+@end
+
+
+/**
+ *  Data corresponding to tasks created by spark.
+ */
+@interface GTLRDataproc_TaskData : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AccumulableInfo *> *accumulatorUpdates;
+
+/**
+ *  attempt
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attempt;
+
+/**
+ *  durationMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMillis;
+
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+@property(nonatomic, copy, nullable) NSString *executorId;
+@property(nonatomic, strong, nullable) GTLRDataproc_TaskData_ExecutorLogs *executorLogs;
+
+/**
+ *  gettingResultTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gettingResultTimeMillis;
+
+/**
+ *  hasMetrics
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasMetrics;
+
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  index
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+@property(nonatomic, strong, nullable) GTLRDateTime *launchTime;
+
+/**
+ *  partitionId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionId;
+
+@property(nonatomic, strong, nullable) GTLRDateTime *resultFetchStart;
+
+/**
+ *  schedulerDelayMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *schedulerDelayMillis;
+
+/**
+ *  speculative
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speculative;
+
+/**
+ *  stageAttemptId
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageAttemptId;
+
+/**
+ *  stageId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stageId;
+
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  taskId
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *taskId;
+
+@property(nonatomic, copy, nullable) NSString *taskLocality;
+@property(nonatomic, strong, nullable) GTLRDataproc_TaskMetrics *taskMetrics;
+
+@end
+
+
+/**
+ *  GTLRDataproc_TaskData_ExecutorLogs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_TaskData_ExecutorLogs : GTLRObject
+@end
+
+
+/**
+ *  Executor Task Metrics
+ */
+@interface GTLRDataproc_TaskMetrics : GTLRObject
+
+/**
+ *  diskBytesSpilled
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskBytesSpilled;
+
+/**
+ *  executorCpuTimeNanos
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executorCpuTimeNanos;
+
+/**
+ *  executorDeserializeCpuTimeNanos
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executorDeserializeCpuTimeNanos;
+
+/**
+ *  executorDeserializeTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executorDeserializeTimeMillis;
+
+/**
+ *  executorRunTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executorRunTimeMillis;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_InputMetrics *inputMetrics;
+
+/**
+ *  jvmGcTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jvmGcTimeMillis;
+
+/**
+ *  memoryBytesSpilled
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryBytesSpilled;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_OutputMetrics *outputMetrics;
+
+/**
+ *  peakExecutionMemoryBytes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peakExecutionMemoryBytes;
+
+/**
+ *  resultSerializationTimeMillis
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultSerializationTimeMillis;
+
+/**
+ *  resultSize
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultSize;
+
+@property(nonatomic, strong, nullable) GTLRDataproc_ShuffleReadMetrics *shuffleReadMetrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_ShuffleWriteMetrics *shuffleWriteMetrics;
+
+@end
+
+
+/**
+ *  GTLRDataproc_TaskQuantileMetrics
+ */
+@interface GTLRDataproc_TaskQuantileMetrics : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *diskBytesSpilled;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *durationMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *executorCpuTimeNanos;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *executorDeserializeCpuTimeNanos;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *executorDeserializeTimeMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *executorRunTimeMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *gettingResultTimeMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_InputQuantileMetrics *inputMetrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *jvmGcTimeMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *memoryBytesSpilled;
+@property(nonatomic, strong, nullable) GTLRDataproc_OutputQuantileMetrics *outputMetrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *peakExecutionMemoryBytes;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *resultSerializationTimeMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *resultSize;
+@property(nonatomic, strong, nullable) GTLRDataproc_Quantiles *schedulerDelayMillis;
+@property(nonatomic, strong, nullable) GTLRDataproc_ShuffleReadQuantileMetrics *shuffleReadMetrics;
+@property(nonatomic, strong, nullable) GTLRDataproc_ShuffleWriteQuantileMetrics *shuffleWriteMetrics;
+
+@end
+
+
+/**
+ *  Resources used per task created by the application.
+ */
+@interface GTLRDataproc_TaskResourceRequest : GTLRObject
+
+/**
+ *  amount
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amount;
+
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -7319,6 +11568,49 @@ GTLR_DEPRECATED
 /** A cluster that is managed by the workflow. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ManagedCluster *managedCluster;
 
+@end
+
+
+/**
+ *  Write Spark Application data to internal storage systems
+ */
+@interface GTLRDataproc_WriteSessionSparkApplicationContextRequest : GTLRObject
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The batch of spark application context objects sent for ingestion.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SparkWrapperObject *> *sparkWrapperObjects;
+
+@end
+
+
+/**
+ *  Response returned as an acknowledgement of receipt of data.
+ */
+@interface GTLRDataproc_WriteSessionSparkApplicationContextResponse : GTLRObject
+@end
+
+
+/**
+ *  Write Spark Application data to internal storage systems
+ */
+@interface GTLRDataproc_WriteSparkApplicationContextRequest : GTLRObject
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SparkWrapperObject *> *sparkWrapperObjects;
+
+@end
+
+
+/**
+ *  Response returned as an acknowledgement of receipt of data.
+ */
+@interface GTLRDataproc_WriteSparkApplicationContextResponse : GTLRObject
 @end
 
 

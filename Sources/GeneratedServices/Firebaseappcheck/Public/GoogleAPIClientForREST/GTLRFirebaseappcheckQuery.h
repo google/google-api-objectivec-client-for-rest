@@ -1828,7 +1828,8 @@ GTLR_DEPRECATED
  *  the `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
+ *  `oauth2.googleapis.com` (Google Identity for iOS)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1843,7 +1844,8 @@ GTLR_DEPRECATED
  *    Currently, the following service IDs are supported: *
  *    `firebasestorage.googleapis.com` (Cloud Storage for Firebase) *
  *    `firebasedatabase.googleapis.com` (Firebase Realtime Database) *
- *    `firestore.googleapis.com` (Cloud Firestore)
+ *    `firestore.googleapis.com` (Cloud Firestore) * `oauth2.googleapis.com`
+ *    (Google Identity for iOS)
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsServicesGet
  */
@@ -1926,7 +1928,8 @@ GTLR_DEPRECATED
  *  that the `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
+ *  `oauth2.googleapis.com` (Google Identity for iOS)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1951,7 +1954,8 @@ GTLR_DEPRECATED
  *    `service_id` element must be a supported service ID. Currently, the
  *    following service IDs are supported: * `firebasestorage.googleapis.com`
  *    (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *    Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
+ *    Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
+ *    `oauth2.googleapis.com` (Google Identity for iOS)
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsServicesPatch
  */

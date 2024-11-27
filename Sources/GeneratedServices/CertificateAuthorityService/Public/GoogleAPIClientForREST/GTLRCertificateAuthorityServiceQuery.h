@@ -673,8 +673,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Output only. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
+ *  Output only. Identifier. The resource name for this CertificateAuthority in
+ *  the format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -706,9 +707,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateAuthorityService_CertificateAuthority to
  *    include in the query.
- *  @param name Output only. The resource name for this CertificateAuthority in
- *    the format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/
- *    *`.
+ *  @param name Output only. Identifier. The resource name for this
+ *    CertificateAuthority in the format `projects/ * /locations/ * /caPools/ *
+ *    /certificateAuthorities/ *`.
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesPatch
  */
@@ -765,7 +766,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. It must be unique within a location and match the regular
  *  expression `[a-zA-Z0-9_-]{1,63}`. This field is required when using a
- *  CertificateAuthority in the Enterprise CertificateAuthority.Tier, but is
+ *  CertificateAuthority in the Enterprise CertificateAuthority.tier, but is
  *  optional and its value is ignored otherwise.
  */
 @property(nonatomic, copy, nullable) NSString *certificateId;

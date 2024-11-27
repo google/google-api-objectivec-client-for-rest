@@ -3649,6 +3649,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
+ *  The request that is passed to CLH during per-resource events. The request
+ *  will be sent with update semantics in all cases except for data governance
+ *  purge events. These events will be sent with delete semantics and the CLH is
+ *  expected to delete the resource receiving this event.
+ */
+@interface GTLRAppengine_ResourceEvent : GTLRObject
+
+/**
+ *  The unique ID for this per-resource event. CLHs can use this value to dedup
+ *  repeated calls. required
+ */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** The name of the resource for which this event is. required */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The state of the project that led to this event. */
+@property(nonatomic, strong, nullable) GTLRAppengine_ContainerState *state;
+
+@end
+
+
+/**
  *  A DNS resource record.
  */
 @interface GTLRAppengine_ResourceRecord : GTLRObject

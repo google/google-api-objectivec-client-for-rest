@@ -836,8 +836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. The customer-managed encryption configuration of the Regionalised
- *  Secrets. If no configuration is provided, Google-managed default encryption
+ *  Optional. The customer-managed encryption configuration of the regionalized
+ *  secrets. If no configuration is provided, Google-managed default encryption
  *  is used. Updates to the Secret encryption configuration only apply to
  *  SecretVersions added afterwards. They do not apply retroactively to existing
  *  SecretVersions.
@@ -1024,7 +1024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 /**
  *  Output only. The customer-managed encryption status of the SecretVersion.
  *  Only populated if customer-managed encryption is used and Secret is a
- *  Regionalised Secret.
+ *  regionalized secret.
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryptionStatus *customerManagedEncryption;
 
@@ -1149,7 +1149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /**
  *  A replication policy that replicates the Secret payload into the locations
- *  specified in Secret.replication.user_managed.replicas
+ *  specified in Replication.UserManaged.replicas
  */
 @interface GTLRSecretManager_UserManaged : GTLRObject
 

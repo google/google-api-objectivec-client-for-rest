@@ -177,17 +177,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_IosApp_State_StateUns
 // GTLRFirebaseManagement_Location.features
 
 /**
- *  This location supports default Cloud Storage buckets. App Engine is
- *  available in this location, so it can be a Project's [default GCP resource
- *  location](//firebase.google.com/docs/projects/locations#default-cloud-location).
+ *  This location supports default Cloud Storage buckets. Google App Engine is
+ *  available in this location, so it can be a Project's location for default
+ *  Google Cloud resources.
  *
  *  Value: "DEFAULT_STORAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_DefaultStorage;
 /**
- *  This location supports Cloud Firestore database instances. App Engine is
- *  available in this location, so it can be a Project's [default GCP resource
- *  location](//firebase.google.com/docs/projects/locations#default-cloud-location).
+ *  This location supports Cloud Firestore database instances. Google App Engine
+ *  is available in this location, so it can be a Project's location for default
+ *  Google Cloud resources.
  *
  *  Value: "FIRESTORE"
  */
@@ -286,11 +286,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @interface GTLRFirebaseManagement_AddFirebaseRequest : GTLRObject
 
 /**
- *  Deprecated. Instead, to set a Project's default GCP resource location, call
- *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
- *  add Firebase resources to the GCP `Project`. The ID of the Project's default
- *  GCP resource location. The location must be one of the available [GCP
- *  resource locations](https://firebase.google.com/docs/projects/locations).
+ *  **DEPRECATED.** _Instead, use product-specific REST APIs to work with the
+ *  location of each resource in a Project. This field may be ignored,
+ *  especially for newly provisioned projects after October 30, 2024._ The ID of
+ *  the Project's ["location for default Google Cloud
+ *  resources"](https://firebase.google.com/docs/projects/locations#default-cloud-location),
+ *  which are resources associated with Google App Engine. The location must be
+ *  one of the available [Google App Engine
+ *  locations](https://cloud.google.com/about/locations#region).
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -326,24 +329,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @interface GTLRFirebaseManagement_AdminSdkConfig : GTLRObject
 
 /**
- *  **DEPRECATED.** _Instead, find the default Firebase Realtime Database
- *  instance name using the [list
+ *  **DEPRECATED.** _Instead, find the URL of the default Realtime Database
+ *  instance using the [list
  *  endpoint](https://firebase.google.com/docs/reference/rest/database/database-management/rest/v1beta/projects.locations.instances/list)
- *  within the Firebase Realtime Database REST API. Note that the default
- *  instance for the Project might not yet be provisioned, so the return might
- *  not contain a default instance._ The default Firebase Realtime Database URL.
+ *  within the Firebase Realtime Database REST API. If the default instance for
+ *  the Project has not yet been provisioned, the return might not contain a
+ *  default instance. Note that the config that's generated for the Firebase
+ *  console or the Firebase CLI uses the Realtime Database endpoint to populate
+ *  this value for that config._ The URL of the default Firebase Realtime
+ *  Database instance.
  */
 @property(nonatomic, copy, nullable) NSString *databaseURL GTLR_DEPRECATED;
 
 /**
  *  **DEPRECATED.** _Instead, use product-specific REST APIs to find the
- *  location of resources._ The ID of the Project's default GCP resource
- *  location. The location is one of the available [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations). This field
- *  is omitted if the default GCP resource location has not been finalized yet.
- *  To set a Project's default GCP resource location, call
- *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
- *  add Firebase resources to the Project.
+ *  location of each resource in a Project. This field may not be populated,
+ *  especially for newly provisioned projects after October 30, 2024._ The ID of
+ *  the Project's ["location for default Google Cloud
+ *  resources"](https://firebase.google.com/docs/projects/locations#default-cloud-location),
+ *  which are resources associated with Google App Engine. The location is one
+ *  of the available [App Engine
+ *  locations](https://cloud.google.com/about/locations#region). This field is
+ *  omitted if the location for default Google Cloud resources has not been set.
  */
 @property(nonatomic, copy, nullable) NSString *locationId GTLR_DEPRECATED;
 
@@ -356,13 +363,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  **DEPRECATED.** _Instead, find the default Cloud Storage for Firebase bucket
- *  using the [list
+ *  **DEPRECATED.** _Instead, find the name of the default Cloud Storage for
+ *  Firebase bucket using the [list
  *  endpoint](https://firebase.google.com/docs/reference/rest/storage/rest/v1beta/projects.buckets/list)
- *  within the Cloud Storage for Firebase REST API. Note that the default bucket
- *  for the Project might not yet be provisioned, so the return might not
- *  contain a default bucket._ The default Cloud Storage for Firebase storage
- *  bucket name.
+ *  within the Cloud Storage for Firebase REST API. If the default bucket for
+ *  the Project has not yet been provisioned, the return might not contain a
+ *  default bucket. Note that the config that's generated for the Firebase
+ *  console or the Firebase CLI uses the Cloud Storage for Firebase endpoint to
+ *  populate this value for that config._ The name of the default Cloud Storage
+ *  for Firebase bucket.
  */
 @property(nonatomic, copy, nullable) NSString *storageBucket GTLR_DEPRECATED;
 
@@ -472,8 +481,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Timestamp of when the App will be considered expired and cannot
- *  be undeleted. This value is only provided if the App is in the `DELETED`
+ *  Output only. If the App has been removed from the Project, this is the
+ *  timestamp of when the App is considered expired and will be permanently
+ *  deleted. After this time, the App cannot be undeleted (that is, restored to
+ *  the Project). This value is only provided if the App is in the `DELETED`
  *  state.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
@@ -565,12 +576,12 @@ GTLR_DEPRECATED
 @interface GTLRFirebaseManagement_DefaultResources : GTLRObject
 
 /**
- *  Output only. **DEPRECATED.** _Instead, find the default Firebase Hosting
- *  site name using the
+ *  Output only. **DEPRECATED.** _Instead, find the name of the default Firebase
+ *  Hosting site using
  *  [ListSites](https://firebase.google.com/docs/reference/hosting/rest/v1beta1/projects.sites/list)
- *  within the Firebase Hosting REST API. Note that the default site for the
- *  Project might not yet be provisioned, so the return might not contain a
- *  default site._ The default Firebase Hosting site name, in the format:
+ *  within the Firebase Hosting REST API. If the default Hosting site for the
+ *  Project has not yet been provisioned, the return might not contain a default
+ *  site._ The name of the default Firebase Hosting site, in the format:
  *  PROJECT_ID Though rare, your `projectId` might already be used as the name
  *  for an existing Hosting site in another project (learn more about creating
  *  non-default, [additional
@@ -584,26 +595,27 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. **DEPRECATED.** _Instead, use product-specific REST APIs to
- *  find the location of resources._ The ID of the Project's default GCP
- *  resource location. The location is one of the available [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations). This field
- *  is omitted if the default GCP resource location has not been finalized yet.
- *  To set a Project's default GCP resource location, call
- *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
- *  add Firebase resources to the Project.
+ *  find the location of each resource in a Project. This field may not be
+ *  populated, especially for newly provisioned projects after October 30,
+ *  2024._ The ID of the Project's ["location for default Google Cloud
+ *  resources"](https://firebase.google.com/docs/projects/locations#default-cloud-location),
+ *  which are resources associated with Google App Engine. The location is one
+ *  of the available [Google App Engine
+ *  locations](https://cloud.google.com/about/locations#region). This field is
+ *  omitted if the location for default Google Cloud resources has not been set.
  */
 @property(nonatomic, copy, nullable) NSString *locationId GTLR_DEPRECATED;
 
 /**
- *  Output only. **DEPRECATED.** _Instead, find the default Firebase Realtime
- *  Database instance name using the [list
+ *  Output only. **DEPRECATED.** _Instead, find the name of the default Realtime
+ *  Database instance using the [list
  *  endpoint](https://firebase.google.com/docs/reference/rest/database/database-management/rest/v1beta/projects.locations.instances/list)
- *  within the Firebase Realtime Database REST API. Note that the default
- *  instance for the Project might not yet be provisioned, so the return might
- *  not contain a default instance._ The default Firebase Realtime Database
- *  instance name, in the format: PROJECT_ID Though rare, your `projectId` might
- *  already be used as the name for an existing Realtime Database instance in
- *  another project (learn more about [database
+ *  within the Firebase Realtime Database REST API. If the default Realtime
+ *  Database instance for a Project has not yet been provisioned, the return
+ *  might not contain a default instance._ The default Firebase Realtime
+ *  Database instance name, in the format: PROJECT_ID Though rare, your
+ *  `projectId` might already be used as the name for an existing Realtime
+ *  Database instance in another project (learn more about [database
  *  sharding](https://firebase.google.com/docs/database/usage/sharding)). In
  *  these cases, your `projectId` is appended with a hyphen then five
  *  alphanumeric characters to create your default Realtime Database instance
@@ -613,13 +625,15 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *realtimeDatabaseInstance GTLR_DEPRECATED;
 
 /**
- *  Output only. **DEPRECATED.** _Instead, find the default Cloud Storage for
- *  Firebase bucket using the [list
+ *  Output only. **DEPRECATED.** _Instead, find the name of the default Cloud
+ *  Storage for Firebase bucket using the [list
  *  endpoint](https://firebase.google.com/docs/reference/rest/storage/rest/v1beta/projects.buckets/list)
- *  within the Cloud Storage for Firebase REST API. Note that the default bucket
- *  for the Project might not yet be provisioned, so the return might not
- *  contain a default bucket._ The default Cloud Storage for Firebase storage
- *  bucket, in the format: PROJECT_ID.appspot.com
+ *  within the Cloud Storage for Firebase REST API. If the default bucket for
+ *  the Project has not yet been provisioned, the return might not contain a
+ *  default bucket._ The name of the default Cloud Storage for Firebase bucket,
+ *  in one of the following formats: * If provisioned _before_ October 30, 2024:
+ *  PROJECT_ID.firebasestorage.app * If provisioned _on or after_ October 30,
+ *  2024: PROJECT_ID.firebasestorage.app
  */
 @property(nonatomic, copy, nullable) NSString *storageBucket GTLR_DEPRECATED;
 
@@ -643,9 +657,11 @@ GTLR_DEPRECATED
 @interface GTLRFirebaseManagement_FinalizeDefaultLocationRequest : GTLRObject
 
 /**
- *  The ID of the Project's default GCP resource location. The location must be
- *  one of the available [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations).
+ *  **DEPRECATED** The ID of the Project's ["location for default Google Cloud
+ *  resources"](https://firebase.google.com/docs/projects/locations#default-cloud-location),
+ *  which are resources associated with Google App Engine. The location must be
+ *  one of the available [Google App Engine
+ *  locations](https://cloud.google.com/about/locations#region).
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -688,8 +704,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. Timestamp of when the App will be considered expired and cannot
- *  be undeleted. This value is only provided if the App is in the `DELETED`
+ *  Output only. If the App has been removed from the Project, this is the
+ *  timestamp of when the App is considered expired and will be permanently
+ *  deleted. After this time, the App cannot be undeleted (that is, restored to
+ *  the Project). This value is only provided if the App is in the `DELETED`
  *  state.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
@@ -756,13 +774,14 @@ GTLR_DEPRECATED
  *  A `FirebaseProject` is the top-level Firebase entity. It is the container
  *  for Firebase Apps, Firebase Hosting sites, storage systems (Firebase
  *  Realtime Database, Cloud Firestore, Cloud Storage buckets), and other
- *  Firebase and Google Cloud Platform (GCP) resources. You create a
- *  `FirebaseProject` by calling AddFirebase and specifying an *existing* [GCP
+ *  Firebase and Google Cloud resources. You create a `FirebaseProject` by
+ *  calling AddFirebase and specifying an *existing* [Google Cloud
  *  `Project`](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
- *  This adds Firebase resources to the existing GCP `Project`. Since a
- *  FirebaseProject is actually also a GCP `Project`, a `FirebaseProject` has
- *  the same underlying GCP identifiers (`projectNumber` and `projectId`). This
- *  allows for easy interop with Google APIs.
+ *  This adds Firebase resources to the existing Google Cloud `Project`. Since a
+ *  FirebaseProject is actually also a Google Cloud `Project`, a
+ *  `FirebaseProject` has the same underlying Google Cloud identifiers
+ *  (`projectNumber` and `projectId`). This allows for easy interop with Google
+ *  APIs.
  */
 @interface GTLRFirebaseManagement_FirebaseProject : GTLRObject
 
@@ -916,8 +935,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Timestamp of when the App will be considered expired and cannot
- *  be undeleted. This value is only provided if the App is in the `DELETED`
+ *  Output only. If the App has been removed from the Project, this is the
+ *  timestamp of when the App is considered expired and will be permanently
+ *  deleted. After this time, the App cannot be undeleted (that is, restored to
+ *  the Project). This value is only provided if the App is in the `DELETED`
  *  state.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
@@ -1069,7 +1090,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of GCP `Projects` which can have Firebase resources added to them.
+ *  The list of Google Cloud `Projects` which can have Firebase resources added
+ *  to them.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1183,24 +1205,31 @@ GTLR_DEPRECATED
 /**
  *  **DEPRECATED.** _This Location is no longer used to determine Firebase
  *  resource locations. Instead, consult product documentation to determine
- *  valid locations for each resource used in your Project._ A GCP resource
- *  location that can be selected for a FirebaseProject.
+ *  valid locations for each resource used in your Project._ A ["location for
+ *  default Google Cloud
+ *  resources"](https://firebase.google.com/docs/projects/locations#default-cloud-location)
+ *  that can be selected for a FirebaseProject. These are resources associated
+ *  with Google App Engine.
  */
 GTLR_DEPRECATED
 @interface GTLRFirebaseManagement_Location : GTLRObject
 
-/** Products and services that are available in the GCP resource location. */
+/**
+ *  Products and services that are available in the location for default Google
+ *  Cloud resources.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *features;
 
 /**
- *  The ID of the GCP resource location. It will be one of the available [GCP
- *  resource
- *  locations](https://firebase.google.com/docs/projects/locations#types).
+ *  The ID of the Project's location for default Google Cloud resources. It will
+ *  be one of the available [Google App Engine
+ *  locations](https://cloud.google.com/about/locations#region).
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Indicates whether the GCP resource location is a [regional or multi-regional
+ *  Indicates whether the location for default Google Cloud resources is a
+ *  [regional or multi-regional
  *  location](https://firebase.google.com/docs/projects/locations#types) for
  *  data replication.
  *
@@ -1328,30 +1357,33 @@ GTLR_DEPRECATED
 
 
 /**
- *  A reference to a Google Cloud Platform (GCP) `Project`.
+ *  A reference to a Google Cloud `Project`.
  */
 @interface GTLRFirebaseManagement_ProjectInfo : GTLRObject
 
 /**
- *  The user-assigned display name of the GCP `Project`, for example: `My App`
+ *  The user-assigned display name of the Google Cloud `Project`, for example:
+ *  `My App`.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The ID of the Project's default GCP resource location. The location is one
- *  of the available [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations). Not all
+ *  **DEPRECATED** _Instead, use product-specific REST APIs to work with the
+ *  location of each resource in a Project. This field may not be populated,
+ *  especially for newly provisioned projects after October 30, 2024._ The ID of
+ *  the Project's ["location for default Google Cloud
+ *  resources"](https://firebase.google.com/docs/projects/locations#default-cloud-location).
+ *  The location is one of the available [Google App Engine
+ *  locations](https://cloud.google.com/about/locations#region). Not all
  *  Projects will have this field populated. If it is not populated, it means
- *  that the Project does not yet have a default GCP resource location. To set a
- *  Project's default GCP resource location, call
- *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
- *  add Firebase resources to the Project.
+ *  that the Project does not yet have a location for default Google Cloud
+ *  resources.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The resource name of the GCP `Project` to which Firebase resources can be
- *  added, in the format: projects/PROJECT_IDENTIFIER Refer to the
+ *  The resource name of the Google Cloud `Project` to which Firebase resources
+ *  can be added, in the format: projects/PROJECT_IDENTIFIER Refer to the
  *  `FirebaseProject` [`name`](../projects#FirebaseProject.FIELDS.name) field
  *  for details about PROJECT_IDENTIFIER values.
  */
@@ -1399,10 +1431,10 @@ GTLR_DEPRECATED
 
 /**
  *  Determines whether to _immediately_ delete the AndroidApp. If set to true,
- *  the App is immediately deleted from the Project and cannot be restored to
- *  the Project. If not set, defaults to false, which means the App will be set
- *  to expire in 30 days. Within the 30 days, the App may be restored to the
- *  Project using UndeleteAndroidApp.
+ *  the App is immediately deleted from the Project and cannot be undeleted
+ *  (that is, restored to the Project). If not set, defaults to false, which
+ *  means the App will be set to expire in 30 days. Within the 30 days, the App
+ *  may be restored to the Project using UndeleteAndroidApp.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1440,10 +1472,10 @@ GTLR_DEPRECATED
 
 /**
  *  Determines whether to _immediately_ delete the IosApp. If set to true, the
- *  App is immediately deleted from the Project and cannot be restored to the
- *  Project. If not set, defaults to false, which means the App will be set to
- *  expire in 30 days. Within the 30 days, the App may be restored to the
- *  Project using UndeleteIosApp
+ *  App is immediately deleted from the Project and cannot be undeleted (that
+ *  is, restored to the Project). If not set, defaults to false, which means the
+ *  App will be set to expire in 30 days. Within the 30 days, the App may be
+ *  restored to the Project using UndeleteIosApp
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1481,10 +1513,10 @@ GTLR_DEPRECATED
 
 /**
  *  Determines whether to _immediately_ delete the WebApp. If set to true, the
- *  App is immediately deleted from the Project and cannot be restored to the
- *  Project. If not set, defaults to false, which means the App will be set to
- *  expire in 30 days. Within the 30 days, the App may be restored to the
- *  Project using UndeleteWebApp
+ *  App is immediately deleted from the Project and cannot be undeleted (that
+ *  is, restored to the Project). If not set, defaults to false, which means the
+ *  App will be set to expire in 30 days. Within the 30 days, the App may be
+ *  restored to the Project using UndeleteWebApp
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1806,8 +1838,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Timestamp of when the App will be considered expired and cannot
- *  be undeleted. This value is only provided if the App is in the `DELETED`
+ *  Output only. If the App has been removed from the Project, this is the
+ *  timestamp of when the App is considered expired and will be permanently
+ *  deleted. After this time, the App cannot be undeleted (that is, restored to
+ *  the Project). This value is only provided if the App is in the `DELETED`
  *  state.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
@@ -1889,24 +1923,28 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *authDomain;
 
 /**
- *  **DEPRECATED.** _Instead, find the default Firebase Realtime Database
- *  instance name using the [list
+ *  **DEPRECATED.** _Instead, find the URL of the default Realtime Database
+ *  instance using the [list
  *  endpoint](https://firebase.google.com/docs/reference/rest/database/database-management/rest/v1beta/projects.locations.instances/list)
- *  within the Firebase Realtime Database REST API. Note that the default
- *  instance for the Project might not yet be provisioned, so the return might
- *  not contain a default instance._ The default Firebase Realtime Database URL.
+ *  within the Firebase Realtime Database REST API. If the default instance for
+ *  the Project has not yet been provisioned, the return might not contain a
+ *  default instance. Note that the config that's generated for the Firebase
+ *  console or the Firebase CLI uses the Realtime Database endpoint to populate
+ *  this value for that config._ The URL of the default Firebase Realtime
+ *  Database instance.
  */
 @property(nonatomic, copy, nullable) NSString *databaseURL GTLR_DEPRECATED;
 
 /**
  *  **DEPRECATED.** _Instead, use product-specific REST APIs to find the
- *  location of resources._ The ID of the Project's default GCP resource
- *  location. The location is one of the available [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations). This field
- *  is omitted if the default GCP resource location has not been finalized yet.
- *  To set a Project's default GCP resource location, call
- *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
- *  add Firebase resources to the Project.
+ *  location of each resource in a Project. This field may not be populated,
+ *  especially for newly provisioned projects after October 30, 2024._ The ID of
+ *  the Project's ["location for default Google Cloud
+ *  resources"](https://firebase.google.com/docs/projects/locations#default-cloud-location),
+ *  which are resources associated with Google App Engine. The location is one
+ *  of the available [App Engine
+ *  locations](https://cloud.google.com/about/locations#region). This field is
+ *  omitted if the location for default Google Cloud resources has not been set.
  */
 @property(nonatomic, copy, nullable) NSString *locationId GTLR_DEPRECATED;
 
@@ -1942,24 +1980,23 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *projectNumber;
 
 /**
- *  Optional. Duplicate field for the URL of the default RTDB instances (if
- *  there is one) that uses the same field name as the unified V2 config file
- *  format. We wanted to make a single config file format for all the app
- *  platforms (Android, iOS and web) and we had to pick consistent names for all
- *  the fields since there was some varience between the platforms. If the
- *  request asks for the V2 format we will populate this field instead of
- *  realtime_database_instance_uri.
+ *  Optional. Duplicate field for the URL of the default Realtime Database
+ *  instances (if the default instance has been provisioned). If the request
+ *  asks for the V2 config format, this field will be populated instead of
+ *  `realtime_database_instance_uri`.
  */
 @property(nonatomic, copy, nullable) NSString *realtimeDatabaseUrl;
 
 /**
- *  **DEPRECATED.** _Instead, find the default Cloud Storage for Firebase bucket
- *  using the [list
+ *  **DEPRECATED.** _Instead, find the name of the default Cloud Storage for
+ *  Firebase bucket using the [list
  *  endpoint](https://firebase.google.com/docs/reference/rest/storage/rest/v1beta/projects.buckets/list)
- *  within the Cloud Storage for Firebase REST API. Note that the default bucket
- *  for the Project might not yet be provisioned, so the return might not
- *  contain a default bucket._ The default Cloud Storage for Firebase storage
- *  bucket name.
+ *  within the Cloud Storage for Firebase REST API. If the default bucket for
+ *  the Project has not yet been provisioned, the return might not contain a
+ *  default bucket. Note that the config that's generated for the Firebase
+ *  console or the Firebase CLI uses the Cloud Storage for Firebase endpoint to
+ *  populate this value for that config._ The name of the default Cloud Storage
+ *  for Firebase bucket.
  */
 @property(nonatomic, copy, nullable) NSString *storageBucket GTLR_DEPRECATED;
 

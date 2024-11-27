@@ -409,7 +409,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 @implementation GTLRTesting_ApkManifest
 @dynamic applicationLabel, intentFilters, maxSdkVersion, metadata,
          minSdkVersion, packageName, services, targetSdkVersion, usesFeature,
-         usesPermission, versionCode, versionName;
+         usesPermission, usesPermissionTags, versionCode, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -417,7 +417,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
     @"metadata" : [GTLRTesting_Metadata class],
     @"services" : [GTLRTesting_Service class],
     @"usesFeature" : [GTLRTesting_UsesFeature class],
-    @"usesPermission" : [NSString class]
+    @"usesPermission" : [NSString class],
+    @"usesPermissionTags" : [GTLRTesting_UsesPermissionTag class]
   };
   return map;
 }
@@ -1362,6 +1363,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_UsesFeature
 @dynamic isRequired, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_UsesPermissionTag
+//
+
+@implementation GTLRTesting_UsesPermissionTag
+@dynamic maxSdkVersion, name;
 @end
 
 

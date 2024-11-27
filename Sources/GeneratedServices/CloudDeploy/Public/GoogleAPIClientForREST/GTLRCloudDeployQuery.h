@@ -1196,6 +1196,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesCreate : GTLRCloudDeployQuery
 
 /**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
+
+/**
  *  Required. The parent collection in which the `Release` is created. The
  *  format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
@@ -1441,6 +1447,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDeployCloudPlatform
  */
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCreate : GTLRCloudDeployQuery
+
+/**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
 
 /**
  *  Required. The parent collection in which the `Rollout` must be created. The
@@ -1888,6 +1900,287 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudDeploy_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new DeployPolicy in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesCreate : GTLRCloudDeployQuery
+
+/** Required. ID of the `DeployPolicy`. */
+@property(nonatomic, copy, nullable) NSString *deployPolicyId;
+
+/**
+ *  Required. The parent collection in which the `DeployPolicy` must be created.
+ *  The format is `projects/{project_id}/locations/{location_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that for at least 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server can check if original operation
+ *  with the same request ID was received, and if so, will ignore the second
+ *  request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with an expected result, but no actual change is made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Creates a new DeployPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRCloudDeploy_DeployPolicy to include in the query.
+ *  @param parent Required. The parent collection in which the `DeployPolicy`
+ *    must be created. The format is
+ *    `projects/{project_id}/locations/{location_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_DeployPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single DeployPolicy.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesDelete : GTLRCloudDeployQuery
+
+/**
+ *  Optional. If set to true, then deleting an already deleted or non-existing
+ *  `DeployPolicy` will succeed.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the `DeployPolicy` to delete. The format is
+ *  `projects/{project_id}/locations/{location_name}/deployPolicies/{deploy_policy_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that for at least 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server can check if original operation
+ *  with the same request ID was received, and if so, will ignore the second
+ *  request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Deletes a single DeployPolicy.
+ *
+ *  @param name Required. The name of the `DeployPolicy` to delete. The format
+ *    is
+ *    `projects/{project_id}/locations/{location_name}/deployPolicies/{deploy_policy_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single DeployPolicy.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGet : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the `DeployPolicy`. Format must be
+ *  `projects/{project_id}/locations/{location_name}/deployPolicies/{deploy_policy_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_DeployPolicy.
+ *
+ *  Gets details of a single DeployPolicy.
+ *
+ *  @param name Required. Name of the `DeployPolicy`. Format must be
+ *    `projects/{project_id}/locations/{location_name}/deployPolicies/{deploy_policy_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DeployPolicies in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesList : GTLRCloudDeployQuery
+
+/**
+ *  Filter deploy policies to be returned. See https://google.aip.dev/160 for
+ *  more details. All fields can be used in the filter.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field to sort by. See https://google.aip.dev/132#ordering for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of deploy policies to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 deploy policies will be
+ *  returned. The maximum value is 1000; values above 1000 will be set to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListDeployPolicies` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other provided
+ *  parameters match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of deploy policies. Format
+ *  must be `projects/{project_id}/locations/{location_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_ListDeployPoliciesResponse.
+ *
+ *  Lists DeployPolicies in a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of deploy
+ *    policies. Format must be
+ *    `projects/{project_id}/locations/{location_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single DeployPolicy.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesPatch : GTLRCloudDeployQuery
+
+/**
+ *  Optional. If set to true, updating a `DeployPolicy` that does not exist will
+ *  result in the creation of a new `DeployPolicy`.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Output only. Name of the `DeployPolicy`. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`. The
+ *  `deployPolicy` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that for at least 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server can check if original operation
+ *  with the same request ID was received, and if so, will ignore the second
+ *  request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `DeployPolicy` resource. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it's in the mask. If the user doesn't provide a mask then
+ *  all fields are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with an expected result, but no actual change is made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Updates the parameters of a single DeployPolicy.
+ *
+ *  @param object The @c GTLRCloudDeploy_DeployPolicy to include in the query.
+ *  @param name Output only. Name of the `DeployPolicy`. Format is
+ *    `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ *    The `deployPolicy` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_DeployPolicy *)object
+                           name:(NSString *)name;
 
 @end
 

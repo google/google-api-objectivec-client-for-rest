@@ -132,6 +132,12 @@ NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingSta
 NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusPending = @"billingStatusPending";
 NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusUnspecified = @"billingStatusUnspecified";
 
+// GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails.status
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusActive = @"merchantAffiliateProgramStatusActive";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusEligible = @"merchantAffiliateProgramStatusEligible";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusPaused = @"merchantAffiliateProgramStatusPaused";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusUnspecified = @"merchantAffiliateProgramStatusUnspecified";
+
 // GTLRYouTube_CommentSnippet.moderationStatus
 NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_HeldForReview = @"heldForReview";
 NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_LikelySpam = @"likelySpam";
@@ -1900,7 +1906,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ChannelToStoreLinkDetails
-@dynamic billingDetails, merchantId, storeName, storeUrl;
+@dynamic billingDetails, merchantAffiliateProgramDetails, merchantId, storeName,
+         storeUrl;
 @end
 
 
@@ -1911,6 +1918,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails
 @dynamic billingStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails
+//
+
+@implementation GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails
+@dynamic status;
 @end
 
 
@@ -3424,8 +3441,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_SubscriptionSnippet
-@dynamic channelId, channelTitle, descriptionProperty, publishedAt, resourceId,
-         thumbnails, title;
+@dynamic channelId, descriptionProperty, publishedAt, resourceId, thumbnails,
+         title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3519,10 +3536,14 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_TestItem
-@dynamic featuredPart, gaia, identifier, snippet;
+@dynamic ETag, featuredPart, gaia, identifier, snippet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
 }
 
 @end
@@ -4098,9 +4119,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_VideoStatus
-@dynamic embeddable, failureReason, license, madeForKids, privacyStatus,
-         publicStatsViewable, publishAt, rejectionReason,
-         selfDeclaredMadeForKids, uploadStatus;
+@dynamic containsSyntheticMedia, embeddable, failureReason, license,
+         madeForKids, privacyStatus, publicStatsViewable, publishAt,
+         rejectionReason, selfDeclaredMadeForKids, uploadStatus;
 @end
 
 

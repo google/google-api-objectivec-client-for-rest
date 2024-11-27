@@ -718,6 +718,75 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Query PSC propagation status the status of a Network Connectivity Center
+ *  hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.queryStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsQueryStatus : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. An expression that filters the list of results. The filter can be
+ *  used to filter the results by the following fields: *
+ *  psc_propagation_status.source_spoke * psc_propagation_status.source_group *
+ *  psc_propagation_status.source_forwarding_rule *
+ *  psc_propagation_status.target_spoke * psc_propagation_status.target_group *
+ *  psc_propagation_status.code * psc_propagation_status.message
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A field that counts are grouped by. A comma-separated list of any
+ *  of these fields: * psc_propagation_status.source_spoke *
+ *  psc_propagation_status.source_group *
+ *  psc_propagation_status.source_forwarding_rule *
+ *  psc_propagation_status.target_spoke * psc_propagation_status.target_group *
+ *  psc_propagation_status.code
+ */
+@property(nonatomic, copy, nullable) NSString *groupBy;
+
+/** Required. The name of the hub. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Sort the results in the ascending order by specific fields
+ *  returned in the response. A comma-separated list of any of these fields: *
+ *  psc_propagation_status.source_spoke * psc_propagation_status.source_group *
+ *  psc_propagation_status.source_forwarding_rule *
+ *  psc_propagation_status.target_spoke * psc_propagation_status.target_group *
+ *  psc_propagation_status.code If `group_by` is set, the value of the
+ *  `order_by` field must be the same as or a subset of the `group_by` field.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The maximum number of results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_QueryHubStatusResponse.
+ *
+ *  Query PSC propagation status the status of a Network Connectivity Center
+ *  hub.
+ *
+ *  @param name Required. The name of the hub.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsQueryStatus
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Rejects a Network Connectivity Center spoke from being attached to a hub. If
  *  the spoke was previously in the `ACTIVE` state, it transitions to the
  *  `INACTIVE` state and is no longer able to connect to other spokes that are

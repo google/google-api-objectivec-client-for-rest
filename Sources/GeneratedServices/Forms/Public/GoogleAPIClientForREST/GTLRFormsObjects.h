@@ -48,6 +48,7 @@
 @class GTLRForms_QuestionGroupItem;
 @class GTLRForms_QuestionItem;
 @class GTLRForms_QuizSettings;
+@class GTLRForms_RatingQuestion;
 @class GTLRForms_Request;
 @class GTLRForms_Response;
 @class GTLRForms_RowQuestion;
@@ -228,6 +229,34 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Option_GoToAction_RestartForm;
  *  Value: "SUBMIT_FORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRForms_Option_GoToAction_SubmitForm;
+
+// ----------------------------------------------------------------------------
+// GTLRForms_RatingQuestion.iconType
+
+/**
+ *  A heart icon.
+ *
+ *  Value: "HEART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_RatingQuestion_IconType_Heart;
+/**
+ *  Default value. Unused.
+ *
+ *  Value: "RATING_ICON_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_RatingQuestion_IconType_RatingIconTypeUnspecified;
+/**
+ *  A star icon.
+ *
+ *  Value: "STAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_RatingQuestion_IconType_Star;
+/**
+ *  A thumbs down icon.
+ *
+ *  Value: "THUMB_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_RatingQuestion_IconType_ThumbUp;
 
 // ----------------------------------------------------------------------------
 // GTLRForms_Watch.errorType
@@ -1152,6 +1181,9 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
  */
 @property(nonatomic, copy, nullable) NSString *questionId;
 
+/** A respondent can choose a rating from a pre-defined set of icons. */
+@property(nonatomic, strong, nullable) GTLRForms_RatingQuestion *ratingQuestion;
+
 /**
  *  Whether the question must be answered in order for a respondent to submit
  *  their response.
@@ -1229,6 +1261,36 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isQuiz;
+
+@end
+
+
+/**
+ *  A rating question. The user has a range of icons to choose from.
+ */
+@interface GTLRForms_RatingQuestion : GTLRObject
+
+/**
+ *  Required. The icon type to use for the rating.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRForms_RatingQuestion_IconType_Heart A heart icon. (Value:
+ *        "HEART")
+ *    @arg @c kGTLRForms_RatingQuestion_IconType_RatingIconTypeUnspecified
+ *        Default value. Unused. (Value: "RATING_ICON_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRForms_RatingQuestion_IconType_Star A star icon. (Value:
+ *        "STAR")
+ *    @arg @c kGTLRForms_RatingQuestion_IconType_ThumbUp A thumbs down icon.
+ *        (Value: "THUMB_UP")
+ */
+@property(nonatomic, copy, nullable) NSString *iconType;
+
+/**
+ *  Required. The rating scale level of the rating question.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ratingScaleLevel;
 
 @end
 

@@ -2630,8 +2630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @interface GTLRMonitoringQuery_ProjectsMetricDescriptorsList : GTLRMonitoringQuery
 
 /**
- *  If this field is empty, all custom and system-defined metric descriptors are
- *  returned. Otherwise, the filter
+ *  Optional. If this field is empty, all custom and system-defined metric
+ *  descriptors are returned. Otherwise, the filter
  *  (https://cloud.google.com/monitoring/api/v3/filters) specifies which metric
  *  descriptors are to be returned. For example, the following filter matches
  *  all custom metrics (https://cloud.google.com/monitoring/custom-metrics):
@@ -2647,16 +2647,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A positive number that is the maximum number of results to return. The
- *  default and maximum value is 10,000. If a page_size <= 0 or > 10,000 is
+ *  Optional. A positive number that is the maximum number of results to return.
+ *  The default and maximum value is 10,000. If a page_size <= 0 or > 10,000 is
  *  submitted, will instead return a maximum of 10,000 results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If this field is not empty then it must contain the nextPageToken value
- *  returned by a previous call to this method. Using this field causes the
- *  method to return additional results from the previous method call.
+ *  Optional. If this field is not empty then it must contain the nextPageToken
+ *  value returned by a previous call to this method. Using this field causes
+ *  the method to return additional results from the previous method call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2939,8 +2939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  If true, the notification channel will be deleted regardless of its use in
  *  alert policies (the policies will be updated to remove the channel). If
- *  false, channels that are still referenced by an existing alerting policy
- *  will fail to be deleted in a delete operation.
+ *  false, this operation will fail if the notification channel is referenced by
+ *  existing alerting policies.
  */
 @property(nonatomic, assign) BOOL force;
 

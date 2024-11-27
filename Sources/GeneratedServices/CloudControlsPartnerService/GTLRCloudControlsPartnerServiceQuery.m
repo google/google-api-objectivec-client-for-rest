@@ -11,14 +11,58 @@
 
 #import <GoogleAPIClientForREST/GTLRCloudControlsPartnerServiceQuery.h>
 
-#import <GoogleAPIClientForREST/GTLRCloudControlsPartnerServiceObjects.h>
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 @implementation GTLRCloudControlsPartnerServiceQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRCloudControlsPartnerServiceQuery_OrganizationsLocationsCustomersCreate
+
+@dynamic customerId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudControlsPartnerService_Customer *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customers";
+  GTLRCloudControlsPartnerServiceQuery_OrganizationsLocationsCustomersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudControlsPartnerService_Customer class];
+  query.loggingName = @"cloudcontrolspartner.organizations.locations.customers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudControlsPartnerServiceQuery_OrganizationsLocationsCustomersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudControlsPartnerServiceQuery_OrganizationsLocationsCustomersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudControlsPartnerService_Empty class];
+  query.loggingName = @"cloudcontrolspartner.organizations.locations.customers.delete";
+  return query;
+}
 
 @end
 
@@ -55,6 +99,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudControlsPartnerService_ListCustomersResponse class];
   query.loggingName = @"cloudcontrolspartner.organizations.locations.customers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudControlsPartnerServiceQuery_OrganizationsLocationsCustomersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudControlsPartnerService_Customer *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudControlsPartnerServiceQuery_OrganizationsLocationsCustomersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudControlsPartnerService_Customer class];
+  query.loggingName = @"cloudcontrolspartner.organizations.locations.customers.patch";
   return query;
 }
 

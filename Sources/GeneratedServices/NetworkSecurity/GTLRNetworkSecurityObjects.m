@@ -26,6 +26,18 @@ NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_ActionUnspecifi
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Allow = @"ALLOW";
 NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Deny = @"DENY";
 
+// GTLRNetworkSecurity_AuthzPolicy.action
+NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_AuthzActionUnspecified = @"AUTHZ_ACTION_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Custom = @"CUSTOM";
+NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny  = @"DENY";
+
+// GTLRNetworkSecurity_AuthzPolicyTarget.loadBalancingScheme
+NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
+NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
+NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_InternalSelfManaged = @"INTERNAL_SELF_MANAGED";
+NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
+
 // GTLRNetworkSecurity_FirewallEndpoint.state
 NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Active = @"ACTIVE";
 NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Creating = @"CREATING";
@@ -58,6 +70,7 @@ NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_ClientVali
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid = @"REJECT_INVALID";
 
 // GTLRNetworkSecurity_SecurityProfile.type
+NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomMirroring = @"CUSTOM_MIRRORING";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified = @"PROFILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention = @"THREAT_PREVENTION";
 
@@ -200,6 +213,251 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_AuthzPolicy
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicy
+@dynamic action, createTime, customProvider, descriptionProperty, httpRules,
+         labels, name, target, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"httpRules" : [GTLRNetworkSecurity_AuthzPolicyAuthzRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicy_Labels
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRule
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRule
+@dynamic from, to, when;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleFrom
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleFrom
+@dynamic notSources, sources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notSources" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource class],
+    @"sources" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource
+@dynamic principals, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"principals" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class],
+    @"resources" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource
+@dynamic iamServiceAccount, tagValueIdSet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResourceTagValueIdSet
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResourceTagValueIdSet
+@dynamic ids;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ids" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch
+@dynamic contains, exact, ignoreCase, prefix, suffix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleTo
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleTo
+@dynamic notOperations, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notOperations" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation class],
+    @"operations" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation
+@dynamic headerSet, hosts, methods, paths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hosts" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class],
+    @"methods" : [NSString class],
+    @"paths" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationHeaderSet
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationHeaderSet
+@dynamic headers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"headers" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyCustomProvider
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyCustomProvider
+@dynamic authzExtension, cloudIap;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyCustomProviderAuthzExtension
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyCustomProviderAuthzExtension
+@dynamic resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyCustomProviderCloudIap
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyCustomProviderCloudIap
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyTarget
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyTarget
+@dynamic loadBalancingScheme, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_CancelOperationRequest
 //
 
@@ -261,6 +519,16 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 @implementation GTLRNetworkSecurity_CloneAddressGroupItemsRequest
 @dynamic requestId, sourceAddressGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_CustomMirroringProfile
+//
+
+@implementation GTLRNetworkSecurity_CustomMirroringProfile
+@dynamic mirroringEndpointGroup;
 @end
 
 
@@ -637,6 +905,29 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 + (NSString *)collectionItemsKey {
   return @"authorizationPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListAuthzPoliciesResponse
+//
+
+@implementation GTLRNetworkSecurity_ListAuthzPoliciesResponse
+@dynamic authzPolicies, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authzPolicies" : [GTLRNetworkSecurity_AuthzPolicy class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"authzPolicies";
 }
 
 @end
@@ -1060,8 +1351,8 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_SecurityProfile
-@dynamic createTime, descriptionProperty, ETag, labels, name,
-         threatPreventionProfile, type, updateTime;
+@dynamic createTime, customMirroringProfile, descriptionProperty, ETag, labels,
+         name, threatPreventionProfile, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1094,8 +1385,8 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_SecurityProfileGroup
-@dynamic createTime, descriptionProperty, ETag, labels, name,
-         threatPreventionProfile, updateTime;
+@dynamic createTime, customMirroringProfile, descriptionProperty, ETag, labels,
+         name, threatPreventionProfile, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

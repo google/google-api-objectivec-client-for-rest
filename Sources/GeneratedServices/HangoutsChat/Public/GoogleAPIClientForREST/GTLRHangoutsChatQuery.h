@@ -167,7 +167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Completes the [import
  *  process](https://developers.google.com/workspace/chat/import-data) for the
- *  specified space and makes it visible to users. Requires app authentication
+ *  specified space and makes it visible to users. Requires [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  and domain-wide delegation. For more information, see [Authorize Google Chat
  *  apps to import
  *  data](https://developers.google.com/workspace/chat/authorize-import).
@@ -189,7 +190,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Completes the [import
  *  process](https://developers.google.com/workspace/chat/import-data) for the
- *  specified space and makes it visible to users. Requires app authentication
+ *  specified space and makes it visible to users. Requires [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  and domain-wide delegation. For more information, see [Authorize Google Chat
  *  apps to import
  *  data](https://developers.google.com/workspace/chat/authorize-import).
@@ -207,16 +209,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Creates a space with no members. Can be used to create a named space. Spaces
- *  grouped by topics aren't supported. For an example, see [Create a
+ *  Creates a space with no members. Can be used to create a named space, or a
+ *  group chat in `Import mode`. For an example, see [Create a
  *  space](https://developers.google.com/workspace/chat/create-spaces). If you
  *  receive the error message `ALREADY_EXISTS` when creating a space, try a
  *  different `displayName`. An existing space within the Google Workspace
- *  organization might already use this display name. If you're a member of the
- *  [Developer Preview
- *  program](https://developers.google.com/workspace/preview), you can create a
- *  group chat in import mode using `spaceType.GROUP_CHAT`. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  organization might already use this display name. Supports the following
+ *  types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  When authenticating as an app, the `space.customer` field must be set in the
+ *  request.
  *
  *  Method: chat.spaces.create
  *
@@ -241,16 +249,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_Space.
  *
- *  Creates a space with no members. Can be used to create a named space. Spaces
- *  grouped by topics aren't supported. For an example, see [Create a
+ *  Creates a space with no members. Can be used to create a named space, or a
+ *  group chat in `Import mode`. For an example, see [Create a
  *  space](https://developers.google.com/workspace/chat/create-spaces). If you
  *  receive the error message `ALREADY_EXISTS` when creating a space, try a
  *  different `displayName`. An existing space within the Google Workspace
- *  organization might already use this display name. If you're a member of the
- *  [Developer Preview
- *  program](https://developers.google.com/workspace/preview), you can create a
- *  group chat in import mode using `spaceType.GROUP_CHAT`. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  organization might already use this display name. Supports the following
+ *  types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  When authenticating as an app, the `space.customer` field must be set in the
+ *  request.
  *
  *  @param object The @c GTLRHangoutsChat_Space to include in the query.
  *
@@ -264,10 +278,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Deletes a named space. Always performs a cascading delete, which means that
  *  the space's child resources—like messages posted in the space and
  *  memberships in the space—are also deleted. For an example, see [Delete a
- *  space](https://developers.google.com/workspace/chat/delete-spaces). Requires
- *  [user
+ *  space](https://developers.google.com/workspace/chat/delete-spaces). Supports
+ *  the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
- *  from a user who has permission to delete the space.
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  Method: chat.spaces.delete
  *
@@ -285,9 +306,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  When `true`, the method runs using the user's Google Workspace administrator
- *  privileges. The calling user must be a Google Workspace administrator with
- *  the [manage chat and spaces conversations
+ *  Optional. When `true`, the method runs using the user's Google Workspace
+ *  administrator privileges. The calling user must be a Google Workspace
+ *  administrator with the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
  *  `chat.admin.delete` [OAuth 2.0
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
@@ -300,10 +321,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Deletes a named space. Always performs a cascading delete, which means that
  *  the space's child resources—like messages posted in the space and
  *  memberships in the space—are also deleted. For an example, see [Delete a
- *  space](https://developers.google.com/workspace/chat/delete-spaces). Requires
- *  [user
+ *  space](https://developers.google.com/workspace/chat/delete-spaces). Supports
+ *  the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
- *  from a user who has permission to delete the space.
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  @param name Required. Resource name of the space to delete. Format:
  *    `spaces/{space}`
@@ -318,16 +346,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns the existing direct message with the specified user. If no direct
  *  message space is found, returns a `404 NOT_FOUND` error. For an example, see
  *  [Find a direct message](/chat/api/guides/v1/spaces/find-direct-message).
- *  With [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
- *  returns the direct message space between the specified user and the
- *  authenticated user. With [app
+ *  With [app
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app),
  *  returns the direct message space between the specified user and the calling
- *  Chat app. Requires [user
+ *  Chat app. With [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
+ *  returns the direct message space between the specified user and the
+ *  authenticated user. // Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
- *  or [app
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *
  *  Method: chat.spaces.findDirectMessage
  *
@@ -360,16 +390,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns the existing direct message with the specified user. If no direct
  *  message space is found, returns a `404 NOT_FOUND` error. For an example, see
  *  [Find a direct message](/chat/api/guides/v1/spaces/find-direct-message).
- *  With [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
- *  returns the direct message space between the specified user and the
- *  authenticated user. With [app
+ *  With [app
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app),
  *  returns the direct message space between the specified user and the calling
- *  Chat app. Requires [user
+ *  Chat app. With [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
+ *  returns the direct message space between the specified user and the
+ *  authenticated user. // Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
- *  or [app
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *
  *  @return GTLRHangoutsChatQuery_SpacesFindDirectMessage
  */
@@ -379,12 +411,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Returns details about a space. For an example, see [Get details about a
- *  space](https://developers.google.com/workspace/chat/get-spaces). Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  space](https://developers.google.com/workspace/chat/get-spaces). Supports
+ *  the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  Method: chat.spaces.get
  *
@@ -405,9 +440,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  When `true`, the method runs using the user's Google Workspace administrator
- *  privileges. The calling user must be a Google Workspace administrator with
- *  the [manage chat and spaces conversations
+ *  Optional. When `true`, the method runs using the user's Google Workspace
+ *  administrator privileges. The calling user must be a Google Workspace
+ *  administrator with the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
  *  `chat.admin.spaces` or `chat.admin.spaces.readonly` [OAuth 2.0
  *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
@@ -418,12 +453,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Fetches a @c GTLRHangoutsChat_Space.
  *
  *  Returns details about a space. For an example, see [Get details about a
- *  space](https://developers.google.com/workspace/chat/get-spaces). Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  space](https://developers.google.com/workspace/chat/get-spaces). Supports
+ *  the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  @param name Required. Resource name of the space, in the form
  *    `spaces/{space}`. Format: `spaces/{space}`
@@ -437,15 +475,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Lists spaces the caller is a member of. Group chats and DMs aren't listed
  *  until the first message is sent. For an example, see [List
- *  spaces](https://developers.google.com/workspace/chat/list-spaces). Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  spaces](https://developers.google.com/workspace/chat/list-spaces). Supports
+ *  the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
- *  Lists spaces visible to the caller or authenticated user. Group chats and
- *  DMs aren't listed until the first message is sent. To list all named spaces
- *  by Google Workspace organization, use the
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  To list all named spaces by Google Workspace organization, use the
  *  [`spaces.search()`](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/search)
  *  method using Workspace administrator privileges instead.
  *
@@ -491,15 +528,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Lists spaces the caller is a member of. Group chats and DMs aren't listed
  *  until the first message is sent. For an example, see [List
- *  spaces](https://developers.google.com/workspace/chat/list-spaces). Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  spaces](https://developers.google.com/workspace/chat/list-spaces). Supports
+ *  the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
- *  Lists spaces visible to the caller or authenticated user. Group chats and
- *  DMs aren't listed until the first message is sent. To list all named spaces
- *  by Google Workspace organization, use the
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  To list all named spaces by Google Workspace organization, use the
  *  [`spaces.search()`](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/search)
  *  method using Workspace administrator privileges instead.
  *
@@ -519,9 +555,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  membership, if the specified member has their auto-accept policy turned off,
  *  then they're invited, and must accept the space invitation before joining.
  *  Otherwise, creating a membership adds the member directly to the specified
- *  space. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
- *  For example usage, see: - [Invite or add a user to a
+ *  space. Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request. For example usage,
+ *  see: - [Invite or add a user to a
  *  space](https://developers.google.com/workspace/chat/create-members#create-user-membership).
  *  - [Invite or add a Google Group to a
  *  space](https://developers.google.com/workspace/chat/create-members#create-group-membership).
@@ -546,9 +590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  When `true`, the method runs using the user's Google Workspace administrator
- *  privileges. The calling user must be a Google Workspace administrator with
- *  the [manage chat and spaces conversations
+ *  Optional. When `true`, the method runs using the user's Google Workspace
+ *  administrator privileges. The calling user must be a Google Workspace
+ *  administrator with the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
  *  `chat.admin.memberships` [OAuth 2.0
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
@@ -566,9 +610,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  membership, if the specified member has their auto-accept policy turned off,
  *  then they're invited, and must accept the space invitation before joining.
  *  Otherwise, creating a membership adds the member directly to the specified
- *  space. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
- *  For example usage, see: - [Invite or add a user to a
+ *  space. Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request. For example usage,
+ *  see: - [Invite or add a user to a
  *  space](https://developers.google.com/workspace/chat/create-members#create-user-membership).
  *  - [Invite or add a Google Group to a
  *  space](https://developers.google.com/workspace/chat/create-members#create-group-membership).
@@ -590,8 +642,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Deletes a membership. For an example, see [Remove a user or a Google Chat
  *  app from a
  *  space](https://developers.google.com/workspace/chat/delete-members).
- *  Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  Method: chat.spaces.members.delete
  *
@@ -618,9 +678,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  When `true`, the method runs using the user's Google Workspace administrator
- *  privileges. The calling user must be a Google Workspace administrator with
- *  the [manage chat and spaces conversations
+ *  Optional. When `true`, the method runs using the user's Google Workspace
+ *  administrator privileges. The calling user must be a Google Workspace
+ *  administrator with the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
  *  `chat.admin.memberships` [OAuth 2.0
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
@@ -634,8 +694,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Deletes a membership. For an example, see [Remove a user or a Google Chat
  *  app from a
  *  space](https://developers.google.com/workspace/chat/delete-members).
- *  Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  @param name Required. Resource name of the membership to delete. Chat apps
  *    can delete human users' or their own memberships. Chat apps can't delete
@@ -658,12 +726,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns details about a membership. For an example, see [Get details about a
  *  user's or Google Chat app's
  *  membership](https://developers.google.com/workspace/chat/get-members).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  Method: chat.spaces.members.get
  *
@@ -681,19 +751,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  membership [by using user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
  *  you can optionally use `spaces/{space}/members/app`. Format:
- *  `spaces/{space}/members/{member}` or `spaces/{space}/members/app` When
- *  [authenticated as a
- *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
- *  you can use the user's email as an alias for `{member}`. For example,
+ *  `spaces/{space}/members/{member}` or `spaces/{space}/members/app` You can
+ *  use the user's email as an alias for `{member}`. For example,
  *  `spaces/{space}/members/example\@gmail.com` where `example\@gmail.com` is
  *  the email of the Google Chat user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  When `true`, the method runs using the user's Google Workspace administrator
- *  privileges. The calling user must be a Google Workspace administrator with
- *  the [manage chat and spaces conversations
+ *  Optional. When `true`, the method runs using the user's Google Workspace
+ *  administrator privileges. The calling user must be a Google Workspace
+ *  administrator with the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
  *  `chat.admin.memberships` or `chat.admin.memberships.readonly` [OAuth 2.0
  *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
@@ -707,21 +775,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Returns details about a membership. For an example, see [Get details about a
  *  user's or Google Chat app's
  *  membership](https://developers.google.com/workspace/chat/get-members).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  @param name Required. Resource name of the membership to retrieve. To get
  *    the app's own membership [by using user
  *    authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
  *    you can optionally use `spaces/{space}/members/app`. Format:
- *    `spaces/{space}/members/{member}` or `spaces/{space}/members/app` When
- *    [authenticated as a
- *    user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
- *    you can use the user's email as an alias for `{member}`. For example,
+ *    `spaces/{space}/members/{member}` or `spaces/{space}/members/app` You can
+ *    use the user's email as an alias for `{member}`. For example,
  *    `spaces/{space}/members/example\@gmail.com` where `example\@gmail.com` is
  *    the email of the Google Chat user.
  *
@@ -741,12 +809,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Chat app memberships, including its own. Listing memberships with [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  lists memberships in spaces that the authenticated user has access to.
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  Method: chat.spaces.members.list
  *
@@ -821,9 +891,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) BOOL showInvited;
 
 /**
- *  When `true`, the method runs using the user's Google Workspace administrator
- *  privileges. The calling user must be a Google Workspace administrator with
- *  the [manage chat and spaces conversations
+ *  Optional. When `true`, the method runs using the user's Google Workspace
+ *  administrator privileges. The calling user must be a Google Workspace
+ *  administrator with the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires either
  *  the `chat.admin.memberships.readonly` or `chat.admin.memberships` [OAuth 2.0
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
@@ -843,12 +913,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Chat app memberships, including its own. Listing memberships with [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  lists memberships in spaces that the authenticated user has access to.
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  @param parent Required. The resource name of the space for which to fetch a
  *    membership list. Format: spaces/{space}
@@ -866,8 +938,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Updates a membership. For an example, see [Update a user's membership in a
  *  space](https://developers.google.com/workspace/chat/update-members).
- *  Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  Method: chat.spaces.members.patch
  *
@@ -880,7 +960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @interface GTLRHangoutsChatQuery_SpacesMembersPatch : GTLRHangoutsChatQuery
 
 /**
- *  Resource name of the membership, assigned by the server. Format:
+ *  Identifier. Resource name of the membership, assigned by the server. Format:
  *  `spaces/{space}/members/{member}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -894,9 +974,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  When `true`, the method runs using the user's Google Workspace administrator
- *  privileges. The calling user must be a Google Workspace administrator with
- *  the [manage chat and spaces conversations
+ *  Optional. When `true`, the method runs using the user's Google Workspace
+ *  administrator privileges. The calling user must be a Google Workspace
+ *  administrator with the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
  *  `chat.admin.memberships` [OAuth 2.0
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
@@ -908,12 +988,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Updates a membership. For an example, see [Update a user's membership in a
  *  space](https://developers.google.com/workspace/chat/update-members).
- *  Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  @param object The @c GTLRHangoutsChat_Membership to include in the query.
- *  @param name Resource name of the membership, assigned by the server. Format:
- *    `spaces/{space}/members/{member}`
+ *  @param name Identifier. Resource name of the membership, assigned by the
+ *    server. Format: `spaces/{space}/members/{member}`
  *
  *  @return GTLRHangoutsChatQuery_SpacesMembersPatch
  */
@@ -967,8 +1055,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Creates a message in a Google Chat space. For an example, see [Send a
  *  message](https://developers.google.com/workspace/chat/create-messages). The
- *  `create()` method requires either user or app authentication. Chat
- *  attributes the message sender differently depending on the type of
+ *  `create()` method requires either [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  or [app
+ *  authentication](https://developers.google.com/workspace/chat/authorize-import).
+ *  Chat attributes the message sender differently depending on the type of
  *  authentication that you use in your request. The following image shows how
  *  Chat attributes a message when you use app authentication. Chat displays the
  *  Chat app as the message sender. The content of the message can contain text
@@ -981,6 +1072,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  can only contain text (`text`). ![Message sent with user
  *  authentication](https://developers.google.com/workspace/chat/images/message-user-auth.svg)
  *  The maximum message size, including the message contents, is 32,000 bytes.
+ *  For
+ *  [webhook](https://developers.google.com/workspace/chat/quickstart/webhooks)
+ *  requests, the response doesn't contain the full message. The response only
+ *  populates the `name` and `thread.name` fields in addition to the information
+ *  that was in the request.
  *
  *  Method: chat.spaces.messages.create
  *
@@ -1007,7 +1103,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Optional. Specifies whether a message starts a thread or replies to one.
- *  Only supported in named spaces.
+ *  Only supported in named spaces. When [responding to user
+ *  interactions](https://developers.google.com/workspace/chat/receive-respond-interactions),
+ *  this field is ignored. For interactions within a thread, the reply is
+ *  created in the same thread. Otherwise, the reply is created as a new thread.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
@@ -1053,8 +1152,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Creates a message in a Google Chat space. For an example, see [Send a
  *  message](https://developers.google.com/workspace/chat/create-messages). The
- *  `create()` method requires either user or app authentication. Chat
- *  attributes the message sender differently depending on the type of
+ *  `create()` method requires either [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  or [app
+ *  authentication](https://developers.google.com/workspace/chat/authorize-import).
+ *  Chat attributes the message sender differently depending on the type of
  *  authentication that you use in your request. The following image shows how
  *  Chat attributes a message when you use app authentication. Chat displays the
  *  Chat app as the message sender. The content of the message can contain text
@@ -1067,6 +1169,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  can only contain text (`text`). ![Message sent with user
  *  authentication](https://developers.google.com/workspace/chat/images/message-user-auth.svg)
  *  The maximum message size, including the message contents, is 32,000 bytes.
+ *  For
+ *  [webhook](https://developers.google.com/workspace/chat/quickstart/webhooks)
+ *  requests, the response doesn't contain the full message. The response only
+ *  populates the `name` and `thread.name` fields in addition to the information
+ *  that was in the request.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. The resource name of the space in which to create a
@@ -1082,12 +1189,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Deletes a message. For an example, see [Delete a
  *  message](https://developers.google.com/workspace/chat/delete-messages).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  When using app authentication, requests can only delete messages created by
  *  the calling Chat app.
  *
@@ -1101,9 +1208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @interface GTLRHangoutsChatQuery_SpacesMessagesDelete : GTLRHangoutsChatQuery
 
 /**
- *  When `true`, deleting a message also deletes its threaded replies. When
- *  `false`, if a message has threaded replies, deletion fails. Only applies
- *  when [authenticating as a
+ *  Optional. When `true`, deleting a message also deletes its threaded replies.
+ *  When `false`, if a message has threaded replies, deletion fails. Only
+ *  applies when [authenticating as a
  *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *  Has no effect when [authenticating as a Chat app]
  *  (https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
@@ -1124,12 +1231,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Deletes a message. For an example, see [Delete a
  *  message](https://developers.google.com/workspace/chat/delete-messages).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  When using app authentication, requests can only delete messages created by
  *  the calling Chat app.
  *
@@ -1148,12 +1255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Returns details about a message. For an example, see [Get details about a
  *  message](https://developers.google.com/workspace/chat/get-messages).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  Note: Might return a message from a blocked member or space.
  *
  *  Method: chat.spaces.messages.get
@@ -1179,12 +1286,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Returns details about a message. For an example, see [Get details about a
  *  message](https://developers.google.com/workspace/chat/get-messages).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  Note: Might return a message from a blocked member or space.
  *
  *  @param name Required. Resource name of the message. Format:
@@ -1218,9 +1325,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @interface GTLRHangoutsChatQuery_SpacesMessagesList : GTLRHangoutsChatQuery
 
 /**
- *  A query filter. You can filter messages by date (`create_time`) and thread
- *  (`thread.name`). To filter messages by the date they were created, specify
- *  the `create_time` with a timestamp in
+ *  Optional. A query filter. You can filter messages by date (`create_time`)
+ *  and thread (`thread.name`). To filter messages by the date they were
+ *  created, specify the `create_time` with a timestamp in
  *  [RFC-3339](https://www.rfc-editor.org/rfc/rfc3339) format and double
  *  quotation marks. For example, `"2023-04-21T11:30:00-04:00"`. You can use the
  *  greater than operator `>` to list messages that were created after a
@@ -1240,27 +1347,27 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional, if resuming from a previous query. How the list of messages is
- *  ordered. Specify a value to order by an ordering operation. Valid ordering
- *  operation values are as follows: - `ASC` for ascending. - `DESC` for
- *  descending. The default ordering is `create_time ASC`.
+ *  Optional. How the list of messages is ordered. Specify a value to order by
+ *  an ordering operation. Valid ordering operation values are as follows: -
+ *  `ASC` for ascending. - `DESC` for descending. The default ordering is
+ *  `create_time ASC`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of messages returned. The service might return fewer
- *  messages than this value. If unspecified, at most 25 are returned. The
+ *  Optional. The maximum number of messages returned. The service might return
+ *  fewer messages than this value. If unspecified, at most 25 are returned. The
  *  maximum value is 1000. If you use a value more than 1000, it's automatically
  *  changed to 1000. Negative values return an `INVALID_ARGUMENT` error.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional, if resuming from a previous query. A page token received from a
- *  previous list messages call. Provide this parameter to retrieve the
- *  subsequent page. When paginating, all other parameters provided should match
- *  the call that provided the page token. Passing different values to the other
- *  parameters might lead to unexpected results.
+ *  Optional. A page token received from a previous list messages call. Provide
+ *  this parameter to retrieve the subsequent page. When paginating, all other
+ *  parameters provided should match the call that provided the page token.
+ *  Passing different values to the other parameters might lead to unexpected
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1271,8 +1378,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Whether to include deleted messages. Deleted messages include deleted time
- *  and metadata about their deletion, but message content is unavailable.
+ *  Optional. Whether to include deleted messages. Deleted messages include
+ *  deleted time and metadata about their deletion, but message content is
+ *  unavailable.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
@@ -1306,12 +1414,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  uses a `put` request. We recommend using the `patch` method. For an example,
  *  see [Update a
  *  message](https://developers.google.com/workspace/chat/update-messages).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  When using app authentication, requests can only update messages created by
  *  the calling Chat app.
  *
@@ -1333,13 +1441,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Resource name of the message. Format: `spaces/{space}/messages/{message}`
- *  Where `{space}` is the ID of the space where the message is posted and
- *  `{message}` is a system-assigned ID for the message. For example,
- *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`. If you set a custom
- *  ID when you create a message, you can use this ID to specify the message in
- *  a request by replacing `{message}` with the value from the
- *  `clientAssignedMessageId` field. For example,
+ *  Identifier. Resource name of the message. Format:
+ *  `spaces/{space}/messages/{message}` Where `{space}` is the ID of the space
+ *  where the message is posted and `{message}` is a system-assigned ID for the
+ *  message. For example, `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`.
+ *  If you set a custom ID when you create a message, you can use this ID to
+ *  specify the message in a request by replacing `{message}` with the value
+ *  from the `clientAssignedMessageId` field. For example,
  *  `spaces/AAAAAAAAAAA/messages/client-custom-name`. For details, see [Name a
  *  message](https://developers.google.com/workspace/chat/create-messages#name_a_created_message).
  */
@@ -1366,17 +1474,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  uses a `put` request. We recommend using the `patch` method. For an example,
  *  see [Update a
  *  message](https://developers.google.com/workspace/chat/update-messages).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  When using app authentication, requests can only update messages created by
  *  the calling Chat app.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param name Resource name of the message. Format:
+ *  @param name Identifier. Resource name of the message. Format:
  *    `spaces/{space}/messages/{message}` Where `{space}` is the ID of the space
  *    where the message is posted and `{message}` is a system-assigned ID for
  *    the message. For example,
@@ -1567,12 +1675,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  uses a `put` request. We recommend using the `patch` method. For an example,
  *  see [Update a
  *  message](https://developers.google.com/workspace/chat/update-messages).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  When using app authentication, requests can only update messages created by
  *  the calling Chat app.
  *
@@ -1594,13 +1702,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Resource name of the message. Format: `spaces/{space}/messages/{message}`
- *  Where `{space}` is the ID of the space where the message is posted and
- *  `{message}` is a system-assigned ID for the message. For example,
- *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`. If you set a custom
- *  ID when you create a message, you can use this ID to specify the message in
- *  a request by replacing `{message}` with the value from the
- *  `clientAssignedMessageId` field. For example,
+ *  Identifier. Resource name of the message. Format:
+ *  `spaces/{space}/messages/{message}` Where `{space}` is the ID of the space
+ *  where the message is posted and `{message}` is a system-assigned ID for the
+ *  message. For example, `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`.
+ *  If you set a custom ID when you create a message, you can use this ID to
+ *  specify the message in a request by replacing `{message}` with the value
+ *  from the `clientAssignedMessageId` field. For example,
  *  `spaces/AAAAAAAAAAA/messages/client-custom-name`. For details, see [Name a
  *  message](https://developers.google.com/workspace/chat/create-messages#name_a_created_message).
  */
@@ -1627,17 +1735,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  uses a `put` request. We recommend using the `patch` method. For an example,
  *  see [Update a
  *  message](https://developers.google.com/workspace/chat/update-messages).
- *  Requires
- *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize).
- *  Supports [app
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  and [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  When using app authentication, requests can only update messages created by
  *  the calling Chat app.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param name Resource name of the message. Format:
+ *  @param name Identifier. Resource name of the message. Format:
  *    `spaces/{space}/messages/{message}` Where `{space}` is the ID of the space
  *    where the message is posted and `{message}` is a system-assigned ID for
  *    the message. For example,
@@ -1661,8 +1769,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  you're updating the `displayName` field and receive the error message
  *  `ALREADY_EXISTS`, try a different display name.. An existing space within
  *  the Google Workspace organization might already use this display name.
- *  Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  Method: chat.spaces.patch
  *
@@ -1675,9 +1791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @interface GTLRHangoutsChatQuery_SpacesPatch : GTLRHangoutsChatQuery
 
 /**
- *  Resource name of the space. Format: `spaces/{space}` Where `{space}`
- *  represents the system-assigned ID for the space. You can obtain the space ID
- *  by calling the
+ *  Identifier. Resource name of the space. Format: `spaces/{space}` Where
+ *  `{space}` represents the system-assigned ID for the space. You can obtain
+ *  the space ID by calling the
  *  [`spaces.list()`](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list)
  *  method or from the space URL. For example, if the space URL is
  *  `https://mail.google.com/mail/u/0/#chat/space/AAAAAAAAA`, the space ID is
@@ -1687,24 +1803,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Required. The updated field paths, comma separated if there are multiple.
- *  You can update the following fields for a space: - `space_details` -
- *  `display_name`: Only supports updating the display name for spaces where
- *  `spaceType` field is `SPACE`. If you receive the error message
- *  `ALREADY_EXISTS`, try a different value. An existing space within the Google
- *  Workspace organization might already use this display name. - `space_type`:
- *  Only supports changing a `GROUP_CHAT` space type to `SPACE`. Include
- *  `display_name` together with `space_type` in the update mask and ensure that
- *  the specified space has a non-empty display name and the `SPACE` space type.
- *  Including the `space_type` mask and the `SPACE` type in the specified space
- *  when updating the display name is optional if the existing space already has
- *  the `SPACE` type. Trying to update the space type in other ways results in
- *  an invalid argument error. `space_type` is not supported with admin access.
- *  - `space_history_state`: Updates [space history
+ *  You can update the following fields for a space: `space_details`: Updates
+ *  the space's description. Supports up to 150 characters. `display_name`: Only
+ *  supports updating the display name for spaces where `spaceType` field is
+ *  `SPACE`. If you receive the error message `ALREADY_EXISTS`, try a different
+ *  value. An existing space within the Google Workspace organization might
+ *  already use this display name. `space_type`: Only supports changing a
+ *  `GROUP_CHAT` space type to `SPACE`. Include `display_name` together with
+ *  `space_type` in the update mask and ensure that the specified space has a
+ *  non-empty display name and the `SPACE` space type. Including the
+ *  `space_type` mask and the `SPACE` type in the specified space when updating
+ *  the display name is optional if the existing space already has the `SPACE`
+ *  type. Trying to update the space type in other ways results in an invalid
+ *  argument error. `space_type` is not supported with `useAdminAccess`.
+ *  `space_history_state`: Updates [space history
  *  settings](https://support.google.com/chat/answer/7664687) by turning history
  *  on or off for the space. Only supported if history settings are enabled for
  *  the Google Workspace organization. To update the space history state, you
  *  must omit all other field masks in your request. `space_history_state` is
- *  not supported with admin access. - `access_settings.audience`: Updates the
+ *  not supported with `useAdminAccess`. `access_settings.audience`: Updates the
  *  [access setting](https://support.google.com/chat/answer/11971020) of who can
  *  discover the space, join the space, and preview the messages in named space
  *  where `spaceType` field is `SPACE`. If the existing space has a target
@@ -1715,26 +1832,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  mode](https://developers.google.com/workspace/chat/import-data-overview). To
  *  learn more, see [Make a space discoverable to specific
  *  users](https://developers.google.com/workspace/chat/space-target-audience).
- *  `access_settings.audience` is not supported with admin access. - Developer
- *  Preview: Supports changing the [permission
- *  settings](https://support.google.com/chat/answer/13340792) of a space,
- *  supported field paths include:
- *  `permission_settings.manage_members_and_groups`,
- *  `permission_settings.modify_space_details`,
- *  `permission_settings.toggle_history`,
- *  `permission_settings.use_at_mention_all`, `permission_settings.manage_apps`,
- *  `permission_settings.manage_webhooks`, `permission_settings.reply_messages`
- *  (Warning: mutually exclusive with all other non-permission settings field
- *  paths). `permission_settings` is not supported with admin access.
+ *  `access_settings.audience` is not supported with `useAdminAccess`.
+ *  `permission_settings`: Supports changing the [permission
+ *  settings](https://support.google.com/chat/answer/13340792) of a space. When
+ *  updating permission settings, you can only specify `permissionSettings`
+ *  field masks; you cannot update other field masks at the same time.
+ *  `permissionSettings` is not supported with `useAdminAccess`. The supported
+ *  field masks include: - `permission_settings.manageMembersAndGroups` -
+ *  `permission_settings.modifySpaceDetails` -
+ *  `permission_settings.toggleHistory` - `permission_settings.useAtMentionAll`
+ *  - `permission_settings.manageApps` - `permission_settings.manageWebhooks` -
+ *  `permission_settings.replyMessages`
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  When `true`, the method runs using the user's Google Workspace administrator
- *  privileges. The calling user must be a Google Workspace administrator with
- *  the [manage chat and spaces conversations
+ *  Optional. When `true`, the method runs using the user's Google Workspace
+ *  administrator privileges. The calling user must be a Google Workspace
+ *  administrator with the [manage chat and spaces conversations
  *  privilege](https://support.google.com/a/answer/13369245). Requires the
  *  `chat.admin.spaces` [OAuth 2.0
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
@@ -1751,13 +1868,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  you're updating the `displayName` field and receive the error message
  *  `ALREADY_EXISTS`, try a different display name.. An existing space within
  *  the Google Workspace organization might already use this display name.
- *  Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) -
+ *  [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  You can authenticate and authorize this method with administrator privileges
+ *  by setting the `use_admin_access` field in the request.
  *
  *  @param object The @c GTLRHangoutsChat_Space to include in the query.
- *  @param name Resource name of the space. Format: `spaces/{space}` Where
- *    `{space}` represents the system-assigned ID for the space. You can obtain
- *    the space ID by calling the
+ *  @param name Identifier. Resource name of the space. Format: `spaces/{space}`
+ *    Where `{space}` represents the system-assigned ID for the space. You can
+ *    obtain the space ID by calling the
  *    [`spaces.list()`](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list)
  *    method or from the space URL. For example, if the space URL is
  *    `https://mail.google.com/mail/u/0/#chat/space/AAAAAAAAA`, the space ID is
@@ -1994,7 +2119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  contains the most recent version of the resource that changed. For example,
  *  if you request an event about a new message but the message was later
  *  updated, the server returns the updated `Message` resource in the event
- *  payload. Requires [user
+ *  payload. Note: The `permissionSettings` field is not returned in the Space
+ *  object of the Space event data for this request. Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *  To get an event, the authenticated user must be a member of the space. For
  *  an example, see [Get details about an event from a Google Chat
@@ -2028,7 +2154,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  contains the most recent version of the resource that changed. For example,
  *  if you request an event about a new message but the message was later
  *  updated, the server returns the updated `Message` resource in the event
- *  payload. Requires [user
+ *  payload. Note: The `permissionSettings` field is not returned in the Space
+ *  object of the Space event data for this request. Requires [user
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *  To get an event, the authenticated user must be a member of the space. For
  *  an example, see [Get details about an event from a Google Chat
@@ -2110,11 +2237,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous list space events call. Provide this
- *  to retrieve the subsequent page. When paginating, all other parameters
- *  provided to list space events must match the call that provided the page
- *  token. Passing different values to the other parameters might lead to
- *  unexpected results.
+ *  Optional. A page token, received from a previous list space events call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to list space events must match the call that provided
+ *  the page token. Passing different values to the other parameters might lead
+ *  to unexpected results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

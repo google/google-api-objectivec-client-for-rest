@@ -513,6 +513,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ByteUsage
+//
+
+@implementation GTLRDirectory_ByteUsage
+@dynamic capacityBytes, usedBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_CalendarResource
 //
 
@@ -604,11 +614,11 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
          autoUpdateExpiration, autoUpdateThrough, backlightInfo, bootMode,
          chromeOsType, cpuInfo, cpuStatusReports, deprovisionReason,
-         deviceFiles, deviceId, deviceLicenseType, diskVolumeReports,
-         dockMacAddress, ETag, ethernetMacAddress, ethernetMacAddress0,
-         extendedSupportEligible, extendedSupportEnabled, extendedSupportStart,
-         fanInfo, firmwareVersion, firstEnrollmentTime, kind,
-         lastDeprovisionTimestamp, lastEnrollmentTime, lastKnownNetwork,
+         deviceFiles, deviceId, deviceLicenseType, diskSpaceUsage,
+         diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
+         ethernetMacAddress0, extendedSupportEligible, extendedSupportEnabled,
+         extendedSupportStart, fanInfo, firmwareVersion, firstEnrollmentTime,
+         kind, lastDeprovisionTimestamp, lastEnrollmentTime, lastKnownNetwork,
          lastSync, macAddress, manufactureDate, meid, model, notes, orderNumber,
          orgUnitId, orgUnitPath, osUpdateStatus, osVersion, platformVersion,
          recentUsers, screenshotFiles, serialNumber, status, supportEndDate,

@@ -63,6 +63,16 @@ NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMig
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebasestorage_DefaultBucket
+//
+
+@implementation GTLRFirebasestorage_DefaultBucket
+@dynamic bucket, location, name, storageClass;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebasestorage_Empty
 //
 

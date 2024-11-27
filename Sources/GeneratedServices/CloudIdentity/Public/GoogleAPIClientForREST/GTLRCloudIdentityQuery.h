@@ -2287,6 +2287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesCreate : GTLRCloudIdentityQuery
@@ -2315,6 +2316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesDelete : GTLRCloudIdentityQuery
@@ -2349,6 +2351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesGet : GTLRCloudIdentityQuery
@@ -2387,6 +2391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.add
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsAdd : GTLRCloudIdentityQuery
@@ -2424,6 +2429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsDelete : GTLRCloudIdentityQuery
@@ -2458,6 +2464,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsGet : GTLRCloudIdentityQuery
@@ -2492,6 +2500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsList : GTLRCloudIdentityQuery
@@ -2540,6 +2550,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesList : GTLRCloudIdentityQuery
@@ -2596,6 +2608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesPatch : GTLRCloudIdentityQuery
@@ -2643,6 +2656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsCreate : GTLRCloudIdentityQuery
@@ -2669,6 +2683,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsDelete : GTLRCloudIdentityQuery
@@ -2703,6 +2718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsGet : GTLRCloudIdentityQuery
@@ -2736,6 +2753,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsList : GTLRCloudIdentityQuery
@@ -2794,6 +2813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsPatch : GTLRCloudIdentityQuery

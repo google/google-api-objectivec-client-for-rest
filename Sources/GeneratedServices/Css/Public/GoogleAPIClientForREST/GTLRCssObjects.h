@@ -370,10 +370,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 /** Mobile Link to the headline offer. */
 @property(nonatomic, copy, nullable) NSString *headlineOfferMobileLink;
 
-/** Headline Price of the aggregate offer. */
+/** Headline Price of the CSS Product. */
 @property(nonatomic, strong, nullable) GTLRCss_Price *headlineOfferPrice;
 
-/** Headline Price of the aggregate offer. */
+/** Headline Price of the CSS Product. */
 @property(nonatomic, strong, nullable) GTLRCss_Price *headlineOfferShippingPrice;
 
 /**
@@ -382,7 +382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
  */
 @property(nonatomic, strong, nullable) GTLRCss_HeadlineOfferSubscriptionCost *headlineOfferSubscriptionCost;
 
-/** High Price of the aggregate offer. */
+/** High Price of the CSS Product. */
 @property(nonatomic, strong, nullable) GTLRCss_Price *highPrice;
 
 /** URL of an image of the item. */
@@ -406,7 +406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 /** Shared identifier for all variants of the same product. */
 @property(nonatomic, copy, nullable) NSString *itemGroupId;
 
-/** Low Price of the aggregate offer. */
+/** Low Price of the CSS Product. */
 @property(nonatomic, strong, nullable) GTLRCss_Price *lowPrice;
 
 /** The material of which the item is made. */
@@ -426,7 +426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 @property(nonatomic, strong, nullable) NSNumber *multipack;
 
 /**
- *  The number of aggregate offers.
+ *  The number of CSS Products.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -559,7 +559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 @interface GTLRCss_DestinationStatus : GTLRObject
 
 /**
- *  List of country codes (ISO 3166-1 alpha-2) where the aggregate offer is
+ *  List of country codes (ISO 3166-1 alpha-2) where the CSS Product is
  *  approved.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *approvedCountries;
@@ -568,14 +568,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 @property(nonatomic, copy, nullable) NSString *destination;
 
 /**
- *  List of country codes (ISO 3166-1 alpha-2) where the aggregate offer is
+ *  List of country codes (ISO 3166-1 alpha-2) where the CSS Product is
  *  disapproved.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *disapprovedCountries;
 
 /**
- *  List of country codes (ISO 3166-1 alpha-2) where the aggregate offer is
- *  pending approval.
+ *  List of country codes (ISO 3166-1 alpha-2) where the CSS Product is pending
+ *  approval.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pendingCountries;
 
@@ -652,8 +652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 @interface GTLRCss_ItemLevelIssue : GTLRObject
 
 /**
- *  List of country codes (ISO 3166-1 alpha-2) where issue applies to the
- *  aggregate offer.
+ *  List of country codes (ISO 3166-1 alpha-2) where issue applies to the CSS
+ *  Product.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *applicableCountries;
 
@@ -682,7 +682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 /** Whether the issue can be resolved by the merchant. */
 @property(nonatomic, copy, nullable) NSString *resolution;
 
-/** How this issue affects serving of the aggregate offer. */
+/** How this issue affects serving of the CSS Product. */
 @property(nonatomic, copy, nullable) NSString *servability;
 
 @end
@@ -794,7 +794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 
 
 /**
- *  The processed CSS Product(a.k.a Aggregate Offer internally).
+ *  The processed CSS Product.
  */
 @interface GTLRCss_Product : GTLRObject
 

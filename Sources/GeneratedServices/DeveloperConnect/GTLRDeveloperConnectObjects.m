@@ -285,6 +285,38 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_HttpBody
+//
+
+@implementation GTLRDeveloperConnect_HttpBody
+@dynamic contentType, data, extensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRDeveloperConnect_HttpBody_Extensions_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_HttpBody_Extensions_Item
+//
+
+@implementation GTLRDeveloperConnect_HttpBody_Extensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_Installation
 //
 
@@ -502,6 +534,36 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified 
 @implementation GTLRDeveloperConnect_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ProcessGitHubEnterpriseWebhookRequest
+//
+
+@implementation GTLRDeveloperConnect_ProcessGitHubEnterpriseWebhookRequest
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ProcessGitLabEnterpriseWebhookRequest
+//
+
+@implementation GTLRDeveloperConnect_ProcessGitLabEnterpriseWebhookRequest
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ProcessGitLabWebhookRequest
+//
+
+@implementation GTLRDeveloperConnect_ProcessGitLabWebhookRequest
+@dynamic body;
 @end
 
 

@@ -20,6 +20,8 @@
 @class GTLRDrive_About_MaxImportSizes;
 @class GTLRDrive_About_StorageQuota;
 @class GTLRDrive_About_TeamDriveThemes_Item;
+@class GTLRDrive_AccessProposal;
+@class GTLRDrive_AccessProposalRoleAndView;
 @class GTLRDrive_App;
 @class GTLRDrive_AppIcons;
 @class GTLRDrive_Change;
@@ -72,6 +74,32 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDrive_ResolveAccessProposalRequest.action
+
+/**
+ *  The user accepts the proposal. Note: If this action is used, the `role`
+ *  field must have at least one value.
+ *
+ *  Value: "ACCEPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Accept;
+/**
+ *  Unspecified action
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified;
+/**
+ *  The user denies the proposal
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny;
 
 /**
  *  Information about the user, the user's Drive, and system capabilities.
@@ -266,6 +294,56 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  The Access Proposal resource for outstanding access proposals on a file
+ */
+@interface GTLRDrive_AccessProposal : GTLRObject
+
+/** The creation time */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The file id that the proposal for access is on */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/** The id of the access proposal */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/** The email address of the user that will receive permissions if accepted */
+@property(nonatomic, copy, nullable) NSString *recipientEmailAddress;
+
+/** The email address of the requesting user */
+@property(nonatomic, copy, nullable) NSString *requesterEmailAddress;
+
+/** The message that the requester added to the proposal */
+@property(nonatomic, copy, nullable) NSString *requestMessage;
+
+/** A wrapper for the role and view of an access proposal. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_AccessProposalRoleAndView *> *rolesAndViews;
+
+@end
+
+
+/**
+ *  A wrapper for the role and view of an access proposal.
+ */
+@interface GTLRDrive_AccessProposalRoleAndView : GTLRObject
+
+/**
+ *  The role that was proposed by the requester New values may be added in the
+ *  future, but the following are currently possible: * `writer` * `commenter` *
+ *  `reader`
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+/**
+ *  Indicates the view for this access proposal. Only populated for proposals
+ *  that belong to a view. `published` is the only supported value.
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 @end
 
@@ -2566,6 +2644,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The response to an Access Proposal list request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "accessProposals" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDrive_ListAccessProposalsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Access Proposals. This field is only populated in v3 and v3beta.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_AccessProposal *> *accessProposals;
+
+/**
+ *  The continuation token for the next page of results. This will be absent if
+ *  the end of the results list has been reached. If the token is rejected for
+ *  any reason, it should be discarded, and pagination should be restarted from
+ *  the first page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3001,6 +3108,49 @@ NS_ASSUME_NONNULL_BEGIN
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Reply *> *replies;
+
+@end
+
+
+/**
+ *  Request message for resolving an AccessProposal on a file.
+ */
+@interface GTLRDrive_ResolveAccessProposalRequest : GTLRObject
+
+/**
+ *  Required. The action to take on the AccessProposal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_Accept The user
+ *        accepts the proposal. Note: If this action is used, the `role` field
+ *        must have at least one value. (Value: "ACCEPT")
+ *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified
+ *        Unspecified action (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_Deny The user
+ *        denies the proposal (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Optional. The roles the approver has allowed, if any. Note: This field is
+ *  required for the `ACCEPT` action.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *role;
+
+/**
+ *  Optional. Whether to send an email to the requester when the AccessProposal
+ *  is denied or accepted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sendNotification;
+
+/**
+ *  Optional. Indicates the view for this access proposal. This should only be
+ *  set when the proposal belongs to a view. `published` is the only supported
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 @end
 

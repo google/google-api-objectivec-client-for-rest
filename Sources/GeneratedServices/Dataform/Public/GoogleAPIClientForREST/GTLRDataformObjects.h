@@ -29,7 +29,6 @@
 @class GTLRDataform_CompilationResult;
 @class GTLRDataform_CompilationResultAction;
 @class GTLRDataform_DataEncryptionState;
-@class GTLRDataform_DataPreparation;
 @class GTLRDataform_Declaration;
 @class GTLRDataform_DeleteFile;
 @class GTLRDataform_DirectoryEntry;
@@ -740,9 +739,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, strong, nullable) GTLRDataform_Target *canonicalTarget;
 
-/** The data preparation executed by this action. */
-@property(nonatomic, strong, nullable) GTLRDataform_DataPreparation *dataPreparation;
-
 /** The declaration declared by this action. */
 @property(nonatomic, strong, nullable) GTLRDataform_Declaration *declaration;
 
@@ -819,35 +815,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** The KMS key version name with which data of a resource is encrypted. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
-
-@end
-
-
-/**
- *  Defines a compiled Data Preparation entity
- */
-@interface GTLRDataform_DataPreparation : GTLRObject
-
-/**
- *  The data preparation definition, stored as a binary encoded proto.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *contents;
-
-/** A list of actions that this action depends on. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataform_Target *> *dependencyTargets;
-
-/**
- *  Whether this action is disabled (i.e. should not be run).
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disabled;
-
-/** Arbitrary, user-defined tags on this action. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
 
@@ -1645,8 +1612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2143,7 +2110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /**
  *  Output only. Records of the 10 most recent scheduled release attempts,
- *  ordered in in descending order of `release_time`. Updated whenever automatic
+ *  ordered in descending order of `release_time`. Updated whenever automatic
  *  creation of a compilation result is triggered by cron_schedule.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_ScheduledReleaseRecord *> *recentScheduledReleaseRecords;
@@ -2225,7 +2192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  used to encrypt user data in the repository and all child resources. It is
  *  not possible to add or update the encryption key after the repository is
  *  created. Example:
- *  `projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]`
+ *  `projects/{kms_project}/locations/{location}/keyRings/{key_location}/cryptoKeys/{key}`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -2570,8 +2537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /**
  *  Output only. Records of the 10 most recent scheduled execution attempts,
- *  ordered in in descending order of `execution_time`. Updated whenever
- *  automatic creation of a workflow invocation is triggered by cron_schedule.
+ *  ordered in descending order of `execution_time`. Updated whenever automatic
+ *  creation of a workflow invocation is triggered by cron_schedule.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_ScheduledExecutionRecord *> *recentScheduledExecutionRecords;
 
@@ -2722,6 +2689,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  Represents a Dataform Git workspace.
  */
 @interface GTLRDataform_Workspace : GTLRObject
+
+/** Output only. The timestamp of when the workspace was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  Output only. A data encryption state of a Git repository if this Workspace

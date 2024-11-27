@@ -301,6 +301,152 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Creates an attachment. The returned Operation will finish once the
+ *  attachment has been created. Its response will be the created attachment.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.attachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsCreate : GTLRArtifactRegistryQuery
+
+/** Required. The attachment id to use for this attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/**
+ *  Required. The name of the parent resource where the attachment will be
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Creates an attachment. The returned Operation will finish once the
+ *  attachment has been created. Its response will be the created attachment.
+ *
+ *  @param object The @c GTLRArtifactRegistry_Attachment to include in the
+ *    query.
+ *  @param parent Required. The name of the parent resource where the attachment
+ *    will be created.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_Attachment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an attachment. The returned Operation will finish once the
+ *  attachments has been deleted. It will not have any Operation metadata and
+ *  will return a `google.protobuf.Empty` response.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.attachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsDelete : GTLRArtifactRegistryQuery
+
+/** Required. The name of the attachment to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Deletes an attachment. The returned Operation will finish once the
+ *  attachments has been deleted. It will not have any Operation metadata and
+ *  will return a `google.protobuf.Empty` response.
+ *
+ *  @param name Required. The name of the attachment to delete.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an attachment.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.attachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the attachment to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Attachment.
+ *
+ *  Gets an attachment.
+ *
+ *  @param name Required. The name of the attachment to retrieve.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists attachments.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.attachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsList : GTLRArtifactRegistryQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Filter
+ *  rules are case insensitive. The fields eligible for filtering are: *
+ *  `target` * `type` * `attachment_namespace`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of attachments to return. Maximum page size is 1,000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose attachments will be listed.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListAttachmentsResponse.
+ *
+ *  Lists attachments.
+ *
+ *  @param parent Required. The name of the parent resource whose attachments
+ *    will be listed.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a repository. The returned Operation will finish once the repository
  *  has been created. Its response will be the created Repository.
  *
@@ -615,6 +761,89 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a file.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.files.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesPatch : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the file, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt`.
+ *  If the file ID part contains slashes, they are escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File.
+ *
+ *  Updates a file.
+ *
+ *  @param object The @c
+ *    GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File to include in
+ *    the query.
+ *  @param name The name of the file, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt`.
+ *    If the file ID part contains slashes, they are escaped.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesPatch
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Directly uploads a file to a repository. The returned Operation will
+ *  complete once the resources are uploaded.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.files.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesUpload : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The resource name of the repository where the file will be
+ *  uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_UploadFileMediaResponse.
+ *
+ *  Directly uploads a file to a repository. The returned Operation will
+ *  complete once the resources are uploaded.
+ *
+ *  @param object The @c GTLRArtifactRegistry_UploadFileRequest to include in
+ *    the query.
+ *  @param parent Required. The resource name of the repository where the file
+ *    will be uploaded.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesUpload
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadFileRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 
@@ -1656,6 +1885,49 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Updates a version.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.packages.versions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsPatch : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the version, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1`.
+ *  If the package or version ID parts contain slashes, the slashes are escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Version.
+ *
+ *  Updates a version.
+ *
+ *  @param object The @c GTLRArtifactRegistry_Version to include in the query.
+ *  @param name The name of the version, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1`.
+ *    If the package or version ID parts contain slashes, the slashes are
+ *    escaped.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_Version *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates a repository.
  *
  *  Method: artifactregistry.projects.locations.repositories.patch
@@ -1765,6 +2037,181 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a rule.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesCreate : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The name of the parent resource where the rule will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The rule id to use for this repository. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.
+ *
+ *  Creates a rule.
+ *
+ *  @param object The @c
+ *    GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule to include in
+ *    the query.
+ *  @param parent Required. The name of the parent resource where the rule will
+ *    be created.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a rule.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesDelete : GTLRArtifactRegistryQuery
+
+/** Required. The name of the rule to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Empty.
+ *
+ *  Deletes a rule.
+ *
+ *  @param name Required. The name of the rule to delete.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a rule.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the rule to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.
+ *
+ *  Gets a rule.
+ *
+ *  @param name Required. The name of the rule to retrieve.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists rules.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesList : GTLRArtifactRegistryQuery
+
+/** The maximum number of rules to return. Maximum page size is 1,000. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent repository whose rules will be listed. For
+ *  example: `projects/p1/locations/us-central1/repositories/repo1`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListRulesResponse.
+ *
+ *  Lists rules.
+ *
+ *  @param parent Required. The name of the parent repository whose rules will
+ *    be listed. For example:
+ *    `projects/p1/locations/us-central1/repositories/repo1`.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a rule.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesPatch : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the rule, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/rules/rule1`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.
+ *
+ *  Updates a rule.
+ *
+ *  @param object The @c
+ *    GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule to include in
+ *    the query.
+ *  @param name The name of the rule, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/rules/rule1`.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule *)object
+                           name:(NSString *)name;
 
 @end
 

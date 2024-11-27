@@ -3322,7 +3322,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. The resource name of the log scope.For
+ *  Output only. The resource name of the log scope.Log scopes are only
+ *  available in the global location. For
  *  example:projects/my-project/locations/global/logScopes/my-log-scope
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3331,8 +3332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Required. Names of one or more parent resources: projects/[PROJECT_ID]May
  *  alternatively be one or more views:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]A
- *  log scope can include a maximum of 50 projects and a maximum of 100
- *  resources in total.
+ *  log scope can include a maximum of 5 projects and a maximum of 100 resources
+ *  in total.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 

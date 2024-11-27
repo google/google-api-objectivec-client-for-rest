@@ -819,6 +819,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/FirebaseCloudMessaging/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/FirebaseCloudMessaging/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'FirebaseDataConnect' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/FirebaseDataConnect/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/FirebaseDataConnect/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'FirebaseDynamicLinks' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/FirebaseDynamicLinks/**/*.{h,m}'
@@ -1069,6 +1074,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/MyBusinessVerifications/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/MyBusinessVerifications/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'NetAppFiles' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/NetAppFiles/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/NetAppFiles/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Networkconnectivity' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Networkconnectivity/**/*.{h,m}'
@@ -1118,6 +1128,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/PagespeedInsights/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/PagespeedInsights/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'Parallelstore' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Parallelstore/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Parallelstore/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'PaymentsResellerSubscription' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

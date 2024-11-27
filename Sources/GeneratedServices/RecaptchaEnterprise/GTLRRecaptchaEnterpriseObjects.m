@@ -72,6 +72,12 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudS
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_Allow = @"ALLOW";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_OverrideTypeUnspecified = @"OVERRIDE_TYPE_UNSPECIFIED";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.challenge
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_ChallengeUnspecified = @"CHALLENGE_UNSPECIFIED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Failed = @"FAILED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Nocaptcha = @"NOCAPTCHA";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Passed = @"PASSED";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_Automation = @"AUTOMATION";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_ClassificationReasonUnspecified = @"CLASSIFICATION_REASON_UNSPECIFIED";
@@ -811,7 +817,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis
-@dynamic extendedVerdictReasons, reasons, score;
+@dynamic challenge, extendedVerdictReasons, reasons, score;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -2672,6 +2672,312 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @end
 
 /**
+ *  Creates a rubric. This request must be made by the Google Cloud console of
+ *  the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used
+ *  to create the parent course work item. For further details, see [Rubrics
+ *  structure and known limitations](/classroom/rubrics/limitations). This
+ *  method returns the following error codes: * `PERMISSION_DENIED` if the
+ *  requesting user isn't permitted to create rubrics for course work in the
+ *  requested course. * `INTERNAL` if the request has insufficient OAuth scopes.
+ *  * `INVALID_ARGUMENT` if the request is malformed and for the following
+ *  request error: * `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the
+ *  requested course or course work don't exist or the user doesn't have access
+ *  to the course or course work. * `FAILED_PRECONDITION` for the following
+ *  request error: * `AttachmentNotVisible`
+ *
+ *  Method: classroom.courses.courseWork.rubrics.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkRubricsCreate : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Required. Identifier of the course work. */
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Fetches a @c GTLRClassroom_Rubric.
+ *
+ *  Creates a rubric. This request must be made by the Google Cloud console of
+ *  the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used
+ *  to create the parent course work item. For further details, see [Rubrics
+ *  structure and known limitations](/classroom/rubrics/limitations). This
+ *  method returns the following error codes: * `PERMISSION_DENIED` if the
+ *  requesting user isn't permitted to create rubrics for course work in the
+ *  requested course. * `INTERNAL` if the request has insufficient OAuth scopes.
+ *  * `INVALID_ARGUMENT` if the request is malformed and for the following
+ *  request error: * `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the
+ *  requested course or course work don't exist or the user doesn't have access
+ *  to the course or course work. * `FAILED_PRECONDITION` for the following
+ *  request error: * `AttachmentNotVisible`
+ *
+ *  @param object The @c GTLRClassroom_Rubric to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param courseWorkId Required. Identifier of the course work.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkRubricsCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_Rubric *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId;
+
+@end
+
+/**
+ *  Deletes a rubric. This request must be made by the Google Cloud console of
+ *  the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used
+ *  to create the corresponding rubric. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting developer project didn't
+ *  create the corresponding rubric, or if the requesting user isn't permitted
+ *  to delete the requested rubric. * `NOT_FOUND` if no rubric exists with the
+ *  requested ID or the user does not have access to the course, course work, or
+ *  rubric. * `INVALID_ARGUMENT` if grading has already started on the rubric.
+ *
+ *  Method: classroom.courses.courseWork.rubrics.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkRubricsDelete : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Required. Identifier of the course work. */
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Required. Identifier of the rubric.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes a rubric. This request must be made by the Google Cloud console of
+ *  the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used
+ *  to create the corresponding rubric. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting developer project didn't
+ *  create the corresponding rubric, or if the requesting user isn't permitted
+ *  to delete the requested rubric. * `NOT_FOUND` if no rubric exists with the
+ *  requested ID or the user does not have access to the course, course work, or
+ *  rubric. * `INVALID_ARGUMENT` if grading has already started on the rubric.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param courseWorkId Required. Identifier of the course work.
+ *  @param identifier Required. Identifier of the rubric.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkRubricsDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a rubric. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if the requested course, course work, or rubric
+ *  doesn't exist or if the user doesn't have access to the corresponding course
+ *  work.
+ *
+ *  Method: classroom.courses.courseWork.rubrics.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkRubricsGet : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Required. Identifier of the course work. */
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Required. Identifier of the rubric.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Rubric.
+ *
+ *  Returns a rubric. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the request
+ *  is malformed. * `NOT_FOUND` if the requested course, course work, or rubric
+ *  doesn't exist or if the user doesn't have access to the corresponding course
+ *  work.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param courseWorkId Required. Identifier of the course work.
+ *  @param identifier Required. Identifier of the rubric.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkRubricsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a list of rubrics that the requester is permitted to view. This
+ *  method returns the following error codes: * `PERMISSION_DENIED` for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course or course work doesn't exist or if the user doesn't
+ *  have access to the corresponding course work.
+ *
+ *  Method: classroom.courses.courseWork.rubrics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkMe
+ *    @c kGTLRAuthScopeClassroomCourseworkMeReadonly
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkRubricsList : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Required. Identifier of the course work. */
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
+
+/**
+ *  The maximum number of rubrics to return. If unspecified, at most 1 rubric is
+ *  returned. The maximum value is 1; values above 1 are coerced to 1.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  nextPageToken value returned from a previous list call, indicating that the
+ *  subsequent page of results should be returned. The list request must be
+ *  otherwise identical to the one that resulted in this token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListRubricsResponse.
+ *
+ *  Returns a list of rubrics that the requester is permitted to view. This
+ *  method returns the following error codes: * `PERMISSION_DENIED` for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course or course work doesn't exist or if the user doesn't
+ *  have access to the corresponding course work.
+ *
+ *  @param courseId Required. Identifier of the course.
+ *  @param courseWorkId Required. Identifier of the course work.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkRubricsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                     courseWorkId:(NSString *)courseWorkId;
+
+@end
+
+/**
+ *  Updates a rubric. See google.classroom.v1.Rubric for details of which fields
+ *  can be updated. Rubric update capabilities are
+ *  [limited](/classroom/rubrics/limitations) once grading has started. This
+ *  request must be made by the Google Cloud console of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  parent course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting developer project didn't create the
+ *  corresponding course work, if the user isn't permitted to make the requested
+ *  modification to the rubric, or for access errors. This error code is also
+ *  returned if grading has already started on the rubric. * `INVALID_ARGUMENT`
+ *  if the request is malformed and for the following request error: *
+ *  `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the requested course, course
+ *  work, or rubric doesn't exist or if the user doesn't have access to the
+ *  corresponding course work. * `INTERNAL` if grading has already started on
+ *  the rubric.
+ *
+ *  Method: classroom.courses.courseWork.rubrics.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkRubricsPatch : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Required. Identifier of the course work. */
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Optional. Identifier of the rubric.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. Mask that identifies which fields on the rubric to update. This
+ *  field is required to do an update. The update fails if invalid fields are
+ *  specified. There are multiple options to define the criteria of a rubric:
+ *  the `source_spreadsheet_id` and the `criteria` list. Only one of these can
+ *  be used at a time to define a rubric. The rubric `criteria` list is fully
+ *  replaced by the rubric criteria specified in the update request. For
+ *  example, if a criterion or level is missing from the request, it is deleted.
+ *  New criteria and levels are added and an ID is assigned. Existing criteria
+ *  and levels retain the previously assigned ID if the ID is specified in the
+ *  request. The following fields can be specified by teachers: * `criteria` *
+ *  `source_spreadsheet_id`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_Rubric.
+ *
+ *  Updates a rubric. See google.classroom.v1.Rubric for details of which fields
+ *  can be updated. Rubric update capabilities are
+ *  [limited](/classroom/rubrics/limitations) once grading has started. This
+ *  request must be made by the Google Cloud console of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  parent course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting developer project didn't create the
+ *  corresponding course work, if the user isn't permitted to make the requested
+ *  modification to the rubric, or for access errors. This error code is also
+ *  returned if grading has already started on the rubric. * `INVALID_ARGUMENT`
+ *  if the request is malformed and for the following request error: *
+ *  `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the requested course, course
+ *  work, or rubric doesn't exist or if the user doesn't have access to the
+ *  corresponding course work. * `INTERNAL` if grading has already started on
+ *  the rubric.
+ *
+ *  @param object The @c GTLRClassroom_Rubric to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param courseWorkId Required. Identifier of the course work.
+ *  @param identifier Optional. Identifier of the rubric.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkRubricsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_Rubric *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
  *  Returns a student submission. * `PERMISSION_DENIED` if the requesting user
  *  is not permitted to access the requested course, course work, or student
  *  submission or for access errors. * `INVALID_ARGUMENT` if the request is
@@ -3207,6 +3513,91 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
                        courseId:(NSString *)courseId
                    courseWorkId:(NSString *)courseWorkId
                      identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Updates a rubric. See google.classroom.v1.Rubric for details of which fields
+ *  can be updated. Rubric update capabilities are
+ *  [limited](/classroom/rubrics/limitations) once grading has started. This
+ *  request must be made by the Google Cloud console of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  parent course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting developer project didn't create the
+ *  corresponding course work, if the user isn't permitted to make the requested
+ *  modification to the rubric, or for access errors. This error code is also
+ *  returned if grading has already started on the rubric. * `INVALID_ARGUMENT`
+ *  if the request is malformed and for the following request error: *
+ *  `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the requested course, course
+ *  work, or rubric doesn't exist or if the user doesn't have access to the
+ *  corresponding course work. * `INTERNAL` if grading has already started on
+ *  the rubric.
+ *
+ *  Method: classroom.courses.courseWork.updateRubric
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkStudents
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkUpdateRubric : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Required. Identifier of the course work. */
+@property(nonatomic, copy, nullable) NSString *courseWorkId;
+
+/**
+ *  Optional. Identifier of the rubric.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. Mask that identifies which fields on the rubric to update. This
+ *  field is required to do an update. The update fails if invalid fields are
+ *  specified. There are multiple options to define the criteria of a rubric:
+ *  the `source_spreadsheet_id` and the `criteria` list. Only one of these can
+ *  be used at a time to define a rubric. The rubric `criteria` list is fully
+ *  replaced by the rubric criteria specified in the update request. For
+ *  example, if a criterion or level is missing from the request, it is deleted.
+ *  New criteria and levels are added and an ID is assigned. Existing criteria
+ *  and levels retain the previously assigned ID if the ID is specified in the
+ *  request. The following fields can be specified by teachers: * `criteria` *
+ *  `source_spreadsheet_id`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_Rubric.
+ *
+ *  Updates a rubric. See google.classroom.v1.Rubric for details of which fields
+ *  can be updated. Rubric update capabilities are
+ *  [limited](/classroom/rubrics/limitations) once grading has started. This
+ *  request must be made by the Google Cloud console of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  parent course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting developer project didn't create the
+ *  corresponding course work, if the user isn't permitted to make the requested
+ *  modification to the rubric, or for access errors. This error code is also
+ *  returned if grading has already started on the rubric. * `INVALID_ARGUMENT`
+ *  if the request is malformed and for the following request error: *
+ *  `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the requested course, course
+ *  work, or rubric doesn't exist or if the user doesn't have access to the
+ *  corresponding course work. * `INTERNAL` if grading has already started on
+ *  the rubric.
+ *
+ *  @param object The @c GTLRClassroom_Rubric to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param courseWorkId Required. Identifier of the course work.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkUpdateRubric
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_Rubric *)object
+                       courseId:(NSString *)courseId
+                   courseWorkId:(NSString *)courseWorkId;
 
 @end
 

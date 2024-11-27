@@ -43,6 +43,12 @@ NSString * const kGTLRForms_Option_GoToAction_NextSection      = @"NEXT_SECTION"
 NSString * const kGTLRForms_Option_GoToAction_RestartForm      = @"RESTART_FORM";
 NSString * const kGTLRForms_Option_GoToAction_SubmitForm       = @"SUBMIT_FORM";
 
+// GTLRForms_RatingQuestion.iconType
+NSString * const kGTLRForms_RatingQuestion_IconType_Heart      = @"HEART";
+NSString * const kGTLRForms_RatingQuestion_IconType_RatingIconTypeUnspecified = @"RATING_ICON_TYPE_UNSPECIFIED";
+NSString * const kGTLRForms_RatingQuestion_IconType_Star       = @"STAR";
+NSString * const kGTLRForms_RatingQuestion_IconType_ThumbUp    = @"THUMB_UP";
+
 // GTLRForms_Watch.errorType
 NSString * const kGTLRForms_Watch_ErrorType_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRForms_Watch_ErrorType_NoUserAccess       = @"NO_USER_ACCESS";
@@ -532,7 +538,8 @@ NSString * const kGTLRForms_Watch_State_Suspended        = @"SUSPENDED";
 
 @implementation GTLRForms_Question
 @dynamic choiceQuestion, dateQuestion, fileUploadQuestion, grading, questionId,
-         required, rowQuestion, scaleQuestion, textQuestion, timeQuestion;
+         ratingQuestion, required, rowQuestion, scaleQuestion, textQuestion,
+         timeQuestion;
 @end
 
 
@@ -571,6 +578,16 @@ NSString * const kGTLRForms_Watch_State_Suspended        = @"SUSPENDED";
 
 @implementation GTLRForms_QuizSettings
 @dynamic isQuiz;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRForms_RatingQuestion
+//
+
+@implementation GTLRForms_RatingQuestion
+@dynamic iconType, ratingScaleLevel;
 @end
 
 

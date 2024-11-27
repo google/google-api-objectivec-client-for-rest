@@ -979,15 +979,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Optional. Specifies the KMS configuration for the one or more keys used to
  *  protect the backup. Values are of the form
  *  `projects//locations//keyRings//cryptoKeys/`. The keys referenced by
- *  kms_key_names must fully cover all regions of the backup's instance
- *  configuration. Some examples: * For single region instance configs, specify
- *  a single regional location KMS key. * For multi-regional instance configs of
- *  type GOOGLE_MANAGED, either specify a multi-regional location KMS key or
- *  multiple regional location KMS keys that cover all regions in the instance
- *  config. * For an instance config of type USER_MANAGED, please specify only
- *  regional location KMS keys to cover each region in the instance config.
- *  Multi-regional location KMS keys are not supported for USER_MANAGED instance
- *  configs.
+ *  `kms_key_names` must fully cover all regions of the backup's instance
+ *  configuration. Some examples: * For regional (single-region) instance
+ *  configurations, specify a regional location KMS key. * For multi-region
+ *  instance configurations of type `GOOGLE_MANAGED`, either specify a
+ *  multi-region location KMS key or multiple regional location KMS keys that
+ *  cover all regions in the instance configuration. * For an instance
+ *  configuration of type `USER_MANAGED`, specify only regional location KMS
+ *  keys to cover each region in the instance configuration. Multi-region
+ *  location KMS keys aren't supported for `USER_MANAGED` type instance
+ *  configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryptionConfigKmsKeyNames;
 
@@ -1093,7 +1094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  Method: spanner.projects.instances.backups.getIamPolicy
  *
@@ -1117,7 +1119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  @param object The @c GTLRSpanner_GetIamPolicyRequest to include in the
  *    query.
@@ -1418,7 +1421,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  Method: spanner.projects.instances.backups.setIamPolicy
  *
@@ -1441,7 +1446,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
  *    query.
@@ -1463,7 +1470,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  Method: spanner.projects.instances.backups.testIamPermissions
  *
@@ -1489,7 +1499,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
  *    query.
@@ -1591,7 +1604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  filtering. The value must be a string, a number, or a boolean. The
  *  comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
  *  Colon `:` is the contains operator. Filter rules are not case sensitive. The
- *  following fields in the Operation are eligible for filtering: * `name` - The
+ *  following fields in the operation are eligible for filtering: * `name` - The
  *  name of the long-running operation * `done` - False if the operation is in
  *  progress, else true. * `metadata.\@type` - the type of metadata. For
  *  example, the type string for RestoreDatabaseMetadata is
@@ -1763,7 +1776,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  Method: spanner.projects.instances.databases.backupSchedules.getIamPolicy
  *
@@ -1787,7 +1801,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  @param object The @c GTLRSpanner_GetIamPolicyRequest to include in the
  *    query.
@@ -1904,7 +1919,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  Method: spanner.projects.instances.databases.backupSchedules.setIamPolicy
  *
@@ -1927,7 +1944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
  *    query.
@@ -1949,7 +1968,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  Method: spanner.projects.instances.databases.backupSchedules.testIamPermissions
  *
@@ -1975,7 +1997,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
  *    query.
@@ -2134,7 +2159,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  Method: spanner.projects.instances.databases.databaseRoles.testIamPermissions
  *
@@ -2160,7 +2188,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
  *    query.
@@ -2279,7 +2310,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  Method: spanner.projects.instances.databases.getIamPolicy
  *
@@ -2303,7 +2335,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  @param object The @c GTLRSpanner_GetIamPolicyRequest to include in the
  *    query.
@@ -3387,7 +3420,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  Method: spanner.projects.instances.databases.setIamPolicy
  *
@@ -3410,7 +3445,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
  *    query.
@@ -3432,7 +3469,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  Method: spanner.projects.instances.databases.testIamPermissions
  *
@@ -3458,7 +3498,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
  *    query.
@@ -3679,7 +3722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Optional. Deadline used while retrieving metadata for instance partition
  *  operations. Instance partitions whose operation metadata cannot be retrieved
- *  within this deadline will be added to unreachable in
+ *  within this deadline will be added to unreachable_instance_partitions in
  *  ListInstancePartitionOperationsResponse.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *instancePartitionDeadline;

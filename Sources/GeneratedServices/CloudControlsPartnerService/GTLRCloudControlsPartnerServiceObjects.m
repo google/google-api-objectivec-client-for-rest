@@ -148,7 +148,8 @@ NSString * const kGTLRCloudControlsPartnerService_WorkloadOnboardingStep_Step_St
 //
 
 @implementation GTLRCloudControlsPartnerService_Customer
-@dynamic customerOnboardingState, displayName, isOnboarded, name;
+@dynamic customerOnboardingState, displayName, isOnboarded, name,
+         organizationDomain;
 @end
 
 
@@ -215,6 +216,15 @@ NSString * const kGTLRCloudControlsPartnerService_WorkloadOnboardingStep_Step_St
 
 @implementation GTLRCloudControlsPartnerService_EkmMetadata
 @dynamic ekmEndpointUri, ekmSolution;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudControlsPartnerService_Empty
+//
+
+@implementation GTLRCloudControlsPartnerService_Empty
 @end
 
 

@@ -801,6 +801,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent;
 /**
+ *  CustomDimension resource
+ *
+ *  Value: "CUSTOM_DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension;
+/**
+ *  CustomMetric resource
+ *
+ *  Value: "CUSTOM_METRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric;
+/**
  *  DataRetentionSettings resource
  *
  *  Value: "DATA_RETENTION_SETTINGS"

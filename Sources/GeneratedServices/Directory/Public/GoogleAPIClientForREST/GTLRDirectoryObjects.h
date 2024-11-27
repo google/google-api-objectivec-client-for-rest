@@ -22,6 +22,7 @@
 @class GTLRDirectory_Building;
 @class GTLRDirectory_BuildingAddress;
 @class GTLRDirectory_BuildingCoordinates;
+@class GTLRDirectory_ByteUsage;
 @class GTLRDirectory_CalendarResource;
 @class GTLRDirectory_ChangeChromeOsDeviceStatusResult;
 @class GTLRDirectory_ChangeChromeOsDeviceStatusSucceeded;
@@ -1519,6 +1520,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  Represents a data capacity with some amount of current usage in bytes.
+ */
+@interface GTLRDirectory_ByteUsage : GTLRObject
+
+/**
+ *  Output only. The total capacity value, in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *capacityBytes;
+
+/**
+ *  Output only. The current usage value, in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usedBytes;
+
+@end
+
+
+/**
  *  Public API: Resources.calendars
  */
 @interface GTLRDirectory_CalendarResource : GTLRObject
@@ -1881,6 +1904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *        device has an annual Kiosk Upgrade. (Value: "kioskUpgrade")
  */
 @property(nonatomic, copy, nullable) NSString *deviceLicenseType;
+
+/**
+ *  Output only. How much disk space the device has available and is currently
+ *  using.
+ */
+@property(nonatomic, strong, nullable) GTLRDirectory_ByteUsage *diskSpaceUsage;
 
 /** Reports of disk space and other info about mounted/connected volumes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item *> *diskVolumeReports;
@@ -3788,14 +3817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @interface GTLRDirectory_OrgUnit : GTLRObject
 
 /**
- *  Determines if a sub-organizational unit can inherit the settings of the
- *  parent organization. The default value is `false`, meaning a
- *  sub-organizational unit inherits the settings of the nearest parent
- *  organizational unit. This field is deprecated. Setting it to `true` is no
- *  longer supported and can have _unintended consequences_. For more
- *  information about inheritance and users in an organization structure, see
- *  the [administration help
- *  center](https://support.google.com/a/answer/4352075).
+ *  This field is deprecated and setting its value has no effect.
  *
  *  Uses NSNumber of boolValue.
  */

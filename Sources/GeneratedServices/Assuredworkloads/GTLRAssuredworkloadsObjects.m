@@ -154,6 +154,10 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete = @"STATUS_COMPLETE";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending = @"STATUS_PENDING";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions.kajEnrollmentType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KajEnrollmentTypeUnspecified = @"KAJ_ENROLLMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KeyAccessTransparencyOff = @"KEY_ACCESS_TRANSPARENCY_OFF";
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
@@ -469,7 +473,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
          kajEnrollmentState, kmsSettings, labels, name, partner,
          partnerPermissions, partnerServicesBillingAccount,
          provisionedResourcesParent, resourceMonitoringEnabled, resources,
-         resourceSettings, saaEnrollmentResponse, violationNotificationsEnabled;
+         resourceSettings, saaEnrollmentResponse, violationNotificationsEnabled,
+         workloadOptions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -579,6 +584,16 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions
+@dynamic kajEnrollmentType;
 @end
 
 

@@ -92,6 +92,10 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2OutputConfigBigQueryDestination;
 @class GTLRCloudRetail_GoogleCloudRetailV2OutputConfigGcsDestination;
 @class GTLRCloudRetail_GoogleCloudRetailV2OutputResult;
+@class GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata;
+@class GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_AllMatchedPins;
+@class GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_DroppedPins;
+@class GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadataProductPins;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Labels;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Params;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictResponsePredictionResult;
@@ -464,7 +468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaMode
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_AttributeConfigLevelUnspecified;
 /**
  *  At this level, we honor the attribute configurations set in
- *  CatalogConfig.attribute_configs.
+ *  `CatalogConfig.attribute_configs`.
  *
  *  Value: "CATALOG_LEVEL_ATTRIBUTE_CONFIG"
  */
@@ -830,6 +834,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportPro
  *  Value: "RECONCILIATION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_ReconciliationModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2LocalInventory.availability
+
+/**
+ *  Default product availability. Default to Availability.IN_STOCK if unset.
+ *
+ *  Value: "AVAILABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_AvailabilityUnspecified;
+/**
+ *  Product that is back-ordered (i.e. temporarily out of stock).
+ *
+ *  Value: "BACKORDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Backorder;
+/**
+ *  Product in stock.
+ *
+ *  Value: "IN_STOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_InStock;
+/**
+ *  Product out of stock.
+ *
+ *  Value: "OUT_OF_STOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_OutOfStock;
+/**
+ *  Product that is in pre-order state.
+ *
+ *  Value: "PREORDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Preorder;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2Model.dataState
@@ -2695,7 +2733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *        "ATTRIBUTE_CONFIG_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_CatalogLevelAttributeConfig
  *        At this level, we honor the attribute configurations set in
- *        CatalogConfig.attribute_configs. (Value:
+ *        `CatalogConfig.attribute_configs`. (Value:
  *        "CATALOG_LEVEL_ATTRIBUTE_CONFIG")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_ProductLevelAttributeConfig
  *        At this level, we honor the attribute configurations set in
@@ -3574,10 +3612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  */
 @property(nonatomic, copy, nullable) NSString *gcsStagingDir;
 
-/**
- *  BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format. Only
- *  supported in ImportProductsRequest.
- */
+/** BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleTypeDate *partitionDate;
 
 /**
@@ -3687,8 +3722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  Output only. Indicates whether this attribute has been used by any products.
  *  `True` if at least one Product is using this attribute in
  *  Product.attributes. Otherwise, this field is `False`. CatalogAttribute can
- *  be pre-loaded by using CatalogService.AddCatalogAttribute,
- *  CatalogService.ImportCatalogAttributes, or
+ *  be pre-loaded by using CatalogService.AddCatalogAttribute or
  *  CatalogService.UpdateAttributesConfig APIs. This field is `False` for
  *  pre-loaded CatalogAttributes. Only pre-loaded catalog attributes that are
  *  neither in use by products nor predefined can be deleted. Catalog attributes
@@ -4395,7 +4429,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Metadata for active A/B testing Experiment.
+ *  Metadata for active A/B testing experiment.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo : GTLRObject
 
@@ -4420,7 +4454,7 @@ GTLR_DEPRECATED
 
 /**
  *  The fully qualified resource name of the serving config
- *  Experiment.VariantArm.serving_config_id responsible for generating the
+ *  `Experiment.VariantArm.serving_config_id` responsible for generating the
  *  search response. For example: `projects/ * /locations/ * /catalogs/ *
  *  /servingConfigs/ *`.
  */
@@ -5104,23 +5138,51 @@ GTLR_DEPRECATED
 @interface GTLRCloudRetail_GoogleCloudRetailV2LocalInventory : GTLRObject
 
 /**
- *  Additional local inventory attributes, for example, store name, promotion
- *  tags, etc. This field needs to pass all below criteria, otherwise an
- *  INVALID_ARGUMENT error is returned: * At most 30 attributes are allowed. *
- *  The key must be a UTF-8 encoded string with a length limit of 32 characters.
- *  * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
- *  KEY_1_LIKE_THIS. * The attribute values must be of the same type (text or
- *  number). * Only 1 value is allowed for each attribute. * For text values,
- *  the length limit is 256 UTF-8 characters. * The attribute does not support
- *  search. The `searchable` field should be unset or set to false. * The max
- *  summed total bytes of custom attribute keys and values per product is 5MiB.
+ *  Optional. Additional local inventory attributes, for example, store name,
+ *  promotion tags, etc. This field needs to pass all below criteria, otherwise
+ *  an INVALID_ARGUMENT error is returned: * At most 30 attributes are allowed.
+ *  * The key must be a UTF-8 encoded string with a length limit of 32
+ *  characters. * The key must match the pattern: `a-zA-Z0-9*`. For example,
+ *  key0LikeThis or KEY_1_LIKE_THIS. * The attribute values must be of the same
+ *  type (text or number). * Only 1 value is allowed for each attribute. * For
+ *  text values, the length limit is 256 UTF-8 characters. * The attribute does
+ *  not support search. The `searchable` field should be unset or set to false.
+ *  * The max summed total bytes of custom attribute keys and values per product
+ *  is 5MiB.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Attributes *attributes;
 
 /**
- *  Input only. Supported fulfillment types. Valid fulfillment type values
- *  include commonly used types (such as pickup in store and same day delivery),
- *  and custom types. Customers have to map custom types to their display names
+ *  Optional. The availability of the Product at this place_id. Default to
+ *  Availability.IN_STOCK. For primary products with variants set the
+ *  availability of the primary as Availability.OUT_OF_STOCK and set the true
+ *  availability at the variant level. This way the primary product will be
+ *  considered "in stock" as long as it has at least one variant in stock. For
+ *  primary products with no variants set the true availability at the primary
+ *  level. Corresponding properties: Google Merchant Center property
+ *  [availability](https://support.google.com/merchants/answer/6324448).
+ *  Schema.org property [Offer.availability](https://schema.org/availability).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_AvailabilityUnspecified
+ *        Default product availability. Default to Availability.IN_STOCK if
+ *        unset. (Value: "AVAILABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Backorder
+ *        Product that is back-ordered (i.e. temporarily out of stock). (Value:
+ *        "BACKORDER")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_InStock
+ *        Product in stock. (Value: "IN_STOCK")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_OutOfStock
+ *        Product out of stock. (Value: "OUT_OF_STOCK")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Availability_Preorder
+ *        Product that is in pre-order state. (Value: "PREORDER")
+ */
+@property(nonatomic, copy, nullable) NSString *availability;
+
+/**
+ *  Optional. Supported fulfillment types. Valid fulfillment type values include
+ *  commonly used types (such as pickup in store and same day delivery), and
+ *  custom types. Customers have to map custom types to their display names
  *  before rendering UI. Supported values: * "pickup-in-store" * "ship-to-store"
  *  * "same-day-delivery" * "next-day-delivery" * "custom-type-1" *
  *  "custom-type-2" * "custom-type-3" * "custom-type-4" * "custom-type-5" If
@@ -5130,12 +5192,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fulfillmentTypes;
 
-/** The place ID for the current set of inventory information. */
+/** Required. The place ID for the current set of inventory information. */
 @property(nonatomic, copy, nullable) NSString *placeId;
 
 /**
- *  Product price and cost information. Google Merchant Center property
- *  [price](https://support.google.com/merchants/answer/6324371).
+ *  Optional. Product price and cost information. Google Merchant Center
+ *  property [price](https://support.google.com/merchants/answer/6324371).
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PriceInfo *priceInfo;
 
@@ -5143,16 +5205,17 @@ GTLR_DEPRECATED
 
 
 /**
- *  Additional local inventory attributes, for example, store name, promotion
- *  tags, etc. This field needs to pass all below criteria, otherwise an
- *  INVALID_ARGUMENT error is returned: * At most 30 attributes are allowed. *
- *  The key must be a UTF-8 encoded string with a length limit of 32 characters.
- *  * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
- *  KEY_1_LIKE_THIS. * The attribute values must be of the same type (text or
- *  number). * Only 1 value is allowed for each attribute. * For text values,
- *  the length limit is 256 UTF-8 characters. * The attribute does not support
- *  search. The `searchable` field should be unset or set to false. * The max
- *  summed total bytes of custom attribute keys and values per product is 5MiB.
+ *  Optional. Additional local inventory attributes, for example, store name,
+ *  promotion tags, etc. This field needs to pass all below criteria, otherwise
+ *  an INVALID_ARGUMENT error is returned: * At most 30 attributes are allowed.
+ *  * The key must be a UTF-8 encoded string with a length limit of 32
+ *  characters. * The key must match the pattern: `a-zA-Z0-9*`. For example,
+ *  key0LikeThis or KEY_1_LIKE_THIS. * The attribute values must be of the same
+ *  type (text or number). * Only 1 value is allowed for each attribute. * For
+ *  text values, the length limit is 256 UTF-8 characters. * The attribute does
+ *  not support search. The `searchable` field should be unset or set to false.
+ *  * The max summed total bytes of custom attribute keys and values per product
+ *  is 5MiB.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c
@@ -5472,6 +5535,62 @@ GTLR_DEPRECATED
  *  Request for pausing training of a model.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2PauseModelRequest : GTLRObject
+@end
+
+
+/**
+ *  Metadata for pinning to be returned in the response. This is used for
+ *  distinguishing between applied vs dropped pins.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata : GTLRObject
+
+/** Map of all matched pins, keyed by pin position. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_AllMatchedPins *allMatchedPins;
+
+/**
+ *  Map of pins that were dropped due to overlap with other matching pins, keyed
+ *  by pin position.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_DroppedPins *droppedPins;
+
+@end
+
+
+/**
+ *  Map of all matched pins, keyed by pin position.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadataProductPins. Use
+ *        @c -additionalJSONKeys and @c -additionalPropertyForName: to get the
+ *        list of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_AllMatchedPins : GTLRObject
+@end
+
+
+/**
+ *  Map of pins that were dropped due to overlap with other matching pins, keyed
+ *  by pin position.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadataProductPins. Use
+ *        @c -additionalJSONKeys and @c -additionalPropertyForName: to get the
+ *        list of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata_DroppedPins : GTLRObject
+@end
+
+
+/**
+ *  List of product ids which have associated pins.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadataProductPins : GTLRObject
+
+/** List of product ids which have associated pins. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productId;
+
 @end
 
 
@@ -6100,11 +6219,9 @@ GTLR_DEPRECATED
  *  key of a custom attribute, as specified in attributes. For Type.PRIMARY and
  *  Type.COLLECTION, the following fields are always returned in SearchResponse
  *  by default: * name For Type.VARIANT, the following fields are always
- *  returned in by default: * name * color_info The maximum number of paths is
- *  30. Otherwise, an INVALID_ARGUMENT error is returned. Note: Returning more
- *  fields in SearchResponse can increase response payload size and serving
- *  latency. This field is deprecated. Use the retrievable site-wide control
- *  instead.
+ *  returned in by default: * name * color_info Note: Returning more fields in
+ *  SearchResponse can increase response payload size and serving latency. This
+ *  field is deprecated. Use the retrievable site-wide control instead.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -7863,7 +7980,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *correctedQuery;
 
 /**
- *  Metadata related to A/B testing Experiment associated with this response.
+ *  Metadata related to A/B testing experiment associated with this response.
  *  Only exists when an experiment is triggered.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo *> *experimentInfo;
@@ -7882,6 +7999,14 @@ GTLR_DEPRECATED
  *  page. If this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Metadata for pin controls which were applicable to the request. This
+ *  contains two map fields, one for all matched pins and one for pins which
+ *  were matched but not applied. The two maps are keyed by pin position, and
+ *  the values are the product ids which were matched to that pin.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PinControlMetadata *pinControlMetadata;
 
 /** Query expansion information for the returned results. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchResponseQueryExpansionInfo *queryExpansionInfo;
@@ -8905,12 +9030,11 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
- *  User agent as included in the HTTP header. Required for getting
- *  SearchResponse.sponsored_results. The field must be a UTF-8 encoded string
- *  with a length limit of 1,000 characters. Otherwise, an INVALID_ARGUMENT
- *  error is returned. This should not be set when using the client side event
- *  reporting with GTM or JavaScript tag in UserEventService.CollectUserEvent or
- *  if direct_user_request is set.
+ *  User agent as included in the HTTP header. The field must be a UTF-8 encoded
+ *  string with a length limit of 1,000 characters. Otherwise, an
+ *  INVALID_ARGUMENT error is returned. This should not be set when using the
+ *  client side event reporting with GTM or JavaScript tag in
+ *  UserEventService.CollectUserEvent or if direct_user_request is set.
  */
 @property(nonatomic, copy, nullable) NSString *userAgent;
 

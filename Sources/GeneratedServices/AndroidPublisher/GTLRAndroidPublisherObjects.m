@@ -1249,14 +1249,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_DeviceSelector
 @dynamic deviceRam, excludedDeviceIds, forbiddenSystemFeatures,
-         includedDeviceIds, requiredSystemFeatures;
+         includedDeviceIds, requiredSystemFeatures, systemOnChips;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludedDeviceIds" : [GTLRAndroidPublisher_DeviceId class],
     @"forbiddenSystemFeatures" : [GTLRAndroidPublisher_SystemFeature class],
     @"includedDeviceIds" : [GTLRAndroidPublisher_DeviceId class],
-    @"requiredSystemFeatures" : [GTLRAndroidPublisher_SystemFeature class]
+    @"requiredSystemFeatures" : [GTLRAndroidPublisher_SystemFeature class],
+    @"systemOnChips" : [GTLRAndroidPublisher_SystemOnChip class]
   };
   return map;
 }
@@ -1395,16 +1396,6 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails
-//
-
-@implementation GTLRAndroidPublisher_ExternalOfferInitialAcquisitionDetails
-@dynamic externalTransactionId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidPublisher_ExternalSubscription
 //
 
@@ -1420,9 +1411,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ExternalTransaction
 @dynamic createTime, currentPreTaxAmount, currentTaxAmount,
-         externalOfferInitialAcquisitionDetails, externalTransactionId,
-         oneTimeTransaction, originalPreTaxAmount, originalTaxAmount,
-         packageName, recurringTransaction, testPurchase,
+         externalTransactionId, oneTimeTransaction, originalPreTaxAmount,
+         originalTaxAmount, packageName, recurringTransaction, testPurchase,
          transactionProgramCode, transactionState, transactionTime,
          userTaxAddress;
 @end
@@ -2194,6 +2184,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OneTimeCode
+//
+
+@implementation GTLRAndroidPublisher_OneTimeCode
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_OneTimeExternalTransaction
 //
 
@@ -2725,6 +2724,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SignupPromotion
+//
+
+@implementation GTLRAndroidPublisher_SignupPromotion
+@dynamic oneTimeCode, vanityCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SplitApkMetadata
 //
 
@@ -2942,7 +2951,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseLineItem
 @dynamic autoRenewingPlan, deferredItemReplacement, expiryTime, offerDetails,
-         prepaidPlan, productId;
+         prepaidPlan, productId, signupPromotion;
 @end
 
 
@@ -3072,6 +3081,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SystemInitiatedCancellation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SystemOnChip
+//
+
+@implementation GTLRAndroidPublisher_SystemOnChip
+@dynamic manufacturer, model;
 @end
 
 
@@ -3455,6 +3474,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_UsesPermission
 @dynamic maxSdkVersion, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_VanityCode
+//
+
+@implementation GTLRAndroidPublisher_VanityCode
+@dynamic promotionCode;
 @end
 
 

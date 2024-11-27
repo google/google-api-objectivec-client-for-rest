@@ -147,6 +147,63 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersProfilesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersProfilesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleProtobufEmpty class];
+  query.loggingName = @"chromemanagement.customers.profiles.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersProfilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile class];
+  query.loggingName = @"chromemanagement.customers.profiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersProfilesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/profiles";
+  GTLRChromeManagementQuery_CustomersProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfilesResponse class];
+  query.loggingName = @"chromemanagement.customers.profiles.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersReportsCountChromeBrowsersNeedingAttention
 
 @dynamic customer, orgUnitId;

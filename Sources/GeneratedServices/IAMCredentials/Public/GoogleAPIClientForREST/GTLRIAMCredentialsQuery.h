@@ -110,6 +110,29 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the trust boundary info for a given service account.
+ *
+ *  Method: iamcredentials.projects.serviceAccounts.getAllowedLocations
+ */
+@interface GTLRIAMCredentialsQuery_ProjectsServiceAccountsGetAllowedLocations : GTLRIAMCredentialsQuery
+
+/** Required. Resource name of service account. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIAMCredentials_ServiceAccountAllowedLocations.
+ *
+ *  Returns the trust boundary info for a given service account.
+ *
+ *  @param name Required. Resource name of service account.
+ *
+ *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGetAllowedLocations
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Signs a blob using a service account's system-managed private key.
  *
  *  Method: iamcredentials.projects.serviceAccounts.signBlob

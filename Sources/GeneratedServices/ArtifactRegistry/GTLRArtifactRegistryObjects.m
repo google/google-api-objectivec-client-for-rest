@@ -49,6 +49,15 @@ NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRep
 NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_RepositoryBaseUnspecified = @"REPOSITORY_BASE_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Rocky = @"ROCKY";
 
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.action
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Allow = @"ALLOW";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Deny = @"DENY";
+
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.operation
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_Download = @"DOWNLOAD";
+NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_OperationUnspecified = @"OPERATION_UNSPECIFIED";
+
 // GTLRArtifactRegistry_Hash.type
 NSString * const kGTLRArtifactRegistry_Hash_Type_HashTypeUnspecified = @"HASH_TYPE_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_Hash_Type_Md5           = @"MD5";
@@ -105,6 +114,17 @@ NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Allow = @"ALLOW";
 NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Deny = @"DENY";
 NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_VpcscPolicyUnspecified = @"VPCSC_POLICY_UNSPECIFIED";
 
+// GTLRArtifactRegistry_VulnerabilityScanningConfig.enablementConfig
+NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Disabled = @"DISABLED";
+NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_EnablementConfigUnspecified = @"ENABLEMENT_CONFIG_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Inherited = @"INHERITED";
+
+// GTLRArtifactRegistry_VulnerabilityScanningConfig.enablementState
+NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_EnablementStateUnspecified = @"ENABLEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningActive = @"SCANNING_ACTIVE";
+NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningDisabled = @"SCANNING_DISABLED";
+NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningUnsupported = @"SCANNING_UNSUPPORTED";
+
 // GTLRArtifactRegistry_YumArtifact.packageType
 NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Binary = @"BINARY";
 NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_PackageTypeUnspecified = @"PACKAGE_TYPE_UNSPECIFIED";
@@ -127,6 +147,39 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_AptRepository
 @dynamic customRepository, publicRepository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Attachment
+//
+
+@implementation GTLRArtifactRegistry_Attachment
+@dynamic annotations, attachmentNamespace, createTime, files, name,
+         ociVersionName, target, type, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"files" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Attachment_Annotations
+//
+
+@implementation GTLRArtifactRegistry_Attachment_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -356,13 +409,28 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File
-@dynamic createTime, fetchTime, hashes, name, owner, sizeBytes, updateTime;
+@dynamic annotations, createTime, fetchTime, hashes, name, owner, sizeBytes,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"hashes" : [GTLRArtifactRegistry_Hash class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File_Annotations
+//
+
+@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -445,6 +513,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository
 @dynamic repositoryBase, repositoryPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule
+//
+
+@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule
+@dynamic action, condition, name, operation, packageId;
 @end
 
 
@@ -668,6 +746,28 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_ListAttachmentsResponse
+//
+
+@implementation GTLRArtifactRegistry_ListAttachmentsResponse
+@dynamic attachments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachments" : [GTLRArtifactRegistry_Attachment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"attachments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_ListDockerImagesResponse
 //
 
@@ -837,6 +937,28 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 + (NSString *)collectionItemsKey {
   return @"repositories";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ListRulesResponse
+//
+
+@implementation GTLRArtifactRegistry_ListRulesResponse
+@dynamic nextPageToken, rules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rules";
 }
 
 @end
@@ -1087,15 +1209,6 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRArtifactRegistry_PromoteArtifactMetadata
-//
-
-@implementation GTLRArtifactRegistry_PromoteArtifactMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRArtifactRegistry_PythonPackage
 //
 
@@ -1140,7 +1253,8 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 @dynamic cleanupPolicies, cleanupPolicyDryRun, createTime, descriptionProperty,
          disallowUnspecifiedMode, dockerConfig, format, kmsKeyName, labels,
          mavenConfig, mode, name, remoteRepositoryConfig, satisfiesPzi,
-         satisfiesPzs, sizeBytes, updateTime, virtualRepositoryConfig;
+         satisfiesPzs, sizeBytes, updateTime, virtualRepositoryConfig,
+         vulnerabilityScanningConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1308,6 +1422,26 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadFileMediaResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadFileMediaResponse
+@dynamic operation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadFileRequest
+//
+
+@implementation GTLRArtifactRegistry_UploadFileRequest
+@dynamic fileId;
 @end
 
 
@@ -1542,8 +1676,8 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_Version
-@dynamic createTime, descriptionProperty, metadata, name, relatedTags,
-         updateTime;
+@dynamic annotations, createTime, descriptionProperty, metadata, name,
+         relatedTags, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1554,6 +1688,20 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
     @"relatedTags" : [GTLRArtifactRegistry_Tag class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Version_Annotations
+//
+
+@implementation GTLRArtifactRegistry_Version_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1598,6 +1746,17 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_VPCSCConfig
 @dynamic name, vpcscPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_VulnerabilityScanningConfig
+//
+
+@implementation GTLRArtifactRegistry_VulnerabilityScanningConfig
+@dynamic enablementConfig, enablementState, enablementStateReason,
+         lastEnableTime;
 @end
 
 

@@ -467,7 +467,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: discoveryengine.projects.locations.collections.dataStores.branches.operations.cancel
@@ -490,7 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c
@@ -1200,6 +1200,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCreate : GTLRDiscoveryEngineQuery
 
+/** Resource name of the CmekConfig to use for protecting this DataStore. */
+@property(nonatomic, copy, nullable) NSString *cmekConfigName;
+
 /**
  *  A boolean flag indicating whether user want to directly create an advanced
  *  data store for site search. If the data store is not configured as site
@@ -1215,6 +1218,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *dataStoreId;
+
+/**
+ *  DataStore without CMEK protections. If a default CmekConfig is set for the
+ *  project, setting this field will override the default CmekConfig as well.
+ */
+@property(nonatomic, assign) BOOL disableCmek;
 
 /**
  *  Required. The parent resource name, such as
@@ -2048,6 +2057,63 @@ NS_ASSUME_NONNULL_BEGIN
  *    models used to make the search.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsSearch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Performs a search. Similar to the SearchService.Search method, but a lite
+ *  version that allows API key for authentication, where OAuth and IAM checks
+ *  are not required. Only public website search is supported by this method. If
+ *  data stores and engines not associated with public website search are
+ *  specified, a `FAILED_PRECONDITION` error is returned. This method can be
+ *  used for easy onboarding without having to implement an authentication
+ *  backend. However, it is strongly recommended to use SearchService.Search
+ *  instead with required OAuth and IAM checks to provide better data security.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.searchLite
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsSearchLite : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Search serving config, such as `projects/
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+ *  This field is used to identify the serving configuration name, set of models
+ *  used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponse.
+ *
+ *  Performs a search. Similar to the SearchService.Search method, but a lite
+ *  version that allows API key for authentication, where OAuth and IAM checks
+ *  are not required. Only public website search is supported by this method. If
+ *  data stores and engines not associated with public website search are
+ *  specified, a `FAILED_PRECONDITION` error is returned. This method can be
+ *  used for easy onboarding without having to implement an authentication
+ *  backend. However, it is strongly recommended to use SearchService.Search
+ *  instead with required OAuth and IAM checks to provide better data security.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest to include
+ *    in the query.
+ *  @param servingConfig Required. The resource name of the Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+ *    This field is used to identify the serving configuration name, set of
+ *    models used to make the search.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsSearchLite
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest *)object
                   servingConfig:(NSString *)servingConfig;
@@ -4044,6 +4110,63 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Performs a search. Similar to the SearchService.Search method, but a lite
+ *  version that allows API key for authentication, where OAuth and IAM checks
+ *  are not required. Only public website search is supported by this method. If
+ *  data stores and engines not associated with public website search are
+ *  specified, a `FAILED_PRECONDITION` error is returned. This method can be
+ *  used for easy onboarding without having to implement an authentication
+ *  backend. However, it is strongly recommended to use SearchService.Search
+ *  instead with required OAuth and IAM checks to provide better data security.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.searchLite
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsSearchLite : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Search serving config, such as `projects/
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+ *  This field is used to identify the serving configuration name, set of models
+ *  used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponse.
+ *
+ *  Performs a search. Similar to the SearchService.Search method, but a lite
+ *  version that allows API key for authentication, where OAuth and IAM checks
+ *  are not required. Only public website search is supported by this method. If
+ *  data stores and engines not associated with public website search are
+ *  specified, a `FAILED_PRECONDITION` error is returned. This method can be
+ *  used for easy onboarding without having to implement an authentication
+ *  backend. However, it is strongly recommended to use SearchService.Search
+ *  instead with required OAuth and IAM checks to provide better data security.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest to include
+ *    in the query.
+ *  @param servingConfig Required. The resource name of the Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+ *    This field is used to identify the serving configuration name, set of
+ *    models used to make the search.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsSearchLite
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
  *  Gets a Answer.
  *
  *  Method: discoveryengine.projects.locations.collections.engines.sessions.answers.get
@@ -4710,7 +4833,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: discoveryengine.projects.locations.dataStores.branches.operations.cancel
@@ -4733,7 +4856,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c
@@ -5443,6 +5566,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCreate : GTLRDiscoveryEngineQuery
 
+/** Resource name of the CmekConfig to use for protecting this DataStore. */
+@property(nonatomic, copy, nullable) NSString *cmekConfigName;
+
 /**
  *  A boolean flag indicating whether user want to directly create an advanced
  *  data store for site search. If the data store is not configured as site
@@ -5458,6 +5584,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *dataStoreId;
+
+/**
+ *  DataStore without CMEK protections. If a default CmekConfig is set for the
+ *  project, setting this field will override the default CmekConfig as well.
+ */
+@property(nonatomic, assign) BOOL disableCmek;
 
 /**
  *  Required. The parent resource name, such as
@@ -6184,6 +6316,63 @@ NS_ASSUME_NONNULL_BEGIN
  *    models used to make the search.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsSearch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Performs a search. Similar to the SearchService.Search method, but a lite
+ *  version that allows API key for authentication, where OAuth and IAM checks
+ *  are not required. Only public website search is supported by this method. If
+ *  data stores and engines not associated with public website search are
+ *  specified, a `FAILED_PRECONDITION` error is returned. This method can be
+ *  used for easy onboarding without having to implement an authentication
+ *  backend. However, it is strongly recommended to use SearchService.Search
+ *  instead with required OAuth and IAM checks to provide better data security.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.searchLite
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsSearchLite : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the Search serving config, such as `projects/
+ *  * /locations/global/collections/default_collection/engines/ *
+ *  /servingConfigs/default_serving_config`, or `projects/ *
+ *  /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+ *  This field is used to identify the serving configuration name, set of models
+ *  used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchResponse.
+ *
+ *  Performs a search. Similar to the SearchService.Search method, but a lite
+ *  version that allows API key for authentication, where OAuth and IAM checks
+ *  are not required. Only public website search is supported by this method. If
+ *  data stores and engines not associated with public website search are
+ *  specified, a `FAILED_PRECONDITION` error is returned. This method can be
+ *  used for easy onboarding without having to implement an authentication
+ *  backend. However, it is strongly recommended to use SearchService.Search
+ *  instead with required OAuth and IAM checks to provide better data security.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest to include
+ *    in the query.
+ *  @param servingConfig Required. The resource name of the Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/collections/default_collection/engines/ *
+ *    /servingConfigs/default_serving_config`, or `projects/ *
+ *    /locations/global/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_config`.
+ *    This field is used to identify the serving configuration name, set of
+ *    models used to make the search.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsSearchLite
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest *)object
                   servingConfig:(NSString *)servingConfig;
@@ -7070,7 +7259,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
  *
- *  Method: discoveryengine.projects.locations.identity_mapping_stores.operations.get
+ *  Method: discoveryengine.projects.locations.identityMappingStores.operations.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
@@ -7099,7 +7288,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
- *  Method: discoveryengine.projects.locations.identity_mapping_stores.operations.list
+ *  Method: discoveryengine.projects.locations.identityMappingStores.operations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
@@ -7299,6 +7488,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Bulk import of user events. Request processing might be synchronous. Events
+ *  that already exist are skipped. Use this method for backfilling historical
+ *  user events. Operation.response is of type ImportResponse. Note that it is
+ *  possible for a subset of the items to be successfully inserted.
+ *  Operation.metadata is of type ImportMetadata.
+ *
+ *  Method: discoveryengine.projects.locations.userEvents.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsImport : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Parent DataStore resource name, of the form
+ *  `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Bulk import of user events. Request processing might be synchronous. Events
+ *  that already exist are skipped. Use this method for backfilling historical
+ *  user events. Operation.response is of type ImportResponse. Note that it is
+ *  possible for a subset of the items to be successfully inserted.
+ *  Operation.metadata is of type ImportMetadata.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest to
+ *    include in the query.
+ *  @param parent Required. Parent DataStore resource name, of the form
+ *    `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsImport
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportUserEventsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Writes a single user event.
  *
  *  Method: discoveryengine.projects.locations.userEvents.write
@@ -7354,7 +7585,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: discoveryengine.projects.operations.cancel
@@ -7377,7 +7608,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c

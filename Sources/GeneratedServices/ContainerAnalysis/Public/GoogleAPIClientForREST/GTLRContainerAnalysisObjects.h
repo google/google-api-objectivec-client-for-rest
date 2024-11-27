@@ -1007,6 +1007,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified;
 /**
+ *  Bucket is located in a Google-owned project and is not regionalized.
+ *
+ *  Value: "LEGACY_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket;
+/**
  *  Bucket is located in user-owned project in the same region as the build. The
  *  builder service account must have access to create and write to Cloud
  *  Storage buckets in the build project.
@@ -4361,6 +4367,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified
  *        Unspecified. (Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket
+ *        Bucket is located in a Google-owned project and is not regionalized.
+ *        (Value: "LEGACY_BUCKET")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket
  *        Bucket is located in user-owned project in the same region as the
  *        build. The builder service account must have access to create and

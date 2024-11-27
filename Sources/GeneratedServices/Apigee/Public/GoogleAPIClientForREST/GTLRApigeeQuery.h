@@ -9833,6 +9833,39 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Lists the service accounts allowed to access Apigee control plane directly
+ *  for limited functionality. **Note**: Available to Apigee hybrid only.
+ *
+ *  Method: apigee.organizations.getControlPlaneAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsGetControlPlaneAccess : GTLRApigeeQuery
+
+/**
+ *  Required. Resource name of the Control Plane Access. Use the following
+ *  structure in your request: `organizations/{org}/controlPlaneAccess`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess.
+ *
+ *  Lists the service accounts allowed to access Apigee control plane directly
+ *  for limited functionality. **Note**: Available to Apigee hybrid only.
+ *
+ *  @param name Required. Resource name of the Control Plane Access. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/controlPlaneAccess`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsGetControlPlaneAccess
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the deployed ingress configuration for an organization.
  *
  *  Method: apigee.organizations.getDeployedIngressConfig
@@ -12234,6 +12267,183 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Create a security profile v2.
+ *
+ *  Method: apigee.organizations.securityProfilesV2.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesV2Create : GTLRApigeeQuery
+
+/** Required. The parent resource name. Format: `organizations/{org}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The security profile id. */
+@property(nonatomic, copy, nullable) NSString *securityProfileV2Id;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2.
+ *
+ *  Create a security profile v2.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 to
+ *    include in the query.
+ *  @param parent Required. The parent resource name. Format:
+ *    `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesV2Create
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a security profile v2.
+ *
+ *  Method: apigee.organizations.securityProfilesV2.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesV2Delete : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the security profile v2 to delete. Format:
+ *  `organizations/{org}/securityProfilesV2/{profile}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Delete a security profile v2.
+ *
+ *  @param name Required. The name of the security profile v2 to delete. Format:
+ *    `organizations/{org}/securityProfilesV2/{profile}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesV2Delete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a security profile v2.
+ *
+ *  Method: apigee.organizations.securityProfilesV2.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesV2Get : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the security profile v2 to get. Format:
+ *  `organizations/{org}/securityProfilesV2/{profile}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2.
+ *
+ *  Get a security profile v2.
+ *
+ *  @param name Required. The name of the security profile v2 to get. Format:
+ *    `organizations/{org}/securityProfilesV2/{profile}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesV2Get
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List security profiles v2.
+ *
+ *  Method: apigee.organizations.securityProfilesV2.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesV2List : GTLRApigeeQuery
+
+/** Optional. The maximum number of profiles to return */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListSecurityProfilesV2`
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. For a specific organization, list of all the security profiles.
+ *  Format: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesV2Response.
+ *
+ *  List security profiles v2.
+ *
+ *  @param parent Required. For a specific organization, list of all the
+ *    security profiles. Format: `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesV2List
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a security profile V2.
+ *
+ *  Method: apigee.organizations.securityProfilesV2.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesV2Patch : GTLRApigeeQuery
+
+/**
+ *  Identifier. Name of the security profile v2 resource. Format:
+ *  organizations/{org}/securityProfilesV2/{profile}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. Valid fields to update are
+ *  `description` and `profileAssessmentConfigs`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2.
+ *
+ *  Update a security profile V2.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 to
+ *    include in the query.
+ *  @param name Identifier. Name of the security profile v2 resource. Format:
+ *    organizations/{org}/securityProfilesV2/{profile}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesV2Patch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Configures the add-ons for the Apigee organization. The existing add-on
  *  configuration will be fully replaced.
  *
@@ -13091,6 +13301,53 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsUpdate
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Organization *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the permissions required to allow Apigee runtime-plane components
+ *  access to the control plane. Currently, the permissions required are to: 1.
+ *  Allow runtime components to publish analytics data to the control plane.
+ *  **Note**: Available to Apigee hybrid only.
+ *
+ *  Method: apigee.organizations.updateControlPlaneAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsUpdateControlPlaneAccess : GTLRApigeeQuery
+
+/**
+ *  Identifier. The resource name of the ControlPlaneAccess. Format:
+ *  "organizations/{org}/controlPlaneAccess"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated. Fields that can be updated:
+ *  synchronizer_identities, publisher_identities.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Updates the permissions required to allow Apigee runtime-plane components
+ *  access to the control plane. Currently, the permissions required are to: 1.
+ *  Allow runtime components to publish analytics data to the control plane.
+ *  **Note**: Available to Apigee hybrid only.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the ControlPlaneAccess. Format:
+ *    "organizations/{org}/controlPlaneAccess"
+ *
+ *  @return GTLRApigeeQuery_OrganizationsUpdateControlPlaneAccess
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess *)object
                            name:(NSString *)name;
 
 @end

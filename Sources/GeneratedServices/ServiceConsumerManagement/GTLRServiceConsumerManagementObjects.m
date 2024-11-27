@@ -699,7 +699,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_ExperimentalFeatures
-@dynamic restAsyncIoEnabled;
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled;
 @end
 
 
@@ -744,7 +744,21 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_GoSettings
-@dynamic common;
+@dynamic common, renamedServices;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_GoSettings_RenamedServices
+//
+
+@implementation GTLRServiceConsumerManagement_GoSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

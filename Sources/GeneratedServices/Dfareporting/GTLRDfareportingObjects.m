@@ -1159,6 +1159,7 @@ NSString * const kGTLRDfareporting_Report_Format_Excel = @"EXCEL";
 
 // GTLRDfareporting_Report.type
 NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach = @"CROSS_DIMENSION_REACH";
+NSString * const kGTLRDfareporting_Report_Type_CrossMediaReach = @"CROSS_MEDIA_REACH";
 NSString * const kGTLRDfareporting_Report_Type_Floodlight      = @"FLOODLIGHT";
 NSString * const kGTLRDfareporting_Report_Type_PathToConversion = @"PATH_TO_CONVERSION";
 NSString * const kGTLRDfareporting_Report_Type_Reach           = @"REACH";
@@ -1271,6 +1272,20 @@ NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Video
 NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStart = @"VIDEO_START";
 NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStop = @"VIDEO_STOP";
 NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoThirdQuartile = @"VIDEO_THIRD_QUARTILE";
+
+// GTLRDfareporting_TvCampaignSummary.type
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Brand = @"BRAND";
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Campaign = @"CAMPAIGN";
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_CampaignComponentTypeUnspecified = @"CAMPAIGN_COMPONENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Company = @"COMPANY";
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Product = @"PRODUCT";
+
+// GTLRDfareporting_TvCampaignTimepoint.dateWindow
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksEight = @"WEEKS_EIGHT";
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksFour = @"WEEKS_FOUR";
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksOne = @"WEEKS_ONE";
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksTwelve = @"WEEKS_TWELVE";
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksUnspecified = @"WEEKS_UNSPECIFIED";
 
 // GTLRDfareporting_UniversalAdId.registry
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOfficial = @"AD_ID_OFFICIAL";
@@ -2455,6 +2470,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_CompatibleFields
 @dynamic crossDimensionReachReportCompatibleFields,
+         crossMediaReachReportCompatibleFields,
          floodlightReportCompatibleFields, kind,
          pathToConversionReportCompatibleFields, reachReportCompatibleFields,
          reportCompatibleFields;
@@ -3229,6 +3245,32 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
     @"dimensionFilters" : [GTLRDfareporting_Dimension class],
     @"metrics" : [GTLRDfareporting_Metric class],
     @"overlapMetrics" : [GTLRDfareporting_Metric class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CrossMediaReachReportCompatibleFields
+//
+
+@implementation GTLRDfareporting_CrossMediaReachReportCompatibleFields
+@dynamic dimensionFilters, dimensions, kind, metrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionFilters" : [GTLRDfareporting_Dimension class],
+    @"dimensions" : [GTLRDfareporting_Dimension class],
+    @"metrics" : [GTLRDfareporting_Metric class]
   };
   return map;
 }
@@ -5428,10 +5470,10 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_Report
-@dynamic accountId, criteria, crossDimensionReachCriteria, delivery, ETag,
-         fileName, floodlightCriteria, format, identifier, kind,
-         lastModifiedTime, name, ownerProfileId, pathToConversionCriteria,
-         reachCriteria, schedule, subAccountId, type;
+@dynamic accountId, criteria, crossDimensionReachCriteria,
+         crossMediaReachCriteria, delivery, ETag, fileName, floodlightCriteria,
+         format, identifier, kind, lastModifiedTime, name, ownerProfileId,
+         pathToConversionCriteria, reachCriteria, schedule, subAccountId, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -5486,6 +5528,26 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
     @"dimensionFilters" : [GTLRDfareporting_DimensionValue class],
     @"metricNames" : [NSString class],
     @"overlapMetricNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_Report_CrossMediaReachCriteria
+//
+
+@implementation GTLRDfareporting_Report_CrossMediaReachCriteria
+@dynamic dateRange, dimensionFilters, dimensions, metricNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionFilters" : [GTLRDfareporting_DimensionValue class],
+    @"dimensions" : [GTLRDfareporting_SortedDimension class],
+    @"metricNames" : [NSString class]
   };
   return map;
 }
@@ -6227,6 +6289,90 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_TvCampaignDetail
+//
+
+@implementation GTLRDfareporting_TvCampaignDetail
+@dynamic identifier, kind, timepoints;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timepoints" : [GTLRDfareporting_TvCampaignTimepoint class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_TvCampaignSummariesListResponse
+//
+
+@implementation GTLRDfareporting_TvCampaignSummariesListResponse
+@dynamic kind, tvCampaignSummaries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tvCampaignSummaries" : [GTLRDfareporting_TvCampaignSummary class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_TvCampaignSummary
+//
+
+@implementation GTLRDfareporting_TvCampaignSummary
+@dynamic endDate, grp, identifier, impressions, kind, name, spend, startDate,
+         type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_TvCampaignTimepoint
+//
+
+@implementation GTLRDfareporting_TvCampaignTimepoint
+@dynamic dateWindow, spend, startDate;
 @end
 
 

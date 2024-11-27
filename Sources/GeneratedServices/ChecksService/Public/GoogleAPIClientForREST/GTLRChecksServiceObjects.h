@@ -16,6 +16,11 @@
 #endif
 
 @class GTLRChecksService_GoogleChecksAccountV1alphaApp;
+@class GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestContext;
+@class GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestInputContent;
+@class GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig;
+@class GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult;
+@class GTLRChecksService_GoogleChecksAisafetyV1alphaTextInput;
 @class GTLRChecksService_GoogleChecksReportV1alphaAppBundle;
 @class GTLRChecksService_GoogleChecksReportV1alphaCheck;
 @class GTLRChecksService_GoogleChecksReportV1alphaCheckCitation;
@@ -52,6 +57,15 @@
 @class GTLRChecksService_GoogleChecksReportV1alphaPolicyFragment;
 @class GTLRChecksService_GoogleChecksReportV1alphaReport;
 @class GTLRChecksService_GoogleChecksReportV1alphaSdk;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaCliAnalysis;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaCodeAttribution;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaCodeScan;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaPullRequest;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaRepoScan;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaScmMetadata;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaSource;
+@class GTLRChecksService_GoogleChecksRepoScanV1alphaSourceCode;
 @class GTLRChecksService_Operation;
 @class GTLRChecksService_Operation_Metadata;
 @class GTLRChecksService_Operation_Response;
@@ -67,6 +81,172 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest.classifierVersion
+
+/**
+ *  Unspecified version.
+ *
+ *  Value: "CLASSIFIER_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest_ClassifierVersion_ClassifierVersionUnspecified;
+/**
+ *  Latest version.
+ *
+ *  Value: "LATEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest_ClassifierVersion_Latest;
+/**
+ *  Stable version.
+ *
+ *  Value: "STABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest_ClassifierVersion_Stable;
+
+// ----------------------------------------------------------------------------
+// GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig.policyType
+
+/**
+ *  The model facilitates, promotes or enables access to harmful goods,
+ *  services, and activities.
+ *
+ *  Value: "DANGEROUS_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_DangerousContent;
+/**
+ *  The model generates content that is malicious, intimidating, bullying, or
+ *  abusive towards another individual.
+ *
+ *  Value: "HARASSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_Harassment;
+/**
+ *  The model promotes violence, hatred, discrimination on the basis of race,
+ *  religion, etc.
+ *
+ *  Value: "HATE_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_HateSpeech;
+/**
+ *  The model facilitates harm by providing health advice or guidance.
+ *
+ *  Value: "MEDICAL_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_MedicalInfo;
+/** Value: "OBSCENITY_AND_PROFANITY" */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_ObscenityAndProfanity;
+/**
+ *  The model reveals an individual’s personal information and data.
+ *
+ *  Value: "PII_SOLICITING_RECITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_PiiSolicitingReciting;
+/**
+ *  Default.
+ *
+ *  Value: "POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_PolicyTypeUnspecified;
+/**
+ *  The model generates content that is sexually explicit in nature.
+ *
+ *  Value: "SEXUALLY_EXPLICIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_SexuallyExplicit;
+/**
+ *  The model generates content that contains gratuitous, realistic descriptions
+ *  of violence or gore.
+ *
+ *  Value: "VIOLENCE_AND_GORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_ViolenceAndGore;
+
+// ----------------------------------------------------------------------------
+// GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult.policyType
+
+/**
+ *  The model facilitates, promotes or enables access to harmful goods,
+ *  services, and activities.
+ *
+ *  Value: "DANGEROUS_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_DangerousContent;
+/**
+ *  The model generates content that is malicious, intimidating, bullying, or
+ *  abusive towards another individual.
+ *
+ *  Value: "HARASSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_Harassment;
+/**
+ *  The model promotes violence, hatred, discrimination on the basis of race,
+ *  religion, etc.
+ *
+ *  Value: "HATE_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_HateSpeech;
+/**
+ *  The model facilitates harm by providing health advice or guidance.
+ *
+ *  Value: "MEDICAL_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_MedicalInfo;
+/** Value: "OBSCENITY_AND_PROFANITY" */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_ObscenityAndProfanity;
+/**
+ *  The model reveals an individual’s personal information and data.
+ *
+ *  Value: "PII_SOLICITING_RECITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_PiiSolicitingReciting;
+/**
+ *  Default.
+ *
+ *  Value: "POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_PolicyTypeUnspecified;
+/**
+ *  The model generates content that is sexually explicit in nature.
+ *
+ *  Value: "SEXUALLY_EXPLICIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_SexuallyExplicit;
+/**
+ *  The model generates content that contains gratuitous, realistic descriptions
+ *  of violence or gore.
+ *
+ *  Value: "VIOLENCE_AND_GORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_ViolenceAndGore;
+
+// ----------------------------------------------------------------------------
+// GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult.violationResult
+
+/**
+ *  There was an error and the violation result could not be determined.
+ *
+ *  Value: "CLASSIFICATION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_ViolationResult_ClassificationError;
+/**
+ *  The final score is smaller than the input score threshold.
+ *
+ *  Value: "NON_VIOLATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_ViolationResult_NonViolative;
+/**
+ *  Unspecified result.
+ *
+ *  Value: "VIOLATION_RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_ViolationResult_ViolationResultUnspecified;
+/**
+ *  The final score is greater or equal the input score threshold.
+ *
+ *  Value: "VIOLATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_ViolationResult_Violative;
 
 // ----------------------------------------------------------------------------
 // GTLRChecksService_GoogleChecksReportV1alphaAnalyzeUploadRequest.appBinaryFileType
@@ -203,6 +383,27 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaC
  *  Value: "DATA_MONITORING_ENDPOINTS_DENYLIST_VIOLATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringEndpointsDenylistViolation;
+/**
+ *  Checks if there are camera use permissions that are considered sensitive and
+ *  should be minimized for Android.
+ *
+ *  Value: "DATA_MONITORING_MINIMIZE_PERMISSION_CAMERA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringMinimizePermissionCamera;
+/**
+ *  Checks if there are documents and file permissions that are considered
+ *  sensitive and should be minimized for Android.
+ *
+ *  Value: "DATA_MONITORING_MINIMIZE_PERMISSION_DOCUMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringMinimizePermissionDocuments;
+/**
+ *  Checks if there are media (photo and video) permissions that are considered
+ *  sensitive and should be minimized for Android.
+ *
+ *  Value: "DATA_MONITORING_MINIMIZE_PERMISSION_MEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringMinimizePermissionMedia;
 /**
  *  Checks if there is a new data type we've recently detected. Because this
  *  check accounts for flakiness, it may fail for several weeks even if the data
@@ -1092,6 +1293,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaC
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherFinancialInfo;
 /**
+ *  Any other types of messages. For example, instant messages or chat content.
+ *
+ *  Value: "DATA_TYPE_OTHER_IN_APP_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherInAppMessages;
+/**
  *  Any other personal information such as date of birth, gender identity,
  *  veteran status, etc.
  *
@@ -1374,6 +1581,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherFinancialInfo;
 /**
+ *  Any other types of messages. For example, instant messages or chat content.
+ *
+ *  Value: "DATA_TYPE_OTHER_IN_APP_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherInAppMessages;
+/**
  *  Any other personal information such as date of birth, gender identity,
  *  veteran status, etc.
  *
@@ -1630,6 +1843,524 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  */
 FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaDataTypeEndpointEvidence_ExfiltratedDataType_ExfiltratedDataTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification.dataType
+
+/**
+ *  Information about how a user interacts with your app, such as the number of
+ *  page views or taps.
+ *
+ *  Value: "DATA_TYPE_APP_INTERACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeAppInteractions;
+/**
+ *  User or device physical location to an area greater than or equal to 3
+ *  square kilometers, such as the city a user is in, or location provided by
+ *  Android's ACCESS_COARSE_LOCATION permission.
+ *
+ *  Value: "DATA_TYPE_APPROXIMATE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeApproximateLocation;
+/**
+ *  Information from a user's calendar such as events, event notes, and
+ *  attendees.
+ *
+ *  Value: "DATA_TYPE_CALENDAR_EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeCalendarEvents;
+/**
+ *  Information about the user’s contacts such as contact names, message
+ *  history, and social graph information like usernames, contact recency,
+ *  contact frequency, interaction duration and call history.
+ *
+ *  Value: "DATA_TYPE_CONTACTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeContacts;
+/**
+ *  Crash log data from your app. For example, the number of times your app has
+ *  crashed, stack traces, or other information directly related to a crash.
+ *
+ *  Value: "DATA_TYPE_CRASH_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeCrashLogs;
+/**
+ *  Information about a user's credit score.
+ *
+ *  Value: "DATA_TYPE_CREDIT_SCORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeCreditScore;
+/**
+ *  Identifiers that relate to an individual device, browser or app. For
+ *  example, an IMEI number, MAC address, Widevine Device ID, Firebase
+ *  installation ID, or advertising identifier.
+ *
+ *  Value: "DATA_TYPE_DEVICE_OR_OTHER_IDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeDeviceOrOtherIds;
+/**
+ *  A user's email address.
+ *
+ *  Value: "DATA_TYPE_EMAIL_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeEmailAddress;
+/**
+ *  A user's emails including the email subject line, sender, recipients, and
+ *  the content of the email.
+ *
+ *  Value: "DATA_TYPE_EMAILS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeEmails;
+/**
+ *  A user's files or documents, or information about their files or documents
+ *  such as file names.
+ *
+ *  Value: "DATA_TYPE_FILES_AND_DOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeFilesAndDocs;
+/**
+ *  Information about a user's fitness, such as exercise or other physical
+ *  activity.
+ *
+ *  Value: "DATA_TYPE_FITNESS_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeFitnessInfo;
+/**
+ *  Information about a user's health, such as medical records or symptoms.
+ *
+ *  Value: "DATA_TYPE_HEALTH_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeHealthInfo;
+/**
+ *  Information about what a user has searched for in your app.
+ *
+ *  Value: "DATA_TYPE_IN_APP_SEARCH_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeInAppSearchHistory;
+/**
+ *  Inventory of apps or packages installed on the user’s device.
+ *
+ *  Value: "DATA_TYPE_INSTALLED_APPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeInstalledApps;
+/**
+ *  A user's music files.
+ *
+ *  Value: "DATA_TYPE_MUSIC_FILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeMusicFiles;
+/**
+ *  Any other user activity or actions in-app not listed here such as gameplay,
+ *  likes, and dialog options.
+ *
+ *  Value: "DATA_TYPE_OTHER_ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherActions;
+/**
+ *  Any other app performance data not listed here.
+ *
+ *  Value: "DATA_TYPE_OTHER_APP_PERFORMANCE_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherAppPerformanceData;
+/**
+ *  Any other user-created or user-provided audio files.
+ *
+ *  Value: "DATA_TYPE_OTHER_AUDIO_FILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherAudioFiles;
+/**
+ *  Any other financial information such as user salary or debts.
+ *
+ *  Value: "DATA_TYPE_OTHER_FINANCIAL_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherFinancialInfo;
+/**
+ *  Any other types of messages. For example, instant messages or chat content.
+ *
+ *  Value: "DATA_TYPE_OTHER_IN_APP_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherInAppMessages;
+/**
+ *  Any other personal information such as date of birth, gender identity,
+ *  veteran status, etc.
+ *
+ *  Value: "DATA_TYPE_OTHER_PERSONAL_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherPersonalInfo;
+/**
+ *  Any other user-generated content not listed here, or in any other section.
+ *  For example, user bios, notes, or open-ended responses.
+ *
+ *  Value: "DATA_TYPE_OTHER_USER_GENERATED_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherUserGeneratedContent;
+/**
+ *  Information about a user's financial accounts such as credit card number.
+ *
+ *  Value: "DATA_TYPE_PAYMENT_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePaymentInfo;
+/**
+ *  Information about the performance of your app. For example battery life,
+ *  loading time, latency, framerate, or any technical diagnostics.
+ *
+ *  Value: "DATA_TYPE_PERFORMANCE_DIAGNOSTICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePerformanceDiagnostics;
+/**
+ *  How a user refers to themselves, such as their first or last name, or
+ *  nickname.
+ *
+ *  Value: "DATA_TYPE_PERSONAL_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePersonalName;
+/**
+ *  A user's phone number.
+ *
+ *  Value: "DATA_TYPE_PHONE_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePhoneNumber;
+/**
+ *  A user's photos.
+ *
+ *  Value: "DATA_TYPE_PHOTOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePhotos;
+/**
+ *  A user's address, such as a mailing or home address.
+ *
+ *  Value: "DATA_TYPE_PHYSICAL_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePhysicalAddress;
+/**
+ *  Information about a user's political or religious beliefs.
+ *
+ *  Value: "DATA_TYPE_POLITICAL_OR_RELIGIOUS_BELIEFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePoliticalOrReligiousBeliefs;
+/**
+ *  User or device physical location within an area less than 3 square
+ *  kilometers, such as location provided by Android's ACCESS_FINE_LOCATION
+ *  permission.
+ *
+ *  Value: "DATA_TYPE_PRECISE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePreciseLocation;
+/**
+ *  Information about purchases or transactions a user has made.
+ *
+ *  Value: "DATA_TYPE_PURCHASE_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePurchaseHistory;
+/**
+ *  Information about a user's race or ethnicity.
+ *
+ *  Value: "DATA_TYPE_RACE_AND_ETHNICITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeRaceAndEthnicity;
+/**
+ *  Information about a user's sexual orientation.
+ *
+ *  Value: "DATA_TYPE_SEXUAL_ORIENTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeSexualOrientation;
+/**
+ *  A user's text messages including the sender, recipients, and the content of
+ *  the message.
+ *
+ *  Value: "DATA_TYPE_TEXT_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeTextMessages;
+/**
+ *  Not specified.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeUnspecified;
+/**
+ *  Identifiers that relate to an identifiable person. For example, an account
+ *  ID, account number, or account name.
+ *
+ *  Value: "DATA_TYPE_USER_IDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeUserIds;
+/**
+ *  A user's videos.
+ *
+ *  Value: "DATA_TYPE_VIDEOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeVideos;
+/**
+ *  A user's voice such as a voicemail or a sound recording.
+ *
+ *  Value: "DATA_TYPE_VOICE_OR_SOUND_RECORDINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeVoiceOrSoundRecordings;
+/**
+ *  Information about the websites a user has visited.
+ *
+ *  Value: "DATA_TYPE_WEB_BROWSING_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeWebBrowsingHistory;
+
+// ----------------------------------------------------------------------------
+// GTLRChecksService_GoogleChecksRepoScanV1alphaSource.dataType
+
+/**
+ *  Information about how a user interacts with your app, such as the number of
+ *  page views or taps.
+ *
+ *  Value: "DATA_TYPE_APP_INTERACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeAppInteractions;
+/**
+ *  User or device physical location to an area greater than or equal to 3
+ *  square kilometers, such as the city a user is in, or location provided by
+ *  Android's ACCESS_COARSE_LOCATION permission.
+ *
+ *  Value: "DATA_TYPE_APPROXIMATE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeApproximateLocation;
+/**
+ *  Information from a user's calendar such as events, event notes, and
+ *  attendees.
+ *
+ *  Value: "DATA_TYPE_CALENDAR_EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeCalendarEvents;
+/**
+ *  Information about the user’s contacts such as contact names, message
+ *  history, and social graph information like usernames, contact recency,
+ *  contact frequency, interaction duration and call history.
+ *
+ *  Value: "DATA_TYPE_CONTACTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeContacts;
+/**
+ *  Crash log data from your app. For example, the number of times your app has
+ *  crashed, stack traces, or other information directly related to a crash.
+ *
+ *  Value: "DATA_TYPE_CRASH_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeCrashLogs;
+/**
+ *  Information about a user's credit score.
+ *
+ *  Value: "DATA_TYPE_CREDIT_SCORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeCreditScore;
+/**
+ *  Identifiers that relate to an individual device, browser or app. For
+ *  example, an IMEI number, MAC address, Widevine Device ID, Firebase
+ *  installation ID, or advertising identifier.
+ *
+ *  Value: "DATA_TYPE_DEVICE_OR_OTHER_IDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeDeviceOrOtherIds;
+/**
+ *  A user's email address.
+ *
+ *  Value: "DATA_TYPE_EMAIL_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeEmailAddress;
+/**
+ *  A user's emails including the email subject line, sender, recipients, and
+ *  the content of the email.
+ *
+ *  Value: "DATA_TYPE_EMAILS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeEmails;
+/**
+ *  A user's files or documents, or information about their files or documents
+ *  such as file names.
+ *
+ *  Value: "DATA_TYPE_FILES_AND_DOCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeFilesAndDocs;
+/**
+ *  Information about a user's fitness, such as exercise or other physical
+ *  activity.
+ *
+ *  Value: "DATA_TYPE_FITNESS_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeFitnessInfo;
+/**
+ *  Information about a user's health, such as medical records or symptoms.
+ *
+ *  Value: "DATA_TYPE_HEALTH_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeHealthInfo;
+/**
+ *  Information about what a user has searched for in your app.
+ *
+ *  Value: "DATA_TYPE_IN_APP_SEARCH_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeInAppSearchHistory;
+/**
+ *  Inventory of apps or packages installed on the user’s device.
+ *
+ *  Value: "DATA_TYPE_INSTALLED_APPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeInstalledApps;
+/**
+ *  A user's music files.
+ *
+ *  Value: "DATA_TYPE_MUSIC_FILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeMusicFiles;
+/**
+ *  Any other user activity or actions in-app not listed here such as gameplay,
+ *  likes, and dialog options.
+ *
+ *  Value: "DATA_TYPE_OTHER_ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherActions;
+/**
+ *  Any other app performance data not listed here.
+ *
+ *  Value: "DATA_TYPE_OTHER_APP_PERFORMANCE_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherAppPerformanceData;
+/**
+ *  Any other user-created or user-provided audio files.
+ *
+ *  Value: "DATA_TYPE_OTHER_AUDIO_FILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherAudioFiles;
+/**
+ *  Any other financial information such as user salary or debts.
+ *
+ *  Value: "DATA_TYPE_OTHER_FINANCIAL_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherFinancialInfo;
+/**
+ *  Any other types of messages. For example, instant messages or chat content.
+ *
+ *  Value: "DATA_TYPE_OTHER_IN_APP_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherInAppMessages;
+/**
+ *  Any other personal information such as date of birth, gender identity,
+ *  veteran status, etc.
+ *
+ *  Value: "DATA_TYPE_OTHER_PERSONAL_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherPersonalInfo;
+/**
+ *  Any other user-generated content not listed here, or in any other section.
+ *  For example, user bios, notes, or open-ended responses.
+ *
+ *  Value: "DATA_TYPE_OTHER_USER_GENERATED_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherUserGeneratedContent;
+/**
+ *  Information about a user's financial accounts such as credit card number.
+ *
+ *  Value: "DATA_TYPE_PAYMENT_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePaymentInfo;
+/**
+ *  Information about the performance of your app. For example battery life,
+ *  loading time, latency, framerate, or any technical diagnostics.
+ *
+ *  Value: "DATA_TYPE_PERFORMANCE_DIAGNOSTICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePerformanceDiagnostics;
+/**
+ *  How a user refers to themselves, such as their first or last name, or
+ *  nickname.
+ *
+ *  Value: "DATA_TYPE_PERSONAL_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePersonalName;
+/**
+ *  A user's phone number.
+ *
+ *  Value: "DATA_TYPE_PHONE_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePhoneNumber;
+/**
+ *  A user's photos.
+ *
+ *  Value: "DATA_TYPE_PHOTOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePhotos;
+/**
+ *  A user's address, such as a mailing or home address.
+ *
+ *  Value: "DATA_TYPE_PHYSICAL_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePhysicalAddress;
+/**
+ *  Information about a user's political or religious beliefs.
+ *
+ *  Value: "DATA_TYPE_POLITICAL_OR_RELIGIOUS_BELIEFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePoliticalOrReligiousBeliefs;
+/**
+ *  User or device physical location within an area less than 3 square
+ *  kilometers, such as location provided by Android's ACCESS_FINE_LOCATION
+ *  permission.
+ *
+ *  Value: "DATA_TYPE_PRECISE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePreciseLocation;
+/**
+ *  Information about purchases or transactions a user has made.
+ *
+ *  Value: "DATA_TYPE_PURCHASE_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePurchaseHistory;
+/**
+ *  Information about a user's race or ethnicity.
+ *
+ *  Value: "DATA_TYPE_RACE_AND_ETHNICITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeRaceAndEthnicity;
+/**
+ *  Information about a user's sexual orientation.
+ *
+ *  Value: "DATA_TYPE_SEXUAL_ORIENTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeSexualOrientation;
+/**
+ *  A user's text messages including the sender, recipients, and the content of
+ *  the message.
+ *
+ *  Value: "DATA_TYPE_TEXT_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeTextMessages;
+/**
+ *  Not specified.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeUnspecified;
+/**
+ *  Identifiers that relate to an identifiable person. For example, an account
+ *  ID, account number, or account name.
+ *
+ *  Value: "DATA_TYPE_USER_IDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeUserIds;
+/**
+ *  A user's videos.
+ *
+ *  Value: "DATA_TYPE_VIDEOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeVideos;
+/**
+ *  A user's voice such as a voicemail or a sound recording.
+ *
+ *  Value: "DATA_TYPE_VOICE_OR_SOUND_RECORDINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeVoiceOrSoundRecordings;
+/**
+ *  Information about the websites a user has visited.
+ *
+ *  Value: "DATA_TYPE_WEB_BROWSING_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeWebBrowsingHistory;
+
 /**
  *  The request message for Operations.CancelOperation.
  */
@@ -1684,6 +2415,204 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *  field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Request proto for ClassifyContent RPC.
+ */
+@interface GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest : GTLRObject
+
+/**
+ *  Optional. Version of the classifier to use. If not specified, the latest
+ *  version will be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest_ClassifierVersion_ClassifierVersionUnspecified
+ *        Unspecified version. (Value: "CLASSIFIER_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest_ClassifierVersion_Latest
+ *        Latest version. (Value: "LATEST")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest_ClassifierVersion_Stable
+ *        Stable version. (Value: "STABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *classifierVersion;
+
+/**
+ *  Optional. Context about the input that will be used to help on the
+ *  classification.
+ */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestContext *context;
+
+/** Required. Content to be classified. */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestInputContent *input;
+
+/** Required. List of policies to classify against. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig *> *policies;
+
+@end
+
+
+/**
+ *  Context about the input that will be used to help on the classification.
+ */
+@interface GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestContext : GTLRObject
+
+/** Optional. Prompt that generated the model response. */
+@property(nonatomic, copy, nullable) NSString *prompt;
+
+@end
+
+
+/**
+ *  Content to be classified.
+ */
+@interface GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestInputContent : GTLRObject
+
+/** Content in text format. */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksAisafetyV1alphaTextInput *textInput;
+
+@end
+
+
+/**
+ *  List of policies to classify against.
+ */
+@interface GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig : GTLRObject
+
+/**
+ *  Required. Type of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_DangerousContent
+ *        The model facilitates, promotes or enables access to harmful goods,
+ *        services, and activities. (Value: "DANGEROUS_CONTENT")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_Harassment
+ *        The model generates content that is malicious, intimidating, bullying,
+ *        or abusive towards another individual. (Value: "HARASSMENT")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_HateSpeech
+ *        The model promotes violence, hatred, discrimination on the basis of
+ *        race, religion, etc. (Value: "HATE_SPEECH")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_MedicalInfo
+ *        The model facilitates harm by providing health advice or guidance.
+ *        (Value: "MEDICAL_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_ObscenityAndProfanity
+ *        Value "OBSCENITY_AND_PROFANITY"
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_PiiSolicitingReciting
+ *        The model reveals an individual’s personal information and data.
+ *        (Value: "PII_SOLICITING_RECITING")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_PolicyTypeUnspecified
+ *        Default. (Value: "POLICY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_SexuallyExplicit
+ *        The model generates content that is sexually explicit in nature.
+ *        (Value: "SEXUALLY_EXPLICIT")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequestPolicyConfig_PolicyType_ViolenceAndGore
+ *        The model generates content that contains gratuitous, realistic
+ *        descriptions of violence or gore. (Value: "VIOLENCE_AND_GORE")
+ */
+@property(nonatomic, copy, nullable) NSString *policyType;
+
+/**
+ *  Optional. Score threshold to use when deciding if the content is violative
+ *  or non-violative. If not specified, the default 0.5 threshold for the policy
+ *  will be used.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threshold;
+
+@end
+
+
+/**
+ *  Response proto for ClassifyContent RPC.
+ */
+@interface GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponse : GTLRObject
+
+/** Results of the classification for each policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult *> *policyResults;
+
+@end
+
+
+/**
+ *  Result for one policy against the corresponding input.
+ */
+@interface GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult : GTLRObject
+
+/**
+ *  Type of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_DangerousContent
+ *        The model facilitates, promotes or enables access to harmful goods,
+ *        services, and activities. (Value: "DANGEROUS_CONTENT")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_Harassment
+ *        The model generates content that is malicious, intimidating, bullying,
+ *        or abusive towards another individual. (Value: "HARASSMENT")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_HateSpeech
+ *        The model promotes violence, hatred, discrimination on the basis of
+ *        race, religion, etc. (Value: "HATE_SPEECH")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_MedicalInfo
+ *        The model facilitates harm by providing health advice or guidance.
+ *        (Value: "MEDICAL_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_ObscenityAndProfanity
+ *        Value "OBSCENITY_AND_PROFANITY"
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_PiiSolicitingReciting
+ *        The model reveals an individual’s personal information and data.
+ *        (Value: "PII_SOLICITING_RECITING")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_PolicyTypeUnspecified
+ *        Default. (Value: "POLICY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_SexuallyExplicit
+ *        The model generates content that is sexually explicit in nature.
+ *        (Value: "SEXUALLY_EXPLICIT")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_PolicyType_ViolenceAndGore
+ *        The model generates content that contains gratuitous, realistic
+ *        descriptions of violence or gore. (Value: "VIOLENCE_AND_GORE")
+ */
+@property(nonatomic, copy, nullable) NSString *policyType;
+
+/**
+ *  Final score for the results of this policy.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  Result of the classification for the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_ViolationResult_ClassificationError
+ *        There was an error and the violation result could not be determined.
+ *        (Value: "CLASSIFICATION_ERROR")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_ViolationResult_NonViolative
+ *        The final score is smaller than the input score threshold. (Value:
+ *        "NON_VIOLATIVE")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_ViolationResult_ViolationResultUnspecified
+ *        Unspecified result. (Value: "VIOLATION_RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponsePolicyResult_ViolationResult_Violative
+ *        The final score is greater or equal the input score threshold. (Value:
+ *        "VIOLATIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *violationResult;
+
+@end
+
+
+/**
+ *  Text input to be classified.
+ */
+@interface GTLRChecksService_GoogleChecksAisafetyV1alphaTextInput : GTLRObject
+
+/** Actual piece of text to be classified. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Optional. Language of the text in ISO 639-1 format. If the language is
+ *  invalid or not specified, the system will try to detect it.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 @end
 
@@ -1825,6 +2754,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringEndpointsDenylistViolation
  *        Checks if any endpoints were detected that are specified in the
  *        denylist. (Value: "DATA_MONITORING_ENDPOINTS_DENYLIST_VIOLATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringMinimizePermissionCamera
+ *        Checks if there are camera use permissions that are considered
+ *        sensitive and should be minimized for Android. (Value:
+ *        "DATA_MONITORING_MINIMIZE_PERMISSION_CAMERA")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringMinimizePermissionDocuments
+ *        Checks if there are documents and file permissions that are considered
+ *        sensitive and should be minimized for Android. (Value:
+ *        "DATA_MONITORING_MINIMIZE_PERMISSION_DOCUMENTS")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringMinimizePermissionMedia
+ *        Checks if there are media (photo and video) permissions that are
+ *        considered sensitive and should be minimized for Android. (Value:
+ *        "DATA_MONITORING_MINIMIZE_PERMISSION_MEDIA")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheck_Type_DataMonitoringNewDataType
  *        Checks if there is a new data type we've recently detected. Because
  *        this check accounts for flakiness, it may fail for several weeks even
@@ -2328,6 +3269,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherFinancialInfo
  *        Any other financial information such as user salary or debts. (Value:
  *        "DATA_TYPE_OTHER_FINANCIAL_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherInAppMessages
+ *        Any other types of messages. For example, instant messages or chat
+ *        content. (Value: "DATA_TYPE_OTHER_IN_APP_MESSAGES")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaCheckDataTypeEvidence_DataType_DataTypeOtherPersonalInfo
  *        Any other personal information such as date of birth, gender identity,
  *        veteran status, etc. (Value: "DATA_TYPE_OTHER_PERSONAL_INFO")
@@ -2665,6 +3609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherFinancialInfo
  *        Any other financial information such as user salary or debts. (Value:
  *        "DATA_TYPE_OTHER_FINANCIAL_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherInAppMessages
+ *        Any other types of messages. For example, instant messages or chat
+ *        content. (Value: "DATA_TYPE_OTHER_IN_APP_MESSAGES")
  *    @arg @c kGTLRChecksService_GoogleChecksReportV1alphaDataMonitoringDataTypeResult_DataType_DataTypeOtherPersonalInfo
  *        Any other personal information such as date of birth, gender identity,
  *        veteran status, etc. (Value: "DATA_TYPE_OTHER_PERSONAL_INFO")
@@ -3045,6 +3992,503 @@ FOUNDATION_EXTERN NSString * const kGTLRChecksService_GoogleChecksReportV1alphaD
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  The results of a Code Compliance CLI analysis.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaCliAnalysis : GTLRObject
+
+/** Optional. Requested code scans resulting from preliminary CLI analysis. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChecksService_GoogleChecksRepoScanV1alphaCodeScan *> *codeScans;
+
+/** Optional. Data sources detected in the scan. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChecksService_GoogleChecksRepoScanV1alphaSource *> *sources;
+
+@end
+
+
+/**
+ *  Source code attribution.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaCodeAttribution : GTLRObject
+
+/**
+ *  Optional. Code excerpt where the source was detected along with surrounding
+ *  code.
+ */
+@property(nonatomic, copy, nullable) NSString *codeExcerpt;
+
+/**
+ *  Required. Line number (1-based).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineNumber;
+
+/** Required. Path of the file. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Optional. Start line number of the code excerpt (1-based).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startLineNumber;
+
+@end
+
+
+/**
+ *  A requested analysis of source code. Contains the source code and processing
+ *  state.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaCodeScan : GTLRObject
+
+/** Optional. Data type classification requests. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification *> *dataTypeClassifications;
+
+/** Required. Source code to analyze. */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksRepoScanV1alphaSourceCode *sourceCode;
+
+@end
+
+
+/**
+ *  A request to classify data types.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification : GTLRObject
+
+/**
+ *  Required. Candidate data type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeAppInteractions
+ *        Information about how a user interacts with your app, such as the
+ *        number of page views or taps. (Value: "DATA_TYPE_APP_INTERACTIONS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeApproximateLocation
+ *        User or device physical location to an area greater than or equal to 3
+ *        square kilometers, such as the city a user is in, or location provided
+ *        by Android's ACCESS_COARSE_LOCATION permission. (Value:
+ *        "DATA_TYPE_APPROXIMATE_LOCATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeCalendarEvents
+ *        Information from a user's calendar such as events, event notes, and
+ *        attendees. (Value: "DATA_TYPE_CALENDAR_EVENTS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeContacts
+ *        Information about the user’s contacts such as contact names, message
+ *        history, and social graph information like usernames, contact recency,
+ *        contact frequency, interaction duration and call history. (Value:
+ *        "DATA_TYPE_CONTACTS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeCrashLogs
+ *        Crash log data from your app. For example, the number of times your
+ *        app has crashed, stack traces, or other information directly related
+ *        to a crash. (Value: "DATA_TYPE_CRASH_LOGS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeCreditScore
+ *        Information about a user's credit score. (Value:
+ *        "DATA_TYPE_CREDIT_SCORE")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeDeviceOrOtherIds
+ *        Identifiers that relate to an individual device, browser or app. For
+ *        example, an IMEI number, MAC address, Widevine Device ID, Firebase
+ *        installation ID, or advertising identifier. (Value:
+ *        "DATA_TYPE_DEVICE_OR_OTHER_IDS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeEmailAddress
+ *        A user's email address. (Value: "DATA_TYPE_EMAIL_ADDRESS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeEmails
+ *        A user's emails including the email subject line, sender, recipients,
+ *        and the content of the email. (Value: "DATA_TYPE_EMAILS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeFilesAndDocs
+ *        A user's files or documents, or information about their files or
+ *        documents such as file names. (Value: "DATA_TYPE_FILES_AND_DOCS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeFitnessInfo
+ *        Information about a user's fitness, such as exercise or other physical
+ *        activity. (Value: "DATA_TYPE_FITNESS_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeHealthInfo
+ *        Information about a user's health, such as medical records or
+ *        symptoms. (Value: "DATA_TYPE_HEALTH_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeInAppSearchHistory
+ *        Information about what a user has searched for in your app. (Value:
+ *        "DATA_TYPE_IN_APP_SEARCH_HISTORY")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeInstalledApps
+ *        Inventory of apps or packages installed on the user’s device. (Value:
+ *        "DATA_TYPE_INSTALLED_APPS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeMusicFiles
+ *        A user's music files. (Value: "DATA_TYPE_MUSIC_FILES")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherActions
+ *        Any other user activity or actions in-app not listed here such as
+ *        gameplay, likes, and dialog options. (Value:
+ *        "DATA_TYPE_OTHER_ACTIONS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherAppPerformanceData
+ *        Any other app performance data not listed here. (Value:
+ *        "DATA_TYPE_OTHER_APP_PERFORMANCE_DATA")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherAudioFiles
+ *        Any other user-created or user-provided audio files. (Value:
+ *        "DATA_TYPE_OTHER_AUDIO_FILES")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherFinancialInfo
+ *        Any other financial information such as user salary or debts. (Value:
+ *        "DATA_TYPE_OTHER_FINANCIAL_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherInAppMessages
+ *        Any other types of messages. For example, instant messages or chat
+ *        content. (Value: "DATA_TYPE_OTHER_IN_APP_MESSAGES")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherPersonalInfo
+ *        Any other personal information such as date of birth, gender identity,
+ *        veteran status, etc. (Value: "DATA_TYPE_OTHER_PERSONAL_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeOtherUserGeneratedContent
+ *        Any other user-generated content not listed here, or in any other
+ *        section. For example, user bios, notes, or open-ended responses.
+ *        (Value: "DATA_TYPE_OTHER_USER_GENERATED_CONTENT")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePaymentInfo
+ *        Information about a user's financial accounts such as credit card
+ *        number. (Value: "DATA_TYPE_PAYMENT_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePerformanceDiagnostics
+ *        Information about the performance of your app. For example battery
+ *        life, loading time, latency, framerate, or any technical diagnostics.
+ *        (Value: "DATA_TYPE_PERFORMANCE_DIAGNOSTICS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePersonalName
+ *        How a user refers to themselves, such as their first or last name, or
+ *        nickname. (Value: "DATA_TYPE_PERSONAL_NAME")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePhoneNumber
+ *        A user's phone number. (Value: "DATA_TYPE_PHONE_NUMBER")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePhotos
+ *        A user's photos. (Value: "DATA_TYPE_PHOTOS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePhysicalAddress
+ *        A user's address, such as a mailing or home address. (Value:
+ *        "DATA_TYPE_PHYSICAL_ADDRESS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePoliticalOrReligiousBeliefs
+ *        Information about a user's political or religious beliefs. (Value:
+ *        "DATA_TYPE_POLITICAL_OR_RELIGIOUS_BELIEFS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePreciseLocation
+ *        User or device physical location within an area less than 3 square
+ *        kilometers, such as location provided by Android's
+ *        ACCESS_FINE_LOCATION permission. (Value: "DATA_TYPE_PRECISE_LOCATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypePurchaseHistory
+ *        Information about purchases or transactions a user has made. (Value:
+ *        "DATA_TYPE_PURCHASE_HISTORY")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeRaceAndEthnicity
+ *        Information about a user's race or ethnicity. (Value:
+ *        "DATA_TYPE_RACE_AND_ETHNICITY")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeSexualOrientation
+ *        Information about a user's sexual orientation. (Value:
+ *        "DATA_TYPE_SEXUAL_ORIENTATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeTextMessages
+ *        A user's text messages including the sender, recipients, and the
+ *        content of the message. (Value: "DATA_TYPE_TEXT_MESSAGES")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeUnspecified
+ *        Not specified. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeUserIds
+ *        Identifiers that relate to an identifiable person. For example, an
+ *        account ID, account number, or account name. (Value:
+ *        "DATA_TYPE_USER_IDS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeVideos
+ *        A user's videos. (Value: "DATA_TYPE_VIDEOS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeVoiceOrSoundRecordings
+ *        A user's voice such as a voicemail or a sound recording. (Value:
+ *        "DATA_TYPE_VOICE_OR_SOUND_RECORDINGS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaCodeScanDataTypeClassification_DataType_DataTypeWebBrowsingHistory
+ *        Information about the websites a user has visited. (Value:
+ *        "DATA_TYPE_WEB_BROWSING_HISTORY")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/**
+ *  Required. Line number (1-based).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineNumber;
+
+@end
+
+
+/**
+ *  The request message for RepoScanService.GenerateScan.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaGenerateScanRequest : GTLRObject
+
+/** Required. CLI analysis results. */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksRepoScanV1alphaCliAnalysis *cliAnalysis;
+
+/** Required. CLI version. */
+@property(nonatomic, copy, nullable) NSString *cliVersion;
+
+/** Required. Local scan path. */
+@property(nonatomic, copy, nullable) NSString *localScanPath;
+
+/** Required. SCM metadata. */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksRepoScanV1alphaScmMetadata *scmMetadata;
+
+@end
+
+
+/**
+ *  The response message for RepoScanService.ListRepoScans.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "repoScans" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaListRepoScansResponse : GTLRCollectionObject
+
+/**
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The repo scans for the specified app.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChecksService_GoogleChecksRepoScanV1alphaRepoScan *> *repoScans;
+
+@end
+
+
+/**
+ *  Pull request info.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaPullRequest : GTLRObject
+
+/**
+ *  Required. For PR analysis, we compare against the most recent scan of the
+ *  base branch to highlight new issues.
+ */
+@property(nonatomic, copy, nullable) NSString *baseBranch;
+
+/**
+ *  Required. This can be supplied by the user or parsed automatically from
+ *  predefined CI environment variables.
+ */
+@property(nonatomic, copy, nullable) NSString *prNumber;
+
+@end
+
+
+/**
+ *  Repo scan.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaRepoScan : GTLRObject
+
+/** CLI version. */
+@property(nonatomic, copy, nullable) NSString *cliVersion;
+
+/** Local scan path. */
+@property(nonatomic, copy, nullable) NSString *localScanPath;
+
+/** Identifier. Resource name of the scan. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** A URL to view results. */
+@property(nonatomic, copy, nullable) NSString *resultsUri;
+
+/** SCM metadata. */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksRepoScanV1alphaScmMetadata *scmMetadata;
+
+/** Data sources detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChecksService_GoogleChecksRepoScanV1alphaSource *> *sources;
+
+@end
+
+
+/**
+ *  SCM metadata.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaScmMetadata : GTLRObject
+
+/** Required. Branch name. */
+@property(nonatomic, copy, nullable) NSString *branch;
+
+/**
+ *  Optional. Contains info about the associated pull request. This is only
+ *  populated for pull request scans.
+ */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksRepoScanV1alphaPullRequest *pullRequest;
+
+/** Required. Git remote URL. */
+@property(nonatomic, copy, nullable) NSString *remoteUri;
+
+/** Required. Revision ID, e.g. Git commit hash. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+@end
+
+
+/**
+ *  Represents a data source finding.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaSource : GTLRObject
+
+/** Optional. Source code attribution for the finding. */
+@property(nonatomic, strong, nullable) GTLRChecksService_GoogleChecksRepoScanV1alphaCodeAttribution *codeAttribution;
+
+/**
+ *  Required. Data type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeAppInteractions
+ *        Information about how a user interacts with your app, such as the
+ *        number of page views or taps. (Value: "DATA_TYPE_APP_INTERACTIONS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeApproximateLocation
+ *        User or device physical location to an area greater than or equal to 3
+ *        square kilometers, such as the city a user is in, or location provided
+ *        by Android's ACCESS_COARSE_LOCATION permission. (Value:
+ *        "DATA_TYPE_APPROXIMATE_LOCATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeCalendarEvents
+ *        Information from a user's calendar such as events, event notes, and
+ *        attendees. (Value: "DATA_TYPE_CALENDAR_EVENTS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeContacts
+ *        Information about the user’s contacts such as contact names, message
+ *        history, and social graph information like usernames, contact recency,
+ *        contact frequency, interaction duration and call history. (Value:
+ *        "DATA_TYPE_CONTACTS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeCrashLogs
+ *        Crash log data from your app. For example, the number of times your
+ *        app has crashed, stack traces, or other information directly related
+ *        to a crash. (Value: "DATA_TYPE_CRASH_LOGS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeCreditScore
+ *        Information about a user's credit score. (Value:
+ *        "DATA_TYPE_CREDIT_SCORE")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeDeviceOrOtherIds
+ *        Identifiers that relate to an individual device, browser or app. For
+ *        example, an IMEI number, MAC address, Widevine Device ID, Firebase
+ *        installation ID, or advertising identifier. (Value:
+ *        "DATA_TYPE_DEVICE_OR_OTHER_IDS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeEmailAddress
+ *        A user's email address. (Value: "DATA_TYPE_EMAIL_ADDRESS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeEmails
+ *        A user's emails including the email subject line, sender, recipients,
+ *        and the content of the email. (Value: "DATA_TYPE_EMAILS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeFilesAndDocs
+ *        A user's files or documents, or information about their files or
+ *        documents such as file names. (Value: "DATA_TYPE_FILES_AND_DOCS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeFitnessInfo
+ *        Information about a user's fitness, such as exercise or other physical
+ *        activity. (Value: "DATA_TYPE_FITNESS_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeHealthInfo
+ *        Information about a user's health, such as medical records or
+ *        symptoms. (Value: "DATA_TYPE_HEALTH_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeInAppSearchHistory
+ *        Information about what a user has searched for in your app. (Value:
+ *        "DATA_TYPE_IN_APP_SEARCH_HISTORY")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeInstalledApps
+ *        Inventory of apps or packages installed on the user’s device. (Value:
+ *        "DATA_TYPE_INSTALLED_APPS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeMusicFiles
+ *        A user's music files. (Value: "DATA_TYPE_MUSIC_FILES")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherActions
+ *        Any other user activity or actions in-app not listed here such as
+ *        gameplay, likes, and dialog options. (Value:
+ *        "DATA_TYPE_OTHER_ACTIONS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherAppPerformanceData
+ *        Any other app performance data not listed here. (Value:
+ *        "DATA_TYPE_OTHER_APP_PERFORMANCE_DATA")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherAudioFiles
+ *        Any other user-created or user-provided audio files. (Value:
+ *        "DATA_TYPE_OTHER_AUDIO_FILES")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherFinancialInfo
+ *        Any other financial information such as user salary or debts. (Value:
+ *        "DATA_TYPE_OTHER_FINANCIAL_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherInAppMessages
+ *        Any other types of messages. For example, instant messages or chat
+ *        content. (Value: "DATA_TYPE_OTHER_IN_APP_MESSAGES")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherPersonalInfo
+ *        Any other personal information such as date of birth, gender identity,
+ *        veteran status, etc. (Value: "DATA_TYPE_OTHER_PERSONAL_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeOtherUserGeneratedContent
+ *        Any other user-generated content not listed here, or in any other
+ *        section. For example, user bios, notes, or open-ended responses.
+ *        (Value: "DATA_TYPE_OTHER_USER_GENERATED_CONTENT")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePaymentInfo
+ *        Information about a user's financial accounts such as credit card
+ *        number. (Value: "DATA_TYPE_PAYMENT_INFO")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePerformanceDiagnostics
+ *        Information about the performance of your app. For example battery
+ *        life, loading time, latency, framerate, or any technical diagnostics.
+ *        (Value: "DATA_TYPE_PERFORMANCE_DIAGNOSTICS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePersonalName
+ *        How a user refers to themselves, such as their first or last name, or
+ *        nickname. (Value: "DATA_TYPE_PERSONAL_NAME")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePhoneNumber
+ *        A user's phone number. (Value: "DATA_TYPE_PHONE_NUMBER")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePhotos
+ *        A user's photos. (Value: "DATA_TYPE_PHOTOS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePhysicalAddress
+ *        A user's address, such as a mailing or home address. (Value:
+ *        "DATA_TYPE_PHYSICAL_ADDRESS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePoliticalOrReligiousBeliefs
+ *        Information about a user's political or religious beliefs. (Value:
+ *        "DATA_TYPE_POLITICAL_OR_RELIGIOUS_BELIEFS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePreciseLocation
+ *        User or device physical location within an area less than 3 square
+ *        kilometers, such as location provided by Android's
+ *        ACCESS_FINE_LOCATION permission. (Value: "DATA_TYPE_PRECISE_LOCATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypePurchaseHistory
+ *        Information about purchases or transactions a user has made. (Value:
+ *        "DATA_TYPE_PURCHASE_HISTORY")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeRaceAndEthnicity
+ *        Information about a user's race or ethnicity. (Value:
+ *        "DATA_TYPE_RACE_AND_ETHNICITY")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeSexualOrientation
+ *        Information about a user's sexual orientation. (Value:
+ *        "DATA_TYPE_SEXUAL_ORIENTATION")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeTextMessages
+ *        A user's text messages including the sender, recipients, and the
+ *        content of the message. (Value: "DATA_TYPE_TEXT_MESSAGES")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeUnspecified
+ *        Not specified. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeUserIds
+ *        Identifiers that relate to an identifiable person. For example, an
+ *        account ID, account number, or account name. (Value:
+ *        "DATA_TYPE_USER_IDS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeVideos
+ *        A user's videos. (Value: "DATA_TYPE_VIDEOS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeVoiceOrSoundRecordings
+ *        A user's voice such as a voicemail or a sound recording. (Value:
+ *        "DATA_TYPE_VOICE_OR_SOUND_RECORDINGS")
+ *    @arg @c kGTLRChecksService_GoogleChecksRepoScanV1alphaSource_DataType_DataTypeWebBrowsingHistory
+ *        Information about the websites a user has visited. (Value:
+ *        "DATA_TYPE_WEB_BROWSING_HISTORY")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/**
+ *  Optional. Whether the finding was marked as a false positive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *falsePositive;
+
+@end
+
+
+/**
+ *  Contains source code from a repo.
+ */
+@interface GTLRChecksService_GoogleChecksRepoScanV1alphaSourceCode : GTLRObject
+
+/** Required. Source code. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Required. End line number (1-based).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endLine;
+
+/** Required. Path of the file. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Required. Start line number (1-based).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startLine;
 
 @end
 

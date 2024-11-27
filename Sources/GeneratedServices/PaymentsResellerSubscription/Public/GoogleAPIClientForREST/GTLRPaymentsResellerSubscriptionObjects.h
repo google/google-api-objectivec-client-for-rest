@@ -13,11 +13,14 @@
 #endif
 
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CreateSubscriptionIntent;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionIntent;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequestLineItemEntitlementDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Extension;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FiniteBillingCycleDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1IntentPayload;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Location;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductBundleDetailsBundleElement;
@@ -34,6 +37,7 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UserSession;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1YoutubePayload;
 @class GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText;
 @class GTLRPaymentsResellerSubscription_ProductBundleDetails;
@@ -683,6 +687,30 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
+ *  Intent message for creating a Subscription resource.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CreateSubscriptionIntent : GTLRObject
+
+/**
+ *  Required. The parent resource name, which is the identifier of the partner.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The Subscription to be created. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *subscription;
+
+/**
+ *  Required. Identifies the subscription resource on the Partner side. The
+ *  value is restricted to 63 ASCII characters at the maximum. If a subscription
+ *  was previously created with the same subscription_id, we will directly
+ *  return that one.
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
+
+@end
+
+
+/**
  *  Describes the length of a period of a time.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration : GTLRObject
@@ -714,9 +742,22 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
- *  LINT.IfChange Partner request for entitling the previously provisioned
- *  subscription to an end user. The end user identity is inferred from the
- *  request OAuth context.
+ *  Intent for entitling the previously provisioned subscription to an end user.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionIntent : GTLRObject
+
+/**
+ *  Required. The name of the subscription resource that is entitled to the
+ *  current end user.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Partner request for entitling the previously provisioned subscription to an
+ *  end user. The end user identity is inferred from the request OAuth context.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest : GTLRObject
 
@@ -916,6 +957,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 
 /**
+ *  [Preview only] Request to generate a user session.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionRequest : GTLRObject
+
+/** The user intent to generate the user session. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1IntentPayload *intentPayload;
+
+@end
+
+
+/**
+ *  [Preview only] Response that contains the details for generated user
+ *  session.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GenerateUserSessionResponse : GTLRObject
+
+/**
+ *  The generated user session. The token size is proportional to the size of
+ *  the intent payload.
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UserSession *userSession;
+
+@end
+
+
+/**
  *  Payload specific to Google One products.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1GoogleOnePayload : GTLRObject
@@ -969,6 +1036,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 /** The identifier for the partner store where the subscription was sold. */
 @property(nonatomic, copy, nullable) NSString *storeId;
+
+@end
+
+
+/**
+ *  The payload that describes the user intent.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1IntentPayload : GTLRObject
+
+/** The request to create a subscription. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CreateSubscriptionIntent *createIntent;
+
+/** The request to entitle a subscription. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionIntent *entitleIntent;
 
 @end
 
@@ -1730,6 +1811,35 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ProductBund
 
 /** The updated subscription resource. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *subscription;
+
+@end
+
+
+/**
+ *  A user session contains a short-lived token that includes information
+ *  required to interact with Google Payments Reseller Platform using the
+ *  following web endpoints. - A user session token should be generated
+ *  dynamically for an authenticated user. You should refrain from sharing a
+ *  token directly with a user in an unauthenticated context, such as SMS, or
+ *  email. - You can re-generate new session tokens repeatedly for same
+ *  `generate` request if necessary, regardless of the previous tokens being
+ *  expired or not. You don't need to worry about multiple sessions resulting in
+ *  duplicate fulfillments as guaranteed by the same subscription id. Please
+ *  refer to the [Google Managed
+ *  Signup](/payments/reseller/subscription/reference/index/User.Signup.Integration/Google.Managed.Signup.\\(In.Preview\\))
+ *  documentation for additional integration details.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UserSession : GTLRObject
+
+/** Output only. The time at which the user session expires. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. The encrypted token of the user session, including the
+ *  information of the user's intent and request. This token should be provided
+ *  when redirecting the user to Google.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
 
 @end
 

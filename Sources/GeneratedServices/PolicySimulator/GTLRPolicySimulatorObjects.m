@@ -231,7 +231,21 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 //
 
 @implementation GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule
-@dynamic allowAll, condition, denyAll, enforce, values;
+@dynamic allowAll, condition, denyAll, enforce, parameters, values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

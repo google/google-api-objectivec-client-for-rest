@@ -27,14 +27,14 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: See, edit, create or delete policies applied to Chrome
- *  OS and Chrome Browsers managed within your organization
+ *  Authorization scope: See, edit, create or delete policies applied to
+ *  ChromeOS and Chrome Browsers managed within your organization
  *
  *  Value "https://www.googleapis.com/auth/chrome.management.policy"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromePolicyChromeManagementPolicy;
 /**
- *  Authorization scope: See policies applied to Chrome OS and Chrome Browsers
+ *  Authorization scope: See policies applied to ChromeOS and Chrome Browsers
  *  managed within your organization
  *
  *  Value "https://www.googleapis.com/auth/chrome.management.policy.readonly"

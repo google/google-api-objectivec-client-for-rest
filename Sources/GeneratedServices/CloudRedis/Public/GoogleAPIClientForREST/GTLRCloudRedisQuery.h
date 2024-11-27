@@ -34,6 +34,286 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a specific backup.
+ *
+ *  Method: redis.projects.locations.backupCollections.backups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsDelete : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis backup resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Deletes a specific backup.
+ *
+ *  @param name Required. Redis backup resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Exports a specific backup to a customer target Cloud Storage URI.
+ *
+ *  Method: redis.projects.locations.backupCollections.backups.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsExport : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis backup resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Exports a specific backup to a customer target Cloud Storage URI.
+ *
+ *  @param object The @c GTLRCloudRedis_ExportBackupRequest to include in the
+ *    query.
+ *  @param name Required. Redis backup resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsExport
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_ExportBackupRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a specific backup.
+ *
+ *  Method: redis.projects.locations.backupCollections.backups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsGet : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis backup resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Backup.
+ *
+ *  Gets the details of a specific backup.
+ *
+ *  @param name Required. Redis backup resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}/backups/{backup_id}`
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all backups owned by a backup collection.
+ *
+ *  Method: redis.projects.locations.backupCollections.backups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsList : GTLRCloudRedisQuery
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used by the service. Regardless of the page_size
+ *  value, the response may include a partial list and a caller should only rely
+ *  on response's `next_page_token` to determine if there are more clusters left
+ *  to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The `next_page_token` value returned from a previous
+ *  [ListBackupCollections] request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the backupCollection using the form:
+ *  `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_ListBackupsResponse.
+ *
+ *  Lists all backups owned by a backup collection.
+ *
+ *  @param parent Required. The resource name of the backupCollection using the
+ *    form:
+ *    `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get a backup collection.
+ *
+ *  Method: redis.projects.locations.backupCollections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsGet : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis backupCollection resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_BackupCollection.
+ *
+ *  Get a backup collection.
+ *
+ *  @param name Required. Redis backupCollection resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/backupCollections/{backup_collection_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all backup collections owned by a consumer project in either the
+ *  specified location (region) or all locations. If `location_id` is specified
+ *  as `-` (wildcard), then all regions available to the project are queried,
+ *  and the results are aggregated.
+ *
+ *  Method: redis.projects.locations.backupCollections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsList : GTLRCloudRedisQuery
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used by the service. Regardless of the page_size
+ *  value, the response may include a partial list and a caller should only rely
+ *  on response's `next_page_token` to determine if there are more clusters left
+ *  to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The `next_page_token` value returned from a previous
+ *  [ListBackupCollections] request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the backupCollection location using the form:
+ *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
+ *  to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_ListBackupCollectionsResponse.
+ *
+ *  Lists all backup collections owned by a consumer project in either the
+ *  specified location (region) or all locations. If `location_id` is specified
+ *  as `-` (wildcard), then all regions available to the project are queried,
+ *  and the results are aggregated.
+ *
+ *  @param parent Required. The resource name of the backupCollection location
+ *    using the form: `projects/{project_id}/locations/{location_id}` where
+ *    `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Backup Redis Cluster. If this is the first time a backup is being created, a
+ *  backup collection will be created at the backend, and this backup belongs to
+ *  this collection. Both collection and backup will have a resource name.
+ *  Backup will be executed for each shard. A replica (primary if nonHA) will be
+ *  selected to perform the execution. Backup call will be rejected if there is
+ *  an ongoing backup or update operation.
+ *
+ *  Method: redis.projects.locations.clusters.backup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersBackup : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis cluster resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}` where
+ *  `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Backup Redis Cluster. If this is the first time a backup is being created, a
+ *  backup collection will be created at the backend, and this backup belongs to
+ *  this collection. Both collection and backup will have a resource name.
+ *  Backup will be executed for each shard. A replica (primary if nonHA) will be
+ *  selected to perform the execution. Backup call will be rejected if there is
+ *  an ongoing backup or update operation.
+ *
+ *  @param object The @c GTLRCloudRedis_BackupClusterRequest to include in the
+ *    query.
+ *  @param name Required. Redis cluster resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersBackup
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_BackupClusterRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a Redis cluster based on the specified properties. The creation is
  *  executed asynchronously and callers may check the returned operation to
  *  track its progress. Once the operation is completed the Redis cluster will
@@ -889,7 +1169,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: redis.projects.locations.operations.cancel
@@ -912,7 +1192,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.

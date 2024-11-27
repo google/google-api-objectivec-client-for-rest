@@ -2031,6 +2031,133 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new AuthzPolicy in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesCreate : GTLRNetworkSecurityQuery
+
+/** Required. User-provided ID of the `AuthzPolicy` resource to be created. */
+@property(nonatomic, copy, nullable) NSString *authzPolicyId;
+
+/**
+ *  Required. The parent resource of the `AuthzPolicy` resource. Must be in the
+ *  format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new AuthzPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AuthzPolicy to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the `AuthzPolicy` resource.
+ *    Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AuthzPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AuthzPolicy.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the `AuthzPolicy` resource to delete. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes after the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single AuthzPolicy.
+ *
+ *  @param name Required. The name of the `AuthzPolicy` resource to delete. Must
+ *    be in the format
+ *    `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AuthzPolicy.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the `AuthzPolicy` resource to get. Must be in the format
+ *  `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_AuthzPolicy.
+ *
+ *  Gets details of a single AuthzPolicy.
+ *
+ *  @param name Required. A name of the `AuthzPolicy` resource to get. Must be
+ *    in the format
+ *    `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -2076,6 +2203,119 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists AuthzPolicies in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesList : GTLRNetworkSecurityQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results that the server returns.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `AuthzPolicy` resources
+ *  are listed, specified in the following format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListAuthzPoliciesResponse.
+ *
+ *  Lists AuthzPolicies in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    `AuthzPolicy` resources are listed, specified in the following format:
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single AuthzPolicy.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Identifier. Name of the `AuthzPolicy` resource in the following
+ *  format:
+ *  `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Used to specify the fields to be overwritten in the `AuthzPolicy`
+ *  resource by the update. The fields specified in the `update_mask` are
+ *  relative to the resource, not the full request. A field is overwritten if it
+ *  is in the mask. If the user does not specify a mask, then all fields are
+ *  overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single AuthzPolicy.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AuthzPolicy to include in the
+ *    query.
+ *  @param name Required. Identifier. Name of the `AuthzPolicy` resource in the
+ *    following format:
+ *    `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AuthzPolicy *)object
+                           name:(NSString *)name;
 
 @end
 

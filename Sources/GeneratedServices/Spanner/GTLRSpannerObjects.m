@@ -80,11 +80,18 @@ NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_TypeUnspecified = @"
 NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal = @"NORMAL";
 NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan = @"PLAN";
 NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile = @"PROFILE";
+NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_WithPlanAndStats = @"WITH_PLAN_AND_STATS";
+NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_WithStats = @"WITH_STATS";
 
 // GTLRSpanner_FreeInstanceMetadata.expireBehavior
 NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_ExpireBehaviorUnspecified = @"EXPIRE_BEHAVIOR_UNSPECIFIED";
 NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_FreeToProvisioned = @"FREE_TO_PROVISIONED";
 NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_RemoveAfterGracePeriod = @"REMOVE_AFTER_GRACE_PERIOD";
+
+// GTLRSpanner_Instance.defaultBackupScheduleType
+NSString * const kGTLRSpanner_Instance_DefaultBackupScheduleType_Automatic = @"AUTOMATIC";
+NSString * const kGTLRSpanner_Instance_DefaultBackupScheduleType_DefaultBackupScheduleTypeUnspecified = @"DEFAULT_BACKUP_SCHEDULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpanner_Instance_DefaultBackupScheduleType_None = @"NONE";
 
 // GTLRSpanner_Instance.edition
 NSString * const kGTLRSpanner_Instance_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
@@ -200,6 +207,7 @@ NSString * const kGTLRSpanner_Type_Code_Enum                = @"ENUM";
 NSString * const kGTLRSpanner_Type_Code_Float32             = @"FLOAT32";
 NSString * const kGTLRSpanner_Type_Code_Float64             = @"FLOAT64";
 NSString * const kGTLRSpanner_Type_Code_Int64               = @"INT64";
+NSString * const kGTLRSpanner_Type_Code_Interval            = @"INTERVAL";
 NSString * const kGTLRSpanner_Type_Code_Json                = @"JSON";
 NSString * const kGTLRSpanner_Type_Code_Numeric             = @"NUMERIC";
 NSString * const kGTLRSpanner_Type_Code_Proto               = @"PROTO";
@@ -225,11 +233,39 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_AsymmetricAutoscalingOption
+//
+
+@implementation GTLRSpanner_AsymmetricAutoscalingOption
+@dynamic overrides, replicaSelection;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_AutoscalingConfig
 //
 
 @implementation GTLRSpanner_AutoscalingConfig
-@dynamic autoscalingLimits, autoscalingTargets;
+@dynamic asymmetricAutoscalingOptions, autoscalingLimits, autoscalingTargets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"asymmetricAutoscalingOptions" : [GTLRSpanner_AsymmetricAutoscalingOption class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_AutoscalingConfigOverrides
+//
+
+@implementation GTLRSpanner_AutoscalingConfigOverrides
+@dynamic autoscalingLimits, autoscalingTargetHighPriorityCpuUtilizationPercent;
 @end
 
 
@@ -379,7 +415,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_BeginTransactionRequest
-@dynamic options, requestOptions;
+@dynamic mutationKey, options, requestOptions;
 @end
 
 
@@ -442,8 +478,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CommitRequest
-@dynamic maxCommitDelay, mutations, requestOptions, returnCommitStats,
-         singleUseTransaction, transactionId;
+@dynamic maxCommitDelay, mutations, precommitToken, requestOptions,
+         returnCommitStats, singleUseTransaction, transactionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -461,7 +497,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CommitResponse
-@dynamic commitStats, commitTimestamp;
+@dynamic commitStats, commitTimestamp, precommitToken;
 @end
 
 
@@ -836,7 +872,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ExecuteBatchDmlResponse
-@dynamic resultSets, status;
+@dynamic precommitToken, resultSets, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1069,13 +1105,15 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Instance
-@dynamic autoscalingConfig, config, createTime, displayName, edition,
-         endpointUris, freeInstanceMetadata, instanceType, labels, name,
-         nodeCount, processingUnits, state, updateTime;
+@dynamic autoscalingConfig, config, createTime, defaultBackupScheduleType,
+         displayName, edition, endpointUris, freeInstanceMetadata, instanceType,
+         labels, name, nodeCount, processingUnits, replicaComputeCapacity,
+         state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"endpointUris" : [NSString class]
+    @"endpointUris" : [NSString class],
+    @"replicaComputeCapacity" : [GTLRSpanner_ReplicaComputeCapacity class]
   };
   return map;
 }
@@ -1169,6 +1207,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_InstanceReplicaSelection
+//
+
+@implementation GTLRSpanner_InstanceReplicaSelection
+@dynamic location;
 @end
 
 
@@ -1776,7 +1824,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_PartialResultSet
-@dynamic chunkedValue, metadata, resumeToken, stats, values;
+@dynamic chunkedValue, metadata, precommitToken, resumeToken, stats, values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2084,7 +2132,17 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ReadWrite
-@dynamic readLockMode;
+@dynamic multiplexedSessionPreviousTransactionId, readLockMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ReplicaComputeCapacity
+//
+
+@implementation GTLRSpanner_ReplicaComputeCapacity
+@dynamic nodeCount, processingUnits, replicaSelection;
 @end
 
 
@@ -2173,7 +2231,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ResultSet
-@dynamic metadata, rows, stats;
+@dynamic metadata, precommitToken, rows, stats;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

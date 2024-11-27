@@ -124,6 +124,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportQueued = @"IMPORT_QUEUED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportStateUnspecified = @"IMPORT_STATE_UNSPECIFIED";
 
+// GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.catalogUiExperience
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceDisabled = @"CATALOG_UI_EXPERIENCE_DISABLED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceEnabled = @"CATALOG_UI_EXPERIENCE_ENABLED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_CatalogUiExperience_CatalogUiExperienceUnspecified = @"CATALOG_UI_EXPERIENCE_UNSPECIFIED";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.tagTemplateMigration
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationDisabled = @"TAG_TEMPLATE_MIGRATION_DISABLED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationEnabled = @"TAG_TEMPLATE_MIGRATION_ENABLED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig_TagTemplateMigration_TagTemplateMigrationUnspecified = @"TAG_TEMPLATE_MIGRATION_UNSPECIFIED";
+
 // GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata.state
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationDone = @"RECONCILIATION_DONE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsMetadata_State_ReconciliationInProgress = @"RECONCILIATION_IN_PROGRESS";
@@ -163,9 +173,25 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_Se
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy_ActivatedPolicyTypes_FineGrainedAccessControl = @"FINE_GRAINED_ACCESS_CONTROL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
 
+// GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest.catalogUiExperience
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceDisabled = @"CATALOG_UI_EXPERIENCE_DISABLED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceEnabled = @"CATALOG_UI_EXPERIENCE_ENABLED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_CatalogUiExperience_CatalogUiExperienceUnspecified = @"CATALOG_UI_EXPERIENCE_UNSPECIFIED";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest.tagTemplateMigration
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationDisabled = @"TAG_TEMPLATE_MIGRATION_DISABLED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationEnabled = @"TAG_TEMPLATE_MIGRATION_ENABLED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest_TagTemplateMigration_TagTemplateMigrationUnspecified = @"TAG_TEMPLATE_MIGRATION_UNSPECIFIED";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1Tag.dataplexTransferStatus
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_DataplexTransferStatusUnspecified = @"DATAPLEX_TRANSFER_STATUS_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Migrated = @"MIGRATED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Tag_DataplexTransferStatus_Transferred = @"TRANSFERRED";
+
 // GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate.dataplexTransferStatus
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_DataplexTransferStatusUnspecified = @"DATAPLEX_TRANSFER_STATUS_UNSPECIFIED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Migrated = @"MIGRATED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_DataplexTransferStatus_Transferred = @"TRANSFERRED";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy.activatedPolicyTypes
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl = @"FINE_GRAINED_ACCESS_CONTROL";
@@ -611,7 +637,8 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup
-@dynamic dataCatalogTimestamps, descriptionProperty, displayName, name;
+@dynamic dataCatalogTimestamps, descriptionProperty, displayName, name,
+         transferredToDataplex;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -942,6 +969,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig
+@dynamic catalogUiExperience, tagTemplateMigration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1ModelSpec
 //
 
@@ -967,6 +1004,30 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest
 @dynamic entryOverview;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig
+@dynamic config;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig_Config
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig_Config
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig class];
+}
+
 @end
 
 
@@ -1327,6 +1388,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest
+@dynamic catalogUiExperience, tagTemplateMigration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec
 //
 
@@ -1397,7 +1468,8 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1Tag
-@dynamic column, fields, name, templateProperty, templateDisplayName;
+@dynamic column, dataplexTransferStatus, fields, name, templateProperty,
+         templateDisplayName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"templateProperty" : @"template" };

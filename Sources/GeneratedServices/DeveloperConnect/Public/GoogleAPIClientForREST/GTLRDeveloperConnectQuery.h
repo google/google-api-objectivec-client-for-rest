@@ -574,6 +574,71 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
+ *  ProcessGitLabEnterpriseWebhook is called by the external GitLab Enterprise
+ *  instances for notifying events.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.processGitLabEnterpriseWebhook
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabEnterpriseWebhook : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The GitRepositoryLink resource where the webhook will be received.
+ *  Format: `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Empty.
+ *
+ *  ProcessGitLabEnterpriseWebhook is called by the external GitLab Enterprise
+ *  instances for notifying events.
+ *
+ *  @param object The @c
+ *    GTLRDeveloperConnect_ProcessGitLabEnterpriseWebhookRequest to include in
+ *    the query.
+ *  @param name Required. The GitRepositoryLink resource where the webhook will
+ *    be received. Format: `projects/ * /locations/ * /connections/ *
+ *    /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabEnterpriseWebhook
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessGitLabEnterpriseWebhookRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  ProcessGitLabWebhook is called by the GitLab.com for notifying events.
+ *
+ *  Method: developerconnect.projects.locations.connections.gitRepositoryLinks.processGitLabWebhook
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabWebhook : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The GitRepositoryLink resource where the webhook will be received.
+ *  Format: `projects/ * /locations/ * /connections/ * /gitRepositoryLinks/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Empty.
+ *
+ *  ProcessGitLabWebhook is called by the GitLab.com for notifying events.
+ *
+ *  @param object The @c GTLRDeveloperConnect_ProcessGitLabWebhookRequest to
+ *    include in the query.
+ *  @param name Required. The GitRepositoryLink resource where the webhook will
+ *    be received. Format: `projects/ * /locations/ * /connections/ *
+ *    /gitRepositoryLinks/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsGitRepositoryLinksProcessGitLabWebhook
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessGitLabWebhookRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists Connections in a given project and location.
  *
  *  Method: developerconnect.projects.locations.connections.list
@@ -661,11 +726,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Required. Field mask is used to specify the fields to be
- *  overwritten in the Connection resource by the update. The fields specified
- *  in the update_mask are relative to the resource, not the full request. A
- *  field will be overwritten if it is in the mask. If the user does not provide
- *  a mask then all fields will be overwritten.
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Connection resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -688,6 +753,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  */
 + (instancetype)queryWithObject:(GTLRDeveloperConnect_Connection *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  ProcessGitHubEnterpriseWebhook is called by the external GitHub Enterprise
+ *  instances for notifying events.
+ *
+ *  Method: developerconnect.projects.locations.connections.processGitHubEnterpriseWebhook
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsProcessGitHubEnterpriseWebhook : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. Project and location where the webhook will be received. Format:
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_Empty.
+ *
+ *  ProcessGitHubEnterpriseWebhook is called by the external GitHub Enterprise
+ *  instances for notifying events.
+ *
+ *  @param object The @c
+ *    GTLRDeveloperConnect_ProcessGitHubEnterpriseWebhookRequest to include in
+ *    the query.
+ *  @param parent Required. Project and location where the webhook will be
+ *    received. Format: `projects/ * /locations/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsConnectionsProcessGitHubEnterpriseWebhook
+ */
++ (instancetype)queryWithObject:(GTLRDeveloperConnect_ProcessGitHubEnterpriseWebhookRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
